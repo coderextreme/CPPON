@@ -1,0 +1,15 @@
+{
+  "name": "CPPON",
+  "version": "0.1.0",
+  "main": ".mjs",
+  "dependencies": {
+    "node-mkdirp": "*",
+    "@xmldom/xmldom": "*",
+    "ajv": "8.12.0",
+    "ajv-formats": "^2.1.1",
+    "ajv-i18n": "*"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

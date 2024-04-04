@@ -1,0 +1,8 @@
+#!/bin/bash
+# Window defines this, use ${USERNAME:....} something instead
+export HOMESFOLDER=C:/Users
+export USERNAME=john
+
+export X3DJSONLD=${HOMESFOLDER}/$USERNAME/X3DJSONLD
+export NODE=node.exe
+export NODEDIR=${HOMESFOLDER}/$USERNAME/CPPON/node
