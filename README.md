@@ -22,3 +22,7 @@ https://github.com/coderextreme/CPPON/blob/main/cplusplus/net/coderextreme/CPPON
 Here's how I create C++ from DOM (json parameter is ignored)
 
 https://github.com/coderextreme/CPPON/blob/main/node/CppFunctionBodySerializer.js
+
+# Here's my more domain-specific (for X3D) JSON to DOM converter.
+
+https://github.com/coderextreme/CPPON/blob/main/node/X3DJSONLD.js
