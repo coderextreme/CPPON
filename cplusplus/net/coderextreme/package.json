@@ -5,7 +5,7 @@
   "type": "module",
   "main": "CPP.mjs",
   "dependencies": {
-	  "antlr4": "*"
+    "antlr4": "^4.13.1-patch-1"
   },
   "scripts": {
     "start": "antlr4js -visitor CPPONGrammar.g4; node.exe CPP.mjs data/abox.h"
