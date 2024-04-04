@@ -48,6 +48,7 @@ CppScriptSerializer.prototype = {
 		*/
 		str += "#define False false\n";
 		str += "#define True true\n";
+		str += "stdlib.h\n";
 		//str += "#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/IndexedFaceSetExample/pch.h\"\n";
 		//str += "#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/IndexedFaceSetExample/framework.h\"\n";
 		//str += "#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/include/glut.h\"\n";

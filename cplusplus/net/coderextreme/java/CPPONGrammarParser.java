@@ -1,4 +1,4 @@
-// Generated from CPPONGrammar.g4 by ANTLR 4.13.1
+// Generated from ../CPPONGrammar.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -127,6 +127,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitType(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitType(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -174,6 +179,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitField(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitField(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FieldContext field() throws RecognitionException {
@@ -212,6 +222,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -268,6 +283,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitString(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitString(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -455,6 +475,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitCstring(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitCstring(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final CstringContext cstring() throws RecognitionException {
@@ -497,6 +522,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitBoolean(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitBoolean(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -549,6 +579,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitBoolean_list(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitBoolean_list(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -611,6 +646,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitInteger_list(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitInteger_list(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -740,6 +780,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitFloat_list(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitFloat_list(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Float_listContext float_list() throws RecognitionException {
@@ -799,6 +844,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitString_list(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitString_list(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -865,6 +915,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitList(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -945,6 +1000,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitConstruct_array(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitConstruct_array(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Construct_arrayContext construct_array() throws RecognitionException {
@@ -1011,6 +1071,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitParameters(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitParameters(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1177,6 +1242,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitOperator(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitOperator(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final OperatorContext operator() throws RecognitionException {
@@ -1232,6 +1302,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitFunccall(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitFunccall(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1296,6 +1371,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitConstruct(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitConstruct(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ConstructContext construct() throws RecognitionException {
@@ -1349,6 +1429,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitSet_field(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitSet_field(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Set_fieldContext set_field() throws RecognitionException {
@@ -1388,6 +1473,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitAdd_field(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitAdd_field(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1435,6 +1525,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitLine(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitLine(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1501,6 +1596,11 @@ public class CPPONGrammarParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitLines(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitLines(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final LinesContext lines() throws RecognitionException {
@@ -1554,6 +1654,11 @@ public class CPPONGrammarParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof CPPONGrammarListener ) ((CPPONGrammarListener)listener).exitX3d(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CPPONGrammarVisitor ) return ((CPPONGrammarVisitor<? extends T>)visitor).visitX3d(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
