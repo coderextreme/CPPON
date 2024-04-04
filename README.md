@@ -16,3 +16,9 @@ https://github.com/coderextreme/CPPON/tree/main/cplusplus/net/coderextreme
 Here's an ANTLR4 Grammar for CPPON:
 
 https://github.com/coderextreme/CPPON/blob/main/cplusplus/net/coderextreme/CPPONGrammar.g4
+
+# DOM to C++ Serializer
+
+Here's how I create C++ from DOM (json parameter is ignored)
+
+https://github.com/coderextreme/CPPON/blob/main/node/CppFunctionBodySerializer.js
