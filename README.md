@@ -31,3 +31,13 @@ https://github.com/coderextreme/CPPON/blob/main/node/X3DJSONLD.js
 
 I plan on writing a CPPON to DOM converter, based on X3DJSONLD.java and ANTLR's Visitors or Listeners.
 https://github.com/coderextreme/x3dschema/blob/main/X3DJSONLD.java
+
+# Installation
+
+1. git clone https://github.com/coderextreme/CPPON
+
+2. Download node.js and npm
+
+3.  Run ```npm install``` in the main folder
+
+4.  Run ```npm install``` in the cplusplus/net/coderextreme
