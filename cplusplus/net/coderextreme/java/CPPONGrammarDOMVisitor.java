@@ -133,8 +133,16 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			log(tystr+" != "+typstr+"\n");
 		}
 		// log("Creating ");log(typ); log(" "); log(ty); log(idx); log(eq); log(fn); log(pa); log("\n");
-		if (typstr.equals("Connect")) {
-			typstr = "connect";
+		switch (typstr) {
+			case "Connect":
+				typstr = "connect";
+				break;
+			case "CFontStyle":
+				typstr = "FontStyle";
+				break;
+			case "CColor":
+				typstr = "Color";
+				break;
 		}
 		Element child = document.createElement(typstr);
 		this.nodes.put(tystr+idxstr, child);
