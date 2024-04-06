@@ -86,8 +86,6 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			dbf.setValidating(true);
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			document = db.newDocument();
-			//Element root = document.createElement("X3D");
-			//this.nodes.put("X3D0", root);
 			if (document == null) {
 				log("document is null\n");
 			}
@@ -96,6 +94,7 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 				DOMImplementation domImplementation = db.getDOMImplementation();
 				DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.0//EN", "https://www.web3d.org/specifications/x3d-4.0.dtd");
 				document.appendChild(doctype);
+				// document.appendChild(document.createTextNode("\n"));
 				document.appendChild(child);
 				child.setAttribute("xmlns:xsd",  "http://www.w3.org/2001/XMLSchema-instance");
 			} else {
