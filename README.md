@@ -29,7 +29,9 @@ https://github.com/coderextreme/CPPON/blob/main/node/X3DJSONLD.js
 
 # Next Steps
 
-I plan on writing a CPPON to DOM converter, here:  
+I have written a CPPON to DOM converter, here:  
+
+https://github.com/coderextreme/CPPON/blob/main/cplusplus/net/coderextreme/java/CPPONGrammarDOMVisitor.java
 
 # Installation
 
