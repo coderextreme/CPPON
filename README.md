@@ -29,8 +29,7 @@ https://github.com/coderextreme/CPPON/blob/main/node/X3DJSONLD.js
 
 # Next Steps
 
-I plan on writing a CPPON to DOM converter, based on X3DJSONLD.java and ANTLR's Visitors or Listeners.
-https://github.com/coderextreme/x3dschema/blob/main/X3DJSONLD.java
+I plan on writing a CPPON to DOM converter, here:  
 
 # Installation
 
