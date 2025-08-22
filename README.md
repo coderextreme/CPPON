@@ -42,3 +42,21 @@ https://github.com/coderextreme/CPPON/blob/main/cplusplus/net/coderextreme/java/
 3.  Run ```npm install``` in the main folder
 
 4.  Run ```npm install``` in the cplusplus/net/coderextreme
+
+# Running
+
+1. Put your X3D JSON files in data folder
+
+2. cd shell
+
+3. bash cpplocal.sh
+
+4. cd ../cplusplus/net/coderextreme
+
+5. bash build.java
+
+6.  Watch log for errors
+
+7. Fix errors
+
+8. Loop.
