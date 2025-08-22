@@ -31,17 +31,16 @@
             "@level":1
           },
           {
+            "@name":"Shape",
+            "@level":4
+          },
+          {
             "@name":"Grouping",
             "@level":3
           },
           {
             "@name":"Core",
             "@level":1
-          }
-        ],
-        "-children":[
-          {
-            "#comment":"<component name='Shape' level='4'></component>"
           }
         ],
         "meta": [
@@ -67,7 +66,7 @@
           },
           {
             "@name":"translated",
-            "@content":"30 March 2024"
+            "@content":"16 August 2025"
           },
           {
             "@name":"generator",
@@ -192,13 +191,13 @@
                                 "-parts":[
                                   { "ShaderPart":
                                     {
-                                      "@url":["../shaders/x3dom.vs","https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs"],
+                                      "@url":["../shaders/x_ite.vs","https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs","https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs"],
                                       "@type":"VERTEX"
                                     }
                                   },
                                   { "ShaderPart":
                                     {
-                                      "@url":["../shaders/pc_bubbles.fs","https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs"],
+                                      "@url":["../shaders/x_ite.fs","https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.fs","https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.fs"],
                                       "@type":"FRAGMENT"
                                     }
                                   }
@@ -249,53 +248,71 @@
                   "@name":"coordIndexes",
                   "@accessType":"outputOnly",
                   "@type":"MFInt32"
+                },
+                {
+                  "@name":"e",
+                  "@type":"SFFloat",
+                  "@accessType":"inputOutput",
+                  "@value":5
+                },
+                {
+                  "@name":"f",
+                  "@type":"SFFloat",
+                  "@accessType":"inputOutput",
+                  "@value":5
+                },
+                {
+                  "@name":"g",
+                  "@type":"SFFloat",
+                  "@accessType":"inputOutput",
+                  "@value":5
+                },
+                {
+                  "@name":"h",
+                  "@type":"SFFloat",
+                  "@accessType":"inputOutput",
+                  "@value":5
                 }
               ],
               "#sourceCode":[
 "",
-"",
-"",
 "ecmascript:",
-"",
-"var e = 5;",
-"var f = 5;",
-"var g = 5;",
-"var h = 5;",
-"",
 "function initialize() {",
 "     var resolution = 100;",
 "     updateCoordinates(resolution);",
-"     var cis = [];",
-"     for ( i = 0; i < resolution-1; i++) {",
-"     \tfor ( j = 0; j < resolution-1; j++) {",
-"\t     cis.push(i*resolution+j);",
-"\t     cis.push(i*resolution+j+1);",
-"\t     cis.push((i+1)*resolution+j+1);",
-"\t     cis.push((i+1)*resolution+j);",
-"\t     cis.push(-1);",
+"     var localci = new MFInt32();",
+"     var arrIndex = 0;",
+"     for (var i = 0; i < resolution-1; i++) {",
+"     \tfor (var j = 0; j < resolution-1; j++) {",
+"\t     localci[arrIndex++] = i*resolution+j;",
+"\t     localci[arrIndex++] = i*resolution+j+1;",
+"\t     localci[arrIndex++] = (i+1)*resolution+j+1;",
+"\t     localci[arrIndex++] = (i+1)*resolution+j;",
+"\t     localci[arrIndex++] = -1;",
 "\t}",
 "    }",
-"    coordIndexes = new MFInt32(cis);",
+"    coordIndexes = localci;",
 "}",
 "",
 "function updateCoordinates(resolution) {",
 "     var theta = 0.0;",
 "     var phi = 0.0;",
 "     var delta = (2 * 3.141592653) / (resolution-1);",
-"     var crds = [];",
-"     for ( i = 0; i < resolution; i++) {",
-"     \tfor ( j = 0; j < resolution; j++) {",
+"     var localc = new MFVec3f();",
+"     var arrIndex = 0;",
+"     for (var i = 0; i < resolution; i++) {",
+"     \tfor (var j = 0; j < resolution; j++) {",
 "\t\tvar rho = e + f * Math.cos(g * theta) * Math.cos(h * phi);",
-"\t\tcrds.push(new SFVec3f(",
+"\t\tlocalc[arrIndex++] = new SFVec3f(",
 "\t\t\trho * Math.cos(phi) * Math.cos(theta),",
 "\t\t\trho * Math.cos(phi) * Math.sin(theta),",
 "\t\t\trho * Math.sin(phi)",
-"\t\t));",
+"\t\t);",
 "\t\ttheta += delta;",
 "\t}",
 "\tphi += delta;",
 "     }",
-"     coordinates = new MFVec3f(crds);",
+"     coordinates = localc;",
 "}",
 "",
 "function set_fraction(fraction, eventTime) {",
@@ -313,6 +330,9 @@
 "\tcase 3:",
 "\t\th += Math.floor(Math.random() * 2) * 2 - 1;",
 "\t\tbreak;",
+"\t}",
+"\tif (e < 1) {",
+"\t\te = 10;",
 "\t}",
 "\tif (f < 1) {",
 "\t\tf = 10;",
