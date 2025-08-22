@@ -18,6 +18,7 @@ import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.*;
+import java.net.*;
 import java.util.*;
 
 public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPONGrammarBaseVisitor<Node> implements CPPONGrammarVisitor<Node> {
@@ -61,12 +62,13 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		    output.setEncoding("UTF-8");
 		    try {
 			    SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			    Schema schema = sf.newSchema(new File("C:/x3d-code/www.web3d.org/specifications/x3d-4.0.xsd"));
+			    Schema schema = sf.newSchema(new File("C:/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"));
 			    Validator validator = schema.newValidator();
 			    DOMSource source = new DOMSource(document);
 			    validator.validate(source);
 		    } catch (SAXException e) {
 			    e.printStackTrace(System.err);
+			    System.exit(1);  //  failed
 		    }
 		    ser.write(document, output);
 		    String xml = writer.toString();
@@ -128,9 +130,6 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		if (idx != null) {
 			idxstr = idx.toString();
 		}
-		if (!(tystr+idxstr).toLowerCase().startsWith(typstr.toLowerCase())) {
-			log(tystr+" != "+typstr+"\n");
-		}
 		// log("Creating ");log(typ); log(" "); log(ty); log(idx); log(eq); log(fn); log(pa); log("\n");
 		switch (typstr) {
 			case "Connect":
@@ -142,6 +141,9 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			case "CColor":
 				typstr = "Color";
 				break;
+		}
+		if (!(tystr+idxstr).toLowerCase().startsWith(typstr.toLowerCase())) {
+			log(tystr+" != "+typstr+"\n");
 		}
 		Element child = document.createElement(typstr);
 		this.nodes.put(tystr+idxstr, child);
@@ -279,7 +281,11 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
 				this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
 			}
-			parent.appendChild(child);
+			if (child != null) {
+				parent.appendChild(child);
+			} else {
+				System.err.println("Null child??? Is something wrong?");
+			}
 			return (Node)parent;
 		}
 		Node node = super.visitChildren(ctx);
