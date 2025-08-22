@@ -6,7 +6,7 @@
 //{
 X3D& X3D0 =  X3D();
 X3D0.setProfile(CString("Immersive"));
-X3D0.setVersion(CString("3.3"));
+X3D0.setVersion(CString("4.0"));
 head& head1 =  head();
 meta& meta2 =  meta();
 meta2.setName(CString("title"));
@@ -103,7 +103,7 @@ Script17.addChild(&field21);
 //_T("               function set_location(value) {")+
 //_T("                    old = translation;")+
 //_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
-//_T("                    keyValue = new MFVec3f(old, translation);")+
+//_T("                    keyValue = new MFVec3f([old, translation]);")+
 //_T("               }"));
 Transform11.addChild(&Script17);
 
@@ -210,7 +210,7 @@ Script35.addChild(&field39);
 //_T("               function set_location(value) {")+
 //_T("                    old = translation;")+
 //_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
-//_T("                    keyValue = new MFVec3f(old, translation);")+
+//_T("                    keyValue = new MFVec3f([old, translation]);")+
 //_T("               }"));
 Transform29.addChild(&Script35);
 

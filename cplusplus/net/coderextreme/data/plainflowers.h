@@ -6,7 +6,7 @@
 //{
 X3D& X3D0 =  X3D();
 X3D0.setProfile(CString("Immersive"));
-X3D0.setVersion(CString("3.3"));
+X3D0.setVersion(CString("4.0"));
 head& head1 =  head();
 meta& meta2 =  meta();
 meta2.setName(CString("title"));
@@ -74,7 +74,7 @@ ProtoInstance& ProtoInstance17 =  ProtoInstance();
 ProtoInstance17.setName(CString("FlowerProto"));
 fieldValue& fieldValue18 =  fieldValue();
 fieldValue18.setName(CString("vertex"));
-fieldValue18.setValue(CString("\"../shaders/x_ite_flowers_plain.vs\""));
+fieldValue18.setValue(CString("\"../shaders/gl_flowers_plain.vs\""));
 ProtoInstance17.addChild(&fieldValue18);
 
 fieldValue& fieldValue19 =  fieldValue();
