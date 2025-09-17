@@ -52,6 +52,12 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 	    }
 
 	    document = (Document)this.visitX3d(ctx);
+	    processDocument(document);
+	}
+	public Document getDocument() {
+		return document;
+	}
+	public void processDocument(Document document) throws IOException {
 	    if (document != null) {
 		    DOMImplementationLS ls = (DOMImplementationLS)document.getImplementation();
 		    LSOutput output = ls.createLSOutput();
@@ -62,7 +68,8 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		    output.setEncoding("UTF-8");
 		    try {
 			    SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			    Schema schema = sf.newSchema(new File("C:/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"));
+			    // Schema schema = sf.newSchema(new File("/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"));
+			    Schema schema = sf.newSchema(new URL("https://www.web3d.org/specifications/x3d-4.0.xsd"));
 			    Validator validator = schema.newValidator();
 			    DOMSource source = new DOMSource(document);
 			    validator.validate(source);
