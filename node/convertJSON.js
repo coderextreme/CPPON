@@ -1,7 +1,6 @@
 "use strict";
 
 var fs = require('fs');
-var mkdirp = require('node-mkdirp');
 var mapToMethod = require('./mapToMethod.js');
 var config = require('./config.js');
 var mapToMethod2 = require('./mapToMethod2.js');
@@ -96,7 +95,7 @@ function convertJSON(options) {
 					// console.error("basefile", basefile);
 					var outfile = options[ser].folder+basefile+options[ser].extension
 					// console.error("outfile", outfile);
-					mkdirp(outfile.substr(0, outfile.lastIndexOf("/")));
+					fs.mkdirSync(outfile.substr(0, outfile.lastIndexOf("/")), { recursive: true });
 					fs.writeFileSync(outfile, str);
 				} else {
 					throw("Wrote nothing, serializer returned nothing");
