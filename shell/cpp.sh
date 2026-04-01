@@ -12,4 +12,4 @@ export PROCESSORS="${PROCESSORS-8}"
 
 export NODE_OPTIONS=--max-old-space-size=24576
 
-ls -d "$@" | grep json | grep -v new | xargs -P "${PROCESSORS}" "${NODE}" "${NODEDIR}/json2cpp.js"
+ls -d "$@" | grep -E 'json|x3dj' | grep -v new | xargs -P "${PROCESSORS}" "${NODE}" "${NODEDIR}/json2cpp.js"

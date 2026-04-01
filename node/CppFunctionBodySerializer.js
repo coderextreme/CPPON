@@ -10,14 +10,14 @@ const REF = "&"; // *
 var DOMSerializer = require('./DOMSerializer.js');
 let serializer = new DOMSerializer();
 
-function CppScriptSerializer () {
+function CppFunctionBodySerializer () {
 this.code = [];
 this.codeno = 0;
 this.preno = 0;
 }
 
 
-CppScriptSerializer.prototype = {
+CppFunctionBodySerializer.prototype = {
 	serializeToString : function(json, element, clazz, mapToMethod, fieldTypes) {
 		this.code = [];
 		this.codeno = 0;
@@ -34,7 +34,6 @@ CppScriptSerializer.prototype = {
         // https://stackoverflow.com/questions/3151436/how-can-i-get-the-current-directory-name-in-javascript
         // console.log('Current directory: ' + process.cwd()); // Node.js method for current directory - not what is needed here
         // https://flaviocopes.com/node-get-current-folder/ use __dirname under Node.js
-		/*
 		str += "#ifndef WIN32\n";
 		str += "#define WINAPI\n";
 		str += "#define AFX_EXT_CLASS\n";
@@ -43,11 +42,11 @@ CppScriptSerializer.prototype = {
 		str += "#define APIENTRY\n";
 		str += "#endif\n";
 		str += "#define BOOL bool\n";
-		*/
-		str += "//#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/IndexedFaceSetExample/pch.h\"\n";
-		str += "//#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/IndexedFaceSetExample/framework.h\"\n";
-		str += "//#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/include/glut.h\"\n";
-		str += "//#include \"C:/x3d-code/www.web3d.org/x3d/languages/cpp/Examples_X3DForWebAuthors/Chapter06/IndexedFaceSetExample/include/X3DLib.h\"\n";
+		str += "#define XML_PARSER_H\n";
+		str += "#include \"pch.h\"\n";
+		str += "#include \"framework.h\"\n";
+		str += "#include \"glut.h\"\n";
+		str += "#include \"X3DLib.h\"\n";
 		str += "//int main(int argc, char ** argv) \n";
 		str += "//{\n";
 		bodystr += element.nodeName+REF+" "+element.nodeName+stack[0]+" = "+NEW+" "+element.nodeName+"();\n";
@@ -114,7 +113,7 @@ CppScriptSerializer.prototype = {
 		case "int32_t":
 		case "double":
 		case "boolean":
-		case "CString":
+		case "SFString":
 			shim = "new";
 			break;
 		}
@@ -233,7 +232,7 @@ CppScriptSerializer.prototype = {
 					replace(/\\?"/g, "\\\"")
 					+'"';
 			}
-			strval = "CString("+strval+")"
+			strval = "SFString("+strval+")"
 			/*
 			if (
 				(element.nodeName === "fieldValue"         && attrsa.nodeName === "name") ||
@@ -255,7 +254,7 @@ CppScriptSerializer.prototype = {
 			strval = this.printSubArray(attr, attrType, "double", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, DOUBLE_SUFFIX+',', '', DOUBLE_SUFFIX, element);
 		} else if (attrType === "MFString") {
 			nodeValue = nodeValue.replace(/^ *(.*) *$/, "$1");
-			strval = this.printSubArray(attr, attrType, "CString",
+			strval = this.printSubArray(attr, attrType, "SFString",
 				nodeValue.substr(1, nodeValue.length-2).split(/"[ ,\t\r\n]+"/).
 				map(function(x) {
 					let y = x.
@@ -266,13 +265,13 @@ CppScriptSerializer.prototype = {
 					       // replace(/&/g, "&amp;").
 					       replace(/\\n/g, '\\n');
 					if (y !== x) {
-						// console.error("CppScriptSerializer Replacing "+x+" with "+y);
+						// console.error("CppFunctionBodySerializer Replacing "+x+" with "+y);
 					}
 					return y;
-				}), this.codeno, '"), CString("', 'CString("', '")', element); // ... json, lead, tail
+				}), this.codeno, '"), SFString("', 'SFString("', '")', element); // ... json, lead, tail
 		} else if (attrType === "SFImage" && element.nodeName === "PixelTexture") {
 			strval = '"'+nodeValue+'"';
-			strval = "CString("+strval+")"
+			strval = "SFString("+strval+")"
 		} else if (attrType === "MFInt32") {
 			strval = this.printSubArray(attr, attrType, "int32_t", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ',', '', '', element);
 			if (attr !== "texCoordIndex") {
@@ -749,7 +748,7 @@ CppScriptSerializer.prototype = {
 				}
 			} else if (element.childNodes.hasOwnProperty(cn) && node.nodeType === 4) {
 				str += "\n//"+element.nodeName+stack[0];
-				str += OBJ+'setSourceCode(CString("'+node.nodeValue.split(/[\r\n]+/).map(function(x) {
+				str += OBJ+'setSourceCode(SFString("'+node.nodeValue.split(/[\r\n]+/).map(function(x) {
 					return x.
 					        replace(/\\/g, '\\\\').
 						replace(/"/g, '\\"')
@@ -762,4 +761,4 @@ CppScriptSerializer.prototype = {
 		return str;
 	}
 };
-module.exports = CppScriptSerializer;
+module.exports = CppFunctionBodySerializer;

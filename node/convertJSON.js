@@ -44,9 +44,15 @@ function convertJSON(options) {
 			continue;
 		}
 		var basefile = file.substr(0, file.lastIndexOf("."));
-		var file = basefile+".json";
-		// console.error("Reading", file, domImpl);
-		var str = fs.readFileSync(file).toString();
+		var file = "DUMMY.json"
+		var str = null;
+		try {
+			file = basefile+".json";
+			str = fs.readFileSync(file).toString();
+		} catch {
+			file = basefile+".x3dj";
+			str = fs.readFileSync(file).toString();
+		}
 		if (typeof str === 'undefined') {
 			throw("Read nothing, or possbile error");
 		}
