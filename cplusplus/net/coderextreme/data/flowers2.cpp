@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int flowers2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -73,12 +70,12 @@ Scene11.addChild(&NavigationInfo12);
 
 Viewpoint& Viewpoint13 =  Viewpoint();
 Viewpoint13.setDescription(std::string("Two mathematical orbitals"));
-Viewpoint13.setPosition(new float[]{0,0,50});
+Viewpoint13.setPosition(new float[]{0.0,0.0,50.0});
 Scene11.addChild(&Viewpoint13);
 
 Group& Group14 =  Group();
 DirectionalLight& DirectionalLight15 =  DirectionalLight();
-DirectionalLight15.setDirection(new float[]{1,1,1});
+DirectionalLight15.setDirection(new float[]{1.0,1.0,1.0});
 Group14.addChild(&DirectionalLight15);
 
 ProtoDeclare& ProtoDeclare16 =  ProtoDeclare();
@@ -119,13 +116,13 @@ Group& Group23 =  Group();
 TimeSensor& TimeSensor24 =  TimeSensor();
 TimeSensor24.setDEF(std::string("Clock"));
 TimeSensor24.setCycleInterval(16);
-TimeSensor24.setLoop(True);
+TimeSensor24.setLoop(true);
 Group23.addChild(&TimeSensor24);
 
 OrientationInterpolator& OrientationInterpolator25 =  OrientationInterpolator();
 OrientationInterpolator25.setDEF(std::string("OrbitPath"));
-OrientationInterpolator25.setKey(new float[]{0,0.5,1}, 3);
-OrientationInterpolator25.setKeyValue(new float[]{1,0,0,0,1,0,0,3.14,1,0,0,6.28}, 12);
+OrientationInterpolator25.setKey(new float[]{0.0,0.5,1.0}, 3);
+OrientationInterpolator25.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,3.14,1.0,0.0,0.0,6.28}, 12);
 Group23.addChild(&OrientationInterpolator25);
 
 Transform& Transform26 =  Transform();
@@ -163,15 +160,17 @@ Appearance30.addChild(&Material31);
 
 Shape29.addChild(&Appearance30);
 
-//<IndexedFaceSet DEF=\"Orbit\"> <Coordinate DEF=\"OrbitCoordinates\"/> </IndexedFaceSet>
+//<IndexedFaceSet DEF=\"Orbit\">
+//<Coordinate DEF=\"OrbitCoordinates\"/>
+//</IndexedFaceSet>
 IndexedFaceSet& IndexedFaceSet36 =  IndexedFaceSet();
-IndexedFaceSet36.setCcw(False);
-IndexedFaceSet36.setConvex(False);
+IndexedFaceSet36.setCcw(false);
+IndexedFaceSet36.setConvex(false);
 IndexedFaceSet36.setCoordIndex(new int32_t[]{0,1,2,-1}, 4);
 IndexedFaceSet36.setDEF(std::string("Orbit"));
 Coordinate& Coordinate37 =  Coordinate();
 Coordinate37.setDEF(std::string("OrbitCoordinates"));
-Coordinate37.setPoint(new float[]{0,0,1,0,1,0,1,0,0}, 9);
+Coordinate37.setPoint(new float[]{0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0}, 9);
 IndexedFaceSet36.setCoord(&Coordinate37);
 
 Shape29.setGeometry(&IndexedFaceSet36);
@@ -236,68 +235,68 @@ field46.setValue(std::string("50"));
 Script38.addChild(&field46);
 
 
-Script38.setSourceCode(std::string("ecmascript:")+
-_T("			function initialize() {")+
-_T("			     generateCoordinates();")+
-_T("			     var arrIndex = 0;")+
-_T("			     for (var i = 0; i < resolution-1; i++) {")+
-_T("				for (var j = 0; j < resolution-1; j++) {")+
-_T("				     coordIndexes[arrIndex++] = i*resolution+j;")+
-_T("				     coordIndexes[arrIndex++] = i*resolution+j+1;")+
-_T("				     coordIndexes[arrIndex++] = (i+1)*resolution+j+1;")+
-_T("				     coordIndexes[arrIndex++] = (i+1)*resolution+j;")+
-_T("				     coordIndexes[arrIndex++] = -1;")+
-_T("				}")+
-_T("			    }")+
-_T("			}")+
-_T("			function generateCoordinates() {")+
-_T("			     var theta = 0.0;")+
-_T("			     var phi = 0.0;")+
-_T("			     var delta = (2 * 3.141592653) / (resolution-1);")+
-_T("			     var arrIndex = 0;")+
-_T("			     for (var i = 0; i < resolution; i++) {")+
-_T("				for (var j = 0; j < resolution; j++) {")+
-_T("					var rho = e + f * Math.cos(g * theta) * Math.cos(h * phi);")+
-_T("					coordinates[arrIndex++] = new SFVec3f(")+
-_T("						rho * Math.cos(phi) * Math.cos(theta),")+
-_T("						rho * Math.cos(phi) * Math.sin(theta),")+
-_T("						rho * Math.sin(phi)")+
-_T("					);")+
-_T("					theta += delta;")+
-_T("				}")+
-_T("				phi += delta;")+
-_T("			     }")+
-_T("			}")+
-_T("			function set_fraction(fraction, eventTime) {")+
-_T("				var choice = Math.floor(Math.random() * 4);")+
-_T("				switch (choice) {")+
-_T("				case 0:")+
-_T("					e += Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("					break;")+
-_T("				case 1:")+
-_T("					f += Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("					break;")+
-_T("				case 2:")+
-_T("					g += Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("					break;")+
-_T("				case 3:")+
-_T("					h += Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("					break;")+
-_T("				}")+
-_T("				if (e < 1) {")+
-_T("					f = 10;")+
-_T("				}")+
-_T("				if (f < 1) {")+
-_T("					f = 10;")+
-_T("				}")+
-_T("				if (g < 1) {")+
-_T("					g = 4;")+
-_T("				}")+
-_T("				if (h < 1) {")+
-_T("					h = 4;")+
-_T("				}")+
-_T("				generateCoordinates();")+
-_T("			}"));
+//Script38.setSourceCode(std::string("ecmascript:")+
+//_T("			function initialize() {")+
+//_T("			     generateCoordinates();")+
+//_T("			     var arrIndex = 0;")+
+//_T("			     for (var i = 0; i < resolution-1; i++) {")+
+//_T("				for (var j = 0; j < resolution-1; j++) {")+
+//_T("				     coordIndexes[arrIndex++] = i*resolution+j;")+
+//_T("				     coordIndexes[arrIndex++] = i*resolution+j+1;")+
+//_T("				     coordIndexes[arrIndex++] = (i+1)*resolution+j+1;")+
+//_T("				     coordIndexes[arrIndex++] = (i+1)*resolution+j;")+
+//_T("				     coordIndexes[arrIndex++] = -1;")+
+//_T("				}")+
+//_T("			    }")+
+//_T("			}")+
+//_T("			function generateCoordinates() {")+
+//_T("			     var theta = 0.0;")+
+//_T("			     var phi = 0.0;")+
+//_T("			     var delta = (2 * 3.141592653) / (resolution-1);")+
+//_T("			     var arrIndex = 0;")+
+//_T("			     for (var i = 0; i < resolution; i++) {")+
+//_T("				for (var j = 0; j < resolution; j++) {")+
+//_T("					var rho = e + f * Math.cos(g * theta) * Math.cos(h * phi);")+
+//_T("					coordinates[arrIndex++] = new SFVec3f(")+
+//_T("						rho * Math.cos(phi) * Math.cos(theta),")+
+//_T("						rho * Math.cos(phi) * Math.sin(theta),")+
+//_T("						rho * Math.sin(phi)")+
+//_T("					);")+
+//_T("					theta += delta;")+
+//_T("				}")+
+//_T("				phi += delta;")+
+//_T("			     }")+
+//_T("			}")+
+//_T("			function set_fraction(fraction, eventTime) {")+
+//_T("				var choice = Math.floor(Math.random() * 4);")+
+//_T("				switch (choice) {")+
+//_T("				case 0:")+
+//_T("					e += Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("					break;")+
+//_T("				case 1:")+
+//_T("					f += Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("					break;")+
+//_T("				case 2:")+
+//_T("					g += Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("					break;")+
+//_T("				case 3:")+
+//_T("					h += Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("					break;")+
+//_T("				}")+
+//_T("				if (e < 1) {")+
+//_T("					f = 10;")+
+//_T("				}")+
+//_T("				if (f < 1) {")+
+//_T("					f = 10;")+
+//_T("				}")+
+//_T("				if (g < 1) {")+
+//_T("					g = 4;")+
+//_T("				}")+
+//_T("				if (h < 1) {")+
+//_T("					h = 4;")+
+//_T("				}")+
+//_T("				generateCoordinates();")+
+//_T("			}"));
 Group23.addChild(&Script38);
 
 ROUTE& ROUTE47 =  ROUTE();

@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int browser(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -51,22 +48,22 @@ Scene& Scene7 =  Scene();
 Script& Script8 =  Script();
 Script8.setDEF(std::string("Browser"));
 
-Script8.setSourceCode(std::string("ecmascript:")+
-_T("                function initialize() {")+
-_T("		    Browser.print('DUDES\\n'+'\"DUDETTES');")+
-_T("                }"));
+//Script8.setSourceCode(std::string("ecmascript:")+
+//_T("                function initialize() {")+
+//_T("		    Browser.print('DUDES\\n'+'\"DUDETTES');")+
+//_T("                }"));
 Scene7.addChild(&Script8);
 
 Script& Script9 =  Script();
 Script9.setDEF(std::string("Clouds"));
 
-Script9.setSourceCode(std::string("ecmascript:")+
-_T("function cumulustranslation() // These values designate the boundary location of the cloud")+
-_T("{")+
-_T("var xxx = ' '+' '+")+
-_T("'	Transform		\\n'+")+
-_T("'    ' + '               	\\n';")+
-_T("}"));
+//Script9.setSourceCode(std::string("ecmascript:")+
+//_T("function cumulustranslation() // These values designate the boundary location of the cloud")+
+//_T("{")+
+//_T("var xxx = ' '+' '+")+
+//_T("'	Transform		\\n'+")+
+//_T("'    ' + '               	\\n';")+
+//_T("}"));
 Scene7.addChild(&Script9);
 
 X3D0.setScene(&Scene7);

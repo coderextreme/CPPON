@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int rubikOnFire(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -54,7 +51,7 @@ Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
 Viewpoint9.setDescription(std::string("Rubiks Cube on Fire"));
-Viewpoint9.setPosition(new float[]{0,0,12});
+Viewpoint9.setPosition(new float[]{0.0,0.0,12.0});
 Scene7.addChild(&Viewpoint9);
 
 ProtoDeclare& ProtoDeclare10 =  ProtoDeclare();
@@ -99,7 +96,7 @@ Shape19.addChild(&IS20);
 
 Appearance& Appearance22 =  Appearance();
 Material& Material23 =  Material();
-Material23.setDiffuseColor(new float[]{1,1,1});
+Material23.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance22.addChild(&Material23);
 
 Shape19.addChild(&Appearance22);
@@ -386,7 +383,7 @@ ProtoInstance87.addChild(&fieldValue88);
 fieldValue& fieldValue89 =  fieldValue();
 fieldValue89.setName(std::string("myShape"));
 Box& Box90 =  Box();
-Box90.setSize(new float[]{1,1,1});
+Box90.setSize(new float[]{1.0,1.0,1.0});
 fieldValue89.addChild(&Box90);
 
 ProtoInstance87.addChild(&fieldValue89);

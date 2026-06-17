@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int bubs(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -58,8 +55,8 @@ NavigationInfo9.setType((std::string[]){"EXAMINE"}, 1);
 Scene8.addChild(&NavigationInfo9);
 
 Viewpoint& Viewpoint10 =  Viewpoint();
-Viewpoint10.setPosition(new float[]{0,0,4});
-Viewpoint10.setOrientation(new float[]{1,0,0,0});
+Viewpoint10.setPosition(new float[]{0.0,0.0,4.0});
+Viewpoint10.setOrientation(new float[]{1.0,0.0,0.0,0.0});
 Viewpoint10.setDescription(std::string("Bubbles in action"));
 Scene8.addChild(&Viewpoint10);
 
@@ -84,7 +81,7 @@ Shape15.setGeometry(&Sphere16);
 
 Appearance& Appearance17 =  Appearance();
 Material& Material18 =  Material();
-Material18.setDiffuseColor(new float[]{1,0,0});
+Material18.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material18.setTransparency(0.2);
 Appearance17.addChild(&Material18);
 
@@ -129,49 +126,49 @@ field24.setType(std::string("SFFloat"));
 Script19.addChild(&field24);
 
 
-Script19.setSourceCode(std::string("ecmascript:")+
-_T("function initialize() {")+
-_T("    velocity = new SFVec3f(Math.random() * 0.25 - 0.125, Math.random() * 0.25 - 0.125, Math.random() * 0.25 - 0.125);")+
-_T("    scalvel = new SFVec3f(Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.4);")+
-_T("}")+
-_T("function set_fraction(value) {")+
-_T("    translation = new SFVec3f(	translation.x + velocity.x, translation.y + velocity.y, translation.z + velocity.z);")+
-_T("    scale = new SFVec3f(scale.x + scalvel.x, scale.y + scalvel.y, scale.z + scalvel.z);")+
-_T("    // if you get to far away or too big, explode")+
-_T("    if ( Math.abs(translation.x) > 256) {")+
-_T("	translation.x = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("    if ( Math.abs(translation.y) > 256) {")+
-_T("	translation.y = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("    if ( Math.abs(translation.z) > 256) {")+
-_T("	translation.z = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("    if (Math.abs(scale.x) > 20) {")+
-_T("	scale.x = scale.x/20;")+
-_T("	translation.x = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("    if (Math.abs(scale.y) > 20) {")+
-_T("	scale.y = scale.y/20;")+
-_T("	translation.y = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("    if (Math.abs(scale.z) > 20) {")+
-_T("	scale.z = scale.z/20;")+
-_T("	translation.z = 0;")+
-_T("	initialize();")+
-_T("    }")+
-_T("}"));
+//Script19.setSourceCode(std::string("ecmascript:")+
+//_T("function initialize() {")+
+//_T("    velocity = new SFVec3f(Math.random() * 0.25 - 0.125, Math.random() * 0.25 - 0.125, Math.random() * 0.25 - 0.125);")+
+//_T("    scalvel = new SFVec3f(Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.4);")+
+//_T("}")+
+//_T("function set_fraction(value) {")+
+//_T("    translation = new SFVec3f(	translation.x + velocity.x, translation.y + velocity.y, translation.z + velocity.z);")+
+//_T("    scale = new SFVec3f(scale.x + scalvel.x, scale.y + scalvel.y, scale.z + scalvel.z);")+
+//_T("    // if you get to far away or too big, explode")+
+//_T("    if ( Math.abs(translation.x) > 256) {")+
+//_T("	translation.x = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("    if ( Math.abs(translation.y) > 256) {")+
+//_T("	translation.y = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("    if ( Math.abs(translation.z) > 256) {")+
+//_T("	translation.z = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("    if (Math.abs(scale.x) > 20) {")+
+//_T("	scale.x = scale.x/20;")+
+//_T("	translation.x = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("    if (Math.abs(scale.y) > 20) {")+
+//_T("	scale.y = scale.y/20;")+
+//_T("	translation.y = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("    if (Math.abs(scale.z) > 20) {")+
+//_T("	scale.z = scale.z/20;")+
+//_T("	translation.z = 0;")+
+//_T("	initialize();")+
+//_T("    }")+
+//_T("}"));
 Transform14.addChild(&Script19);
 
 TimeSensor& TimeSensor25 =  TimeSensor();
 TimeSensor25.setDEF(std::string("bubbleClock"));
 TimeSensor25.setCycleInterval(10);
-TimeSensor25.setLoop(True);
+TimeSensor25.setLoop(true);
 Transform14.addChild(&TimeSensor25);
 
 ROUTE& ROUTE26 =  ROUTE();

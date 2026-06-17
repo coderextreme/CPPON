@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int text3shapes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -72,7 +69,7 @@ Transform9.addChild(&Shape10);
 
 Shape& Shape15 =  Shape();
 Text& Text16 =  Text();
-Text16.setString((std::string[]){"Node2", "\\\\", "\\\\\\\\", "Node2"}, 4);
+Text16.setString((std::string[]){"Node2", "\\\\\\\\\\\\Node2"}, 2);
 CFontStyle& FontStyle17 =  CFontStyle();
 Text16.setFontStyle(&FontStyle17);
 
@@ -88,7 +85,7 @@ Transform9.addChild(&Shape15);
 
 Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
-Text21.setString((std::string[]){"Node3 \\\\\\\\ \\\\ ", "Node3\"\"\""}, 2);
+Text21.setString((std::string[]){"Node3 \\\\\\\\ \\\\ Node3\"\"\""}, 1);
 CFontStyle& FontStyle22 =  CFontStyle();
 Text21.setFontStyle(&FontStyle22);
 
@@ -111,8 +108,8 @@ field26.setValue(std::string("\"rnl_front.png\" \"uffizi_front.png\""));
 Script25.addChild(&field26);
 
 
-Script25.setSourceCode(std::string("ecmascript:")+
-_T("			    var me = '\"1\" \"\"2\" \"\\n3\"';"));
+//Script25.setSourceCode(std::string("ecmascript:")+
+//_T("			    var me = '\"1\" \"\"2\" \"\\n3\"';"));
 Transform9.addChild(&Script25);
 
 Scene8.addChild(&Transform9);

@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int qq3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -74,15 +71,15 @@ Shape& Shape15 =  Shape();
 Shape15.setDEF(std::string("ShapeLeftDown"));
 Appearance& Appearance16 =  Appearance();
 Material& Material17 =  Material();
-Material17.setDiffuseColor(new float[]{0.7,1,0});
+Material17.setDiffuseColor(new float[]{0.7,1.0,0.0});
 Appearance16.addChild(&Material17);
 
 Shape15.addChild(&Appearance16);
 
 Extrusion& Extrusion18 =  Extrusion();
-Extrusion18.setSpine(new float[]{-2.5,0,0,-2,0,0,-1.5,0,0}, 9);
+Extrusion18.setSpine(new float[]{-2.5,0.0,0.0,-2.0,0.0,0.0,-1.5,0.0,0.0}, 9);
 Extrusion18.setCreaseAngle(0.785);
-Extrusion18.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
+Extrusion18.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
 Shape15.setGeometry(&Extrusion18);
 
 Transform14.addChild(&Shape15);
@@ -96,15 +93,15 @@ Shape& Shape20 =  Shape();
 Shape20.setDEF(std::string("ShapeUpRight"));
 Appearance& Appearance21 =  Appearance();
 Material& Material22 =  Material();
-Material22.setDiffuseColor(new float[]{0,0.7,1});
+Material22.setDiffuseColor(new float[]{0.0,0.7,1.0});
 Appearance21.addChild(&Material22);
 
 Shape20.addChild(&Appearance21);
 
 Extrusion& Extrusion23 =  Extrusion();
-Extrusion23.setSpine(new float[]{1.5,0,0,2,0,0,2.5,0,0}, 9);
+Extrusion23.setSpine(new float[]{1.5,0.0,0.0,2.0,0.0,0.0,2.5,0.0,0.0}, 9);
 Extrusion23.setCreaseAngle(0.785);
-Extrusion23.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
+Extrusion23.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
 Shape20.setGeometry(&Extrusion23);
 
 Transform19.addChild(&Shape20);
@@ -137,12 +134,12 @@ Scene10.addChild(&ProtoDeclare11);
 
 Viewpoint& Viewpoint28 =  Viewpoint();
 Viewpoint28.setDescription(std::string("Process pipes"));
-Viewpoint28.setOrientation(new float[]{1,0,0,-0.4});
-Viewpoint28.setPosition(new float[]{0,5,12});
+Viewpoint28.setOrientation(new float[]{1.0,0.0,0.0,-0.4});
+Viewpoint28.setPosition(new float[]{0.0,5.0,12.0});
 Scene10.addChild(&Viewpoint28);
 
 Transform& Transform29 =  Transform();
-Transform29.setTranslation(new float[]{0,-2.5,0});
+Transform29.setTranslation(new float[]{0.0,-2.5,0.0});
 ProtoInstance& ProtoInstance30 =  ProtoInstance();
 ProtoInstance30.setName(std::string("Process"));
 Transform29.addChild(&ProtoInstance30);
@@ -157,7 +154,7 @@ Transform31.addChild(&ProtoInstance32);
 Scene10.addChild(&Transform31);
 
 Transform& Transform33 =  Transform();
-Transform33.setTranslation(new float[]{0,2.5,0});
+Transform33.setTranslation(new float[]{0.0,2.5,0.0});
 ProtoInstance& ProtoInstance34 =  ProtoInstance();
 ProtoInstance34.setName(std::string("Process"));
 Transform33.addChild(&ProtoInstance34);

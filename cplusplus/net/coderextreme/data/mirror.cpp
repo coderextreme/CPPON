@@ -5,21 +5,19 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int mirror(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
 head& head1 =  head();
+//<component name='Shape' level='4'></component>
 component& component2 =  component();
 component2.setName(std::string("Scripting"));
 component2.setLevel(1);
@@ -60,7 +58,6 @@ component9.setName(std::string("Core"));
 component9.setLevel(1);
 head1.addChild(&component9);
 
-//<component name='Shape' level='4'></component>
 meta& meta10 =  meta();
 meta10.setName(std::string("title"));
 meta10.setContent(std::string("mirror.x3d"));
@@ -90,7 +87,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene15 =  Scene();
 Viewpoint& Viewpoint16 =  Viewpoint();
-Viewpoint16.setPosition(new float[]{0,5,100});
+Viewpoint16.setPosition(new float[]{0.0,5.0,100.0});
 Viewpoint16.setDescription(std::string("Switch background and images texture"));
 Scene15.addChild(&Viewpoint16);
 
@@ -279,7 +276,7 @@ Transform24.addChild(&Shape25);
 
 Script& Script52 =  Script();
 Script52.setDEF(std::string("UrlSelector"));
-Script52.setDirectOutput(True);
+Script52.setDirectOutput(true);
 field& field53 =  field();
 field53.setName(std::string("frontUrls"));
 field53.setType(std::string("MFString"));
@@ -372,29 +369,29 @@ field66.setValue(std::string("-1"));
 Script52.addChild(&field66);
 
 
-Script52.setSourceCode(std::string("ecmascript:")+
-_T("        function set_fraction( f, tm ) {")+
-_T("	    var side = Math.floor(f*frontUrls.length);")+
-_T("	    if (side > frontUrls.length-1) {")+
-_T("	    	side = 0;")+
-_T("	    }")+
-_T("	    if (side != old) {")+
-_T("	    	    Browser.print(f+\" \"+side);")+
-_T("	    	    old = side;")+
-_T("		    front_changed[0] = frontUrls[side];")+
-_T("		    back_changed[0] = backUrls[side];")+
-_T("		    left_changed[0] = leftUrls[side];")+
-_T("		    right_changed[0] = rightUrls[side];")+
-_T("		    top_changed[0] = topUrls[side];")+
-_T("		    bottom_changed[0] = bottomUrls[side];")+
-_T("            }")+
-_T("        }"));
+//Script52.setSourceCode(std::string("ecmascript:")+
+//_T("        function set_fraction( f, tm ) {")+
+//_T("	    var side = Math.floor(f*frontUrls.length);")+
+//_T("	    if (side > frontUrls.length-1) {")+
+//_T("	    	side = 0;")+
+//_T("	    }")+
+//_T("	    if (side != old) {")+
+//_T("	    	    Browser.print(f+\" \"+side);")+
+//_T("	    	    old = side;")+
+//_T("		    front_changed[0] = frontUrls[side];")+
+//_T("		    back_changed[0] = backUrls[side];")+
+//_T("		    left_changed[0] = leftUrls[side];")+
+//_T("		    right_changed[0] = rightUrls[side];")+
+//_T("		    top_changed[0] = topUrls[side];")+
+//_T("		    bottom_changed[0] = bottomUrls[side];")+
+//_T("            }")+
+//_T("        }"));
 Transform24.addChild(&Script52);
 
 TimeSensor& TimeSensor67 =  TimeSensor();
 TimeSensor67.setDEF(std::string("Clock"));
 TimeSensor67.setCycleInterval(45);
-TimeSensor67.setLoop(True);
+TimeSensor67.setLoop(true);
 Transform24.addChild(&TimeSensor67);
 
 ROUTE& ROUTE68 =  ROUTE();

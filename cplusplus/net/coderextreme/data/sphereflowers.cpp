@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int sphereflowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -178,7 +175,7 @@ Group20.addChild(&ProtoInstance35);
 
 TimeSensor& TimeSensor36 =  TimeSensor();
 TimeSensor36.setDEF(std::string("SongTime"));
-TimeSensor36.setLoop(True);
+TimeSensor36.setLoop(true);
 Group20.addChild(&TimeSensor36);
 
 Sound& Sound37 =  Sound();
@@ -186,7 +183,7 @@ Sound37.setMaxBack(100);
 Sound37.setMaxFront(100);
 Sound37.setMinBack(20);
 Sound37.setMinFront(20);
-Sound37.setLocation(new float[]{0,1,0});
+Sound37.setLocation(new float[]{0.0,1.0,0.0});
 AudioClip& AudioClip38 =  AudioClip();
 AudioClip38.setDEF(std::string("AudioClip"));
 AudioClip38.setDescription(std::string("Chandubabamusic #1"));

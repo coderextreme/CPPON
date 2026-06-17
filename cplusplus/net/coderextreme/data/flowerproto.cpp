@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int flowerproto(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -269,7 +266,7 @@ Transform22.addChild(&Shape23);
 
 Script& Script53 =  Script();
 Script53.setDEF(std::string("Animate"));
-Script53.setDirectOutput(True);
+Script53.setDirectOutput(true);
 field& field54 =  field();
 field54.setName(std::string("translation"));
 field54.setAccessType(std::string("inputOutput"));
@@ -333,77 +330,77 @@ field62.setValue(std::string("0.5"));
 Script53.addChild(&field62);
 
 
-Script53.setSourceCode(std::string("ecmascript:")+
-_T("			function initialize() {")+
-_T("			    translation = new SFVec3f(0, 0, 0);")+
-_T("			    velocity = new SFVec3f(")+
-_T("			    	Math.random() - 0.5,")+
-_T("				Math.random() - 0.5,")+
-_T("				Math.random() - 0.5);")+
-_T("			}")+
-_T("			function set_fraction() {")+
-_T("			    translation = new SFVec3f(")+
-_T("			    	translation.x + velocity.x,")+
-_T("				translation.y + velocity.y,")+
-_T("				translation.z + velocity.z);")+
-_T("			    for (var j = 0; j <= 2; j++) {")+
-_T("				    if (Math.abs(translation.x) > 10) {")+
-_T("					initialize();")+
-_T("				    } else if (Math.abs(translation.y) > 10) {")+
-_T("					initialize();")+
-_T("				    } else if (Math.abs(translation.z) > 10) {")+
-_T("					initialize();")+
-_T("				    } else {")+
-_T("					velocity.x += Math.random() * 0.2 - 0.1;")+
-_T("					velocity.y += Math.random() * 0.2 - 0.1;")+
-_T("					velocity.z += Math.random() * 0.2 - 0.1;")+
-_T("				    }")+
-_T("			    }")+
-_T("			    animate_flowers();")+
-_T("			}")+
-_T("			function animate_flowers(fraction, eventTime) {")+
-_T("				var choice = Math.floor(Math.random() * 4);")+
-_T("				switch (choice) {")+
-_T("				case 0:")+
-_T("					a += Math.random() * 0.2 - 0.1;")+
-_T("					break;")+
-_T("				case 1:")+
-_T("					b += Math.random() * 0.2 - 0.1;")+
-_T("					break;")+
-_T("				case 2:")+
-_T("					c += Math.random() * 2 - 1;")+
-_T("					break;")+
-_T("				case 3:")+
-_T("					d += Math.random() * 2 - 1;")+
-_T("					break;")+
-_T("				}")+
-_T("				tdelta += 0.5;")+
-_T("				pdelta += 0.5;")+
-_T("				if (a > 1) {")+
-_T("					a =  0.5;")+
-_T("				}")+
-_T("				if (b > 1) {")+
-_T("					b =  0.5;")+
-_T("				}")+
-_T("				if (c < 1) {")+
-_T("					c =  4;")+
-_T("				}")+
-_T("				if (d < 1) {")+
-_T("					d =  4;")+
-_T("				}")+
-_T("				if (c > 10) {")+
-_T("					c = 4;")+
-_T("				}")+
-_T("				if (d > 10) {")+
-_T("					d = 4;")+
-_T("				}")+
-_T("			}"));
+//Script53.setSourceCode(std::string("ecmascript:")+
+//_T("			function initialize() {")+
+//_T("			    translation = new SFVec3f(0, 0, 0);")+
+//_T("			    velocity = new SFVec3f(")+
+//_T("			    	Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5);")+
+//_T("			}")+
+//_T("			function set_fraction() {")+
+//_T("			    translation = new SFVec3f(")+
+//_T("			    	translation.x + velocity.x,")+
+//_T("				translation.y + velocity.y,")+
+//_T("				translation.z + velocity.z);")+
+//_T("			    for (var j = 0; j <= 2; j++) {")+
+//_T("				    if (Math.abs(translation.x) > 10) {")+
+//_T("					initialize();")+
+//_T("				    } else if (Math.abs(translation.y) > 10) {")+
+//_T("					initialize();")+
+//_T("				    } else if (Math.abs(translation.z) > 10) {")+
+//_T("					initialize();")+
+//_T("				    } else {")+
+//_T("					velocity.x += Math.random() * 0.2 - 0.1;")+
+//_T("					velocity.y += Math.random() * 0.2 - 0.1;")+
+//_T("					velocity.z += Math.random() * 0.2 - 0.1;")+
+//_T("				    }")+
+//_T("			    }")+
+//_T("			    animate_flowers();")+
+//_T("			}")+
+//_T("			function animate_flowers(fraction, eventTime) {")+
+//_T("				var choice = Math.floor(Math.random() * 4);")+
+//_T("				switch (choice) {")+
+//_T("				case 0:")+
+//_T("					a += Math.random() * 0.2 - 0.1;")+
+//_T("					break;")+
+//_T("				case 1:")+
+//_T("					b += Math.random() * 0.2 - 0.1;")+
+//_T("					break;")+
+//_T("				case 2:")+
+//_T("					c += Math.random() * 2 - 1;")+
+//_T("					break;")+
+//_T("				case 3:")+
+//_T("					d += Math.random() * 2 - 1;")+
+//_T("					break;")+
+//_T("				}")+
+//_T("				tdelta += 0.5;")+
+//_T("				pdelta += 0.5;")+
+//_T("				if (a > 1) {")+
+//_T("					a =  0.5;")+
+//_T("				}")+
+//_T("				if (b > 1) {")+
+//_T("					b =  0.5;")+
+//_T("				}")+
+//_T("				if (c < 1) {")+
+//_T("					c =  4;")+
+//_T("				}")+
+//_T("				if (d < 1) {")+
+//_T("					d =  4;")+
+//_T("				}")+
+//_T("				if (c > 10) {")+
+//_T("					c = 4;")+
+//_T("				}")+
+//_T("				if (d > 10) {")+
+//_T("					d = 4;")+
+//_T("				}")+
+//_T("			}"));
 Transform22.addChild(&Script53);
 
 TimeSensor& TimeSensor63 =  TimeSensor();
 TimeSensor63.setDEF(std::string("TourTime"));
 TimeSensor63.setCycleInterval(5);
-TimeSensor63.setLoop(True);
+TimeSensor63.setLoop(true);
 Transform22.addChild(&TimeSensor63);
 
 ROUTE& ROUTE64 =  ROUTE();

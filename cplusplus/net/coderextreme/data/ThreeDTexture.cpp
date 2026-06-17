@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int ThreeDTexture(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -54,7 +51,7 @@ Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
 Viewpoint9.setDescription(std::string("Rubiks Cube"));
-Viewpoint9.setPosition(new float[]{0,0,12});
+Viewpoint9.setPosition(new float[]{0.0,0.0,12.0});
 Scene7.addChild(&Viewpoint9);
 
 ProtoDeclare& ProtoDeclare10 =  ProtoDeclare();
@@ -85,7 +82,7 @@ Shape17.setGeometry(&Sphere18);
 
 Appearance& Appearance19 =  Appearance();
 Material& Material20 =  Material();
-Material20.setDiffuseColor(new float[]{1,1,1});
+Material20.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance19.addChild(&Material20);
 
 Shape17.addChild(&Appearance19);

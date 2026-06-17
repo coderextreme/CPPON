@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int abox(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -124,7 +121,7 @@ fieldValue& fieldValue28 =  fieldValue();
 fieldValue28.setName(std::string("myShape"));
 Shape& Shape29 =  Shape();
 Box& Box30 =  Box();
-Box30.setSize(new float[]{140,140,140});
+Box30.setSize(new float[]{140.0,140.0,140.0});
 Shape29.setGeometry(&Box30);
 
 fieldValue28.addChild(&Shape29);

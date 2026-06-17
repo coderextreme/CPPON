@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int fors(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -93,7 +90,7 @@ Shape19.setGeometry(&Sphere20);
 
 Appearance& Appearance21 =  Appearance();
 Material& Material22 =  Material();
-Material22.setDiffuseColor(new float[]{1,0,0});
+Material22.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance21.addChild(&Material22);
 
 Shape19.addChild(&Appearance21);
@@ -101,7 +98,7 @@ Shape19.addChild(&Appearance21);
 Transform16.addChild(&Shape19);
 
 Transform& Transform23 =  Transform();
-Transform23.setTranslation(new float[]{1,0,0});
+Transform23.setTranslation(new float[]{1.0,0.0,0.0});
 Shape& Shape24 =  Shape();
 Text& Text25 =  Text();
 Text25.setString((std::string[]){"Node"}, 1);
@@ -114,7 +111,7 @@ Shape24.setGeometry(&Text25);
 
 Appearance& Appearance27 =  Appearance();
 Material& Material28 =  Material();
-Material28.setDiffuseColor(new float[]{0,0,1});
+Material28.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance27.addChild(&Material28);
 
 Shape24.addChild(&Appearance27);
@@ -127,8 +124,8 @@ Group15.addChild(&Transform16);
 
 PositionInterpolator& PositionInterpolator29 =  PositionInterpolator();
 PositionInterpolator29.setDEF(std::string("NodePosition"));
-PositionInterpolator29.setKey(new float[]{0,1}, 2);
-PositionInterpolator29.setKeyValue(new float[]{0,0,0,0,5,0}, 6);
+PositionInterpolator29.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator29.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Group15.addChild(&PositionInterpolator29);
 
 Script& Script30 =  Script();
@@ -160,18 +157,18 @@ field34.setType(std::string("MFVec3f"));
 Script30.addChild(&field34);
 
 
-Script30.setSourceCode(std::string("ecmascript:")+
-_T("			function set_cycle(value) {")+
-_T("				old = translation;")+
-_T("				translation = new SFVec3f(Math.random()*100-50, Math.random()*100-50, Math.random()*100-50);")+
-_T("				keyValue = new MFVec3f(old, translation);")+
-_T("			}"));
+//Script30.setSourceCode(std::string("ecmascript:")+
+//_T("			function set_cycle(value) {")+
+//_T("				old = translation;")+
+//_T("				translation = new SFVec3f(Math.random()*100-50, Math.random()*100-50, Math.random()*100-50);")+
+//_T("				keyValue = new MFVec3f(old, translation);")+
+//_T("			}"));
 Group15.addChild(&Script30);
 
 TimeSensor& TimeSensor35 =  TimeSensor();
 TimeSensor35.setDEF(std::string("nodeClock"));
 TimeSensor35.setCycleInterval(3);
-TimeSensor35.setLoop(True);
+TimeSensor35.setLoop(true);
 Group15.addChild(&TimeSensor35);
 
 ROUTE& ROUTE36 =  ROUTE();
@@ -233,13 +230,13 @@ Shape& Shape46 =  Shape();
 Extrusion& Extrusion47 =  Extrusion();
 Extrusion47.setDEF(std::string("extrusion"));
 Extrusion47.setCreaseAngle(0.785);
-Extrusion47.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion47.setSpine(new float[]{0,-50,0,0,0,0,0,50,0}, 9);
+Extrusion47.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion47.setSpine(new float[]{0.0,-50.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0}, 9);
 Shape46.setGeometry(&Extrusion47);
 
 Appearance& Appearance48 =  Appearance();
 Material& Material49 =  Material();
-Material49.setDiffuseColor(new float[]{0,1,0});
+Material49.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance48.addChild(&Material49);
 
 Shape46.addChild(&Appearance48);
@@ -283,13 +280,13 @@ IS54.addChild(&connect56);
 Script50.addChild(&IS54);
 
 
-Script50.setSourceCode(std::string("ecmascript:")+
-_T("			function set_endA(value) {")+
-_T("				spine = new MFVec3f(value, spine[1]);")+
-_T("			}")+
-_T("			function set_endB(value) {")+
-_T("				spine = new MFVec3f(spine[0], value);")+
-_T("			}"));
+//Script50.setSourceCode(std::string("ecmascript:")+
+//_T("			function set_endA(value) {")+
+//_T("				spine = new MFVec3f(value, spine[1]);")+
+//_T("			}")+
+//_T("			function set_endB(value) {")+
+//_T("				spine = new MFVec3f(spine[0], value);")+
+//_T("			}"));
 Group45.addChild(&Script50);
 
 ROUTE& ROUTE57 =  ROUTE();
@@ -310,8 +307,8 @@ Transform58.setDEF(std::string("HoldsContent"));
 Transform58.setScale(new float[]{0.1,0.1,0.1});
 PlaneSensor& PlaneSensor59 =  PlaneSensor();
 PlaneSensor59.setDEF(std::string("clickGenerator"));
-PlaneSensor59.setMinPosition(new float[]{-50,-50});
-PlaneSensor59.setMaxPosition(new float[]{50,50});
+PlaneSensor59.setMinPosition(new float[]{-50.0,-50.0});
+PlaneSensor59.setMaxPosition(new float[]{50.0,50.0});
 PlaneSensor59.setDescription(std::string("click on background to add nodes, click on nodes to add links"));
 Transform58.addChild(&PlaneSensor59);
 
@@ -358,25 +355,28 @@ field67.setValue(std::string("false"));
 field67.setType(std::string("SFBool"));
 Script65.addChild(&field67);
 
-//<field accessType=\"outputOnly\" name=\"node_changed\" type=\"SFNode\"/> <field name=\"ModifiableNode\" type=\"SFNode\" accessType=\"inputOutput\"> <Transform USE=\"HoldsContent\"/> </field>
+//<field accessType=\"outputOnly\" name=\"node_changed\" type=\"SFNode\"/>
+//<field name=\"ModifiableNode\" type=\"SFNode\" accessType=\"inputOutput\">
+//<Transform USE=\"HoldsContent\"/>
+//</field>
 
-Script65.setSourceCode(std::string("ecmascript:")+
-_T("	function add_node(value) {")+
-_T("                // Browser.print('hey ', counter);")+
-_T("                counter = counter++;")+
-_T("		Browser.appendTo(Browser.getDocument().querySelector(\"field [name=ModifiableNode]\"),")+
-_T("			{ \"ProtoInstance\":")+
-_T("				{ \"@name\":\"node\",")+
-_T("				  \"@DEF\":\"node'+counter+'\",")+
-_T("				  \"fieldValue\": [")+
-_T("					{")+
-_T("						 \"@name\":\"position\",")+
-_T("						 \"@value\":[0.0,0.0,0.0]")+
-_T("					}")+
-_T("				  ]")+
-_T("				}")+
-_T("			});")+
-_T("        }"));
+//Script65.setSourceCode(std::string("ecmascript:")+
+//_T("	function add_node(value) {")+
+//_T("                // Browser.print('hey ', counter);")+
+//_T("                counter = counter++;")+
+//_T("		Browser.appendTo(Browser.getDocument().querySelector(\"field [name=ModifiableNode]\"),")+
+//_T("			{ \"ProtoInstance\":")+
+//_T("				{ \"@name\":\"node\",")+
+//_T("				  \"@DEF\":\"node'+counter+'\",")+
+//_T("				  \"fieldValue\": [")+
+//_T("					{")+
+//_T("						 \"@name\":\"position\",")+
+//_T("						 \"@value\":[0.0,0.0,0.0]")+
+//_T("					}")+
+//_T("				  ]")+
+//_T("				}")+
+//_T("			});")+
+//_T("        }"));
 Scene10.addChild(&Script65);
 
 ROUTE& ROUTE68 =  ROUTE();

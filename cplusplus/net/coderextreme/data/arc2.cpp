@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int arc2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -49,7 +46,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 Viewpoint& Viewpoint8 =  Viewpoint();
-Viewpoint8.setPosition(new float[]{0,0,5});
+Viewpoint8.setPosition(new float[]{0.0,0.0,5.0});
 Viewpoint8.setDescription(std::string("Only Viewpoint"));
 Scene7.addChild(&Viewpoint8);
 
@@ -68,7 +65,7 @@ Shape12.setGeometry(&Sphere13);
 
 Appearance& Appearance14 =  Appearance();
 Material& Material15 =  Material();
-Material15.setDiffuseColor(new float[]{1,0,0});
+Material15.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance14.addChild(&Material15);
 
 Shape12.addChild(&Appearance14);
@@ -77,8 +74,8 @@ Transform11.addChild(&Shape12);
 
 PositionInterpolator& PositionInterpolator16 =  PositionInterpolator();
 PositionInterpolator16.setDEF(std::string("DECLpoint_INSTANCE_PI1"));
-PositionInterpolator16.setKey(new float[]{0,1}, 2);
-PositionInterpolator16.setKeyValue(new float[]{0,0,0,0,5,0}, 6);
+PositionInterpolator16.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator16.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform11.addChild(&PositionInterpolator16);
 
 Script& Script17 =  Script();
@@ -111,18 +108,18 @@ field21.setValue(std::string("0 0 0 0 5 0"));
 Script17.addChild(&field21);
 
 
-Script17.setSourceCode(std::string("ecmascript:")+
-_T("               function set_location(value) {")+
-_T("                    old = translation;")+
-_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
-_T("                    keyValue = new MFVec3f([old, translation]);")+
-_T("               }"));
+//Script17.setSourceCode(std::string("ecmascript:")+
+//_T("               function set_location(value) {")+
+//_T("                    old = translation;")+
+//_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
+//_T("                    keyValue = new MFVec3f([old, translation]);")+
+//_T("               }"));
 Transform11.addChild(&Script17);
 
 TimeSensor& TimeSensor22 =  TimeSensor();
 TimeSensor22.setDEF(std::string("DECLpoint_INSTANCE_CL1"));
 TimeSensor22.setCycleInterval(3);
-TimeSensor22.setLoop(True);
+TimeSensor22.setLoop(true);
 Transform11.addChild(&TimeSensor22);
 
 ROUTE& ROUTE23 =  ROUTE();
@@ -175,7 +172,7 @@ Shape30.setGeometry(&Sphere31);
 
 Appearance& Appearance32 =  Appearance();
 Material& Material33 =  Material();
-Material33.setDiffuseColor(new float[]{1,0,0});
+Material33.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance32.addChild(&Material33);
 
 Shape30.addChild(&Appearance32);
@@ -184,8 +181,8 @@ Transform29.addChild(&Shape30);
 
 PositionInterpolator& PositionInterpolator34 =  PositionInterpolator();
 PositionInterpolator34.setDEF(std::string("DECLpoint_INSTANCE1000_PI1"));
-PositionInterpolator34.setKey(new float[]{0,1}, 2);
-PositionInterpolator34.setKeyValue(new float[]{0,0,0,0,5,0}, 6);
+PositionInterpolator34.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator34.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform29.addChild(&PositionInterpolator34);
 
 Script& Script35 =  Script();
@@ -218,18 +215,18 @@ field39.setValue(std::string("0 0 0 0 5 0"));
 Script35.addChild(&field39);
 
 
-Script35.setSourceCode(std::string("ecmascript:")+
-_T("               function set_location(value) {")+
-_T("                    old = translation;")+
-_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
-_T("                    keyValue = new MFVec3f([old, translation]);")+
-_T("               }"));
+//Script35.setSourceCode(std::string("ecmascript:")+
+//_T("               function set_location(value) {")+
+//_T("                    old = translation;")+
+//_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
+//_T("                    keyValue = new MFVec3f([old, translation]);")+
+//_T("               }"));
 Transform29.addChild(&Script35);
 
 TimeSensor& TimeSensor40 =  TimeSensor();
 TimeSensor40.setDEF(std::string("DECLpoint_INSTANCE1000_CL1"));
 TimeSensor40.setCycleInterval(3);
-TimeSensor40.setLoop(True);
+TimeSensor40.setLoop(true);
 Transform29.addChild(&TimeSensor40);
 
 ROUTE& ROUTE41 =  ROUTE();
@@ -349,45 +346,45 @@ field62.setType(std::string("SFVec3f"));
 Script52.addChild(&field62);
 
 
-Script52.setSourceCode(std::string("ecmascript:")+
-_T("        function recompute(startpoint,endpoint){")+
-_T("	    if (typeof endpoint === 'undefined') {")+
-_T("		return;")+
-_T("	    }")+
-_T("            var dif = endpoint.subtract(startpoint);")+
-_T("            var dist = dif.length()*0.5;")+
-_T("            var dif2 = dif.multiply(0.5);")+
-_T("            var norm = dif.normalize();")+
-_T("            var transl = startpoint.add(dif2);")+
-_T("	    if (typeof Quaternion !== 'undefined') {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
-_T("		    };")+
-_T("	    } else {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
-_T("		    };")+
-_T("	    }")+
-_T("	}")+
-_T("	function recompute_and_route(startpoint, endpoint) {")+
-_T("	      var trafo = recompute(startpoint, endpoint);")+
-_T("	      transC1.translation = trafo.translation;")+
-_T("	      rotscaleC1.rotation = trafo.rotation;")+
-_T("	      rotscaleC1.scale = trafo.scale;")+
-_T("	}")+
-_T("        function initialize(){")+
-_T("            recompute_and_route(startnode.translation,endnode.translation);")+
-_T("        }")+
-_T("        function set_startpoint(val,t){")+
-_T("            recompute_and_route(val,endnode.translation);")+
-_T("        }")+
-_T("        function set_endpoint(val,t){")+
-_T("            recompute_and_route(startnode.translation,val);")+
-_T("        }"));
+//Script52.setSourceCode(std::string("ecmascript:")+
+//_T("        function recompute(startpoint,endpoint){")+
+//_T("	    if (typeof endpoint === 'undefined') {")+
+//_T("		return;")+
+//_T("	    }")+
+//_T("            var dif = endpoint.subtract(startpoint);")+
+//_T("            var dist = dif.length()*0.5;")+
+//_T("            var dif2 = dif.multiply(0.5);")+
+//_T("            var norm = dif.normalize();")+
+//_T("            var transl = startpoint.add(dif2);")+
+//_T("	    if (typeof Quaternion !== 'undefined') {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
+//_T("		    };")+
+//_T("	    } else {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
+//_T("		    };")+
+//_T("	    }")+
+//_T("	}")+
+//_T("	function recompute_and_route(startpoint, endpoint) {")+
+//_T("	      var trafo = recompute(startpoint, endpoint);")+
+//_T("	      transC1.translation = trafo.translation;")+
+//_T("	      rotscaleC1.rotation = trafo.rotation;")+
+//_T("	      rotscaleC1.scale = trafo.scale;")+
+//_T("	}")+
+//_T("        function initialize(){")+
+//_T("            recompute_and_route(startnode.translation,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_startpoint(val,t){")+
+//_T("            recompute_and_route(val,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_endpoint(val,t){")+
+//_T("            recompute_and_route(startnode.translation,val);")+
+//_T("        }"));
 Scene7.addChild(&Script52);
 
 ROUTE& ROUTE63 =  ROUTE();

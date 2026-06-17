@@ -41,22 +41,19 @@ CppSerializer.prototype = {
 		str += "#define WINGDIAPI\n";
 		str += "#define APIENTRY\n";
 		str += "#endif\n";
-		str += "#define FALSE false\n";
-		str += "#define TRUE true\n";
 		str += "#define BOOL bool\n";
-		str += "#define False false\n";
-		str += "#define True true\n";
 		str += "#define XML_PARSER_H\n";
 		str += "//#include \"pch.h\"\n";
 		str += "//#include \"framework.h\"\n";
 		str += "//#include \"glut.h\"\n";
-		str += "//#include \"X3DLib.h\"\n";
-		let ls = clazz.lastIndexOf("/")
-		if (ls < 0) {
-			ls = clazz.lastIndexOf("\\")
-		}
-		ls += 1;
-		str += "int "+(clazz.substring(ls))+"(int argc, char ** argv) {\n";
+		str += "#include <string>\n";
+		str += "#include \"X3DLib.h\"\n";
+                let ls = clazz.lastIndexOf("/")
+                if (ls < 0) {
+                        ls = clazz.lastIndexOf("\\")
+                }
+                ls += 1;
+                str += "int "+(clazz.substring(ls))+"(int argc, char ** argv) {\n";
 		bodystr += element.nodeName+REF+" "+element.nodeName+stack[0]+" = "+NEW+" "+element.nodeName+"();\n";
 		bodystr += this.subSerializeToString(element, mapToMethod, fieldTypes, 3, stack);
 		bodystr += "}\n";
@@ -86,12 +83,19 @@ CppSerializer.prototype = {
 				*/
                         }
                 }
-                if (type === "boolean") {
+                if (type === "float" || type === 'double') {
                         for (var v in values) {
-				if (values[v] === 'true') {
-					values[v] = "True";
-				} else if (values[v] === 'false') {
-					values[v] = "False";
+				if (values[v].indexOf(".") < 0) {
+					values[v] += ".0";
+				}
+			}
+		}
+                if (type === "bool") {
+                        for (var v in values) {
+				if (values[v] === 'True') {
+					values[v] = "true";
+				} else if (values[v] === 'False') {
+					values[v] = "false";
 				}
 			}
 		}
@@ -113,7 +117,7 @@ CppSerializer.prototype = {
 		case "float":
 		case "int32_t":
 		case "double":
-		case "boolean":
+		case "bool":
 			shim = "new";
 			break;
 		}
@@ -138,16 +142,17 @@ CppSerializer.prototype = {
 				}
 				return str;
 			default:
-				str = values.length+", "+shim+" "+type+"["+""/*values.length*/+"]{"+values.join(', ')+"}";
-				this.code[co] = attrType+PTR+' '+attrType+co+' = '+NEW+' '+attrType+'();\n'
-				this.code[co] += attrType+co+OBJ+'setValue('+str+');\n';
-				this.codeno++;
-				return attrType+co;
+				str = values.length+", "+shim+" "+type+"["+""/*(values.length)*/+"]{"+values.join(', ')+"}";
+				return str;
+				// this.code[co] = attrType+PTR+' '+attrType+co+' = '+NEW+' '+attrType+'();\n'
+				// this.code[co] += attrType+co+OBJ+'setValue('+str+');\n';
+				// this.codeno++;
+				// return attrType+co;
 			}
 		} else if (attrType === "MFString") {
 			return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
 		} else {
-			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "boolean" ? ', '+values.length : '');
+			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "bool" ? ', '+values.length : '');
 		}
 	},
 
@@ -249,13 +254,7 @@ CppSerializer.prototype = {
 		} else if (attrType === "SFDouble") {
 			strval = nodeValue+DOUBLE_SUFFIX;
 		} else if (attrType === "SFBool") {
-			if (nodeValue === 'true') {
-				strval = "True";
-			} else if (nodeValue === 'false') {
-				strval = "False";
-			} else {
-				strval = nodeValue;
-			}
+			strval = nodeValue;
 		} else if (attrType === "SFTime") {
 			strval = nodeValue+DOUBLE_SUFFIX;
 		} else if (attrType === "MFTime") {
@@ -322,7 +321,7 @@ CppSerializer.prototype = {
 			attrType === "MFDouble") {
 			strval = this.printSubArray(attr, attrType, "double", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, DOUBLE_SUFFIX+',', '', DOUBLE_SUFFIX, element);
 		} else if (attrType === "MFBool") {
-			strval = this.printSubArray(attr, attrType, "boolean", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ',', '', '', element);
+			strval = this.printSubArray(attr, attrType, "bool", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ', ', '', '', element);
 		} else {
 			strval = '"'+nodeValue.replace(/\n/g, '\\\\n').replace(/\\?"/g, "\\\"")+'"';
 		}
@@ -755,14 +754,14 @@ CppSerializer.prototype = {
 					// console.error("Cpp Comment Replacing "+node.nodeValue+" with "+y);
 				}
 			} else if (element.childNodes.hasOwnProperty(cn) && node.nodeType === 4) {
-				str += "\n"+element.nodeName+stack[0];
+				str += "\n//"+element.nodeName+stack[0];
 				str += OBJ+'setSourceCode(std::string("'+node.nodeValue.split(/[\r\n]+/).map(function(x) {
 					return x.
 					        replace(/\\/g, '\\\\').
 						replace(/"/g, '\\"')
 						replace(/$/g, '\\')
 					;
-					}).join('")+\n_T("')+'"));\n';
+					}).join('")+\n//_T("')+'"));\n';
 			}
 	        		
 		}

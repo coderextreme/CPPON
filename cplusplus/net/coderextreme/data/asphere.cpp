@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int asphere(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
@@ -57,7 +54,7 @@ Group& Group9 =  Group();
 Shape& Shape10 =  Shape();
 Appearance& Appearance11 =  Appearance();
 Material& Material12 =  Material();
-Material12.setDiffuseColor(new float[]{1,1,1});
+Material12.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance11.addChild(&Material12);
 
 Shape10.addChild(&Appearance11);

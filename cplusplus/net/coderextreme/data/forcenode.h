@@ -383,7 +383,9 @@ field73.setValue(std::string("false"));
 field73.setType(std::string("SFBool"));
 Script70.addChild(&field73);
 
-//<field name=\"ModifiableNode\" type=\"SFNode\" accessType=\"inputOutput\"> <Transform USE=\"HoldsContent\"/> </field>
+//<field name=\"ModifiableNode\" type=\"SFNode\" accessType=\"inputOutput\">
+//<Transform USE=\"HoldsContent\"/>
+//</field>
 
 //Script70.setSourceCode(std::string("ecmascript:")+
 //_T("	function add_node(value) {")+

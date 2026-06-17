@@ -17,6 +17,7 @@ X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
 head& head1 =  head();
+//<component name='Shape' level='4'></component>
 component& component2 =  component();
 component2.setName(std::string("Scripting"));
 component2.setLevel(1);
@@ -57,7 +58,6 @@ component9.setName(std::string("Core"));
 component9.setLevel(1);
 head1.addChild(&component9);
 
-//<component name='Shape' level='4'></component>
 meta& meta10 =  meta();
 meta10.setName(std::string("title"));
 meta10.setContent(std::string("bumpyx_ite.x3d"));
@@ -242,7 +242,9 @@ ShaderPart46.setUrl((std::string[]){"../shaders/x_ite.fs", "https://coderextreme
 ShaderPart46.setType(std::string("FRAGMENT"));
 ComposedShader32.setParts(&ShaderPart46);
 
-//TO CONVERT TO A SPHERE <ShaderPart url='\"../shaders/x_ite.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs\"'></ShaderPart> <ShaderPart url='\"../shaders/x_itebubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itebubbles.fs\"' type='FRAGMENT'></ShaderPart>
+//TO CONVERT TO A SPHERE
+//<ShaderPart url='\"../shaders/x_ite.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs\"'></ShaderPart>
+//<ShaderPart url='\"../shaders/x_itebubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itebubbles.fs\"' type='FRAGMENT'></ShaderPart>
 Appearance23.addChild(&ComposedShader32);
 
 Shape21.addChild(&Appearance23);

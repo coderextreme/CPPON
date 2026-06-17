@@ -88,6 +88,12 @@ public interface CPPONGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCast(CPPONGrammarParser.CastContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CPPONGrammarParser#cpp_cast}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCpp_cast(CPPONGrammarParser.Cpp_castContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CPPONGrammarParser#parameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int BoxEm(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -54,7 +51,7 @@ Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
 Viewpoint9.setDescription(std::string("Cubes on Fire"));
-Viewpoint9.setPosition(new float[]{0,0,12});
+Viewpoint9.setPosition(new float[]{0.0,0.0,12.0});
 Scene7.addChild(&Viewpoint9);
 
 ProtoDeclare& ProtoDeclare10 =  ProtoDeclare();
@@ -77,7 +74,7 @@ Shape14.setGeometry(&Sphere15);
 
 Appearance& Appearance16 =  Appearance();
 Material& Material17 =  Material();
-Material17.setDiffuseColor(new float[]{1,1,1});
+Material17.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance16.addChild(&Material17);
 
 Shape14.addChild(&Appearance16);
@@ -129,7 +126,7 @@ Shape27.setGeometry(&Cylinder28);
 
 Appearance& Appearance29 =  Appearance();
 Material& Material30 =  Material();
-Material30.setDiffuseColor(new float[]{1,1,1});
+Material30.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance29.addChild(&Material30);
 
 Shape27.addChild(&Appearance29);
@@ -220,12 +217,12 @@ fieldValue49.setName(std::string("myShape"));
 Shape& Shape50 =  Shape();
 Shape50.setDEF(std::string("box"));
 Box& Box51 =  Box();
-Box51.setSize(new float[]{1,1,1});
+Box51.setSize(new float[]{1.0,1.0,1.0});
 Shape50.setGeometry(&Box51);
 
 Appearance& Appearance52 =  Appearance();
 Material& Material53 =  Material();
-Material53.setDiffuseColor(new float[]{0,1,0});
+Material53.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance52.addChild(&Material53);
 
 Shape50.addChild(&Appearance52);
@@ -237,7 +234,7 @@ ProtoInstance47.addChild(&fieldValue49);
 Scene7.addChild(&ProtoInstance47);
 
 Transform& Transform54 =  Transform();
-Transform54.setTranslation(new float[]{0,2,0});
+Transform54.setTranslation(new float[]{0.0,2.0,0.0});
 Shape& Shape55 =  Shape();
 Shape55.setUSE(std::string("box"));
 Transform54.addChild(&Shape55);

@@ -69,7 +69,7 @@ Transform9.addChild(&Shape10);
 
 Shape& Shape15 =  Shape();
 Text& Text16 =  Text();
-Text16.setString((std::string[]){"Node2", "\\\\", "\\\\\\\\", "Node2"}, 4);
+Text16.setString((std::string[]){"Node2", "\\\\\\\\\\\\Node2"}, 2);
 CFontStyle& FontStyle17 =  CFontStyle();
 Text16.setFontStyle(&FontStyle17);
 
@@ -85,7 +85,7 @@ Transform9.addChild(&Shape15);
 
 Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
-Text21.setString((std::string[]){"Node3 \\\\\\\\ \\\\ ", "Node3\"\"\""}, 2);
+Text21.setString((std::string[]){"Node3 \\\\\\\\ \\\\ Node3\"\"\""}, 1);
 CFontStyle& FontStyle22 =  CFontStyle();
 Text21.setFontStyle(&FontStyle22);
 

@@ -31,9 +31,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 import org.w3c.dom.Document;
 import org.web3d.x3d.jsail.X3DLoaderDOM;
 import org.web3d.x3d.jsail.Core.X3D;
+import org.web3d.x3d.jsail.ConfigurationProperties;
 
 public class ValidateCppWithX3dJsail {
 	public static void main(String [] args) throws Exception {
+		System.setProperty("javax.xml.accessExternalDTD", "file");
+		System.setProperty("javax.xml.accessExternalSchema", "file");
+		ConfigurationProperties.setIndentCharacter(' ');
+		ConfigurationProperties.setIndentIncrement(2);
 
 		for (int i = 0; i < args.length; i++) {
 			try {
@@ -41,6 +46,12 @@ public class ValidateCppWithX3dJsail {
             			CPPONGrammarDOMVisitor root = new CPPONGrammarDOMVisitor(args[i]);
 				Document document = root.getDocument();
 				X3D X3D0 = (X3D)xmlLoader.toX3dModelInstance(document);
+				int ls = args[i].lastIndexOf("/");
+				int ld = args[i].lastIndexOf(".");
+				if (ls < 0) {
+					ls = args[i].lastIndexOf("\\");
+				} 
+				X3D0.toFileJSON("../../../../output/"+args[i].substring(ls+1, ld)+".x3dj");
 				String validationResults = X3D0.validationReport();
 				if (!validationResults.isEmpty()) {
 					System.out.println("Validation report for "+args[i]);

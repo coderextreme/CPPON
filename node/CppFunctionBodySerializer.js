@@ -85,7 +85,7 @@ CppFunctionBodySerializer.prototype = {
 				}
 			}
 		}
-                if (type === "boolean") {
+                if (type === "bool") {
                         for (var v in values) {
 				if (values[v] === 'True') {
 					values[v] = "true";
@@ -112,7 +112,7 @@ CppFunctionBodySerializer.prototype = {
 		case "float":
 		case "int32_t":
 		case "double":
-		case "boolean":
+		case "bool":
 			shim = "new";
 			break;
 		}
@@ -138,15 +138,16 @@ CppFunctionBodySerializer.prototype = {
 				return str;
 			default:
 				str = values.length+", "+shim+" "+type+"["+""/*(values.length)*/+"]{"+values.join(', ')+"}";
-				this.code[co] = attrType+PTR+' '+attrType+co+' = '+NEW+' '+attrType+'();\n'
-				this.code[co] += attrType+co+OBJ+'setValue('+str+');\n';
-				this.codeno++;
-				return attrType+co;
+				return str;
+				// this.code[co] = attrType+PTR+' '+attrType+co+' = '+NEW+' '+attrType+'();\n'
+				// this.code[co] += attrType+co+OBJ+'setValue('+str+');\n';
+				// this.codeno++;
+				// return attrType+co;
 			}
 		} else if (attrType === "MFString") {
 			return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
 		} else {
-			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "boolean" ? ', '+values.length : '');
+			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "bool" ? ', '+values.length : '');
 		}
 	},
 
@@ -315,7 +316,7 @@ CppFunctionBodySerializer.prototype = {
 			attrType === "MFDouble") {
 			strval = this.printSubArray(attr, attrType, "double", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, DOUBLE_SUFFIX+',', '', DOUBLE_SUFFIX, element);
 		} else if (attrType === "MFBool") {
-			strval = this.printSubArray(attr, attrType, "boolean", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ',', '', '', element);
+			strval = this.printSubArray(attr, attrType, "bool", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ', ', '', '', element);
 		} else {
 			strval = '"'+nodeValue.replace(/\n/g, '\\\\n').replace(/\\?"/g, "\\\"")+'"';
 		}

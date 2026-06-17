@@ -17,6 +17,7 @@ X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
 head& head1 =  head();
+//<component name='Shape' level='4'></component>
 component& component2 =  component();
 component2.setName(std::string("Scripting"));
 component2.setLevel(1);
@@ -57,7 +58,6 @@ component9.setName(std::string("Core"));
 component9.setLevel(1);
 head1.addChild(&component9);
 
-//<component name='Shape' level='4'></component>
 meta& meta10 =  meta();
 meta10.setName(std::string("title"));
 meta10.setContent(std::string("mirror.x3d"));

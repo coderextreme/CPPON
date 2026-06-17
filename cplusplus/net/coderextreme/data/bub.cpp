@@ -5,21 +5,19 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int bub(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
 head& head1 =  head();
+//<component name='Shape' level='4'></component>
 component& component2 =  component();
 component2.setName(std::string("Scripting"));
 component2.setLevel(1);
@@ -60,7 +58,6 @@ component9.setName(std::string("Core"));
 component9.setLevel(1);
 head1.addChild(&component9);
 
-//<component name='Shape' level='4'></component>
 meta& meta10 =  meta();
 meta10.setName(std::string("title"));
 meta10.setContent(std::string("bub.x3d"));
@@ -102,7 +99,7 @@ Background17.setTopUrl((std::string[]){"../resources/images/all_probes/stpeters_
 Scene15.addChild(&Background17);
 
 Viewpoint& Viewpoint18 =  Viewpoint();
-Viewpoint18.setPosition(new float[]{0,0,20});
+Viewpoint18.setPosition(new float[]{0.0,0.0,20.0});
 Viewpoint18.setDescription(std::string("Look at the bubbles flying"));
 Scene15.addChild(&Viewpoint18);
 
@@ -147,8 +144,33 @@ ComposedCubeMapTexture25.setTop(ImageTexture31);
 
 Appearance23.addChild(&ComposedCubeMapTexture25);
 
-//<ComposedShader DEF='gl' language=\"GLSL\"> <field name='cube' type='SFInt32' accessType=\"inputOutput\" value='0'/> <field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/> <field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/> <ShaderPart url='\"../shaders/gl.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/gl.vs\"'></ShaderPart> <ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart> </ComposedShader> <ComposedShader DEF='freewrl' language=\"GLSL\"> <field name='fw_textureCoodGenType' type='SFInt32' accessType=\"inputOutput\" value='0'/> <field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/> <field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/> <ShaderPart url='\"../shaders/freewrl.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl.vs\"'></ShaderPart> <ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart> </ComposedShader>
-//<ComposedShader DEF='instant' language=\"GLSL\"> <field name='cube' type='SFInt32' accessType=\"inputOutput\" value='0'/> <field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/> <field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/> <field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/> <ShaderPart url='\"../shaders/instant.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/instant.vs\"'></ShaderPart> <ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart> </ComposedShader>
+//<ComposedShader DEF='gl' language=\"GLSL\">
+//<field name='cube' type='SFInt32' accessType=\"inputOutput\" value='0'/>
+//<field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/>
+//<field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/>
+//<ShaderPart url='\"../shaders/gl.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/gl.vs\"'></ShaderPart>
+//<ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart>
+//</ComposedShader>
+//<ComposedShader DEF='freewrl' language=\"GLSL\">
+//<field name='fw_textureCoodGenType' type='SFInt32' accessType=\"inputOutput\" value='0'/>
+//<field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/>
+//<field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/>
+//<ShaderPart url='\"../shaders/freewrl.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl.vs\"'></ShaderPart>
+//<ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart>
+//</ComposedShader>
+//<ComposedShader DEF='instant' language=\"GLSL\">
+//<field name='cube' type='SFInt32' accessType=\"inputOutput\" value='0'/>
+//<field name='chromaticDispertion' type='SFVec3f' accessType=\"inputOutput\" value='0.98 1.0 1.033'/>
+//<field name='bias' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='scale' type='SFFloat' accessType=\"inputOutput\" value='0.5'/>
+//<field name='power' type='SFFloat' accessType=\"inputOutput\" value='2.0'/>
+//<ShaderPart url='\"../shaders/instant.vs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/instant.vs\"'></ShaderPart>
+//<ShaderPart url='\"../shaders/pc_bubbles.fs\" \"https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs\"' type='FRAGMENT'></ShaderPart>
+//</ComposedShader>
 ComposedShader& ComposedShader32 =  ComposedShader();
 ComposedShader32.setDEF(std::string("x3dom"));
 ComposedShader32.setLanguage(std::string("GLSL"));
@@ -284,37 +306,37 @@ field53.setType(std::string("SFTime"));
 Script50.addChild(&field53);
 
 
-Script50.setSourceCode(std::string("ecmascript:")+
-_T("			function initialize() {")+
-_T("			    translation = new SFVec3f(0, 0, 0);")+
-_T("			    velocity = new SFVec3f(")+
-_T("			    	Math.random() - 0.5,")+
-_T("				Math.random() - 0.5,")+
-_T("				Math.random() - 0.5);")+
-_T("			}")+
-_T("			function set_fraction() {")+
-_T("			    translation = new SFVec3f(")+
-_T("			    	translation.x + velocity.x,")+
-_T("				translation.y + velocity.y,")+
-_T("				translation.z + velocity.z);")+
-_T("			    if (Math.abs(translation.x) > 10) {")+
-_T("				initialize();")+
-_T("			    } else if (Math.abs(translation.y) > 10) {")+
-_T("				initialize();")+
-_T("			    } else if (Math.abs(translation.z) > 10) {")+
-_T("				initialize();")+
-_T("			    } else {")+
-_T("				velocity.x += Math.random() * 0.2 - 0.1;")+
-_T("				velocity.y += Math.random() * 0.2 - 0.1;")+
-_T("				velocity.z += Math.random() * 0.2 - 0.1;")+
-_T("			    }")+
-_T("			}"));
+//Script50.setSourceCode(std::string("ecmascript:")+
+//_T("			function initialize() {")+
+//_T("			    translation = new SFVec3f(0, 0, 0);")+
+//_T("			    velocity = new SFVec3f(")+
+//_T("			    	Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5);")+
+//_T("			}")+
+//_T("			function set_fraction() {")+
+//_T("			    translation = new SFVec3f(")+
+//_T("			    	translation.x + velocity.x,")+
+//_T("				translation.y + velocity.y,")+
+//_T("				translation.z + velocity.z);")+
+//_T("			    if (Math.abs(translation.x) > 10) {")+
+//_T("				initialize();")+
+//_T("			    } else if (Math.abs(translation.y) > 10) {")+
+//_T("				initialize();")+
+//_T("			    } else if (Math.abs(translation.z) > 10) {")+
+//_T("				initialize();")+
+//_T("			    } else {")+
+//_T("				velocity.x += Math.random() * 0.2 - 0.1;")+
+//_T("				velocity.y += Math.random() * 0.2 - 0.1;")+
+//_T("				velocity.z += Math.random() * 0.2 - 0.1;")+
+//_T("			    }")+
+//_T("			}"));
 ProtoBody20.addChild(&Script50);
 
 TimeSensor& TimeSensor54 =  TimeSensor();
 TimeSensor54.setDEF(std::string("TourTime"));
 TimeSensor54.setCycleInterval(0.15);
-TimeSensor54.setLoop(True);
+TimeSensor54.setLoop(true);
 ProtoBody20.addChild(&TimeSensor54);
 
 ROUTE& ROUTE55 =  ROUTE();

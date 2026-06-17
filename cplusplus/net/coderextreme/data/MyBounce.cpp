@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int MyBounce(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -106,42 +103,42 @@ field19.setType(std::string("SFTime"));
 Script14.addChild(&field19);
 
 
-Script14.setSourceCode(std::string("ecmascript:")+
-_T("			function newBubble() {")+
-_T("			    translation = new SFVec3f(0, 0, 0);")+
-_T("			    velocity = new SFVec3f(")+
-_T("			    	Math.random() - 0.5,")+
-_T("				Math.random() - 0.5,")+
-_T("				Math.random() - 0.5);")+
-_T("			}")+
-_T("			function set_fraction() {")+
-_T("			    translation = new SFVec3f(")+
-_T("			    	translation.x + velocity.x,")+
-_T("				translation.y + velocity.y,")+
-_T("				translation.z + velocity.z);")+
-_T("				if (Math.abs(translation.x) > 10) {")+
-_T("					newBubble();")+
-_T("				} else if (Math.abs(translation.y) > 10) {")+
-_T("					newBubble();")+
-_T("				} else if (Math.abs(translation.z) > 10) {")+
-_T("					newBubble();")+
-_T("				} else {")+
-_T("					velocity = new SFVec3f(")+
-_T("						velocity.x + Math.random() * 0.2 - 0.1,")+
-_T("						velocity.y + Math.random() * 0.2 - 0.1,")+
-_T("						velocity.z + Math.random() * 0.2 - 0.1")+
-_T("					);")+
-_T("				}")+
-_T("			}")+
-_T("			function initialize() {")+
-_T("			     newBubble();")+
-_T("			}"));
+//Script14.setSourceCode(std::string("ecmascript:")+
+//_T("			function newBubble() {")+
+//_T("			    translation = new SFVec3f(0, 0, 0);")+
+//_T("			    velocity = new SFVec3f(")+
+//_T("			    	Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5,")+
+//_T("				Math.random() - 0.5);")+
+//_T("			}")+
+//_T("			function set_fraction() {")+
+//_T("			    translation = new SFVec3f(")+
+//_T("			    	translation.x + velocity.x,")+
+//_T("				translation.y + velocity.y,")+
+//_T("				translation.z + velocity.z);")+
+//_T("				if (Math.abs(translation.x) > 10) {")+
+//_T("					newBubble();")+
+//_T("				} else if (Math.abs(translation.y) > 10) {")+
+//_T("					newBubble();")+
+//_T("				} else if (Math.abs(translation.z) > 10) {")+
+//_T("					newBubble();")+
+//_T("				} else {")+
+//_T("					velocity = new SFVec3f(")+
+//_T("						velocity.x + Math.random() * 0.2 - 0.1,")+
+//_T("						velocity.y + Math.random() * 0.2 - 0.1,")+
+//_T("						velocity.z + Math.random() * 0.2 - 0.1")+
+//_T("					);")+
+//_T("				}")+
+//_T("			}")+
+//_T("			function initialize() {")+
+//_T("			     newBubble();")+
+//_T("			}"));
 Scene7.addChild(&Script14);
 
 TimeSensor& TimeSensor20 =  TimeSensor();
 TimeSensor20.setDEF(std::string("TourTime"));
 TimeSensor20.setCycleInterval(0.15);
-TimeSensor20.setLoop(True);
+TimeSensor20.setLoop(true);
 Scene7.addChild(&TimeSensor20);
 
 ROUTE& ROUTE21 =  ROUTE();

@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int pp3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -73,7 +70,7 @@ Transform14.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape15 =  Shape();
 Appearance& Appearance16 =  Appearance();
 Material& Material17 =  Material();
-Material17.setDiffuseColor(new float[]{0.7,1,0});
+Material17.setDiffuseColor(new float[]{0.7,1.0,0.0});
 Material17.setTransparency(0.5);
 Appearance16.addChild(&Material17);
 
@@ -81,8 +78,8 @@ Shape15.addChild(&Appearance16);
 
 Extrusion& Extrusion18 =  Extrusion();
 Extrusion18.setCreaseAngle(0.785);
-Extrusion18.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion18.setSpine(new float[]{-2.5,0,0,-2,0,0,-1.5,0,0}, 9);
+Extrusion18.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion18.setSpine(new float[]{-2.5,0.0,0.0,-2.0,0.0,0.0,-1.5,0.0,0.0}, 9);
 Shape15.setGeometry(&Extrusion18);
 
 Transform14.addChild(&Shape15);
@@ -96,7 +93,7 @@ Transform19.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
 Material& Material22 =  Material();
-Material22.setDiffuseColor(new float[]{0,0.7,1});
+Material22.setDiffuseColor(new float[]{0.0,0.7,1.0});
 Material22.setTransparency(0.5);
 Appearance21.addChild(&Material22);
 
@@ -104,19 +101,19 @@ Shape20.addChild(&Appearance21);
 
 Extrusion& Extrusion23 =  Extrusion();
 Extrusion23.setCreaseAngle(0.785);
-Extrusion23.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion23.setSpine(new float[]{1.5,0,0,2,0,0,2.5,0,0}, 9);
+Extrusion23.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion23.setSpine(new float[]{1.5,0.0,0.0,2.0,0.0,0.0,2.5,0.0,0.0}, 9);
 Shape20.setGeometry(&Extrusion23);
 
 Transform19.addChild(&Shape20);
 
 Transform& Transform24 =  Transform();
-Transform24.setTranslation(new float[]{2,0,0});
+Transform24.setTranslation(new float[]{2.0,0.0,0.0});
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
 Material& Material27 =  Material();
 Material27.setDEF(std::string("MaterialLightBlue"));
-Material27.setDiffuseColor(new float[]{1,1,1});
+Material27.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance26.addChild(&Material27);
 
 Shape25.addChild(&Appearance26);
@@ -132,7 +129,7 @@ Transform19.addChild(&Transform24);
 
 StringSensor& StringSensor29 =  StringSensor();
 StringSensor29.setDEF(std::string("RightSensor"));
-StringSensor29.setEnabled(False);
+StringSensor29.setEnabled(false);
 Transform19.addChild(&StringSensor29);
 
 TouchSensor& TouchSensor30 =  TouchSensor();
@@ -148,7 +145,7 @@ Transform31.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
 Material& Material34 =  Material();
-Material34.setDiffuseColor(new float[]{0,0.7,1});
+Material34.setDiffuseColor(new float[]{0.0,0.7,1.0});
 Material34.setTransparency(0.5);
 Appearance33.addChild(&Material34);
 
@@ -156,14 +153,14 @@ Shape32.addChild(&Appearance33);
 
 Extrusion& Extrusion35 =  Extrusion();
 Extrusion35.setCreaseAngle(0.785);
-Extrusion35.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion35.setSpine(new float[]{0,1.5,0,0,2,0,0,2.5,0}, 9);
+Extrusion35.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion35.setSpine(new float[]{0.0,1.5,0.0,0.0,2.0,0.0,0.0,2.5,0.0}, 9);
 Shape32.setGeometry(&Extrusion35);
 
 Transform31.addChild(&Shape32);
 
 Transform& Transform36 =  Transform();
-Transform36.setTranslation(new float[]{-0.5,2,0});
+Transform36.setTranslation(new float[]{-0.5,2.0,0.0});
 Shape& Shape37 =  Shape();
 Appearance& Appearance38 =  Appearance();
 Material& Material39 =  Material();
@@ -183,7 +180,7 @@ Transform31.addChild(&Transform36);
 
 StringSensor& StringSensor41 =  StringSensor();
 StringSensor41.setDEF(std::string("UpSensor"));
-StringSensor41.setEnabled(False);
+StringSensor41.setEnabled(false);
 Transform31.addChild(&StringSensor41);
 
 TouchSensor& TouchSensor42 =  TouchSensor();
@@ -199,7 +196,7 @@ Transform43.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
 Material& Material46 =  Material();
-Material46.setDiffuseColor(new float[]{0.7,1,0});
+Material46.setDiffuseColor(new float[]{0.7,1.0,0.0});
 Material46.setTransparency(0.5);
 Appearance45.addChild(&Material46);
 
@@ -207,8 +204,8 @@ Shape44.addChild(&Appearance45);
 
 Extrusion& Extrusion47 =  Extrusion();
 Extrusion47.setCreaseAngle(0.785);
-Extrusion47.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion47.setSpine(new float[]{0,-2.5,0,0,-2,0,0,-1.5,0}, 9);
+Extrusion47.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion47.setSpine(new float[]{0.0,-2.5,0.0,0.0,-2.0,0.0,0.0,-1.5,0.0}, 9);
 Shape44.setGeometry(&Extrusion47);
 
 Transform43.addChild(&Shape44);
@@ -221,7 +218,7 @@ Transform& Transform48 =  Transform();
 Shape& Shape49 =  Shape();
 Appearance& Appearance50 =  Appearance();
 Material& Material51 =  Material();
-Material51.setDiffuseColor(new float[]{1,0,0.7});
+Material51.setDiffuseColor(new float[]{1.0,0.0,0.7});
 Appearance50.addChild(&Material51);
 
 Shape49.addChild(&Appearance50);
@@ -233,7 +230,7 @@ Transform48.addChild(&Shape49);
 
 Transform& Transform53 =  Transform();
 Transform53.setScale(new float[]{0.5,0.5,0.5});
-Transform53.setTranslation(new float[]{-0.5,0,1});
+Transform53.setTranslation(new float[]{-0.5,0.0,1.0});
 Shape& Shape54 =  Shape();
 Appearance& Appearance55 =  Appearance();
 Material& Material56 =  Material();
@@ -252,7 +249,7 @@ Transform48.addChild(&Transform53);
 
 StringSensor& StringSensor58 =  StringSensor();
 StringSensor58.setDEF(std::string("CenterSensor"));
-StringSensor58.setEnabled(False);
+StringSensor58.setEnabled(false);
 Transform48.addChild(&StringSensor58);
 
 TouchSensor& TouchSensor59 =  TouchSensor();
@@ -279,13 +276,13 @@ field62.setType(std::string("MFString"));
 Script60.addChild(&field62);
 
 
-Script60.setSourceCode(std::string("ecmascript:")+
-_T("function initialize() {")+
-_T("	rightlines = new MFString(\"\");")+
-_T("}")+
-_T("function set_rightstring(rightstr) {")+
-_T("	rightlines = new MFString(rightstr);")+
-_T("}"));
+//Script60.setSourceCode(std::string("ecmascript:")+
+//_T("function initialize() {")+
+//_T("	rightlines = new MFString(\"\");")+
+//_T("}")+
+//_T("function set_rightstring(rightstr) {")+
+//_T("	rightlines = new MFString(rightstr);")+
+//_T("}"));
 ProtoBody12.addChild(&Script60);
 
 Script& Script63 =  Script();
@@ -303,13 +300,13 @@ field65.setType(std::string("MFString"));
 Script63.addChild(&field65);
 
 
-Script63.setSourceCode(std::string("ecmascript:")+
-_T("function initialize() {")+
-_T("	uplines = new MFString(\"\");")+
-_T("}")+
-_T("function set_upstring(upstr) {")+
-_T("	uplines = new MFString(upstr);")+
-_T("}"));
+//Script63.setSourceCode(std::string("ecmascript:")+
+//_T("function initialize() {")+
+//_T("	uplines = new MFString(\"\");")+
+//_T("}")+
+//_T("function set_upstring(upstr) {")+
+//_T("	uplines = new MFString(upstr);")+
+//_T("}"));
 ProtoBody12.addChild(&Script63);
 
 Script& Script66 =  Script();
@@ -327,13 +324,13 @@ field68.setType(std::string("MFString"));
 Script66.addChild(&field68);
 
 
-Script66.setSourceCode(std::string("ecmascript:")+
-_T("function initialize() {")+
-_T("	centerlines = new MFString(\"\");")+
-_T("}")+
-_T("function set_centerstring(centerstr) {")+
-_T("	centerlines = new MFString(centerstr);")+
-_T("}"));
+//Script66.setSourceCode(std::string("ecmascript:")+
+//_T("function initialize() {")+
+//_T("	centerlines = new MFString(\"\");")+
+//_T("}")+
+//_T("function set_centerstring(centerstr) {")+
+//_T("	centerlines = new MFString(centerstr);")+
+//_T("}"));
 ProtoBody12.addChild(&Script66);
 
 ROUTE& ROUTE69 =  ROUTE();
@@ -408,12 +405,12 @@ Scene10.addChild(&NavigationInfo78);
 
 Viewpoint& Viewpoint79 =  Viewpoint();
 Viewpoint79.setDescription(std::string("Process pipes"));
-Viewpoint79.setOrientation(new float[]{1,0,0,-0.4});
-Viewpoint79.setPosition(new float[]{0,5,12});
+Viewpoint79.setOrientation(new float[]{1.0,0.0,0.0,-0.4});
+Viewpoint79.setPosition(new float[]{0.0,5.0,12.0});
 Scene10.addChild(&Viewpoint79);
 
 Transform& Transform80 =  Transform();
-Transform80.setTranslation(new float[]{0,-2.5,0});
+Transform80.setTranslation(new float[]{0.0,-2.5,0.0});
 ProtoInstance& ProtoInstance81 =  ProtoInstance();
 ProtoInstance81.setName(std::string("Process"));
 Transform80.addChild(&ProtoInstance81);
@@ -428,7 +425,7 @@ Transform82.addChild(&ProtoInstance83);
 Scene10.addChild(&Transform82);
 
 Transform& Transform84 =  Transform();
-Transform84.setTranslation(new float[]{0,2.5,0});
+Transform84.setTranslation(new float[]{0.0,2.5,0.0});
 ProtoInstance& ProtoInstance85 =  ProtoInstance();
 ProtoInstance85.setName(std::string("Process"));
 Transform84.addChild(&ProtoInstance85);

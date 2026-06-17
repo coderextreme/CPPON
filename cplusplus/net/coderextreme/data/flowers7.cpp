@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int flowers7(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -108,7 +105,7 @@ Background18.setTopUrl((std::string[]){"../resources/images/all_probes/beach_cro
 Scene16.addChild(&Background18);
 
 Viewpoint& Viewpoint19 =  Viewpoint();
-Viewpoint19.setPosition(new float[]{0,0,40});
+Viewpoint19.setPosition(new float[]{0.0,0.0,40.0});
 Viewpoint19.setDescription(std::string("Transparent rose"));
 Scene16.addChild(&Viewpoint19);
 
@@ -157,7 +154,8 @@ Appearance22.addChild(&ComposedCubeMapTexture24);
 ComposedShader& ComposedShader31 =  ComposedShader();
 ComposedShader31.setDEF(std::string("x3dom"));
 ComposedShader31.setLanguage(std::string("GLSL"));
-//TODO VERIFY <field name='cube' type='SFInt32' accessType='inputOutput' value='0'></field>
+//TODO VERIFY
+//<field name='cube' type='SFInt32' accessType='inputOutput' value='0'></field>
 field& field32 =  field();
 field32.setName(std::string("cube"));
 field32.setType(std::string("SFNode"));
@@ -356,7 +354,7 @@ Scene16.addChild(&Transform20);
 
 Script& Script62 =  Script();
 Script62.setDEF(std::string("UrlSelector"));
-Script62.setDirectOutput(True);
+Script62.setDirectOutput(true);
 field& field63 =  field();
 field63.setName(std::string("frontUrls"));
 field63.setType(std::string("MFString"));
@@ -449,28 +447,41 @@ field76.setValue(std::string("-1"));
 Script62.addChild(&field76);
 
 
-Script62.setSourceCode(std::string("ecmascript:")+
-_T("        function set_fraction( f, tm ) {")+
-_T("            var side = Math.floor(f*frontUrls.length);")+
-_T("            if (side > frontUrls.length-1) {")+
-_T("                side = 0;")+
-_T("            }")+
-_T("            if (side != old) {")+
-_T("                    old = side;")+
-_T("                    front[0] = frontUrls[side];")+
-_T("                    back[0] = backUrls[side];")+
-_T("                    left[0] = leftUrls[side];")+
-_T("                    right[0] = rightUrls[side];")+
-_T("                    top[0] = topUrls[side];")+
-_T("                    bottom[0] = bottomUrls[side];")+
-_T("            }")+
-_T("        }"));
+//Script62.setSourceCode(std::string("ecmascript:")+
+//_T("        function set_fraction( f, tm ) {")+
+//_T("            var side = Math.floor(f*frontUrls.length);")+
+//_T("            if (side > frontUrls.length-1) {")+
+//_T("                side = 0;")+
+//_T("            }")+
+//_T("            if (side != old) {")+
+//_T("                    old = side;")+
+//_T("                    front[0] = frontUrls[side];")+
+//_T("                    back[0] = backUrls[side];")+
+//_T("                    left[0] = leftUrls[side];")+
+//_T("                    right[0] = rightUrls[side];")+
+//_T("                    top[0] = topUrls[side];")+
+//_T("                    bottom[0] = bottomUrls[side];")+
+//_T("            }")+
+//_T("        }"));
 Scene16.addChild(&Script62);
 
-//<TimeSensor DEF=\"Clock\" cycleInterval=\"45\" loop='true'/> <ROUTE fromNode='Clock' fromField='fraction_changed' toNode='UrlSelector' toField='set_fraction'/> <ROUTE fromNode='UrlSelector' fromField='front' toNode='background' toField='frontUrl'/> <ROUTE fromNode='UrlSelector' fromField='back' toNode='background' toField='backUrl'/> <ROUTE fromNode='UrlSelector' fromField='left' toNode='background' toField='leftUrl'/> <ROUTE fromNode='UrlSelector' fromField='right' toNode='background' toField='rightUrl'/> <ROUTE fromNode='UrlSelector' fromField='top' toNode='background' toField='topUrl'/> <ROUTE fromNode='UrlSelector' fromField='bottom' toNode='background' toField='bottomUrl'/> <ROUTE fromNode='UrlSelector' fromField='front' toNode='frontShader' toField='url'/> <ROUTE fromNode='UrlSelector' fromField='back' toNode='backShader' toField='url'/> <ROUTE fromNode='UrlSelector' fromField='left' toNode='leftShader' toField='url'/> <ROUTE fromNode='UrlSelector' fromField='right' toNode='rightShader' toField='url'/> <ROUTE fromNode='UrlSelector' fromField='top' toNode='topShader' toField='url'/> <ROUTE fromNode='UrlSelector' fromField='bottom' toNode='bottomShader' toField='url'/>
+//<TimeSensor DEF=\"Clock\" cycleInterval=\"45\" loop='true'/>
+//<ROUTE fromNode='Clock' fromField='fraction_changed' toNode='UrlSelector' toField='set_fraction'/>
+//<ROUTE fromNode='UrlSelector' fromField='front' toNode='background' toField='frontUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='back' toNode='background' toField='backUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='left' toNode='background' toField='leftUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='right' toNode='background' toField='rightUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='top' toNode='background' toField='topUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='bottom' toNode='background' toField='bottomUrl'/>
+//<ROUTE fromNode='UrlSelector' fromField='front' toNode='frontShader' toField='url'/>
+//<ROUTE fromNode='UrlSelector' fromField='back' toNode='backShader' toField='url'/>
+//<ROUTE fromNode='UrlSelector' fromField='left' toNode='leftShader' toField='url'/>
+//<ROUTE fromNode='UrlSelector' fromField='right' toNode='rightShader' toField='url'/>
+//<ROUTE fromNode='UrlSelector' fromField='top' toNode='topShader' toField='url'/>
+//<ROUTE fromNode='UrlSelector' fromField='bottom' toNode='bottomShader' toField='url'/>
 Script& Script77 =  Script();
 Script77.setDEF(std::string("Animate"));
-Script77.setDirectOutput(True);
+Script77.setDirectOutput(true);
 field& field78 =  field();
 field78.setName(std::string("set_fraction"));
 field78.setType(std::string("SFFloat"));
@@ -520,50 +531,50 @@ field84.setValue(std::string("0"));
 Script77.addChild(&field84);
 
 
-Script77.setSourceCode(std::string("ecmascript:")+
-_T("function set_fraction() {")+
-_T("	var choice = Math.floor(Math.random() * 4);")+
-_T("	switch (choice) {")+
-_T("	case 0:")+
-_T("		a = a + Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("		break;")+
-_T("	case 1:")+
-_T("		b = b + Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("		break;")+
-_T("	case 2:")+
-_T("		c = c + Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("		break;")+
-_T("	case 3:")+
-_T("		d = d + Math.floor(Math.random() * 2) * 2 - 1;")+
-_T("		break;")+
-_T("	}")+
-_T("	tdelta = tdelta + 0.5;")+
-_T("	pdelta = pdelta + 0.5;")+
-_T("	if (a < 1) {")+
-_T("		a = 10;")+
-_T("	}")+
-_T("	if (b < 1) {")+
-_T("		b = 10;")+
-_T("	}")+
-_T("	if (c < 1) {")+
-_T("		c = 4;")+
-_T("	}")+
-_T("	if (c > 20) {")+
-_T("		c = 4;")+
-_T("	}")+
-_T("	if (d < 1) {")+
-_T("		d = 4;")+
-_T("	}")+
-_T("	if (d > 20) {")+
-_T("		d = 4;")+
-_T("	}")+
-_T("}"));
+//Script77.setSourceCode(std::string("ecmascript:")+
+//_T("function set_fraction() {")+
+//_T("	var choice = Math.floor(Math.random() * 4);")+
+//_T("	switch (choice) {")+
+//_T("	case 0:")+
+//_T("		a = a + Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("		break;")+
+//_T("	case 1:")+
+//_T("		b = b + Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("		break;")+
+//_T("	case 2:")+
+//_T("		c = c + Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("		break;")+
+//_T("	case 3:")+
+//_T("		d = d + Math.floor(Math.random() * 2) * 2 - 1;")+
+//_T("		break;")+
+//_T("	}")+
+//_T("	tdelta = tdelta + 0.5;")+
+//_T("	pdelta = pdelta + 0.5;")+
+//_T("	if (a < 1) {")+
+//_T("		a = 10;")+
+//_T("	}")+
+//_T("	if (b < 1) {")+
+//_T("		b = 10;")+
+//_T("	}")+
+//_T("	if (c < 1) {")+
+//_T("		c = 4;")+
+//_T("	}")+
+//_T("	if (c > 20) {")+
+//_T("		c = 4;")+
+//_T("	}")+
+//_T("	if (d < 1) {")+
+//_T("		d = 4;")+
+//_T("	}")+
+//_T("	if (d > 20) {")+
+//_T("		d = 4;")+
+//_T("	}")+
+//_T("}"));
 Scene16.addChild(&Script77);
 
 TimeSensor& TimeSensor85 =  TimeSensor();
 TimeSensor85.setDEF(std::string("TourTime"));
 TimeSensor85.setCycleInterval(5);
-TimeSensor85.setLoop(True);
+TimeSensor85.setLoop(true);
 Scene16.addChild(&TimeSensor85);
 
 ROUTE& ROUTE86 =  ROUTE();

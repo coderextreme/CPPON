@@ -137,6 +137,16 @@ public interface CPPONGrammarListener extends ParseTreeListener {
 	 */
 	void exitCast(CPPONGrammarParser.CastContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CPPONGrammarParser#cpp_cast}.
+	 * @param ctx the parse tree
+	 */
+	void enterCpp_cast(CPPONGrammarParser.Cpp_castContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CPPONGrammarParser#cpp_cast}.
+	 * @param ctx the parse tree
+	 */
+	void exitCpp_cast(CPPONGrammarParser.Cpp_castContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CPPONGrammarParser#parameter}.
 	 * @param ctx the parse tree
 	 */

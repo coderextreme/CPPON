@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int arc1(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -49,7 +46,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 Viewpoint& Viewpoint8 =  Viewpoint();
-Viewpoint8.setPosition(new float[]{0,0,5});
+Viewpoint8.setPosition(new float[]{0.0,0.0,5.0});
 Viewpoint8.setDescription(std::string("Only Viewpoint"));
 Scene7.addChild(&Viewpoint8);
 
@@ -87,7 +84,7 @@ Shape17.setGeometry(&Sphere18);
 
 Appearance& Appearance19 =  Appearance();
 Material& Material20 =  Material();
-Material20.setDiffuseColor(new float[]{1,0,0});
+Material20.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance19.addChild(&Material20);
 
 Shape17.addChild(&Appearance19);
@@ -96,8 +93,8 @@ Transform14.addChild(&Shape17);
 
 PositionInterpolator& PositionInterpolator21 =  PositionInterpolator();
 PositionInterpolator21.setDEF(std::string("PI1"));
-PositionInterpolator21.setKey(new float[]{0,1}, 2);
-PositionInterpolator21.setKeyValue(new float[]{0,0,0,0,5,0}, 6);
+PositionInterpolator21.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator21.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform14.addChild(&PositionInterpolator21);
 
 Script& Script22 =  Script();
@@ -130,18 +127,18 @@ field26.setValue(std::string("0 0 0 0 5 0"));
 Script22.addChild(&field26);
 
 
-Script22.setSourceCode(std::string("ecmascript:")+
-_T("               function set_location(value) {")+
-_T("                    old = translation;")+
-_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
-_T("                    keyValue = new MFVec3f([old, translation]);")+
-_T("               }"));
+//Script22.setSourceCode(std::string("ecmascript:")+
+//_T("               function set_location(value) {")+
+//_T("                    old = translation;")+
+//_T("                    translation = new SFVec3f(Math.random()*10-5, Math.random()*10-5, Math.random()*10-5);")+
+//_T("                    keyValue = new MFVec3f([old, translation]);")+
+//_T("               }"));
 Transform14.addChild(&Script22);
 
 TimeSensor& TimeSensor27 =  TimeSensor();
 TimeSensor27.setDEF(std::string("CL1"));
 TimeSensor27.setCycleInterval(3);
-TimeSensor27.setLoop(True);
+TimeSensor27.setLoop(true);
 Transform14.addChild(&TimeSensor27);
 
 ROUTE& ROUTE28 =  ROUTE();
@@ -338,47 +335,47 @@ IS59.addChild(&connect65);
 Script52.addChild(&IS59);
 
 
-Script52.setSourceCode(std::string("ecmascript:")+
-_T("        function recompute(startpoint,endpoint){")+
-_T("	    if (typeof endpoint === 'undefined') {")+
-_T("		return;")+
-_T("	    }")+
-_T("            var dif = endpoint.subtract(startpoint);")+
-_T("            var dist = dif.length()*0.5;")+
-_T("            var dif2 = dif.multiply(0.5);")+
-_T("            var norm = dif.normalize();")+
-_T("            var transl = startpoint.add(dif2);")+
-_T("	    if (typeof Quaternion !== 'undefined') {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
-_T("		    };")+
-_T("	    } else {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
-_T("		    };")+
-_T("	    }")+
-_T("	}")+
-_T("	function recompute_and_route(startpoint, endpoint) {")+
-_T("	      var trafo = recompute(startpoint, endpoint);")+
-_T("	      if (trafo) {")+
-_T("		      transnode.translation = trafo.translation;")+
-_T("		      rotscalenode.rotation = trafo.rotation;")+
-_T("		      rotscalenode.scale = trafo.scale;")+
-_T("	      }")+
-_T("	}")+
-_T("        function initialize(){")+
-_T("            recompute_and_route(startnode.translation,endnode.translation);")+
-_T("        }")+
-_T("        function set_startpoint(val,t){")+
-_T("            recompute_and_route(val,endnode.translation);")+
-_T("        }")+
-_T("        function set_endpoint(val,t){")+
-_T("            recompute_and_route(startnode.translation,val);")+
-_T("        }"));
+//Script52.setSourceCode(std::string("ecmascript:")+
+//_T("        function recompute(startpoint,endpoint){")+
+//_T("	    if (typeof endpoint === 'undefined') {")+
+//_T("		return;")+
+//_T("	    }")+
+//_T("            var dif = endpoint.subtract(startpoint);")+
+//_T("            var dist = dif.length()*0.5;")+
+//_T("            var dif2 = dif.multiply(0.5);")+
+//_T("            var norm = dif.normalize();")+
+//_T("            var transl = startpoint.add(dif2);")+
+//_T("	    if (typeof Quaternion !== 'undefined') {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
+//_T("		    };")+
+//_T("	    } else {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
+//_T("		    };")+
+//_T("	    }")+
+//_T("	}")+
+//_T("	function recompute_and_route(startpoint, endpoint) {")+
+//_T("	      var trafo = recompute(startpoint, endpoint);")+
+//_T("	      if (trafo) {")+
+//_T("		      transnode.translation = trafo.translation;")+
+//_T("		      rotscalenode.rotation = trafo.rotation;")+
+//_T("		      rotscalenode.scale = trafo.scale;")+
+//_T("	      }")+
+//_T("	}")+
+//_T("        function initialize(){")+
+//_T("            recompute_and_route(startnode.translation,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_startpoint(val,t){")+
+//_T("            recompute_and_route(val,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_endpoint(val,t){")+
+//_T("            recompute_and_route(startnode.translation,val);")+
+//_T("        }"));
 ProtoBody51.addChild(&Script52);
 
 ProtoDeclare43.addChild(&ProtoBody51);

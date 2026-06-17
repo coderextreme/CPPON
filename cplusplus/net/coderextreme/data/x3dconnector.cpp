@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int x3dconnector(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -49,7 +46,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 Viewpoint& Viewpoint8 =  Viewpoint();
-Viewpoint8.setPosition(new float[]{0,0,5});
+Viewpoint8.setPosition(new float[]{0.0,0.0,5.0});
 Viewpoint8.setDescription(std::string("Only Viewpoint"));
 Scene7.addChild(&Viewpoint8);
 
@@ -89,7 +86,7 @@ Scene7.addChild(&Transform10);
 
 Transform& Transform17 =  Transform();
 Transform17.setDEF(std::string("G2"));
-Transform17.setTranslation(new float[]{1,-1,0.01});
+Transform17.setTranslation(new float[]{1.0,-1.0,0.01});
 Shape& Shape18 =  Shape();
 Appearance& Appearance19 =  Appearance();
 Material& Material20 =  Material();
@@ -106,7 +103,7 @@ Transform17.addChild(&Shape18);
 
 PlaneSensor& PlaneSensor22 =  PlaneSensor();
 PlaneSensor22.setDescription(std::string("Grab to move"));
-PlaneSensor22.setOffset(new float[]{1,-1,0.01});
+PlaneSensor22.setOffset(new float[]{1.0,-1.0,0.01});
 PlaneSensor22.setDEF(std::string("PS2"));
 Transform17.addChild(&PlaneSensor22);
 
@@ -256,47 +253,47 @@ IS46.addChild(&connect52);
 Script39.addChild(&IS46);
 
 
-Script39.setSourceCode(std::string("ecmascript:")+
-_T("        function recompute(startpoint,endpoint){")+
-_T("	    if (typeof endpoint === 'undefined') {")+
-_T("		return;")+
-_T("	    }")+
-_T("            var dif = endpoint.subtract(startpoint);")+
-_T("            var dist = dif.length()*0.5;")+
-_T("            var dif2 = dif.multiply(0.5);")+
-_T("            var norm = dif.normalize();")+
-_T("            var transl = startpoint.add(dif2);")+
-_T("	    if (typeof Quaternion !== 'undefined') {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
-_T("		    };")+
-_T("	    } else {")+
-_T("		    return {")+
-_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
-_T("			    translation : transl,")+
-_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
-_T("		    };")+
-_T("	    }")+
-_T("	}")+
-_T("	function recompute_and_route(startpoint, endpoint) {")+
-_T("	      var trafo = recompute(startpoint, endpoint);")+
-_T("	      if (trafo) {")+
-_T("		      transnode.translation = trafo.translation;")+
-_T("		      rotscalenode.rotation = trafo.rotation;")+
-_T("		      rotscalenode.scale = trafo.scale;")+
-_T("	      }")+
-_T("	}")+
-_T("        function initialize(){")+
-_T("            recompute_and_route(startnode.translation,endnode.translation);")+
-_T("        }")+
-_T("        function set_startpoint(val,t){")+
-_T("            recompute_and_route(val,endnode.translation);")+
-_T("        }")+
-_T("        function set_endpoint(val,t){")+
-_T("            recompute_and_route(startnode.translation,val);")+
-_T("        }"));
+//Script39.setSourceCode(std::string("ecmascript:")+
+//_T("        function recompute(startpoint,endpoint){")+
+//_T("	    if (typeof endpoint === 'undefined') {")+
+//_T("		return;")+
+//_T("	    }")+
+//_T("            var dif = endpoint.subtract(startpoint);")+
+//_T("            var dist = dif.length()*0.5;")+
+//_T("            var dif2 = dif.multiply(0.5);")+
+//_T("            var norm = dif.normalize();")+
+//_T("            var transl = startpoint.add(dif2);")+
+//_T("	    if (typeof Quaternion !== 'undefined') {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new Quaternion.rotateFromTo(new SFVec3f(0.0,1.0,0.0), norm)")+
+//_T("		    };")+
+//_T("	    } else {")+
+//_T("		    return {")+
+//_T("			    scale : new SFVec3f(1.0,dist,1.0),")+
+//_T("			    translation : transl,")+
+//_T("			    rotation : new SFRotation(new SFVec3f(0.0,1.0,0.0),norm)")+
+//_T("		    };")+
+//_T("	    }")+
+//_T("	}")+
+//_T("	function recompute_and_route(startpoint, endpoint) {")+
+//_T("	      var trafo = recompute(startpoint, endpoint);")+
+//_T("	      if (trafo) {")+
+//_T("		      transnode.translation = trafo.translation;")+
+//_T("		      rotscalenode.rotation = trafo.rotation;")+
+//_T("		      rotscalenode.scale = trafo.scale;")+
+//_T("	      }")+
+//_T("	}")+
+//_T("        function initialize(){")+
+//_T("            recompute_and_route(startnode.translation,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_startpoint(val,t){")+
+//_T("            recompute_and_route(val,endnode.translation);")+
+//_T("        }")+
+//_T("        function set_endpoint(val,t){")+
+//_T("            recompute_and_route(startnode.translation,val);")+
+//_T("        }"));
 ProtoBody38.addChild(&Script39);
 
 ProtoDeclare30.addChild(&ProtoBody38);
@@ -338,7 +335,10 @@ fieldValue60.addChild(&Transform61);
 
 ProtoInstance53.addChild(&fieldValue60);
 
-//<fieldValue name='set_startpoint'> </fieldValue> <fieldValue name='set_endpoint'> </fieldValue>
+//<fieldValue name='set_startpoint'>
+//</fieldValue>
+//<fieldValue name='set_endpoint'>
+//</fieldValue>
 Scene7.addChild(&ProtoInstance53);
 
 ROUTE& ROUTE62 =  ROUTE();

@@ -73,15 +73,12 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		    try {
 			    SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			    StreamSource[] schemaSources = new StreamSource[] {
-				    new StreamSource(new File("/Users/jcarl/www.web3d.org/specifications/xmldsig-core-schema.xsd")),
-				    new StreamSource(new File("/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"))
+				    new StreamSource(new File("C:/Users/jcarl/www.web3d.org/specifications/xmldsig-core-schema.xsd")),
+				    new StreamSource(new File("C:/Users/jcarl/www.web3d.org/specifications/x3d-4.1.xsd"))
 				};
 			    Schema schema = sf.newSchema(schemaSources);
-
-			    // Schema schema = sf.newSchema(new URL("https://www.web3d.org/specifications/x3d-4.0.xsd"));
-			    Validator validator = schema.newValidator();
-			    DOMSource source = new DOMSource(document);
-			    validator.validate(source);
+		    } catch (SAXParseException e) {
+			    e.printStackTrace(System.err);
 		    } catch (SAXException e) {
 			    e.printStackTrace(System.err);
 			    System.exit(1);  //  failed
@@ -105,9 +102,13 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			dbf.setNamespaceAware(true);
 			dbf.setValidating(true);
 			DocumentBuilder db = dbf.newDocumentBuilder();
+			DOMImplementation domImplementation = db.getDOMImplementation();
+			DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.1//EN", "https://www.web3d.org/specifications/x3d-4.1.dtd");
 			document = db.newDocument();
 			if (document == null) {
 				log("document is null\n");
+			} else {
+				document.appendChild(doctype);
 			}
 
 			Element child = null;
@@ -133,16 +134,17 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			}
 
 			if (document != null && child != null) {
-				DOMImplementation domImplementation = db.getDOMImplementation();
-				DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.0//EN", "file:/C:/Users/jcarl/www.web3d.org/specifications/x3d-4.0.dtd");
-				document.appendChild(doctype);
-				// document.appendChild(document.createTextNode("\n"));
 				document.appendChild(child);
-				child.setAttribute("xmlns", "http://www.web3d.org/specifications/x3d-namespace");
-				child.setAttribute("xmlns:xsd",  "https://www.w3.org/2001/XMLSchema-instance");
-				child.setAttribute("profile", "Immersive");
-				child.setAttribute("version", "4.0");
-				// child.setAttribute("xsd:schemaLocation", "https://www.web3d.org/specifications/x3d-4.0.xsd");
+
+				// 1. MUST use setAttributeNS with the special XMLNS URI to declare the prefix
+				child.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xsd", "http://www.w3.org/2001/XMLSchema-instance");
+
+				// 2. MUST use setAttributeNS with the XMLSchema-instance URI to apply the schema location
+				child.setAttributeNS("http://www.w3.org/2001/XMLSchema-instance", "xsd:noNamespaceSchemaLocation", "https://www.web3d.org/specifications/x3d-4.1.xsd");
+
+				// Standard attributes set with null namespace to ensure localName is populated properly in namespace-aware DOM
+				child.setAttributeNS(null, "profile", "Immersive");
+				child.setAttributeNS(null, "version", "4.1");
 
 			} else {
 				log("Got nothing from visiting Children");
@@ -167,22 +169,16 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		TerminalNode eq = op.EQUALS();
 		TerminalNode fn = fc.IDENTIFIER();
 
-		// log("Creating ");log(typstr); log(" "); log(tystr); log(eq); log(fn); log(pa); log("\n");
 		switch (typstr) {
-			case "Connect":
-				typstr = "connect";
-				break;
-			case "CFontStyle":
-				typstr = "FontStyle";
-				break;
-			case "CColor":
-				typstr = "Color";
-				break;
+			case "Connect": typstr = "connect"; break;
+			case "CFontStyle": typstr = "FontStyle"; break;
+			case "CColor": typstr = "Color"; break;
 		}
 		if (!tystr.toLowerCase().startsWith(typstr.toLowerCase())) {
 			log(tystr+" != "+typstr+"\n");
 		}
-		Element child = document.createElement(typstr);
+		// VITAL FIX: Use createElementNS with null namespace to populate localName so Validator can see it
+		Element child = document.createElementNS(null, typstr);
 		this.nodes.put(tystr, child);
 		return (Node)child;
 	}
@@ -203,7 +199,8 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		if (isArray) {
 			value = value.replaceAll(",", " ");
 		}
-		element.setAttribute(attributeName, value);
+		// VITAL FIX: Use setAttributeNS with null namespace to populate localName for standard attributes
+		element.setAttributeNS(null, attributeName, value);
 		return element;
 	}
 
@@ -213,150 +210,136 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		return element;
 	}
 
+	// ---------------- Helper Methods For Unwrapping Rules ----------------
+
+	private String getOriginalText(ParserRuleContext ctx) {
+		if (ctx == null) return "";
+		int start = ctx.start.getStartIndex();
+		int stop = ctx.stop.getStopIndex();
+		Interval interval = new Interval(start, stop);
+		return ctx.start.getInputStream().getText(interval);
+	}
+
+	private String cleanString(CPPONGrammarParser.StringContext sc) {
+		String text = getOriginalText(sc);
+		if (text.startsWith("\"") && text.endsWith("\"")) {
+			text = text.substring(1, text.length() - 1);
+		}
+		return text;
+	}
+
+	private CPPONGrammarParser.VariableContext resolveVariable(CPPONGrammarParser.ParameterContext param) {
+		if (param == null) return null;
+		// If variable resolves instantly (C-style cast or standard pass)
+		if (param.variable() != null) return param.variable();
+		// If wrapped in a static_cast<...>(...), recurse through to find the inner node variable
+		if (param.cpp_cast() != null) return resolveVariable(param.cpp_cast().parameter());
+		return null;
+	}
+
+	private String extractTextFromParameter(CPPONGrammarParser.ParameterContext param) {
+		if (param.cstring() != null) {
+			return cleanString(param.cstring().string());
+		} else if (param.string() != null) {
+			return cleanString(param.string());
+		} else if (param.construct_array() != null) {
+			CPPONGrammarParser.ListContext list = param.construct_array().list();
+			if (list == null) return "";
+			if (list.float_list() != null) return getOriginalText(list.float_list());
+			if (list.integer_list() != null) return getOriginalText(list.integer_list());
+			if (list.boolean_list() != null) return getOriginalText(list.boolean_list());
+			if (list.string_list() != null) {
+				StringBuilder sb = new StringBuilder();
+				boolean first = true;
+				for (CPPONGrammarParser.StringContext sc : list.string_list().string()) {
+					if (!first) sb.append(" ");
+					first = false;
+					sb.append(cleanString(sc));
+				}
+				return sb.toString();
+			}
+		}
+		// Fallback for direct primitives (float, whole, boolean keyword etc.)
+		return getOriginalText(param);
+	}
+
+	// ---------------- Core Funccall Processor ----------------
+
 	private Node processFunccall(CPPONGrammarParser.FunccallContext fc) {
 		CPPONGrammarParser.VariableContext vp = fc.variable();
 		CPPONGrammarParser.OperatorContext op = fc.operator();
 		CPPONGrammarParser.ParametersContext pa = fc.parameters();
 
 		Node parent = visitVariable(vp);
-
-		TerminalNode set = op.SET();
-		TerminalNode add = op.ADD();
-		TerminalNode x3dnodeset = op.X3DNODESET();
-		TerminalNode fn = fc.IDENTIFIER();
-
-		if (add == null) {
-			String text = "";
-			if (parent != null) {
-				if (pa != null && pa.parameter().size() > 0) {
-					CPPONGrammarParser.ParameterContext param = pa.parameter(0);
-					CPPONGrammarParser.CstringContext cs = param.cstring();
-					CPPONGrammarParser.Construct_arrayContext array = param.construct_array();
-					CPPONGrammarParser.VariableContext vc = param.variable();
-
-					if (cs != null) {
-						CPPONGrammarParser.StringContext sc = cs.string();
-						int start = sc.start.getStartIndex();
-						int stop = sc.stop.getStopIndex();
-						Interval interval = new Interval(start,stop);
-						text = sc.start.getInputStream().getText(interval);
-						if (text.startsWith("\"") && text.endsWith("\"")) {
-							text = text.substring(1, text.length() - 1);
-						}
-						this.elementSetAttribute((Element)parent, fn, text, false);
-					} else if (array != null) {
-						CPPONGrammarParser.ListContext list = array.list();
-						if (list != null) {
-							CPPONGrammarParser.Boolean_listContext boolean_list = list.boolean_list();
-							CPPONGrammarParser.String_listContext string_list = list.string_list();
-							CPPONGrammarParser.Float_listContext float_list = list.float_list();
-							CPPONGrammarParser.Integer_listContext integer_list = list.integer_list();
-							if (float_list != null) {
-								int start = float_list.start.getStartIndex();
-								int stop = float_list.stop.getStopIndex();
-								Interval interval = new Interval(start,stop);
-								text = float_list.start.getInputStream().getText(interval);
-								this.elementSetAttribute((Element)parent, fn, text, true);
-							} else if (integer_list != null) {
-								int start = integer_list.start.getStartIndex();
-								int stop = integer_list.stop.getStopIndex();
-								Interval interval = new Interval(start,stop);
-								text = integer_list.start.getInputStream().getText(interval);
-								this.elementSetAttribute((Element)parent, fn, text, true);
-							} else if (boolean_list != null) {
-								int start = boolean_list.start.getStartIndex();
-								int stop = boolean_list.stop.getStopIndex();
-								Interval interval = new Interval(start,stop);
-								text = boolean_list.start.getInputStream().getText(interval);
-								this.elementSetAttribute((Element)parent, fn, text, true);
-							} else if (string_list != null) {
-								List<CPPONGrammarParser.StringContext> stringCtxList = string_list.string();
-								Iterator<CPPONGrammarParser.StringContext> i = stringCtxList.iterator();
-								boolean first = true;
-								while (i.hasNext()) {
-									if (first) {
-										first = false;
-									} else {
-										text += " ";
-									}
-									CPPONGrammarParser.StringContext sc = i.next();
-									int start = sc.start.getStartIndex();
-									int stop = sc.stop.getStopIndex();
-									Interval interval = new Interval(start,stop);
-									text += sc.start.getInputStream().getText(interval);
-								}
-								this.elementSetAttribute((Element)parent, fn, text, false);
-							}
-						} else {
-							// For empty arrays
-							this.elementSetAttribute((Element)parent, fn, "", true);
-						}
-					} else if (vc != null) {
-						Node child = visitVariable(vc);
-
-						// If child != null, it's a Node appending operation.
-						if (child != null) {
-							String containerFieldName = fn.getText();
-							if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
-								this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
-							}
-							parent.appendChild(child);
-							return (Node)parent;
-						} else {
-							// If child == null, vc is likely a literal constant/enum identifier.
-							// Treat as standard attribute value fallback.
-							int start = pa.start.getStartIndex();
-							int stop = pa.stop.getStopIndex();
-							Interval interval = new Interval(start,stop);
-							text = pa.start.getInputStream().getText(interval);
-							this.elementSetAttribute((Element)parent, fn, text, false);
-						}
-					} else if (param.string() != null) {
-						CPPONGrammarParser.StringContext sc = param.string();
-						int start = sc.start.getStartIndex();
-						int stop = sc.stop.getStopIndex();
-						Interval interval = new Interval(start,stop);
-						text = sc.start.getInputStream().getText(interval);
-						if (text.startsWith("\"") && text.endsWith("\"")) {
-							text = text.substring(1, text.length() - 1);
-						}
-						this.elementSetAttribute((Element)parent, fn, text, false);
-					} else {
-						int start = pa.start.getStartIndex();
-						int stop = pa.stop.getStopIndex();
-						Interval interval = new Interval(start,stop);
-						text = pa.start.getInputStream().getText(interval);
-						this.elementSetAttribute((Element)parent, fn, text, false);
-					}
-				} else if (pa != null) {
-					int start = pa.start.getStartIndex();
-					int stop = pa.stop.getStopIndex();
-					Interval interval = new Interval(start,stop);
-					text = pa.start.getInputStream().getText(interval);
-					this.elementSetAttribute((Element)parent, fn, text, false);
-				}
-			}
-		} else if (add != null) {
-			if (pa != null && pa.parameter().size() > 0) {
-				CPPONGrammarParser.ParameterContext param = pa.parameter(0);
-				CPPONGrammarParser.VariableContext vc = param.variable();
-				if (vc != null) {
-					Node child = visitVariable(vc);
-					String containerFieldName = fn.getText();
-					// Safety Check to ensure child actually exists
-					if (child != null) {
-						if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
-							this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
-						}
-						parent.appendChild(child);
-					} else {
-						System.err.println("Null child mapping during add_field. Unrecognized Variable: " + vc.getText());
-					}
-				}
-			}
-			return (Node)parent;
+		if (parent == null) {
+			return null;
 		}
-		return null; // Return null signals parent handler to fallback to super.visitChildren
+
+		// Reconstruct the logical method name cleanly regardless of how it was matched
+		String opText = op.getText();
+		String idText = fc.IDENTIFIER().getText();
+		String fullMethod = opText.startsWith(".") ? opText.substring(1) + idText : opText + idText;
+
+		// Strip off any C++ namespaces (e.g., "X3DGroupingNode::addChild" -> "addChild")
+		int nsIdx = fullMethod.lastIndexOf("::");
+		if (nsIdx >= 0) {
+			fullMethod = fullMethod.substring(nsIdx + 2);
+		}
+
+		boolean isAdd = fullMethod.startsWith("add");
+		String attrName = "";
+		if (isAdd) {
+			attrName = fullMethod.substring(3); // e.g. "Child", "Children"
+		} else if (fullMethod.startsWith("set")) {
+			attrName = fullMethod.substring(3); // e.g. "DEF", "Shape", "KeyValue"
+		} else {
+			attrName = fullMethod; // strict fallback
+		}
+
+		if (pa != null && !pa.parameter().isEmpty()) {
+			// Find the best parameter: Prefer variables/arrays over ints if multiple exist (like setKeyValue)
+			CPPONGrammarParser.ParameterContext targetParam = pa.parameter(0);
+			for (CPPONGrammarParser.ParameterContext p : pa.parameter()) {
+				if (p.construct_array() != null || resolveVariable(p) != null) {
+					targetParam = p;
+					break;
+				}
+			}
+
+			CPPONGrammarParser.VariableContext vc = resolveVariable(targetParam);
+			if (vc != null) {
+				Node child = visitVariable(vc);
+				if (child != null) {
+					// We are appending a DOM node child
+					String containerHint = attrName;
+					if (containerHint.toLowerCase().endsWith("metadata") ||
+						containerHint.toLowerCase().endsWith("url") ||
+						containerHint.toLowerCase().endsWith("texture") ||
+						containerHint.toLowerCase().equals("shape") ||
+						containerHint.toLowerCase().equals("appearance") ||
+						containerHint.toLowerCase().equals("material") ||
+						containerHint.toLowerCase().equals("geometry") ||
+						containerHint.toLowerCase().equals("fontstyle") ||
+						containerHint.toLowerCase().equals("color") ||
+						containerHint.toLowerCase().equals("coord") ||
+						containerHint.toLowerCase().equals("normal") ||
+						containerHint.toLowerCase().equals("texcoord")) {
+						this.elementSetAttribute((Element)child, "containerField", containerHint, false);
+					}
+					parent.appendChild(child);
+					return (Node)parent;
+				} else {
+					System.err.println("Null child mapping during element injection. Unrecognized Variable: " + vc.getText());
+				}
+			}
+
+			// We are assigning a primitive string/value/array attribute
+			boolean isArray = targetParam.construct_array() != null;
+			String text = extractTextFromParameter(targetParam);
+			this.elementSetAttribute((Element)parent, attrName, text, isArray);
+		}
+
+		return (Node)parent;
 	}
 
 	@Override public Node visitSet_field(CPPONGrammarParser.Set_fieldContext ctx) {

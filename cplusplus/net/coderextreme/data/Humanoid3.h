@@ -229,8 +229,6 @@ HAnimJoint& HAnimJoint47 =  HAnimJoint();
 HAnimJoint47.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint47.setDEF(std::string("hanim_humanoid_root"));
 HAnimJoint47.setCenter(new float[]{0.0,0.824,0.0277});
-HAnimJoint47.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint47.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment48 =  HAnimSegment();
 HAnimSegment48.X3DNode::setName(std::string("sacrum"));
 HAnimSegment48.setDEF(std::string("hanim_sacrum"));
@@ -284,8 +282,6 @@ HAnimJoint& HAnimJoint60 =  HAnimJoint();
 HAnimJoint60.X3DNode::setName(std::string("sacroiliac"));
 HAnimJoint60.setDEF(std::string("hanim_sacroiliac"));
 HAnimJoint60.setCenter(new float[]{0.0,0.9149,0.0016});
-HAnimJoint60.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint60.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment61 =  HAnimSegment();
 HAnimSegment61.X3DNode::setName(std::string("pelvis"));
 HAnimSegment61.setDEF(std::string("hanim_pelvis"));
@@ -618,8 +614,6 @@ HAnimJoint& HAnimJoint143 =  HAnimJoint();
 HAnimJoint143.X3DNode::setName(std::string("l_hip"));
 HAnimJoint143.setDEF(std::string("hanim_l_hip"));
 HAnimJoint143.setCenter(new float[]{0.0961,0.9124,-0.0001});
-HAnimJoint143.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint143.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment144 =  HAnimSegment();
 HAnimSegment144.X3DNode::setName(std::string("l_thigh"));
 HAnimSegment144.setDEF(std::string("hanim_l_thigh"));
@@ -768,8 +762,6 @@ HAnimJoint& HAnimJoint180 =  HAnimJoint();
 HAnimJoint180.X3DNode::setName(std::string("l_knee"));
 HAnimJoint180.setDEF(std::string("hanim_l_knee"));
 HAnimJoint180.setCenter(new float[]{0.104,0.4867,0.0308});
-HAnimJoint180.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint180.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment181 =  HAnimSegment();
 HAnimSegment181.X3DNode::setName(std::string("l_calf"));
 HAnimSegment181.setDEF(std::string("hanim_l_calf"));
@@ -890,8 +882,6 @@ HAnimJoint& HAnimJoint210 =  HAnimJoint();
 HAnimJoint210.X3DNode::setName(std::string("l_talocrural"));
 HAnimJoint210.setDEF(std::string("hanim_l_talocrural"));
 HAnimJoint210.setCenter(new float[]{0.1101,0.0656,-0.0736});
-HAnimJoint210.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint210.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment211 =  HAnimSegment();
 HAnimSegment211.X3DNode::setName(std::string("l_talus"));
 HAnimSegment211.setDEF(std::string("hanim_l_talus"));
@@ -988,8 +978,6 @@ HAnimJoint& HAnimJoint233 =  HAnimJoint();
 HAnimJoint233.X3DNode::setName(std::string("l_tarsometatarsal_2"));
 HAnimJoint233.setDEF(std::string("hanim_l_tarsometatarsal_2"));
 HAnimJoint233.setCenter(new float[]{0.08,0.0175,-0.0608});
-HAnimJoint233.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint233.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment234 =  HAnimSegment();
 HAnimSegment234.X3DNode::setName(std::string("l_metatarsal_2"));
 HAnimSegment234.setDEF(std::string("hanim_l_metatarsal_2"));
@@ -1027,8 +1015,6 @@ HAnimJoint& HAnimJoint242 =  HAnimJoint();
 HAnimJoint242.X3DNode::setName(std::string("l_metatarsophalangeal_2"));
 HAnimJoint242.setDEF(std::string("hanim_l_metatarsophalangeal_2"));
 HAnimJoint242.setCenter(new float[]{0.0824,0.0064,-0.004});
-HAnimJoint242.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint242.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment243 =  HAnimSegment();
 HAnimSegment243.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_2"));
 HAnimSegment243.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_2"));
@@ -1256,8 +1242,6 @@ HAnimJoint& HAnimJoint300 =  HAnimJoint();
 HAnimJoint300.X3DNode::setName(std::string("l_tarsal_distal_interphalangeal_2"));
 HAnimJoint300.setDEF(std::string("hanim_l_tarsal_distal_interphalangeal_2"));
 HAnimJoint300.setCenter(new float[]{0.0841,0.0013,0.0216});
-HAnimJoint300.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint300.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint242.addChildren(&HAnimJoint300);
 
 HAnimJoint233.addChildren(&HAnimJoint242);
@@ -1274,8 +1258,6 @@ HAnimJoint& HAnimJoint301 =  HAnimJoint();
 HAnimJoint301.X3DNode::setName(std::string("r_hip"));
 HAnimJoint301.setDEF(std::string("hanim_r_hip"));
 HAnimJoint301.setCenter(new float[]{-0.095,0.9171,0.0029});
-HAnimJoint301.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint301.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment302 =  HAnimSegment();
 HAnimSegment302.X3DNode::setName(std::string("r_thigh"));
 HAnimSegment302.setDEF(std::string("hanim_r_thigh"));
@@ -1424,8 +1406,6 @@ HAnimJoint& HAnimJoint338 =  HAnimJoint();
 HAnimJoint338.X3DNode::setName(std::string("r_knee"));
 HAnimJoint338.setDEF(std::string("hanim_r_knee"));
 HAnimJoint338.setCenter(new float[]{-0.0867,0.4913,0.0318});
-HAnimJoint338.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint338.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment339 =  HAnimSegment();
 HAnimSegment339.X3DNode::setName(std::string("r_calf"));
 HAnimSegment339.setDEF(std::string("hanim_r_calf"));
@@ -1546,8 +1526,6 @@ HAnimJoint& HAnimJoint368 =  HAnimJoint();
 HAnimJoint368.X3DNode::setName(std::string("r_talocrural"));
 HAnimJoint368.setDEF(std::string("hanim_r_talocrural"));
 HAnimJoint368.setCenter(new float[]{-0.0801,0.0712,-0.0766});
-HAnimJoint368.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint368.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment369 =  HAnimSegment();
 HAnimSegment369.X3DNode::setName(std::string("r_talus"));
 HAnimSegment369.setDEF(std::string("hanim_r_talus"));
@@ -1644,8 +1622,6 @@ HAnimJoint& HAnimJoint391 =  HAnimJoint();
 HAnimJoint391.X3DNode::setName(std::string("r_tarsometatarsal_2"));
 HAnimJoint391.setDEF(std::string("hanim_r_tarsometatarsal_2"));
 HAnimJoint391.setCenter(new float[]{-0.08,0.0175,-0.0608});
-HAnimJoint391.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint391.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment392 =  HAnimSegment();
 HAnimSegment392.X3DNode::setName(std::string("r_metatarsal_2"));
 HAnimSegment392.setDEF(std::string("hanim_r_metatarsal_2"));
@@ -1683,8 +1659,6 @@ HAnimJoint& HAnimJoint400 =  HAnimJoint();
 HAnimJoint400.X3DNode::setName(std::string("r_metatarsophalangeal_2"));
 HAnimJoint400.setDEF(std::string("hanim_r_metatarsophalangeal_2"));
 HAnimJoint400.setCenter(new float[]{-0.0823,0.0064,-0.004});
-HAnimJoint400.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint400.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment401 =  HAnimSegment();
 HAnimSegment401.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_2"));
 HAnimSegment401.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_2"));
@@ -1912,8 +1886,6 @@ HAnimJoint& HAnimJoint458 =  HAnimJoint();
 HAnimJoint458.X3DNode::setName(std::string("r_tarsal_distal_interphalangeal_2"));
 HAnimJoint458.setDEF(std::string("hanim_r_tarsal_distal_interphalangeal_2"));
 HAnimJoint458.setCenter(new float[]{-0.0841,0.0013,0.0216});
-HAnimJoint458.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint458.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint400.addChildren(&HAnimJoint458);
 
 HAnimJoint391.addChildren(&HAnimJoint400);
@@ -1932,8 +1904,6 @@ HAnimJoint& HAnimJoint459 =  HAnimJoint();
 HAnimJoint459.X3DNode::setName(std::string("vl5"));
 HAnimJoint459.setDEF(std::string("hanim_vl5"));
 HAnimJoint459.setCenter(new float[]{0.0028,1.0568,-0.0776});
-HAnimJoint459.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint459.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment460 =  HAnimSegment();
 HAnimSegment460.X3DNode::setName(std::string("l5"));
 HAnimSegment460.setDEF(std::string("hanim_l5"));
@@ -2054,8 +2024,6 @@ HAnimJoint& HAnimJoint489 =  HAnimJoint();
 HAnimJoint489.X3DNode::setName(std::string("vl4"));
 HAnimJoint489.setDEF(std::string("hanim_vl4"));
 HAnimJoint489.setCenter(new float[]{0.0035,1.0925,-0.0787});
-HAnimJoint489.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint489.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment490 =  HAnimSegment();
 HAnimSegment490.X3DNode::setName(std::string("l4"));
 HAnimSegment490.setDEF(std::string("hanim_l4"));
@@ -2093,8 +2061,6 @@ HAnimJoint& HAnimJoint498 =  HAnimJoint();
 HAnimJoint498.X3DNode::setName(std::string("vl3"));
 HAnimJoint498.setDEF(std::string("hanim_vl3"));
 HAnimJoint498.setCenter(new float[]{0.0041,1.1276,-0.0796});
-HAnimJoint498.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint498.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment499 =  HAnimSegment();
 HAnimSegment499.X3DNode::setName(std::string("l3"));
 HAnimSegment499.setDEF(std::string("hanim_l3"));
@@ -2132,8 +2098,6 @@ HAnimJoint& HAnimJoint507 =  HAnimJoint();
 HAnimJoint507.X3DNode::setName(std::string("vl2"));
 HAnimJoint507.setDEF(std::string("hanim_vl2"));
 HAnimJoint507.setCenter(new float[]{0.0045,1.1546,-0.08});
-HAnimJoint507.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint507.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment508 =  HAnimSegment();
 HAnimSegment508.X3DNode::setName(std::string("l2"));
 HAnimSegment508.setDEF(std::string("hanim_l2"));
@@ -2254,8 +2218,6 @@ HAnimJoint& HAnimJoint537 =  HAnimJoint();
 HAnimJoint537.X3DNode::setName(std::string("vl1"));
 HAnimJoint537.setDEF(std::string("hanim_vl1"));
 HAnimJoint537.setCenter(new float[]{0.0048,1.1912,-0.0805});
-HAnimJoint537.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint537.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment538 =  HAnimSegment();
 HAnimSegment538.X3DNode::setName(std::string("l1"));
 HAnimSegment538.setDEF(std::string("hanim_l1"));
@@ -2293,8 +2255,6 @@ HAnimJoint& HAnimJoint546 =  HAnimJoint();
 HAnimJoint546.X3DNode::setName(std::string("vt12"));
 HAnimJoint546.setDEF(std::string("hanim_vt12"));
 HAnimJoint546.setCenter(new float[]{0.0051,1.2278,-0.0808});
-HAnimJoint546.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint546.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment547 =  HAnimSegment();
 HAnimSegment547.X3DNode::setName(std::string("t12"));
 HAnimSegment547.setDEF(std::string("hanim_t12"));
@@ -2332,8 +2292,6 @@ HAnimJoint& HAnimJoint555 =  HAnimJoint();
 HAnimJoint555.X3DNode::setName(std::string("vt11"));
 HAnimJoint555.setDEF(std::string("hanim_vt11"));
 HAnimJoint555.setCenter(new float[]{0.0053,1.2679,-0.081});
-HAnimJoint555.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint555.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment556 =  HAnimSegment();
 HAnimSegment556.X3DNode::setName(std::string("t11"));
 HAnimSegment556.setDEF(std::string("hanim_t11"));
@@ -2371,8 +2329,6 @@ HAnimJoint& HAnimJoint564 =  HAnimJoint();
 HAnimJoint564.X3DNode::setName(std::string("vt10"));
 HAnimJoint564.setDEF(std::string("hanim_vt10"));
 HAnimJoint564.setCenter(new float[]{0.0056,1.2848,-0.0822});
-HAnimJoint564.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint564.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment565 =  HAnimSegment();
 HAnimSegment565.X3DNode::setName(std::string("t10"));
 HAnimSegment565.setDEF(std::string("hanim_t10"));
@@ -2438,8 +2394,6 @@ HAnimJoint& HAnimJoint580 =  HAnimJoint();
 HAnimJoint580.X3DNode::setName(std::string("vt9"));
 HAnimJoint580.setDEF(std::string("hanim_vt9"));
 HAnimJoint580.setCenter(new float[]{0.0057,1.3126,-0.0838});
-HAnimJoint580.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint580.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment581 =  HAnimSegment();
 HAnimSegment581.X3DNode::setName(std::string("t9"));
 HAnimSegment581.setDEF(std::string("hanim_t9"));
@@ -2533,8 +2487,6 @@ HAnimJoint& HAnimJoint603 =  HAnimJoint();
 HAnimJoint603.X3DNode::setName(std::string("vt8"));
 HAnimJoint603.setDEF(std::string("hanim_vt8"));
 HAnimJoint603.setCenter(new float[]{0.0057,1.3382,-0.0845});
-HAnimJoint603.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint603.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment604 =  HAnimSegment();
 HAnimSegment604.X3DNode::setName(std::string("t8"));
 HAnimSegment604.setDEF(std::string("hanim_t8"));
@@ -2572,8 +2524,6 @@ HAnimJoint& HAnimJoint612 =  HAnimJoint();
 HAnimJoint612.X3DNode::setName(std::string("vt7"));
 HAnimJoint612.setDEF(std::string("hanim_vt7"));
 HAnimJoint612.setCenter(new float[]{0.0058,1.3625,-0.0833});
-HAnimJoint612.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint612.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment613 =  HAnimSegment();
 HAnimSegment613.X3DNode::setName(std::string("t7"));
 HAnimSegment613.setDEF(std::string("hanim_t7"));
@@ -2611,8 +2561,6 @@ HAnimJoint& HAnimJoint621 =  HAnimJoint();
 HAnimJoint621.X3DNode::setName(std::string("vt6"));
 HAnimJoint621.setDEF(std::string("hanim_vt6"));
 HAnimJoint621.setCenter(new float[]{0.0059,1.3866,-0.08});
-HAnimJoint621.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint621.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment622 =  HAnimSegment();
 HAnimSegment622.X3DNode::setName(std::string("t6"));
 HAnimSegment622.setDEF(std::string("hanim_t6"));
@@ -2758,8 +2706,6 @@ HAnimJoint& HAnimJoint658 =  HAnimJoint();
 HAnimJoint658.X3DNode::setName(std::string("vt5"));
 HAnimJoint658.setDEF(std::string("hanim_vt5"));
 HAnimJoint658.setCenter(new float[]{0.006,1.4102,-0.0745});
-HAnimJoint658.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint658.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment659 =  HAnimSegment();
 HAnimSegment659.X3DNode::setName(std::string("t5"));
 HAnimSegment659.setDEF(std::string("hanim_t5"));
@@ -2824,8 +2770,6 @@ HAnimJoint& HAnimJoint674 =  HAnimJoint();
 HAnimJoint674.X3DNode::setName(std::string("vt4"));
 HAnimJoint674.setDEF(std::string("hanim_vt4"));
 HAnimJoint674.setCenter(new float[]{0.0061,1.432,-0.0675});
-HAnimJoint674.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint674.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment675 =  HAnimSegment();
 HAnimSegment675.X3DNode::setName(std::string("t4"));
 HAnimSegment675.setDEF(std::string("hanim_t4"));
@@ -2863,8 +2807,6 @@ HAnimJoint& HAnimJoint683 =  HAnimJoint();
 HAnimJoint683.X3DNode::setName(std::string("vt3"));
 HAnimJoint683.setDEF(std::string("hanim_vt3"));
 HAnimJoint683.setCenter(new float[]{0.0062,1.4583,-0.057});
-HAnimJoint683.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint683.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment684 =  HAnimSegment();
 HAnimSegment684.X3DNode::setName(std::string("t3"));
 HAnimSegment684.setDEF(std::string("hanim_t3"));
@@ -2902,8 +2844,6 @@ HAnimJoint& HAnimJoint692 =  HAnimJoint();
 HAnimJoint692.X3DNode::setName(std::string("vt2"));
 HAnimJoint692.setDEF(std::string("hanim_vt2"));
 HAnimJoint692.setCenter(new float[]{0.0063,1.4761,-0.0484});
-HAnimJoint692.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint692.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment693 =  HAnimSegment();
 HAnimSegment693.X3DNode::setName(std::string("t2"));
 HAnimSegment693.setDEF(std::string("hanim_t2"));
@@ -2941,8 +2881,6 @@ HAnimJoint& HAnimJoint701 =  HAnimJoint();
 HAnimJoint701.X3DNode::setName(std::string("vt1"));
 HAnimJoint701.setDEF(std::string("hanim_vt1"));
 HAnimJoint701.setCenter(new float[]{0.0065,1.4951,-0.0387});
-HAnimJoint701.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint701.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment702 =  HAnimSegment();
 HAnimSegment702.X3DNode::setName(std::string("t1"));
 HAnimSegment702.setDEF(std::string("hanim_t1"));
@@ -3068,8 +3006,6 @@ HAnimJoint& HAnimJoint732 =  HAnimJoint();
 HAnimJoint732.X3DNode::setName(std::string("vc7"));
 HAnimJoint732.setDEF(std::string("hanim_vc7"));
 HAnimJoint732.setCenter(new float[]{0.0066,1.5132,-0.0301});
-HAnimJoint732.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint732.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment733 =  HAnimSegment();
 HAnimSegment733.X3DNode::setName(std::string("c7"));
 HAnimSegment733.setDEF(std::string("hanim_c7"));
@@ -3163,8 +3099,6 @@ HAnimJoint& HAnimJoint755 =  HAnimJoint();
 HAnimJoint755.X3DNode::setName(std::string("vc6"));
 HAnimJoint755.setDEF(std::string("hanim_vc6"));
 HAnimJoint755.setCenter(new float[]{0.0066,1.5357,-0.0143});
-HAnimJoint755.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint755.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment756 =  HAnimSegment();
 HAnimSegment756.X3DNode::setName(std::string("c6"));
 HAnimSegment756.setDEF(std::string("hanim_c6"));
@@ -3202,8 +3136,6 @@ HAnimJoint& HAnimJoint764 =  HAnimJoint();
 HAnimJoint764.X3DNode::setName(std::string("vc5"));
 HAnimJoint764.setDEF(std::string("hanim_vc5"));
 HAnimJoint764.setCenter(new float[]{0.0066,1.552,-0.0082});
-HAnimJoint764.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint764.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment765 =  HAnimSegment();
 HAnimSegment765.X3DNode::setName(std::string("c5"));
 HAnimSegment765.setDEF(std::string("hanim_c5"));
@@ -3241,8 +3173,6 @@ HAnimJoint& HAnimJoint773 =  HAnimJoint();
 HAnimJoint773.X3DNode::setName(std::string("vc4"));
 HAnimJoint773.setDEF(std::string("hanim_vc4"));
 HAnimJoint773.setCenter(new float[]{0.0066,1.5662,-0.0084});
-HAnimJoint773.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint773.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment774 =  HAnimSegment();
 HAnimSegment774.X3DNode::setName(std::string("c4"));
 HAnimSegment774.setDEF(std::string("hanim_c4"));
@@ -3280,8 +3210,6 @@ HAnimJoint& HAnimJoint782 =  HAnimJoint();
 HAnimJoint782.X3DNode::setName(std::string("vc3"));
 HAnimJoint782.setDEF(std::string("hanim_vc3"));
 HAnimJoint782.setCenter(new float[]{0.0066,1.58,-0.0103});
-HAnimJoint782.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint782.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment783 =  HAnimSegment();
 HAnimSegment783.X3DNode::setName(std::string("c3"));
 HAnimSegment783.setDEF(std::string("hanim_c3"));
@@ -3319,8 +3247,6 @@ HAnimJoint& HAnimJoint791 =  HAnimJoint();
 HAnimJoint791.X3DNode::setName(std::string("vc2"));
 HAnimJoint791.setDEF(std::string("hanim_vc2"));
 HAnimJoint791.setCenter(new float[]{0.0066,1.5928,-0.0103});
-HAnimJoint791.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint791.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment792 =  HAnimSegment();
 HAnimSegment792.X3DNode::setName(std::string("c2"));
 HAnimSegment792.setDEF(std::string("hanim_c2"));
@@ -3385,8 +3311,6 @@ HAnimJoint& HAnimJoint807 =  HAnimJoint();
 HAnimJoint807.X3DNode::setName(std::string("vc1"));
 HAnimJoint807.setDEF(std::string("hanim_vc1"));
 HAnimJoint807.setCenter(new float[]{0.0066,1.6144,-0.0034});
-HAnimJoint807.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint807.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment808 =  HAnimSegment();
 HAnimSegment808.X3DNode::setName(std::string("c1"));
 HAnimSegment808.setDEF(std::string("hanim_c1"));
@@ -3424,8 +3348,6 @@ HAnimJoint& HAnimJoint816 =  HAnimJoint();
 HAnimJoint816.X3DNode::setName(std::string("skullbase"));
 HAnimJoint816.setDEF(std::string("hanim_skullbase"));
 HAnimJoint816.setCenter(new float[]{0.0044,1.6209,0.0236});
-HAnimJoint816.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint816.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment817 =  HAnimSegment();
 HAnimSegment817.X3DNode::setName(std::string("skull"));
 HAnimSegment817.setDEF(std::string("hanim_skull"));
@@ -3863,56 +3785,42 @@ HAnimJoint& HAnimJoint926 =  HAnimJoint();
 HAnimJoint926.X3DNode::setName(std::string("l_eyelid_joint"));
 HAnimJoint926.setDEF(std::string("hanim_l_eyelid_joint"));
 HAnimJoint926.setCenter(new float[]{0.0503,1.4157,-0.0689});
-HAnimJoint926.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint926.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint926);
 
 HAnimJoint& HAnimJoint927 =  HAnimJoint();
 HAnimJoint927.X3DNode::setName(std::string("r_eyelid_joint"));
 HAnimJoint927.setDEF(std::string("hanim_r_eyelid_joint"));
 HAnimJoint927.setCenter(new float[]{-0.0507,1.4157,-0.0689});
-HAnimJoint927.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint927.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint927);
 
 HAnimJoint& HAnimJoint928 =  HAnimJoint();
 HAnimJoint928.X3DNode::setName(std::string("l_eyeball_joint"));
 HAnimJoint928.setDEF(std::string("hanim_l_eyeball_joint"));
 HAnimJoint928.setCenter(new float[]{0.0479,1.3963,-0.0188});
-HAnimJoint928.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint928.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint928);
 
 HAnimJoint& HAnimJoint929 =  HAnimJoint();
 HAnimJoint929.X3DNode::setName(std::string("r_eyeball_joint"));
 HAnimJoint929.setDEF(std::string("hanim_r_eyeball_joint"));
 HAnimJoint929.setCenter(new float[]{-0.0483,1.3963,-0.0188});
-HAnimJoint929.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint929.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint929);
 
 HAnimJoint& HAnimJoint930 =  HAnimJoint();
 HAnimJoint930.X3DNode::setName(std::string("l_eyebrow_joint"));
 HAnimJoint930.setDEF(std::string("hanim_l_eyebrow_joint"));
 HAnimJoint930.setCenter(new float[]{0.0216,1.4053,0.0051});
-HAnimJoint930.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint930.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint930);
 
 HAnimJoint& HAnimJoint931 =  HAnimJoint();
 HAnimJoint931.X3DNode::setName(std::string("r_eyebrow_joint"));
 HAnimJoint931.setDEF(std::string("hanim_r_eyebrow_joint"));
 HAnimJoint931.setCenter(new float[]{-0.0219,1.4053,0.0051});
-HAnimJoint931.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint931.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint931);
 
 HAnimJoint& HAnimJoint932 =  HAnimJoint();
 HAnimJoint932.X3DNode::setName(std::string("temporomandibular"));
 HAnimJoint932.setDEF(std::string("hanim_temporomandibular"));
 HAnimJoint932.setCenter(new float[]{-0.0002,1.3043,-0.0865});
-HAnimJoint932.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint932.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint816.addChildren(&HAnimJoint932);
 
 HAnimJoint807.addChildren(&HAnimJoint816);
@@ -3935,8 +3843,6 @@ HAnimJoint& HAnimJoint933 =  HAnimJoint();
 HAnimJoint933.X3DNode::setName(std::string("l_sternoclavicular"));
 HAnimJoint933.setDEF(std::string("hanim_l_sternoclavicular"));
 HAnimJoint933.setCenter(new float[]{0.082,1.4488,-0.0353});
-HAnimJoint933.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint933.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment934 =  HAnimSegment();
 HAnimSegment934.X3DNode::setName(std::string("l_clavicle"));
 HAnimSegment934.setDEF(std::string("hanim_l_clavicle"));
@@ -4113,8 +4019,6 @@ HAnimJoint& HAnimJoint977 =  HAnimJoint();
 HAnimJoint977.X3DNode::setName(std::string("l_acromioclavicular"));
 HAnimJoint977.setDEF(std::string("hanim_l_acromioclavicular"));
 HAnimJoint977.setCenter(new float[]{0.0962,1.4269,-0.0424});
-HAnimJoint977.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint977.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment978 =  HAnimSegment();
 HAnimSegment978.X3DNode::setName(std::string("l_scapula"));
 HAnimSegment978.setDEF(std::string("hanim_l_scapula"));
@@ -4152,8 +4056,6 @@ HAnimJoint& HAnimJoint986 =  HAnimJoint();
 HAnimJoint986.X3DNode::setName(std::string("l_shoulder"));
 HAnimJoint986.setDEF(std::string("hanim_l_shoulder"));
 HAnimJoint986.setCenter(new float[]{0.2029,1.4376,-0.0387});
-HAnimJoint986.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint986.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment987 =  HAnimSegment();
 HAnimSegment987.X3DNode::setName(std::string("l_upperarm"));
 HAnimSegment987.setDEF(std::string("hanim_l_upperarm"));
@@ -4246,8 +4148,6 @@ HAnimJoint& HAnimJoint1009 =  HAnimJoint();
 HAnimJoint1009.X3DNode::setName(std::string("l_elbow"));
 HAnimJoint1009.setDEF(std::string("hanim_l_elbow"));
 HAnimJoint1009.setCenter(new float[]{0.2014,1.1357,-0.0682});
-HAnimJoint1009.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1009.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1010 =  HAnimSegment();
 HAnimSegment1010.X3DNode::setName(std::string("l_forearm"));
 HAnimSegment1010.setDEF(std::string("hanim_l_forearm"));
@@ -4397,8 +4297,6 @@ HAnimJoint& HAnimJoint1046 =  HAnimJoint();
 HAnimJoint1046.X3DNode::setName(std::string("l_radiocarpal"));
 HAnimJoint1046.setDEF(std::string("hanim_l_radiocarpal"));
 HAnimJoint1046.setCenter(new float[]{0.1984,0.8663,-0.0583});
-HAnimJoint1046.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1046.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1047 =  HAnimSegment();
 HAnimSegment1047.X3DNode::setName(std::string("l_carpal"));
 HAnimSegment1047.setDEF(std::string("hanim_l_carpal"));
@@ -4532,8 +4430,6 @@ HAnimJoint& HAnimJoint1078 =  HAnimJoint();
 HAnimJoint1078.X3DNode::setName(std::string("l_carpometacarpal_1"));
 HAnimJoint1078.setDEF(std::string("hanim_l_carpometacarpal_1"));
 HAnimJoint1078.setCenter(new float[]{0.1924,0.8472,-0.0534});
-HAnimJoint1078.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1078.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1079 =  HAnimSegment();
 HAnimSegment1079.X3DNode::setName(std::string("l_metacarpal_1"));
 HAnimSegment1079.setDEF(std::string("hanim_l_metacarpal_1"));
@@ -4571,8 +4467,6 @@ HAnimJoint& HAnimJoint1087 =  HAnimJoint();
 HAnimJoint1087.X3DNode::setName(std::string("l_metacarpophalangeal_1"));
 HAnimJoint1087.setDEF(std::string("hanim_l_metacarpophalangeal_1"));
 HAnimJoint1087.setCenter(new float[]{0.1951,0.8226,0.0246});
-HAnimJoint1087.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1087.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1088 =  HAnimSegment();
 HAnimSegment1088.X3DNode::setName(std::string("l_carpal_proximal_phalanx_1"));
 HAnimSegment1088.setDEF(std::string("hanim_l_carpal_proximal_phalanx_1"));
@@ -4610,8 +4504,6 @@ HAnimJoint& HAnimJoint1096 =  HAnimJoint();
 HAnimJoint1096.X3DNode::setName(std::string("l_carpal_interphalangeal_1"));
 HAnimJoint1096.setDEF(std::string("hanim_l_carpal_interphalangeal_1"));
 HAnimJoint1096.setCenter(new float[]{0.1955,0.8159,0.0464});
-HAnimJoint1096.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1096.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1087.addChildren(&HAnimJoint1096);
 
 HAnimJoint1078.addChildren(&HAnimJoint1087);
@@ -4622,8 +4514,6 @@ HAnimJoint& HAnimJoint1097 =  HAnimJoint();
 HAnimJoint1097.X3DNode::setName(std::string("l_carpometacarpal_2"));
 HAnimJoint1097.setDEF(std::string("hanim_l_carpometacarpal_2"));
 HAnimJoint1097.setCenter(new float[]{0.1983,0.8024,-0.028});
-HAnimJoint1097.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1097.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1098 =  HAnimSegment();
 HAnimSegment1098.X3DNode::setName(std::string("l_metacarpal_2"));
 HAnimSegment1098.setDEF(std::string("hanim_l_metacarpal_2"));
@@ -4689,8 +4579,6 @@ HAnimJoint& HAnimJoint1113 =  HAnimJoint();
 HAnimJoint1113.X3DNode::setName(std::string("l_metacarpophalangeal_2"));
 HAnimJoint1113.setDEF(std::string("hanim_l_metacarpophalangeal_2"));
 HAnimJoint1113.setCenter(new float[]{0.1983,0.7815,-0.028});
-HAnimJoint1113.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1113.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1114 =  HAnimSegment();
 HAnimSegment1114.X3DNode::setName(std::string("l_carpal_proximal_phalanx_2"));
 HAnimSegment1114.setDEF(std::string("hanim_l_carpal_proximal_phalanx_2"));
@@ -4728,8 +4616,6 @@ HAnimJoint& HAnimJoint1122 =  HAnimJoint();
 HAnimJoint1122.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_2"));
 HAnimJoint1122.setDEF(std::string("hanim_l_carpal_proximal_interphalangeal_2"));
 HAnimJoint1122.setCenter(new float[]{0.2017,0.7363,-0.0248});
-HAnimJoint1122.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1122.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1123 =  HAnimSegment();
 HAnimSegment1123.X3DNode::setName(std::string("l_carpal_middle_phalanx_2"));
 HAnimSegment1123.setDEF(std::string("hanim_l_carpal_middle_phalanx_2"));
@@ -4767,8 +4653,6 @@ HAnimJoint& HAnimJoint1131 =  HAnimJoint();
 HAnimJoint1131.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_2"));
 HAnimJoint1131.setDEF(std::string("hanim_l_carpal_distal_interphalangeal_2"));
 HAnimJoint1131.setCenter(new float[]{0.2028,0.7139,-0.0236});
-HAnimJoint1131.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1131.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1122.addChildren(&HAnimJoint1131);
 
 HAnimJoint1113.addChildren(&HAnimJoint1122);
@@ -4781,8 +4665,6 @@ HAnimJoint& HAnimJoint1132 =  HAnimJoint();
 HAnimJoint1132.X3DNode::setName(std::string("l_carpometacarpal_3"));
 HAnimJoint1132.setDEF(std::string("hanim_l_carpometacarpal_3"));
 HAnimJoint1132.setCenter(new float[]{0.1987,0.8029,-0.053});
-HAnimJoint1132.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1132.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1133 =  HAnimSegment();
 HAnimSegment1133.X3DNode::setName(std::string("l_metacarpal_3"));
 HAnimSegment1133.setDEF(std::string("hanim_l_metacarpal_3"));
@@ -4847,8 +4729,6 @@ HAnimJoint& HAnimJoint1148 =  HAnimJoint();
 HAnimJoint1148.X3DNode::setName(std::string("l_metacarpophalangeal_3"));
 HAnimJoint1148.setDEF(std::string("hanim_l_metacarpophalangeal_3"));
 HAnimJoint1148.setCenter(new float[]{0.1987,0.7818,-0.053});
-HAnimJoint1148.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1148.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1149 =  HAnimSegment();
 HAnimSegment1149.X3DNode::setName(std::string("l_carpal_proximal_phalanx_3"));
 HAnimSegment1149.setDEF(std::string("hanim_l_carpal_proximal_phalanx_3"));
@@ -4886,8 +4766,6 @@ HAnimJoint& HAnimJoint1157 =  HAnimJoint();
 HAnimJoint1157.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_3"));
 HAnimJoint1157.setDEF(std::string("hanim_l_carpal_proximal_interphalangeal_3"));
 HAnimJoint1157.setCenter(new float[]{0.2013,0.7273,-0.0503});
-HAnimJoint1157.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1157.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1158 =  HAnimSegment();
 HAnimSegment1158.X3DNode::setName(std::string("l_carpal_middle_phalanx_3"));
 HAnimSegment1158.setDEF(std::string("hanim_l_carpal_middle_phalanx_3"));
@@ -4925,8 +4803,6 @@ HAnimJoint& HAnimJoint1166 =  HAnimJoint();
 HAnimJoint1166.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_3"));
 HAnimJoint1166.setDEF(std::string("hanim_l_carpal_distal_interphalangeal_3"));
 HAnimJoint1166.setCenter(new float[]{0.2026,0.7011,-0.0494});
-HAnimJoint1166.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1166.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1157.addChildren(&HAnimJoint1166);
 
 HAnimJoint1148.addChildren(&HAnimJoint1157);
@@ -4939,8 +4815,6 @@ HAnimJoint& HAnimJoint1167 =  HAnimJoint();
 HAnimJoint1167.X3DNode::setName(std::string("l_carpometacarpal_4"));
 HAnimJoint1167.setDEF(std::string("hanim_l_carpometacarpal_4"));
 HAnimJoint1167.setCenter(new float[]{0.1956,0.8019,-0.0794});
-HAnimJoint1167.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1167.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1168 =  HAnimSegment();
 HAnimSegment1168.X3DNode::setName(std::string("l_metacarpal_4"));
 HAnimSegment1168.setDEF(std::string("hanim_l_metacarpal_4"));
@@ -4978,8 +4852,6 @@ HAnimJoint& HAnimJoint1176 =  HAnimJoint();
 HAnimJoint1176.X3DNode::setName(std::string("l_metacarpophalangeal_4"));
 HAnimJoint1176.setDEF(std::string("hanim_l_metacarpophalangeal_4"));
 HAnimJoint1176.setCenter(new float[]{0.1956,0.7815,-0.0794});
-HAnimJoint1176.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1176.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1177 =  HAnimSegment();
 HAnimSegment1177.X3DNode::setName(std::string("l_carpal_proximal_phalanx_4"));
 HAnimSegment1177.setDEF(std::string("hanim_l_carpal_proximal_phalanx_4"));
@@ -5017,8 +4889,6 @@ HAnimJoint& HAnimJoint1185 =  HAnimJoint();
 HAnimJoint1185.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_4"));
 HAnimJoint1185.setDEF(std::string("hanim_l_carpal_proximal_interphalangeal_4"));
 HAnimJoint1185.setCenter(new float[]{0.1973,0.7287,-0.0777});
-HAnimJoint1185.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1185.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1186 =  HAnimSegment();
 HAnimSegment1186.X3DNode::setName(std::string("l_carpal_middle_phalanx_4"));
 HAnimSegment1186.setDEF(std::string("hanim_l_carpal_middle_phalanx_4"));
@@ -5056,8 +4926,6 @@ HAnimJoint& HAnimJoint1194 =  HAnimJoint();
 HAnimJoint1194.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_4"));
 HAnimJoint1194.setDEF(std::string("hanim_l_carpal_distal_interphalangeal_4"));
 HAnimJoint1194.setCenter(new float[]{0.1983,0.7045,-0.0767});
-HAnimJoint1194.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1194.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1185.addChildren(&HAnimJoint1194);
 
 HAnimJoint1176.addChildren(&HAnimJoint1185);
@@ -5070,8 +4938,6 @@ HAnimJoint& HAnimJoint1195 =  HAnimJoint();
 HAnimJoint1195.X3DNode::setName(std::string("l_carpometacarpal_5"));
 HAnimJoint1195.setDEF(std::string("hanim_l_carpometacarpal_5"));
 HAnimJoint1195.setCenter(new float[]{0.1925,0.8066,-0.1036});
-HAnimJoint1195.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1195.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1196 =  HAnimSegment();
 HAnimSegment1196.X3DNode::setName(std::string("l_metacarpal_5"));
 HAnimSegment1196.setDEF(std::string("hanim_l_metacarpal_5"));
@@ -5137,8 +5003,6 @@ HAnimJoint& HAnimJoint1211 =  HAnimJoint();
 HAnimJoint1211.X3DNode::setName(std::string("l_metacarpophalangeal_5"));
 HAnimJoint1211.setDEF(std::string("hanim_l_metacarpophalangeal_5"));
 HAnimJoint1211.setCenter(new float[]{0.1925,0.7866,-0.1036});
-HAnimJoint1211.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1211.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1212 =  HAnimSegment();
 HAnimSegment1212.X3DNode::setName(std::string("l_carpal_proximal_phalanx_5"));
 HAnimSegment1212.setDEF(std::string("hanim_l_carpal_proximal_phalanx_5"));
@@ -5176,8 +5040,6 @@ HAnimJoint& HAnimJoint1220 =  HAnimJoint();
 HAnimJoint1220.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_5"));
 HAnimJoint1220.setDEF(std::string("hanim_l_carpal_proximal_interphalangeal_5"));
 HAnimJoint1220.setCenter(new float[]{0.1938,0.7452,-0.1024});
-HAnimJoint1220.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1220.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1221 =  HAnimSegment();
 HAnimSegment1221.X3DNode::setName(std::string("l_carpal_middle_phalanx_5"));
 HAnimSegment1221.setDEF(std::string("hanim_l_carpal_middle_phalanx_5"));
@@ -5215,8 +5077,6 @@ HAnimJoint& HAnimJoint1229 =  HAnimJoint();
 HAnimJoint1229.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_5"));
 HAnimJoint1229.setDEF(std::string("hanim_l_carpal_distal_interphalangeal_5"));
 HAnimJoint1229.setCenter(new float[]{0.1948,0.7277,-0.1017});
-HAnimJoint1229.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1229.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1220.addChildren(&HAnimJoint1229);
 
 HAnimJoint1211.addChildren(&HAnimJoint1220);
@@ -5239,8 +5099,6 @@ HAnimJoint& HAnimJoint1230 =  HAnimJoint();
 HAnimJoint1230.X3DNode::setName(std::string("r_sternoclavicular"));
 HAnimJoint1230.setDEF(std::string("hanim_r_sternoclavicular"));
 HAnimJoint1230.setCenter(new float[]{-0.0694,1.46,-0.033});
-HAnimJoint1230.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1230.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1231 =  HAnimSegment();
 HAnimSegment1231.X3DNode::setName(std::string("r_clavicle"));
 HAnimSegment1231.setDEF(std::string("hanim_r_clavicle"));
@@ -5417,8 +5275,6 @@ HAnimJoint& HAnimJoint1274 =  HAnimJoint();
 HAnimJoint1274.X3DNode::setName(std::string("r_acromioclavicular"));
 HAnimJoint1274.setDEF(std::string("hanim_r_acromioclavicular"));
 HAnimJoint1274.setCenter(new float[]{-0.0836,1.4281,-0.0401});
-HAnimJoint1274.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1274.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1275 =  HAnimSegment();
 HAnimSegment1275.X3DNode::setName(std::string("r_scapula"));
 HAnimSegment1275.setDEF(std::string("hanim_r_scapula"));
@@ -5456,8 +5312,6 @@ HAnimJoint& HAnimJoint1283 =  HAnimJoint();
 HAnimJoint1283.X3DNode::setName(std::string("r_shoulder"));
 HAnimJoint1283.setDEF(std::string("hanim_r_shoulder"));
 HAnimJoint1283.setCenter(new float[]{-0.1907,1.4407,-0.0325});
-HAnimJoint1283.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1283.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1284 =  HAnimSegment();
 HAnimSegment1284.X3DNode::setName(std::string("r_upperarm"));
 HAnimSegment1284.setDEF(std::string("hanim_r_upperarm"));
@@ -5550,8 +5404,6 @@ HAnimJoint& HAnimJoint1306 =  HAnimJoint();
 HAnimJoint1306.X3DNode::setName(std::string("r_elbow"));
 HAnimJoint1306.setDEF(std::string("hanim_r_elbow"));
 HAnimJoint1306.setCenter(new float[]{-0.1949,1.1388,-0.062});
-HAnimJoint1306.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1306.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1307 =  HAnimSegment();
 HAnimSegment1307.X3DNode::setName(std::string("r_forearm"));
 HAnimSegment1307.setDEF(std::string("hanim_r_forearm"));
@@ -5701,8 +5553,6 @@ HAnimJoint& HAnimJoint1343 =  HAnimJoint();
 HAnimJoint1343.X3DNode::setName(std::string("r_radiocarpal"));
 HAnimJoint1343.setDEF(std::string("hanim_r_radiocarpal"));
 HAnimJoint1343.setCenter(new float[]{-0.1959,0.8694,-0.0521});
-HAnimJoint1343.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1343.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1344 =  HAnimSegment();
 HAnimSegment1344.X3DNode::setName(std::string("r_carpal"));
 HAnimSegment1344.setDEF(std::string("hanim_r_carpal"));
@@ -5836,8 +5686,6 @@ HAnimJoint& HAnimJoint1375 =  HAnimJoint();
 HAnimJoint1375.X3DNode::setName(std::string("r_carpometacarpal_1"));
 HAnimJoint1375.setDEF(std::string("hanim_r_carpometacarpal_1"));
 HAnimJoint1375.setCenter(new float[]{-0.1899,0.8502,-0.0473});
-HAnimJoint1375.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1375.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1376 =  HAnimSegment();
 HAnimSegment1376.X3DNode::setName(std::string("r_metacarpal_1"));
 HAnimSegment1376.setDEF(std::string("hanim_r_metacarpal_1"));
@@ -5875,8 +5723,6 @@ HAnimJoint& HAnimJoint1384 =  HAnimJoint();
 HAnimJoint1384.X3DNode::setName(std::string("r_metacarpophalangeal_1"));
 HAnimJoint1384.setDEF(std::string("hanim_r_metacarpophalangeal_1"));
 HAnimJoint1384.setCenter(new float[]{-0.1874,0.8256,0.0306});
-HAnimJoint1384.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1384.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1385 =  HAnimSegment();
 HAnimSegment1385.X3DNode::setName(std::string("r_carpal_proximal_phalanx_1"));
 HAnimSegment1385.setDEF(std::string("hanim_r_carpal_proximal_phalanx_1"));
@@ -5914,8 +5760,6 @@ HAnimJoint& HAnimJoint1393 =  HAnimJoint();
 HAnimJoint1393.X3DNode::setName(std::string("r_carpal_interphalangeal_1"));
 HAnimJoint1393.setDEF(std::string("hanim_r_carpal_interphalangeal_1"));
 HAnimJoint1393.setCenter(new float[]{-0.1864,0.819,0.0506});
-HAnimJoint1393.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1393.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1384.addChildren(&HAnimJoint1393);
 
 HAnimJoint1375.addChildren(&HAnimJoint1384);
@@ -5926,8 +5770,6 @@ HAnimJoint& HAnimJoint1394 =  HAnimJoint();
 HAnimJoint1394.X3DNode::setName(std::string("r_carpometacarpal_2"));
 HAnimJoint1394.setDEF(std::string("hanim_r_carpometacarpal_2"));
 HAnimJoint1394.setCenter(new float[]{-0.1961,0.8055,-0.0218});
-HAnimJoint1394.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1394.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1395 =  HAnimSegment();
 HAnimSegment1395.X3DNode::setName(std::string("r_metacarpal_2"));
 HAnimSegment1395.setDEF(std::string("hanim_r_metacarpal_2"));
@@ -5993,8 +5835,6 @@ HAnimJoint& HAnimJoint1410 =  HAnimJoint();
 HAnimJoint1410.X3DNode::setName(std::string("r_metacarpophalangeal_2"));
 HAnimJoint1410.setDEF(std::string("hanim_r_metacarpophalangeal_2"));
 HAnimJoint1410.setCenter(new float[]{-0.1961,0.7846,-0.0218});
-HAnimJoint1410.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1410.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1411 =  HAnimSegment();
 HAnimSegment1411.X3DNode::setName(std::string("r_carpal_proximal_phalanx_2"));
 HAnimSegment1411.setDEF(std::string("hanim_r_carpal_proximal_phalanx_2"));
@@ -6032,8 +5872,6 @@ HAnimJoint& HAnimJoint1419 =  HAnimJoint();
 HAnimJoint1419.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_2"));
 HAnimJoint1419.setDEF(std::string("hanim_r_carpal_proximal_interphalangeal_2"));
 HAnimJoint1419.setCenter(new float[]{-0.1954,0.7393,-0.0185});
-HAnimJoint1419.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1419.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1420 =  HAnimSegment();
 HAnimSegment1420.X3DNode::setName(std::string("r_carpal_middle_phalanx_2"));
 HAnimSegment1420.setDEF(std::string("hanim_r_carpal_middle_phalanx_2"));
@@ -6071,8 +5909,6 @@ HAnimJoint& HAnimJoint1428 =  HAnimJoint();
 HAnimJoint1428.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_2"));
 HAnimJoint1428.setDEF(std::string("hanim_r_carpal_distal_interphalangeal_2"));
 HAnimJoint1428.setCenter(new float[]{-0.1945,0.7169,-0.0173});
-HAnimJoint1428.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1428.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1419.addChildren(&HAnimJoint1428);
 
 HAnimJoint1410.addChildren(&HAnimJoint1419);
@@ -6085,8 +5921,6 @@ HAnimJoint& HAnimJoint1429 =  HAnimJoint();
 HAnimJoint1429.X3DNode::setName(std::string("r_carpometacarpal_3"));
 HAnimJoint1429.setDEF(std::string("hanim_r_carpometacarpal_3"));
 HAnimJoint1429.setCenter(new float[]{-0.1972,0.806,-0.0468});
-HAnimJoint1429.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1429.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1430 =  HAnimSegment();
 HAnimSegment1430.X3DNode::setName(std::string("r_metacarpal_3"));
 HAnimSegment1430.setDEF(std::string("hanim_r_metacarpal_3"));
@@ -6151,8 +5985,6 @@ HAnimJoint& HAnimJoint1445 =  HAnimJoint();
 HAnimJoint1445.X3DNode::setName(std::string("r_metacarpophalangeal_3"));
 HAnimJoint1445.setDEF(std::string("hanim_r_metacarpophalangeal_3"));
 HAnimJoint1445.setCenter(new float[]{-0.1972,0.7849,-0.0468});
-HAnimJoint1445.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1445.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1446 =  HAnimSegment();
 HAnimSegment1446.X3DNode::setName(std::string("r_carpal_proximal_phalanx_3"));
 HAnimSegment1446.setDEF(std::string("hanim_r_carpal_proximal_phalanx_3"));
@@ -6190,8 +6022,6 @@ HAnimJoint& HAnimJoint1454 =  HAnimJoint();
 HAnimJoint1454.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_3"));
 HAnimJoint1454.setDEF(std::string("hanim_r_carpal_proximal_interphalangeal_3"));
 HAnimJoint1454.setCenter(new float[]{-0.195,0.7304,-0.0441});
-HAnimJoint1454.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1454.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1455 =  HAnimSegment();
 HAnimSegment1455.X3DNode::setName(std::string("r_carpal_middle_phalanx_3"));
 HAnimSegment1455.setDEF(std::string("hanim_r_carpal_middle_phalanx_3"));
@@ -6229,8 +6059,6 @@ HAnimJoint& HAnimJoint1463 =  HAnimJoint();
 HAnimJoint1463.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_3"));
 HAnimJoint1463.setDEF(std::string("hanim_r_carpal_distal_interphalangeal_3"));
 HAnimJoint1463.setCenter(new float[]{-0.1939,0.7042,-0.0432});
-HAnimJoint1463.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1463.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1454.addChildren(&HAnimJoint1463);
 
 HAnimJoint1445.addChildren(&HAnimJoint1454);
@@ -6243,8 +6071,6 @@ HAnimJoint& HAnimJoint1464 =  HAnimJoint();
 HAnimJoint1464.X3DNode::setName(std::string("r_carpometacarpal_4"));
 HAnimJoint1464.setDEF(std::string("hanim_r_carpometacarpal_4"));
 HAnimJoint1464.setCenter(new float[]{-0.1951,0.8049,-0.0732});
-HAnimJoint1464.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1464.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1465 =  HAnimSegment();
 HAnimSegment1465.X3DNode::setName(std::string("r_metacarpal_4"));
 HAnimSegment1465.setDEF(std::string("hanim_r_metacarpal_4"));
@@ -6282,8 +6108,6 @@ HAnimJoint& HAnimJoint1473 =  HAnimJoint();
 HAnimJoint1473.X3DNode::setName(std::string("r_metacarpophalangeal_4"));
 HAnimJoint1473.setDEF(std::string("hanim_r_metacarpophalangeal_4"));
 HAnimJoint1473.setCenter(new float[]{-0.1951,0.7845,-0.0732});
-HAnimJoint1473.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1473.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1474 =  HAnimSegment();
 HAnimSegment1474.X3DNode::setName(std::string("r_carpal_proximal_phalanx_4"));
 HAnimSegment1474.setDEF(std::string("hanim_r_carpal_proximal_phalanx_4"));
@@ -6321,8 +6145,6 @@ HAnimJoint& HAnimJoint1482 =  HAnimJoint();
 HAnimJoint1482.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_4"));
 HAnimJoint1482.setDEF(std::string("hanim_r_carpal_proximal_interphalangeal_4"));
 HAnimJoint1482.setCenter(new float[]{-0.192,0.7318,-0.0716});
-HAnimJoint1482.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1482.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1483 =  HAnimSegment();
 HAnimSegment1483.X3DNode::setName(std::string("r_carpal_middle_phalanx_4"));
 HAnimSegment1483.setDEF(std::string("hanim_r_carpal_middle_phalanx_4"));
@@ -6360,8 +6182,6 @@ HAnimJoint& HAnimJoint1491 =  HAnimJoint();
 HAnimJoint1491.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_4"));
 HAnimJoint1491.setDEF(std::string("hanim_r_carpal_distal_interphalangeal_4"));
 HAnimJoint1491.setCenter(new float[]{-0.1908,0.7077,-0.0706});
-HAnimJoint1491.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1491.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1482.addChildren(&HAnimJoint1491);
 
 HAnimJoint1473.addChildren(&HAnimJoint1482);
@@ -6374,8 +6194,6 @@ HAnimJoint& HAnimJoint1492 =  HAnimJoint();
 HAnimJoint1492.X3DNode::setName(std::string("r_carpometacarpal_5"));
 HAnimJoint1492.setDEF(std::string("hanim_r_carpometacarpal_5"));
 HAnimJoint1492.setCenter(new float[]{-0.1926,0.8096,-0.0975});
-HAnimJoint1492.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1492.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1493 =  HAnimSegment();
 HAnimSegment1493.X3DNode::setName(std::string("r_metacarpal_5"));
 HAnimSegment1493.setDEF(std::string("hanim_r_metacarpal_5"));
@@ -6441,8 +6259,6 @@ HAnimJoint& HAnimJoint1508 =  HAnimJoint();
 HAnimJoint1508.X3DNode::setName(std::string("r_metacarpophalangeal_5"));
 HAnimJoint1508.setDEF(std::string("hanim_r_metacarpophalangeal_5"));
 HAnimJoint1508.setCenter(new float[]{-0.1926,0.7896,-0.0975});
-HAnimJoint1508.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1508.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1509 =  HAnimSegment();
 HAnimSegment1509.X3DNode::setName(std::string("r_carpal_proximal_phalanx_5"));
 HAnimSegment1509.setDEF(std::string("hanim_r_carpal_proximal_phalanx_5"));
@@ -6480,8 +6296,6 @@ HAnimJoint& HAnimJoint1517 =  HAnimJoint();
 HAnimJoint1517.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_5"));
 HAnimJoint1517.setDEF(std::string("hanim_r_carpal_proximal_interphalangeal_5"));
 HAnimJoint1517.setCenter(new float[]{-0.1902,0.7483,-0.0963});
-HAnimJoint1517.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1517.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimSegment& HAnimSegment1518 =  HAnimSegment();
 HAnimSegment1518.X3DNode::setName(std::string("r_carpal_middle_phalanx_5"));
 HAnimSegment1518.setDEF(std::string("hanim_r_carpal_middle_phalanx_5"));
@@ -6519,8 +6333,6 @@ HAnimJoint& HAnimJoint1526 =  HAnimJoint();
 HAnimJoint1526.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_5"));
 HAnimJoint1526.setDEF(std::string("hanim_r_carpal_distal_interphalangeal_5"));
 HAnimJoint1526.setCenter(new float[]{-0.1908,0.754,-0.096});
-HAnimJoint1526.setUlimit(new float[]{0.0,0.0,0.0}, 3);
-HAnimJoint1526.setLlimit(new float[]{0.0,0.0,0.0}, 3);
 HAnimJoint1517.addChildren(&HAnimJoint1526);
 
 HAnimJoint1508.addChildren(&HAnimJoint1517);
@@ -6950,714 +6762,6 @@ HAnimHumanoid38.setJoints(&HAnimJoint1619);
 HAnimJoint& HAnimJoint1620 =  HAnimJoint();
 HAnimJoint1620.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1620);
-
-HAnimSegment& HAnimSegment1621 =  HAnimSegment();
-HAnimSegment1621.setUSE(std::string("hanim_sacrum"));
-HAnimHumanoid38.setSegments(&HAnimSegment1621);
-
-HAnimSegment& HAnimSegment1622 =  HAnimSegment();
-HAnimSegment1622.setUSE(std::string("hanim_pelvis"));
-HAnimHumanoid38.setSegments(&HAnimSegment1622);
-
-HAnimSegment& HAnimSegment1623 =  HAnimSegment();
-HAnimSegment1623.setUSE(std::string("hanim_l_thigh"));
-HAnimHumanoid38.setSegments(&HAnimSegment1623);
-
-HAnimSegment& HAnimSegment1624 =  HAnimSegment();
-HAnimSegment1624.setUSE(std::string("hanim_l_calf"));
-HAnimHumanoid38.setSegments(&HAnimSegment1624);
-
-HAnimSegment& HAnimSegment1625 =  HAnimSegment();
-HAnimSegment1625.setUSE(std::string("hanim_l_talus"));
-HAnimHumanoid38.setSegments(&HAnimSegment1625);
-
-HAnimSegment& HAnimSegment1626 =  HAnimSegment();
-HAnimSegment1626.setUSE(std::string("hanim_l_metatarsal_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1626);
-
-HAnimSegment& HAnimSegment1627 =  HAnimSegment();
-HAnimSegment1627.setUSE(std::string("hanim_l_tarsal_proximal_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1627);
-
-HAnimSegment& HAnimSegment1628 =  HAnimSegment();
-HAnimSegment1628.setUSE(std::string("hanim_r_thigh"));
-HAnimHumanoid38.setSegments(&HAnimSegment1628);
-
-HAnimSegment& HAnimSegment1629 =  HAnimSegment();
-HAnimSegment1629.setUSE(std::string("hanim_r_calf"));
-HAnimHumanoid38.setSegments(&HAnimSegment1629);
-
-HAnimSegment& HAnimSegment1630 =  HAnimSegment();
-HAnimSegment1630.setUSE(std::string("hanim_r_talus"));
-HAnimHumanoid38.setSegments(&HAnimSegment1630);
-
-HAnimSegment& HAnimSegment1631 =  HAnimSegment();
-HAnimSegment1631.setUSE(std::string("hanim_r_metatarsal_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1631);
-
-HAnimSegment& HAnimSegment1632 =  HAnimSegment();
-HAnimSegment1632.setUSE(std::string("hanim_r_tarsal_proximal_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1632);
-
-HAnimSegment& HAnimSegment1633 =  HAnimSegment();
-HAnimSegment1633.setUSE(std::string("hanim_l5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1633);
-
-HAnimSegment& HAnimSegment1634 =  HAnimSegment();
-HAnimSegment1634.setUSE(std::string("hanim_l4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1634);
-
-HAnimSegment& HAnimSegment1635 =  HAnimSegment();
-HAnimSegment1635.setUSE(std::string("hanim_l3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1635);
-
-HAnimSegment& HAnimSegment1636 =  HAnimSegment();
-HAnimSegment1636.setUSE(std::string("hanim_l2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1636);
-
-HAnimSegment& HAnimSegment1637 =  HAnimSegment();
-HAnimSegment1637.setUSE(std::string("hanim_l1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1637);
-
-HAnimSegment& HAnimSegment1638 =  HAnimSegment();
-HAnimSegment1638.setUSE(std::string("hanim_t12"));
-HAnimHumanoid38.setSegments(&HAnimSegment1638);
-
-HAnimSegment& HAnimSegment1639 =  HAnimSegment();
-HAnimSegment1639.setUSE(std::string("hanim_t11"));
-HAnimHumanoid38.setSegments(&HAnimSegment1639);
-
-HAnimSegment& HAnimSegment1640 =  HAnimSegment();
-HAnimSegment1640.setUSE(std::string("hanim_t10"));
-HAnimHumanoid38.setSegments(&HAnimSegment1640);
-
-HAnimSegment& HAnimSegment1641 =  HAnimSegment();
-HAnimSegment1641.setUSE(std::string("hanim_t9"));
-HAnimHumanoid38.setSegments(&HAnimSegment1641);
-
-HAnimSegment& HAnimSegment1642 =  HAnimSegment();
-HAnimSegment1642.setUSE(std::string("hanim_t8"));
-HAnimHumanoid38.setSegments(&HAnimSegment1642);
-
-HAnimSegment& HAnimSegment1643 =  HAnimSegment();
-HAnimSegment1643.setUSE(std::string("hanim_t7"));
-HAnimHumanoid38.setSegments(&HAnimSegment1643);
-
-HAnimSegment& HAnimSegment1644 =  HAnimSegment();
-HAnimSegment1644.setUSE(std::string("hanim_t6"));
-HAnimHumanoid38.setSegments(&HAnimSegment1644);
-
-HAnimSegment& HAnimSegment1645 =  HAnimSegment();
-HAnimSegment1645.setUSE(std::string("hanim_t5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1645);
-
-HAnimSegment& HAnimSegment1646 =  HAnimSegment();
-HAnimSegment1646.setUSE(std::string("hanim_t4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1646);
-
-HAnimSegment& HAnimSegment1647 =  HAnimSegment();
-HAnimSegment1647.setUSE(std::string("hanim_t3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1647);
-
-HAnimSegment& HAnimSegment1648 =  HAnimSegment();
-HAnimSegment1648.setUSE(std::string("hanim_t2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1648);
-
-HAnimSegment& HAnimSegment1649 =  HAnimSegment();
-HAnimSegment1649.setUSE(std::string("hanim_t1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1649);
-
-HAnimSegment& HAnimSegment1650 =  HAnimSegment();
-HAnimSegment1650.setUSE(std::string("hanim_c7"));
-HAnimHumanoid38.setSegments(&HAnimSegment1650);
-
-HAnimSegment& HAnimSegment1651 =  HAnimSegment();
-HAnimSegment1651.setUSE(std::string("hanim_c6"));
-HAnimHumanoid38.setSegments(&HAnimSegment1651);
-
-HAnimSegment& HAnimSegment1652 =  HAnimSegment();
-HAnimSegment1652.setUSE(std::string("hanim_c5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1652);
-
-HAnimSegment& HAnimSegment1653 =  HAnimSegment();
-HAnimSegment1653.setUSE(std::string("hanim_c4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1653);
-
-HAnimSegment& HAnimSegment1654 =  HAnimSegment();
-HAnimSegment1654.setUSE(std::string("hanim_c3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1654);
-
-HAnimSegment& HAnimSegment1655 =  HAnimSegment();
-HAnimSegment1655.setUSE(std::string("hanim_c2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1655);
-
-HAnimSegment& HAnimSegment1656 =  HAnimSegment();
-HAnimSegment1656.setUSE(std::string("hanim_c1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1656);
-
-HAnimSegment& HAnimSegment1657 =  HAnimSegment();
-HAnimSegment1657.setUSE(std::string("hanim_skull"));
-HAnimHumanoid38.setSegments(&HAnimSegment1657);
-
-HAnimSegment& HAnimSegment1658 =  HAnimSegment();
-HAnimSegment1658.setUSE(std::string("hanim_l_clavicle"));
-HAnimHumanoid38.setSegments(&HAnimSegment1658);
-
-HAnimSegment& HAnimSegment1659 =  HAnimSegment();
-HAnimSegment1659.setUSE(std::string("hanim_l_scapula"));
-HAnimHumanoid38.setSegments(&HAnimSegment1659);
-
-HAnimSegment& HAnimSegment1660 =  HAnimSegment();
-HAnimSegment1660.setUSE(std::string("hanim_l_upperarm"));
-HAnimHumanoid38.setSegments(&HAnimSegment1660);
-
-HAnimSegment& HAnimSegment1661 =  HAnimSegment();
-HAnimSegment1661.setUSE(std::string("hanim_l_forearm"));
-HAnimHumanoid38.setSegments(&HAnimSegment1661);
-
-HAnimSegment& HAnimSegment1662 =  HAnimSegment();
-HAnimSegment1662.setUSE(std::string("hanim_l_carpal"));
-HAnimHumanoid38.setSegments(&HAnimSegment1662);
-
-HAnimSegment& HAnimSegment1663 =  HAnimSegment();
-HAnimSegment1663.setUSE(std::string("hanim_l_metacarpal_1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1663);
-
-HAnimSegment& HAnimSegment1664 =  HAnimSegment();
-HAnimSegment1664.setUSE(std::string("hanim_l_carpal_proximal_phalanx_1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1664);
-
-HAnimSegment& HAnimSegment1665 =  HAnimSegment();
-HAnimSegment1665.setUSE(std::string("hanim_l_metacarpal_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1665);
-
-HAnimSegment& HAnimSegment1666 =  HAnimSegment();
-HAnimSegment1666.setUSE(std::string("hanim_l_carpal_proximal_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1666);
-
-HAnimSegment& HAnimSegment1667 =  HAnimSegment();
-HAnimSegment1667.setUSE(std::string("hanim_l_carpal_middle_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1667);
-
-HAnimSegment& HAnimSegment1668 =  HAnimSegment();
-HAnimSegment1668.setUSE(std::string("hanim_l_metacarpal_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1668);
-
-HAnimSegment& HAnimSegment1669 =  HAnimSegment();
-HAnimSegment1669.setUSE(std::string("hanim_l_carpal_proximal_phalanx_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1669);
-
-HAnimSegment& HAnimSegment1670 =  HAnimSegment();
-HAnimSegment1670.setUSE(std::string("hanim_l_carpal_middle_phalanx_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1670);
-
-HAnimSegment& HAnimSegment1671 =  HAnimSegment();
-HAnimSegment1671.setUSE(std::string("hanim_l_metacarpal_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1671);
-
-HAnimSegment& HAnimSegment1672 =  HAnimSegment();
-HAnimSegment1672.setUSE(std::string("hanim_l_carpal_proximal_phalanx_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1672);
-
-HAnimSegment& HAnimSegment1673 =  HAnimSegment();
-HAnimSegment1673.setUSE(std::string("hanim_l_carpal_middle_phalanx_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1673);
-
-HAnimSegment& HAnimSegment1674 =  HAnimSegment();
-HAnimSegment1674.setUSE(std::string("hanim_l_metacarpal_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1674);
-
-HAnimSegment& HAnimSegment1675 =  HAnimSegment();
-HAnimSegment1675.setUSE(std::string("hanim_l_carpal_proximal_phalanx_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1675);
-
-HAnimSegment& HAnimSegment1676 =  HAnimSegment();
-HAnimSegment1676.setUSE(std::string("hanim_l_carpal_middle_phalanx_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1676);
-
-HAnimSegment& HAnimSegment1677 =  HAnimSegment();
-HAnimSegment1677.setUSE(std::string("hanim_r_clavicle"));
-HAnimHumanoid38.setSegments(&HAnimSegment1677);
-
-HAnimSegment& HAnimSegment1678 =  HAnimSegment();
-HAnimSegment1678.setUSE(std::string("hanim_r_scapula"));
-HAnimHumanoid38.setSegments(&HAnimSegment1678);
-
-HAnimSegment& HAnimSegment1679 =  HAnimSegment();
-HAnimSegment1679.setUSE(std::string("hanim_r_upperarm"));
-HAnimHumanoid38.setSegments(&HAnimSegment1679);
-
-HAnimSegment& HAnimSegment1680 =  HAnimSegment();
-HAnimSegment1680.setUSE(std::string("hanim_r_forearm"));
-HAnimHumanoid38.setSegments(&HAnimSegment1680);
-
-HAnimSegment& HAnimSegment1681 =  HAnimSegment();
-HAnimSegment1681.setUSE(std::string("hanim_r_carpal"));
-HAnimHumanoid38.setSegments(&HAnimSegment1681);
-
-HAnimSegment& HAnimSegment1682 =  HAnimSegment();
-HAnimSegment1682.setUSE(std::string("hanim_r_metacarpal_1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1682);
-
-HAnimSegment& HAnimSegment1683 =  HAnimSegment();
-HAnimSegment1683.setUSE(std::string("hanim_r_carpal_proximal_phalanx_1"));
-HAnimHumanoid38.setSegments(&HAnimSegment1683);
-
-HAnimSegment& HAnimSegment1684 =  HAnimSegment();
-HAnimSegment1684.setUSE(std::string("hanim_r_metacarpal_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1684);
-
-HAnimSegment& HAnimSegment1685 =  HAnimSegment();
-HAnimSegment1685.setUSE(std::string("hanim_r_carpal_proximal_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1685);
-
-HAnimSegment& HAnimSegment1686 =  HAnimSegment();
-HAnimSegment1686.setUSE(std::string("hanim_r_carpal_middle_phalanx_2"));
-HAnimHumanoid38.setSegments(&HAnimSegment1686);
-
-HAnimSegment& HAnimSegment1687 =  HAnimSegment();
-HAnimSegment1687.setUSE(std::string("hanim_r_metacarpal_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1687);
-
-HAnimSegment& HAnimSegment1688 =  HAnimSegment();
-HAnimSegment1688.setUSE(std::string("hanim_r_carpal_proximal_phalanx_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1688);
-
-HAnimSegment& HAnimSegment1689 =  HAnimSegment();
-HAnimSegment1689.setUSE(std::string("hanim_r_carpal_middle_phalanx_3"));
-HAnimHumanoid38.setSegments(&HAnimSegment1689);
-
-HAnimSegment& HAnimSegment1690 =  HAnimSegment();
-HAnimSegment1690.setUSE(std::string("hanim_r_metacarpal_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1690);
-
-HAnimSegment& HAnimSegment1691 =  HAnimSegment();
-HAnimSegment1691.setUSE(std::string("hanim_r_carpal_proximal_phalanx_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1691);
-
-HAnimSegment& HAnimSegment1692 =  HAnimSegment();
-HAnimSegment1692.setUSE(std::string("hanim_r_carpal_middle_phalanx_4"));
-HAnimHumanoid38.setSegments(&HAnimSegment1692);
-
-HAnimSegment& HAnimSegment1693 =  HAnimSegment();
-HAnimSegment1693.setUSE(std::string("hanim_r_metacarpal_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1693);
-
-HAnimSegment& HAnimSegment1694 =  HAnimSegment();
-HAnimSegment1694.setUSE(std::string("hanim_r_carpal_proximal_phalanx_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1694);
-
-HAnimSegment& HAnimSegment1695 =  HAnimSegment();
-HAnimSegment1695.setUSE(std::string("hanim_r_carpal_middle_phalanx_5"));
-HAnimHumanoid38.setSegments(&HAnimSegment1695);
-
-HAnimSite& HAnimSite1696 =  HAnimSite();
-HAnimSite1696.setUSE(std::string("hanim_buttocks_standing_wall_contact_point"));
-HAnimHumanoid38.setSites(&HAnimSite1696);
-
-HAnimSite& HAnimSite1697 =  HAnimSite();
-HAnimSite1697.setUSE(std::string("hanim_crotch"));
-HAnimHumanoid38.setSites(&HAnimSite1697);
-
-HAnimSite& HAnimSite1698 =  HAnimSite();
-HAnimSite1698.setUSE(std::string("hanim_l_asis"));
-HAnimHumanoid38.setSites(&HAnimSite1698);
-
-HAnimSite& HAnimSite1699 =  HAnimSite();
-HAnimSite1699.setUSE(std::string("hanim_l_iliocristale"));
-HAnimHumanoid38.setSites(&HAnimSite1699);
-
-HAnimSite& HAnimSite1700 =  HAnimSite();
-HAnimSite1700.setUSE(std::string("hanim_l_psis"));
-HAnimHumanoid38.setSites(&HAnimSite1700);
-
-HAnimSite& HAnimSite1701 =  HAnimSite();
-HAnimSite1701.setUSE(std::string("hanim_l_trochanterion"));
-HAnimHumanoid38.setSites(&HAnimSite1701);
-
-HAnimSite& HAnimSite1702 =  HAnimSite();
-HAnimSite1702.setUSE(std::string("hanim_r_asis"));
-HAnimHumanoid38.setSites(&HAnimSite1702);
-
-HAnimSite& HAnimSite1703 =  HAnimSite();
-HAnimSite1703.setUSE(std::string("hanim_r_iliocristale"));
-HAnimHumanoid38.setSites(&HAnimSite1703);
-
-HAnimSite& HAnimSite1704 =  HAnimSite();
-HAnimSite1704.setUSE(std::string("hanim_r_psis"));
-HAnimHumanoid38.setSites(&HAnimSite1704);
-
-HAnimSite& HAnimSite1705 =  HAnimSite();
-HAnimSite1705.setUSE(std::string("hanim_r_trochanterion"));
-HAnimHumanoid38.setSites(&HAnimSite1705);
-
-HAnimSite& HAnimSite1706 =  HAnimSite();
-HAnimSite1706.setUSE(std::string("hanim_l_femoral_lateral_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1706);
-
-HAnimSite& HAnimSite1707 =  HAnimSite();
-HAnimSite1707.setUSE(std::string("hanim_l_femoral_medial_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1707);
-
-HAnimSite& HAnimSite1708 =  HAnimSite();
-HAnimSite1708.setUSE(std::string("hanim_l_knee_crease"));
-HAnimHumanoid38.setSites(&HAnimSite1708);
-
-HAnimSite& HAnimSite1709 =  HAnimSite();
-HAnimSite1709.setUSE(std::string("hanim_l_suprapatella"));
-HAnimHumanoid38.setSites(&HAnimSite1709);
-
-HAnimSite& HAnimSite1710 =  HAnimSite();
-HAnimSite1710.setUSE(std::string("hanim_l_lateral_malleolus"));
-HAnimHumanoid38.setSites(&HAnimSite1710);
-
-HAnimSite& HAnimSite1711 =  HAnimSite();
-HAnimSite1711.setUSE(std::string("hanim_l_medial_malleolus"));
-HAnimHumanoid38.setSites(&HAnimSite1711);
-
-HAnimSite& HAnimSite1712 =  HAnimSite();
-HAnimSite1712.setUSE(std::string("hanim_l_tibiale"));
-HAnimHumanoid38.setSites(&HAnimSite1712);
-
-HAnimSite& HAnimSite1713 =  HAnimSite();
-HAnimSite1713.setUSE(std::string("hanim_l_calcaneus_posterior"));
-HAnimHumanoid38.setSites(&HAnimSite1713);
-
-HAnimSite& HAnimSite1714 =  HAnimSite();
-HAnimSite1714.setUSE(std::string("hanim_l_sphyrion"));
-HAnimHumanoid38.setSites(&HAnimSite1714);
-
-HAnimSite& HAnimSite1715 =  HAnimSite();
-HAnimSite1715.setUSE(std::string("hanim_l_metatarsal_phalanx_1"));
-HAnimHumanoid38.setSites(&HAnimSite1715);
-
-HAnimSite& HAnimSite1716 =  HAnimSite();
-HAnimSite1716.setUSE(std::string("hanim_l_metatarsal_phalanx_5"));
-HAnimHumanoid38.setSites(&HAnimSite1716);
-
-HAnimSite& HAnimSite1717 =  HAnimSite();
-HAnimSite1717.setUSE(std::string("hanim_l_tarsal_distal_phalanx_1_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1717);
-
-HAnimSite& HAnimSite1718 =  HAnimSite();
-HAnimSite1718.setUSE(std::string("hanim_l_tarsal_distal_phalanx_2_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1718);
-
-HAnimSite& HAnimSite1719 =  HAnimSite();
-HAnimSite1719.setUSE(std::string("hanim_l_tarsal_distal_phalanx_3_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1719);
-
-HAnimSite& HAnimSite1720 =  HAnimSite();
-HAnimSite1720.setUSE(std::string("hanim_l_tarsal_distal_phalanx_4_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1720);
-
-HAnimSite& HAnimSite1721 =  HAnimSite();
-HAnimSite1721.setUSE(std::string("hanim_l_tarsal_distal_phalanx_5_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1721);
-
-HAnimSite& HAnimSite1722 =  HAnimSite();
-HAnimSite1722.setUSE(std::string("hanim_r_femoral_lateral_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1722);
-
-HAnimSite& HAnimSite1723 =  HAnimSite();
-HAnimSite1723.setUSE(std::string("hanim_r_femoral_medial_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1723);
-
-HAnimSite& HAnimSite1724 =  HAnimSite();
-HAnimSite1724.setUSE(std::string("hanim_r_knee_crease"));
-HAnimHumanoid38.setSites(&HAnimSite1724);
-
-HAnimSite& HAnimSite1725 =  HAnimSite();
-HAnimSite1725.setUSE(std::string("hanim_r_suprapatella"));
-HAnimHumanoid38.setSites(&HAnimSite1725);
-
-HAnimSite& HAnimSite1726 =  HAnimSite();
-HAnimSite1726.setUSE(std::string("hanim_r_lateral_malleolus"));
-HAnimHumanoid38.setSites(&HAnimSite1726);
-
-HAnimSite& HAnimSite1727 =  HAnimSite();
-HAnimSite1727.setUSE(std::string("hanim_r_medial_malleolus"));
-HAnimHumanoid38.setSites(&HAnimSite1727);
-
-HAnimSite& HAnimSite1728 =  HAnimSite();
-HAnimSite1728.setUSE(std::string("hanim_r_tibiale"));
-HAnimHumanoid38.setSites(&HAnimSite1728);
-
-HAnimSite& HAnimSite1729 =  HAnimSite();
-HAnimSite1729.setUSE(std::string("hanim_r_calcaneus_posterior"));
-HAnimHumanoid38.setSites(&HAnimSite1729);
-
-HAnimSite& HAnimSite1730 =  HAnimSite();
-HAnimSite1730.setUSE(std::string("hanim_r_sphyrion"));
-HAnimHumanoid38.setSites(&HAnimSite1730);
-
-HAnimSite& HAnimSite1731 =  HAnimSite();
-HAnimSite1731.setUSE(std::string("hanim_r_metatarsal_phalanx_1"));
-HAnimHumanoid38.setSites(&HAnimSite1731);
-
-HAnimSite& HAnimSite1732 =  HAnimSite();
-HAnimSite1732.setUSE(std::string("hanim_r_metatarsal_phalanx_5"));
-HAnimHumanoid38.setSites(&HAnimSite1732);
-
-HAnimSite& HAnimSite1733 =  HAnimSite();
-HAnimSite1733.setUSE(std::string("hanim_r_tarsal_distal_phalanx_1_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1733);
-
-HAnimSite& HAnimSite1734 =  HAnimSite();
-HAnimSite1734.setUSE(std::string("hanim_r_tarsal_distal_phalanx_2_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1734);
-
-HAnimSite& HAnimSite1735 =  HAnimSite();
-HAnimSite1735.setUSE(std::string("hanim_r_tarsal_distal_phalanx_3_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1735);
-
-HAnimSite& HAnimSite1736 =  HAnimSite();
-HAnimSite1736.setUSE(std::string("hanim_r_tarsal_distal_phalanx_4_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1736);
-
-HAnimSite& HAnimSite1737 =  HAnimSite();
-HAnimSite1737.setUSE(std::string("hanim_r_tarsal_distal_phalanx_5_tip"));
-HAnimHumanoid38.setSites(&HAnimSite1737);
-
-HAnimSite& HAnimSite1738 =  HAnimSite();
-HAnimSite1738.setUSE(std::string("hanim_navel"));
-HAnimHumanoid38.setSites(&HAnimSite1738);
-
-HAnimSite& HAnimSite1739 =  HAnimSite();
-HAnimSite1739.setUSE(std::string("hanim_waist_preferred_anterior"));
-HAnimHumanoid38.setSites(&HAnimSite1739);
-
-HAnimSite& HAnimSite1740 =  HAnimSite();
-HAnimSite1740.setUSE(std::string("hanim_waist_preferred_posterior"));
-HAnimHumanoid38.setSites(&HAnimSite1740);
-
-HAnimSite& HAnimSite1741 =  HAnimSite();
-HAnimSite1741.setUSE(std::string("hanim_l_rib10"));
-HAnimHumanoid38.setSites(&HAnimSite1741);
-
-HAnimSite& HAnimSite1742 =  HAnimSite();
-HAnimSite1742.setUSE(std::string("hanim_r_rib10"));
-HAnimHumanoid38.setSites(&HAnimSite1742);
-
-HAnimSite& HAnimSite1743 =  HAnimSite();
-HAnimSite1743.setUSE(std::string("hanim_spine_2_middle_back"));
-HAnimHumanoid38.setSites(&HAnimSite1743);
-
-HAnimSite& HAnimSite1744 =  HAnimSite();
-HAnimSite1744.setUSE(std::string("hanim_substernale"));
-HAnimHumanoid38.setSites(&HAnimSite1744);
-
-HAnimSite& HAnimSite1745 =  HAnimSite();
-HAnimSite1745.setUSE(std::string("hanim_l_thelion"));
-HAnimHumanoid38.setSites(&HAnimSite1745);
-
-HAnimSite& HAnimSite1746 =  HAnimSite();
-HAnimSite1746.setUSE(std::string("hanim_r_thelion"));
-HAnimHumanoid38.setSites(&HAnimSite1746);
-
-HAnimSite& HAnimSite1747 =  HAnimSite();
-HAnimSite1747.setUSE(std::string("hanim_l_chest_midsagittal_plane"));
-HAnimHumanoid38.setSites(&HAnimSite1747);
-
-HAnimSite& HAnimSite1748 =  HAnimSite();
-HAnimSite1748.setUSE(std::string("hanim_mesosternale"));
-HAnimHumanoid38.setSites(&HAnimSite1748);
-
-HAnimSite& HAnimSite1749 =  HAnimSite();
-HAnimSite1749.setUSE(std::string("hanim_r_chest_midsagittal_plane"));
-HAnimHumanoid38.setSites(&HAnimSite1749);
-
-HAnimSite& HAnimSite1750 =  HAnimSite();
-HAnimSite1750.setUSE(std::string("hanim_rear_center_midsagittal_plane"));
-HAnimHumanoid38.setSites(&HAnimSite1750);
-
-HAnimSite& HAnimSite1751 =  HAnimSite();
-HAnimSite1751.setUSE(std::string("hanim_spine_1_middle_back"));
-HAnimHumanoid38.setSites(&HAnimSite1751);
-
-HAnimSite& HAnimSite1752 =  HAnimSite();
-HAnimSite1752.setUSE(std::string("hanim_cervicale"));
-HAnimHumanoid38.setSites(&HAnimSite1752);
-
-HAnimSite& HAnimSite1753 =  HAnimSite();
-HAnimSite1753.setUSE(std::string("hanim_suprasternale"));
-HAnimHumanoid38.setSites(&HAnimSite1753);
-
-HAnimSite& HAnimSite1754 =  HAnimSite();
-HAnimSite1754.setUSE(std::string("hanim_l_neck_base"));
-HAnimHumanoid38.setSites(&HAnimSite1754);
-
-HAnimSite& HAnimSite1755 =  HAnimSite();
-HAnimSite1755.setUSE(std::string("hanim_r_neck_base"));
-HAnimHumanoid38.setSites(&HAnimSite1755);
-
-HAnimSite& HAnimSite1756 =  HAnimSite();
-HAnimSite1756.setUSE(std::string("hanim_adams_apple"));
-HAnimHumanoid38.setSites(&HAnimSite1756);
-
-HAnimSite& HAnimSite1757 =  HAnimSite();
-HAnimSite1757.setUSE(std::string("hanim_glabella"));
-HAnimHumanoid38.setSites(&HAnimSite1757);
-
-HAnimSite& HAnimSite1758 =  HAnimSite();
-HAnimSite1758.setUSE(std::string("hanim_l_ectocanthus"));
-HAnimHumanoid38.setSites(&HAnimSite1758);
-
-HAnimSite& HAnimSite1759 =  HAnimSite();
-HAnimSite1759.setUSE(std::string("hanim_l_infraorbitale"));
-HAnimHumanoid38.setSites(&HAnimSite1759);
-
-HAnimSite& HAnimSite1760 =  HAnimSite();
-HAnimSite1760.setUSE(std::string("hanim_l_tragion"));
-HAnimHumanoid38.setSites(&HAnimSite1760);
-
-HAnimSite& HAnimSite1761 =  HAnimSite();
-HAnimSite1761.setUSE(std::string("hanim_nuchale"));
-HAnimHumanoid38.setSites(&HAnimSite1761);
-
-HAnimSite& HAnimSite1762 =  HAnimSite();
-HAnimSite1762.setUSE(std::string("hanim_opisthocranion"));
-HAnimHumanoid38.setSites(&HAnimSite1762);
-
-HAnimSite& HAnimSite1763 =  HAnimSite();
-HAnimSite1763.setUSE(std::string("hanim_r_ectocanthus"));
-HAnimHumanoid38.setSites(&HAnimSite1763);
-
-HAnimSite& HAnimSite1764 =  HAnimSite();
-HAnimSite1764.setUSE(std::string("hanim_r_infraorbitale"));
-HAnimHumanoid38.setSites(&HAnimSite1764);
-
-HAnimSite& HAnimSite1765 =  HAnimSite();
-HAnimSite1765.setUSE(std::string("hanim_r_tragion"));
-HAnimHumanoid38.setSites(&HAnimSite1765);
-
-HAnimSite& HAnimSite1766 =  HAnimSite();
-HAnimSite1766.setUSE(std::string("hanim_sellion"));
-HAnimHumanoid38.setSites(&HAnimSite1766);
-
-HAnimSite& HAnimSite1767 =  HAnimSite();
-HAnimSite1767.setUSE(std::string("hanim_skull_vertex"));
-HAnimHumanoid38.setSites(&HAnimSite1767);
-
-HAnimSite& HAnimSite1768 =  HAnimSite();
-HAnimSite1768.setUSE(std::string("hanim_l_acromion"));
-HAnimHumanoid38.setSites(&HAnimSite1768);
-
-HAnimSite& HAnimSite1769 =  HAnimSite();
-HAnimSite1769.setUSE(std::string("hanim_l_axilla_distal"));
-HAnimHumanoid38.setSites(&HAnimSite1769);
-
-HAnimSite& HAnimSite1770 =  HAnimSite();
-HAnimSite1770.setUSE(std::string("hanim_l_axilla_posterior_folds"));
-HAnimHumanoid38.setSites(&HAnimSite1770);
-
-HAnimSite& HAnimSite1771 =  HAnimSite();
-HAnimSite1771.setUSE(std::string("hanim_l_axilla_proximal"));
-HAnimHumanoid38.setSites(&HAnimSite1771);
-
-HAnimSite& HAnimSite1772 =  HAnimSite();
-HAnimSite1772.setUSE(std::string("hanim_l_clavicale"));
-HAnimHumanoid38.setSites(&HAnimSite1772);
-
-HAnimSite& HAnimSite1773 =  HAnimSite();
-HAnimSite1773.setUSE(std::string("hanim_l_bideltoid"));
-HAnimHumanoid38.setSites(&HAnimSite1773);
-
-HAnimSite& HAnimSite1774 =  HAnimSite();
-HAnimSite1774.setUSE(std::string("hanim_l_humeral_lateral_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1774);
-
-HAnimSite& HAnimSite1775 =  HAnimSite();
-HAnimSite1775.setUSE(std::string("hanim_l_humeral_medial_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1775);
-
-HAnimSite& HAnimSite1776 =  HAnimSite();
-HAnimSite1776.setUSE(std::string("hanim_l_olecranon"));
-HAnimHumanoid38.setSites(&HAnimSite1776);
-
-HAnimSite& HAnimSite1777 =  HAnimSite();
-HAnimSite1777.setUSE(std::string("hanim_l_radial_styloid"));
-HAnimHumanoid38.setSites(&HAnimSite1777);
-
-HAnimSite& HAnimSite1778 =  HAnimSite();
-HAnimSite1778.setUSE(std::string("hanim_l_radiale"));
-HAnimHumanoid38.setSites(&HAnimSite1778);
-
-HAnimSite& HAnimSite1779 =  HAnimSite();
-HAnimSite1779.setUSE(std::string("hanim_l_ulnar_styloid"));
-HAnimHumanoid38.setSites(&HAnimSite1779);
-
-HAnimSite& HAnimSite1780 =  HAnimSite();
-HAnimSite1780.setUSE(std::string("hanim_l_metacarpal_phalanx_2"));
-HAnimHumanoid38.setSites(&HAnimSite1780);
-
-HAnimSite& HAnimSite1781 =  HAnimSite();
-HAnimSite1781.setUSE(std::string("hanim_l_metacarpal_phalanx_3"));
-HAnimHumanoid38.setSites(&HAnimSite1781);
-
-HAnimSite& HAnimSite1782 =  HAnimSite();
-HAnimSite1782.setUSE(std::string("hanim_l_metacarpal_phalanx_5"));
-HAnimHumanoid38.setSites(&HAnimSite1782);
-
-HAnimSite& HAnimSite1783 =  HAnimSite();
-HAnimSite1783.setUSE(std::string("hanim_r_acromion"));
-HAnimHumanoid38.setSites(&HAnimSite1783);
-
-HAnimSite& HAnimSite1784 =  HAnimSite();
-HAnimSite1784.setUSE(std::string("hanim_r_axilla_distal"));
-HAnimHumanoid38.setSites(&HAnimSite1784);
-
-HAnimSite& HAnimSite1785 =  HAnimSite();
-HAnimSite1785.setUSE(std::string("hanim_r_axilla_posterior_folds"));
-HAnimHumanoid38.setSites(&HAnimSite1785);
-
-HAnimSite& HAnimSite1786 =  HAnimSite();
-HAnimSite1786.setUSE(std::string("hanim_r_axilla_proximal"));
-HAnimHumanoid38.setSites(&HAnimSite1786);
-
-HAnimSite& HAnimSite1787 =  HAnimSite();
-HAnimSite1787.setUSE(std::string("hanim_r_clavicale"));
-HAnimHumanoid38.setSites(&HAnimSite1787);
-
-HAnimSite& HAnimSite1788 =  HAnimSite();
-HAnimSite1788.setUSE(std::string("hanim_r_bideltoid"));
-HAnimHumanoid38.setSites(&HAnimSite1788);
-
-HAnimSite& HAnimSite1789 =  HAnimSite();
-HAnimSite1789.setUSE(std::string("hanim_r_humeral_lateral_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1789);
-
-HAnimSite& HAnimSite1790 =  HAnimSite();
-HAnimSite1790.setUSE(std::string("hanim_r_humeral_medial_epicondyles"));
-HAnimHumanoid38.setSites(&HAnimSite1790);
-
-HAnimSite& HAnimSite1791 =  HAnimSite();
-HAnimSite1791.setUSE(std::string("hanim_r_olecranon"));
-HAnimHumanoid38.setSites(&HAnimSite1791);
-
-HAnimSite& HAnimSite1792 =  HAnimSite();
-HAnimSite1792.setUSE(std::string("hanim_r_radial_styloid"));
-HAnimHumanoid38.setSites(&HAnimSite1792);
-
-HAnimSite& HAnimSite1793 =  HAnimSite();
-HAnimSite1793.setUSE(std::string("hanim_r_radiale"));
-HAnimHumanoid38.setSites(&HAnimSite1793);
-
-HAnimSite& HAnimSite1794 =  HAnimSite();
-HAnimSite1794.setUSE(std::string("hanim_r_ulnar_styloid"));
-HAnimHumanoid38.setSites(&HAnimSite1794);
-
-HAnimSite& HAnimSite1795 =  HAnimSite();
-HAnimSite1795.setUSE(std::string("hanim_r_metacarpal_phalanx_2"));
-HAnimHumanoid38.setSites(&HAnimSite1795);
-
-HAnimSite& HAnimSite1796 =  HAnimSite();
-HAnimSite1796.setUSE(std::string("hanim_r_metacarpal_phalanx_3"));
-HAnimHumanoid38.setSites(&HAnimSite1796);
-
-HAnimSite& HAnimSite1797 =  HAnimSite();
-HAnimSite1797.setUSE(std::string("hanim_r_metacarpal_phalanx_5"));
-HAnimHumanoid38.setSites(&HAnimSite1797);
 
 Scene11.addChild(&HAnimHumanoid38);
 

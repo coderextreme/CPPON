@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int fors2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -98,7 +95,7 @@ Appearance& Appearance21 =  Appearance();
 //comment before Material
 //comment after Material
 Material& Material22 =  Material();
-Material22.setDiffuseColor(new float[]{1,0,0});
+Material22.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance21.addChild(&Material22);
 
 Shape19.addChild(&Appearance21);
@@ -109,8 +106,8 @@ Group15.addChild(&Transform16);
 
 PositionInterpolator& PositionInterpolator23 =  PositionInterpolator();
 PositionInterpolator23.setDEF(std::string("NodePosition"));
-PositionInterpolator23.setKey(new float[]{0,1}, 2);
-PositionInterpolator23.setKeyValue(new float[]{0,0,0,0,5,0}, 6);
+PositionInterpolator23.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator23.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Group15.addChild(&PositionInterpolator23);
 
 Script& Script24 =  Script();
@@ -142,18 +139,18 @@ field28.setType(std::string("MFVec3f"));
 Script24.addChild(&field28);
 
 
-Script24.setSourceCode(std::string("ecmascript:")+
-_T("			function set_cycle(value) {")+
-_T("				old = translation;")+
-_T("				translation = new SFVec3f(Math.random()*100-50, Math.random()*100-50, Math.random()*100-50);")+
-_T("				keyValue = new MFVec3f(old, translation);")+
-_T("			}"));
+//Script24.setSourceCode(std::string("ecmascript:")+
+//_T("			function set_cycle(value) {")+
+//_T("				old = translation;")+
+//_T("				translation = new SFVec3f(Math.random()*100-50, Math.random()*100-50, Math.random()*100-50);")+
+//_T("				keyValue = new MFVec3f(old, translation);")+
+//_T("			}"));
 Group15.addChild(&Script24);
 
 TimeSensor& TimeSensor29 =  TimeSensor();
 TimeSensor29.setDEF(std::string("nodeClock"));
 TimeSensor29.setCycleInterval(3);
-TimeSensor29.setLoop(True);
+TimeSensor29.setLoop(true);
 Group15.addChild(&TimeSensor29);
 
 ROUTE& ROUTE30 =  ROUTE();
@@ -213,13 +210,13 @@ Shape& Shape40 =  Shape();
 Extrusion& Extrusion41 =  Extrusion();
 Extrusion41.setDEF(std::string("extrusion"));
 Extrusion41.setCreaseAngle(0.785);
-Extrusion41.setCrossSection(new float[]{1,0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0,-1,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1,0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0,1,0.38,0.92,0.71,0.71,0.92,0.38,1,0}, 34);
-Extrusion41.setSpine(new float[]{0,-50,0,0,0,0,0,50,0}, 9);
+Extrusion41.setCrossSection(new float[]{1.0,0.0,0.92,-0.38,0.71,-0.71,0.38,-0.92,0.0,-1.0,-0.38,-0.92,-0.71,-0.71,-0.92,-0.38,-1.0,0.0,-0.92,0.38,-0.71,0.71,-0.38,0.92,0.0,1.0,0.38,0.92,0.71,0.71,0.92,0.38,1.0,0.0}, 34);
+Extrusion41.setSpine(new float[]{0.0,-50.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0}, 9);
 Shape40.setGeometry(&Extrusion41);
 
 Appearance& Appearance42 =  Appearance();
 Material& Material43 =  Material();
-Material43.setDiffuseColor(new float[]{0,1,0});
+Material43.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance42.addChild(&Material43);
 
 Shape40.addChild(&Appearance42);
@@ -263,13 +260,13 @@ IS48.addChild(&connect50);
 Script44.addChild(&IS48);
 
 
-Script44.setSourceCode(std::string("ecmascript:")+
-_T("			function set_endA(value) {")+
-_T("				spine = new MFVec3f(value, spine[1]);")+
-_T("			}")+
-_T("			function set_endB(value) {")+
-_T("				spine = new MFVec3f(spine[0], value);")+
-_T("			}"));
+//Script44.setSourceCode(std::string("ecmascript:")+
+//_T("			function set_endA(value) {")+
+//_T("				spine = new MFVec3f(value, spine[1]);")+
+//_T("			}")+
+//_T("			function set_endB(value) {")+
+//_T("				spine = new MFVec3f(spine[0], value);")+
+//_T("			}"));
 Group39.addChild(&Script44);
 
 ROUTE& ROUTE51 =  ROUTE();

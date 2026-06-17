@@ -172,6 +172,18 @@ public class CPPONGrammarBaseListener implements CPPONGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCpp_cast(CPPONGrammarParser.Cpp_castContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCpp_cast(CPPONGrammarParser.Cpp_castContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterParameter(CPPONGrammarParser.ParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}

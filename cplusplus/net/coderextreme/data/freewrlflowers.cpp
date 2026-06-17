@@ -5,16 +5,13 @@
 #define WINGDIAPI
 #define APIENTRY
 #endif
-#define FALSE false
-#define TRUE true
 #define BOOL bool
-#define False false
-#define True true
 #define XML_PARSER_H
 //#include "pch.h"
 //#include "framework.h"
 //#include "glut.h"
-//#include "X3DLib.h"
+#include <string>
+#include "X3DLib.h"
 int freewrlflowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
@@ -53,7 +50,7 @@ Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
 Viewpoint9.setDescription(std::string("Tour Views"));
-Viewpoint9.setPosition(new float[]{0,0,50});
+Viewpoint9.setPosition(new float[]{0.0,0.0,50.0});
 Scene7.addChild(&Viewpoint9);
 
 Background& Background10 =  Background();
