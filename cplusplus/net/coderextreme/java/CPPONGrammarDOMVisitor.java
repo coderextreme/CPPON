@@ -4,6 +4,7 @@ import javax.xml.*;
 import org.xml.sax.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.dom.*;
+import javax.xml.transform.stream.*;
 import javax.xml.validation.*;
 
 import org.antlr.v4.runtime.atn.PredictionMode;
@@ -68,8 +69,13 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		    output.setEncoding("UTF-8");
 		    try {
 			    SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			    // Schema schema = sf.newSchema(new File("/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"));
-			    Schema schema = sf.newSchema(new URL("https://www.web3d.org/specifications/x3d-4.0.xsd"));
+			    StreamSource[] schemaSources = new StreamSource[] {
+				    new StreamSource(new File("/Users/jcarl/www.web3d.org/specifications/xmldsig-core-schema.xsd")),
+				    new StreamSource(new File("/Users/jcarl/www.web3d.org/specifications/x3d-4.0.xsd"))
+				};
+			    Schema schema = sf.newSchema(schemaSources);
+
+			    // Schema schema = sf.newSchema(new URL("https://www.web3d.org/specifications/x3d-4.0.xsd"));
 			    Validator validator = schema.newValidator();
 			    DOMSource source = new DOMSource(document);
 			    validator.validate(source);
@@ -101,11 +107,16 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			Element child = (Element)visitLines(ctx.lines());
 			if (document != null && child != null) {
 				DOMImplementation domImplementation = db.getDOMImplementation();
-				DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.0//EN", "https://www.web3d.org/specifications/x3d-4.0.dtd");
+				DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.0//EN", "file:/C:/Users/jcarl/www.web3d.org/specifications/x3d-4.0.dtd");
 				document.appendChild(doctype);
 				// document.appendChild(document.createTextNode("\n"));
 				document.appendChild(child);
-				child.setAttribute("xmlns:xsd",  "http://www.w3.org/2001/XMLSchema-instance");
+				child.setAttribute("xmlns", "http://www.web3d.org/specifications/x3d-namespace");
+				child.setAttribute("xmlns:xsd",  "https://www.w3.org/2001/XMLSchema-instance");
+				child.setAttribute("profile", "Immersive");
+				child.setAttribute("version", "4.0");
+				// child.setAttribute("xsd:schemaLocation", "https://www.web3d.org/specifications/x3d-4.0.xsd");
+
 			} else {
 				log("Got nothing from visiting Children");
 			}

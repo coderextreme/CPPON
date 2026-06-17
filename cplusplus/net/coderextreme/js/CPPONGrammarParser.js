@@ -4,77 +4,73 @@ import antlr4 from 'antlr4';
 import CPPONGrammarListener from './CPPONGrammarListener.js';
 import CPPONGrammarVisitor from './CPPONGrammarVisitor.js';
 
-const serializedATN = [4,1,52,215,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
+const serializedATN = [4,1,36,212,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
 4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,
 2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,
-20,7,20,1,0,1,0,1,1,1,1,1,2,1,2,3,2,49,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,
-3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,5,3,71,8,3,10,3,12,3,74,
-9,3,1,3,1,3,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,5,6,88,8,6,10,6,12,6,
-91,9,6,1,7,1,7,1,7,1,7,3,7,97,8,7,1,7,3,7,100,8,7,1,7,1,7,1,7,1,7,1,7,3,
-7,107,8,7,1,7,3,7,110,8,7,5,7,112,8,7,10,7,12,7,115,9,7,1,8,1,8,1,8,5,8,
-120,8,8,10,8,12,8,123,9,8,1,9,1,9,1,9,5,9,128,8,9,10,9,12,9,131,9,9,1,10,
-1,10,1,10,1,10,3,10,137,8,10,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,12,
-1,12,1,12,1,12,1,12,3,12,152,8,12,1,12,3,12,155,8,12,1,12,1,12,1,12,1,12,
-3,12,161,8,12,1,12,1,12,1,12,1,12,3,12,167,8,12,1,12,3,12,170,8,12,1,12,
-3,12,173,8,12,1,12,3,12,176,8,12,1,13,1,13,1,14,1,14,1,14,1,14,1,14,3,14,
-185,8,14,1,14,1,14,1,15,1,15,3,15,191,8,15,1,15,1,15,1,16,1,16,1,17,1,17,
-1,18,1,18,1,18,3,18,202,8,18,1,18,1,18,1,19,5,19,207,8,19,10,19,12,19,210,
-9,19,1,20,1,20,1,20,1,20,1,72,0,21,0,2,4,6,8,10,12,14,16,18,20,22,24,26,
-28,30,32,34,36,38,40,0,5,2,0,1,6,35,35,1,0,18,18,1,0,7,7,1,0,25,26,2,0,37,
-37,40,42,243,0,42,1,0,0,0,2,44,1,0,0,0,4,46,1,0,0,0,6,50,1,0,0,0,8,77,1,
-0,0,0,10,82,1,0,0,0,12,84,1,0,0,0,14,99,1,0,0,0,16,116,1,0,0,0,18,124,1,
-0,0,0,20,136,1,0,0,0,22,138,1,0,0,0,24,175,1,0,0,0,26,177,1,0,0,0,28,179,
-1,0,0,0,30,188,1,0,0,0,32,194,1,0,0,0,34,196,1,0,0,0,36,201,1,0,0,0,38,208,
-1,0,0,0,40,211,1,0,0,0,42,43,7,0,0,0,43,1,1,0,0,0,44,45,5,35,0,0,45,3,1,
-0,0,0,46,48,5,35,0,0,47,49,5,43,0,0,48,47,1,0,0,0,48,49,1,0,0,0,49,5,1,0,
-0,0,50,72,5,7,0,0,51,71,5,8,0,0,52,71,5,9,0,0,53,71,5,10,0,0,54,71,5,11,
-0,0,55,71,5,12,0,0,56,71,5,13,0,0,57,71,5,14,0,0,58,71,5,15,0,0,59,71,5,
-52,0,0,60,71,5,51,0,0,61,71,5,16,0,0,62,71,5,17,0,0,63,64,5,18,0,0,64,71,
-8,1,0,0,65,71,5,19,0,0,66,71,5,20,0,0,67,71,5,21,0,0,68,71,5,22,0,0,69,71,
-8,2,0,0,70,51,1,0,0,0,70,52,1,0,0,0,70,53,1,0,0,0,70,54,1,0,0,0,70,55,1,
-0,0,0,70,56,1,0,0,0,70,57,1,0,0,0,70,58,1,0,0,0,70,59,1,0,0,0,70,60,1,0,
-0,0,70,61,1,0,0,0,70,62,1,0,0,0,70,63,1,0,0,0,70,65,1,0,0,0,70,66,1,0,0,
-0,70,67,1,0,0,0,70,68,1,0,0,0,70,69,1,0,0,0,71,74,1,0,0,0,72,73,1,0,0,0,
-72,70,1,0,0,0,73,75,1,0,0,0,74,72,1,0,0,0,75,76,5,7,0,0,76,7,1,0,0,0,77,
-78,5,1,0,0,78,79,5,23,0,0,79,80,3,6,3,0,80,81,5,24,0,0,81,9,1,0,0,0,82,83,
-7,3,0,0,83,11,1,0,0,0,84,89,3,10,5,0,85,86,5,27,0,0,86,88,3,10,5,0,87,85,
-1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,89,90,1,0,0,0,90,13,1,0,0,0,91,89,1,
-0,0,0,92,100,5,44,0,0,93,94,5,28,0,0,94,100,5,43,0,0,95,97,5,29,0,0,96,95,
-1,0,0,0,96,97,1,0,0,0,97,98,1,0,0,0,98,100,5,43,0,0,99,92,1,0,0,0,99,93,
-1,0,0,0,99,96,1,0,0,0,100,113,1,0,0,0,101,109,5,27,0,0,102,110,5,44,0,0,
-103,104,5,28,0,0,104,110,5,43,0,0,105,107,5,29,0,0,106,105,1,0,0,0,106,107,
-1,0,0,0,107,108,1,0,0,0,108,110,5,43,0,0,109,102,1,0,0,0,109,103,1,0,0,0,
-109,106,1,0,0,0,110,112,1,0,0,0,111,101,1,0,0,0,112,115,1,0,0,0,113,111,
-1,0,0,0,113,114,1,0,0,0,114,15,1,0,0,0,115,113,1,0,0,0,116,121,5,45,0,0,
-117,118,5,27,0,0,118,120,5,45,0,0,119,117,1,0,0,0,120,123,1,0,0,0,121,119,
-1,0,0,0,121,122,1,0,0,0,122,17,1,0,0,0,123,121,1,0,0,0,124,129,3,8,4,0,125,
-126,5,27,0,0,126,128,3,8,4,0,127,125,1,0,0,0,128,131,1,0,0,0,129,127,1,0,
-0,0,129,130,1,0,0,0,130,19,1,0,0,0,131,129,1,0,0,0,132,137,3,12,6,0,133,
-137,3,14,7,0,134,137,3,16,8,0,135,137,3,18,9,0,136,132,1,0,0,0,136,133,1,
-0,0,0,136,134,1,0,0,0,136,135,1,0,0,0,137,21,1,0,0,0,138,139,5,30,0,0,139,
-140,3,0,0,0,140,141,5,49,0,0,141,142,5,50,0,0,142,143,5,31,0,0,143,144,3,
-20,10,0,144,145,5,32,0,0,145,23,1,0,0,0,146,176,3,8,4,0,147,155,5,44,0,0,
-148,149,5,28,0,0,149,155,5,43,0,0,150,152,5,29,0,0,151,150,1,0,0,0,151,152,
-1,0,0,0,152,153,1,0,0,0,153,155,5,43,0,0,154,147,1,0,0,0,154,148,1,0,0,0,
-154,151,1,0,0,0,155,176,1,0,0,0,156,176,3,10,5,0,157,160,5,43,0,0,158,159,
-5,27,0,0,159,161,3,22,11,0,160,158,1,0,0,0,160,161,1,0,0,0,161,176,1,0,0,
-0,162,176,5,45,0,0,163,166,3,22,11,0,164,165,5,27,0,0,165,167,5,43,0,0,166,
-164,1,0,0,0,166,167,1,0,0,0,167,176,1,0,0,0,168,170,5,33,0,0,169,168,1,0,
-0,0,169,170,1,0,0,0,170,172,1,0,0,0,171,173,5,36,0,0,172,171,1,0,0,0,172,
-173,1,0,0,0,173,174,1,0,0,0,174,176,3,4,2,0,175,146,1,0,0,0,175,154,1,0,
-0,0,175,156,1,0,0,0,175,157,1,0,0,0,175,162,1,0,0,0,175,163,1,0,0,0,175,
-169,1,0,0,0,176,25,1,0,0,0,177,178,7,4,0,0,178,27,1,0,0,0,179,180,3,4,2,
-0,180,181,3,26,13,0,181,182,5,35,0,0,182,184,5,23,0,0,183,185,3,24,12,0,
-184,183,1,0,0,0,184,185,1,0,0,0,185,186,1,0,0,0,186,187,5,24,0,0,187,29,
-1,0,0,0,188,190,3,0,0,0,189,191,5,36,0,0,190,189,1,0,0,0,190,191,1,0,0,0,
-191,192,1,0,0,0,192,193,3,28,14,0,193,31,1,0,0,0,194,195,3,28,14,0,195,33,
-1,0,0,0,196,197,3,28,14,0,197,35,1,0,0,0,198,202,3,30,15,0,199,202,3,32,
-16,0,200,202,3,34,17,0,201,198,1,0,0,0,201,199,1,0,0,0,201,200,1,0,0,0,202,
-203,1,0,0,0,203,204,5,38,0,0,204,37,1,0,0,0,205,207,3,36,18,0,206,205,1,
-0,0,0,207,210,1,0,0,0,208,206,1,0,0,0,208,209,1,0,0,0,209,39,1,0,0,0,210,
-208,1,0,0,0,211,212,3,38,19,0,212,213,5,0,0,1,213,41,1,0,0,0,23,48,70,72,
-89,96,99,106,109,113,121,129,136,151,154,160,166,169,172,175,184,190,201,
-208];
+20,7,20,2,21,7,21,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,3,1,60,8,1,1,2,1,2,1,3,1,3,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,
+5,6,76,8,6,10,6,12,6,79,9,6,1,7,1,7,1,7,1,7,3,7,85,8,7,1,7,3,7,88,8,7,1,
+7,1,7,1,7,1,7,1,7,3,7,95,8,7,1,7,3,7,98,8,7,5,7,100,8,7,10,7,12,7,103,9,
+7,1,8,1,8,1,8,5,8,108,8,8,10,8,12,8,111,9,8,1,9,1,9,1,9,5,9,116,8,9,10,9,
+12,9,119,9,9,1,10,1,10,1,10,1,10,3,10,125,8,10,1,11,1,11,1,11,3,11,130,8,
+11,1,11,1,11,1,12,1,12,1,12,3,12,137,8,12,1,12,1,12,1,13,1,13,1,13,3,13,
+144,8,13,1,13,3,13,147,8,13,1,13,3,13,150,8,13,1,13,1,13,1,13,1,13,1,13,
+1,13,3,13,158,8,13,1,13,1,13,1,13,3,13,163,8,13,1,14,1,14,1,14,5,14,168,
+8,14,10,14,12,14,171,9,14,1,15,1,15,1,16,1,16,1,16,1,16,1,16,3,16,180,8,
+16,1,16,1,16,1,17,1,17,3,17,186,8,17,1,17,3,17,189,8,17,1,17,1,17,1,18,1,
+18,1,19,1,19,1,20,1,20,1,20,3,20,200,8,20,1,20,1,20,1,21,5,21,205,8,21,10,
+21,12,21,208,9,21,1,21,1,21,1,21,0,0,22,0,2,4,6,8,10,12,14,16,18,20,22,24,
+26,28,30,32,34,36,38,40,42,0,4,2,0,1,8,15,15,1,0,1,3,1,0,28,29,2,0,18,18,
+21,24,225,0,44,1,0,0,0,2,59,1,0,0,0,4,61,1,0,0,0,6,63,1,0,0,0,8,65,1,0,0,
+0,10,70,1,0,0,0,12,72,1,0,0,0,14,87,1,0,0,0,16,104,1,0,0,0,18,112,1,0,0,
+0,20,124,1,0,0,0,22,126,1,0,0,0,24,133,1,0,0,0,26,162,1,0,0,0,28,164,1,0,
+0,0,30,172,1,0,0,0,32,174,1,0,0,0,34,183,1,0,0,0,36,192,1,0,0,0,38,194,1,
+0,0,0,40,199,1,0,0,0,42,206,1,0,0,0,44,45,7,0,0,0,45,1,1,0,0,0,46,47,5,9,
+0,0,47,48,3,0,0,0,48,49,5,32,0,0,49,50,5,33,0,0,50,60,1,0,0,0,51,52,5,34,
+0,0,52,53,3,0,0,0,53,54,5,32,0,0,54,55,5,33,0,0,55,56,5,35,0,0,56,60,1,0,
+0,0,57,58,5,9,0,0,58,60,3,0,0,0,59,46,1,0,0,0,59,51,1,0,0,0,59,57,1,0,0,
+0,60,3,1,0,0,0,61,62,5,15,0,0,62,5,1,0,0,0,63,64,5,36,0,0,64,7,1,0,0,0,65,
+66,7,1,0,0,66,67,5,34,0,0,67,68,3,6,3,0,68,69,5,35,0,0,69,9,1,0,0,0,70,71,
+7,2,0,0,71,11,1,0,0,0,72,77,3,10,5,0,73,74,5,20,0,0,74,76,3,10,5,0,75,73,
+1,0,0,0,76,79,1,0,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,13,1,0,0,0,79,77,1,
+0,0,0,80,88,5,26,0,0,81,82,5,10,0,0,82,88,5,25,0,0,83,85,5,11,0,0,84,83,
+1,0,0,0,84,85,1,0,0,0,85,86,1,0,0,0,86,88,5,25,0,0,87,80,1,0,0,0,87,81,1,
+0,0,0,87,84,1,0,0,0,88,101,1,0,0,0,89,97,5,20,0,0,90,98,5,26,0,0,91,92,5,
+10,0,0,92,98,5,25,0,0,93,95,5,11,0,0,94,93,1,0,0,0,94,95,1,0,0,0,95,96,1,
+0,0,0,96,98,5,25,0,0,97,90,1,0,0,0,97,91,1,0,0,0,97,94,1,0,0,0,98,100,1,
+0,0,0,99,89,1,0,0,0,100,103,1,0,0,0,101,99,1,0,0,0,101,102,1,0,0,0,102,15,
+1,0,0,0,103,101,1,0,0,0,104,109,5,27,0,0,105,106,5,20,0,0,106,108,5,27,0,
+0,107,105,1,0,0,0,108,111,1,0,0,0,109,107,1,0,0,0,109,110,1,0,0,0,110,17,
+1,0,0,0,111,109,1,0,0,0,112,117,3,6,3,0,113,114,5,20,0,0,114,116,3,6,3,0,
+115,113,1,0,0,0,116,119,1,0,0,0,117,115,1,0,0,0,117,118,1,0,0,0,118,19,1,
+0,0,0,119,117,1,0,0,0,120,125,3,12,6,0,121,125,3,14,7,0,122,125,3,16,8,0,
+123,125,3,18,9,0,124,120,1,0,0,0,124,121,1,0,0,0,124,122,1,0,0,0,124,123,
+1,0,0,0,125,21,1,0,0,0,126,127,3,2,1,0,127,129,5,30,0,0,128,130,3,20,10,
+0,129,128,1,0,0,0,129,130,1,0,0,0,130,131,1,0,0,0,131,132,5,31,0,0,132,23,
+1,0,0,0,133,134,5,34,0,0,134,136,3,0,0,0,135,137,5,17,0,0,136,135,1,0,0,
+0,136,137,1,0,0,0,137,138,1,0,0,0,138,139,5,35,0,0,139,25,1,0,0,0,140,163,
+3,8,4,0,141,163,3,6,3,0,142,144,3,24,12,0,143,142,1,0,0,0,143,144,1,0,0,
+0,144,146,1,0,0,0,145,147,3,0,0,0,146,145,1,0,0,0,146,147,1,0,0,0,147,149,
+1,0,0,0,148,150,5,16,0,0,149,148,1,0,0,0,149,150,1,0,0,0,150,151,1,0,0,0,
+151,163,3,4,2,0,152,163,3,22,11,0,153,163,5,26,0,0,154,155,5,10,0,0,155,
+163,5,25,0,0,156,158,5,11,0,0,157,156,1,0,0,0,157,158,1,0,0,0,158,159,1,
+0,0,0,159,163,5,25,0,0,160,163,5,27,0,0,161,163,3,10,5,0,162,140,1,0,0,0,
+162,141,1,0,0,0,162,143,1,0,0,0,162,152,1,0,0,0,162,153,1,0,0,0,162,154,
+1,0,0,0,162,157,1,0,0,0,162,160,1,0,0,0,162,161,1,0,0,0,163,27,1,0,0,0,164,
+169,3,26,13,0,165,166,5,20,0,0,166,168,3,26,13,0,167,165,1,0,0,0,168,171,
+1,0,0,0,169,167,1,0,0,0,169,170,1,0,0,0,170,29,1,0,0,0,171,169,1,0,0,0,172,
+173,7,3,0,0,173,31,1,0,0,0,174,175,3,4,2,0,175,176,3,30,15,0,176,177,5,15,
+0,0,177,179,5,34,0,0,178,180,3,28,14,0,179,178,1,0,0,0,179,180,1,0,0,0,180,
+181,1,0,0,0,181,182,5,35,0,0,182,33,1,0,0,0,183,185,3,0,0,0,184,186,5,17,
+0,0,185,184,1,0,0,0,185,186,1,0,0,0,186,188,1,0,0,0,187,189,5,16,0,0,188,
+187,1,0,0,0,188,189,1,0,0,0,189,190,1,0,0,0,190,191,3,32,16,0,191,35,1,0,
+0,0,192,193,3,32,16,0,193,37,1,0,0,0,194,195,3,32,16,0,195,39,1,0,0,0,196,
+200,3,34,17,0,197,200,3,36,18,0,198,200,3,38,19,0,199,196,1,0,0,0,199,197,
+1,0,0,0,199,198,1,0,0,0,200,201,1,0,0,0,201,202,5,19,0,0,202,41,1,0,0,0,
+203,205,3,40,20,0,204,203,1,0,0,0,205,208,1,0,0,0,206,204,1,0,0,0,206,207,
+1,0,0,0,207,209,1,0,0,0,208,206,1,0,0,0,209,210,5,0,0,1,210,43,1,0,0,0,23,
+59,77,84,87,94,97,101,109,117,124,129,136,143,146,149,157,162,169,179,185,
+188,199,206];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -86,30 +82,27 @@ const sharedContextCache = new antlr4.atn.PredictionContextCache();
 export default class CPPONGrammarParser extends antlr4.Parser {
 
     static grammarFileName = "CPPONGrammar.g4";
-    static literalNames = [ null, "'CString'", "'bool'", "'int'", "'int32_t'", 
-                            "'float'", "'double'", "'\"'", "'https://'", 
-                            "'http://'", "'*'", "'%'", "'!'", "'?'", "'<'", 
-                            "'>'", "'~'", "'#'", "'/'", "'\\\"'", "'\\\\'", 
-                            "'\\'", "'.'", "'('", "')'", "'true'", "'false'", 
-                            "','", "'-'", "'+'", "'new '", "'{'", "'}'", 
-                            "'(X3DNode *)'", null, null, "'&'", "'='", "';'", 
-                            "':'", "'.set'", "'.X3DNode::set'", "'.add'", 
-                            null, "'-1'", null, null, null, null, "'['", 
-                            "']'" ];
+    static literalNames = [ null, "'std::string'", "'SFString'", "'CString'", 
+                            "'bool'", "'int'", "'int32_t'", "'float'", "'double'", 
+                            "'new '", "'-'", "'+'", null, null, null, null, 
+                            "'&'", "'*'", "'='", "';'", "','", "'.'", "'.set'", 
+                            "'.X3DNode::set'", "'.add'", null, "'-1'", null, 
+                            null, null, "'{'", "'}'", "'['", "']'", "'('", 
+                            "')'" ];
     static symbolicNames = [ null, null, null, null, null, null, null, null, 
-                             null, null, null, null, null, null, null, null, 
-                             null, null, null, null, null, null, null, null, 
-                             null, null, null, null, null, null, null, null, 
-                             null, null, "WS", "IDENTIFIER", "REFERENCE", 
-                             "EQUALS", "SEMI", "COLON", "SET", "X3DNODESET", 
+                             null, null, null, null, "WS_AND_NL", "COMMENT", 
+                             "CPPDIR", "IDENTIFIER", "REFERENCE", "POINTER", 
+                             "EQUALS", "SEMI", "COMMA", "DOT", "SET", "X3DNODESET", 
                              "ADD", "WHOLE", "SENTINEL", "FLOAT", "TRUE", 
-                             "FALSE", "COMMENT", "OPENBRACKET", "CLOSEBRACKET", 
-                             "QUOTE", "AT" ];
-    static ruleNames = [ "type", "field", "variable", "string", "cstring", 
-                         "boolean", "boolean_list", "integer_list", "float_list", 
-                         "string_list", "list", "construct_array", "parameters", 
-                         "operator", "funccall", "construct", "set_field", 
-                         "add_field", "line", "lines", "x3d" ];
+                             "FALSE", "OPENBRACE", "CLOSEBRACE", "OPENBRACKET", 
+                             "CLOSEBRACKET", "OPENPAREN", "CLOSEPAREN", 
+                             "STRING" ];
+    static ruleNames = [ "type", "arraytype", "variable", "string", "cstring", 
+                         "boolean_val", "boolean_list", "integer_list", 
+                         "float_list", "string_list", "list", "construct_array", 
+                         "cast", "parameter", "parameters", "operator", 
+                         "funccall", "construct", "set_field", "add_field", 
+                         "line", "x3d" ];
 
     constructor(input) {
         super(input);
@@ -127,9 +120,9 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 42;
+	        this.state = 44;
 	        _la = this._input.LA(1);
-	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 126) !== 0) || _la===35)) {
+	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 33278) !== 0))) {
 	        this._errHandler.recoverInline(this);
 	        }
 	        else {
@@ -152,13 +145,49 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 
 
-	field() {
-	    let localctx = new FieldContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 2, CPPONGrammarParser.RULE_field);
+	arraytype() {
+	    let localctx = new ArraytypeContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 2, CPPONGrammarParser.RULE_arraytype);
 	    try {
-	        this.enterOuterAlt(localctx, 1);
-	        this.state = 44;
-	        this.match(CPPONGrammarParser.IDENTIFIER);
+	        this.state = 59;
+	        this._errHandler.sync(this);
+	        var la_ = this._interp.adaptivePredict(this._input,0,this._ctx);
+	        switch(la_) {
+	        case 1:
+	            this.enterOuterAlt(localctx, 1);
+	            this.state = 46;
+	            this.match(CPPONGrammarParser.T__8);
+	            this.state = 47;
+	            this.type();
+	            this.state = 48;
+	            this.match(CPPONGrammarParser.OPENBRACKET);
+	            this.state = 49;
+	            this.match(CPPONGrammarParser.CLOSEBRACKET);
+	            break;
+
+	        case 2:
+	            this.enterOuterAlt(localctx, 2);
+	            this.state = 51;
+	            this.match(CPPONGrammarParser.OPENPAREN);
+	            this.state = 52;
+	            this.type();
+	            this.state = 53;
+	            this.match(CPPONGrammarParser.OPENBRACKET);
+	            this.state = 54;
+	            this.match(CPPONGrammarParser.CLOSEBRACKET);
+	            this.state = 55;
+	            this.match(CPPONGrammarParser.CLOSEPAREN);
+	            break;
+
+	        case 3:
+	            this.enterOuterAlt(localctx, 3);
+	            this.state = 57;
+	            this.match(CPPONGrammarParser.T__8);
+	            this.state = 58;
+	            this.type();
+	            break;
+
+	        }
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -178,19 +207,10 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	variable() {
 	    let localctx = new VariableContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 4, CPPONGrammarParser.RULE_variable);
-	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 46;
+	        this.state = 61;
 	        this.match(CPPONGrammarParser.IDENTIFIER);
-	        this.state = 48;
-	        this._errHandler.sync(this);
-	        _la = this._input.LA(1);
-	        if(_la===43) {
-	            this.state = 47;
-	            this.match(CPPONGrammarParser.WHOLE);
-	        }
-
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -210,135 +230,10 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	string() {
 	    let localctx = new StringContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 6, CPPONGrammarParser.RULE_string);
-	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 50;
-	        this.match(CPPONGrammarParser.T__6);
-	        this.state = 72;
-	        this._errHandler.sync(this);
-	        var _alt = this._interp.adaptivePredict(this._input,2,this._ctx)
-	        while(_alt!=1 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
-	            if(_alt===1+1) {
-	                this.state = 70;
-	                this._errHandler.sync(this);
-	                var la_ = this._interp.adaptivePredict(this._input,1,this._ctx);
-	                switch(la_) {
-	                case 1:
-	                    this.state = 51;
-	                    this.match(CPPONGrammarParser.T__7);
-	                    break;
-
-	                case 2:
-	                    this.state = 52;
-	                    this.match(CPPONGrammarParser.T__8);
-	                    break;
-
-	                case 3:
-	                    this.state = 53;
-	                    this.match(CPPONGrammarParser.T__9);
-	                    break;
-
-	                case 4:
-	                    this.state = 54;
-	                    this.match(CPPONGrammarParser.T__10);
-	                    break;
-
-	                case 5:
-	                    this.state = 55;
-	                    this.match(CPPONGrammarParser.T__11);
-	                    break;
-
-	                case 6:
-	                    this.state = 56;
-	                    this.match(CPPONGrammarParser.T__12);
-	                    break;
-
-	                case 7:
-	                    this.state = 57;
-	                    this.match(CPPONGrammarParser.T__13);
-	                    break;
-
-	                case 8:
-	                    this.state = 58;
-	                    this.match(CPPONGrammarParser.T__14);
-	                    break;
-
-	                case 9:
-	                    this.state = 59;
-	                    this.match(CPPONGrammarParser.AT);
-	                    break;
-
-	                case 10:
-	                    this.state = 60;
-	                    this.match(CPPONGrammarParser.QUOTE);
-	                    break;
-
-	                case 11:
-	                    this.state = 61;
-	                    this.match(CPPONGrammarParser.T__15);
-	                    break;
-
-	                case 12:
-	                    this.state = 62;
-	                    this.match(CPPONGrammarParser.T__16);
-	                    break;
-
-	                case 13:
-	                    this.state = 63;
-	                    this.match(CPPONGrammarParser.T__17);
-	                    this.state = 64;
-	                    _la = this._input.LA(1);
-	                    if(_la<=0 || _la===18) {
-	                    this._errHandler.recoverInline(this);
-	                    }
-	                    else {
-	                    	this._errHandler.reportMatch(this);
-	                        this.consume();
-	                    }
-	                    break;
-
-	                case 14:
-	                    this.state = 65;
-	                    this.match(CPPONGrammarParser.T__18);
-	                    break;
-
-	                case 15:
-	                    this.state = 66;
-	                    this.match(CPPONGrammarParser.T__19);
-	                    break;
-
-	                case 16:
-	                    this.state = 67;
-	                    this.match(CPPONGrammarParser.T__20);
-	                    break;
-
-	                case 17:
-	                    this.state = 68;
-	                    this.match(CPPONGrammarParser.T__21);
-	                    break;
-
-	                case 18:
-	                    this.state = 69;
-	                    _la = this._input.LA(1);
-	                    if(_la<=0 || _la===7) {
-	                    this._errHandler.recoverInline(this);
-	                    }
-	                    else {
-	                    	this._errHandler.reportMatch(this);
-	                        this.consume();
-	                    }
-	                    break;
-
-	                } 
-	            }
-	            this.state = 74;
-	            this._errHandler.sync(this);
-	            _alt = this._interp.adaptivePredict(this._input,2,this._ctx);
-	        }
-
-	        this.state = 75;
-	        this.match(CPPONGrammarParser.T__6);
+	        this.state = 63;
+	        this.match(CPPONGrammarParser.STRING);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -358,16 +253,24 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	cstring() {
 	    let localctx = new CstringContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 8, CPPONGrammarParser.RULE_cstring);
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 77;
-	        this.match(CPPONGrammarParser.T__0);
-	        this.state = 78;
-	        this.match(CPPONGrammarParser.T__22);
-	        this.state = 79;
+	        this.state = 65;
+	        _la = this._input.LA(1);
+	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 14) !== 0))) {
+	        this._errHandler.recoverInline(this);
+	        }
+	        else {
+	        	this._errHandler.reportMatch(this);
+	            this.consume();
+	        }
+	        this.state = 66;
+	        this.match(CPPONGrammarParser.OPENPAREN);
+	        this.state = 67;
 	        this.string();
-	        this.state = 80;
-	        this.match(CPPONGrammarParser.T__23);
+	        this.state = 68;
+	        this.match(CPPONGrammarParser.CLOSEPAREN);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -384,15 +287,15 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 
 
-	boolean_() {
-	    let localctx = new BooleanContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 10, CPPONGrammarParser.RULE_boolean);
+	boolean_val() {
+	    let localctx = new Boolean_valContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 10, CPPONGrammarParser.RULE_boolean_val);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 82;
+	        this.state = 70;
 	        _la = this._input.LA(1);
-	        if(!(_la===25 || _la===26)) {
+	        if(!(_la===28 || _la===29)) {
 	        this._errHandler.recoverInline(this);
 	        }
 	        else {
@@ -421,17 +324,17 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 84;
-	        this.boolean_();
-	        this.state = 89;
+	        this.state = 72;
+	        this.boolean_val();
+	        this.state = 77;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===27) {
-	            this.state = 85;
-	            this.match(CPPONGrammarParser.T__26);
-	            this.state = 86;
-	            this.boolean_();
-	            this.state = 91;
+	        while(_la===20) {
+	            this.state = 73;
+	            this.match(CPPONGrammarParser.COMMA);
+	            this.state = 74;
+	            this.boolean_val();
+	            this.state = 79;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -457,71 +360,71 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 99;
+	        this.state = 87;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case 44:
-	            this.state = 92;
+	        case 26:
+	            this.state = 80;
 	            this.match(CPPONGrammarParser.SENTINEL);
 	            break;
-	        case 28:
-	            this.state = 93;
-	            this.match(CPPONGrammarParser.T__27);
-	            this.state = 94;
+	        case 10:
+	            this.state = 81;
+	            this.match(CPPONGrammarParser.T__9);
+	            this.state = 82;
 	            this.match(CPPONGrammarParser.WHOLE);
 	            break;
-	        case 29:
-	        case 43:
-	            this.state = 96;
+	        case 11:
+	        case 25:
+	            this.state = 84;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===29) {
-	                this.state = 95;
-	                this.match(CPPONGrammarParser.T__28);
+	            if(_la===11) {
+	                this.state = 83;
+	                this.match(CPPONGrammarParser.T__10);
 	            }
 
-	            this.state = 98;
+	            this.state = 86;
 	            this.match(CPPONGrammarParser.WHOLE);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
 	        }
-	        this.state = 113;
+	        this.state = 101;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===27) {
-	            this.state = 101;
-	            this.match(CPPONGrammarParser.T__26);
-	            this.state = 109;
+	        while(_la===20) {
+	            this.state = 89;
+	            this.match(CPPONGrammarParser.COMMA);
+	            this.state = 97;
 	            this._errHandler.sync(this);
 	            switch(this._input.LA(1)) {
-	            case 44:
-	                this.state = 102;
+	            case 26:
+	                this.state = 90;
 	                this.match(CPPONGrammarParser.SENTINEL);
 	                break;
-	            case 28:
-	                this.state = 103;
-	                this.match(CPPONGrammarParser.T__27);
-	                this.state = 104;
+	            case 10:
+	                this.state = 91;
+	                this.match(CPPONGrammarParser.T__9);
+	                this.state = 92;
 	                this.match(CPPONGrammarParser.WHOLE);
 	                break;
-	            case 29:
-	            case 43:
-	                this.state = 106;
+	            case 11:
+	            case 25:
+	                this.state = 94;
 	                this._errHandler.sync(this);
 	                _la = this._input.LA(1);
-	                if(_la===29) {
-	                    this.state = 105;
-	                    this.match(CPPONGrammarParser.T__28);
+	                if(_la===11) {
+	                    this.state = 93;
+	                    this.match(CPPONGrammarParser.T__10);
 	                }
 
-	                this.state = 108;
+	                this.state = 96;
 	                this.match(CPPONGrammarParser.WHOLE);
 	                break;
 	            default:
 	                throw new antlr4.error.NoViableAltException(this);
 	            }
-	            this.state = 115;
+	            this.state = 103;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -547,17 +450,17 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 116;
+	        this.state = 104;
 	        this.match(CPPONGrammarParser.FLOAT);
-	        this.state = 121;
+	        this.state = 109;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===27) {
-	            this.state = 117;
-	            this.match(CPPONGrammarParser.T__26);
-	            this.state = 118;
+	        while(_la===20) {
+	            this.state = 105;
+	            this.match(CPPONGrammarParser.COMMA);
+	            this.state = 106;
 	            this.match(CPPONGrammarParser.FLOAT);
-	            this.state = 123;
+	            this.state = 111;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -583,17 +486,17 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 124;
-	        this.cstring();
-	        this.state = 129;
+	        this.state = 112;
+	        this.string();
+	        this.state = 117;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===27) {
-	            this.state = 125;
-	            this.match(CPPONGrammarParser.T__26);
-	            this.state = 126;
-	            this.cstring();
-	            this.state = 131;
+	        while(_la===20) {
+	            this.state = 113;
+	            this.match(CPPONGrammarParser.COMMA);
+	            this.state = 114;
+	            this.string();
+	            this.state = 119;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -617,31 +520,31 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	    let localctx = new ListContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 20, CPPONGrammarParser.RULE_list);
 	    try {
-	        this.state = 136;
+	        this.state = 124;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case 25:
-	        case 26:
-	            this.enterOuterAlt(localctx, 1);
-	            this.state = 132;
-	            this.boolean_list();
-	            break;
 	        case 28:
 	        case 29:
-	        case 43:
-	        case 44:
+	            this.enterOuterAlt(localctx, 1);
+	            this.state = 120;
+	            this.boolean_list();
+	            break;
+	        case 10:
+	        case 11:
+	        case 25:
+	        case 26:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 133;
+	            this.state = 121;
 	            this.integer_list();
 	            break;
-	        case 45:
+	        case 27:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 134;
+	            this.state = 122;
 	            this.float_list();
 	            break;
-	        case 1:
+	        case 36:
 	            this.enterOuterAlt(localctx, 4);
-	            this.state = 135;
+	            this.state = 123;
 	            this.string_list();
 	            break;
 	        default:
@@ -666,22 +569,23 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 	construct_array() {
 	    let localctx = new Construct_arrayContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 22, CPPONGrammarParser.RULE_construct_array);
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 138;
-	        this.match(CPPONGrammarParser.T__29);
-	        this.state = 139;
-	        this.type();
-	        this.state = 140;
-	        this.match(CPPONGrammarParser.OPENBRACKET);
-	        this.state = 141;
-	        this.match(CPPONGrammarParser.CLOSEBRACKET);
-	        this.state = 142;
-	        this.match(CPPONGrammarParser.T__30);
-	        this.state = 143;
-	        this.list();
-	        this.state = 144;
-	        this.match(CPPONGrammarParser.T__31);
+	        this.state = 126;
+	        this.arraytype();
+	        this.state = 127;
+	        this.match(CPPONGrammarParser.OPENBRACE);
+	        this.state = 129;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(((((_la - 10)) & ~0x1f) === 0 && ((1 << (_la - 10)) & 68124675) !== 0)) {
+	            this.state = 128;
+	            this.list();
+	        }
+
+	        this.state = 131;
+	        this.match(CPPONGrammarParser.CLOSEBRACE);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -698,112 +602,137 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 
 
-	parameters() {
-	    let localctx = new ParametersContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 24, CPPONGrammarParser.RULE_parameters);
+	cast() {
+	    let localctx = new CastContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 24, CPPONGrammarParser.RULE_cast);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 175;
+	        this.state = 133;
+	        this.match(CPPONGrammarParser.OPENPAREN);
+	        this.state = 134;
+	        this.type();
+	        this.state = 136;
 	        this._errHandler.sync(this);
-	        var la_ = this._interp.adaptivePredict(this._input,18,this._ctx);
+	        _la = this._input.LA(1);
+	        if(_la===17) {
+	            this.state = 135;
+	            this.match(CPPONGrammarParser.POINTER);
+	        }
+
+	        this.state = 138;
+	        this.match(CPPONGrammarParser.CLOSEPAREN);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	parameter() {
+	    let localctx = new ParameterContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 26, CPPONGrammarParser.RULE_parameter);
+	    var _la = 0;
+	    try {
+	        this.state = 162;
+	        this._errHandler.sync(this);
+	        var la_ = this._interp.adaptivePredict(this._input,16,this._ctx);
 	        switch(la_) {
 	        case 1:
-	            this.state = 146;
+	            this.enterOuterAlt(localctx, 1);
+	            this.state = 140;
 	            this.cstring();
 	            break;
 
 	        case 2:
-	            this.state = 154;
-	            this._errHandler.sync(this);
-	            switch(this._input.LA(1)) {
-	            case 44:
-	                this.state = 147;
-	                this.match(CPPONGrammarParser.SENTINEL);
-	                break;
-	            case 28:
-	                this.state = 148;
-	                this.match(CPPONGrammarParser.T__27);
-	                this.state = 149;
-	                this.match(CPPONGrammarParser.WHOLE);
-	                break;
-	            case 29:
-	            case 43:
-	                this.state = 151;
-	                this._errHandler.sync(this);
-	                _la = this._input.LA(1);
-	                if(_la===29) {
-	                    this.state = 150;
-	                    this.match(CPPONGrammarParser.T__28);
-	                }
-
-	                this.state = 153;
-	                this.match(CPPONGrammarParser.WHOLE);
-	                break;
-	            default:
-	                throw new antlr4.error.NoViableAltException(this);
-	            }
+	            this.enterOuterAlt(localctx, 2);
+	            this.state = 141;
+	            this.string();
 	            break;
 
 	        case 3:
-	            this.state = 156;
-	            this.boolean_();
-	            break;
-
-	        case 4:
-	            this.state = 157;
-	            this.match(CPPONGrammarParser.WHOLE);
-	            this.state = 160;
+	            this.enterOuterAlt(localctx, 3);
+	            this.state = 143;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===27) {
-	                this.state = 158;
-	                this.match(CPPONGrammarParser.T__26);
-	                this.state = 159;
-	                this.construct_array();
+	            if(_la===34) {
+	                this.state = 142;
+	                this.cast();
 	            }
 
-	            break;
-
-	        case 5:
-	            this.state = 162;
-	            this.match(CPPONGrammarParser.FLOAT);
-	            break;
-
-	        case 6:
-	            this.state = 163;
-	            this.construct_array();
-	            this.state = 166;
+	            this.state = 146;
 	            this._errHandler.sync(this);
-	            _la = this._input.LA(1);
-	            if(_la===27) {
-	                this.state = 164;
-	                this.match(CPPONGrammarParser.T__26);
-	                this.state = 165;
-	                this.match(CPPONGrammarParser.WHOLE);
+	            var la_ = this._interp.adaptivePredict(this._input,13,this._ctx);
+	            if(la_===1) {
+	                this.state = 145;
+	                this.type();
+
 	            }
-
-	            break;
-
-	        case 7:
-	            this.state = 169;
+	            this.state = 149;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===33) {
-	                this.state = 168;
-	                this.match(CPPONGrammarParser.T__32);
-	            }
-
-	            this.state = 172;
-	            this._errHandler.sync(this);
-	            _la = this._input.LA(1);
-	            if(_la===36) {
-	                this.state = 171;
+	            if(_la===16) {
+	                this.state = 148;
 	                this.match(CPPONGrammarParser.REFERENCE);
 	            }
 
-	            this.state = 174;
+	            this.state = 151;
 	            this.variable();
+	            break;
+
+	        case 4:
+	            this.enterOuterAlt(localctx, 4);
+	            this.state = 152;
+	            this.construct_array();
+	            break;
+
+	        case 5:
+	            this.enterOuterAlt(localctx, 5);
+	            this.state = 153;
+	            this.match(CPPONGrammarParser.SENTINEL);
+	            break;
+
+	        case 6:
+	            this.enterOuterAlt(localctx, 6);
+	            this.state = 154;
+	            this.match(CPPONGrammarParser.T__9);
+	            this.state = 155;
+	            this.match(CPPONGrammarParser.WHOLE);
+	            break;
+
+	        case 7:
+	            this.enterOuterAlt(localctx, 7);
+	            this.state = 157;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	            if(_la===11) {
+	                this.state = 156;
+	                this.match(CPPONGrammarParser.T__10);
+	            }
+
+	            this.state = 159;
+	            this.match(CPPONGrammarParser.WHOLE);
+	            break;
+
+	        case 8:
+	            this.enterOuterAlt(localctx, 8);
+	            this.state = 160;
+	            this.match(CPPONGrammarParser.FLOAT);
+	            break;
+
+	        case 9:
+	            this.enterOuterAlt(localctx, 9);
+	            this.state = 161;
+	            this.boolean_val();
 	            break;
 
 	        }
@@ -823,15 +752,51 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 
 
-	operator() {
-	    let localctx = new OperatorContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 26, CPPONGrammarParser.RULE_operator);
+	parameters() {
+	    let localctx = new ParametersContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 28, CPPONGrammarParser.RULE_parameters);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 177;
+	        this.state = 164;
+	        this.parameter();
+	        this.state = 169;
+	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(!(((((_la - 37)) & ~0x1f) === 0 && ((1 << (_la - 37)) & 57) !== 0))) {
+	        while(_la===20) {
+	            this.state = 165;
+	            this.match(CPPONGrammarParser.COMMA);
+	            this.state = 166;
+	            this.parameter();
+	            this.state = 171;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	        }
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	operator() {
+	    let localctx = new OperatorContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 30, CPPONGrammarParser.RULE_operator);
+	    var _la = 0;
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 172;
+	        _la = this._input.LA(1);
+	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 31719424) !== 0))) {
 	        this._errHandler.recoverInline(this);
 	        }
 	        else {
@@ -856,28 +821,28 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 	funccall() {
 	    let localctx = new FunccallContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 28, CPPONGrammarParser.RULE_funccall);
+	    this.enterRule(localctx, 32, CPPONGrammarParser.RULE_funccall);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 179;
+	        this.state = 174;
 	        this.variable();
-	        this.state = 180;
+	        this.state = 175;
 	        this.operator();
-	        this.state = 181;
+	        this.state = 176;
 	        this.match(CPPONGrammarParser.IDENTIFIER);
-	        this.state = 182;
-	        this.match(CPPONGrammarParser.T__22);
-	        this.state = 184;
+	        this.state = 177;
+	        this.match(CPPONGrammarParser.OPENPAREN);
+	        this.state = 179;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if((((_la) & ~0x1f) === 0 && ((1 << _la) & 1979711490) !== 0) || ((((_la - 33)) & ~0x1f) === 0 && ((1 << (_la - 33)) & 7181) !== 0)) {
-	            this.state = 183;
+	        if((((_la) & ~0x1f) === 0 && ((1 << _la) & 1040289790) !== 0) || _la===34 || _la===36) {
+	            this.state = 178;
 	            this.parameters();
 	        }
 
-	        this.state = 186;
-	        this.match(CPPONGrammarParser.T__23);
+	        this.state = 181;
+	        this.match(CPPONGrammarParser.CLOSEPAREN);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -896,21 +861,29 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 	construct() {
 	    let localctx = new ConstructContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 30, CPPONGrammarParser.RULE_construct);
+	    this.enterRule(localctx, 34, CPPONGrammarParser.RULE_construct);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 188;
+	        this.state = 183;
 	        this.type();
-	        this.state = 190;
+	        this.state = 185;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===36) {
-	            this.state = 189;
+	        if(_la===17) {
+	            this.state = 184;
+	            this.match(CPPONGrammarParser.POINTER);
+	        }
+
+	        this.state = 188;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(_la===16) {
+	            this.state = 187;
 	            this.match(CPPONGrammarParser.REFERENCE);
 	        }
 
-	        this.state = 192;
+	        this.state = 190;
 	        this.funccall();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -930,7 +903,30 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 	set_field() {
 	    let localctx = new Set_fieldContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 32, CPPONGrammarParser.RULE_set_field);
+	    this.enterRule(localctx, 36, CPPONGrammarParser.RULE_set_field);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 192;
+	        this.funccall();
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	add_field() {
+	    let localctx = new Add_fieldContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 38, CPPONGrammarParser.RULE_add_field);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 194;
@@ -951,88 +947,33 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 
 
-	add_field() {
-	    let localctx = new Add_fieldContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 34, CPPONGrammarParser.RULE_add_field);
-	    try {
-	        this.enterOuterAlt(localctx, 1);
-	        this.state = 196;
-	        this.funccall();
-	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
-		        localctx.exception = re;
-		        this._errHandler.reportError(this, re);
-		        this._errHandler.recover(this, re);
-		    } else {
-		    	throw re;
-		    }
-	    } finally {
-	        this.exitRule();
-	    }
-	    return localctx;
-	}
-
-
-
 	line() {
 	    let localctx = new LineContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 36, CPPONGrammarParser.RULE_line);
+	    this.enterRule(localctx, 40, CPPONGrammarParser.RULE_line);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 201;
+	        this.state = 199;
 	        this._errHandler.sync(this);
 	        var la_ = this._interp.adaptivePredict(this._input,21,this._ctx);
 	        switch(la_) {
 	        case 1:
-	            this.state = 198;
+	            this.state = 196;
 	            this.construct();
 	            break;
 
 	        case 2:
-	            this.state = 199;
+	            this.state = 197;
 	            this.set_field();
 	            break;
 
 	        case 3:
-	            this.state = 200;
+	            this.state = 198;
 	            this.add_field();
 	            break;
 
 	        }
-	        this.state = 203;
+	        this.state = 201;
 	        this.match(CPPONGrammarParser.SEMI);
-	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
-		        localctx.exception = re;
-		        this._errHandler.reportError(this, re);
-		        this._errHandler.recover(this, re);
-		    } else {
-		    	throw re;
-		    }
-	    } finally {
-	        this.exitRule();
-	    }
-	    return localctx;
-	}
-
-
-
-	lines() {
-	    let localctx = new LinesContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 38, CPPONGrammarParser.RULE_lines);
-	    var _la = 0;
-	    try {
-	        this.enterOuterAlt(localctx, 1);
-	        this.state = 208;
-	        this._errHandler.sync(this);
-	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 126) !== 0) || _la===35) {
-	            this.state = 205;
-	            this.line();
-	            this.state = 210;
-	            this._errHandler.sync(this);
-	            _la = this._input.LA(1);
-	        }
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -1051,12 +992,21 @@ export default class CPPONGrammarParser extends antlr4.Parser {
 
 	x3d() {
 	    let localctx = new X3dContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 40, CPPONGrammarParser.RULE_x3d);
+	    this.enterRule(localctx, 42, CPPONGrammarParser.RULE_x3d);
+	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 211;
-	        this.lines();
-	        this.state = 212;
+	        this.state = 206;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 33278) !== 0)) {
+	            this.state = 203;
+	            this.line();
+	            this.state = 208;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	        }
+	        this.state = 209;
 	        this.match(CPPONGrammarParser.EOF);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -1087,69 +1037,54 @@ CPPONGrammarParser.T__7 = 8;
 CPPONGrammarParser.T__8 = 9;
 CPPONGrammarParser.T__9 = 10;
 CPPONGrammarParser.T__10 = 11;
-CPPONGrammarParser.T__11 = 12;
-CPPONGrammarParser.T__12 = 13;
-CPPONGrammarParser.T__13 = 14;
-CPPONGrammarParser.T__14 = 15;
-CPPONGrammarParser.T__15 = 16;
-CPPONGrammarParser.T__16 = 17;
-CPPONGrammarParser.T__17 = 18;
-CPPONGrammarParser.T__18 = 19;
-CPPONGrammarParser.T__19 = 20;
-CPPONGrammarParser.T__20 = 21;
-CPPONGrammarParser.T__21 = 22;
-CPPONGrammarParser.T__22 = 23;
-CPPONGrammarParser.T__23 = 24;
-CPPONGrammarParser.T__24 = 25;
-CPPONGrammarParser.T__25 = 26;
-CPPONGrammarParser.T__26 = 27;
-CPPONGrammarParser.T__27 = 28;
-CPPONGrammarParser.T__28 = 29;
-CPPONGrammarParser.T__29 = 30;
-CPPONGrammarParser.T__30 = 31;
-CPPONGrammarParser.T__31 = 32;
-CPPONGrammarParser.T__32 = 33;
-CPPONGrammarParser.WS = 34;
-CPPONGrammarParser.IDENTIFIER = 35;
-CPPONGrammarParser.REFERENCE = 36;
-CPPONGrammarParser.EQUALS = 37;
-CPPONGrammarParser.SEMI = 38;
-CPPONGrammarParser.COLON = 39;
-CPPONGrammarParser.SET = 40;
-CPPONGrammarParser.X3DNODESET = 41;
-CPPONGrammarParser.ADD = 42;
-CPPONGrammarParser.WHOLE = 43;
-CPPONGrammarParser.SENTINEL = 44;
-CPPONGrammarParser.FLOAT = 45;
-CPPONGrammarParser.TRUE = 46;
-CPPONGrammarParser.FALSE = 47;
-CPPONGrammarParser.COMMENT = 48;
-CPPONGrammarParser.OPENBRACKET = 49;
-CPPONGrammarParser.CLOSEBRACKET = 50;
-CPPONGrammarParser.QUOTE = 51;
-CPPONGrammarParser.AT = 52;
+CPPONGrammarParser.WS_AND_NL = 12;
+CPPONGrammarParser.COMMENT = 13;
+CPPONGrammarParser.CPPDIR = 14;
+CPPONGrammarParser.IDENTIFIER = 15;
+CPPONGrammarParser.REFERENCE = 16;
+CPPONGrammarParser.POINTER = 17;
+CPPONGrammarParser.EQUALS = 18;
+CPPONGrammarParser.SEMI = 19;
+CPPONGrammarParser.COMMA = 20;
+CPPONGrammarParser.DOT = 21;
+CPPONGrammarParser.SET = 22;
+CPPONGrammarParser.X3DNODESET = 23;
+CPPONGrammarParser.ADD = 24;
+CPPONGrammarParser.WHOLE = 25;
+CPPONGrammarParser.SENTINEL = 26;
+CPPONGrammarParser.FLOAT = 27;
+CPPONGrammarParser.TRUE = 28;
+CPPONGrammarParser.FALSE = 29;
+CPPONGrammarParser.OPENBRACE = 30;
+CPPONGrammarParser.CLOSEBRACE = 31;
+CPPONGrammarParser.OPENBRACKET = 32;
+CPPONGrammarParser.CLOSEBRACKET = 33;
+CPPONGrammarParser.OPENPAREN = 34;
+CPPONGrammarParser.CLOSEPAREN = 35;
+CPPONGrammarParser.STRING = 36;
 
 CPPONGrammarParser.RULE_type = 0;
-CPPONGrammarParser.RULE_field = 1;
+CPPONGrammarParser.RULE_arraytype = 1;
 CPPONGrammarParser.RULE_variable = 2;
 CPPONGrammarParser.RULE_string = 3;
 CPPONGrammarParser.RULE_cstring = 4;
-CPPONGrammarParser.RULE_boolean = 5;
+CPPONGrammarParser.RULE_boolean_val = 5;
 CPPONGrammarParser.RULE_boolean_list = 6;
 CPPONGrammarParser.RULE_integer_list = 7;
 CPPONGrammarParser.RULE_float_list = 8;
 CPPONGrammarParser.RULE_string_list = 9;
 CPPONGrammarParser.RULE_list = 10;
 CPPONGrammarParser.RULE_construct_array = 11;
-CPPONGrammarParser.RULE_parameters = 12;
-CPPONGrammarParser.RULE_operator = 13;
-CPPONGrammarParser.RULE_funccall = 14;
-CPPONGrammarParser.RULE_construct = 15;
-CPPONGrammarParser.RULE_set_field = 16;
-CPPONGrammarParser.RULE_add_field = 17;
-CPPONGrammarParser.RULE_line = 18;
-CPPONGrammarParser.RULE_lines = 19;
-CPPONGrammarParser.RULE_x3d = 20;
+CPPONGrammarParser.RULE_cast = 12;
+CPPONGrammarParser.RULE_parameter = 13;
+CPPONGrammarParser.RULE_parameters = 14;
+CPPONGrammarParser.RULE_operator = 15;
+CPPONGrammarParser.RULE_funccall = 16;
+CPPONGrammarParser.RULE_construct = 17;
+CPPONGrammarParser.RULE_set_field = 18;
+CPPONGrammarParser.RULE_add_field = 19;
+CPPONGrammarParser.RULE_line = 20;
+CPPONGrammarParser.RULE_x3d = 21;
 
 class TypeContext extends antlr4.ParserRuleContext {
 
@@ -1194,7 +1129,7 @@ class TypeContext extends antlr4.ParserRuleContext {
 
 
 
-class FieldContext extends antlr4.ParserRuleContext {
+class ArraytypeContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -1205,28 +1140,44 @@ class FieldContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = CPPONGrammarParser.RULE_field;
+        this.ruleIndex = CPPONGrammarParser.RULE_arraytype;
     }
 
-	IDENTIFIER() {
-	    return this.getToken(CPPONGrammarParser.IDENTIFIER, 0);
+	type() {
+	    return this.getTypedRuleContext(TypeContext,0);
+	};
+
+	OPENBRACKET() {
+	    return this.getToken(CPPONGrammarParser.OPENBRACKET, 0);
+	};
+
+	CLOSEBRACKET() {
+	    return this.getToken(CPPONGrammarParser.CLOSEBRACKET, 0);
+	};
+
+	OPENPAREN() {
+	    return this.getToken(CPPONGrammarParser.OPENPAREN, 0);
+	};
+
+	CLOSEPAREN() {
+	    return this.getToken(CPPONGrammarParser.CLOSEPAREN, 0);
 	};
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.enterField(this);
+	        listener.enterArraytype(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.exitField(this);
+	        listener.exitArraytype(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CPPONGrammarVisitor ) {
-	        return visitor.visitField(this);
+	        return visitor.visitArraytype(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -1253,10 +1204,6 @@ class VariableContext extends antlr4.ParserRuleContext {
 
 	IDENTIFIER() {
 	    return this.getToken(CPPONGrammarParser.IDENTIFIER, 0);
-	};
-
-	WHOLE() {
-	    return this.getToken(CPPONGrammarParser.WHOLE, 0);
 	};
 
 	enterRule(listener) {
@@ -1298,29 +1245,9 @@ class StringContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_string;
     }
 
-	AT = function(i) {
-		if(i===undefined) {
-			i = null;
-		}
-	    if(i===null) {
-	        return this.getTokens(CPPONGrammarParser.AT);
-	    } else {
-	        return this.getToken(CPPONGrammarParser.AT, i);
-	    }
+	STRING() {
+	    return this.getToken(CPPONGrammarParser.STRING, 0);
 	};
-
-
-	QUOTE = function(i) {
-		if(i===undefined) {
-			i = null;
-		}
-	    if(i===null) {
-	        return this.getTokens(CPPONGrammarParser.QUOTE);
-	    } else {
-	        return this.getToken(CPPONGrammarParser.QUOTE, i);
-	    }
-	};
-
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
@@ -1361,8 +1288,16 @@ class CstringContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_cstring;
     }
 
+	OPENPAREN() {
+	    return this.getToken(CPPONGrammarParser.OPENPAREN, 0);
+	};
+
 	string() {
 	    return this.getTypedRuleContext(StringContext,0);
+	};
+
+	CLOSEPAREN() {
+	    return this.getToken(CPPONGrammarParser.CLOSEPAREN, 0);
 	};
 
 	enterRule(listener) {
@@ -1390,7 +1325,7 @@ class CstringContext extends antlr4.ParserRuleContext {
 
 
 
-class BooleanContext extends antlr4.ParserRuleContext {
+class Boolean_valContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -1401,25 +1336,32 @@ class BooleanContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = CPPONGrammarParser.RULE_boolean;
+        this.ruleIndex = CPPONGrammarParser.RULE_boolean_val;
     }
 
+	TRUE() {
+	    return this.getToken(CPPONGrammarParser.TRUE, 0);
+	};
+
+	FALSE() {
+	    return this.getToken(CPPONGrammarParser.FALSE, 0);
+	};
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.enterBoolean(this);
+	        listener.enterBoolean_val(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.exitBoolean(this);
+	        listener.exitBoolean_val(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CPPONGrammarVisitor ) {
-	        return visitor.visitBoolean(this);
+	        return visitor.visitBoolean_val(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -1444,16 +1386,28 @@ class Boolean_listContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_boolean_list;
     }
 
-	boolean_ = function(i) {
+	boolean_val = function(i) {
 	    if(i===undefined) {
 	        i = null;
 	    }
 	    if(i===null) {
-	        return this.getTypedRuleContexts(BooleanContext);
+	        return this.getTypedRuleContexts(Boolean_valContext);
 	    } else {
-	        return this.getTypedRuleContext(BooleanContext,i);
+	        return this.getTypedRuleContext(Boolean_valContext,i);
 	    }
 	};
+
+	COMMA = function(i) {
+		if(i===undefined) {
+			i = null;
+		}
+	    if(i===null) {
+	        return this.getTokens(CPPONGrammarParser.COMMA);
+	    } else {
+	        return this.getToken(CPPONGrammarParser.COMMA, i);
+	    }
+	};
+
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
@@ -1518,6 +1472,18 @@ class Integer_listContext extends antlr4.ParserRuleContext {
 	};
 
 
+	COMMA = function(i) {
+		if(i===undefined) {
+			i = null;
+		}
+	    if(i===null) {
+	        return this.getTokens(CPPONGrammarParser.COMMA);
+	    } else {
+	        return this.getToken(CPPONGrammarParser.COMMA, i);
+	    }
+	};
+
+
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
 	        listener.enterInteger_list(this);
@@ -1569,6 +1535,18 @@ class Float_listContext extends antlr4.ParserRuleContext {
 	};
 
 
+	COMMA = function(i) {
+		if(i===undefined) {
+			i = null;
+		}
+	    if(i===null) {
+	        return this.getTokens(CPPONGrammarParser.COMMA);
+	    } else {
+	        return this.getToken(CPPONGrammarParser.COMMA, i);
+	    }
+	};
+
+
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
 	        listener.enterFloat_list(this);
@@ -1608,16 +1586,28 @@ class String_listContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_string_list;
     }
 
-	cstring = function(i) {
+	string = function(i) {
 	    if(i===undefined) {
 	        i = null;
 	    }
 	    if(i===null) {
-	        return this.getTypedRuleContexts(CstringContext);
+	        return this.getTypedRuleContexts(StringContext);
 	    } else {
-	        return this.getTypedRuleContext(CstringContext,i);
+	        return this.getTypedRuleContext(StringContext,i);
 	    }
 	};
+
+	COMMA = function(i) {
+		if(i===undefined) {
+			i = null;
+		}
+	    if(i===null) {
+	        return this.getTokens(CPPONGrammarParser.COMMA);
+	    } else {
+	        return this.getToken(CPPONGrammarParser.COMMA, i);
+	    }
+	};
+
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
@@ -1713,16 +1703,16 @@ class Construct_arrayContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_construct_array;
     }
 
-	type() {
-	    return this.getTypedRuleContext(TypeContext,0);
+	arraytype() {
+	    return this.getTypedRuleContext(ArraytypeContext,0);
 	};
 
-	OPENBRACKET() {
-	    return this.getToken(CPPONGrammarParser.OPENBRACKET, 0);
+	OPENBRACE() {
+	    return this.getToken(CPPONGrammarParser.OPENBRACE, 0);
 	};
 
-	CLOSEBRACKET() {
-	    return this.getToken(CPPONGrammarParser.CLOSEBRACKET, 0);
+	CLOSEBRACE() {
+	    return this.getToken(CPPONGrammarParser.CLOSEBRACE, 0);
 	};
 
 	list() {
@@ -1754,6 +1744,144 @@ class Construct_arrayContext extends antlr4.ParserRuleContext {
 
 
 
+class CastContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = CPPONGrammarParser.RULE_cast;
+    }
+
+	OPENPAREN() {
+	    return this.getToken(CPPONGrammarParser.OPENPAREN, 0);
+	};
+
+	type() {
+	    return this.getTypedRuleContext(TypeContext,0);
+	};
+
+	CLOSEPAREN() {
+	    return this.getToken(CPPONGrammarParser.CLOSEPAREN, 0);
+	};
+
+	POINTER() {
+	    return this.getToken(CPPONGrammarParser.POINTER, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof CPPONGrammarListener ) {
+	        listener.enterCast(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CPPONGrammarListener ) {
+	        listener.exitCast(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof CPPONGrammarVisitor ) {
+	        return visitor.visitCast(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class ParameterContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = CPPONGrammarParser.RULE_parameter;
+    }
+
+	cstring() {
+	    return this.getTypedRuleContext(CstringContext,0);
+	};
+
+	string() {
+	    return this.getTypedRuleContext(StringContext,0);
+	};
+
+	variable() {
+	    return this.getTypedRuleContext(VariableContext,0);
+	};
+
+	cast() {
+	    return this.getTypedRuleContext(CastContext,0);
+	};
+
+	type() {
+	    return this.getTypedRuleContext(TypeContext,0);
+	};
+
+	REFERENCE() {
+	    return this.getToken(CPPONGrammarParser.REFERENCE, 0);
+	};
+
+	construct_array() {
+	    return this.getTypedRuleContext(Construct_arrayContext,0);
+	};
+
+	SENTINEL() {
+	    return this.getToken(CPPONGrammarParser.SENTINEL, 0);
+	};
+
+	WHOLE() {
+	    return this.getToken(CPPONGrammarParser.WHOLE, 0);
+	};
+
+	FLOAT() {
+	    return this.getToken(CPPONGrammarParser.FLOAT, 0);
+	};
+
+	boolean_val() {
+	    return this.getTypedRuleContext(Boolean_valContext,0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof CPPONGrammarListener ) {
+	        listener.enterParameter(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CPPONGrammarListener ) {
+	        listener.exitParameter(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof CPPONGrammarVisitor ) {
+	        return visitor.visitParameter(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
 class ParametersContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
@@ -1768,37 +1896,28 @@ class ParametersContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_parameters;
     }
 
-	cstring() {
-	    return this.getTypedRuleContext(CstringContext,0);
+	parameter = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(ParameterContext);
+	    } else {
+	        return this.getTypedRuleContext(ParameterContext,i);
+	    }
 	};
 
-	boolean_() {
-	    return this.getTypedRuleContext(BooleanContext,0);
+	COMMA = function(i) {
+		if(i===undefined) {
+			i = null;
+		}
+	    if(i===null) {
+	        return this.getTokens(CPPONGrammarParser.COMMA);
+	    } else {
+	        return this.getToken(CPPONGrammarParser.COMMA, i);
+	    }
 	};
 
-	WHOLE() {
-	    return this.getToken(CPPONGrammarParser.WHOLE, 0);
-	};
-
-	FLOAT() {
-	    return this.getToken(CPPONGrammarParser.FLOAT, 0);
-	};
-
-	construct_array() {
-	    return this.getTypedRuleContext(Construct_arrayContext,0);
-	};
-
-	variable() {
-	    return this.getTypedRuleContext(VariableContext,0);
-	};
-
-	SENTINEL() {
-	    return this.getToken(CPPONGrammarParser.SENTINEL, 0);
-	};
-
-	REFERENCE() {
-	    return this.getToken(CPPONGrammarParser.REFERENCE, 0);
-	};
 
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
@@ -1855,6 +1974,10 @@ class OperatorContext extends antlr4.ParserRuleContext {
 	    return this.getToken(CPPONGrammarParser.ADD, 0);
 	};
 
+	DOT() {
+	    return this.getToken(CPPONGrammarParser.DOT, 0);
+	};
+
 	enterRule(listener) {
 	    if(listener instanceof CPPONGrammarListener ) {
 	        listener.enterOperator(this);
@@ -1906,6 +2029,14 @@ class FunccallContext extends antlr4.ParserRuleContext {
 	    return this.getToken(CPPONGrammarParser.IDENTIFIER, 0);
 	};
 
+	OPENPAREN() {
+	    return this.getToken(CPPONGrammarParser.OPENPAREN, 0);
+	};
+
+	CLOSEPAREN() {
+	    return this.getToken(CPPONGrammarParser.CLOSEPAREN, 0);
+	};
+
 	parameters() {
 	    return this.getTypedRuleContext(ParametersContext,0);
 	};
@@ -1955,6 +2086,10 @@ class ConstructContext extends antlr4.ParserRuleContext {
 
 	funccall() {
 	    return this.getTypedRuleContext(FunccallContext,0);
+	};
+
+	POINTER() {
+	    return this.getToken(CPPONGrammarParser.POINTER, 0);
 	};
 
 	REFERENCE() {
@@ -2127,56 +2262,6 @@ class LineContext extends antlr4.ParserRuleContext {
 
 
 
-class LinesContext extends antlr4.ParserRuleContext {
-
-    constructor(parser, parent, invokingState) {
-        if(parent===undefined) {
-            parent = null;
-        }
-        if(invokingState===undefined || invokingState===null) {
-            invokingState = -1;
-        }
-        super(parent, invokingState);
-        this.parser = parser;
-        this.ruleIndex = CPPONGrammarParser.RULE_lines;
-    }
-
-	line = function(i) {
-	    if(i===undefined) {
-	        i = null;
-	    }
-	    if(i===null) {
-	        return this.getTypedRuleContexts(LineContext);
-	    } else {
-	        return this.getTypedRuleContext(LineContext,i);
-	    }
-	};
-
-	enterRule(listener) {
-	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.enterLines(this);
-		}
-	}
-
-	exitRule(listener) {
-	    if(listener instanceof CPPONGrammarListener ) {
-	        listener.exitLines(this);
-		}
-	}
-
-	accept(visitor) {
-	    if ( visitor instanceof CPPONGrammarVisitor ) {
-	        return visitor.visitLines(this);
-	    } else {
-	        return visitor.visitChildren(this);
-	    }
-	}
-
-
-}
-
-
-
 class X3dContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
@@ -2191,12 +2276,19 @@ class X3dContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CPPONGrammarParser.RULE_x3d;
     }
 
-	lines() {
-	    return this.getTypedRuleContext(LinesContext,0);
-	};
-
 	EOF() {
 	    return this.getToken(CPPONGrammarParser.EOF, 0);
+	};
+
+	line = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(LineContext);
+	    } else {
+	        return this.getTypedRuleContext(LineContext,i);
+	    }
 	};
 
 	enterRule(listener) {
@@ -2226,17 +2318,19 @@ class X3dContext extends antlr4.ParserRuleContext {
 
 
 CPPONGrammarParser.TypeContext = TypeContext; 
-CPPONGrammarParser.FieldContext = FieldContext; 
+CPPONGrammarParser.ArraytypeContext = ArraytypeContext; 
 CPPONGrammarParser.VariableContext = VariableContext; 
 CPPONGrammarParser.StringContext = StringContext; 
 CPPONGrammarParser.CstringContext = CstringContext; 
-CPPONGrammarParser.BooleanContext = BooleanContext; 
+CPPONGrammarParser.Boolean_valContext = Boolean_valContext; 
 CPPONGrammarParser.Boolean_listContext = Boolean_listContext; 
 CPPONGrammarParser.Integer_listContext = Integer_listContext; 
 CPPONGrammarParser.Float_listContext = Float_listContext; 
 CPPONGrammarParser.String_listContext = String_listContext; 
 CPPONGrammarParser.ListContext = ListContext; 
 CPPONGrammarParser.Construct_arrayContext = Construct_arrayContext; 
+CPPONGrammarParser.CastContext = CastContext; 
+CPPONGrammarParser.ParameterContext = ParameterContext; 
 CPPONGrammarParser.ParametersContext = ParametersContext; 
 CPPONGrammarParser.OperatorContext = OperatorContext; 
 CPPONGrammarParser.FunccallContext = FunccallContext; 
@@ -2244,5 +2338,4 @@ CPPONGrammarParser.ConstructContext = ConstructContext;
 CPPONGrammarParser.Set_fieldContext = Set_fieldContext; 
 CPPONGrammarParser.Add_fieldContext = Add_fieldContext; 
 CPPONGrammarParser.LineContext = LineContext; 
-CPPONGrammarParser.LinesContext = LinesContext; 
 CPPONGrammarParser.X3dContext = X3dContext; 

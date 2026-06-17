@@ -14,12 +14,12 @@ export default class CPPONGrammarListener extends antlr4.tree.ParseTreeListener 
 	}
 
 
-	// Enter a parse tree produced by CPPONGrammarParser#field.
-	enterField(ctx) {
+	// Enter a parse tree produced by CPPONGrammarParser#arraytype.
+	enterArraytype(ctx) {
 	}
 
-	// Exit a parse tree produced by CPPONGrammarParser#field.
-	exitField(ctx) {
+	// Exit a parse tree produced by CPPONGrammarParser#arraytype.
+	exitArraytype(ctx) {
 	}
 
 
@@ -50,12 +50,12 @@ export default class CPPONGrammarListener extends antlr4.tree.ParseTreeListener 
 	}
 
 
-	// Enter a parse tree produced by CPPONGrammarParser#boolean.
-	enterBoolean(ctx) {
+	// Enter a parse tree produced by CPPONGrammarParser#boolean_val.
+	enterBoolean_val(ctx) {
 	}
 
-	// Exit a parse tree produced by CPPONGrammarParser#boolean.
-	exitBoolean(ctx) {
+	// Exit a parse tree produced by CPPONGrammarParser#boolean_val.
+	exitBoolean_val(ctx) {
 	}
 
 
@@ -110,6 +110,24 @@ export default class CPPONGrammarListener extends antlr4.tree.ParseTreeListener 
 
 	// Exit a parse tree produced by CPPONGrammarParser#construct_array.
 	exitConstruct_array(ctx) {
+	}
+
+
+	// Enter a parse tree produced by CPPONGrammarParser#cast.
+	enterCast(ctx) {
+	}
+
+	// Exit a parse tree produced by CPPONGrammarParser#cast.
+	exitCast(ctx) {
+	}
+
+
+	// Enter a parse tree produced by CPPONGrammarParser#parameter.
+	enterParameter(ctx) {
+	}
+
+	// Exit a parse tree produced by CPPONGrammarParser#parameter.
+	exitParameter(ctx) {
 	}
 
 
@@ -173,15 +191,6 @@ export default class CPPONGrammarListener extends antlr4.tree.ParseTreeListener 
 
 	// Exit a parse tree produced by CPPONGrammarParser#line.
 	exitLine(ctx) {
-	}
-
-
-	// Enter a parse tree produced by CPPONGrammarParser#lines.
-	enterLines(ctx) {
-	}
-
-	// Exit a parse tree produced by CPPONGrammarParser#lines.
-	exitLines(ctx) {
 	}
 
 

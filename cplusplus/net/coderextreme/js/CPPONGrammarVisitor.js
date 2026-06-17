@@ -12,8 +12,8 @@ export default class CPPONGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by CPPONGrammarParser#field.
-	visitField(ctx) {
+	// Visit a parse tree produced by CPPONGrammarParser#arraytype.
+	visitArraytype(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
@@ -36,8 +36,8 @@ export default class CPPONGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by CPPONGrammarParser#boolean.
-	visitBoolean(ctx) {
+	// Visit a parse tree produced by CPPONGrammarParser#boolean_val.
+	visitBoolean_val(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
@@ -74,6 +74,18 @@ export default class CPPONGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 
 	// Visit a parse tree produced by CPPONGrammarParser#construct_array.
 	visitConstruct_array(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CPPONGrammarParser#cast.
+	visitCast(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by CPPONGrammarParser#parameter.
+	visitParameter(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
@@ -116,12 +128,6 @@ export default class CPPONGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 
 	// Visit a parse tree produced by CPPONGrammarParser#line.
 	visitLine(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by CPPONGrammarParser#lines.
-	visitLines(ctx) {
 	  return this.visitChildren(ctx);
 	}
 

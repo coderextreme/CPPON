@@ -43,10 +43,10 @@ CppFunctionBodySerializer.prototype = {
 		str += "#endif\n";
 		str += "#define BOOL bool\n";
 		str += "#define XML_PARSER_H\n";
-		str += "#include \"pch.h\"\n";
-		str += "#include \"framework.h\"\n";
-		str += "#include \"glut.h\"\n";
-		str += "#include \"X3DLib.h\"\n";
+		str += "//#include \"pch.h\"\n";
+		str += "//#include \"framework.h\"\n";
+		str += "//#include \"glut.h\"\n";
+		str += "//#include \"X3DLib.h\"\n";
 		str += "//int main(int argc, char ** argv) \n";
 		str += "//{\n";
 		bodystr += element.nodeName+REF+" "+element.nodeName+stack[0]+" = "+NEW+" "+element.nodeName+"();\n";
@@ -113,7 +113,6 @@ CppFunctionBodySerializer.prototype = {
 		case "int32_t":
 		case "double":
 		case "boolean":
-		case "SFString":
 			shim = "new";
 			break;
 		}
@@ -144,6 +143,8 @@ CppFunctionBodySerializer.prototype = {
 				this.codeno++;
 				return attrType+co;
 			}
+		} else if (attrType === "MFString") {
+			return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
 		} else {
 			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "boolean" ? ', '+values.length : '');
 		}
@@ -232,7 +233,7 @@ CppFunctionBodySerializer.prototype = {
 					replace(/\\?"/g, "\\\"")
 					+'"';
 			}
-			strval = "SFString("+strval+")"
+			strval = "std::string("+strval+")"
 			/*
 			if (
 				(element.nodeName === "fieldValue"         && attrsa.nodeName === "name") ||
@@ -254,7 +255,7 @@ CppFunctionBodySerializer.prototype = {
 			strval = this.printSubArray(attr, attrType, "double", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, DOUBLE_SUFFIX+',', '', DOUBLE_SUFFIX, element);
 		} else if (attrType === "MFString") {
 			nodeValue = nodeValue.replace(/^ *(.*) *$/, "$1");
-			strval = this.printSubArray(attr, attrType, "SFString",
+			strval = this.printSubArray(attr, attrType, "(std::string[])",
 				nodeValue.substr(1, nodeValue.length-2).split(/"[ ,\t\r\n]+"/).
 				map(function(x) {
 					let y = x.
@@ -268,10 +269,10 @@ CppFunctionBodySerializer.prototype = {
 						// console.error("CppFunctionBodySerializer Replacing "+x+" with "+y);
 					}
 					return y;
-				}), this.codeno, '"), SFString("', 'SFString("', '")', element); // ... json, lead, tail
+				}), this.codeno, '", "', '"', '"', element); // ... join, lead, tail
 		} else if (attrType === "SFImage" && element.nodeName === "PixelTexture") {
 			strval = '"'+nodeValue+'"';
-			strval = "SFString("+strval+")"
+			strval = "std::string("+strval+")"
 		} else if (attrType === "MFInt32") {
 			strval = this.printSubArray(attr, attrType, "int32_t", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, ',', '', '', element);
 			if (attr !== "texCoordIndex") {
@@ -748,7 +749,7 @@ CppFunctionBodySerializer.prototype = {
 				}
 			} else if (element.childNodes.hasOwnProperty(cn) && node.nodeType === 4) {
 				str += "\n//"+element.nodeName+stack[0];
-				str += OBJ+'setSourceCode(SFString("'+node.nodeValue.split(/[\r\n]+/).map(function(x) {
+				str += OBJ+'setSourceCode(std::string("'+node.nodeValue.split(/[\r\n]+/).map(function(x) {
 					return x.
 					        replace(/\\/g, '\\\\').
 						replace(/"/g, '\\"')
