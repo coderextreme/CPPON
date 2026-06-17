@@ -16,11 +16,11 @@ public interface CPPONGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(CPPONGrammarParser.TypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CPPONGrammarParser#field}.
+	 * Visit a parse tree produced by {@link CPPONGrammarParser#arraytype}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitField(CPPONGrammarParser.FieldContext ctx);
+	T visitArraytype(CPPONGrammarParser.ArraytypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CPPONGrammarParser#variable}.
 	 * @param ctx the parse tree
@@ -40,11 +40,11 @@ public interface CPPONGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCstring(CPPONGrammarParser.CstringContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CPPONGrammarParser#boolean}.
+	 * Visit a parse tree produced by {@link CPPONGrammarParser#boolean_val}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBoolean(CPPONGrammarParser.BooleanContext ctx);
+	T visitBoolean_val(CPPONGrammarParser.Boolean_valContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CPPONGrammarParser#boolean_list}.
 	 * @param ctx the parse tree
@@ -81,6 +81,18 @@ public interface CPPONGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConstruct_array(CPPONGrammarParser.Construct_arrayContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CPPONGrammarParser#cast}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCast(CPPONGrammarParser.CastContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CPPONGrammarParser#parameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameter(CPPONGrammarParser.ParameterContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CPPONGrammarParser#parameters}.
 	 * @param ctx the parse tree
@@ -123,12 +135,6 @@ public interface CPPONGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLine(CPPONGrammarParser.LineContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CPPONGrammarParser#lines}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLines(CPPONGrammarParser.LinesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CPPONGrammarParser#x3d}.
 	 * @param ctx the parse tree

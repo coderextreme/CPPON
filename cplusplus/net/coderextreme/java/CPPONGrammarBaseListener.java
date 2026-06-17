@@ -28,13 +28,13 @@ public class CPPONGrammarBaseListener implements CPPONGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterField(CPPONGrammarParser.FieldContext ctx) { }
+	@Override public void enterArraytype(CPPONGrammarParser.ArraytypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitField(CPPONGrammarParser.FieldContext ctx) { }
+	@Override public void exitArraytype(CPPONGrammarParser.ArraytypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -76,13 +76,13 @@ public class CPPONGrammarBaseListener implements CPPONGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBoolean(CPPONGrammarParser.BooleanContext ctx) { }
+	@Override public void enterBoolean_val(CPPONGrammarParser.Boolean_valContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBoolean(CPPONGrammarParser.BooleanContext ctx) { }
+	@Override public void exitBoolean_val(CPPONGrammarParser.Boolean_valContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -155,6 +155,30 @@ public class CPPONGrammarBaseListener implements CPPONGrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitConstruct_array(CPPONGrammarParser.Construct_arrayContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCast(CPPONGrammarParser.CastContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCast(CPPONGrammarParser.CastContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParameter(CPPONGrammarParser.ParameterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParameter(CPPONGrammarParser.ParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -239,18 +263,6 @@ public class CPPONGrammarBaseListener implements CPPONGrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLine(CPPONGrammarParser.LineContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLines(CPPONGrammarParser.LinesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLines(CPPONGrammarParser.LinesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

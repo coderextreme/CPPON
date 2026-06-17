@@ -17,15 +17,15 @@ public interface CPPONGrammarListener extends ParseTreeListener {
 	 */
 	void exitType(CPPONGrammarParser.TypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CPPONGrammarParser#field}.
+	 * Enter a parse tree produced by {@link CPPONGrammarParser#arraytype}.
 	 * @param ctx the parse tree
 	 */
-	void enterField(CPPONGrammarParser.FieldContext ctx);
+	void enterArraytype(CPPONGrammarParser.ArraytypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CPPONGrammarParser#field}.
+	 * Exit a parse tree produced by {@link CPPONGrammarParser#arraytype}.
 	 * @param ctx the parse tree
 	 */
-	void exitField(CPPONGrammarParser.FieldContext ctx);
+	void exitArraytype(CPPONGrammarParser.ArraytypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CPPONGrammarParser#variable}.
 	 * @param ctx the parse tree
@@ -57,15 +57,15 @@ public interface CPPONGrammarListener extends ParseTreeListener {
 	 */
 	void exitCstring(CPPONGrammarParser.CstringContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CPPONGrammarParser#boolean}.
+	 * Enter a parse tree produced by {@link CPPONGrammarParser#boolean_val}.
 	 * @param ctx the parse tree
 	 */
-	void enterBoolean(CPPONGrammarParser.BooleanContext ctx);
+	void enterBoolean_val(CPPONGrammarParser.Boolean_valContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CPPONGrammarParser#boolean}.
+	 * Exit a parse tree produced by {@link CPPONGrammarParser#boolean_val}.
 	 * @param ctx the parse tree
 	 */
-	void exitBoolean(CPPONGrammarParser.BooleanContext ctx);
+	void exitBoolean_val(CPPONGrammarParser.Boolean_valContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CPPONGrammarParser#boolean_list}.
 	 * @param ctx the parse tree
@@ -126,6 +126,26 @@ public interface CPPONGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConstruct_array(CPPONGrammarParser.Construct_arrayContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CPPONGrammarParser#cast}.
+	 * @param ctx the parse tree
+	 */
+	void enterCast(CPPONGrammarParser.CastContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CPPONGrammarParser#cast}.
+	 * @param ctx the parse tree
+	 */
+	void exitCast(CPPONGrammarParser.CastContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CPPONGrammarParser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterParameter(CPPONGrammarParser.ParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CPPONGrammarParser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitParameter(CPPONGrammarParser.ParameterContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CPPONGrammarParser#parameters}.
 	 * @param ctx the parse tree
@@ -196,16 +216,6 @@ public interface CPPONGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLine(CPPONGrammarParser.LineContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CPPONGrammarParser#lines}.
-	 * @param ctx the parse tree
-	 */
-	void enterLines(CPPONGrammarParser.LinesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CPPONGrammarParser#lines}.
-	 * @param ctx the parse tree
-	 */
-	void exitLines(CPPONGrammarParser.LinesContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CPPONGrammarParser#x3d}.
 	 * @param ctx the parse tree

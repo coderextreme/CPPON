@@ -25,15 +25,16 @@ import java.util.*;
 public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPONGrammarBaseVisitor<Node> implements CPPONGrammarVisitor<Node> {
 	private Map<String, Element> nodes = new HashMap<String, Element>();
 	private Document document = null;
+
 	public String log(Object s) {
 		if (s != null) {
 			System.out.print(s.toString());
 			return (s.toString());
 		} else {
-			// System.err.println("log message is null");
 			return "";
 		}
 	}
+
 	public CPPONGrammarDOMVisitor(String filename) throws IOException {
 		// first parse
 	    CharStream input = new ANTLRFileStream(filename);
@@ -55,9 +56,11 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 	    document = (Document)this.visitX3d(ctx);
 	    processDocument(document);
 	}
+
 	public Document getDocument() {
 		return document;
 	}
+
 	public void processDocument(Document document) throws IOException {
 	    if (document != null) {
 		    DOMImplementationLS ls = (DOMImplementationLS)document.getImplementation();
@@ -88,11 +91,13 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		    log(xml);
 	    }
 	}
+
 	public static void main(String [] args) throws IOException {
 	    for (int a = 0; a < args.length; a++) {
             	CPPONGrammarDOMVisitor root = new CPPONGrammarDOMVisitor(args[a]);
 	    }
 	}
+
 	@Override
 	public Node visitX3d(CPPONGrammarParser.X3dContext ctx) {
 		try {
@@ -104,7 +109,29 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			if (document == null) {
 				log("document is null\n");
 			}
-			Element child = (Element)visitLines(ctx.lines());
+
+			Element child = null;
+			List<CPPONGrammarParser.LineContext> lines = ctx.line();
+			Iterator<CPPONGrammarParser.LineContext> i = lines.iterator();
+			while (i.hasNext()) {
+				CPPONGrammarParser.LineContext lc = i.next();
+				CPPONGrammarParser.ConstructContext cc = lc.construct();
+				if (cc != null) {
+					Element childNode = (Element)visitConstruct(cc);
+					if (child == null) {
+						child = childNode;
+					}
+				}
+				CPPONGrammarParser.Set_fieldContext sfc = lc.set_field();
+				if (sfc != null) {
+					visitSet_field(sfc);
+				}
+				CPPONGrammarParser.Add_fieldContext afc = lc.add_field();
+				if (afc != null) {
+					visitAdd_field(afc);
+				}
+			}
+
 			if (document != null && child != null) {
 				DOMImplementation domImplementation = db.getDOMImplementation();
 				DocumentType doctype = domImplementation.createDocumentType("X3D", "ISO//Web3D//DTD X3D 4.0//EN", "file:/C:/Users/jcarl/www.web3d.org/specifications/x3d-4.0.dtd");
@@ -125,6 +152,7 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		}
 		return (Node)document;
 	}
+
 	@Override public Node visitConstruct(CPPONGrammarParser.ConstructContext ctx) {
 		Node node = super.visitChildren(ctx);
 		CPPONGrammarParser.TypeContext tc = ctx.type();
@@ -133,22 +161,13 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		CPPONGrammarParser.OperatorContext op = fc.operator();
 		CPPONGrammarParser.ParametersContext pa = fc.parameters();
 
-		TerminalNode typ = tc.IDENTIFIER();
-
-		TerminalNode ty = vp.IDENTIFIER(); // variable type
-		TerminalNode idx = vp.WHOLE();
+		String typstr = tc.getText();
+		String tystr = vp.getText();
 
 		TerminalNode eq = op.EQUALS();
-
 		TerminalNode fn = fc.IDENTIFIER();
 
-		String tystr = ty.toString();
-		String typstr = typ.toString();
-		String idxstr = "";
-		if (idx != null) {
-			idxstr = idx.toString();
-		}
-		// log("Creating ");log(typ); log(" "); log(ty); log(idx); log(eq); log(fn); log(pa); log("\n");
+		// log("Creating ");log(typstr); log(" "); log(tystr); log(eq); log(fn); log(pa); log("\n");
 		switch (typstr) {
 			case "Connect":
 				typstr = "connect";
@@ -160,29 +179,20 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 				typstr = "Color";
 				break;
 		}
-		if (!(tystr+idxstr).toLowerCase().startsWith(typstr.toLowerCase())) {
+		if (!tystr.toLowerCase().startsWith(typstr.toLowerCase())) {
 			log(tystr+" != "+typstr+"\n");
 		}
 		Element child = document.createElement(typstr);
-		this.nodes.put(tystr+idxstr, child);
+		this.nodes.put(tystr, child);
 		return (Node)child;
 	}
-	@Override public Node visitVariable(CPPONGrammarParser.VariableContext ctx) {
-		TerminalNode ct = ctx.IDENTIFIER(); // child name
-		TerminalNode cin = ctx.WHOLE();
-		String idxstr = "";
-		if (cin != null) {
-			idxstr = cin.toString();
-		}
-		String variable = ct.toString()+idxstr;
 
-		// log("Looking for "+variable+"\n");
+	@Override public Node visitVariable(CPPONGrammarParser.VariableContext ctx) {
+		String variable = ctx.getText();
 		Element child = nodes.get(variable);
-		if (child != null) {
-			// log("Found "+variable+"\n");
-		}
 		return (Node)child;
 	}
+
 	public Element elementSetAttribute(Element element, String attributeName, String value, boolean isArray) {
 		if (!attributeName.equals("DEF") && !attributeName.equals("USE")) {
 			attributeName = attributeName.substring(0,1).toLowerCase()+attributeName.substring(1);
@@ -196,143 +206,168 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		element.setAttribute(attributeName, value);
 		return element;
 	}
+
 	public Element elementSetAttribute(Element element, TerminalNode field, String value, boolean isArray) {
-		String attributeName = field.toString();
+		String attributeName = field.getText();
 		this.elementSetAttribute(element, attributeName, value, isArray);
 		return element;
 	}
-	@Override public Node visitSet_field(CPPONGrammarParser.Set_fieldContext ctx) {
-		CPPONGrammarParser.FunccallContext fc = ctx.funccall();
+
+	private Node processFunccall(CPPONGrammarParser.FunccallContext fc) {
 		CPPONGrammarParser.VariableContext vp = fc.variable();
 		CPPONGrammarParser.OperatorContext op = fc.operator();
 		CPPONGrammarParser.ParametersContext pa = fc.parameters();
-		CPPONGrammarParser.VariableContext vc = pa.variable();
 
 		Node parent = visitVariable(vp);
 
 		TerminalNode set = op.SET();
 		TerminalNode add = op.ADD();
 		TerminalNode x3dnodeset = op.X3DNODESET();
-		// log("test set add"); log(set); log(add);log("\n");
 		TerminalNode fn = fc.IDENTIFIER();
+
 		if (add == null) {
 			String text = "";
 			if (parent != null) {
-				CPPONGrammarParser.CstringContext cs = pa.cstring();
-				CPPONGrammarParser.Construct_arrayContext array = pa.construct_array();
-				if (cs != null) {
-					CPPONGrammarParser.StringContext sc = cs.string();
-					int start = sc.start.getStartIndex();
-					int stop = sc.stop.getStopIndex();
-					Interval interval = new Interval(start,stop);
-					text = sc.start.getInputStream().getText(interval);
-					// log(text+"\n");
-					if (text.startsWith("\"") && text.endsWith("\"")) {
-						text = text.substring(1, text.length() - 1);
-						// log(text+"\n");
-					}
-					this.elementSetAttribute((Element)parent, fn, text, false);
-				} else if (array != null) {
-					CPPONGrammarParser.ListContext list = array.list();
-					CPPONGrammarParser.Boolean_listContext boolean_list = list.boolean_list();
-					CPPONGrammarParser.String_listContext string_list = list.string_list();
-					CPPONGrammarParser.Float_listContext float_list = list.float_list();
-					CPPONGrammarParser.Integer_listContext integer_list = list.integer_list();
-					if (float_list != null) {
-						int start = float_list.start.getStartIndex();
-						int stop = float_list.stop.getStopIndex();
+				if (pa != null && pa.parameter().size() > 0) {
+					CPPONGrammarParser.ParameterContext param = pa.parameter(0);
+					CPPONGrammarParser.CstringContext cs = param.cstring();
+					CPPONGrammarParser.Construct_arrayContext array = param.construct_array();
+					CPPONGrammarParser.VariableContext vc = param.variable();
+
+					if (cs != null) {
+						CPPONGrammarParser.StringContext sc = cs.string();
+						int start = sc.start.getStartIndex();
+						int stop = sc.stop.getStopIndex();
 						Interval interval = new Interval(start,stop);
-						text = float_list.start.getInputStream().getText(interval);
-						this.elementSetAttribute((Element)parent, fn, text, true);
-					} else if (integer_list != null) {
-						int start = integer_list.start.getStartIndex();
-						int stop = integer_list.stop.getStopIndex();
-						Interval interval = new Interval(start,stop);
-						text = integer_list.start.getInputStream().getText(interval);
-						this.elementSetAttribute((Element)parent, fn, text, true);
-					} else if (boolean_list != null) {
-						int start = boolean_list.start.getStartIndex();
-						int stop = boolean_list.stop.getStopIndex();
-						Interval interval = new Interval(start,stop);
-						text = boolean_list.start.getInputStream().getText(interval);
-						this.elementSetAttribute((Element)parent, fn, text, true);
-					} else if (string_list != null) {
-						List<CPPONGrammarParser.CstringContext> cstring_list = string_list.cstring();
-						Iterator<CPPONGrammarParser.CstringContext> i = cstring_list.iterator();
-						boolean first = true;
-						while (i.hasNext()) {
-							if (first) {
-								first = false;
-							} else {
-								text += " ";
-							}
-							CPPONGrammarParser.CstringContext lc = i.next();
-							CPPONGrammarParser.StringContext sc = lc.string();
-							int start = sc.start.getStartIndex();
-							int stop = sc.stop.getStopIndex();
-							Interval interval = new Interval(start,stop);
-							text += sc.start.getInputStream().getText(interval);
+						text = sc.start.getInputStream().getText(interval);
+						if (text.startsWith("\"") && text.endsWith("\"")) {
+							text = text.substring(1, text.length() - 1);
 						}
-						// no need to remove commas
+						this.elementSetAttribute((Element)parent, fn, text, false);
+					} else if (array != null) {
+						CPPONGrammarParser.ListContext list = array.list();
+						if (list != null) {
+							CPPONGrammarParser.Boolean_listContext boolean_list = list.boolean_list();
+							CPPONGrammarParser.String_listContext string_list = list.string_list();
+							CPPONGrammarParser.Float_listContext float_list = list.float_list();
+							CPPONGrammarParser.Integer_listContext integer_list = list.integer_list();
+							if (float_list != null) {
+								int start = float_list.start.getStartIndex();
+								int stop = float_list.stop.getStopIndex();
+								Interval interval = new Interval(start,stop);
+								text = float_list.start.getInputStream().getText(interval);
+								this.elementSetAttribute((Element)parent, fn, text, true);
+							} else if (integer_list != null) {
+								int start = integer_list.start.getStartIndex();
+								int stop = integer_list.stop.getStopIndex();
+								Interval interval = new Interval(start,stop);
+								text = integer_list.start.getInputStream().getText(interval);
+								this.elementSetAttribute((Element)parent, fn, text, true);
+							} else if (boolean_list != null) {
+								int start = boolean_list.start.getStartIndex();
+								int stop = boolean_list.stop.getStopIndex();
+								Interval interval = new Interval(start,stop);
+								text = boolean_list.start.getInputStream().getText(interval);
+								this.elementSetAttribute((Element)parent, fn, text, true);
+							} else if (string_list != null) {
+								List<CPPONGrammarParser.StringContext> stringCtxList = string_list.string();
+								Iterator<CPPONGrammarParser.StringContext> i = stringCtxList.iterator();
+								boolean first = true;
+								while (i.hasNext()) {
+									if (first) {
+										first = false;
+									} else {
+										text += " ";
+									}
+									CPPONGrammarParser.StringContext sc = i.next();
+									int start = sc.start.getStartIndex();
+									int stop = sc.stop.getStopIndex();
+									Interval interval = new Interval(start,stop);
+									text += sc.start.getInputStream().getText(interval);
+								}
+								this.elementSetAttribute((Element)parent, fn, text, false);
+							}
+						} else {
+							// For empty arrays
+							this.elementSetAttribute((Element)parent, fn, "", true);
+						}
+					} else if (vc != null) {
+						Node child = visitVariable(vc);
+
+						// If child != null, it's a Node appending operation.
+						if (child != null) {
+							String containerFieldName = fn.getText();
+							if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
+								this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
+							}
+							parent.appendChild(child);
+							return (Node)parent;
+						} else {
+							// If child == null, vc is likely a literal constant/enum identifier.
+							// Treat as standard attribute value fallback.
+							int start = pa.start.getStartIndex();
+							int stop = pa.stop.getStopIndex();
+							Interval interval = new Interval(start,stop);
+							text = pa.start.getInputStream().getText(interval);
+							this.elementSetAttribute((Element)parent, fn, text, false);
+						}
+					} else if (param.string() != null) {
+						CPPONGrammarParser.StringContext sc = param.string();
+						int start = sc.start.getStartIndex();
+						int stop = sc.stop.getStopIndex();
+						Interval interval = new Interval(start,stop);
+						text = sc.start.getInputStream().getText(interval);
+						if (text.startsWith("\"") && text.endsWith("\"")) {
+							text = text.substring(1, text.length() - 1);
+						}
+						this.elementSetAttribute((Element)parent, fn, text, false);
+					} else {
+						int start = pa.start.getStartIndex();
+						int stop = pa.stop.getStopIndex();
+						Interval interval = new Interval(start,stop);
+						text = pa.start.getInputStream().getText(interval);
 						this.elementSetAttribute((Element)parent, fn, text, false);
 					}
-				} else if (vc != null) {
-					Node child = visitVariable(vc);
-					String containerFieldName = fn.toString();
-					if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
-						this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
-					}
-					parent.appendChild(child);
-					return (Node)parent;
-				} else {
+				} else if (pa != null) {
 					int start = pa.start.getStartIndex();
 					int stop = pa.stop.getStopIndex();
 					Interval interval = new Interval(start,stop);
 					text = pa.start.getInputStream().getText(interval);
 					this.elementSetAttribute((Element)parent, fn, text, false);
 				}
-				// log(set); log(add); log(fn); log(text); log("\n");
 			}
 		} else if (add != null) {
-			Node child = visitVariable(vc);
-			String containerFieldName = fn.toString();
-			if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
-				this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
-			}
-			if (child != null) {
-				parent.appendChild(child);
-			} else {
-				System.err.println("Null child??? Is something wrong?");
+			if (pa != null && pa.parameter().size() > 0) {
+				CPPONGrammarParser.ParameterContext param = pa.parameter(0);
+				CPPONGrammarParser.VariableContext vc = param.variable();
+				if (vc != null) {
+					Node child = visitVariable(vc);
+					String containerFieldName = fn.getText();
+					// Safety Check to ensure child actually exists
+					if (child != null) {
+						if (containerFieldName.toLowerCase().endsWith("metadata") || containerFieldName.toLowerCase().endsWith("url") || containerFieldName.toLowerCase().endsWith("texture")) {
+							this.elementSetAttribute((Element)child, "containerField", containerFieldName, false);
+						}
+						parent.appendChild(child);
+					} else {
+						System.err.println("Null child mapping during add_field. Unrecognized Variable: " + vc.getText());
+					}
+				}
 			}
 			return (Node)parent;
 		}
-		Node node = super.visitChildren(ctx);
-		return (Node)node; // send element so we can build
+		return null; // Return null signals parent handler to fallback to super.visitChildren
 	}
-	@Override public Node visitLines(CPPONGrammarParser.LinesContext ctx) {
-		Node node = super.visitChildren(ctx);
-		Element element = null;
 
-		List<CPPONGrammarParser.LineContext> lines = ctx.line();
-		Iterator<CPPONGrammarParser.LineContext> i = lines.iterator();
-		while (i.hasNext()) {
-			CPPONGrammarParser.LineContext lc = i.next();
-			CPPONGrammarParser.ConstructContext cc = lc.construct();
-			if (cc != null) {
-				Element child = (Element)visitConstruct(cc);
-				if (element == null) {
-					element = child;
-				}
-			}
-			CPPONGrammarParser.Set_fieldContext sfc = lc.set_field();
-			if (sfc != null) {
-				visitSet_field(sfc);  // gets element to add to by id set in construct
-			}
-			CPPONGrammarParser.Add_fieldContext afc = lc.add_field();
-			if (afc != null) {
-				visitAdd_field(afc);  // gets parent element to append to by id set in construct
-			}
-		}
-		return (Node)element;
+	@Override public Node visitSet_field(CPPONGrammarParser.Set_fieldContext ctx) {
+		Node result = processFunccall(ctx.funccall());
+		if (result != null) return result;
+		return super.visitChildren(ctx);
+	}
+
+	@Override public Node visitAdd_field(CPPONGrammarParser.Add_fieldContext ctx) {
+		Node result = processFunccall(ctx.funccall());
+		if (result != null) return result;
+		return super.visitChildren(ctx);
 	}
 }
