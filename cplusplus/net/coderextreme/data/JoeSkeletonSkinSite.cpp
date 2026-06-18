@@ -6763,7 +6763,7 @@ Scene32.addChild(&Group73);
 
 //expected best practice: EXPORT AS='fileName' for clarity
 Export& EXPORT1452 =  Export();
-EXPORT1452.setAS(std::string("JoeSkeletonSkinSite"));
+EXPORT1452.setAS(&std::string("JoeSkeletonSkinSite"));
 EXPORT1452.setLocalDEF(std::string("Joe_Human"));
 Scene32.addChild(&EXPORT1452);
 

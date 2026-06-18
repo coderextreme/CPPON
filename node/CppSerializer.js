@@ -395,6 +395,9 @@ CppSerializer.prototype = {
 							}
 							break;
 					}
+					if (method === "AS") {
+						strval = "&"+strval;
+					}
 					str += OBJ+startshim+"set"+method+"("+strval+");\n";
 				}
 			} catch (e) {
@@ -682,7 +685,6 @@ CppSerializer.prototype = {
 					case "Billboard":
 					case "HAnimSegment":
 					case "HAnimSite":
-					case "field":
 					case "fieldValue":
 						switch (node.nodeName) {
 						case "Shape":
@@ -717,6 +719,15 @@ CppSerializer.prototype = {
 							startshim = OBJ+"X3DBaseNode::";
 							shim = "static_cast<X3DGroupingNode*>("+REF;
 							endshim = ")";
+							break;
+						}
+						break;
+					case "field":
+						switch (node.nodeName) {
+						case "Coordinate":
+						case "Extrusion":
+						case "Shape":
+							shim = REF;
 							break;
 						}
 						break;

@@ -1452,7 +1452,7 @@ Group29.addChild(&HAnimHumanoid30);
 
 //expected best practice: EXPORT AS='fileName' for clarity
 Export& EXPORT238 =  Export();
-EXPORT238.setAS(std::string("JoeKick"));
+EXPORT238.setAS(&std::string("JoeKick"));
 EXPORT238.setLocalDEF(std::string("Joe_Kick"));
 Group29.addChild(&EXPORT238);
 

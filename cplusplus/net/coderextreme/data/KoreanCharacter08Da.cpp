@@ -1110,7 +1110,7 @@ HAnimHumanoid25.setJoints(&HAnimJoint230);
 Scene21.addChild(&HAnimHumanoid25);
 
 Export& EXPORT231 =  Export();
-EXPORT231.setAS(std::string("KoreanCharacter08Da"));
+EXPORT231.setAS(&std::string("KoreanCharacter08Da"));
 EXPORT231.setLocalDEF(std::string("hanim_Da"));
 Scene21.addChild(&EXPORT231);
 

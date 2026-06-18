@@ -126,7 +126,7 @@ Scene22.addChild(&TimeSensor24);
 
 Export& EXPORT25 =  Export();
 EXPORT25.setLocalDEF(std::string("JinLipSuck_Clock"));
-EXPORT25.setAS(std::string("JinLipSuck_Clock"));
+EXPORT25.setAS(&std::string("JinLipSuck_Clock"));
 Scene22.addChild(&EXPORT25);
 
 ScalarInterpolator& ScalarInterpolator26 =  ScalarInterpolator();

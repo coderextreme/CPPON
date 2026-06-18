@@ -237,7 +237,7 @@ Group46.addChild(&Inline47);
 
 //Note that the following importedDEF must match the EXPORT name found in remote file
 IMPORT& IMPORT48 =  IMPORT();
-IMPORT48.setAS(std::string("HumanoidImported"));
+IMPORT48.setAS(&std::string("HumanoidImported"));
 IMPORT48.setImportedDEF(std::string("BoxMan2"));
 IMPORT48.setInlineDEF(std::string("HumanoidInline"));
 Group46.addChild(&IMPORT48);

@@ -274,7 +274,7 @@ field53.setAccessType(std::string("initializeOnly"));
 field53.setType(std::string("SFNode"));
 Coordinate& Coordinate54 =  Coordinate();
 Coordinate54.setUSE(std::string("FrustumCoordinate"));
-field53.addChild(Coordinate54);
+field53.addChild(&Coordinate54);
 
 Script48.addChild(&field53);
 

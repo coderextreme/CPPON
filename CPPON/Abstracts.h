@@ -1663,6 +1663,7 @@ public:
 	std::string getNodeName();
 	void	setNodeName(std::string strName);
 	bool	isNodeName(std::string strName);
+	virtual void	setContainerField(std::string strDef);
 
 	void addChild(X3DBaseNode* child) ;
 	void insertChild(X3DBaseNode* child);
