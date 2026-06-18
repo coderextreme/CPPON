@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ObliqueStrategies(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -199,6 +191,7 @@ Shape& Shape39 =  Shape();
 Text& Text40 =  Text();
 Text40.setString((std::string[]){"Oblique Strategies", "(Over One Hundred Worthwhile Dilemmas)", "by Brian Eno and Peter Schmidt"}, 3);
 CFontStyle& FontStyle41 =  CFontStyle();
+FontStyle41.setContainerField("fontStyle");
 FontStyle41.setDEF(std::string("MessageFont"));
 FontStyle41.setFamily((std::string[]){"SANS"}, 1);
 FontStyle41.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -208,7 +201,9 @@ Text40.setFontStyle(&FontStyle41);
 Shape39.setGeometry(&Text40);
 
 Appearance& Appearance42 =  Appearance();
+Appearance42.setContainerField("appearance");
 Material& Material43 =  Material();
+Material43.setContainerField("material");
 Material43.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance42.addChild(&Material43);
 
@@ -230,7 +225,9 @@ IndexedFaceSet46.setCoord(&Coordinate47);
 Shape45.setGeometry(&IndexedFaceSet46);
 
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setAmbientIntensity(0.245763);
 Material49.setDiffuseColor(new float[]{0.34773,0.090909,0.005289});
 Material49.setShininess(0.07);
@@ -316,6 +313,7 @@ Shape& Shape60 =  Shape();
 Text& Text61 =  Text();
 Text61.setDEF(std::string("CardText"));
 CFontStyle& FontStyle62 =  CFontStyle();
+FontStyle62.setContainerField("fontStyle");
 FontStyle62.setFamily((std::string[]){"SANS"}, 1);
 FontStyle62.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle62.setStyle(std::string("BOLD"));
@@ -324,7 +322,9 @@ Text61.setFontStyle(&FontStyle62);
 Shape60.setGeometry(&Text61);
 
 Appearance& Appearance63 =  Appearance();
+Appearance63.setContainerField("appearance");
 Material& Material64 =  Material();
+Material64.setContainerField("material");
 Material64.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance63.addChild(&Material64);
 
@@ -350,6 +350,7 @@ Sound66.setMinFront(20);
 //&#38; is ampersand character, avoids escaping problems and inconsistencies in browsers and X3D players
 //%20 is space character used in uri/url encoding
 AudioClip& AudioClip67 =  AudioClip();
+AudioClip67.setContainerField("source");
 AudioClip67.setDEF(std::string("TextToSpeechAudioClip"));
 AudioClip67.setDescription(std::string("sends strategy text google translate"));
 AudioClip67.setUrl((std::string[]){"http://translate.google.com/translate_tts?tl=en&amp;q=Feed%20the%20recording%20back%20out%20of%20the%20medium", "translate_tts_mp3FileFormatNotSupported.wav", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/Inspiration/translate_tts_mp3FileFormatNotSupported.wav"}, 3);
@@ -392,14 +393,17 @@ Shape& Shape73 =  Shape();
 Text& Text74 =  Text();
 Text74.setString((std::string[]){"previous"}, 1);
 CFontStyle& FontStyle75 =  CFontStyle();
+FontStyle75.setContainerField("fontStyle");
 FontStyle75.setUSE(std::string("MessageFont"));
 Text74.setFontStyle(&FontStyle75);
 
 Shape73.setGeometry(&Text74);
 
 Appearance& Appearance76 =  Appearance();
+Appearance76.setContainerField("appearance");
 Appearance76.setDEF(std::string("InterfaceAppearance"));
 Material& Material77 =  Material();
+Material77.setContainerField("material");
 Material77.setDiffuseColor(new float[]{1.0,0.0,0.6});
 Appearance76.addChild(&Material77);
 
@@ -422,7 +426,9 @@ IndexedFaceSet80.setCoord(&Coordinate81);
 Shape79.setGeometry(&IndexedFaceSet80);
 
 Appearance& Appearance82 =  Appearance();
+Appearance82.setContainerField("appearance");
 Material& Material83 =  Material();
+Material83.setContainerField("material");
 Material83.setTransparency(1);
 Appearance82.addChild(&Material83);
 
@@ -453,12 +459,14 @@ Shape& Shape87 =  Shape();
 Text& Text88 =  Text();
 Text88.setString((std::string[]){"next"}, 1);
 CFontStyle& FontStyle89 =  CFontStyle();
+FontStyle89.setContainerField("fontStyle");
 FontStyle89.setUSE(std::string("MessageFont"));
 Text88.setFontStyle(&FontStyle89);
 
 Shape87.setGeometry(&Text88);
 
 Appearance& Appearance90 =  Appearance();
+Appearance90.setContainerField("appearance");
 Appearance90.setUSE(std::string("InterfaceAppearance"));
 Shape87.addChild(&Appearance90);
 
@@ -492,12 +500,14 @@ Shape& Shape96 =  Shape();
 Text& Text97 =  Text();
 Text97.setString((std::string[]){"random"}, 1);
 CFontStyle& FontStyle98 =  CFontStyle();
+FontStyle98.setContainerField("fontStyle");
 FontStyle98.setUSE(std::string("MessageFont"));
 Text97.setFontStyle(&FontStyle98);
 
 Shape96.setGeometry(&Text97);
 
 Appearance& Appearance99 =  Appearance();
+Appearance99.setContainerField("appearance");
 Appearance99.setUSE(std::string("InterfaceAppearance"));
 Shape96.addChild(&Appearance99);
 
@@ -532,12 +542,14 @@ Shape& Shape105 =  Shape();
 Text& Text106 =  Text();
 Text106.setString((std::string[]){"speech"}, 1);
 CFontStyle& FontStyle107 =  CFontStyle();
+FontStyle107.setContainerField("fontStyle");
 FontStyle107.setUSE(std::string("MessageFont"));
 Text106.setFontStyle(&FontStyle107);
 
 Shape105.setGeometry(&Text106);
 
 Appearance& Appearance108 =  Appearance();
+Appearance108.setContainerField("appearance");
 Appearance108.setUSE(std::string("InterfaceAppearance"));
 Shape105.addChild(&Appearance108);
 
@@ -557,4 +569,4 @@ Scene33.addChild(&Transform102);
 
 X3D0.setScene(&Scene33);
 
-//}
+}

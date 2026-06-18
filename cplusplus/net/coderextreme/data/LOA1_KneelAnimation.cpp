@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int LOA1_KneelAnimation(int argc, char ** argv) {
+void LOA1_KneelAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -596,20 +588,23 @@ Scene17.addChild(&ProtoDeclare19);
 
 Anchor& Anchor110 =  Anchor();
 Anchor110.setDescription(std::string("InterchangableActorsViaDynamicRouting"));
-Anchor110.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor110.setUrl((std::string[]){"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
+Anchor110.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor110.setUrl(new std::string[]{"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
 Shape& Shape111 =  Shape();
 Text& Text112 =  Text();
-Text112.setString((std::string[]){"LOA1_KneelAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
+Text112.setString(new std::string[]{"LOA1_KneelAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
 CFontStyle& FontStyle113 =  CFontStyle();
-FontStyle113.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle113.setContainerField("fontStyle");
+FontStyle113.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle113.setSize(0.8);
 Text112.setFontStyle(&FontStyle113);
 
 Shape111.setGeometry(&Text112);
 
 Appearance& Appearance114 =  Appearance();
+Appearance114.setContainerField("appearance");
 Material& Material115 =  Material();
+Material115.setContainerField("material");
 Material115.setDiffuseColor(new float[]{1.0,1.0,0.2});
 Appearance114.addChild(&Material115);
 

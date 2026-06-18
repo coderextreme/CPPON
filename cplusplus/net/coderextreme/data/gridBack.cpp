@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int gridBack(int argc, char ** argv) {
+void gridBack(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -77,7 +69,9 @@ X3D0.setHead(&head1);
 Scene& Scene13 =  Scene();
 Shape& Shape14 =  Shape();
 Appearance& Appearance15 =  Appearance();
+Appearance15.setContainerField("appearance");
 Material& Material16 =  Material();
+Material16.setContainerField("material");
 Material16.setAmbientIntensity(0.01);
 Material16.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material16.setShininess(0.05);
@@ -94,9 +88,10 @@ Coordinate& Coordinate18 =  Coordinate();
 Coordinate18.setPoint(new float[]{-5.25,5.25,0.0,-3.75,5.25,0.0,-2.25,5.25,0.0,-0.75,5.25,0.0,0.75,5.25,0.0,2.25,5.25,0.0,3.75,5.25,0.0,5.25,5.25,0.0,-5.25,3.75,0.0,-3.75,3.75,0.0,-2.25,3.75,0.0,-0.75,3.75,0.0,0.75,3.75,0.0,2.25,3.75,0.0,3.75,3.75,0.0,5.25,3.75,0.0,-5.25,2.25,0.0,-3.75,2.25,0.0,-2.25,2.25,0.0,-0.75,2.25,0.0,0.75,2.25,0.0,2.25,2.25,0.0,3.75,2.25,0.0,5.25,2.25,0.0,-5.25,0.75,0.0,-3.75,0.75,0.0,-2.25,0.75,0.0,-0.75,0.75,0.0,0.75,0.75,0.0,2.25,0.75,0.0,3.75,0.75,0.0,5.25,0.75,0.0,-5.25,-0.75,0.0,-3.75,-0.75,0.0,-2.25,-0.75,0.0,-0.75,-0.75,0.0,0.75,-0.75,0.0,2.25,-0.75,0.0,3.75,-0.75,0.0,5.25,-0.75,0.0,-5.25,-2.25,0.0,-3.75,-2.25,0.0,-2.25,-2.25,0.0,-0.75,-2.25,0.0,0.75,-2.25,0.0,2.25,-2.25,0.0,3.75,-2.25,0.0,5.25,-2.25,0.0,-5.25,-3.75,0.0,-3.75,-3.75,0.0,-2.25,-3.75,0.0,-0.75,-3.75,0.0,0.75,-3.75,0.0,2.25,-3.75,0.0,3.75,-3.75,0.0,5.25,-3.75,0.0,-5.25,-5.25,0.0,-3.75,-5.25,0.0,-2.25,-5.25,0.0,-0.75,-5.25,0.0,0.75,-5.25,0.0,2.25,-5.25,0.0,3.75,-5.25,0.0,5.25,-5.25,0.0}, 192);
 IndexedFaceSet17.setCoord(&Coordinate18);
 
-CColor& Color19 =  CColor();
+Color& Color19 =  Color();
+Color19.setContainerField("color");
 Color19.setColor(new float[]{0.5,0.5,0.5,0.75,0.75,0.75}, 6);
-IndexedFaceSet17.setColor(&Color19);
+IndexedFaceSet17.setColor(Color19);
 
 Shape14.setGeometry(&IndexedFaceSet17);
 

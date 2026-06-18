@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Cane(int argc, char ** argv) {
+void Cane(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -80,7 +72,9 @@ Scene12.addChild(&Background14);
 
 Shape& Shape15 =  Shape();
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setAmbientIntensity(0);
 Material17.setDiffuseColor(new float[]{0.490196079,0.149019614,0.80392158});
 Material17.setShininess(1);

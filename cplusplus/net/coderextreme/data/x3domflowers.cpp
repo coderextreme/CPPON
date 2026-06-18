@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int x3domflowers(int argc, char ** argv) {
+void x3domflowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -90,18 +82,18 @@ Scene15.addChild(&NavigationInfo16);
 
 //Images courtesy of Paul Debevec's Light Probe Image Gallery
 Background& Background17 =  Background();
-Background17.setBackUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
-Background17.setBottomUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
-Background17.setFrontUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
-Background17.setLeftUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
-Background17.setRightUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
-Background17.setTopUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
+Background17.setBackUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
+Background17.setBottomUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
+Background17.setFrontUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
+Background17.setLeftUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
+Background17.setRightUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
+Background17.setTopUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
 Scene15.addChild(&Background17);
 
 Group& Group18 =  Group();
 ExternProtoDeclare& ExternProtoDeclare19 =  ExternProtoDeclare();
 ExternProtoDeclare19.setName(std::string("FlowerProto"));
-ExternProtoDeclare19.setUrl((std::string[]){"../data/flowerproto.json#FlowerProto"}, 1);
+ExternProtoDeclare19.setUrl(new std::string[]{"../data/flowerproto.json#FlowerProto"}, 1);
 field& field20 =  field();
 field20.setName(std::string("vertex"));
 field20.setAccessType(std::string("inputOutput"));

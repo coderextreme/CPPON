@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CameraPrototypes(int argc, char ** argv) {
+void CameraPrototypes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -321,7 +313,7 @@ ProtoBody42.addChild(&Viewpoint43);
 //NavInfo EXAMINE used since some browsers (InstantReality) try to lock view to vertical when flying to avoid disorientation
 NavigationInfo& NavigationInfo52 =  NavigationInfo();
 NavigationInfo52.setDEF(std::string("CameraNavInfo"));
-NavigationInfo52.setType((std::string[]){"EXAMINE", "FLY", "ANY"}, 3);
+NavigationInfo52.setType(new std::string[]{"EXAMINE", "FLY", "ANY"}, 3);
 IS& IS53 =  IS();
 Connect& connect54 =  Connect();
 connect54.setNodeField(std::string("set_bind"));
@@ -2091,19 +2083,22 @@ Scene16.addChild(&Background254);
 
 Anchor& Anchor255 =  Anchor();
 Anchor255.setDescription(std::string("launch CameraExample scene"));
-Anchor255.setUrl((std::string[]){"CameraExamples.x3d", "https://www.web3d.org/x3d/content/examples/Basic/development/CameraExamples.x3d", "CameraExamples.wrl", "https://www.web3d.org/x3d/content/examples/Basic/development/CameraExamples.wrl"}, 4);
+Anchor255.setUrl(new std::string[]{"CameraExamples.x3d", "https://www.web3d.org/x3d/content/examples/Basic/development/CameraExamples.x3d", "CameraExamples.wrl", "https://www.web3d.org/x3d/content/examples/Basic/development/CameraExamples.wrl"}, 4);
 Transform& Transform256 =  Transform();
 Shape& Shape257 =  Shape();
 Text& Text258 =  Text();
-Text258.setString((std::string[]){"CameraPrototypes.x3d", "defines multiple prototype nodes", "Click on this text to see", "CameraExamples.x3d scene"}, 4);
+Text258.setString(new std::string[]{"CameraPrototypes.x3d", "defines multiple prototype nodes", "Click on this text to see", "CameraExamples.x3d scene"}, 4);
 CFontStyle& FontStyle259 =  CFontStyle();
-FontStyle259.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle259.setContainerField("fontStyle");
+FontStyle259.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text258.setFontStyle(&FontStyle259);
 
 Shape257.setGeometry(&Text258);
 
 Appearance& Appearance260 =  Appearance();
+Appearance260.setContainerField("appearance");
 Material& Material261 =  Material();
+Material261.setContainerField("material");
 Material261.setDiffuseColor(new float[]{1.0,1.0,0.2});
 Appearance260.addChild(&Material261);
 

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int force_tidy(int argc, char ** argv) {
+void force_tidy(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -93,7 +85,9 @@ Sphere& Sphere21 =  Sphere();
 Shape20.setGeometry(&Sphere21);
 
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance22.addChild(&Material23);
 
@@ -105,17 +99,20 @@ Transform& Transform24 =  Transform();
 Transform24.setTranslation(new float[]{1.0,0.0,0.0});
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Material& Material27 =  Material();
+Material27.setContainerField("material");
 Material27.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance26.addChild(&Material27);
 
 Shape25.addChild(&Appearance26);
 
 Text& Text28 =  Text();
-Text28.setString((std::string[]){"Node"}, 1);
+Text28.setString(new std::string[]{"Node"}, 1);
 CFontStyle& FontStyle29 =  CFontStyle();
+FontStyle29.setContainerField("fontStyle");
 FontStyle29.setSize(5);
-FontStyle29.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle29.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text28.setFontStyle(&FontStyle29);
 
 Shape25.setGeometry(&Text28);
@@ -229,7 +226,9 @@ ProtoBody& ProtoBody45 =  ProtoBody();
 Group& Group46 =  Group();
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance48.addChild(&Material49);
 

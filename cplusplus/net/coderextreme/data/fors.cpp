@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int fors(int argc, char ** argv) {
+void fors(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -89,7 +81,9 @@ Sphere& Sphere20 =  Sphere();
 Shape19.setGeometry(&Sphere20);
 
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance21.addChild(&Material22);
 
@@ -101,16 +95,19 @@ Transform& Transform23 =  Transform();
 Transform23.setTranslation(new float[]{1.0,0.0,0.0});
 Shape& Shape24 =  Shape();
 Text& Text25 =  Text();
-Text25.setString((std::string[]){"Node"}, 1);
+Text25.setString(new std::string[]{"Node"}, 1);
 CFontStyle& FontStyle26 =  CFontStyle();
-FontStyle26.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle26.setContainerField("fontStyle");
+FontStyle26.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle26.setSize(5);
 Text25.setFontStyle(&FontStyle26);
 
 Shape24.setGeometry(&Text25);
 
 Appearance& Appearance27 =  Appearance();
+Appearance27.setContainerField("appearance");
 Material& Material28 =  Material();
+Material28.setContainerField("material");
 Material28.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance27.addChild(&Material28);
 
@@ -235,7 +232,9 @@ Extrusion47.setSpine(new float[]{0.0,-50.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0}, 9);
 Shape46.setGeometry(&Extrusion47);
 
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance48.addChild(&Material49);
 

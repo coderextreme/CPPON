@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CoordinateAxes(int argc, char ** argv) {
+void CoordinateAxes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -102,8 +94,10 @@ Cylinder20.setTop(false);
 Shape19.setGeometry(&Cylinder20);
 
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Appearance21.setDEF(std::string("Green"));
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.1,0.6,0.1});
 Material22.setEmissiveColor(new float[]{0.05,0.2,0.05});
 Appearance21.addChild(&Material22);
@@ -122,6 +116,7 @@ Cone25.setHeight(0.1);
 Shape24.setGeometry(&Cone25);
 
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Appearance26.setUSE(std::string("Green"));
 Shape24.addChild(&Appearance26);
 
@@ -136,8 +131,10 @@ Transform27.setTranslation(new float[]{0.0,1.08,0.0});
 Billboard& Billboard28 =  Billboard();
 Shape& Shape29 =  Shape();
 Appearance& Appearance30 =  Appearance();
+Appearance30.setContainerField("appearance");
 Appearance30.setDEF(std::string("LABEL_APPEARANCE"));
 Material& Material31 =  Material();
+Material31.setContainerField("material");
 Material31.setDiffuseColor(new float[]{1.0,1.0,0.3});
 Material31.setEmissiveColor(new float[]{0.33,0.33,0.1});
 Appearance30.addChild(&Material31);
@@ -145,11 +142,12 @@ Appearance30.addChild(&Material31);
 Shape29.addChild(&Appearance30);
 
 Text& Text32 =  Text();
-Text32.setString((std::string[]){"Y"}, 1);
+Text32.setString(new std::string[]{"Y"}, 1);
 CFontStyle& FontStyle33 =  CFontStyle();
+FontStyle33.setContainerField("fontStyle");
 FontStyle33.setDEF(std::string("LABEL_FONT"));
-FontStyle33.setFamily((std::string[]){"SANS"}, 1);
-FontStyle33.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle33.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle33.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle33.setSize(0.2);
 Text32.setFontStyle(&FontStyle33);
 
@@ -175,8 +173,10 @@ Cylinder38.setUSE(std::string("ArrowCylinder"));
 Shape37.setGeometry(&Cylinder38);
 
 Appearance& Appearance39 =  Appearance();
+Appearance39.setContainerField("appearance");
 Appearance39.setDEF(std::string("Red"));
 Material& Material40 =  Material();
+Material40.setContainerField("material");
 Material40.setDiffuseColor(new float[]{0.7,0.1,0.1});
 Material40.setEmissiveColor(new float[]{0.33,0.0,0.0});
 Appearance39.addChild(&Material40);
@@ -193,6 +193,7 @@ Cone43.setUSE(std::string("ArrowCone"));
 Shape42.setGeometry(&Cone43);
 
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Appearance44.setUSE(std::string("Red"));
 Shape42.addChild(&Appearance44);
 
@@ -209,12 +210,14 @@ Transform45.setTranslation(new float[]{0.072,1.1,0.0});
 Billboard& Billboard46 =  Billboard();
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Appearance48.setUSE(std::string("LABEL_APPEARANCE"));
 Shape47.addChild(&Appearance48);
 
 Text& Text49 =  Text();
-Text49.setString((std::string[]){"X"}, 1);
+Text49.setString(new std::string[]{"X"}, 1);
 CFontStyle& FontStyle50 =  CFontStyle();
+FontStyle50.setContainerField("fontStyle");
 FontStyle50.setUSE(std::string("LABEL_FONT"));
 Text49.setFontStyle(&FontStyle50);
 
@@ -242,8 +245,10 @@ Cylinder55.setUSE(std::string("ArrowCylinder"));
 Shape54.setGeometry(&Cylinder55);
 
 Appearance& Appearance56 =  Appearance();
+Appearance56.setContainerField("appearance");
 Appearance56.setDEF(std::string("Blue"));
 Material& Material57 =  Material();
+Material57.setContainerField("material");
 Material57.setDiffuseColor(new float[]{0.3,0.3,1.0});
 Material57.setEmissiveColor(new float[]{0.1,0.1,0.33});
 Appearance56.addChild(&Material57);
@@ -260,6 +265,7 @@ Cone60.setUSE(std::string("ArrowCone"));
 Shape59.setGeometry(&Cone60);
 
 Appearance& Appearance61 =  Appearance();
+Appearance61.setContainerField("appearance");
 Appearance61.setUSE(std::string("Blue"));
 Shape59.addChild(&Appearance61);
 
@@ -276,12 +282,14 @@ Transform62.setTranslation(new float[]{0.0,1.1,0.072});
 Billboard& Billboard63 =  Billboard();
 Shape& Shape64 =  Shape();
 Appearance& Appearance65 =  Appearance();
+Appearance65.setContainerField("appearance");
 Appearance65.setUSE(std::string("LABEL_APPEARANCE"));
 Shape64.addChild(&Appearance65);
 
 Text& Text66 =  Text();
-Text66.setString((std::string[]){"Z"}, 1);
+Text66.setString(new std::string[]{"Z"}, 1);
 CFontStyle& FontStyle67 =  CFontStyle();
+FontStyle67.setContainerField("fontStyle");
 FontStyle67.setUSE(std::string("LABEL_FONT"));
 Text66.setFontStyle(&FontStyle67);
 

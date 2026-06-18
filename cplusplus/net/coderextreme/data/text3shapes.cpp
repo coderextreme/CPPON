@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int text3shapes(int argc, char ** argv) {
+void text3shapes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -53,14 +45,17 @@ Scene& Scene8 =  Scene();
 Transform& Transform9 =  Transform();
 Shape& Shape10 =  Shape();
 Text& Text11 =  Text();
-Text11.setString((std::string[]){"Node\"\"\""}, 1);
+Text11.setString(new std::string[]{"Node\"\"\""}, 1);
 CFontStyle& FontStyle12 =  CFontStyle();
+FontStyle12.setContainerField("fontStyle");
 Text11.setFontStyle(&FontStyle12);
 
 Shape10.setGeometry(&Text11);
 
 Appearance& Appearance13 =  Appearance();
+Appearance13.setContainerField("appearance");
 Material& Material14 =  Material();
+Material14.setContainerField("material");
 Appearance13.addChild(&Material14);
 
 Shape10.addChild(&Appearance13);
@@ -69,14 +64,17 @@ Transform9.addChild(&Shape10);
 
 Shape& Shape15 =  Shape();
 Text& Text16 =  Text();
-Text16.setString((std::string[]){"Node2", "\\\\\\\\\\\\Node2"}, 2);
+Text16.setString(new std::string[]{"Node2", "\\\\\\\\\\\\Node2"}, 2);
 CFontStyle& FontStyle17 =  CFontStyle();
+FontStyle17.setContainerField("fontStyle");
 Text16.setFontStyle(&FontStyle17);
 
 Shape15.setGeometry(&Text16);
 
 Appearance& Appearance18 =  Appearance();
+Appearance18.setContainerField("appearance");
 Material& Material19 =  Material();
+Material19.setContainerField("material");
 Appearance18.addChild(&Material19);
 
 Shape15.addChild(&Appearance18);
@@ -85,14 +83,17 @@ Transform9.addChild(&Shape15);
 
 Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
-Text21.setString((std::string[]){"Node3 \\\\\\\\ \\\\ Node3\"\"\""}, 1);
+Text21.setString(new std::string[]{"Node3 \\\\\\\\ \\\\ Node3\"\"\""}, 1);
 CFontStyle& FontStyle22 =  CFontStyle();
+FontStyle22.setContainerField("fontStyle");
 Text21.setFontStyle(&FontStyle22);
 
 Shape20.setGeometry(&Text21);
 
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Material& Material24 =  Material();
+Material24.setContainerField("material");
 Appearance23.addChild(&Material24);
 
 Shape20.addChild(&Appearance23);

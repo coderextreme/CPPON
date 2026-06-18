@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int arc3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -62,7 +54,9 @@ Sphere12.setRadius(0.1);
 Shape11.setGeometry(&Sphere12);
 
 Appearance& Appearance13 =  Appearance();
+Appearance13.setContainerField("appearance");
 Material& Material14 =  Material();
+Material14.setContainerField("material");
 Material14.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance13.addChild(&Material14);
 
@@ -72,7 +66,7 @@ Transform10.addChild(&Shape11);
 
 PositionInterpolator& PositionInterpolator15 =  PositionInterpolator();
 PositionInterpolator15.setDEF(std::string("DECLpoint_G1_PI1"));
-PositionInterpolator15.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator15.setKey(new float[]{0.0,1.0});
 PositionInterpolator15.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform10.addChild(&PositionInterpolator15);
 
@@ -159,7 +153,9 @@ Sphere28.setRadius(0.1);
 Shape27.setGeometry(&Sphere28);
 
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance29.addChild(&Material30);
 
@@ -169,7 +165,7 @@ Transform26.addChild(&Shape27);
 
 PositionInterpolator& PositionInterpolator31 =  PositionInterpolator();
 PositionInterpolator31.setDEF(std::string("DECLpoint_G2_PI1"));
-PositionInterpolator31.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator31.setKey(new float[]{0.0,1.0});
 PositionInterpolator31.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform26.addChild(&PositionInterpolator31);
 
@@ -255,7 +251,9 @@ Transform& Transform44 =  Transform();
 Transform44.setDEF(std::string("DECLx3dconnector_connector1_rotscale"));
 Shape& Shape45 =  Shape();
 Appearance& Appearance46 =  Appearance();
+Appearance46.setContainerField("appearance");
 Material& Material47 =  Material();
+Material47.setContainerField("material");
 Material47.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Material47.setTransparency(0.5);
 Appearance46.addChild(&Material47);
@@ -393,4 +391,4 @@ Scene7.addChild(&ROUTE61);
 
 X3D0.setScene(&Scene7);
 
-//}
+}

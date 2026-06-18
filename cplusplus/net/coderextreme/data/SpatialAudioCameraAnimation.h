@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int SpatialAudioCameraAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -111,13 +103,13 @@ Scene14.addChild(&TimeSensor19);
 
 PositionInterpolator& PositionInterpolator20 =  PositionInterpolator();
 PositionInterpolator20.setDEF(std::string("Camera001-POS-INTERP"));
-PositionInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+PositionInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
 PositionInterpolator20.setKeyValue(new float[]{0.0,2000.0,3500.0,0.0,2000.0,0.0,0.0,2000.0,-3500.0,0.0,2000.0,0.0,0.0,2000.0,3500.0}, 15);
 Scene14.addChild(&PositionInterpolator20);
 
 OrientationInterpolator& OrientationInterpolator21 =  OrientationInterpolator();
 OrientationInterpolator21.setDEF(std::string("Camera001-ROT-INTERP"));
-OrientationInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+OrientationInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
 OrientationInterpolator21.setKeyValue(new float[]{1.0,0.0,0.0,-0.523599,0.99999,0.003554,0.002727,-1.309007,0.0,-0.965926,-0.258819,-3.141593,0.002282,-0.793351,-0.60876,-3.135645,1.0,-0.000001,0.0,-0.523599}, 20);
 Scene14.addChild(&OrientationInterpolator21);
 
@@ -154,8 +146,10 @@ Transform26.setDEF(std::string("Floor"));
 Transform26.setTranslation(new float[]{1.241,0.0,0.358});
 Shape& Shape27 =  Shape();
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Appearance28.setDEF(std::string("WireColor"));
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Material29.setDiffuseColor(new float[]{0.122,0.114,0.125});
 Appearance28.addChild(&Material29);
 
@@ -174,8 +168,10 @@ Transform31.setDEF(std::string("TransformAudio1"));
 Transform31.setTranslation(new float[]{-933.123474,0.0,-926.253235});
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Appearance33.setDEF(std::string("WireColor_1"));
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setDiffuseColor(new float[]{0.690196,0.101961,0.101961});
 Appearance33.addChild(&Material34);
 
@@ -195,7 +191,9 @@ Transform37.setScale(new float[]{100.0,100.0,100.0});
 Transform37.setTranslation(new float[]{0.0,100.0,0.0});
 Shape& Shape38 =  Shape();
 Appearance& Appearance39 =  Appearance();
+Appearance39.setContainerField("appearance");
 Material& Material40 =  Material();
+Material40.setContainerField("material");
 Material40.setAmbientIntensity(0.0933);
 Material40.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material40.setShininess(0.51);
@@ -207,6 +205,7 @@ Shape38.addChild(&Appearance39);
 Text& Text41 =  Text();
 Text41.setString((std::string[]){"Violin"}, 1);
 CFontStyle& FontStyle42 =  CFontStyle();
+FontStyle42.setContainerField("fontStyle");
 FontStyle42.setDEF(std::string("ModelFontStyle"));
 FontStyle42.setFamily((std::string[]){"Times", "SERIF"}, 2);
 FontStyle42.setStyle(std::string("BOLD"));
@@ -227,8 +226,10 @@ Transform43.setDEF(std::string("TransformAudio2"));
 Transform43.setTranslation(new float[]{933.475586,0.0,924.423218});
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
+Appearance45.setContainerField("appearance");
 Appearance45.setDEF(std::string("WireColor_2"));
 Material& Material46 =  Material();
+Material46.setContainerField("material");
 Material46.setDiffuseColor(new float[]{0.105882,0.694118,0.580392});
 Appearance45.addChild(&Material46);
 
@@ -248,7 +249,9 @@ Transform49.setScale(new float[]{100.0,100.0,100.0});
 Transform49.setTranslation(new float[]{0.0,100.0,0.0});
 Shape& Shape50 =  Shape();
 Appearance& Appearance51 =  Appearance();
+Appearance51.setContainerField("appearance");
 Material& Material52 =  Material();
+Material52.setContainerField("material");
 Material52.setAmbientIntensity(0.0933);
 Material52.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material52.setShininess(0.51);
@@ -260,6 +263,7 @@ Shape50.addChild(&Appearance51);
 Text& Text53 =  Text();
 Text53.setString((std::string[]){"Saxophone"}, 1);
 CFontStyle& FontStyle54 =  CFontStyle();
+FontStyle54.setContainerField("fontStyle");
 FontStyle54.setUSE(std::string("ModelFontStyle"));
 Text53.setFontStyle(&FontStyle54);
 
@@ -308,4 +312,4 @@ Scene14.addChild(&StreamAudioDestination56);
 
 X3D0.setScene(&Scene14);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ifscube(int argc, char ** argv) {
+void ifscube(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -59,12 +51,14 @@ Coordinate11.setPoint(new float[]{0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,1.
 IndexedFaceSet10.setCoord(&Coordinate11);
 
 Normal& Normal12 =  Normal();
+Normal12.setContainerField("normal");
 Normal12.setVector(new float[]{1.0,0.0,0.0,-1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,-1.0,0.0,-1.0,0.0,0.0,0.0,1.0}, 18);
 IndexedFaceSet10.setNormal(&Normal12);
 
-CColor& Color13 =  CColor();
+Color& Color13 =  Color();
+Color13.setContainerField("color");
 Color13.setColor(new float[]{0.0,1.0,0.0}, 3);
-IndexedFaceSet10.setColor(&Color13);
+IndexedFaceSet10.setColor(Color13);
 
 Shape9.setGeometry(&IndexedFaceSet10);
 

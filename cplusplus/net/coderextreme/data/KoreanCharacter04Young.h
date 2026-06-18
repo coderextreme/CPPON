@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int KoreanCharacter04Young(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -131,36 +123,43 @@ HAnimHumanoid24.setScale(new float[]{0.0225,0.0225,0.0225});
 HAnimHumanoid24.setVersion(std::string("2.0"));
 //original HAnimHumanoid info='\"authorName=Chul Hee Jung and Myeong Won Lee\" \"authorEmail=myeongwonlee@gmail.com\" \"creationDate=31 March 2011\" \"humanoidVersion=2.0\" \"gender=female\" \"height=1.5\"'
 MetadataSet& MetadataSet25 =  MetadataSet();
+MetadataSet25.setContainerField("metadata");
 MetadataSet25.X3DNode::setName(std::string("HAnimHumanoid.info"));
 MetadataSet25.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid"));
 MetadataString& MetadataString26 =  MetadataString();
 MetadataString26.X3DNode::setName(std::string("authorName"));
 MetadataString26.setValue((std::string[]){"Chul Hee Jung and Myeong Won Lee"}, 1);
+MetadataString26.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString26);
 
 MetadataString& MetadataString27 =  MetadataString();
 MetadataString27.X3DNode::setName(std::string("authorEmail"));
 MetadataString27.setValue((std::string[]){"myeongwonlee@gmail.com"}, 1);
+MetadataString27.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString27);
 
 MetadataString& MetadataString28 =  MetadataString();
 MetadataString28.X3DNode::setName(std::string("creationDate"));
 MetadataString28.setValue((std::string[]){"31 March 2011"}, 1);
+MetadataString28.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString28);
 
 MetadataString& MetadataString29 =  MetadataString();
 MetadataString29.X3DNode::setName(std::string("gender"));
 MetadataString29.setValue((std::string[]){"female"}, 1);
+MetadataString29.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString29);
 
 MetadataFloat& MetadataFloat30 =  MetadataFloat();
 MetadataFloat30.X3DNode::setName(std::string("height"));
-MetadataFloat30.setValue(new float[]{1.5}, 1);
+MetadataFloat30.setValue(new float[]{1.5});
+MetadataFloat30.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataFloat30);
 
 MetadataString& MetadataString31 =  MetadataString();
 MetadataString31.X3DNode::setName(std::string("humanoidVersion"));
 MetadataString31.setValue((std::string[]){"2.0"}, 1);
+MetadataString31.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString31);
 
 HAnimHumanoid24.setMetadata(&MetadataSet25);
@@ -169,6 +168,7 @@ HAnimJoint& HAnimJoint32 =  HAnimJoint();
 HAnimJoint32.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint32.setDEF(std::string("hanim_humanoid_root"));
 HAnimJoint32.setCenter(new float[]{0.0,31.540001,-0.3172});
+HAnimJoint32.setContainerField("skeleton");
 HAnimSegment& HAnimSegment33 =  HAnimSegment();
 HAnimSegment33.X3DNode::setName(std::string("sacrum"));
 HAnimSegment33.setDEF(std::string("hanim_sacrum"));
@@ -176,11 +176,14 @@ Transform& Transform34 =  Transform();
 Transform34.setTranslation(new float[]{0.0,31.540001,-0.3172});
 Shape& Shape35 =  Shape();
 Appearance& Appearance36 =  Appearance();
+Appearance36.setContainerField("appearance");
 Material& Material37 =  Material();
+Material37.setContainerField("material");
 Material37.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance36.addChild(&Material37);
 
 ImageTexture& ImageTexture38 =  ImageTexture();
+ImageTexture38.setContainerField("texture");
 ImageTexture38.setDEF(std::string("YoungTextureAtlas"));
 ImageTexture38.setUrl((std::string[]){"images/Young.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Young.png"}, 2);
 Appearance36.addChild(&ImageTexture38);
@@ -196,6 +199,7 @@ Coordinate40.setPoint(new float[]{0.0,0.9084,0.0235,0.0,0.7867,-0.4669,-0.3773,0
 IndexedFaceSet39.setCoord(&Coordinate40);
 
 TextureCoordinate& TextureCoordinate41 =  TextureCoordinate();
+TextureCoordinate41.setContainerField("texCoord");
 TextureCoordinate41.setPoint(new float[]{0.6211,0.5754,0.7851,0.572,0.7614,0.572,0.6907,0.5698,0.62,0.5698,0.6158,0.5702,0.5451,0.5702,0.4167,0.5698,0.5451,0.5702,0.6158,0.5702,0.62,0.5698,0.6907,0.5698,0.7614,0.572,0.8036,0.5346,0.7761,0.5346,0.6989,0.4838,0.6219,0.4428,0.6154,0.4438,0.5492,0.4639,0.4166,0.5346,0.5492,0.4639,0.6154,0.4438,0.6219,0.4428,0.6989,0.4838,0.7761,0.5346,0.7912,0.4044,0.7635,0.4044,0.7042,0.3925,0.6194,0.3907,0.6148,0.3907,0.545,0.3974,0.4163,0.4938,0.545,0.3974,0.6148,0.3907,0.6194,0.3907,0.7042,0.3925,0.7635,0.4044,0.795,0.3772,0.7662,0.3772,0.6945,0.3645,0.6236,0.3695,0.616,0.3695,0.5438,0.378,0.416,0.453,0.5438,0.378,0.616,0.3695,0.6236,0.3695,0.6945,0.3645,0.7662,0.3772,0.7887,0.3451,0.7635,0.3451,0.698,0.3508,0.6262,0.3508,0.6297,0.3503,0.5389,0.3503,0.4181,0.3884,0.5389,0.3503,0.6297,0.3503,0.6262,0.3508,0.698,0.3508,0.7635,0.3451,0.6237,0.3398}, 124);
 IndexedFaceSet39.setTexCoord(&TextureCoordinate41);
 
@@ -218,11 +222,14 @@ Transform& Transform44 =  Transform();
 Transform44.setTranslation(new float[]{3.504,29.040001,-0.4027});
 Shape& Shape45 =  Shape();
 Appearance& Appearance46 =  Appearance();
+Appearance46.setContainerField("appearance");
 Material& Material47 =  Material();
+Material47.setContainerField("material");
 Material47.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance46.addChild(&Material47);
 
 ImageTexture& ImageTexture48 =  ImageTexture();
+ImageTexture48.setContainerField("texture");
 ImageTexture48.setUSE(std::string("YoungTextureAtlas"));
 Appearance46.addChild(&ImageTexture48);
 
@@ -237,6 +244,7 @@ Coordinate50.setPoint(new float[]{2.61,2.495,-0.0096,1.449,2.495,2.82,-1.16,2.49
 IndexedFaceSet49.setCoord(&Coordinate50);
 
 TextureCoordinate& TextureCoordinate51 =  TextureCoordinate();
+TextureCoordinate51.setContainerField("texCoord");
 TextureCoordinate51.setPoint(new float[]{0.719,0.5576,0.6284,0.5576,0.7414,0.5576,0.6787,0.5576,0.5781,0.5576,0.5154,0.5576,0.5378,0.5576,0.6284,0.5029,0.7509,0.3997,0.6284,0.3997,0.7509,0.5029,0.7811,0.3997,0.7811,0.5029,0.6964,0.3997,0.6964,0.5029,0.5604,0.3997,0.5604,0.5029,0.4756,0.3997,0.4756,0.5029,0.5059,0.3997,0.5059,0.5029,0.7509,0.3197,0.6284,0.3197,0.7811,0.3197,0.6964,0.3197,0.5604,0.3197,0.4756,0.3197,0.5059,0.3197,0.7651,0.2166,0.6284,0.2166,0.7989,0.2166,0.7043,0.2166,0.5525,0.2166,0.4579,0.2166,0.4917,0.2166,0.7224,0.263,0.6284,0.263,0.7456,0.263,0.6805,0.263,0.5762,0.263,0.5112,0.263,0.5344,0.263,0.8705,0.5452,0.8705,0.5383,0.8705,0.5369,0.8705,0.5408,0.8705,0.5483,0.8705,0.5522,0.8705,0.5509,0.917,0.5452,0.917,0.5266,0.89,0.5304,0.89,0.5452,0.917,0.522,0.89,0.5268,0.917,0.5349,0.89,0.537,0.917,0.5555,0.89,0.5534,0.917,0.5684,0.89,0.5636,0.917,0.5638,0.89,0.56,0.8746,0.531,0.8746,0.5452,0.8746,0.5279,0.8746,0.5368,0.8746,0.5524,0.8746,0.5613,0.8746,0.5581}, 140);
 IndexedFaceSet49.setTexCoord(&TextureCoordinate51);
 
@@ -259,11 +267,14 @@ Transform& Transform54 =  Transform();
 Transform54.setTranslation(new float[]{3.414,14.95,-0.4549});
 Shape& Shape55 =  Shape();
 Appearance& Appearance56 =  Appearance();
+Appearance56.setContainerField("appearance");
 Material& Material57 =  Material();
+Material57.setContainerField("material");
 Material57.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance56.addChild(&Material57);
 
 ImageTexture& ImageTexture58 =  ImageTexture();
+ImageTexture58.setContainerField("texture");
 ImageTexture58.setUSE(std::string("YoungTextureAtlas"));
 Appearance56.addChild(&ImageTexture58);
 
@@ -278,6 +289,7 @@ Coordinate60.setPoint(new float[]{0.6335,1.142,0.0206,0.3202,1.142,0.8245,-0.383
 IndexedFaceSet59.setCoord(&Coordinate60);
 
 TextureCoordinate& TextureCoordinate61 =  TextureCoordinate();
+TextureCoordinate61.setContainerField("texCoord");
 TextureCoordinate61.setPoint(new float[]{0.9309,0.5848,0.919,0.5848,0.8921,0.5848,0.8706,0.5848,0.8706,0.5848,0.8921,0.5848,0.919,0.5848,0.9845,0.5321,0.955,0.5475,0.9491,0.5599,0.9788,0.5571,0.8787,0.5475,0.8825,0.5599,0.8302,0.5321,0.8291,0.5571,0.8302,0.52,0.8291,0.5571,0.8787,0.52,0.8825,0.5571,0.955,0.52,0.9491,0.5571,0.9444,0.5755,0.9717,0.5755,0.8831,0.5755,0.8339,0.5755,0.8339,0.5755,0.8831,0.5755,0.9444,0.5755,0.9679,0.2444,0.9449,0.2445,0.8931,0.2445,0.8516,0.2444,0.8516,0.2442,0.8931,0.2442,0.9449,0.2442,0.9372,0.2243,0.9255,0.2244,0.8993,0.2244,0.8783,0.2243,0.8783,0.2243,0.8993,0.2243,0.9255,0.2243}, 84);
 IndexedFaceSet59.setTexCoord(&TextureCoordinate61);
 
@@ -300,11 +312,14 @@ Transform& Transform64 =  Transform();
 Transform64.setTranslation(new float[]{3.18,3.449,-0.3088});
 Shape& Shape65 =  Shape();
 Appearance& Appearance66 =  Appearance();
+Appearance66.setContainerField("appearance");
 Material& Material67 =  Material();
+Material67.setContainerField("material");
 Material67.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance66.addChild(&Material67);
 
 ImageTexture& ImageTexture68 =  ImageTexture();
+ImageTexture68.setContainerField("texture");
 ImageTexture68.setUSE(std::string("YoungTextureAtlas"));
 Appearance66.addChild(&ImageTexture68);
 
@@ -319,6 +334,7 @@ Coordinate70.setPoint(new float[]{0.8503,-0.0167,-1.492,1.443,-0.0167,0.3823,0.0
 IndexedFaceSet69.setCoord(&Coordinate70);
 
 TextureCoordinate& TextureCoordinate71 =  TextureCoordinate();
+TextureCoordinate71.setContainerField("texCoord");
 TextureCoordinate71.setPoint(new float[]{0.3819,0.171,0.4216,0.1651,0.3819,0.171,0.4216,0.1651,0.3819,0.171,0.3819,0.171,0.4637,0.1714,0.4216,0.1651,0.4637,0.1714,0.4216,0.1651,0.3819,0.171,0.3819,0.171,0.3819,0.171,0.3819,0.171,0.4637,0.1714,0.4637,0.1714,0.3861,0.1398,0.4244,0.1312,0.4394,0.1472,0.3836,0.1404,0.3836,0.1404,0.3861,0.1398,0.4244,0.1312,0.4394,0.1472,0.4394,0.1472,0.4637,0.1714,0.4394,0.1472,0.3873,0.0706,0.3871,0.0221,0.3873,0.0706,0.3871,0.0221,0.3871,0.0221,0.3861,0.1398,0.3836,0.1404,0.3873,0.0706,0.3873,0.0706,0.3836,0.1404,0.3861,0.1398,0.3871,0.0221,0.3871,0.0221,0.3871,0.0221,0.433,0.0595,0.4411,0.0186,0.4244,0.1312,0.433,0.0595,0.4244,0.1312,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.433,0.0595,0.4244,0.1312,0.4244,0.1312,0.433,0.0595,0.4411,0.0186,0.4411,0.0186,0.4244,0.1312}, 114);
 IndexedFaceSet69.setTexCoord(&TextureCoordinate71);
 
@@ -341,11 +357,14 @@ Transform& Transform74 =  Transform();
 Transform74.setTranslation(new float[]{3.18,3.189,0.9724});
 Shape& Shape75 =  Shape();
 Appearance& Appearance76 =  Appearance();
+Appearance76.setContainerField("appearance");
 Material& Material77 =  Material();
+Material77.setContainerField("material");
 Material77.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance76.addChild(&Material77);
 
 ImageTexture& ImageTexture78 =  ImageTexture();
+ImageTexture78.setContainerField("texture");
 ImageTexture78.setUSE(std::string("YoungTextureAtlas"));
 Appearance76.addChild(&ImageTexture78);
 
@@ -360,6 +379,7 @@ Coordinate80.setPoint(new float[]{2.548,-1.416,-0.8988,1.819,-3.176,-0.8988,0.0,
 IndexedFaceSet79.setCoord(&Coordinate80);
 
 TextureCoordinate& TextureCoordinate81 =  TextureCoordinate();
+TextureCoordinate81.setContainerField("texCoord");
 TextureCoordinate81.setPoint(new float[]{0.433,0.0595,0.4411,0.0186,0.4637,0.1714,0.4411,0.0186,0.4244,0.1312,0.4394,0.1472,0.433,0.0595,0.4244,0.1312,0.4411,0.0186,0.4637,0.1714,0.4394,0.1472,0.4411,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.4949,0.0186,0.4949,0.0186,0.4868,0.1432,0.4868,0.1432,0.433,0.0595,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.433,0.0595,0.4244,0.1312,0.4244,0.1312,0.532,0.098,0.5645,0.0707,0.4885,0.102,0.5026,0.044,0.5945,0.0186,0.5487,0.0186,0.5487,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.4949,0.0186,0.4868,0.1432,0.5645,0.0707,0.5026,0.044,0.4885,0.102,0.532,0.098,0.5945,0.0186,0.5487,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.5487,0.0186,0.4949,0.0186,0.4868,0.1432}, 106);
 IndexedFaceSet79.setTexCoord(&TextureCoordinate81);
 
@@ -390,11 +410,14 @@ Transform& Transform84 =  Transform();
 Transform84.setTranslation(new float[]{-3.504,29.040001,-0.4027});
 Shape& Shape85 =  Shape();
 Appearance& Appearance86 =  Appearance();
+Appearance86.setContainerField("appearance");
 Material& Material87 =  Material();
+Material87.setContainerField("material");
 Material87.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance86.addChild(&Material87);
 
 ImageTexture& ImageTexture88 =  ImageTexture();
+ImageTexture88.setContainerField("texture");
 ImageTexture88.setUSE(std::string("YoungTextureAtlas"));
 Appearance86.addChild(&ImageTexture88);
 
@@ -409,6 +432,7 @@ Coordinate90.setPoint(new float[]{-2.61,2.495,-0.0096,-1.449,2.495,2.819,1.16,2.
 IndexedFaceSet89.setCoord(&Coordinate90);
 
 TextureCoordinate& TextureCoordinate91 =  TextureCoordinate();
+TextureCoordinate91.setContainerField("texCoord");
 TextureCoordinate91.setPoint(new float[]{0.719,0.5576,0.6284,0.5576,0.7414,0.5576,0.6787,0.5576,0.5781,0.5576,0.5154,0.5576,0.5378,0.5576,0.6284,0.5029,0.7509,0.3997,0.6284,0.3997,0.7509,0.5029,0.7811,0.3997,0.7811,0.5029,0.6964,0.3997,0.6964,0.5029,0.5604,0.3997,0.5604,0.5029,0.4756,0.3997,0.4756,0.5029,0.5059,0.3997,0.5059,0.5029,0.7509,0.3197,0.6284,0.3197,0.7811,0.3197,0.6964,0.3197,0.5604,0.3197,0.4756,0.3197,0.5059,0.3197,0.7651,0.2166,0.6284,0.2166,0.7989,0.2166,0.7043,0.2166,0.5525,0.2166,0.4579,0.2166,0.4917,0.2166,0.7224,0.263,0.6284,0.263,0.7456,0.263,0.6805,0.263,0.5762,0.263,0.5112,0.263,0.5344,0.263,0.8705,0.5452,0.8705,0.5383,0.8705,0.5369,0.8705,0.5408,0.8705,0.5483,0.8705,0.5522,0.8705,0.5509,0.917,0.5452,0.917,0.5266,0.89,0.5304,0.89,0.5452,0.917,0.522,0.89,0.5268,0.917,0.5349,0.89,0.537,0.917,0.5555,0.89,0.5534,0.917,0.5684,0.89,0.5636,0.917,0.5638,0.89,0.56,0.8746,0.531,0.8746,0.5452,0.8746,0.5279,0.8746,0.5368,0.8746,0.5524,0.8746,0.5613,0.8746,0.5581}, 140);
 IndexedFaceSet89.setTexCoord(&TextureCoordinate91);
 
@@ -431,11 +455,14 @@ Transform& Transform94 =  Transform();
 Transform94.setTranslation(new float[]{-3.414,14.95,-0.4549});
 Shape& Shape95 =  Shape();
 Appearance& Appearance96 =  Appearance();
+Appearance96.setContainerField("appearance");
 Material& Material97 =  Material();
+Material97.setContainerField("material");
 Material97.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance96.addChild(&Material97);
 
 ImageTexture& ImageTexture98 =  ImageTexture();
+ImageTexture98.setContainerField("texture");
 ImageTexture98.setUSE(std::string("YoungTextureAtlas"));
 Appearance96.addChild(&ImageTexture98);
 
@@ -450,6 +477,7 @@ Coordinate100.setPoint(new float[]{-0.6335,1.142,0.0206,-0.3202,1.142,0.8245,0.3
 IndexedFaceSet99.setCoord(&Coordinate100);
 
 TextureCoordinate& TextureCoordinate101 =  TextureCoordinate();
+TextureCoordinate101.setContainerField("texCoord");
 TextureCoordinate101.setPoint(new float[]{0.9309,0.5848,0.919,0.5848,0.8921,0.5848,0.8706,0.5848,0.8706,0.5848,0.8921,0.5848,0.919,0.5848,0.9845,0.5321,0.955,0.5475,0.9491,0.5599,0.9788,0.5571,0.8787,0.5475,0.8825,0.5599,0.8302,0.5321,0.8291,0.5571,0.8302,0.52,0.8291,0.5571,0.8787,0.52,0.8825,0.5571,0.955,0.52,0.9491,0.5571,0.9444,0.5755,0.9717,0.5755,0.8831,0.5755,0.8339,0.5755,0.8339,0.5755,0.8831,0.5755,0.9444,0.5755,0.9679,0.2444,0.9449,0.2445,0.8931,0.2445,0.8516,0.2444,0.8516,0.2442,0.8931,0.2442,0.9449,0.2442,0.9372,0.2243,0.9255,0.2244,0.8993,0.2244,0.8783,0.2243,0.8783,0.2243,0.8993,0.2243,0.9255,0.2243}, 84);
 IndexedFaceSet99.setTexCoord(&TextureCoordinate101);
 
@@ -472,11 +500,14 @@ Transform& Transform104 =  Transform();
 Transform104.setTranslation(new float[]{-3.18,3.449,-0.3088});
 Shape& Shape105 =  Shape();
 Appearance& Appearance106 =  Appearance();
+Appearance106.setContainerField("appearance");
 Material& Material107 =  Material();
+Material107.setContainerField("material");
 Material107.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance106.addChild(&Material107);
 
 ImageTexture& ImageTexture108 =  ImageTexture();
+ImageTexture108.setContainerField("texture");
 ImageTexture108.setUSE(std::string("YoungTextureAtlas"));
 Appearance106.addChild(&ImageTexture108);
 
@@ -491,6 +522,7 @@ Coordinate110.setPoint(new float[]{-0.8503,-0.0167,-1.492,-1.443,-0.0167,0.3823,
 IndexedFaceSet109.setCoord(&Coordinate110);
 
 TextureCoordinate& TextureCoordinate111 =  TextureCoordinate();
+TextureCoordinate111.setContainerField("texCoord");
 TextureCoordinate111.setPoint(new float[]{0.3819,0.171,0.4216,0.1651,0.3819,0.171,0.4216,0.1651,0.3819,0.171,0.3819,0.171,0.4637,0.1714,0.4216,0.1651,0.4637,0.1714,0.4216,0.1651,0.3819,0.171,0.3819,0.171,0.3819,0.171,0.3819,0.171,0.4637,0.1714,0.4637,0.1714,0.3861,0.1398,0.4244,0.1312,0.4394,0.1472,0.3836,0.1404,0.3836,0.1404,0.3861,0.1398,0.4244,0.1312,0.4394,0.1472,0.4394,0.1472,0.4637,0.1714,0.4394,0.1472,0.3873,0.0706,0.3871,0.0221,0.3873,0.0706,0.3871,0.0221,0.3871,0.0221,0.3861,0.1398,0.3836,0.1404,0.3873,0.0706,0.3873,0.0706,0.3836,0.1404,0.3861,0.1398,0.3871,0.0221,0.3871,0.0221,0.3871,0.0221,0.433,0.0595,0.4411,0.0186,0.4244,0.1312,0.433,0.0595,0.4244,0.1312,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.433,0.0595,0.4244,0.1312,0.4244,0.1312,0.433,0.0595,0.4411,0.0186,0.4411,0.0186,0.4244,0.1312}, 114);
 IndexedFaceSet109.setTexCoord(&TextureCoordinate111);
 
@@ -513,11 +545,14 @@ Transform& Transform114 =  Transform();
 Transform114.setTranslation(new float[]{-3.18,3.189,0.9724});
 Shape& Shape115 =  Shape();
 Appearance& Appearance116 =  Appearance();
+Appearance116.setContainerField("appearance");
 Material& Material117 =  Material();
+Material117.setContainerField("material");
 Material117.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance116.addChild(&Material117);
 
 ImageTexture& ImageTexture118 =  ImageTexture();
+ImageTexture118.setContainerField("texture");
 ImageTexture118.setUSE(std::string("YoungTextureAtlas"));
 Appearance116.addChild(&ImageTexture118);
 
@@ -532,6 +567,7 @@ Coordinate120.setPoint(new float[]{-2.548,-1.416,-0.8988,-1.819,-3.176,-0.8988,0
 IndexedFaceSet119.setCoord(&Coordinate120);
 
 TextureCoordinate& TextureCoordinate121 =  TextureCoordinate();
+TextureCoordinate121.setContainerField("texCoord");
 TextureCoordinate121.setPoint(new float[]{0.433,0.0595,0.4411,0.0186,0.4637,0.1714,0.4411,0.0186,0.4244,0.1312,0.4394,0.1472,0.433,0.0595,0.4244,0.1312,0.4411,0.0186,0.4637,0.1714,0.4394,0.1472,0.4411,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.4949,0.0186,0.4949,0.0186,0.4868,0.1432,0.4868,0.1432,0.433,0.0595,0.4411,0.0186,0.4411,0.0186,0.4411,0.0186,0.433,0.0595,0.4244,0.1312,0.4244,0.1312,0.532,0.098,0.5645,0.0707,0.4885,0.102,0.5026,0.044,0.5945,0.0186,0.5487,0.0186,0.5487,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.4949,0.0186,0.4868,0.1432,0.5645,0.0707,0.5026,0.044,0.4885,0.102,0.532,0.098,0.5945,0.0186,0.5487,0.0186,0.464,0.1246,0.4607,0.0558,0.4904,0.0166,0.5487,0.0186,0.4949,0.0186,0.4868,0.1432}, 106);
 IndexedFaceSet119.setTexCoord(&TextureCoordinate121);
 
@@ -562,11 +598,14 @@ Transform& Transform124 =  Transform();
 Transform124.setTranslation(new float[]{0.0,27.07,-0.3172});
 Shape& Shape125 =  Shape();
 Appearance& Appearance126 =  Appearance();
+Appearance126.setContainerField("appearance");
 Material& Material127 =  Material();
+Material127.setContainerField("material");
 Material127.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance126.addChild(&Material127);
 
 ImageTexture& ImageTexture128 =  ImageTexture();
+ImageTexture128.setContainerField("texture");
 ImageTexture128.setUSE(std::string("YoungTextureAtlas"));
 Appearance126.addChild(&ImageTexture128);
 
@@ -581,6 +620,7 @@ Coordinate130.setPoint(new float[]{0.0,9.369,0.1256,0.0,8.719,-2.49,-2.012,8.719
 IndexedFaceSet129.setCoord(&Coordinate130);
 
 TextureCoordinate& TextureCoordinate131 =  TextureCoordinate();
+TextureCoordinate131.setContainerField("texCoord");
 TextureCoordinate131.setPoint(new float[]{0.6211,0.5754,0.7851,0.572,0.7614,0.572,0.6907,0.5698,0.62,0.5698,0.6158,0.5702,0.5451,0.5702,0.4167,0.5698,0.5451,0.5702,0.6158,0.5702,0.62,0.5698,0.6907,0.5698,0.7614,0.572,0.8036,0.5346,0.7761,0.5346,0.6989,0.4838,0.6219,0.4428,0.6154,0.4438,0.5492,0.4639,0.4166,0.5346,0.5492,0.4639,0.6154,0.4438,0.6219,0.4428,0.6989,0.4838,0.7761,0.5346,0.7912,0.4044,0.7635,0.4044,0.7042,0.3925,0.6194,0.3907,0.6148,0.3907,0.545,0.3974,0.4163,0.4938,0.545,0.3974,0.6148,0.3907,0.6194,0.3907,0.7042,0.3925,0.7635,0.4044,0.795,0.3772,0.7662,0.3772,0.6945,0.3645,0.6236,0.3695,0.616,0.3695,0.5438,0.378,0.416,0.453,0.5438,0.378,0.616,0.3695,0.6236,0.3695,0.6945,0.3645,0.7662,0.3772,0.7887,0.3451,0.7635,0.3451,0.698,0.3508,0.6262,0.3508,0.6297,0.3503,0.5389,0.3503,0.4181,0.3884,0.5389,0.3503,0.6297,0.3503,0.6262,0.3508,0.698,0.3508,0.7635,0.3451,0.6237,0.3398}, 124);
 IndexedFaceSet129.setTexCoord(&TextureCoordinate131);
 
@@ -603,11 +643,14 @@ Transform& Transform134 =  Transform();
 Transform134.setTranslation(new float[]{5.441,45.830002,0.1786});
 Shape& Shape135 =  Shape();
 Appearance& Appearance136 =  Appearance();
+Appearance136.setContainerField("appearance");
 Material& Material137 =  Material();
+Material137.setContainerField("material");
 Material137.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance136.addChild(&Material137);
 
 ImageTexture& ImageTexture138 =  ImageTexture();
+ImageTexture138.setContainerField("texture");
 ImageTexture138.setUSE(std::string("YoungTextureAtlas"));
 Appearance136.addChild(&ImageTexture138);
 
@@ -622,6 +665,7 @@ Coordinate140.setPoint(new float[]{1.592,1.817,-1.481,2.611,1.817,0.0297,1.489,1
 IndexedFaceSet139.setCoord(&Coordinate140);
 
 TextureCoordinate& TextureCoordinate141 =  TextureCoordinate();
+TextureCoordinate141.setContainerField("texCoord");
 TextureCoordinate141.setPoint(new float[]{0.2986,0.2114,0.2726,0.2114,0.3201,0.2114,0.3415,0.2114,0.2466,0.2114,0.2979,0.2417,0.2726,0.2417,0.3197,0.2417,0.3418,0.2417,0.2473,0.2417,0.2979,0.3018,0.2726,0.3018,0.3197,0.3018,0.3418,0.3018,0.2473,0.3018,0.2978,0.3276,0.2726,0.3276,0.3197,0.3276,0.3419,0.3276,0.2474,0.3276,0.2932,0.2834,0.2689,0.2834,0.316,0.2834,0.3322,0.2834,0.245,0.2834,0.2251,0.2114,0.2255,0.2417,0.2255,0.2417,0.2255,0.3018,0.2255,0.3018,0.2255,0.3276,0.2255,0.3276,0.2159,0.2834,0.4315,0.6736,0.442,0.6736,0.3947,0.6736,0.4041,0.6736,0.418,0.6736,0.4296,0.6167,0.4409,0.6167,0.4415,0.6485,0.4303,0.6485,0.3965,0.6167,0.3953,0.6485,0.4047,0.6167,0.4053,0.6485,0.4189,0.6167,0.418,0.6485,0.4415,0.6706,0.4306,0.6706,0.395,0.6706,0.4051,0.6706,0.4182,0.6706,0.3746,0.6736,0.3851,0.6736,0.384,0.6167,0.3845,0.6485,0.3845,0.6485,0.3846,0.6706,0.3846,0.6706,0.3851,0.6736,0.3481,0.2114}, 124);
 IndexedFaceSet139.setTexCoord(&TextureCoordinate141);
 
@@ -644,11 +688,14 @@ Transform& Transform144 =  Transform();
 Transform144.setTranslation(new float[]{6.823,36.080002,0.08607});
 Shape& Shape145 =  Shape();
 Appearance& Appearance146 =  Appearance();
+Appearance146.setContainerField("appearance");
 Material& Material147 =  Material();
+Material147.setContainerField("material");
 Material147.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance146.addChild(&Material147);
 
 ImageTexture& ImageTexture148 =  ImageTexture();
+ImageTexture148.setContainerField("texture");
 ImageTexture148.setUSE(std::string("YoungTextureAtlas"));
 Appearance146.addChild(&ImageTexture148);
 
@@ -663,6 +710,7 @@ Coordinate150.setPoint(new float[]{0.1597,0.4908,-1.015,0.9881,0.4908,-0.2281,0.
 IndexedFaceSet149.setCoord(&Coordinate150);
 
 TextureCoordinate& TextureCoordinate151 =  TextureCoordinate();
+TextureCoordinate151.setContainerField("texCoord");
 TextureCoordinate151.setPoint(new float[]{0.4222,0.6201,0.4327,0.6201,0.3884,0.6201,0.3987,0.6201,0.4103,0.6201,0.4213,0.6265,0.4321,0.6265,0.3894,0.6265,0.399,0.6265,0.4105,0.6265,0.4214,0.6413,0.4323,0.6413,0.389,0.6381,0.3992,0.6381,0.4103,0.6413,0.4213,0.6705,0.4336,0.6705,0.3899,0.6705,0.3981,0.6705,0.4094,0.6705,0.4215,0.674,0.4346,0.674,0.3899,0.674,0.398,0.674,0.4083,0.674,0.3787,0.6201,0.3682,0.6201,0.3787,0.6201,0.3782,0.6265,0.3782,0.6265,0.3783,0.6413,0.3783,0.6413,0.3796,0.6705,0.3676,0.674,0.3806,0.674,0.3796,0.6705,0.3806,0.674}, 74);
 IndexedFaceSet149.setTexCoord(&TextureCoordinate151);
 
@@ -685,11 +733,14 @@ Transform& Transform154 =  Transform();
 Transform154.setTranslation(new float[]{6.915,28.41,0.3752});
 Shape& Shape155 =  Shape();
 Appearance& Appearance156 =  Appearance();
+Appearance156.setContainerField("appearance");
 Material& Material157 =  Material();
+Material157.setContainerField("material");
 Material157.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance156.addChild(&Material157);
 
 ImageTexture& ImageTexture158 =  ImageTexture();
+ImageTexture158.setContainerField("texture");
 ImageTexture158.setUSE(std::string("YoungTextureAtlas"));
 Appearance156.addChild(&ImageTexture158);
 
@@ -704,6 +755,7 @@ Coordinate160.setPoint(new float[]{0.6237,0.0984,0.703,0.5903,0.1133,-1.189,-1.1
 IndexedFaceSet159.setCoord(&Coordinate160);
 
 TextureCoordinate& TextureCoordinate161 =  TextureCoordinate();
+TextureCoordinate161.setContainerField("texCoord");
 TextureCoordinate161.setPoint(new float[]{0.8107,0.9924,0.8122,0.9033,0.7694,0.9912,0.7683,0.9026,0.1329,0.0347,0.0307,0.0051,0.0134,0.0353,0.1366,0.0058,0.1249,0.1081,0.0147,0.117,0.1349,0.1856,0.0462,0.1842,0.1559,0.0454,0.148,0.1033,0.3244,0.0096,0.1758,0.0039,0.1759,0.011,0.3241,0.0033,0.173,0.1764,0.3074,0.1757,0.1732,0.1519,0.3074,0.1513,0.1756,0.032,0.2159,0.0368,0.1791,0.0165,0.3169,0.0458,0.3158,0.0193,0.172,0.0594,0.2087,0.0476,0.1736,0.0504,0.2073,0.064,0.2362,0.0821,0.3267,0.0796,0.1717,0.0822,0.1726,0.1297,0.3077,0.1289,0.3074,0.1865,0.1742,0.184,0.0061,0.1086,0.1366,0.0368,0.1241,0.1189,0.0168,0.0309,0.0211,0.1882,0.14,0.1857}, 88);
 IndexedFaceSet159.setTexCoord(&TextureCoordinate161);
 
@@ -732,11 +784,14 @@ Transform& Transform164 =  Transform();
 Transform164.setTranslation(new float[]{-5.441,45.830002,0.1786});
 Shape& Shape165 =  Shape();
 Appearance& Appearance166 =  Appearance();
+Appearance166.setContainerField("appearance");
 Material& Material167 =  Material();
+Material167.setContainerField("material");
 Material167.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance166.addChild(&Material167);
 
 ImageTexture& ImageTexture168 =  ImageTexture();
+ImageTexture168.setContainerField("texture");
 ImageTexture168.setUSE(std::string("YoungTextureAtlas"));
 Appearance166.addChild(&ImageTexture168);
 
@@ -751,6 +806,7 @@ Coordinate170.setPoint(new float[]{-1.592,1.817,-1.481,-2.611,1.817,0.0297,-1.48
 IndexedFaceSet169.setCoord(&Coordinate170);
 
 TextureCoordinate& TextureCoordinate171 =  TextureCoordinate();
+TextureCoordinate171.setContainerField("texCoord");
 TextureCoordinate171.setPoint(new float[]{0.2986,0.2114,0.2726,0.2114,0.3201,0.2114,0.3415,0.2114,0.2466,0.2114,0.2979,0.2417,0.2726,0.2417,0.3197,0.2417,0.3418,0.2417,0.2473,0.2417,0.2979,0.3018,0.2726,0.3018,0.3197,0.3018,0.3418,0.3018,0.2473,0.3018,0.2978,0.3276,0.2726,0.3276,0.3197,0.3276,0.3419,0.3276,0.2474,0.3276,0.2932,0.2834,0.2689,0.2834,0.316,0.2834,0.3322,0.2834,0.245,0.2834,0.2251,0.2114,0.2255,0.2417,0.2255,0.2417,0.2255,0.3018,0.2255,0.3018,0.2255,0.3276,0.2255,0.3276,0.2159,0.2834,0.4315,0.6736,0.442,0.6736,0.3947,0.6736,0.4041,0.6736,0.418,0.6736,0.4296,0.6167,0.4409,0.6167,0.4415,0.6485,0.4303,0.6485,0.3965,0.6167,0.3953,0.6485,0.4047,0.6167,0.4053,0.6485,0.4189,0.6167,0.418,0.6485,0.4415,0.6706,0.4306,0.6706,0.395,0.6706,0.4051,0.6706,0.4182,0.6706,0.3746,0.6736,0.3851,0.6736,0.384,0.6167,0.3845,0.6485,0.3845,0.6485,0.3846,0.6706,0.3846,0.6706,0.3851,0.6736,0.3481,0.2114}, 124);
 IndexedFaceSet169.setTexCoord(&TextureCoordinate171);
 
@@ -773,11 +829,14 @@ Transform& Transform174 =  Transform();
 Transform174.setTranslation(new float[]{-6.823,36.080002,0.08607});
 Shape& Shape175 =  Shape();
 Appearance& Appearance176 =  Appearance();
+Appearance176.setContainerField("appearance");
 Material& Material177 =  Material();
+Material177.setContainerField("material");
 Material177.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance176.addChild(&Material177);
 
 ImageTexture& ImageTexture178 =  ImageTexture();
+ImageTexture178.setContainerField("texture");
 ImageTexture178.setUSE(std::string("YoungTextureAtlas"));
 Appearance176.addChild(&ImageTexture178);
 
@@ -792,6 +851,7 @@ Coordinate180.setPoint(new float[]{-0.1597,0.4908,-1.015,-0.9881,0.4908,-0.2281,
 IndexedFaceSet179.setCoord(&Coordinate180);
 
 TextureCoordinate& TextureCoordinate181 =  TextureCoordinate();
+TextureCoordinate181.setContainerField("texCoord");
 TextureCoordinate181.setPoint(new float[]{0.4222,0.6201,0.4327,0.6201,0.3884,0.6201,0.3987,0.6201,0.4103,0.6201,0.4213,0.6265,0.4321,0.6265,0.3894,0.6265,0.399,0.6265,0.4105,0.6265,0.4214,0.6413,0.4323,0.6413,0.389,0.6381,0.3992,0.6381,0.4103,0.6413,0.4213,0.6705,0.4336,0.6705,0.3899,0.6705,0.3981,0.6705,0.4094,0.6705,0.4215,0.674,0.4346,0.674,0.3899,0.674,0.398,0.674,0.4083,0.674,0.3787,0.6201,0.3682,0.6201,0.3787,0.6201,0.3782,0.6265,0.3782,0.6265,0.3783,0.6413,0.3783,0.6413,0.3796,0.6705,0.3676,0.674,0.3806,0.674,0.3796,0.6705,0.3806,0.674}, 74);
 IndexedFaceSet179.setTexCoord(&TextureCoordinate181);
 
@@ -814,11 +874,14 @@ Transform& Transform184 =  Transform();
 Transform184.setTranslation(new float[]{-6.915,28.41,0.3752});
 Shape& Shape185 =  Shape();
 Appearance& Appearance186 =  Appearance();
+Appearance186.setContainerField("appearance");
 Material& Material187 =  Material();
+Material187.setContainerField("material");
 Material187.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance186.addChild(&Material187);
 
 ImageTexture& ImageTexture188 =  ImageTexture();
+ImageTexture188.setContainerField("texture");
 ImageTexture188.setUSE(std::string("YoungTextureAtlas"));
 Appearance186.addChild(&ImageTexture188);
 
@@ -833,6 +896,7 @@ Coordinate190.setPoint(new float[]{-0.6237,0.0984,0.703,-0.5903,0.1133,-1.189,1.
 IndexedFaceSet189.setCoord(&Coordinate190);
 
 TextureCoordinate& TextureCoordinate191 =  TextureCoordinate();
+TextureCoordinate191.setContainerField("texCoord");
 TextureCoordinate191.setPoint(new float[]{0.8107,0.9924,0.8122,0.9033,0.7694,0.9912,0.7683,0.9026,0.1329,0.0347,0.0307,0.0051,0.0134,0.0353,0.1366,0.0058,0.1249,0.1081,0.0147,0.117,0.1349,0.1856,0.0462,0.1842,0.1559,0.0454,0.148,0.1033,0.3244,0.0096,0.1758,0.0039,0.1759,0.011,0.3241,0.0033,0.173,0.1764,0.3074,0.1757,0.1732,0.1519,0.3074,0.1513,0.1756,0.032,0.2159,0.0368,0.1791,0.0165,0.3169,0.0458,0.3158,0.0193,0.172,0.0594,0.2087,0.0476,0.1736,0.0504,0.2073,0.064,0.2362,0.0821,0.3267,0.0796,0.1717,0.0822,0.1726,0.1297,0.3077,0.1289,0.3074,0.1865,0.1742,0.184,0.0061,0.1086,0.1366,0.0368,0.1241,0.1189,0.0168,0.0309,0.0211,0.1882,0.14,0.1857}, 88);
 IndexedFaceSet189.setTexCoord(&TextureCoordinate191);
 
@@ -861,11 +925,14 @@ Transform& Transform194 =  Transform();
 Transform194.setTranslation(new float[]{0.0,35.75,-0.445});
 Shape& Shape195 =  Shape();
 Appearance& Appearance196 =  Appearance();
+Appearance196.setContainerField("appearance");
 Material& Material197 =  Material();
+Material197.setContainerField("material");
 Material197.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance196.addChild(&Material197);
 
 ImageTexture& ImageTexture198 =  ImageTexture();
+ImageTexture198.setContainerField("texture");
 ImageTexture198.setUSE(std::string("YoungTextureAtlas"));
 Appearance196.addChild(&ImageTexture198);
 
@@ -880,6 +947,7 @@ Coordinate200.setPoint(new float[]{0.6107,12.56,-1.113,0.0,12.61,-1.194,1.295,12
 IndexedFaceSet199.setCoord(&Coordinate200);
 
 TextureCoordinate& TextureCoordinate201 =  TextureCoordinate();
+TextureCoordinate201.setContainerField("texCoord");
 TextureCoordinate201.setPoint(new float[]{0.4134,0.6454,0.4115,0.6346,0.4055,0.6342,0.4025,0.6415,0.4012,0.6643,0.407,0.6604,0.3972,0.646,0.4018,0.6236,0.3919,0.6471,0.3919,0.6664,0.3705,0.6454,0.3784,0.6342,0.3723,0.6346,0.3814,0.6415,0.3827,0.6643,0.3769,0.6604,0.3867,0.646,0.3821,0.6236,0.2661,0.5914,0.3505,0.5919,0.3554,0.5911,0.2505,0.5754,0.241,0.592,0.2112,0.5805,0.0763,0.4945,0.1025,0.5076,0.0865,0.5614,0.0652,0.5465,0.1412,0.5207,0.1108,0.5655,0.0786,0.5849,0.0516,0.5759,0.1073,0.5839,0.0639,0.4488,0.0877,0.4617,0.0525,0.4715,0.1185,0.4741,0.1474,0.4856,0.1724,0.5255,0.2089,0.5196,0.2133,0.556,0.1645,0.5709,0.2067,0.5908,0.1632,0.5887,0.1708,0.4854,0.1963,0.4863,0.2708,0.4736,0.347,0.4316,0.3616,0.5328,0.2733,0.5359,0.238,0.493,0.249,0.5451,0.2638,0.4568,0.3214,0.4203,0.2252,0.4828,0.042,0.406,0.0909,0.398,0.2183,0.385,0.3504,0.3844,0.0206,0.3452,0.0903,0.3446,0.1491,0.3449,0.1525,0.3869,0.1538,0.4251,0.1784,0.4249,0.1911,0.3858,0.2175,0.3427,0.3608,0.3469,0.1838,0.3438,0.0177,0.3051,0.0982,0.302,0.1487,0.2975,0.2175,0.2944,0.3621,0.2922,0.1849,0.2961,0.019,0.2349,0.1011,0.241,0.1445,0.2419,0.2369,0.2375,0.3561,0.2404,0.1927,0.24,0.0206,0.2122,0.1067,0.2154,0.1463,0.2162,0.227,0.2131,0.3536,0.2151,0.1879,0.2143,0.1715,0.4655,0.1797,0.4646,0.1569,0.4642,0.1544,0.4288,0.1782,0.4286,0.0346,0.5664,0.0399,0.5407,0.2661,0.5914,0.2505,0.5754,0.241,0.592,0.2112,0.5805,0.0763,0.4945,0.0865,0.5614,0.1025,0.5076,0.0652,0.5465,0.1108,0.5655,0.1412,0.5207,0.0786,0.5849,0.0516,0.5759,0.1073,0.5839,0.0877,0.4617,0.1185,0.4741,0.1474,0.4857,0.1724,0.5255,0.2133,0.556,0.2089,0.5196,0.1645,0.5709,0.2067,0.5908,0.1632,0.5887,0.1708,0.4854,0.1963,0.4863,0.2708,0.4736,0.2733,0.5359,0.238,0.493,0.249,0.5451,0.2638,0.4568,0.2252,0.4828,0.042,0.406,0.0909,0.398,0.2183,0.385,0.3504,0.3844,0.0206,0.3452,0.0903,0.3446,0.1525,0.3869,0.1491,0.3449,0.1538,0.4251,0.1784,0.4249,0.1911,0.3858,0.2175,0.3427,0.3608,0.3469,0.1838,0.3438,0.0177,0.3051,0.0982,0.302,0.1487,0.2975,0.2175,0.2944,0.3621,0.2922,0.1849,0.2961,0.019,0.2349,0.1011,0.241,0.1445,0.2419,0.2369,0.2375,0.3561,0.2404,0.1927,0.24,0.0206,0.2122,0.1067,0.2154,0.1463,0.2162,0.227,0.2131,0.3536,0.2151,0.1879,0.2143,0.1715,0.4655,0.1797,0.4646,0.1569,0.4642,0.1544,0.4288,0.1782,0.4286,0.3477,0.431,0.3623,0.5333,0.3623,0.5333,0.3505,0.5919,0.3223,0.4192,0.3477,0.431,0.3223,0.4192,0.3518,0.3851,0.3554,0.5911,0.3505,0.5919,0.3505,0.5919,0.3518,0.3851,0.3518,0.3851,0.3629,0.3439,0.3629,0.3439,0.3633,0.2922,0.3633,0.2922,0.3553,0.2398,0.3553,0.2398,0.3555,0.2151,0.3511,0.5932,0.3536,0.2151,0.3995,0.6721,0.3906,0.6721,0.4094,0.6721,0.4164,0.6721,0.4107,0.6721,0.3995,0.6285,0.3906,0.6293,0.4094,0.632,0.4164,0.6316,0.4107,0.6267,0.4006,0.6738,0.3906,0.6664,0.3906,0.6224,0.4006,0.6225,0.3818,0.6721,0.3719,0.6721,0.3649,0.6721,0.3706,0.6721,0.3818,0.6285,0.3719,0.632,0.3649,0.6316,0.3706,0.6267,0.3807,0.6738,0.3807,0.6225}, 414);
 IndexedFaceSet199.setTexCoord(&TextureCoordinate201);
 
@@ -902,11 +970,14 @@ Transform& Transform204 =  Transform();
 Transform204.setTranslation(new float[]{0.0,50.470001,-0.1481});
 Shape& Shape205 =  Shape();
 Appearance& Appearance206 =  Appearance();
+Appearance206.setContainerField("appearance");
 Material& Material207 =  Material();
+Material207.setContainerField("material");
 Material207.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance206.addChild(&Material207);
 
 ImageTexture& ImageTexture208 =  ImageTexture();
+ImageTexture208.setContainerField("texture");
 ImageTexture208.setUSE(std::string("YoungTextureAtlas"));
 Appearance206.addChild(&ImageTexture208);
 
@@ -921,6 +992,7 @@ Coordinate210.setPoint(new float[]{0.0166,1.591,6.024,0.0166,2.016,6.639,0.7299,
 IndexedFaceSet209.setCoord(&Coordinate210);
 
 TextureCoordinate& TextureCoordinate211 =  TextureCoordinate();
+TextureCoordinate211.setContainerField("texCoord");
 TextureCoordinate211.setPoint(new float[]{0.2306,0.7219,0.2306,0.7038,0.2614,0.7219,0.3044,0.7206,0.2825,0.7668,0.2306,0.7608,0.2956,0.6889,0.2948,0.8444,0.2308,0.8272,0.3511,0.7186,0.3589,0.7658,0.3263,0.6804,0.3624,0.8472,0.3873,0.7134,0.3925,0.764,0.3519,0.6721,0.3993,0.8423,0.3127,0.8998,0.3587,0.8989,0.3945,0.8972,0.2845,0.6612,0.2644,0.6676,0.2975,0.6458,0.2306,0.658,0.2306,0.6463,0.2306,0.6147,0.3634,0.6681,0.4044,0.7136,0.305,0.6471,0.2306,0.62,0.3634,0.6723,0.4049,0.7093,0.2826,0.6545,0.2306,0.6368,0.4277,0.7563,0.4328,0.8418,0.4157,0.8319,0.4084,0.7662,0.4403,0.7674,0.4505,0.8307,0.4202,0.8418,0.3958,0.757,0.4247,0.7673,0.4329,0.8307,0.4371,0.9187,0.3634,0.6722,0.4049,0.7103,0.2553,0.6433,0.2306,0.629,0.2803,0.64,0.3461,0.9832,0.1999,0.7219,0.1569,0.7206,0.1788,0.7668,0.1657,0.6889,0.1665,0.8444,0.1102,0.7186,0.1024,0.7658,0.135,0.6804,0.0989,0.8472,0.074,0.7134,0.0688,0.764,0.1094,0.6721,0.062,0.8423,0.1486,0.8998,0.1026,0.8989,0.0668,0.8972,0.1768,0.6612,0.1969,0.6676,0.1638,0.6458,0.0979,0.6681,0.0569,0.7136,0.1563,0.6471,0.0979,0.6723,0.0564,0.7093,0.1787,0.6545,0.0336,0.7563,0.0456,0.8319,0.0285,0.8418,0.0529,0.7662,0.021,0.7674,0.0109,0.8307,0.0411,0.8418,0.0655,0.757,0.0366,0.7673,0.0283,0.8307,0.0242,0.9187,0.0979,0.6722,0.0564,0.7103,0.206,0.6433,0.181,0.64,0.1152,0.9832,0.231,0.9053,0.231,1.02,0.5118,0.6048,0.565,0.6951,0.5291,0.7326,0.6281,0.9347,0.6515,0.9447,0.6279,0.9576,0.5936,0.9053,0.6287,0.8085,0.5933,0.8105,0.7035,0.7808,0.6735,0.7785,0.6727,0.7204,0.6961,0.7287,0.6747,0.6734,0.6972,0.6739,0.6706,0.6045,0.7158,0.6049,0.7002,0.9347,0.6963,0.9556,0.7074,0.8151,0.7314,0.7774,0.7331,0.7218,0.7466,0.6739,0.7913,0.9215,0.7929,0.9417,0.7576,0.8089,0.764,0.7714,0.7698,0.7218,0.7675,0.674,0.7631,0.606,0.689,0.9839,0.6777,0.9757,0.6196,0.9641,0.7873,0.9608,0.9124,0.9353,0.8505,0.9502,0.9103,0.9352,0.849,0.9502,0.9456,0.8068,0.8961,0.7182,0.9432,0.7178,0.8875,0.8087,0.9136,0.6076,0.9472,0.6076,0.827,0.6244,0.8293,0.6244,0.8421,0.9502,0.8855,0.9358,0.8749,0.8121,0.8851,0.7175,0.8861,0.6085,0.8183,0.6244,0.8422,0.814,0.8574,0.7152,0.8432,0.6076,0.8056,0.6244,0.8187,0.7234,0.8175,0.6059,0.7937,0.6244,0.7965,0.7739,0.8228,0.7664,0.7886,0.9589,0.8004,0.7165,0.7972,0.6823,0.7883,0.6565,0.6747,0.6734,0.7163,0.6616,0.6281,0.9347,0.6279,0.9576,0.6515,0.9447,0.5936,0.9053,0.6287,0.8085,0.5933,0.8105,0.7035,0.7808,0.6735,0.7785,0.6727,0.7204,0.6961,0.7287,0.6747,0.6734,0.6972,0.6739,0.6706,0.6045,0.7158,0.6049,0.7002,0.9347,0.6963,0.9556,0.7074,0.8151,0.7314,0.7774,0.7331,0.7218,0.7466,0.6739,0.7913,0.9215,0.7929,0.9417,0.7576,0.8089,0.764,0.7714,0.7698,0.7218,0.7675,0.674,0.7631,0.606,0.689,0.9839,0.7873,0.9608,0.9103,0.9352,0.849,0.9502,0.8961,0.7182,0.8875,0.8087,0.9136,0.6076,0.827,0.6244,0.8421,0.9502,0.8855,0.9358,0.8749,0.8121,0.8851,0.7175,0.8861,0.6085,0.8183,0.6244,0.8422,0.814,0.8574,0.7152,0.8432,0.6076,0.8056,0.6244,0.8187,0.7234,0.8175,0.6059,0.7937,0.6244,0.8228,0.7664,0.7965,0.7739,0.7972,0.6823,0.8004,0.7165,0.7883,0.6565,0.6747,0.6734,0.7163,0.6616,0.5663,0.9104,0.5499,0.8086,0.5896,0.7882,0.5896,0.7882,0.565,0.6951}, 442);
 IndexedFaceSet209.setTexCoord(&TextureCoordinate211);
 
@@ -941,74 +1013,92 @@ HAnimJoint32.addChildren(&HAnimJoint122);
 HAnimHumanoid24.setSkeleton(&HAnimJoint32);
 
 HAnimJoint& HAnimJoint212 =  HAnimJoint();
+HAnimJoint212.setContainerField("joints");
 HAnimJoint212.setUSE(std::string("hanim_humanoid_root"));
 HAnimHumanoid24.setJoints(&HAnimJoint212);
 
 HAnimJoint& HAnimJoint213 =  HAnimJoint();
+HAnimJoint213.setContainerField("joints");
 HAnimJoint213.setUSE(std::string("hanim_sacroiliac"));
 HAnimHumanoid24.setJoints(&HAnimJoint213);
 
 HAnimJoint& HAnimJoint214 =  HAnimJoint();
+HAnimJoint214.setContainerField("joints");
 HAnimJoint214.setUSE(std::string("hanim_skullbase"));
 HAnimHumanoid24.setJoints(&HAnimJoint214);
 
 HAnimJoint& HAnimJoint215 =  HAnimJoint();
+HAnimJoint215.setContainerField("joints");
 HAnimJoint215.setUSE(std::string("hanim_vl5"));
 HAnimHumanoid24.setJoints(&HAnimJoint215);
 
 HAnimJoint& HAnimJoint216 =  HAnimJoint();
+HAnimJoint216.setContainerField("joints");
 HAnimJoint216.setUSE(std::string("hanim_l_elbow"));
 HAnimHumanoid24.setJoints(&HAnimJoint216);
 
 HAnimJoint& HAnimJoint217 =  HAnimJoint();
+HAnimJoint217.setContainerField("joints");
 HAnimJoint217.setUSE(std::string("hanim_r_elbow"));
 HAnimHumanoid24.setJoints(&HAnimJoint217);
 
 HAnimJoint& HAnimJoint218 =  HAnimJoint();
+HAnimJoint218.setContainerField("joints");
 HAnimJoint218.setUSE(std::string("hanim_l_hip"));
 HAnimHumanoid24.setJoints(&HAnimJoint218);
 
 HAnimJoint& HAnimJoint219 =  HAnimJoint();
+HAnimJoint219.setContainerField("joints");
 HAnimJoint219.setUSE(std::string("hanim_r_hip"));
 HAnimHumanoid24.setJoints(&HAnimJoint219);
 
 HAnimJoint& HAnimJoint220 =  HAnimJoint();
+HAnimJoint220.setContainerField("joints");
 HAnimJoint220.setUSE(std::string("hanim_l_knee"));
 HAnimHumanoid24.setJoints(&HAnimJoint220);
 
 HAnimJoint& HAnimJoint221 =  HAnimJoint();
+HAnimJoint221.setContainerField("joints");
 HAnimJoint221.setUSE(std::string("hanim_r_knee"));
 HAnimHumanoid24.setJoints(&HAnimJoint221);
 
 HAnimJoint& HAnimJoint222 =  HAnimJoint();
+HAnimJoint222.setContainerField("joints");
 HAnimJoint222.setUSE(std::string("hanim_l_metatarsophalangeal_2"));
 HAnimHumanoid24.setJoints(&HAnimJoint222);
 
 HAnimJoint& HAnimJoint223 =  HAnimJoint();
+HAnimJoint223.setContainerField("joints");
 HAnimJoint223.setUSE(std::string("hanim_r_metatarsophalangeal_2"));
 HAnimHumanoid24.setJoints(&HAnimJoint223);
 
 HAnimJoint& HAnimJoint224 =  HAnimJoint();
+HAnimJoint224.setContainerField("joints");
 HAnimJoint224.setUSE(std::string("hanim_l_radiocarpal"));
 HAnimHumanoid24.setJoints(&HAnimJoint224);
 
 HAnimJoint& HAnimJoint225 =  HAnimJoint();
+HAnimJoint225.setContainerField("joints");
 HAnimJoint225.setUSE(std::string("hanim_r_radiocarpal"));
 HAnimHumanoid24.setJoints(&HAnimJoint225);
 
 HAnimJoint& HAnimJoint226 =  HAnimJoint();
+HAnimJoint226.setContainerField("joints");
 HAnimJoint226.setUSE(std::string("hanim_l_shoulder"));
 HAnimHumanoid24.setJoints(&HAnimJoint226);
 
 HAnimJoint& HAnimJoint227 =  HAnimJoint();
+HAnimJoint227.setContainerField("joints");
 HAnimJoint227.setUSE(std::string("hanim_r_shoulder"));
 HAnimHumanoid24.setJoints(&HAnimJoint227);
 
 HAnimJoint& HAnimJoint228 =  HAnimJoint();
+HAnimJoint228.setContainerField("joints");
 HAnimJoint228.setUSE(std::string("hanim_l_talocrural"));
 HAnimHumanoid24.setJoints(&HAnimJoint228);
 
 HAnimJoint& HAnimJoint229 =  HAnimJoint();
+HAnimJoint229.setContainerField("joints");
 HAnimJoint229.setUSE(std::string("hanim_r_talocrural"));
 HAnimHumanoid24.setJoints(&HAnimJoint229);
 
@@ -1021,4 +1111,4 @@ Scene20.addChild(&EXPORT230);
 
 X3D0.setScene(&Scene20);
 
-//}
+}

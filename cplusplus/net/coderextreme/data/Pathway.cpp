@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Pathway(int argc, char ** argv) {
+void Pathway(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -91,7 +83,9 @@ Scene15.addChild(&WorldInfo16);
 
 Shape& Shape17 =  Shape();
 Appearance& Appearance18 =  Appearance();
+Appearance18.setContainerField("appearance");
 Material& Material19 =  Material();
+Material19.setContainerField("material");
 Material19.setAmbientIntensity(0);
 Material19.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material19.setShininess(1);
@@ -113,7 +107,9 @@ Scene15.addChild(&Shape17);
 
 Shape& Shape22 =  Shape();
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Material& Material24 =  Material();
+Material24.setContainerField("material");
 Material24.setAmbientIntensity(0);
 Material24.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material24.setShininess(1);
@@ -135,7 +131,9 @@ Scene15.addChild(&Shape22);
 
 Shape& Shape27 =  Shape();
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Material29.setAmbientIntensity(0);
 Material29.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material29.setShininess(1);
@@ -157,7 +155,9 @@ Scene15.addChild(&Shape27);
 
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setAmbientIntensity(0);
 Material34.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material34.setShininess(1);
@@ -179,7 +179,9 @@ Scene15.addChild(&Shape32);
 
 Shape& Shape37 =  Shape();
 Appearance& Appearance38 =  Appearance();
+Appearance38.setContainerField("appearance");
 Material& Material39 =  Material();
+Material39.setContainerField("material");
 Material39.setAmbientIntensity(0);
 Material39.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material39.setShininess(1);
@@ -201,7 +203,9 @@ Scene15.addChild(&Shape37);
 
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setAmbientIntensity(0);
 Material44.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material44.setShininess(1);
@@ -223,7 +227,9 @@ Scene15.addChild(&Shape42);
 
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setAmbientIntensity(0);
 Material49.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material49.setShininess(1);
@@ -245,7 +251,9 @@ Scene15.addChild(&Shape47);
 
 Shape& Shape52 =  Shape();
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Material& Material54 =  Material();
+Material54.setContainerField("material");
 Material54.setAmbientIntensity(0);
 Material54.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material54.setShininess(1);
@@ -267,7 +275,9 @@ Scene15.addChild(&Shape52);
 
 Shape& Shape57 =  Shape();
 Appearance& Appearance58 =  Appearance();
+Appearance58.setContainerField("appearance");
 Material& Material59 =  Material();
+Material59.setContainerField("material");
 Material59.setAmbientIntensity(0);
 Material59.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material59.setShininess(1);
@@ -289,7 +299,9 @@ Scene15.addChild(&Shape57);
 
 Shape& Shape62 =  Shape();
 Appearance& Appearance63 =  Appearance();
+Appearance63.setContainerField("appearance");
 Material& Material64 =  Material();
+Material64.setContainerField("material");
 Material64.setAmbientIntensity(0);
 Material64.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material64.setShininess(1);
@@ -311,7 +323,9 @@ Scene15.addChild(&Shape62);
 
 Shape& Shape67 =  Shape();
 Appearance& Appearance68 =  Appearance();
+Appearance68.setContainerField("appearance");
 Material& Material69 =  Material();
+Material69.setContainerField("material");
 Material69.setAmbientIntensity(0);
 Material69.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material69.setShininess(1);
@@ -333,7 +347,9 @@ Scene15.addChild(&Shape67);
 
 Shape& Shape72 =  Shape();
 Appearance& Appearance73 =  Appearance();
+Appearance73.setContainerField("appearance");
 Material& Material74 =  Material();
+Material74.setContainerField("material");
 Material74.setAmbientIntensity(0);
 Material74.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material74.setShininess(1);
@@ -355,7 +371,9 @@ Scene15.addChild(&Shape72);
 
 Shape& Shape77 =  Shape();
 Appearance& Appearance78 =  Appearance();
+Appearance78.setContainerField("appearance");
 Material& Material79 =  Material();
+Material79.setContainerField("material");
 Material79.setAmbientIntensity(0);
 Material79.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material79.setShininess(1);
@@ -377,7 +395,9 @@ Scene15.addChild(&Shape77);
 
 Shape& Shape82 =  Shape();
 Appearance& Appearance83 =  Appearance();
+Appearance83.setContainerField("appearance");
 Material& Material84 =  Material();
+Material84.setContainerField("material");
 Material84.setAmbientIntensity(0);
 Material84.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material84.setShininess(1);
@@ -399,7 +419,9 @@ Scene15.addChild(&Shape82);
 
 Shape& Shape87 =  Shape();
 Appearance& Appearance88 =  Appearance();
+Appearance88.setContainerField("appearance");
 Material& Material89 =  Material();
+Material89.setContainerField("material");
 Material89.setAmbientIntensity(0);
 Material89.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material89.setShininess(1);
@@ -421,7 +443,9 @@ Scene15.addChild(&Shape87);
 
 Shape& Shape92 =  Shape();
 Appearance& Appearance93 =  Appearance();
+Appearance93.setContainerField("appearance");
 Material& Material94 =  Material();
+Material94.setContainerField("material");
 Material94.setAmbientIntensity(0);
 Material94.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material94.setShininess(1);
@@ -443,7 +467,9 @@ Scene15.addChild(&Shape92);
 
 Shape& Shape97 =  Shape();
 Appearance& Appearance98 =  Appearance();
+Appearance98.setContainerField("appearance");
 Material& Material99 =  Material();
+Material99.setContainerField("material");
 Material99.setAmbientIntensity(0);
 Material99.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material99.setShininess(1);
@@ -465,7 +491,9 @@ Scene15.addChild(&Shape97);
 
 Shape& Shape102 =  Shape();
 Appearance& Appearance103 =  Appearance();
+Appearance103.setContainerField("appearance");
 Material& Material104 =  Material();
+Material104.setContainerField("material");
 Material104.setAmbientIntensity(0);
 Material104.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material104.setShininess(1);
@@ -487,7 +515,9 @@ Scene15.addChild(&Shape102);
 
 Shape& Shape107 =  Shape();
 Appearance& Appearance108 =  Appearance();
+Appearance108.setContainerField("appearance");
 Material& Material109 =  Material();
+Material109.setContainerField("material");
 Material109.setAmbientIntensity(0);
 Material109.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material109.setShininess(1);
@@ -509,7 +539,9 @@ Scene15.addChild(&Shape107);
 
 Shape& Shape112 =  Shape();
 Appearance& Appearance113 =  Appearance();
+Appearance113.setContainerField("appearance");
 Material& Material114 =  Material();
+Material114.setContainerField("material");
 Material114.setAmbientIntensity(0);
 Material114.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material114.setShininess(1);
@@ -531,7 +563,9 @@ Scene15.addChild(&Shape112);
 
 Shape& Shape117 =  Shape();
 Appearance& Appearance118 =  Appearance();
+Appearance118.setContainerField("appearance");
 Material& Material119 =  Material();
+Material119.setContainerField("material");
 Material119.setAmbientIntensity(0);
 Material119.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material119.setShininess(1);
@@ -553,7 +587,9 @@ Scene15.addChild(&Shape117);
 
 Shape& Shape122 =  Shape();
 Appearance& Appearance123 =  Appearance();
+Appearance123.setContainerField("appearance");
 Material& Material124 =  Material();
+Material124.setContainerField("material");
 Material124.setAmbientIntensity(0);
 Material124.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material124.setShininess(1);
@@ -575,7 +611,9 @@ Scene15.addChild(&Shape122);
 
 Shape& Shape127 =  Shape();
 Appearance& Appearance128 =  Appearance();
+Appearance128.setContainerField("appearance");
 Material& Material129 =  Material();
+Material129.setContainerField("material");
 Material129.setAmbientIntensity(0);
 Material129.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material129.setShininess(1);
@@ -597,7 +635,9 @@ Scene15.addChild(&Shape127);
 
 Shape& Shape132 =  Shape();
 Appearance& Appearance133 =  Appearance();
+Appearance133.setContainerField("appearance");
 Material& Material134 =  Material();
+Material134.setContainerField("material");
 Material134.setAmbientIntensity(0);
 Material134.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material134.setShininess(1);
@@ -619,7 +659,9 @@ Scene15.addChild(&Shape132);
 
 Shape& Shape137 =  Shape();
 Appearance& Appearance138 =  Appearance();
+Appearance138.setContainerField("appearance");
 Material& Material139 =  Material();
+Material139.setContainerField("material");
 Material139.setAmbientIntensity(0);
 Material139.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material139.setShininess(1);
@@ -641,7 +683,9 @@ Scene15.addChild(&Shape137);
 
 Shape& Shape142 =  Shape();
 Appearance& Appearance143 =  Appearance();
+Appearance143.setContainerField("appearance");
 Material& Material144 =  Material();
+Material144.setContainerField("material");
 Material144.setAmbientIntensity(0);
 Material144.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material144.setShininess(1);
@@ -663,7 +707,9 @@ Scene15.addChild(&Shape142);
 
 Shape& Shape147 =  Shape();
 Appearance& Appearance148 =  Appearance();
+Appearance148.setContainerField("appearance");
 Material& Material149 =  Material();
+Material149.setContainerField("material");
 Material149.setAmbientIntensity(0);
 Material149.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material149.setShininess(1);
@@ -685,7 +731,9 @@ Scene15.addChild(&Shape147);
 
 Shape& Shape152 =  Shape();
 Appearance& Appearance153 =  Appearance();
+Appearance153.setContainerField("appearance");
 Material& Material154 =  Material();
+Material154.setContainerField("material");
 Material154.setAmbientIntensity(0);
 Material154.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material154.setShininess(1);
@@ -707,7 +755,9 @@ Scene15.addChild(&Shape152);
 
 Shape& Shape157 =  Shape();
 Appearance& Appearance158 =  Appearance();
+Appearance158.setContainerField("appearance");
 Material& Material159 =  Material();
+Material159.setContainerField("material");
 Material159.setAmbientIntensity(0);
 Material159.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material159.setShininess(1);
@@ -729,7 +779,9 @@ Scene15.addChild(&Shape157);
 
 Shape& Shape162 =  Shape();
 Appearance& Appearance163 =  Appearance();
+Appearance163.setContainerField("appearance");
 Material& Material164 =  Material();
+Material164.setContainerField("material");
 Material164.setAmbientIntensity(0);
 Material164.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material164.setShininess(1);
@@ -751,7 +803,9 @@ Scene15.addChild(&Shape162);
 
 Shape& Shape167 =  Shape();
 Appearance& Appearance168 =  Appearance();
+Appearance168.setContainerField("appearance");
 Material& Material169 =  Material();
+Material169.setContainerField("material");
 Material169.setAmbientIntensity(0);
 Material169.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material169.setShininess(1);
@@ -773,7 +827,9 @@ Scene15.addChild(&Shape167);
 
 Shape& Shape172 =  Shape();
 Appearance& Appearance173 =  Appearance();
+Appearance173.setContainerField("appearance");
 Material& Material174 =  Material();
+Material174.setContainerField("material");
 Material174.setAmbientIntensity(0);
 Material174.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material174.setShininess(1);
@@ -795,7 +851,9 @@ Scene15.addChild(&Shape172);
 
 Shape& Shape177 =  Shape();
 Appearance& Appearance178 =  Appearance();
+Appearance178.setContainerField("appearance");
 Material& Material179 =  Material();
+Material179.setContainerField("material");
 Material179.setAmbientIntensity(0);
 Material179.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material179.setShininess(1);
@@ -817,7 +875,9 @@ Scene15.addChild(&Shape177);
 
 Shape& Shape182 =  Shape();
 Appearance& Appearance183 =  Appearance();
+Appearance183.setContainerField("appearance");
 Material& Material184 =  Material();
+Material184.setContainerField("material");
 Material184.setAmbientIntensity(0);
 Material184.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material184.setShininess(1);
@@ -839,7 +899,9 @@ Scene15.addChild(&Shape182);
 
 Shape& Shape187 =  Shape();
 Appearance& Appearance188 =  Appearance();
+Appearance188.setContainerField("appearance");
 Material& Material189 =  Material();
+Material189.setContainerField("material");
 Material189.setAmbientIntensity(0);
 Material189.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material189.setShininess(1);
@@ -861,7 +923,9 @@ Scene15.addChild(&Shape187);
 
 Shape& Shape192 =  Shape();
 Appearance& Appearance193 =  Appearance();
+Appearance193.setContainerField("appearance");
 Material& Material194 =  Material();
+Material194.setContainerField("material");
 Material194.setAmbientIntensity(0);
 Material194.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material194.setShininess(1);
@@ -883,7 +947,9 @@ Scene15.addChild(&Shape192);
 
 Shape& Shape197 =  Shape();
 Appearance& Appearance198 =  Appearance();
+Appearance198.setContainerField("appearance");
 Material& Material199 =  Material();
+Material199.setContainerField("material");
 Material199.setAmbientIntensity(0);
 Material199.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material199.setShininess(1);
@@ -905,7 +971,9 @@ Scene15.addChild(&Shape197);
 
 Shape& Shape202 =  Shape();
 Appearance& Appearance203 =  Appearance();
+Appearance203.setContainerField("appearance");
 Material& Material204 =  Material();
+Material204.setContainerField("material");
 Material204.setAmbientIntensity(0);
 Material204.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material204.setShininess(1);
@@ -927,7 +995,9 @@ Scene15.addChild(&Shape202);
 
 Shape& Shape207 =  Shape();
 Appearance& Appearance208 =  Appearance();
+Appearance208.setContainerField("appearance");
 Material& Material209 =  Material();
+Material209.setContainerField("material");
 Material209.setAmbientIntensity(0);
 Material209.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material209.setShininess(1);
@@ -949,7 +1019,9 @@ Scene15.addChild(&Shape207);
 
 Shape& Shape212 =  Shape();
 Appearance& Appearance213 =  Appearance();
+Appearance213.setContainerField("appearance");
 Material& Material214 =  Material();
+Material214.setContainerField("material");
 Material214.setAmbientIntensity(0);
 Material214.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material214.setShininess(1);
@@ -971,7 +1043,9 @@ Scene15.addChild(&Shape212);
 
 Shape& Shape217 =  Shape();
 Appearance& Appearance218 =  Appearance();
+Appearance218.setContainerField("appearance");
 Material& Material219 =  Material();
+Material219.setContainerField("material");
 Material219.setAmbientIntensity(0);
 Material219.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material219.setShininess(1);
@@ -993,7 +1067,9 @@ Scene15.addChild(&Shape217);
 
 Shape& Shape222 =  Shape();
 Appearance& Appearance223 =  Appearance();
+Appearance223.setContainerField("appearance");
 Material& Material224 =  Material();
+Material224.setContainerField("material");
 Material224.setAmbientIntensity(0);
 Material224.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material224.setShininess(1);
@@ -1015,7 +1091,9 @@ Scene15.addChild(&Shape222);
 
 Shape& Shape227 =  Shape();
 Appearance& Appearance228 =  Appearance();
+Appearance228.setContainerField("appearance");
 Material& Material229 =  Material();
+Material229.setContainerField("material");
 Material229.setAmbientIntensity(0);
 Material229.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material229.setShininess(1);
@@ -1037,7 +1115,9 @@ Scene15.addChild(&Shape227);
 
 Shape& Shape232 =  Shape();
 Appearance& Appearance233 =  Appearance();
+Appearance233.setContainerField("appearance");
 Material& Material234 =  Material();
+Material234.setContainerField("material");
 Material234.setAmbientIntensity(0);
 Material234.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material234.setShininess(1);
@@ -1059,7 +1139,9 @@ Scene15.addChild(&Shape232);
 
 Shape& Shape237 =  Shape();
 Appearance& Appearance238 =  Appearance();
+Appearance238.setContainerField("appearance");
 Material& Material239 =  Material();
+Material239.setContainerField("material");
 Material239.setAmbientIntensity(0);
 Material239.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material239.setShininess(1);
@@ -1081,7 +1163,9 @@ Scene15.addChild(&Shape237);
 
 Shape& Shape242 =  Shape();
 Appearance& Appearance243 =  Appearance();
+Appearance243.setContainerField("appearance");
 Material& Material244 =  Material();
+Material244.setContainerField("material");
 Material244.setAmbientIntensity(0);
 Material244.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material244.setShininess(1);
@@ -1103,7 +1187,9 @@ Scene15.addChild(&Shape242);
 
 Shape& Shape247 =  Shape();
 Appearance& Appearance248 =  Appearance();
+Appearance248.setContainerField("appearance");
 Material& Material249 =  Material();
+Material249.setContainerField("material");
 Material249.setAmbientIntensity(0);
 Material249.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material249.setShininess(1);
@@ -1125,7 +1211,9 @@ Scene15.addChild(&Shape247);
 
 Shape& Shape252 =  Shape();
 Appearance& Appearance253 =  Appearance();
+Appearance253.setContainerField("appearance");
 Material& Material254 =  Material();
+Material254.setContainerField("material");
 Material254.setAmbientIntensity(0);
 Material254.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material254.setShininess(1);
@@ -1147,7 +1235,9 @@ Scene15.addChild(&Shape252);
 
 Shape& Shape257 =  Shape();
 Appearance& Appearance258 =  Appearance();
+Appearance258.setContainerField("appearance");
 Material& Material259 =  Material();
+Material259.setContainerField("material");
 Material259.setAmbientIntensity(0);
 Material259.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material259.setShininess(1);
@@ -1169,7 +1259,9 @@ Scene15.addChild(&Shape257);
 
 Shape& Shape262 =  Shape();
 Appearance& Appearance263 =  Appearance();
+Appearance263.setContainerField("appearance");
 Material& Material264 =  Material();
+Material264.setContainerField("material");
 Material264.setAmbientIntensity(0);
 Material264.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material264.setShininess(1);
@@ -1191,7 +1283,9 @@ Scene15.addChild(&Shape262);
 
 Shape& Shape267 =  Shape();
 Appearance& Appearance268 =  Appearance();
+Appearance268.setContainerField("appearance");
 Material& Material269 =  Material();
+Material269.setContainerField("material");
 Material269.setAmbientIntensity(0);
 Material269.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material269.setShininess(1);
@@ -1213,7 +1307,9 @@ Scene15.addChild(&Shape267);
 
 Shape& Shape272 =  Shape();
 Appearance& Appearance273 =  Appearance();
+Appearance273.setContainerField("appearance");
 Material& Material274 =  Material();
+Material274.setContainerField("material");
 Material274.setAmbientIntensity(0);
 Material274.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material274.setShininess(1);
@@ -1235,7 +1331,9 @@ Scene15.addChild(&Shape272);
 
 Shape& Shape277 =  Shape();
 Appearance& Appearance278 =  Appearance();
+Appearance278.setContainerField("appearance");
 Material& Material279 =  Material();
+Material279.setContainerField("material");
 Material279.setAmbientIntensity(0);
 Material279.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material279.setShininess(1);
@@ -1257,7 +1355,9 @@ Scene15.addChild(&Shape277);
 
 Shape& Shape282 =  Shape();
 Appearance& Appearance283 =  Appearance();
+Appearance283.setContainerField("appearance");
 Material& Material284 =  Material();
+Material284.setContainerField("material");
 Material284.setAmbientIntensity(0);
 Material284.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material284.setShininess(1);
@@ -1279,7 +1379,9 @@ Scene15.addChild(&Shape282);
 
 Shape& Shape287 =  Shape();
 Appearance& Appearance288 =  Appearance();
+Appearance288.setContainerField("appearance");
 Material& Material289 =  Material();
+Material289.setContainerField("material");
 Material289.setAmbientIntensity(0);
 Material289.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material289.setShininess(1);
@@ -1301,7 +1403,9 @@ Scene15.addChild(&Shape287);
 
 Shape& Shape292 =  Shape();
 Appearance& Appearance293 =  Appearance();
+Appearance293.setContainerField("appearance");
 Material& Material294 =  Material();
+Material294.setContainerField("material");
 Material294.setAmbientIntensity(0);
 Material294.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material294.setShininess(1);
@@ -1323,7 +1427,9 @@ Scene15.addChild(&Shape292);
 
 Shape& Shape297 =  Shape();
 Appearance& Appearance298 =  Appearance();
+Appearance298.setContainerField("appearance");
 Material& Material299 =  Material();
+Material299.setContainerField("material");
 Material299.setAmbientIntensity(0);
 Material299.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material299.setShininess(1);
@@ -1345,7 +1451,9 @@ Scene15.addChild(&Shape297);
 
 Shape& Shape302 =  Shape();
 Appearance& Appearance303 =  Appearance();
+Appearance303.setContainerField("appearance");
 Material& Material304 =  Material();
+Material304.setContainerField("material");
 Material304.setAmbientIntensity(0);
 Material304.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material304.setShininess(1);
@@ -1367,7 +1475,9 @@ Scene15.addChild(&Shape302);
 
 Shape& Shape307 =  Shape();
 Appearance& Appearance308 =  Appearance();
+Appearance308.setContainerField("appearance");
 Material& Material309 =  Material();
+Material309.setContainerField("material");
 Material309.setAmbientIntensity(0);
 Material309.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material309.setShininess(1);
@@ -1389,7 +1499,9 @@ Scene15.addChild(&Shape307);
 
 Shape& Shape312 =  Shape();
 Appearance& Appearance313 =  Appearance();
+Appearance313.setContainerField("appearance");
 Material& Material314 =  Material();
+Material314.setContainerField("material");
 Material314.setAmbientIntensity(0);
 Material314.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material314.setShininess(1);
@@ -1411,7 +1523,9 @@ Scene15.addChild(&Shape312);
 
 Shape& Shape317 =  Shape();
 Appearance& Appearance318 =  Appearance();
+Appearance318.setContainerField("appearance");
 Material& Material319 =  Material();
+Material319.setContainerField("material");
 Material319.setAmbientIntensity(0);
 Material319.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material319.setShininess(1);
@@ -1433,7 +1547,9 @@ Scene15.addChild(&Shape317);
 
 Shape& Shape322 =  Shape();
 Appearance& Appearance323 =  Appearance();
+Appearance323.setContainerField("appearance");
 Material& Material324 =  Material();
+Material324.setContainerField("material");
 Material324.setAmbientIntensity(0);
 Material324.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material324.setShininess(1);
@@ -1455,7 +1571,9 @@ Scene15.addChild(&Shape322);
 
 Shape& Shape327 =  Shape();
 Appearance& Appearance328 =  Appearance();
+Appearance328.setContainerField("appearance");
 Material& Material329 =  Material();
+Material329.setContainerField("material");
 Material329.setAmbientIntensity(0);
 Material329.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material329.setShininess(1);
@@ -1477,7 +1595,9 @@ Scene15.addChild(&Shape327);
 
 Shape& Shape332 =  Shape();
 Appearance& Appearance333 =  Appearance();
+Appearance333.setContainerField("appearance");
 Material& Material334 =  Material();
+Material334.setContainerField("material");
 Material334.setAmbientIntensity(0);
 Material334.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material334.setShininess(1);
@@ -1499,7 +1619,9 @@ Scene15.addChild(&Shape332);
 
 Shape& Shape337 =  Shape();
 Appearance& Appearance338 =  Appearance();
+Appearance338.setContainerField("appearance");
 Material& Material339 =  Material();
+Material339.setContainerField("material");
 Material339.setAmbientIntensity(0);
 Material339.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material339.setShininess(1);
@@ -1521,7 +1643,9 @@ Scene15.addChild(&Shape337);
 
 Shape& Shape342 =  Shape();
 Appearance& Appearance343 =  Appearance();
+Appearance343.setContainerField("appearance");
 Material& Material344 =  Material();
+Material344.setContainerField("material");
 Material344.setAmbientIntensity(0);
 Material344.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material344.setShininess(1);
@@ -1543,7 +1667,9 @@ Scene15.addChild(&Shape342);
 
 Shape& Shape347 =  Shape();
 Appearance& Appearance348 =  Appearance();
+Appearance348.setContainerField("appearance");
 Material& Material349 =  Material();
+Material349.setContainerField("material");
 Material349.setAmbientIntensity(0);
 Material349.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material349.setShininess(1);
@@ -1565,7 +1691,9 @@ Scene15.addChild(&Shape347);
 
 Shape& Shape352 =  Shape();
 Appearance& Appearance353 =  Appearance();
+Appearance353.setContainerField("appearance");
 Material& Material354 =  Material();
+Material354.setContainerField("material");
 Material354.setAmbientIntensity(0);
 Material354.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material354.setShininess(1);
@@ -1587,7 +1715,9 @@ Scene15.addChild(&Shape352);
 
 Shape& Shape357 =  Shape();
 Appearance& Appearance358 =  Appearance();
+Appearance358.setContainerField("appearance");
 Material& Material359 =  Material();
+Material359.setContainerField("material");
 Material359.setAmbientIntensity(0);
 Material359.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material359.setShininess(1);
@@ -1609,7 +1739,9 @@ Scene15.addChild(&Shape357);
 
 Shape& Shape362 =  Shape();
 Appearance& Appearance363 =  Appearance();
+Appearance363.setContainerField("appearance");
 Material& Material364 =  Material();
+Material364.setContainerField("material");
 Material364.setAmbientIntensity(0);
 Material364.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material364.setShininess(1);
@@ -1631,7 +1763,9 @@ Scene15.addChild(&Shape362);
 
 Shape& Shape367 =  Shape();
 Appearance& Appearance368 =  Appearance();
+Appearance368.setContainerField("appearance");
 Material& Material369 =  Material();
+Material369.setContainerField("material");
 Material369.setAmbientIntensity(0);
 Material369.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material369.setShininess(1);
@@ -1653,7 +1787,9 @@ Scene15.addChild(&Shape367);
 
 Shape& Shape372 =  Shape();
 Appearance& Appearance373 =  Appearance();
+Appearance373.setContainerField("appearance");
 Material& Material374 =  Material();
+Material374.setContainerField("material");
 Material374.setAmbientIntensity(0);
 Material374.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material374.setShininess(1);
@@ -1675,7 +1811,9 @@ Scene15.addChild(&Shape372);
 
 Shape& Shape377 =  Shape();
 Appearance& Appearance378 =  Appearance();
+Appearance378.setContainerField("appearance");
 Material& Material379 =  Material();
+Material379.setContainerField("material");
 Material379.setAmbientIntensity(0);
 Material379.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material379.setShininess(1);
@@ -1697,7 +1835,9 @@ Scene15.addChild(&Shape377);
 
 Shape& Shape382 =  Shape();
 Appearance& Appearance383 =  Appearance();
+Appearance383.setContainerField("appearance");
 Material& Material384 =  Material();
+Material384.setContainerField("material");
 Material384.setAmbientIntensity(0);
 Material384.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material384.setShininess(1);
@@ -1719,7 +1859,9 @@ Scene15.addChild(&Shape382);
 
 Shape& Shape387 =  Shape();
 Appearance& Appearance388 =  Appearance();
+Appearance388.setContainerField("appearance");
 Material& Material389 =  Material();
+Material389.setContainerField("material");
 Material389.setAmbientIntensity(0);
 Material389.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material389.setShininess(1);
@@ -1741,7 +1883,9 @@ Scene15.addChild(&Shape387);
 
 Shape& Shape392 =  Shape();
 Appearance& Appearance393 =  Appearance();
+Appearance393.setContainerField("appearance");
 Material& Material394 =  Material();
+Material394.setContainerField("material");
 Material394.setAmbientIntensity(0);
 Material394.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material394.setShininess(1);
@@ -1763,7 +1907,9 @@ Scene15.addChild(&Shape392);
 
 Shape& Shape397 =  Shape();
 Appearance& Appearance398 =  Appearance();
+Appearance398.setContainerField("appearance");
 Material& Material399 =  Material();
+Material399.setContainerField("material");
 Material399.setAmbientIntensity(0);
 Material399.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material399.setShininess(1);
@@ -1785,7 +1931,9 @@ Scene15.addChild(&Shape397);
 
 Shape& Shape402 =  Shape();
 Appearance& Appearance403 =  Appearance();
+Appearance403.setContainerField("appearance");
 Material& Material404 =  Material();
+Material404.setContainerField("material");
 Material404.setAmbientIntensity(0);
 Material404.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material404.setShininess(1);
@@ -1807,7 +1955,9 @@ Scene15.addChild(&Shape402);
 
 Shape& Shape407 =  Shape();
 Appearance& Appearance408 =  Appearance();
+Appearance408.setContainerField("appearance");
 Material& Material409 =  Material();
+Material409.setContainerField("material");
 Material409.setAmbientIntensity(0);
 Material409.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material409.setShininess(1);
@@ -1829,7 +1979,9 @@ Scene15.addChild(&Shape407);
 
 Shape& Shape412 =  Shape();
 Appearance& Appearance413 =  Appearance();
+Appearance413.setContainerField("appearance");
 Material& Material414 =  Material();
+Material414.setContainerField("material");
 Material414.setAmbientIntensity(0);
 Material414.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material414.setShininess(1);
@@ -1851,7 +2003,9 @@ Scene15.addChild(&Shape412);
 
 Shape& Shape417 =  Shape();
 Appearance& Appearance418 =  Appearance();
+Appearance418.setContainerField("appearance");
 Material& Material419 =  Material();
+Material419.setContainerField("material");
 Material419.setAmbientIntensity(0);
 Material419.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material419.setShininess(1);
@@ -1873,7 +2027,9 @@ Scene15.addChild(&Shape417);
 
 Shape& Shape422 =  Shape();
 Appearance& Appearance423 =  Appearance();
+Appearance423.setContainerField("appearance");
 Material& Material424 =  Material();
+Material424.setContainerField("material");
 Material424.setAmbientIntensity(0);
 Material424.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material424.setShininess(1);
@@ -1895,7 +2051,9 @@ Scene15.addChild(&Shape422);
 
 Shape& Shape427 =  Shape();
 Appearance& Appearance428 =  Appearance();
+Appearance428.setContainerField("appearance");
 Material& Material429 =  Material();
+Material429.setContainerField("material");
 Material429.setAmbientIntensity(0);
 Material429.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material429.setShininess(1);
@@ -1917,7 +2075,9 @@ Scene15.addChild(&Shape427);
 
 Shape& Shape432 =  Shape();
 Appearance& Appearance433 =  Appearance();
+Appearance433.setContainerField("appearance");
 Material& Material434 =  Material();
+Material434.setContainerField("material");
 Material434.setAmbientIntensity(0);
 Material434.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material434.setShininess(1);
@@ -1939,7 +2099,9 @@ Scene15.addChild(&Shape432);
 
 Shape& Shape437 =  Shape();
 Appearance& Appearance438 =  Appearance();
+Appearance438.setContainerField("appearance");
 Material& Material439 =  Material();
+Material439.setContainerField("material");
 Material439.setAmbientIntensity(0);
 Material439.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material439.setShininess(1);
@@ -1961,7 +2123,9 @@ Scene15.addChild(&Shape437);
 
 Shape& Shape442 =  Shape();
 Appearance& Appearance443 =  Appearance();
+Appearance443.setContainerField("appearance");
 Material& Material444 =  Material();
+Material444.setContainerField("material");
 Material444.setAmbientIntensity(0);
 Material444.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material444.setShininess(1);
@@ -1983,7 +2147,9 @@ Scene15.addChild(&Shape442);
 
 Shape& Shape447 =  Shape();
 Appearance& Appearance448 =  Appearance();
+Appearance448.setContainerField("appearance");
 Material& Material449 =  Material();
+Material449.setContainerField("material");
 Material449.setAmbientIntensity(0);
 Material449.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material449.setShininess(1);
@@ -2005,7 +2171,9 @@ Scene15.addChild(&Shape447);
 
 Shape& Shape452 =  Shape();
 Appearance& Appearance453 =  Appearance();
+Appearance453.setContainerField("appearance");
 Material& Material454 =  Material();
+Material454.setContainerField("material");
 Material454.setAmbientIntensity(0);
 Material454.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material454.setShininess(1);
@@ -2027,7 +2195,9 @@ Scene15.addChild(&Shape452);
 
 Shape& Shape457 =  Shape();
 Appearance& Appearance458 =  Appearance();
+Appearance458.setContainerField("appearance");
 Material& Material459 =  Material();
+Material459.setContainerField("material");
 Material459.setAmbientIntensity(0);
 Material459.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material459.setShininess(1);
@@ -2049,7 +2219,9 @@ Scene15.addChild(&Shape457);
 
 Shape& Shape462 =  Shape();
 Appearance& Appearance463 =  Appearance();
+Appearance463.setContainerField("appearance");
 Material& Material464 =  Material();
+Material464.setContainerField("material");
 Material464.setAmbientIntensity(0);
 Material464.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material464.setShininess(1);
@@ -2071,7 +2243,9 @@ Scene15.addChild(&Shape462);
 
 Shape& Shape467 =  Shape();
 Appearance& Appearance468 =  Appearance();
+Appearance468.setContainerField("appearance");
 Material& Material469 =  Material();
+Material469.setContainerField("material");
 Material469.setAmbientIntensity(0);
 Material469.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material469.setShininess(1);
@@ -2093,7 +2267,9 @@ Scene15.addChild(&Shape467);
 
 Shape& Shape472 =  Shape();
 Appearance& Appearance473 =  Appearance();
+Appearance473.setContainerField("appearance");
 Material& Material474 =  Material();
+Material474.setContainerField("material");
 Material474.setAmbientIntensity(0);
 Material474.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material474.setShininess(1);
@@ -2115,7 +2291,9 @@ Scene15.addChild(&Shape472);
 
 Shape& Shape477 =  Shape();
 Appearance& Appearance478 =  Appearance();
+Appearance478.setContainerField("appearance");
 Material& Material479 =  Material();
+Material479.setContainerField("material");
 Material479.setAmbientIntensity(0);
 Material479.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material479.setShininess(1);
@@ -2137,7 +2315,9 @@ Scene15.addChild(&Shape477);
 
 Shape& Shape482 =  Shape();
 Appearance& Appearance483 =  Appearance();
+Appearance483.setContainerField("appearance");
 Material& Material484 =  Material();
+Material484.setContainerField("material");
 Material484.setAmbientIntensity(0);
 Material484.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material484.setShininess(1);
@@ -2159,7 +2339,9 @@ Scene15.addChild(&Shape482);
 
 Shape& Shape487 =  Shape();
 Appearance& Appearance488 =  Appearance();
+Appearance488.setContainerField("appearance");
 Material& Material489 =  Material();
+Material489.setContainerField("material");
 Material489.setAmbientIntensity(0);
 Material489.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material489.setShininess(1);
@@ -2181,7 +2363,9 @@ Scene15.addChild(&Shape487);
 
 Shape& Shape492 =  Shape();
 Appearance& Appearance493 =  Appearance();
+Appearance493.setContainerField("appearance");
 Material& Material494 =  Material();
+Material494.setContainerField("material");
 Material494.setAmbientIntensity(0);
 Material494.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material494.setShininess(1);
@@ -2203,7 +2387,9 @@ Scene15.addChild(&Shape492);
 
 Shape& Shape497 =  Shape();
 Appearance& Appearance498 =  Appearance();
+Appearance498.setContainerField("appearance");
 Material& Material499 =  Material();
+Material499.setContainerField("material");
 Material499.setAmbientIntensity(0);
 Material499.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material499.setShininess(1);
@@ -2225,7 +2411,9 @@ Scene15.addChild(&Shape497);
 
 Shape& Shape502 =  Shape();
 Appearance& Appearance503 =  Appearance();
+Appearance503.setContainerField("appearance");
 Material& Material504 =  Material();
+Material504.setContainerField("material");
 Material504.setAmbientIntensity(0);
 Material504.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material504.setShininess(1);
@@ -2247,7 +2435,9 @@ Scene15.addChild(&Shape502);
 
 Shape& Shape507 =  Shape();
 Appearance& Appearance508 =  Appearance();
+Appearance508.setContainerField("appearance");
 Material& Material509 =  Material();
+Material509.setContainerField("material");
 Material509.setAmbientIntensity(0);
 Material509.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material509.setShininess(1);
@@ -2269,7 +2459,9 @@ Scene15.addChild(&Shape507);
 
 Shape& Shape512 =  Shape();
 Appearance& Appearance513 =  Appearance();
+Appearance513.setContainerField("appearance");
 Material& Material514 =  Material();
+Material514.setContainerField("material");
 Material514.setAmbientIntensity(0);
 Material514.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material514.setShininess(1);
@@ -2291,7 +2483,9 @@ Scene15.addChild(&Shape512);
 
 Shape& Shape517 =  Shape();
 Appearance& Appearance518 =  Appearance();
+Appearance518.setContainerField("appearance");
 Material& Material519 =  Material();
+Material519.setContainerField("material");
 Material519.setAmbientIntensity(0);
 Material519.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material519.setShininess(1);
@@ -2313,7 +2507,9 @@ Scene15.addChild(&Shape517);
 
 Shape& Shape522 =  Shape();
 Appearance& Appearance523 =  Appearance();
+Appearance523.setContainerField("appearance");
 Material& Material524 =  Material();
+Material524.setContainerField("material");
 Material524.setAmbientIntensity(0);
 Material524.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material524.setShininess(1);
@@ -2335,7 +2531,9 @@ Scene15.addChild(&Shape522);
 
 Shape& Shape527 =  Shape();
 Appearance& Appearance528 =  Appearance();
+Appearance528.setContainerField("appearance");
 Material& Material529 =  Material();
+Material529.setContainerField("material");
 Material529.setAmbientIntensity(0);
 Material529.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material529.setShininess(1);
@@ -2357,7 +2555,9 @@ Scene15.addChild(&Shape527);
 
 Shape& Shape532 =  Shape();
 Appearance& Appearance533 =  Appearance();
+Appearance533.setContainerField("appearance");
 Material& Material534 =  Material();
+Material534.setContainerField("material");
 Material534.setAmbientIntensity(0);
 Material534.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material534.setShininess(1);
@@ -2379,7 +2579,9 @@ Scene15.addChild(&Shape532);
 
 Shape& Shape537 =  Shape();
 Appearance& Appearance538 =  Appearance();
+Appearance538.setContainerField("appearance");
 Material& Material539 =  Material();
+Material539.setContainerField("material");
 Material539.setAmbientIntensity(0);
 Material539.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material539.setShininess(1);
@@ -2401,7 +2603,9 @@ Scene15.addChild(&Shape537);
 
 Shape& Shape542 =  Shape();
 Appearance& Appearance543 =  Appearance();
+Appearance543.setContainerField("appearance");
 Material& Material544 =  Material();
+Material544.setContainerField("material");
 Material544.setAmbientIntensity(0);
 Material544.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material544.setShininess(1);
@@ -2423,7 +2627,9 @@ Scene15.addChild(&Shape542);
 
 Shape& Shape547 =  Shape();
 Appearance& Appearance548 =  Appearance();
+Appearance548.setContainerField("appearance");
 Material& Material549 =  Material();
+Material549.setContainerField("material");
 Material549.setAmbientIntensity(0);
 Material549.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material549.setShininess(1);
@@ -2445,7 +2651,9 @@ Scene15.addChild(&Shape547);
 
 Shape& Shape552 =  Shape();
 Appearance& Appearance553 =  Appearance();
+Appearance553.setContainerField("appearance");
 Material& Material554 =  Material();
+Material554.setContainerField("material");
 Material554.setAmbientIntensity(0);
 Material554.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material554.setShininess(1);
@@ -2467,7 +2675,9 @@ Scene15.addChild(&Shape552);
 
 Shape& Shape557 =  Shape();
 Appearance& Appearance558 =  Appearance();
+Appearance558.setContainerField("appearance");
 Material& Material559 =  Material();
+Material559.setContainerField("material");
 Material559.setAmbientIntensity(0);
 Material559.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material559.setShininess(1);
@@ -2489,7 +2699,9 @@ Scene15.addChild(&Shape557);
 
 Shape& Shape562 =  Shape();
 Appearance& Appearance563 =  Appearance();
+Appearance563.setContainerField("appearance");
 Material& Material564 =  Material();
+Material564.setContainerField("material");
 Material564.setAmbientIntensity(0);
 Material564.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material564.setShininess(1);
@@ -2511,7 +2723,9 @@ Scene15.addChild(&Shape562);
 
 Shape& Shape567 =  Shape();
 Appearance& Appearance568 =  Appearance();
+Appearance568.setContainerField("appearance");
 Material& Material569 =  Material();
+Material569.setContainerField("material");
 Material569.setAmbientIntensity(0);
 Material569.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material569.setShininess(1);
@@ -2533,7 +2747,9 @@ Scene15.addChild(&Shape567);
 
 Shape& Shape572 =  Shape();
 Appearance& Appearance573 =  Appearance();
+Appearance573.setContainerField("appearance");
 Material& Material574 =  Material();
+Material574.setContainerField("material");
 Material574.setAmbientIntensity(0);
 Material574.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material574.setShininess(1);
@@ -2555,7 +2771,9 @@ Scene15.addChild(&Shape572);
 
 Shape& Shape577 =  Shape();
 Appearance& Appearance578 =  Appearance();
+Appearance578.setContainerField("appearance");
 Material& Material579 =  Material();
+Material579.setContainerField("material");
 Material579.setAmbientIntensity(0);
 Material579.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material579.setShininess(1);
@@ -2577,7 +2795,9 @@ Scene15.addChild(&Shape577);
 
 Shape& Shape582 =  Shape();
 Appearance& Appearance583 =  Appearance();
+Appearance583.setContainerField("appearance");
 Material& Material584 =  Material();
+Material584.setContainerField("material");
 Material584.setAmbientIntensity(0);
 Material584.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material584.setShininess(1);
@@ -2599,7 +2819,9 @@ Scene15.addChild(&Shape582);
 
 Shape& Shape587 =  Shape();
 Appearance& Appearance588 =  Appearance();
+Appearance588.setContainerField("appearance");
 Material& Material589 =  Material();
+Material589.setContainerField("material");
 Material589.setAmbientIntensity(0);
 Material589.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material589.setShininess(1);
@@ -2621,7 +2843,9 @@ Scene15.addChild(&Shape587);
 
 Shape& Shape592 =  Shape();
 Appearance& Appearance593 =  Appearance();
+Appearance593.setContainerField("appearance");
 Material& Material594 =  Material();
+Material594.setContainerField("material");
 Material594.setAmbientIntensity(0);
 Material594.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material594.setShininess(1);
@@ -2643,7 +2867,9 @@ Scene15.addChild(&Shape592);
 
 Shape& Shape597 =  Shape();
 Appearance& Appearance598 =  Appearance();
+Appearance598.setContainerField("appearance");
 Material& Material599 =  Material();
+Material599.setContainerField("material");
 Material599.setAmbientIntensity(0);
 Material599.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material599.setShininess(1);
@@ -2665,7 +2891,9 @@ Scene15.addChild(&Shape597);
 
 Shape& Shape602 =  Shape();
 Appearance& Appearance603 =  Appearance();
+Appearance603.setContainerField("appearance");
 Material& Material604 =  Material();
+Material604.setContainerField("material");
 Material604.setAmbientIntensity(0);
 Material604.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material604.setShininess(1);
@@ -2687,7 +2915,9 @@ Scene15.addChild(&Shape602);
 
 Shape& Shape607 =  Shape();
 Appearance& Appearance608 =  Appearance();
+Appearance608.setContainerField("appearance");
 Material& Material609 =  Material();
+Material609.setContainerField("material");
 Material609.setAmbientIntensity(0);
 Material609.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material609.setShininess(1);
@@ -2709,7 +2939,9 @@ Scene15.addChild(&Shape607);
 
 Shape& Shape612 =  Shape();
 Appearance& Appearance613 =  Appearance();
+Appearance613.setContainerField("appearance");
 Material& Material614 =  Material();
+Material614.setContainerField("material");
 Material614.setAmbientIntensity(0);
 Material614.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material614.setShininess(1);
@@ -2731,7 +2963,9 @@ Scene15.addChild(&Shape612);
 
 Shape& Shape617 =  Shape();
 Appearance& Appearance618 =  Appearance();
+Appearance618.setContainerField("appearance");
 Material& Material619 =  Material();
+Material619.setContainerField("material");
 Material619.setAmbientIntensity(0);
 Material619.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material619.setShininess(1);
@@ -2753,7 +2987,9 @@ Scene15.addChild(&Shape617);
 
 Shape& Shape622 =  Shape();
 Appearance& Appearance623 =  Appearance();
+Appearance623.setContainerField("appearance");
 Material& Material624 =  Material();
+Material624.setContainerField("material");
 Material624.setAmbientIntensity(0);
 Material624.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material624.setShininess(1);
@@ -2775,7 +3011,9 @@ Scene15.addChild(&Shape622);
 
 Shape& Shape627 =  Shape();
 Appearance& Appearance628 =  Appearance();
+Appearance628.setContainerField("appearance");
 Material& Material629 =  Material();
+Material629.setContainerField("material");
 Material629.setAmbientIntensity(0);
 Material629.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material629.setShininess(1);
@@ -2797,7 +3035,9 @@ Scene15.addChild(&Shape627);
 
 Shape& Shape632 =  Shape();
 Appearance& Appearance633 =  Appearance();
+Appearance633.setContainerField("appearance");
 Material& Material634 =  Material();
+Material634.setContainerField("material");
 Material634.setAmbientIntensity(0);
 Material634.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material634.setShininess(1);
@@ -2819,7 +3059,9 @@ Scene15.addChild(&Shape632);
 
 Shape& Shape637 =  Shape();
 Appearance& Appearance638 =  Appearance();
+Appearance638.setContainerField("appearance");
 Material& Material639 =  Material();
+Material639.setContainerField("material");
 Material639.setAmbientIntensity(0);
 Material639.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material639.setShininess(1);
@@ -2841,7 +3083,9 @@ Scene15.addChild(&Shape637);
 
 Shape& Shape642 =  Shape();
 Appearance& Appearance643 =  Appearance();
+Appearance643.setContainerField("appearance");
 Material& Material644 =  Material();
+Material644.setContainerField("material");
 Material644.setAmbientIntensity(0);
 Material644.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material644.setShininess(1);
@@ -2863,7 +3107,9 @@ Scene15.addChild(&Shape642);
 
 Shape& Shape647 =  Shape();
 Appearance& Appearance648 =  Appearance();
+Appearance648.setContainerField("appearance");
 Material& Material649 =  Material();
+Material649.setContainerField("material");
 Material649.setAmbientIntensity(0);
 Material649.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material649.setShininess(1);
@@ -2885,7 +3131,9 @@ Scene15.addChild(&Shape647);
 
 Shape& Shape652 =  Shape();
 Appearance& Appearance653 =  Appearance();
+Appearance653.setContainerField("appearance");
 Material& Material654 =  Material();
+Material654.setContainerField("material");
 Material654.setAmbientIntensity(0);
 Material654.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material654.setShininess(1);
@@ -2907,7 +3155,9 @@ Scene15.addChild(&Shape652);
 
 Shape& Shape657 =  Shape();
 Appearance& Appearance658 =  Appearance();
+Appearance658.setContainerField("appearance");
 Material& Material659 =  Material();
+Material659.setContainerField("material");
 Material659.setAmbientIntensity(0);
 Material659.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material659.setShininess(1);
@@ -2929,7 +3179,9 @@ Scene15.addChild(&Shape657);
 
 Shape& Shape662 =  Shape();
 Appearance& Appearance663 =  Appearance();
+Appearance663.setContainerField("appearance");
 Material& Material664 =  Material();
+Material664.setContainerField("material");
 Material664.setAmbientIntensity(0);
 Material664.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material664.setShininess(1);
@@ -2951,7 +3203,9 @@ Scene15.addChild(&Shape662);
 
 Shape& Shape667 =  Shape();
 Appearance& Appearance668 =  Appearance();
+Appearance668.setContainerField("appearance");
 Material& Material669 =  Material();
+Material669.setContainerField("material");
 Material669.setAmbientIntensity(0);
 Material669.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material669.setShininess(1);
@@ -2973,7 +3227,9 @@ Scene15.addChild(&Shape667);
 
 Shape& Shape672 =  Shape();
 Appearance& Appearance673 =  Appearance();
+Appearance673.setContainerField("appearance");
 Material& Material674 =  Material();
+Material674.setContainerField("material");
 Material674.setAmbientIntensity(0);
 Material674.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material674.setShininess(1);
@@ -2995,7 +3251,9 @@ Scene15.addChild(&Shape672);
 
 Shape& Shape677 =  Shape();
 Appearance& Appearance678 =  Appearance();
+Appearance678.setContainerField("appearance");
 Material& Material679 =  Material();
+Material679.setContainerField("material");
 Material679.setAmbientIntensity(0);
 Material679.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material679.setShininess(1);
@@ -3017,7 +3275,9 @@ Scene15.addChild(&Shape677);
 
 Shape& Shape682 =  Shape();
 Appearance& Appearance683 =  Appearance();
+Appearance683.setContainerField("appearance");
 Material& Material684 =  Material();
+Material684.setContainerField("material");
 Material684.setAmbientIntensity(0);
 Material684.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material684.setShininess(1);
@@ -3039,7 +3299,9 @@ Scene15.addChild(&Shape682);
 
 Shape& Shape687 =  Shape();
 Appearance& Appearance688 =  Appearance();
+Appearance688.setContainerField("appearance");
 Material& Material689 =  Material();
+Material689.setContainerField("material");
 Material689.setAmbientIntensity(0);
 Material689.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material689.setShininess(1);
@@ -3061,7 +3323,9 @@ Scene15.addChild(&Shape687);
 
 Shape& Shape692 =  Shape();
 Appearance& Appearance693 =  Appearance();
+Appearance693.setContainerField("appearance");
 Material& Material694 =  Material();
+Material694.setContainerField("material");
 Material694.setAmbientIntensity(0);
 Material694.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material694.setShininess(1);
@@ -3083,7 +3347,9 @@ Scene15.addChild(&Shape692);
 
 Shape& Shape697 =  Shape();
 Appearance& Appearance698 =  Appearance();
+Appearance698.setContainerField("appearance");
 Material& Material699 =  Material();
+Material699.setContainerField("material");
 Material699.setAmbientIntensity(0);
 Material699.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material699.setShininess(1);
@@ -3105,7 +3371,9 @@ Scene15.addChild(&Shape697);
 
 Shape& Shape702 =  Shape();
 Appearance& Appearance703 =  Appearance();
+Appearance703.setContainerField("appearance");
 Material& Material704 =  Material();
+Material704.setContainerField("material");
 Material704.setAmbientIntensity(0);
 Material704.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material704.setShininess(1);
@@ -3127,7 +3395,9 @@ Scene15.addChild(&Shape702);
 
 Shape& Shape707 =  Shape();
 Appearance& Appearance708 =  Appearance();
+Appearance708.setContainerField("appearance");
 Material& Material709 =  Material();
+Material709.setContainerField("material");
 Material709.setAmbientIntensity(0);
 Material709.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material709.setShininess(1);
@@ -3149,7 +3419,9 @@ Scene15.addChild(&Shape707);
 
 Shape& Shape712 =  Shape();
 Appearance& Appearance713 =  Appearance();
+Appearance713.setContainerField("appearance");
 Material& Material714 =  Material();
+Material714.setContainerField("material");
 Material714.setAmbientIntensity(0);
 Material714.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material714.setShininess(1);
@@ -3171,7 +3443,9 @@ Scene15.addChild(&Shape712);
 
 Shape& Shape717 =  Shape();
 Appearance& Appearance718 =  Appearance();
+Appearance718.setContainerField("appearance");
 Material& Material719 =  Material();
+Material719.setContainerField("material");
 Material719.setAmbientIntensity(0);
 Material719.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material719.setShininess(1);
@@ -3193,7 +3467,9 @@ Scene15.addChild(&Shape717);
 
 Shape& Shape722 =  Shape();
 Appearance& Appearance723 =  Appearance();
+Appearance723.setContainerField("appearance");
 Material& Material724 =  Material();
+Material724.setContainerField("material");
 Material724.setAmbientIntensity(0);
 Material724.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material724.setShininess(1);
@@ -3215,7 +3491,9 @@ Scene15.addChild(&Shape722);
 
 Shape& Shape727 =  Shape();
 Appearance& Appearance728 =  Appearance();
+Appearance728.setContainerField("appearance");
 Material& Material729 =  Material();
+Material729.setContainerField("material");
 Material729.setAmbientIntensity(0);
 Material729.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material729.setShininess(1);
@@ -3237,7 +3515,9 @@ Scene15.addChild(&Shape727);
 
 Shape& Shape732 =  Shape();
 Appearance& Appearance733 =  Appearance();
+Appearance733.setContainerField("appearance");
 Material& Material734 =  Material();
+Material734.setContainerField("material");
 Material734.setAmbientIntensity(0);
 Material734.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material734.setShininess(1);
@@ -3259,7 +3539,9 @@ Scene15.addChild(&Shape732);
 
 Shape& Shape737 =  Shape();
 Appearance& Appearance738 =  Appearance();
+Appearance738.setContainerField("appearance");
 Material& Material739 =  Material();
+Material739.setContainerField("material");
 Material739.setAmbientIntensity(0);
 Material739.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material739.setShininess(1);
@@ -3281,7 +3563,9 @@ Scene15.addChild(&Shape737);
 
 Shape& Shape742 =  Shape();
 Appearance& Appearance743 =  Appearance();
+Appearance743.setContainerField("appearance");
 Material& Material744 =  Material();
+Material744.setContainerField("material");
 Material744.setAmbientIntensity(0);
 Material744.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material744.setShininess(1);
@@ -3303,7 +3587,9 @@ Scene15.addChild(&Shape742);
 
 Shape& Shape747 =  Shape();
 Appearance& Appearance748 =  Appearance();
+Appearance748.setContainerField("appearance");
 Material& Material749 =  Material();
+Material749.setContainerField("material");
 Material749.setAmbientIntensity(0);
 Material749.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material749.setShininess(1);
@@ -3325,7 +3611,9 @@ Scene15.addChild(&Shape747);
 
 Shape& Shape752 =  Shape();
 Appearance& Appearance753 =  Appearance();
+Appearance753.setContainerField("appearance");
 Material& Material754 =  Material();
+Material754.setContainerField("material");
 Material754.setAmbientIntensity(0);
 Material754.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material754.setShininess(1);
@@ -3347,7 +3635,9 @@ Scene15.addChild(&Shape752);
 
 Shape& Shape757 =  Shape();
 Appearance& Appearance758 =  Appearance();
+Appearance758.setContainerField("appearance");
 Material& Material759 =  Material();
+Material759.setContainerField("material");
 Material759.setAmbientIntensity(0);
 Material759.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material759.setShininess(1);
@@ -3369,7 +3659,9 @@ Scene15.addChild(&Shape757);
 
 Shape& Shape762 =  Shape();
 Appearance& Appearance763 =  Appearance();
+Appearance763.setContainerField("appearance");
 Material& Material764 =  Material();
+Material764.setContainerField("material");
 Material764.setAmbientIntensity(0);
 Material764.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material764.setShininess(1);
@@ -3391,7 +3683,9 @@ Scene15.addChild(&Shape762);
 
 Shape& Shape767 =  Shape();
 Appearance& Appearance768 =  Appearance();
+Appearance768.setContainerField("appearance");
 Material& Material769 =  Material();
+Material769.setContainerField("material");
 Material769.setAmbientIntensity(0);
 Material769.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material769.setShininess(1);
@@ -3413,7 +3707,9 @@ Scene15.addChild(&Shape767);
 
 Shape& Shape772 =  Shape();
 Appearance& Appearance773 =  Appearance();
+Appearance773.setContainerField("appearance");
 Material& Material774 =  Material();
+Material774.setContainerField("material");
 Material774.setAmbientIntensity(0);
 Material774.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material774.setShininess(1);
@@ -3435,7 +3731,9 @@ Scene15.addChild(&Shape772);
 
 Shape& Shape777 =  Shape();
 Appearance& Appearance778 =  Appearance();
+Appearance778.setContainerField("appearance");
 Material& Material779 =  Material();
+Material779.setContainerField("material");
 Material779.setAmbientIntensity(0);
 Material779.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material779.setShininess(1);
@@ -3457,7 +3755,9 @@ Scene15.addChild(&Shape777);
 
 Shape& Shape782 =  Shape();
 Appearance& Appearance783 =  Appearance();
+Appearance783.setContainerField("appearance");
 Material& Material784 =  Material();
+Material784.setContainerField("material");
 Material784.setAmbientIntensity(0);
 Material784.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material784.setShininess(1);
@@ -3479,7 +3779,9 @@ Scene15.addChild(&Shape782);
 
 Shape& Shape787 =  Shape();
 Appearance& Appearance788 =  Appearance();
+Appearance788.setContainerField("appearance");
 Material& Material789 =  Material();
+Material789.setContainerField("material");
 Material789.setAmbientIntensity(0);
 Material789.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material789.setShininess(1);
@@ -3501,7 +3803,9 @@ Scene15.addChild(&Shape787);
 
 Shape& Shape792 =  Shape();
 Appearance& Appearance793 =  Appearance();
+Appearance793.setContainerField("appearance");
 Material& Material794 =  Material();
+Material794.setContainerField("material");
 Material794.setAmbientIntensity(0);
 Material794.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material794.setShininess(1);
@@ -3523,7 +3827,9 @@ Scene15.addChild(&Shape792);
 
 Shape& Shape797 =  Shape();
 Appearance& Appearance798 =  Appearance();
+Appearance798.setContainerField("appearance");
 Material& Material799 =  Material();
+Material799.setContainerField("material");
 Material799.setAmbientIntensity(0);
 Material799.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material799.setShininess(1);
@@ -3545,7 +3851,9 @@ Scene15.addChild(&Shape797);
 
 Shape& Shape802 =  Shape();
 Appearance& Appearance803 =  Appearance();
+Appearance803.setContainerField("appearance");
 Material& Material804 =  Material();
+Material804.setContainerField("material");
 Material804.setAmbientIntensity(0);
 Material804.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material804.setShininess(1);
@@ -3567,7 +3875,9 @@ Scene15.addChild(&Shape802);
 
 Shape& Shape807 =  Shape();
 Appearance& Appearance808 =  Appearance();
+Appearance808.setContainerField("appearance");
 Material& Material809 =  Material();
+Material809.setContainerField("material");
 Material809.setAmbientIntensity(0);
 Material809.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material809.setShininess(1);
@@ -3589,7 +3899,9 @@ Scene15.addChild(&Shape807);
 
 Shape& Shape812 =  Shape();
 Appearance& Appearance813 =  Appearance();
+Appearance813.setContainerField("appearance");
 Material& Material814 =  Material();
+Material814.setContainerField("material");
 Material814.setAmbientIntensity(0);
 Material814.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material814.setShininess(1);
@@ -3611,7 +3923,9 @@ Scene15.addChild(&Shape812);
 
 Shape& Shape817 =  Shape();
 Appearance& Appearance818 =  Appearance();
+Appearance818.setContainerField("appearance");
 Material& Material819 =  Material();
+Material819.setContainerField("material");
 Material819.setAmbientIntensity(0);
 Material819.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material819.setShininess(1);
@@ -3633,7 +3947,9 @@ Scene15.addChild(&Shape817);
 
 Shape& Shape822 =  Shape();
 Appearance& Appearance823 =  Appearance();
+Appearance823.setContainerField("appearance");
 Material& Material824 =  Material();
+Material824.setContainerField("material");
 Material824.setAmbientIntensity(0);
 Material824.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material824.setShininess(1);
@@ -3655,7 +3971,9 @@ Scene15.addChild(&Shape822);
 
 Shape& Shape827 =  Shape();
 Appearance& Appearance828 =  Appearance();
+Appearance828.setContainerField("appearance");
 Material& Material829 =  Material();
+Material829.setContainerField("material");
 Material829.setAmbientIntensity(0);
 Material829.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material829.setShininess(1);
@@ -3677,7 +3995,9 @@ Scene15.addChild(&Shape827);
 
 Shape& Shape832 =  Shape();
 Appearance& Appearance833 =  Appearance();
+Appearance833.setContainerField("appearance");
 Material& Material834 =  Material();
+Material834.setContainerField("material");
 Material834.setAmbientIntensity(0);
 Material834.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material834.setShininess(1);
@@ -3699,7 +4019,9 @@ Scene15.addChild(&Shape832);
 
 Shape& Shape837 =  Shape();
 Appearance& Appearance838 =  Appearance();
+Appearance838.setContainerField("appearance");
 Material& Material839 =  Material();
+Material839.setContainerField("material");
 Material839.setAmbientIntensity(0);
 Material839.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material839.setShininess(1);
@@ -3721,7 +4043,9 @@ Scene15.addChild(&Shape837);
 
 Shape& Shape842 =  Shape();
 Appearance& Appearance843 =  Appearance();
+Appearance843.setContainerField("appearance");
 Material& Material844 =  Material();
+Material844.setContainerField("material");
 Material844.setAmbientIntensity(0);
 Material844.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material844.setShininess(1);
@@ -3743,7 +4067,9 @@ Scene15.addChild(&Shape842);
 
 Shape& Shape847 =  Shape();
 Appearance& Appearance848 =  Appearance();
+Appearance848.setContainerField("appearance");
 Material& Material849 =  Material();
+Material849.setContainerField("material");
 Material849.setAmbientIntensity(0);
 Material849.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material849.setShininess(1);
@@ -3765,7 +4091,9 @@ Scene15.addChild(&Shape847);
 
 Shape& Shape852 =  Shape();
 Appearance& Appearance853 =  Appearance();
+Appearance853.setContainerField("appearance");
 Material& Material854 =  Material();
+Material854.setContainerField("material");
 Material854.setAmbientIntensity(0);
 Material854.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material854.setShininess(1);
@@ -3787,7 +4115,9 @@ Scene15.addChild(&Shape852);
 
 Shape& Shape857 =  Shape();
 Appearance& Appearance858 =  Appearance();
+Appearance858.setContainerField("appearance");
 Material& Material859 =  Material();
+Material859.setContainerField("material");
 Material859.setAmbientIntensity(0);
 Material859.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material859.setShininess(1);
@@ -3809,7 +4139,9 @@ Scene15.addChild(&Shape857);
 
 Shape& Shape862 =  Shape();
 Appearance& Appearance863 =  Appearance();
+Appearance863.setContainerField("appearance");
 Material& Material864 =  Material();
+Material864.setContainerField("material");
 Material864.setAmbientIntensity(0);
 Material864.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material864.setShininess(1);
@@ -3831,7 +4163,9 @@ Scene15.addChild(&Shape862);
 
 Shape& Shape867 =  Shape();
 Appearance& Appearance868 =  Appearance();
+Appearance868.setContainerField("appearance");
 Material& Material869 =  Material();
+Material869.setContainerField("material");
 Material869.setAmbientIntensity(0);
 Material869.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material869.setShininess(1);
@@ -3853,7 +4187,9 @@ Scene15.addChild(&Shape867);
 
 Shape& Shape872 =  Shape();
 Appearance& Appearance873 =  Appearance();
+Appearance873.setContainerField("appearance");
 Material& Material874 =  Material();
+Material874.setContainerField("material");
 Material874.setAmbientIntensity(0);
 Material874.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material874.setShininess(1);
@@ -3875,7 +4211,9 @@ Scene15.addChild(&Shape872);
 
 Shape& Shape877 =  Shape();
 Appearance& Appearance878 =  Appearance();
+Appearance878.setContainerField("appearance");
 Material& Material879 =  Material();
+Material879.setContainerField("material");
 Material879.setAmbientIntensity(0);
 Material879.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material879.setShininess(1);
@@ -3897,7 +4235,9 @@ Scene15.addChild(&Shape877);
 
 Shape& Shape882 =  Shape();
 Appearance& Appearance883 =  Appearance();
+Appearance883.setContainerField("appearance");
 Material& Material884 =  Material();
+Material884.setContainerField("material");
 Material884.setAmbientIntensity(0);
 Material884.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material884.setShininess(1);
@@ -3919,7 +4259,9 @@ Scene15.addChild(&Shape882);
 
 Shape& Shape887 =  Shape();
 Appearance& Appearance888 =  Appearance();
+Appearance888.setContainerField("appearance");
 Material& Material889 =  Material();
+Material889.setContainerField("material");
 Material889.setAmbientIntensity(0);
 Material889.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material889.setShininess(1);
@@ -3941,7 +4283,9 @@ Scene15.addChild(&Shape887);
 
 Shape& Shape892 =  Shape();
 Appearance& Appearance893 =  Appearance();
+Appearance893.setContainerField("appearance");
 Material& Material894 =  Material();
+Material894.setContainerField("material");
 Material894.setAmbientIntensity(0);
 Material894.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material894.setShininess(1);
@@ -3963,7 +4307,9 @@ Scene15.addChild(&Shape892);
 
 Shape& Shape897 =  Shape();
 Appearance& Appearance898 =  Appearance();
+Appearance898.setContainerField("appearance");
 Material& Material899 =  Material();
+Material899.setContainerField("material");
 Material899.setAmbientIntensity(0);
 Material899.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material899.setShininess(1);
@@ -3985,7 +4331,9 @@ Scene15.addChild(&Shape897);
 
 Shape& Shape902 =  Shape();
 Appearance& Appearance903 =  Appearance();
+Appearance903.setContainerField("appearance");
 Material& Material904 =  Material();
+Material904.setContainerField("material");
 Material904.setAmbientIntensity(0);
 Material904.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material904.setShininess(1);
@@ -4007,7 +4355,9 @@ Scene15.addChild(&Shape902);
 
 Shape& Shape907 =  Shape();
 Appearance& Appearance908 =  Appearance();
+Appearance908.setContainerField("appearance");
 Material& Material909 =  Material();
+Material909.setContainerField("material");
 Material909.setAmbientIntensity(0);
 Material909.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material909.setShininess(1);
@@ -4029,7 +4379,9 @@ Scene15.addChild(&Shape907);
 
 Shape& Shape912 =  Shape();
 Appearance& Appearance913 =  Appearance();
+Appearance913.setContainerField("appearance");
 Material& Material914 =  Material();
+Material914.setContainerField("material");
 Material914.setAmbientIntensity(0);
 Material914.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material914.setShininess(1);
@@ -4051,7 +4403,9 @@ Scene15.addChild(&Shape912);
 
 Shape& Shape917 =  Shape();
 Appearance& Appearance918 =  Appearance();
+Appearance918.setContainerField("appearance");
 Material& Material919 =  Material();
+Material919.setContainerField("material");
 Material919.setAmbientIntensity(0);
 Material919.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material919.setShininess(1);
@@ -4073,7 +4427,9 @@ Scene15.addChild(&Shape917);
 
 Shape& Shape922 =  Shape();
 Appearance& Appearance923 =  Appearance();
+Appearance923.setContainerField("appearance");
 Material& Material924 =  Material();
+Material924.setContainerField("material");
 Material924.setAmbientIntensity(0);
 Material924.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material924.setShininess(1);
@@ -4095,7 +4451,9 @@ Scene15.addChild(&Shape922);
 
 Shape& Shape927 =  Shape();
 Appearance& Appearance928 =  Appearance();
+Appearance928.setContainerField("appearance");
 Material& Material929 =  Material();
+Material929.setContainerField("material");
 Material929.setAmbientIntensity(0);
 Material929.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material929.setShininess(1);
@@ -4117,7 +4475,9 @@ Scene15.addChild(&Shape927);
 
 Shape& Shape932 =  Shape();
 Appearance& Appearance933 =  Appearance();
+Appearance933.setContainerField("appearance");
 Material& Material934 =  Material();
+Material934.setContainerField("material");
 Material934.setAmbientIntensity(0);
 Material934.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material934.setShininess(1);
@@ -4139,7 +4499,9 @@ Scene15.addChild(&Shape932);
 
 Shape& Shape937 =  Shape();
 Appearance& Appearance938 =  Appearance();
+Appearance938.setContainerField("appearance");
 Material& Material939 =  Material();
+Material939.setContainerField("material");
 Material939.setAmbientIntensity(0);
 Material939.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material939.setShininess(1);
@@ -4161,7 +4523,9 @@ Scene15.addChild(&Shape937);
 
 Shape& Shape942 =  Shape();
 Appearance& Appearance943 =  Appearance();
+Appearance943.setContainerField("appearance");
 Material& Material944 =  Material();
+Material944.setContainerField("material");
 Material944.setAmbientIntensity(0);
 Material944.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material944.setShininess(1);
@@ -4183,7 +4547,9 @@ Scene15.addChild(&Shape942);
 
 Shape& Shape947 =  Shape();
 Appearance& Appearance948 =  Appearance();
+Appearance948.setContainerField("appearance");
 Material& Material949 =  Material();
+Material949.setContainerField("material");
 Material949.setAmbientIntensity(0);
 Material949.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material949.setShininess(1);
@@ -4205,7 +4571,9 @@ Scene15.addChild(&Shape947);
 
 Shape& Shape952 =  Shape();
 Appearance& Appearance953 =  Appearance();
+Appearance953.setContainerField("appearance");
 Material& Material954 =  Material();
+Material954.setContainerField("material");
 Material954.setAmbientIntensity(0);
 Material954.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material954.setShininess(1);
@@ -4227,7 +4595,9 @@ Scene15.addChild(&Shape952);
 
 Shape& Shape957 =  Shape();
 Appearance& Appearance958 =  Appearance();
+Appearance958.setContainerField("appearance");
 Material& Material959 =  Material();
+Material959.setContainerField("material");
 Material959.setAmbientIntensity(0);
 Material959.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material959.setShininess(1);
@@ -4249,7 +4619,9 @@ Scene15.addChild(&Shape957);
 
 Shape& Shape962 =  Shape();
 Appearance& Appearance963 =  Appearance();
+Appearance963.setContainerField("appearance");
 Material& Material964 =  Material();
+Material964.setContainerField("material");
 Material964.setAmbientIntensity(0);
 Material964.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material964.setShininess(1);
@@ -4271,7 +4643,9 @@ Scene15.addChild(&Shape962);
 
 Shape& Shape967 =  Shape();
 Appearance& Appearance968 =  Appearance();
+Appearance968.setContainerField("appearance");
 Material& Material969 =  Material();
+Material969.setContainerField("material");
 Material969.setAmbientIntensity(0);
 Material969.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material969.setShininess(1);
@@ -4293,7 +4667,9 @@ Scene15.addChild(&Shape967);
 
 Shape& Shape972 =  Shape();
 Appearance& Appearance973 =  Appearance();
+Appearance973.setContainerField("appearance");
 Material& Material974 =  Material();
+Material974.setContainerField("material");
 Material974.setAmbientIntensity(0);
 Material974.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material974.setShininess(1);
@@ -4315,7 +4691,9 @@ Scene15.addChild(&Shape972);
 
 Shape& Shape977 =  Shape();
 Appearance& Appearance978 =  Appearance();
+Appearance978.setContainerField("appearance");
 Material& Material979 =  Material();
+Material979.setContainerField("material");
 Material979.setAmbientIntensity(0);
 Material979.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material979.setShininess(1);
@@ -4337,7 +4715,9 @@ Scene15.addChild(&Shape977);
 
 Shape& Shape982 =  Shape();
 Appearance& Appearance983 =  Appearance();
+Appearance983.setContainerField("appearance");
 Material& Material984 =  Material();
+Material984.setContainerField("material");
 Material984.setAmbientIntensity(0);
 Material984.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material984.setShininess(1);
@@ -4359,7 +4739,9 @@ Scene15.addChild(&Shape982);
 
 Shape& Shape987 =  Shape();
 Appearance& Appearance988 =  Appearance();
+Appearance988.setContainerField("appearance");
 Material& Material989 =  Material();
+Material989.setContainerField("material");
 Material989.setAmbientIntensity(0);
 Material989.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material989.setShininess(1);
@@ -4381,7 +4763,9 @@ Scene15.addChild(&Shape987);
 
 Shape& Shape992 =  Shape();
 Appearance& Appearance993 =  Appearance();
+Appearance993.setContainerField("appearance");
 Material& Material994 =  Material();
+Material994.setContainerField("material");
 Material994.setAmbientIntensity(0);
 Material994.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material994.setShininess(1);
@@ -4403,7 +4787,9 @@ Scene15.addChild(&Shape992);
 
 Shape& Shape997 =  Shape();
 Appearance& Appearance998 =  Appearance();
+Appearance998.setContainerField("appearance");
 Material& Material999 =  Material();
+Material999.setContainerField("material");
 Material999.setAmbientIntensity(0);
 Material999.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material999.setShininess(1);
@@ -4425,7 +4811,9 @@ Scene15.addChild(&Shape997);
 
 Shape& Shape1002 =  Shape();
 Appearance& Appearance1003 =  Appearance();
+Appearance1003.setContainerField("appearance");
 Material& Material1004 =  Material();
+Material1004.setContainerField("material");
 Material1004.setAmbientIntensity(0);
 Material1004.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1004.setShininess(1);
@@ -4447,7 +4835,9 @@ Scene15.addChild(&Shape1002);
 
 Shape& Shape1007 =  Shape();
 Appearance& Appearance1008 =  Appearance();
+Appearance1008.setContainerField("appearance");
 Material& Material1009 =  Material();
+Material1009.setContainerField("material");
 Material1009.setAmbientIntensity(0);
 Material1009.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1009.setShininess(1);
@@ -4469,7 +4859,9 @@ Scene15.addChild(&Shape1007);
 
 Shape& Shape1012 =  Shape();
 Appearance& Appearance1013 =  Appearance();
+Appearance1013.setContainerField("appearance");
 Material& Material1014 =  Material();
+Material1014.setContainerField("material");
 Material1014.setAmbientIntensity(0);
 Material1014.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1014.setShininess(1);
@@ -4491,7 +4883,9 @@ Scene15.addChild(&Shape1012);
 
 Shape& Shape1017 =  Shape();
 Appearance& Appearance1018 =  Appearance();
+Appearance1018.setContainerField("appearance");
 Material& Material1019 =  Material();
+Material1019.setContainerField("material");
 Material1019.setAmbientIntensity(0);
 Material1019.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1019.setShininess(1);
@@ -4513,7 +4907,9 @@ Scene15.addChild(&Shape1017);
 
 Shape& Shape1022 =  Shape();
 Appearance& Appearance1023 =  Appearance();
+Appearance1023.setContainerField("appearance");
 Material& Material1024 =  Material();
+Material1024.setContainerField("material");
 Material1024.setAmbientIntensity(0);
 Material1024.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1024.setShininess(1);
@@ -4535,7 +4931,9 @@ Scene15.addChild(&Shape1022);
 
 Shape& Shape1027 =  Shape();
 Appearance& Appearance1028 =  Appearance();
+Appearance1028.setContainerField("appearance");
 Material& Material1029 =  Material();
+Material1029.setContainerField("material");
 Material1029.setAmbientIntensity(0);
 Material1029.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1029.setShininess(1);
@@ -4557,7 +4955,9 @@ Scene15.addChild(&Shape1027);
 
 Shape& Shape1032 =  Shape();
 Appearance& Appearance1033 =  Appearance();
+Appearance1033.setContainerField("appearance");
 Material& Material1034 =  Material();
+Material1034.setContainerField("material");
 Material1034.setAmbientIntensity(0);
 Material1034.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1034.setShininess(1);
@@ -4579,7 +4979,9 @@ Scene15.addChild(&Shape1032);
 
 Shape& Shape1037 =  Shape();
 Appearance& Appearance1038 =  Appearance();
+Appearance1038.setContainerField("appearance");
 Material& Material1039 =  Material();
+Material1039.setContainerField("material");
 Material1039.setAmbientIntensity(0);
 Material1039.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1039.setShininess(1);
@@ -4601,7 +5003,9 @@ Scene15.addChild(&Shape1037);
 
 Shape& Shape1042 =  Shape();
 Appearance& Appearance1043 =  Appearance();
+Appearance1043.setContainerField("appearance");
 Material& Material1044 =  Material();
+Material1044.setContainerField("material");
 Material1044.setAmbientIntensity(0);
 Material1044.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1044.setShininess(1);
@@ -4623,7 +5027,9 @@ Scene15.addChild(&Shape1042);
 
 Shape& Shape1047 =  Shape();
 Appearance& Appearance1048 =  Appearance();
+Appearance1048.setContainerField("appearance");
 Material& Material1049 =  Material();
+Material1049.setContainerField("material");
 Material1049.setAmbientIntensity(0);
 Material1049.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1049.setShininess(1);
@@ -4645,7 +5051,9 @@ Scene15.addChild(&Shape1047);
 
 Shape& Shape1052 =  Shape();
 Appearance& Appearance1053 =  Appearance();
+Appearance1053.setContainerField("appearance");
 Material& Material1054 =  Material();
+Material1054.setContainerField("material");
 Material1054.setAmbientIntensity(0);
 Material1054.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1054.setShininess(1);
@@ -4667,7 +5075,9 @@ Scene15.addChild(&Shape1052);
 
 Shape& Shape1057 =  Shape();
 Appearance& Appearance1058 =  Appearance();
+Appearance1058.setContainerField("appearance");
 Material& Material1059 =  Material();
+Material1059.setContainerField("material");
 Material1059.setAmbientIntensity(0);
 Material1059.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1059.setShininess(1);
@@ -4689,7 +5099,9 @@ Scene15.addChild(&Shape1057);
 
 Shape& Shape1062 =  Shape();
 Appearance& Appearance1063 =  Appearance();
+Appearance1063.setContainerField("appearance");
 Material& Material1064 =  Material();
+Material1064.setContainerField("material");
 Material1064.setAmbientIntensity(0);
 Material1064.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1064.setShininess(1);
@@ -4711,7 +5123,9 @@ Scene15.addChild(&Shape1062);
 
 Shape& Shape1067 =  Shape();
 Appearance& Appearance1068 =  Appearance();
+Appearance1068.setContainerField("appearance");
 Material& Material1069 =  Material();
+Material1069.setContainerField("material");
 Material1069.setAmbientIntensity(0);
 Material1069.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1069.setShininess(1);
@@ -4733,7 +5147,9 @@ Scene15.addChild(&Shape1067);
 
 Shape& Shape1072 =  Shape();
 Appearance& Appearance1073 =  Appearance();
+Appearance1073.setContainerField("appearance");
 Material& Material1074 =  Material();
+Material1074.setContainerField("material");
 Material1074.setAmbientIntensity(0);
 Material1074.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1074.setShininess(1);
@@ -4755,7 +5171,9 @@ Scene15.addChild(&Shape1072);
 
 Shape& Shape1077 =  Shape();
 Appearance& Appearance1078 =  Appearance();
+Appearance1078.setContainerField("appearance");
 Material& Material1079 =  Material();
+Material1079.setContainerField("material");
 Material1079.setAmbientIntensity(0);
 Material1079.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1079.setShininess(1);
@@ -4777,7 +5195,9 @@ Scene15.addChild(&Shape1077);
 
 Shape& Shape1082 =  Shape();
 Appearance& Appearance1083 =  Appearance();
+Appearance1083.setContainerField("appearance");
 Material& Material1084 =  Material();
+Material1084.setContainerField("material");
 Material1084.setAmbientIntensity(0);
 Material1084.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1084.setShininess(1);
@@ -4799,7 +5219,9 @@ Scene15.addChild(&Shape1082);
 
 Shape& Shape1087 =  Shape();
 Appearance& Appearance1088 =  Appearance();
+Appearance1088.setContainerField("appearance");
 Material& Material1089 =  Material();
+Material1089.setContainerField("material");
 Material1089.setAmbientIntensity(0);
 Material1089.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1089.setShininess(1);
@@ -4821,7 +5243,9 @@ Scene15.addChild(&Shape1087);
 
 Shape& Shape1092 =  Shape();
 Appearance& Appearance1093 =  Appearance();
+Appearance1093.setContainerField("appearance");
 Material& Material1094 =  Material();
+Material1094.setContainerField("material");
 Material1094.setAmbientIntensity(0);
 Material1094.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1094.setShininess(1);
@@ -4843,7 +5267,9 @@ Scene15.addChild(&Shape1092);
 
 Shape& Shape1097 =  Shape();
 Appearance& Appearance1098 =  Appearance();
+Appearance1098.setContainerField("appearance");
 Material& Material1099 =  Material();
+Material1099.setContainerField("material");
 Material1099.setAmbientIntensity(0);
 Material1099.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1099.setShininess(1);
@@ -4865,7 +5291,9 @@ Scene15.addChild(&Shape1097);
 
 Shape& Shape1102 =  Shape();
 Appearance& Appearance1103 =  Appearance();
+Appearance1103.setContainerField("appearance");
 Material& Material1104 =  Material();
+Material1104.setContainerField("material");
 Material1104.setAmbientIntensity(0);
 Material1104.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1104.setShininess(1);
@@ -4887,7 +5315,9 @@ Scene15.addChild(&Shape1102);
 
 Shape& Shape1107 =  Shape();
 Appearance& Appearance1108 =  Appearance();
+Appearance1108.setContainerField("appearance");
 Material& Material1109 =  Material();
+Material1109.setContainerField("material");
 Material1109.setAmbientIntensity(0);
 Material1109.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1109.setShininess(1);
@@ -4909,7 +5339,9 @@ Scene15.addChild(&Shape1107);
 
 Shape& Shape1112 =  Shape();
 Appearance& Appearance1113 =  Appearance();
+Appearance1113.setContainerField("appearance");
 Material& Material1114 =  Material();
+Material1114.setContainerField("material");
 Material1114.setAmbientIntensity(0);
 Material1114.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1114.setShininess(1);
@@ -4931,7 +5363,9 @@ Scene15.addChild(&Shape1112);
 
 Shape& Shape1117 =  Shape();
 Appearance& Appearance1118 =  Appearance();
+Appearance1118.setContainerField("appearance");
 Material& Material1119 =  Material();
+Material1119.setContainerField("material");
 Material1119.setAmbientIntensity(0);
 Material1119.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1119.setShininess(1);
@@ -4953,7 +5387,9 @@ Scene15.addChild(&Shape1117);
 
 Shape& Shape1122 =  Shape();
 Appearance& Appearance1123 =  Appearance();
+Appearance1123.setContainerField("appearance");
 Material& Material1124 =  Material();
+Material1124.setContainerField("material");
 Material1124.setAmbientIntensity(0);
 Material1124.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1124.setShininess(1);
@@ -4975,7 +5411,9 @@ Scene15.addChild(&Shape1122);
 
 Shape& Shape1127 =  Shape();
 Appearance& Appearance1128 =  Appearance();
+Appearance1128.setContainerField("appearance");
 Material& Material1129 =  Material();
+Material1129.setContainerField("material");
 Material1129.setAmbientIntensity(0);
 Material1129.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1129.setShininess(1);
@@ -4997,7 +5435,9 @@ Scene15.addChild(&Shape1127);
 
 Shape& Shape1132 =  Shape();
 Appearance& Appearance1133 =  Appearance();
+Appearance1133.setContainerField("appearance");
 Material& Material1134 =  Material();
+Material1134.setContainerField("material");
 Material1134.setAmbientIntensity(0);
 Material1134.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1134.setShininess(1);
@@ -5019,7 +5459,9 @@ Scene15.addChild(&Shape1132);
 
 Shape& Shape1137 =  Shape();
 Appearance& Appearance1138 =  Appearance();
+Appearance1138.setContainerField("appearance");
 Material& Material1139 =  Material();
+Material1139.setContainerField("material");
 Material1139.setAmbientIntensity(0);
 Material1139.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1139.setShininess(1);
@@ -5041,7 +5483,9 @@ Scene15.addChild(&Shape1137);
 
 Shape& Shape1142 =  Shape();
 Appearance& Appearance1143 =  Appearance();
+Appearance1143.setContainerField("appearance");
 Material& Material1144 =  Material();
+Material1144.setContainerField("material");
 Material1144.setAmbientIntensity(0);
 Material1144.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1144.setShininess(1);
@@ -5063,7 +5507,9 @@ Scene15.addChild(&Shape1142);
 
 Shape& Shape1147 =  Shape();
 Appearance& Appearance1148 =  Appearance();
+Appearance1148.setContainerField("appearance");
 Material& Material1149 =  Material();
+Material1149.setContainerField("material");
 Material1149.setAmbientIntensity(0);
 Material1149.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1149.setShininess(1);
@@ -5085,7 +5531,9 @@ Scene15.addChild(&Shape1147);
 
 Shape& Shape1152 =  Shape();
 Appearance& Appearance1153 =  Appearance();
+Appearance1153.setContainerField("appearance");
 Material& Material1154 =  Material();
+Material1154.setContainerField("material");
 Material1154.setAmbientIntensity(0);
 Material1154.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1154.setShininess(1);
@@ -5107,7 +5555,9 @@ Scene15.addChild(&Shape1152);
 
 Shape& Shape1157 =  Shape();
 Appearance& Appearance1158 =  Appearance();
+Appearance1158.setContainerField("appearance");
 Material& Material1159 =  Material();
+Material1159.setContainerField("material");
 Material1159.setAmbientIntensity(0);
 Material1159.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1159.setShininess(1);
@@ -5129,7 +5579,9 @@ Scene15.addChild(&Shape1157);
 
 Shape& Shape1162 =  Shape();
 Appearance& Appearance1163 =  Appearance();
+Appearance1163.setContainerField("appearance");
 Material& Material1164 =  Material();
+Material1164.setContainerField("material");
 Material1164.setAmbientIntensity(0);
 Material1164.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1164.setShininess(1);
@@ -5151,7 +5603,9 @@ Scene15.addChild(&Shape1162);
 
 Shape& Shape1167 =  Shape();
 Appearance& Appearance1168 =  Appearance();
+Appearance1168.setContainerField("appearance");
 Material& Material1169 =  Material();
+Material1169.setContainerField("material");
 Material1169.setAmbientIntensity(0);
 Material1169.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1169.setShininess(1);
@@ -5173,7 +5627,9 @@ Scene15.addChild(&Shape1167);
 
 Shape& Shape1172 =  Shape();
 Appearance& Appearance1173 =  Appearance();
+Appearance1173.setContainerField("appearance");
 Material& Material1174 =  Material();
+Material1174.setContainerField("material");
 Material1174.setAmbientIntensity(0);
 Material1174.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1174.setShininess(1);
@@ -5195,7 +5651,9 @@ Scene15.addChild(&Shape1172);
 
 Shape& Shape1177 =  Shape();
 Appearance& Appearance1178 =  Appearance();
+Appearance1178.setContainerField("appearance");
 Material& Material1179 =  Material();
+Material1179.setContainerField("material");
 Material1179.setAmbientIntensity(0);
 Material1179.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1179.setShininess(1);
@@ -5217,7 +5675,9 @@ Scene15.addChild(&Shape1177);
 
 Shape& Shape1182 =  Shape();
 Appearance& Appearance1183 =  Appearance();
+Appearance1183.setContainerField("appearance");
 Material& Material1184 =  Material();
+Material1184.setContainerField("material");
 Material1184.setAmbientIntensity(0);
 Material1184.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1184.setShininess(1);
@@ -5239,7 +5699,9 @@ Scene15.addChild(&Shape1182);
 
 Shape& Shape1187 =  Shape();
 Appearance& Appearance1188 =  Appearance();
+Appearance1188.setContainerField("appearance");
 Material& Material1189 =  Material();
+Material1189.setContainerField("material");
 Material1189.setAmbientIntensity(0);
 Material1189.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1189.setShininess(1);
@@ -5261,7 +5723,9 @@ Scene15.addChild(&Shape1187);
 
 Shape& Shape1192 =  Shape();
 Appearance& Appearance1193 =  Appearance();
+Appearance1193.setContainerField("appearance");
 Material& Material1194 =  Material();
+Material1194.setContainerField("material");
 Material1194.setAmbientIntensity(0);
 Material1194.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1194.setShininess(1);
@@ -5283,7 +5747,9 @@ Scene15.addChild(&Shape1192);
 
 Shape& Shape1197 =  Shape();
 Appearance& Appearance1198 =  Appearance();
+Appearance1198.setContainerField("appearance");
 Material& Material1199 =  Material();
+Material1199.setContainerField("material");
 Material1199.setAmbientIntensity(0);
 Material1199.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1199.setShininess(1);
@@ -5305,7 +5771,9 @@ Scene15.addChild(&Shape1197);
 
 Shape& Shape1202 =  Shape();
 Appearance& Appearance1203 =  Appearance();
+Appearance1203.setContainerField("appearance");
 Material& Material1204 =  Material();
+Material1204.setContainerField("material");
 Material1204.setAmbientIntensity(0);
 Material1204.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1204.setShininess(1);
@@ -5327,7 +5795,9 @@ Scene15.addChild(&Shape1202);
 
 Shape& Shape1207 =  Shape();
 Appearance& Appearance1208 =  Appearance();
+Appearance1208.setContainerField("appearance");
 Material& Material1209 =  Material();
+Material1209.setContainerField("material");
 Material1209.setAmbientIntensity(0);
 Material1209.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1209.setShininess(1);
@@ -5349,7 +5819,9 @@ Scene15.addChild(&Shape1207);
 
 Shape& Shape1212 =  Shape();
 Appearance& Appearance1213 =  Appearance();
+Appearance1213.setContainerField("appearance");
 Material& Material1214 =  Material();
+Material1214.setContainerField("material");
 Material1214.setAmbientIntensity(0);
 Material1214.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1214.setShininess(1);
@@ -5371,7 +5843,9 @@ Scene15.addChild(&Shape1212);
 
 Shape& Shape1217 =  Shape();
 Appearance& Appearance1218 =  Appearance();
+Appearance1218.setContainerField("appearance");
 Material& Material1219 =  Material();
+Material1219.setContainerField("material");
 Material1219.setAmbientIntensity(0);
 Material1219.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1219.setShininess(1);
@@ -5393,7 +5867,9 @@ Scene15.addChild(&Shape1217);
 
 Shape& Shape1222 =  Shape();
 Appearance& Appearance1223 =  Appearance();
+Appearance1223.setContainerField("appearance");
 Material& Material1224 =  Material();
+Material1224.setContainerField("material");
 Material1224.setAmbientIntensity(0);
 Material1224.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1224.setShininess(1);
@@ -5415,7 +5891,9 @@ Scene15.addChild(&Shape1222);
 
 Shape& Shape1227 =  Shape();
 Appearance& Appearance1228 =  Appearance();
+Appearance1228.setContainerField("appearance");
 Material& Material1229 =  Material();
+Material1229.setContainerField("material");
 Material1229.setAmbientIntensity(0);
 Material1229.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1229.setShininess(1);
@@ -5437,7 +5915,9 @@ Scene15.addChild(&Shape1227);
 
 Shape& Shape1232 =  Shape();
 Appearance& Appearance1233 =  Appearance();
+Appearance1233.setContainerField("appearance");
 Material& Material1234 =  Material();
+Material1234.setContainerField("material");
 Material1234.setAmbientIntensity(0);
 Material1234.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1234.setShininess(1);
@@ -5459,7 +5939,9 @@ Scene15.addChild(&Shape1232);
 
 Shape& Shape1237 =  Shape();
 Appearance& Appearance1238 =  Appearance();
+Appearance1238.setContainerField("appearance");
 Material& Material1239 =  Material();
+Material1239.setContainerField("material");
 Material1239.setAmbientIntensity(0);
 Material1239.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1239.setShininess(1);
@@ -5481,7 +5963,9 @@ Scene15.addChild(&Shape1237);
 
 Shape& Shape1242 =  Shape();
 Appearance& Appearance1243 =  Appearance();
+Appearance1243.setContainerField("appearance");
 Material& Material1244 =  Material();
+Material1244.setContainerField("material");
 Material1244.setAmbientIntensity(0);
 Material1244.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1244.setShininess(1);
@@ -5503,7 +5987,9 @@ Scene15.addChild(&Shape1242);
 
 Shape& Shape1247 =  Shape();
 Appearance& Appearance1248 =  Appearance();
+Appearance1248.setContainerField("appearance");
 Material& Material1249 =  Material();
+Material1249.setContainerField("material");
 Material1249.setAmbientIntensity(0);
 Material1249.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1249.setShininess(1);
@@ -5525,7 +6011,9 @@ Scene15.addChild(&Shape1247);
 
 Shape& Shape1252 =  Shape();
 Appearance& Appearance1253 =  Appearance();
+Appearance1253.setContainerField("appearance");
 Material& Material1254 =  Material();
+Material1254.setContainerField("material");
 Material1254.setAmbientIntensity(0);
 Material1254.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1254.setShininess(1);
@@ -5547,7 +6035,9 @@ Scene15.addChild(&Shape1252);
 
 Shape& Shape1257 =  Shape();
 Appearance& Appearance1258 =  Appearance();
+Appearance1258.setContainerField("appearance");
 Material& Material1259 =  Material();
+Material1259.setContainerField("material");
 Material1259.setAmbientIntensity(0);
 Material1259.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1259.setShininess(1);
@@ -5569,7 +6059,9 @@ Scene15.addChild(&Shape1257);
 
 Shape& Shape1262 =  Shape();
 Appearance& Appearance1263 =  Appearance();
+Appearance1263.setContainerField("appearance");
 Material& Material1264 =  Material();
+Material1264.setContainerField("material");
 Material1264.setAmbientIntensity(0);
 Material1264.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1264.setShininess(1);
@@ -5591,7 +6083,9 @@ Scene15.addChild(&Shape1262);
 
 Shape& Shape1267 =  Shape();
 Appearance& Appearance1268 =  Appearance();
+Appearance1268.setContainerField("appearance");
 Material& Material1269 =  Material();
+Material1269.setContainerField("material");
 Material1269.setAmbientIntensity(0);
 Material1269.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1269.setShininess(1);
@@ -5613,7 +6107,9 @@ Scene15.addChild(&Shape1267);
 
 Shape& Shape1272 =  Shape();
 Appearance& Appearance1273 =  Appearance();
+Appearance1273.setContainerField("appearance");
 Material& Material1274 =  Material();
+Material1274.setContainerField("material");
 Material1274.setAmbientIntensity(0);
 Material1274.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1274.setShininess(1);
@@ -5635,7 +6131,9 @@ Scene15.addChild(&Shape1272);
 
 Shape& Shape1277 =  Shape();
 Appearance& Appearance1278 =  Appearance();
+Appearance1278.setContainerField("appearance");
 Material& Material1279 =  Material();
+Material1279.setContainerField("material");
 Material1279.setAmbientIntensity(0);
 Material1279.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1279.setShininess(1);
@@ -5657,7 +6155,9 @@ Scene15.addChild(&Shape1277);
 
 Shape& Shape1282 =  Shape();
 Appearance& Appearance1283 =  Appearance();
+Appearance1283.setContainerField("appearance");
 Material& Material1284 =  Material();
+Material1284.setContainerField("material");
 Material1284.setAmbientIntensity(0);
 Material1284.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1284.setShininess(1);
@@ -5679,7 +6179,9 @@ Scene15.addChild(&Shape1282);
 
 Shape& Shape1287 =  Shape();
 Appearance& Appearance1288 =  Appearance();
+Appearance1288.setContainerField("appearance");
 Material& Material1289 =  Material();
+Material1289.setContainerField("material");
 Material1289.setAmbientIntensity(0);
 Material1289.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1289.setShininess(1);
@@ -5701,7 +6203,9 @@ Scene15.addChild(&Shape1287);
 
 Shape& Shape1292 =  Shape();
 Appearance& Appearance1293 =  Appearance();
+Appearance1293.setContainerField("appearance");
 Material& Material1294 =  Material();
+Material1294.setContainerField("material");
 Material1294.setAmbientIntensity(0);
 Material1294.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1294.setShininess(1);
@@ -5723,7 +6227,9 @@ Scene15.addChild(&Shape1292);
 
 Shape& Shape1297 =  Shape();
 Appearance& Appearance1298 =  Appearance();
+Appearance1298.setContainerField("appearance");
 Material& Material1299 =  Material();
+Material1299.setContainerField("material");
 Material1299.setAmbientIntensity(0);
 Material1299.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1299.setShininess(1);
@@ -5745,7 +6251,9 @@ Scene15.addChild(&Shape1297);
 
 Shape& Shape1302 =  Shape();
 Appearance& Appearance1303 =  Appearance();
+Appearance1303.setContainerField("appearance");
 Material& Material1304 =  Material();
+Material1304.setContainerField("material");
 Material1304.setAmbientIntensity(0);
 Material1304.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1304.setShininess(1);
@@ -5767,7 +6275,9 @@ Scene15.addChild(&Shape1302);
 
 Shape& Shape1307 =  Shape();
 Appearance& Appearance1308 =  Appearance();
+Appearance1308.setContainerField("appearance");
 Material& Material1309 =  Material();
+Material1309.setContainerField("material");
 Material1309.setAmbientIntensity(0);
 Material1309.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1309.setShininess(1);
@@ -5789,7 +6299,9 @@ Scene15.addChild(&Shape1307);
 
 Shape& Shape1312 =  Shape();
 Appearance& Appearance1313 =  Appearance();
+Appearance1313.setContainerField("appearance");
 Material& Material1314 =  Material();
+Material1314.setContainerField("material");
 Material1314.setAmbientIntensity(0);
 Material1314.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1314.setShininess(1);
@@ -5811,7 +6323,9 @@ Scene15.addChild(&Shape1312);
 
 Shape& Shape1317 =  Shape();
 Appearance& Appearance1318 =  Appearance();
+Appearance1318.setContainerField("appearance");
 Material& Material1319 =  Material();
+Material1319.setContainerField("material");
 Material1319.setAmbientIntensity(0);
 Material1319.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1319.setShininess(1);
@@ -5833,7 +6347,9 @@ Scene15.addChild(&Shape1317);
 
 Shape& Shape1322 =  Shape();
 Appearance& Appearance1323 =  Appearance();
+Appearance1323.setContainerField("appearance");
 Material& Material1324 =  Material();
+Material1324.setContainerField("material");
 Material1324.setAmbientIntensity(0);
 Material1324.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1324.setShininess(1);
@@ -5855,7 +6371,9 @@ Scene15.addChild(&Shape1322);
 
 Shape& Shape1327 =  Shape();
 Appearance& Appearance1328 =  Appearance();
+Appearance1328.setContainerField("appearance");
 Material& Material1329 =  Material();
+Material1329.setContainerField("material");
 Material1329.setAmbientIntensity(0);
 Material1329.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1329.setShininess(1);
@@ -5877,7 +6395,9 @@ Scene15.addChild(&Shape1327);
 
 Shape& Shape1332 =  Shape();
 Appearance& Appearance1333 =  Appearance();
+Appearance1333.setContainerField("appearance");
 Material& Material1334 =  Material();
+Material1334.setContainerField("material");
 Material1334.setAmbientIntensity(0);
 Material1334.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1334.setShininess(1);
@@ -5899,7 +6419,9 @@ Scene15.addChild(&Shape1332);
 
 Shape& Shape1337 =  Shape();
 Appearance& Appearance1338 =  Appearance();
+Appearance1338.setContainerField("appearance");
 Material& Material1339 =  Material();
+Material1339.setContainerField("material");
 Material1339.setAmbientIntensity(0);
 Material1339.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1339.setShininess(1);
@@ -5921,7 +6443,9 @@ Scene15.addChild(&Shape1337);
 
 Shape& Shape1342 =  Shape();
 Appearance& Appearance1343 =  Appearance();
+Appearance1343.setContainerField("appearance");
 Material& Material1344 =  Material();
+Material1344.setContainerField("material");
 Material1344.setAmbientIntensity(0);
 Material1344.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1344.setShininess(1);
@@ -5943,7 +6467,9 @@ Scene15.addChild(&Shape1342);
 
 Shape& Shape1347 =  Shape();
 Appearance& Appearance1348 =  Appearance();
+Appearance1348.setContainerField("appearance");
 Material& Material1349 =  Material();
+Material1349.setContainerField("material");
 Material1349.setAmbientIntensity(0);
 Material1349.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1349.setShininess(1);
@@ -5965,7 +6491,9 @@ Scene15.addChild(&Shape1347);
 
 Shape& Shape1352 =  Shape();
 Appearance& Appearance1353 =  Appearance();
+Appearance1353.setContainerField("appearance");
 Material& Material1354 =  Material();
+Material1354.setContainerField("material");
 Material1354.setAmbientIntensity(0);
 Material1354.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1354.setShininess(1);
@@ -5987,7 +6515,9 @@ Scene15.addChild(&Shape1352);
 
 Shape& Shape1357 =  Shape();
 Appearance& Appearance1358 =  Appearance();
+Appearance1358.setContainerField("appearance");
 Material& Material1359 =  Material();
+Material1359.setContainerField("material");
 Material1359.setAmbientIntensity(0);
 Material1359.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1359.setShininess(1);
@@ -6009,7 +6539,9 @@ Scene15.addChild(&Shape1357);
 
 Shape& Shape1362 =  Shape();
 Appearance& Appearance1363 =  Appearance();
+Appearance1363.setContainerField("appearance");
 Material& Material1364 =  Material();
+Material1364.setContainerField("material");
 Material1364.setAmbientIntensity(0);
 Material1364.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1364.setShininess(1);
@@ -6031,7 +6563,9 @@ Scene15.addChild(&Shape1362);
 
 Shape& Shape1367 =  Shape();
 Appearance& Appearance1368 =  Appearance();
+Appearance1368.setContainerField("appearance");
 Material& Material1369 =  Material();
+Material1369.setContainerField("material");
 Material1369.setAmbientIntensity(0);
 Material1369.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1369.setShininess(1);
@@ -6053,7 +6587,9 @@ Scene15.addChild(&Shape1367);
 
 Shape& Shape1372 =  Shape();
 Appearance& Appearance1373 =  Appearance();
+Appearance1373.setContainerField("appearance");
 Material& Material1374 =  Material();
+Material1374.setContainerField("material");
 Material1374.setAmbientIntensity(0);
 Material1374.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1374.setShininess(1);
@@ -6075,7 +6611,9 @@ Scene15.addChild(&Shape1372);
 
 Shape& Shape1377 =  Shape();
 Appearance& Appearance1378 =  Appearance();
+Appearance1378.setContainerField("appearance");
 Material& Material1379 =  Material();
+Material1379.setContainerField("material");
 Material1379.setAmbientIntensity(0);
 Material1379.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1379.setShininess(1);
@@ -6097,7 +6635,9 @@ Scene15.addChild(&Shape1377);
 
 Shape& Shape1382 =  Shape();
 Appearance& Appearance1383 =  Appearance();
+Appearance1383.setContainerField("appearance");
 Material& Material1384 =  Material();
+Material1384.setContainerField("material");
 Material1384.setAmbientIntensity(0);
 Material1384.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1384.setShininess(1);
@@ -6119,7 +6659,9 @@ Scene15.addChild(&Shape1382);
 
 Shape& Shape1387 =  Shape();
 Appearance& Appearance1388 =  Appearance();
+Appearance1388.setContainerField("appearance");
 Material& Material1389 =  Material();
+Material1389.setContainerField("material");
 Material1389.setAmbientIntensity(0);
 Material1389.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1389.setShininess(1);
@@ -6141,7 +6683,9 @@ Scene15.addChild(&Shape1387);
 
 Shape& Shape1392 =  Shape();
 Appearance& Appearance1393 =  Appearance();
+Appearance1393.setContainerField("appearance");
 Material& Material1394 =  Material();
+Material1394.setContainerField("material");
 Material1394.setAmbientIntensity(0);
 Material1394.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1394.setShininess(1);
@@ -6163,7 +6707,9 @@ Scene15.addChild(&Shape1392);
 
 Shape& Shape1397 =  Shape();
 Appearance& Appearance1398 =  Appearance();
+Appearance1398.setContainerField("appearance");
 Material& Material1399 =  Material();
+Material1399.setContainerField("material");
 Material1399.setAmbientIntensity(0);
 Material1399.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1399.setShininess(1);
@@ -6185,7 +6731,9 @@ Scene15.addChild(&Shape1397);
 
 Shape& Shape1402 =  Shape();
 Appearance& Appearance1403 =  Appearance();
+Appearance1403.setContainerField("appearance");
 Material& Material1404 =  Material();
+Material1404.setContainerField("material");
 Material1404.setAmbientIntensity(0);
 Material1404.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1404.setShininess(1);
@@ -6207,7 +6755,9 @@ Scene15.addChild(&Shape1402);
 
 Shape& Shape1407 =  Shape();
 Appearance& Appearance1408 =  Appearance();
+Appearance1408.setContainerField("appearance");
 Material& Material1409 =  Material();
+Material1409.setContainerField("material");
 Material1409.setAmbientIntensity(0);
 Material1409.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1409.setShininess(1);
@@ -6229,7 +6779,9 @@ Scene15.addChild(&Shape1407);
 
 Shape& Shape1412 =  Shape();
 Appearance& Appearance1413 =  Appearance();
+Appearance1413.setContainerField("appearance");
 Material& Material1414 =  Material();
+Material1414.setContainerField("material");
 Material1414.setAmbientIntensity(0);
 Material1414.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1414.setShininess(1);
@@ -6251,7 +6803,9 @@ Scene15.addChild(&Shape1412);
 
 Shape& Shape1417 =  Shape();
 Appearance& Appearance1418 =  Appearance();
+Appearance1418.setContainerField("appearance");
 Material& Material1419 =  Material();
+Material1419.setContainerField("material");
 Material1419.setAmbientIntensity(0);
 Material1419.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1419.setShininess(1);
@@ -6273,7 +6827,9 @@ Scene15.addChild(&Shape1417);
 
 Shape& Shape1422 =  Shape();
 Appearance& Appearance1423 =  Appearance();
+Appearance1423.setContainerField("appearance");
 Material& Material1424 =  Material();
+Material1424.setContainerField("material");
 Material1424.setAmbientIntensity(0);
 Material1424.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1424.setShininess(1);
@@ -6295,7 +6851,9 @@ Scene15.addChild(&Shape1422);
 
 Shape& Shape1427 =  Shape();
 Appearance& Appearance1428 =  Appearance();
+Appearance1428.setContainerField("appearance");
 Material& Material1429 =  Material();
+Material1429.setContainerField("material");
 Material1429.setAmbientIntensity(0);
 Material1429.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1429.setShininess(1);
@@ -6317,7 +6875,9 @@ Scene15.addChild(&Shape1427);
 
 Shape& Shape1432 =  Shape();
 Appearance& Appearance1433 =  Appearance();
+Appearance1433.setContainerField("appearance");
 Material& Material1434 =  Material();
+Material1434.setContainerField("material");
 Material1434.setAmbientIntensity(0);
 Material1434.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1434.setShininess(1);
@@ -6339,7 +6899,9 @@ Scene15.addChild(&Shape1432);
 
 Shape& Shape1437 =  Shape();
 Appearance& Appearance1438 =  Appearance();
+Appearance1438.setContainerField("appearance");
 Material& Material1439 =  Material();
+Material1439.setContainerField("material");
 Material1439.setAmbientIntensity(0);
 Material1439.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1439.setShininess(1);
@@ -6361,7 +6923,9 @@ Scene15.addChild(&Shape1437);
 
 Shape& Shape1442 =  Shape();
 Appearance& Appearance1443 =  Appearance();
+Appearance1443.setContainerField("appearance");
 Material& Material1444 =  Material();
+Material1444.setContainerField("material");
 Material1444.setAmbientIntensity(0);
 Material1444.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1444.setShininess(1);
@@ -6383,7 +6947,9 @@ Scene15.addChild(&Shape1442);
 
 Shape& Shape1447 =  Shape();
 Appearance& Appearance1448 =  Appearance();
+Appearance1448.setContainerField("appearance");
 Material& Material1449 =  Material();
+Material1449.setContainerField("material");
 Material1449.setAmbientIntensity(0);
 Material1449.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1449.setShininess(1);
@@ -6405,7 +6971,9 @@ Scene15.addChild(&Shape1447);
 
 Shape& Shape1452 =  Shape();
 Appearance& Appearance1453 =  Appearance();
+Appearance1453.setContainerField("appearance");
 Material& Material1454 =  Material();
+Material1454.setContainerField("material");
 Material1454.setAmbientIntensity(0);
 Material1454.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1454.setShininess(1);
@@ -6427,7 +6995,9 @@ Scene15.addChild(&Shape1452);
 
 Shape& Shape1457 =  Shape();
 Appearance& Appearance1458 =  Appearance();
+Appearance1458.setContainerField("appearance");
 Material& Material1459 =  Material();
+Material1459.setContainerField("material");
 Material1459.setAmbientIntensity(0);
 Material1459.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1459.setShininess(1);
@@ -6449,7 +7019,9 @@ Scene15.addChild(&Shape1457);
 
 Shape& Shape1462 =  Shape();
 Appearance& Appearance1463 =  Appearance();
+Appearance1463.setContainerField("appearance");
 Material& Material1464 =  Material();
+Material1464.setContainerField("material");
 Material1464.setAmbientIntensity(0);
 Material1464.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1464.setShininess(1);
@@ -6471,7 +7043,9 @@ Scene15.addChild(&Shape1462);
 
 Shape& Shape1467 =  Shape();
 Appearance& Appearance1468 =  Appearance();
+Appearance1468.setContainerField("appearance");
 Material& Material1469 =  Material();
+Material1469.setContainerField("material");
 Material1469.setAmbientIntensity(0);
 Material1469.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1469.setShininess(1);
@@ -6493,7 +7067,9 @@ Scene15.addChild(&Shape1467);
 
 Shape& Shape1472 =  Shape();
 Appearance& Appearance1473 =  Appearance();
+Appearance1473.setContainerField("appearance");
 Material& Material1474 =  Material();
+Material1474.setContainerField("material");
 Material1474.setAmbientIntensity(0);
 Material1474.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1474.setShininess(1);
@@ -6515,7 +7091,9 @@ Scene15.addChild(&Shape1472);
 
 Shape& Shape1477 =  Shape();
 Appearance& Appearance1478 =  Appearance();
+Appearance1478.setContainerField("appearance");
 Material& Material1479 =  Material();
+Material1479.setContainerField("material");
 Material1479.setAmbientIntensity(0);
 Material1479.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1479.setShininess(1);
@@ -6537,7 +7115,9 @@ Scene15.addChild(&Shape1477);
 
 Shape& Shape1482 =  Shape();
 Appearance& Appearance1483 =  Appearance();
+Appearance1483.setContainerField("appearance");
 Material& Material1484 =  Material();
+Material1484.setContainerField("material");
 Material1484.setAmbientIntensity(0);
 Material1484.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1484.setShininess(1);
@@ -6559,7 +7139,9 @@ Scene15.addChild(&Shape1482);
 
 Shape& Shape1487 =  Shape();
 Appearance& Appearance1488 =  Appearance();
+Appearance1488.setContainerField("appearance");
 Material& Material1489 =  Material();
+Material1489.setContainerField("material");
 Material1489.setAmbientIntensity(0);
 Material1489.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1489.setShininess(1);
@@ -6581,7 +7163,9 @@ Scene15.addChild(&Shape1487);
 
 Shape& Shape1492 =  Shape();
 Appearance& Appearance1493 =  Appearance();
+Appearance1493.setContainerField("appearance");
 Material& Material1494 =  Material();
+Material1494.setContainerField("material");
 Material1494.setAmbientIntensity(0);
 Material1494.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1494.setShininess(1);
@@ -6603,7 +7187,9 @@ Scene15.addChild(&Shape1492);
 
 Shape& Shape1497 =  Shape();
 Appearance& Appearance1498 =  Appearance();
+Appearance1498.setContainerField("appearance");
 Material& Material1499 =  Material();
+Material1499.setContainerField("material");
 Material1499.setAmbientIntensity(0);
 Material1499.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1499.setShininess(1);
@@ -6625,7 +7211,9 @@ Scene15.addChild(&Shape1497);
 
 Shape& Shape1502 =  Shape();
 Appearance& Appearance1503 =  Appearance();
+Appearance1503.setContainerField("appearance");
 Material& Material1504 =  Material();
+Material1504.setContainerField("material");
 Material1504.setAmbientIntensity(0);
 Material1504.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1504.setShininess(1);
@@ -6647,7 +7235,9 @@ Scene15.addChild(&Shape1502);
 
 Shape& Shape1507 =  Shape();
 Appearance& Appearance1508 =  Appearance();
+Appearance1508.setContainerField("appearance");
 Material& Material1509 =  Material();
+Material1509.setContainerField("material");
 Material1509.setAmbientIntensity(0);
 Material1509.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1509.setShininess(1);
@@ -6669,7 +7259,9 @@ Scene15.addChild(&Shape1507);
 
 Shape& Shape1512 =  Shape();
 Appearance& Appearance1513 =  Appearance();
+Appearance1513.setContainerField("appearance");
 Material& Material1514 =  Material();
+Material1514.setContainerField("material");
 Material1514.setAmbientIntensity(0);
 Material1514.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1514.setShininess(1);
@@ -6691,7 +7283,9 @@ Scene15.addChild(&Shape1512);
 
 Shape& Shape1517 =  Shape();
 Appearance& Appearance1518 =  Appearance();
+Appearance1518.setContainerField("appearance");
 Material& Material1519 =  Material();
+Material1519.setContainerField("material");
 Material1519.setAmbientIntensity(0);
 Material1519.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1519.setShininess(1);
@@ -6713,7 +7307,9 @@ Scene15.addChild(&Shape1517);
 
 Shape& Shape1522 =  Shape();
 Appearance& Appearance1523 =  Appearance();
+Appearance1523.setContainerField("appearance");
 Material& Material1524 =  Material();
+Material1524.setContainerField("material");
 Material1524.setAmbientIntensity(0);
 Material1524.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1524.setShininess(1);
@@ -6735,7 +7331,9 @@ Scene15.addChild(&Shape1522);
 
 Shape& Shape1527 =  Shape();
 Appearance& Appearance1528 =  Appearance();
+Appearance1528.setContainerField("appearance");
 Material& Material1529 =  Material();
+Material1529.setContainerField("material");
 Material1529.setAmbientIntensity(0);
 Material1529.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1529.setShininess(1);
@@ -6757,7 +7355,9 @@ Scene15.addChild(&Shape1527);
 
 Shape& Shape1532 =  Shape();
 Appearance& Appearance1533 =  Appearance();
+Appearance1533.setContainerField("appearance");
 Material& Material1534 =  Material();
+Material1534.setContainerField("material");
 Material1534.setAmbientIntensity(0);
 Material1534.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1534.setShininess(1);
@@ -6779,7 +7379,9 @@ Scene15.addChild(&Shape1532);
 
 Shape& Shape1537 =  Shape();
 Appearance& Appearance1538 =  Appearance();
+Appearance1538.setContainerField("appearance");
 Material& Material1539 =  Material();
+Material1539.setContainerField("material");
 Material1539.setAmbientIntensity(0);
 Material1539.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1539.setShininess(1);
@@ -6801,7 +7403,9 @@ Scene15.addChild(&Shape1537);
 
 Shape& Shape1542 =  Shape();
 Appearance& Appearance1543 =  Appearance();
+Appearance1543.setContainerField("appearance");
 Material& Material1544 =  Material();
+Material1544.setContainerField("material");
 Material1544.setAmbientIntensity(0);
 Material1544.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1544.setShininess(1);
@@ -6823,7 +7427,9 @@ Scene15.addChild(&Shape1542);
 
 Shape& Shape1547 =  Shape();
 Appearance& Appearance1548 =  Appearance();
+Appearance1548.setContainerField("appearance");
 Material& Material1549 =  Material();
+Material1549.setContainerField("material");
 Material1549.setAmbientIntensity(0);
 Material1549.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1549.setShininess(1);
@@ -6845,7 +7451,9 @@ Scene15.addChild(&Shape1547);
 
 Shape& Shape1552 =  Shape();
 Appearance& Appearance1553 =  Appearance();
+Appearance1553.setContainerField("appearance");
 Material& Material1554 =  Material();
+Material1554.setContainerField("material");
 Material1554.setAmbientIntensity(0);
 Material1554.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1554.setShininess(1);
@@ -6867,7 +7475,9 @@ Scene15.addChild(&Shape1552);
 
 Shape& Shape1557 =  Shape();
 Appearance& Appearance1558 =  Appearance();
+Appearance1558.setContainerField("appearance");
 Material& Material1559 =  Material();
+Material1559.setContainerField("material");
 Material1559.setAmbientIntensity(0);
 Material1559.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1559.setShininess(1);
@@ -6889,7 +7499,9 @@ Scene15.addChild(&Shape1557);
 
 Shape& Shape1562 =  Shape();
 Appearance& Appearance1563 =  Appearance();
+Appearance1563.setContainerField("appearance");
 Material& Material1564 =  Material();
+Material1564.setContainerField("material");
 Material1564.setAmbientIntensity(0);
 Material1564.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1564.setShininess(1);
@@ -6911,7 +7523,9 @@ Scene15.addChild(&Shape1562);
 
 Shape& Shape1567 =  Shape();
 Appearance& Appearance1568 =  Appearance();
+Appearance1568.setContainerField("appearance");
 Material& Material1569 =  Material();
+Material1569.setContainerField("material");
 Material1569.setAmbientIntensity(0);
 Material1569.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1569.setShininess(1);
@@ -6933,7 +7547,9 @@ Scene15.addChild(&Shape1567);
 
 Shape& Shape1572 =  Shape();
 Appearance& Appearance1573 =  Appearance();
+Appearance1573.setContainerField("appearance");
 Material& Material1574 =  Material();
+Material1574.setContainerField("material");
 Material1574.setAmbientIntensity(0);
 Material1574.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1574.setShininess(1);
@@ -6955,7 +7571,9 @@ Scene15.addChild(&Shape1572);
 
 Shape& Shape1577 =  Shape();
 Appearance& Appearance1578 =  Appearance();
+Appearance1578.setContainerField("appearance");
 Material& Material1579 =  Material();
+Material1579.setContainerField("material");
 Material1579.setAmbientIntensity(0);
 Material1579.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1579.setShininess(1);
@@ -6977,7 +7595,9 @@ Scene15.addChild(&Shape1577);
 
 Shape& Shape1582 =  Shape();
 Appearance& Appearance1583 =  Appearance();
+Appearance1583.setContainerField("appearance");
 Material& Material1584 =  Material();
+Material1584.setContainerField("material");
 Material1584.setAmbientIntensity(0);
 Material1584.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1584.setShininess(1);
@@ -6999,7 +7619,9 @@ Scene15.addChild(&Shape1582);
 
 Shape& Shape1587 =  Shape();
 Appearance& Appearance1588 =  Appearance();
+Appearance1588.setContainerField("appearance");
 Material& Material1589 =  Material();
+Material1589.setContainerField("material");
 Material1589.setAmbientIntensity(0);
 Material1589.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1589.setShininess(1);
@@ -7021,7 +7643,9 @@ Scene15.addChild(&Shape1587);
 
 Shape& Shape1592 =  Shape();
 Appearance& Appearance1593 =  Appearance();
+Appearance1593.setContainerField("appearance");
 Material& Material1594 =  Material();
+Material1594.setContainerField("material");
 Material1594.setAmbientIntensity(0);
 Material1594.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1594.setShininess(1);
@@ -7043,7 +7667,9 @@ Scene15.addChild(&Shape1592);
 
 Shape& Shape1597 =  Shape();
 Appearance& Appearance1598 =  Appearance();
+Appearance1598.setContainerField("appearance");
 Material& Material1599 =  Material();
+Material1599.setContainerField("material");
 Material1599.setAmbientIntensity(0);
 Material1599.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1599.setShininess(1);
@@ -7065,7 +7691,9 @@ Scene15.addChild(&Shape1597);
 
 Shape& Shape1602 =  Shape();
 Appearance& Appearance1603 =  Appearance();
+Appearance1603.setContainerField("appearance");
 Material& Material1604 =  Material();
+Material1604.setContainerField("material");
 Material1604.setAmbientIntensity(0);
 Material1604.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1604.setShininess(1);
@@ -7087,7 +7715,9 @@ Scene15.addChild(&Shape1602);
 
 Shape& Shape1607 =  Shape();
 Appearance& Appearance1608 =  Appearance();
+Appearance1608.setContainerField("appearance");
 Material& Material1609 =  Material();
+Material1609.setContainerField("material");
 Material1609.setAmbientIntensity(0);
 Material1609.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1609.setShininess(1);
@@ -7109,7 +7739,9 @@ Scene15.addChild(&Shape1607);
 
 Shape& Shape1612 =  Shape();
 Appearance& Appearance1613 =  Appearance();
+Appearance1613.setContainerField("appearance");
 Material& Material1614 =  Material();
+Material1614.setContainerField("material");
 Material1614.setAmbientIntensity(0);
 Material1614.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1614.setShininess(1);
@@ -7131,7 +7763,9 @@ Scene15.addChild(&Shape1612);
 
 Shape& Shape1617 =  Shape();
 Appearance& Appearance1618 =  Appearance();
+Appearance1618.setContainerField("appearance");
 Material& Material1619 =  Material();
+Material1619.setContainerField("material");
 Material1619.setAmbientIntensity(0);
 Material1619.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1619.setShininess(1);
@@ -7153,7 +7787,9 @@ Scene15.addChild(&Shape1617);
 
 Shape& Shape1622 =  Shape();
 Appearance& Appearance1623 =  Appearance();
+Appearance1623.setContainerField("appearance");
 Material& Material1624 =  Material();
+Material1624.setContainerField("material");
 Material1624.setAmbientIntensity(0);
 Material1624.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1624.setShininess(1);
@@ -7175,7 +7811,9 @@ Scene15.addChild(&Shape1622);
 
 Shape& Shape1627 =  Shape();
 Appearance& Appearance1628 =  Appearance();
+Appearance1628.setContainerField("appearance");
 Material& Material1629 =  Material();
+Material1629.setContainerField("material");
 Material1629.setAmbientIntensity(0);
 Material1629.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1629.setShininess(1);
@@ -7197,7 +7835,9 @@ Scene15.addChild(&Shape1627);
 
 Shape& Shape1632 =  Shape();
 Appearance& Appearance1633 =  Appearance();
+Appearance1633.setContainerField("appearance");
 Material& Material1634 =  Material();
+Material1634.setContainerField("material");
 Material1634.setAmbientIntensity(0);
 Material1634.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1634.setShininess(1);
@@ -7219,7 +7859,9 @@ Scene15.addChild(&Shape1632);
 
 Shape& Shape1637 =  Shape();
 Appearance& Appearance1638 =  Appearance();
+Appearance1638.setContainerField("appearance");
 Material& Material1639 =  Material();
+Material1639.setContainerField("material");
 Material1639.setAmbientIntensity(0);
 Material1639.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1639.setShininess(1);
@@ -7241,7 +7883,9 @@ Scene15.addChild(&Shape1637);
 
 Shape& Shape1642 =  Shape();
 Appearance& Appearance1643 =  Appearance();
+Appearance1643.setContainerField("appearance");
 Material& Material1644 =  Material();
+Material1644.setContainerField("material");
 Material1644.setAmbientIntensity(0);
 Material1644.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1644.setShininess(1);
@@ -7263,7 +7907,9 @@ Scene15.addChild(&Shape1642);
 
 Shape& Shape1647 =  Shape();
 Appearance& Appearance1648 =  Appearance();
+Appearance1648.setContainerField("appearance");
 Material& Material1649 =  Material();
+Material1649.setContainerField("material");
 Material1649.setAmbientIntensity(0);
 Material1649.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1649.setShininess(1);
@@ -7285,7 +7931,9 @@ Scene15.addChild(&Shape1647);
 
 Shape& Shape1652 =  Shape();
 Appearance& Appearance1653 =  Appearance();
+Appearance1653.setContainerField("appearance");
 Material& Material1654 =  Material();
+Material1654.setContainerField("material");
 Material1654.setAmbientIntensity(0);
 Material1654.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1654.setShininess(1);
@@ -7307,7 +7955,9 @@ Scene15.addChild(&Shape1652);
 
 Shape& Shape1657 =  Shape();
 Appearance& Appearance1658 =  Appearance();
+Appearance1658.setContainerField("appearance");
 Material& Material1659 =  Material();
+Material1659.setContainerField("material");
 Material1659.setAmbientIntensity(0);
 Material1659.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1659.setShininess(1);
@@ -7329,7 +7979,9 @@ Scene15.addChild(&Shape1657);
 
 Shape& Shape1662 =  Shape();
 Appearance& Appearance1663 =  Appearance();
+Appearance1663.setContainerField("appearance");
 Material& Material1664 =  Material();
+Material1664.setContainerField("material");
 Material1664.setAmbientIntensity(0);
 Material1664.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1664.setShininess(1);
@@ -7351,7 +8003,9 @@ Scene15.addChild(&Shape1662);
 
 Shape& Shape1667 =  Shape();
 Appearance& Appearance1668 =  Appearance();
+Appearance1668.setContainerField("appearance");
 Material& Material1669 =  Material();
+Material1669.setContainerField("material");
 Material1669.setAmbientIntensity(0);
 Material1669.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1669.setShininess(1);
@@ -7373,7 +8027,9 @@ Scene15.addChild(&Shape1667);
 
 Shape& Shape1672 =  Shape();
 Appearance& Appearance1673 =  Appearance();
+Appearance1673.setContainerField("appearance");
 Material& Material1674 =  Material();
+Material1674.setContainerField("material");
 Material1674.setAmbientIntensity(0);
 Material1674.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1674.setShininess(1);
@@ -7395,7 +8051,9 @@ Scene15.addChild(&Shape1672);
 
 Shape& Shape1677 =  Shape();
 Appearance& Appearance1678 =  Appearance();
+Appearance1678.setContainerField("appearance");
 Material& Material1679 =  Material();
+Material1679.setContainerField("material");
 Material1679.setAmbientIntensity(0);
 Material1679.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1679.setShininess(1);
@@ -7417,7 +8075,9 @@ Scene15.addChild(&Shape1677);
 
 Shape& Shape1682 =  Shape();
 Appearance& Appearance1683 =  Appearance();
+Appearance1683.setContainerField("appearance");
 Material& Material1684 =  Material();
+Material1684.setContainerField("material");
 Material1684.setAmbientIntensity(0);
 Material1684.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1684.setShininess(1);
@@ -7439,7 +8099,9 @@ Scene15.addChild(&Shape1682);
 
 Shape& Shape1687 =  Shape();
 Appearance& Appearance1688 =  Appearance();
+Appearance1688.setContainerField("appearance");
 Material& Material1689 =  Material();
+Material1689.setContainerField("material");
 Material1689.setAmbientIntensity(0);
 Material1689.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1689.setShininess(1);
@@ -7461,7 +8123,9 @@ Scene15.addChild(&Shape1687);
 
 Shape& Shape1692 =  Shape();
 Appearance& Appearance1693 =  Appearance();
+Appearance1693.setContainerField("appearance");
 Material& Material1694 =  Material();
+Material1694.setContainerField("material");
 Material1694.setAmbientIntensity(0);
 Material1694.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1694.setShininess(1);
@@ -7483,7 +8147,9 @@ Scene15.addChild(&Shape1692);
 
 Shape& Shape1697 =  Shape();
 Appearance& Appearance1698 =  Appearance();
+Appearance1698.setContainerField("appearance");
 Material& Material1699 =  Material();
+Material1699.setContainerField("material");
 Material1699.setAmbientIntensity(0);
 Material1699.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1699.setShininess(1);
@@ -7505,7 +8171,9 @@ Scene15.addChild(&Shape1697);
 
 Shape& Shape1702 =  Shape();
 Appearance& Appearance1703 =  Appearance();
+Appearance1703.setContainerField("appearance");
 Material& Material1704 =  Material();
+Material1704.setContainerField("material");
 Material1704.setAmbientIntensity(0);
 Material1704.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1704.setShininess(1);
@@ -7527,7 +8195,9 @@ Scene15.addChild(&Shape1702);
 
 Shape& Shape1707 =  Shape();
 Appearance& Appearance1708 =  Appearance();
+Appearance1708.setContainerField("appearance");
 Material& Material1709 =  Material();
+Material1709.setContainerField("material");
 Material1709.setAmbientIntensity(0);
 Material1709.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1709.setShininess(1);
@@ -7549,7 +8219,9 @@ Scene15.addChild(&Shape1707);
 
 Shape& Shape1712 =  Shape();
 Appearance& Appearance1713 =  Appearance();
+Appearance1713.setContainerField("appearance");
 Material& Material1714 =  Material();
+Material1714.setContainerField("material");
 Material1714.setAmbientIntensity(0);
 Material1714.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1714.setShininess(1);
@@ -7571,7 +8243,9 @@ Scene15.addChild(&Shape1712);
 
 Shape& Shape1717 =  Shape();
 Appearance& Appearance1718 =  Appearance();
+Appearance1718.setContainerField("appearance");
 Material& Material1719 =  Material();
+Material1719.setContainerField("material");
 Material1719.setAmbientIntensity(0);
 Material1719.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1719.setShininess(1);
@@ -7593,7 +8267,9 @@ Scene15.addChild(&Shape1717);
 
 Shape& Shape1722 =  Shape();
 Appearance& Appearance1723 =  Appearance();
+Appearance1723.setContainerField("appearance");
 Material& Material1724 =  Material();
+Material1724.setContainerField("material");
 Material1724.setAmbientIntensity(0);
 Material1724.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1724.setShininess(1);
@@ -7615,7 +8291,9 @@ Scene15.addChild(&Shape1722);
 
 Shape& Shape1727 =  Shape();
 Appearance& Appearance1728 =  Appearance();
+Appearance1728.setContainerField("appearance");
 Material& Material1729 =  Material();
+Material1729.setContainerField("material");
 Material1729.setAmbientIntensity(0);
 Material1729.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1729.setShininess(1);
@@ -7637,7 +8315,9 @@ Scene15.addChild(&Shape1727);
 
 Shape& Shape1732 =  Shape();
 Appearance& Appearance1733 =  Appearance();
+Appearance1733.setContainerField("appearance");
 Material& Material1734 =  Material();
+Material1734.setContainerField("material");
 Material1734.setAmbientIntensity(0);
 Material1734.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1734.setShininess(1);
@@ -7659,7 +8339,9 @@ Scene15.addChild(&Shape1732);
 
 Shape& Shape1737 =  Shape();
 Appearance& Appearance1738 =  Appearance();
+Appearance1738.setContainerField("appearance");
 Material& Material1739 =  Material();
+Material1739.setContainerField("material");
 Material1739.setAmbientIntensity(0);
 Material1739.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1739.setShininess(1);
@@ -7681,7 +8363,9 @@ Scene15.addChild(&Shape1737);
 
 Shape& Shape1742 =  Shape();
 Appearance& Appearance1743 =  Appearance();
+Appearance1743.setContainerField("appearance");
 Material& Material1744 =  Material();
+Material1744.setContainerField("material");
 Material1744.setAmbientIntensity(0);
 Material1744.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1744.setShininess(1);
@@ -7703,7 +8387,9 @@ Scene15.addChild(&Shape1742);
 
 Shape& Shape1747 =  Shape();
 Appearance& Appearance1748 =  Appearance();
+Appearance1748.setContainerField("appearance");
 Material& Material1749 =  Material();
+Material1749.setContainerField("material");
 Material1749.setAmbientIntensity(0);
 Material1749.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1749.setShininess(1);
@@ -7725,7 +8411,9 @@ Scene15.addChild(&Shape1747);
 
 Shape& Shape1752 =  Shape();
 Appearance& Appearance1753 =  Appearance();
+Appearance1753.setContainerField("appearance");
 Material& Material1754 =  Material();
+Material1754.setContainerField("material");
 Material1754.setAmbientIntensity(0);
 Material1754.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1754.setShininess(1);
@@ -7747,7 +8435,9 @@ Scene15.addChild(&Shape1752);
 
 Shape& Shape1757 =  Shape();
 Appearance& Appearance1758 =  Appearance();
+Appearance1758.setContainerField("appearance");
 Material& Material1759 =  Material();
+Material1759.setContainerField("material");
 Material1759.setAmbientIntensity(0);
 Material1759.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1759.setShininess(1);
@@ -7769,7 +8459,9 @@ Scene15.addChild(&Shape1757);
 
 Shape& Shape1762 =  Shape();
 Appearance& Appearance1763 =  Appearance();
+Appearance1763.setContainerField("appearance");
 Material& Material1764 =  Material();
+Material1764.setContainerField("material");
 Material1764.setAmbientIntensity(0);
 Material1764.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1764.setShininess(1);
@@ -7791,7 +8483,9 @@ Scene15.addChild(&Shape1762);
 
 Shape& Shape1767 =  Shape();
 Appearance& Appearance1768 =  Appearance();
+Appearance1768.setContainerField("appearance");
 Material& Material1769 =  Material();
+Material1769.setContainerField("material");
 Material1769.setAmbientIntensity(0);
 Material1769.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1769.setShininess(1);
@@ -7813,7 +8507,9 @@ Scene15.addChild(&Shape1767);
 
 Shape& Shape1772 =  Shape();
 Appearance& Appearance1773 =  Appearance();
+Appearance1773.setContainerField("appearance");
 Material& Material1774 =  Material();
+Material1774.setContainerField("material");
 Material1774.setAmbientIntensity(0);
 Material1774.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1774.setShininess(1);
@@ -7835,7 +8531,9 @@ Scene15.addChild(&Shape1772);
 
 Shape& Shape1777 =  Shape();
 Appearance& Appearance1778 =  Appearance();
+Appearance1778.setContainerField("appearance");
 Material& Material1779 =  Material();
+Material1779.setContainerField("material");
 Material1779.setAmbientIntensity(0);
 Material1779.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1779.setShininess(1);
@@ -7857,7 +8555,9 @@ Scene15.addChild(&Shape1777);
 
 Shape& Shape1782 =  Shape();
 Appearance& Appearance1783 =  Appearance();
+Appearance1783.setContainerField("appearance");
 Material& Material1784 =  Material();
+Material1784.setContainerField("material");
 Material1784.setAmbientIntensity(0);
 Material1784.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1784.setShininess(1);
@@ -7879,7 +8579,9 @@ Scene15.addChild(&Shape1782);
 
 Shape& Shape1787 =  Shape();
 Appearance& Appearance1788 =  Appearance();
+Appearance1788.setContainerField("appearance");
 Material& Material1789 =  Material();
+Material1789.setContainerField("material");
 Material1789.setAmbientIntensity(0);
 Material1789.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1789.setShininess(1);
@@ -7901,7 +8603,9 @@ Scene15.addChild(&Shape1787);
 
 Shape& Shape1792 =  Shape();
 Appearance& Appearance1793 =  Appearance();
+Appearance1793.setContainerField("appearance");
 Material& Material1794 =  Material();
+Material1794.setContainerField("material");
 Material1794.setAmbientIntensity(0);
 Material1794.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1794.setShininess(1);
@@ -7923,7 +8627,9 @@ Scene15.addChild(&Shape1792);
 
 Shape& Shape1797 =  Shape();
 Appearance& Appearance1798 =  Appearance();
+Appearance1798.setContainerField("appearance");
 Material& Material1799 =  Material();
+Material1799.setContainerField("material");
 Material1799.setAmbientIntensity(0);
 Material1799.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1799.setShininess(1);
@@ -7945,7 +8651,9 @@ Scene15.addChild(&Shape1797);
 
 Shape& Shape1802 =  Shape();
 Appearance& Appearance1803 =  Appearance();
+Appearance1803.setContainerField("appearance");
 Material& Material1804 =  Material();
+Material1804.setContainerField("material");
 Material1804.setAmbientIntensity(0);
 Material1804.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1804.setShininess(1);
@@ -7967,7 +8675,9 @@ Scene15.addChild(&Shape1802);
 
 Shape& Shape1807 =  Shape();
 Appearance& Appearance1808 =  Appearance();
+Appearance1808.setContainerField("appearance");
 Material& Material1809 =  Material();
+Material1809.setContainerField("material");
 Material1809.setAmbientIntensity(0);
 Material1809.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1809.setShininess(1);
@@ -7989,7 +8699,9 @@ Scene15.addChild(&Shape1807);
 
 Shape& Shape1812 =  Shape();
 Appearance& Appearance1813 =  Appearance();
+Appearance1813.setContainerField("appearance");
 Material& Material1814 =  Material();
+Material1814.setContainerField("material");
 Material1814.setAmbientIntensity(0);
 Material1814.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1814.setShininess(1);
@@ -8011,7 +8723,9 @@ Scene15.addChild(&Shape1812);
 
 Shape& Shape1817 =  Shape();
 Appearance& Appearance1818 =  Appearance();
+Appearance1818.setContainerField("appearance");
 Material& Material1819 =  Material();
+Material1819.setContainerField("material");
 Material1819.setAmbientIntensity(0);
 Material1819.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1819.setShininess(1);
@@ -8033,7 +8747,9 @@ Scene15.addChild(&Shape1817);
 
 Shape& Shape1822 =  Shape();
 Appearance& Appearance1823 =  Appearance();
+Appearance1823.setContainerField("appearance");
 Material& Material1824 =  Material();
+Material1824.setContainerField("material");
 Material1824.setAmbientIntensity(0);
 Material1824.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1824.setShininess(1);
@@ -8055,7 +8771,9 @@ Scene15.addChild(&Shape1822);
 
 Shape& Shape1827 =  Shape();
 Appearance& Appearance1828 =  Appearance();
+Appearance1828.setContainerField("appearance");
 Material& Material1829 =  Material();
+Material1829.setContainerField("material");
 Material1829.setAmbientIntensity(0);
 Material1829.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1829.setShininess(1);
@@ -8077,7 +8795,9 @@ Scene15.addChild(&Shape1827);
 
 Shape& Shape1832 =  Shape();
 Appearance& Appearance1833 =  Appearance();
+Appearance1833.setContainerField("appearance");
 Material& Material1834 =  Material();
+Material1834.setContainerField("material");
 Material1834.setAmbientIntensity(0);
 Material1834.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1834.setShininess(1);
@@ -8099,7 +8819,9 @@ Scene15.addChild(&Shape1832);
 
 Shape& Shape1837 =  Shape();
 Appearance& Appearance1838 =  Appearance();
+Appearance1838.setContainerField("appearance");
 Material& Material1839 =  Material();
+Material1839.setContainerField("material");
 Material1839.setAmbientIntensity(0);
 Material1839.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1839.setShininess(1);
@@ -8121,7 +8843,9 @@ Scene15.addChild(&Shape1837);
 
 Shape& Shape1842 =  Shape();
 Appearance& Appearance1843 =  Appearance();
+Appearance1843.setContainerField("appearance");
 Material& Material1844 =  Material();
+Material1844.setContainerField("material");
 Material1844.setAmbientIntensity(0);
 Material1844.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1844.setShininess(1);
@@ -8143,7 +8867,9 @@ Scene15.addChild(&Shape1842);
 
 Shape& Shape1847 =  Shape();
 Appearance& Appearance1848 =  Appearance();
+Appearance1848.setContainerField("appearance");
 Material& Material1849 =  Material();
+Material1849.setContainerField("material");
 Material1849.setAmbientIntensity(0);
 Material1849.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1849.setShininess(1);
@@ -8165,7 +8891,9 @@ Scene15.addChild(&Shape1847);
 
 Shape& Shape1852 =  Shape();
 Appearance& Appearance1853 =  Appearance();
+Appearance1853.setContainerField("appearance");
 Material& Material1854 =  Material();
+Material1854.setContainerField("material");
 Material1854.setAmbientIntensity(0);
 Material1854.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1854.setShininess(1);
@@ -8187,7 +8915,9 @@ Scene15.addChild(&Shape1852);
 
 Shape& Shape1857 =  Shape();
 Appearance& Appearance1858 =  Appearance();
+Appearance1858.setContainerField("appearance");
 Material& Material1859 =  Material();
+Material1859.setContainerField("material");
 Material1859.setAmbientIntensity(0);
 Material1859.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1859.setShininess(1);
@@ -8209,7 +8939,9 @@ Scene15.addChild(&Shape1857);
 
 Shape& Shape1862 =  Shape();
 Appearance& Appearance1863 =  Appearance();
+Appearance1863.setContainerField("appearance");
 Material& Material1864 =  Material();
+Material1864.setContainerField("material");
 Material1864.setAmbientIntensity(0);
 Material1864.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1864.setShininess(1);
@@ -8231,7 +8963,9 @@ Scene15.addChild(&Shape1862);
 
 Shape& Shape1867 =  Shape();
 Appearance& Appearance1868 =  Appearance();
+Appearance1868.setContainerField("appearance");
 Material& Material1869 =  Material();
+Material1869.setContainerField("material");
 Material1869.setAmbientIntensity(0);
 Material1869.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1869.setShininess(1);
@@ -8253,7 +8987,9 @@ Scene15.addChild(&Shape1867);
 
 Shape& Shape1872 =  Shape();
 Appearance& Appearance1873 =  Appearance();
+Appearance1873.setContainerField("appearance");
 Material& Material1874 =  Material();
+Material1874.setContainerField("material");
 Material1874.setAmbientIntensity(0);
 Material1874.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1874.setShininess(1);
@@ -8275,7 +9011,9 @@ Scene15.addChild(&Shape1872);
 
 Shape& Shape1877 =  Shape();
 Appearance& Appearance1878 =  Appearance();
+Appearance1878.setContainerField("appearance");
 Material& Material1879 =  Material();
+Material1879.setContainerField("material");
 Material1879.setAmbientIntensity(0);
 Material1879.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1879.setShininess(1);
@@ -8297,7 +9035,9 @@ Scene15.addChild(&Shape1877);
 
 Shape& Shape1882 =  Shape();
 Appearance& Appearance1883 =  Appearance();
+Appearance1883.setContainerField("appearance");
 Material& Material1884 =  Material();
+Material1884.setContainerField("material");
 Material1884.setAmbientIntensity(0);
 Material1884.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1884.setShininess(1);
@@ -8319,7 +9059,9 @@ Scene15.addChild(&Shape1882);
 
 Shape& Shape1887 =  Shape();
 Appearance& Appearance1888 =  Appearance();
+Appearance1888.setContainerField("appearance");
 Material& Material1889 =  Material();
+Material1889.setContainerField("material");
 Material1889.setAmbientIntensity(0);
 Material1889.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1889.setShininess(1);
@@ -8341,7 +9083,9 @@ Scene15.addChild(&Shape1887);
 
 Shape& Shape1892 =  Shape();
 Appearance& Appearance1893 =  Appearance();
+Appearance1893.setContainerField("appearance");
 Material& Material1894 =  Material();
+Material1894.setContainerField("material");
 Material1894.setAmbientIntensity(0);
 Material1894.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1894.setShininess(1);
@@ -8363,7 +9107,9 @@ Scene15.addChild(&Shape1892);
 
 Shape& Shape1897 =  Shape();
 Appearance& Appearance1898 =  Appearance();
+Appearance1898.setContainerField("appearance");
 Material& Material1899 =  Material();
+Material1899.setContainerField("material");
 Material1899.setAmbientIntensity(0);
 Material1899.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1899.setShininess(1);
@@ -8385,7 +9131,9 @@ Scene15.addChild(&Shape1897);
 
 Shape& Shape1902 =  Shape();
 Appearance& Appearance1903 =  Appearance();
+Appearance1903.setContainerField("appearance");
 Material& Material1904 =  Material();
+Material1904.setContainerField("material");
 Material1904.setAmbientIntensity(0);
 Material1904.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1904.setShininess(1);
@@ -8407,7 +9155,9 @@ Scene15.addChild(&Shape1902);
 
 Shape& Shape1907 =  Shape();
 Appearance& Appearance1908 =  Appearance();
+Appearance1908.setContainerField("appearance");
 Material& Material1909 =  Material();
+Material1909.setContainerField("material");
 Material1909.setAmbientIntensity(0);
 Material1909.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1909.setShininess(1);
@@ -8429,7 +9179,9 @@ Scene15.addChild(&Shape1907);
 
 Shape& Shape1912 =  Shape();
 Appearance& Appearance1913 =  Appearance();
+Appearance1913.setContainerField("appearance");
 Material& Material1914 =  Material();
+Material1914.setContainerField("material");
 Material1914.setAmbientIntensity(0);
 Material1914.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1914.setShininess(1);
@@ -8451,7 +9203,9 @@ Scene15.addChild(&Shape1912);
 
 Shape& Shape1917 =  Shape();
 Appearance& Appearance1918 =  Appearance();
+Appearance1918.setContainerField("appearance");
 Material& Material1919 =  Material();
+Material1919.setContainerField("material");
 Material1919.setAmbientIntensity(0);
 Material1919.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1919.setShininess(1);
@@ -8473,7 +9227,9 @@ Scene15.addChild(&Shape1917);
 
 Shape& Shape1922 =  Shape();
 Appearance& Appearance1923 =  Appearance();
+Appearance1923.setContainerField("appearance");
 Material& Material1924 =  Material();
+Material1924.setContainerField("material");
 Material1924.setAmbientIntensity(0);
 Material1924.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1924.setShininess(1);
@@ -8495,7 +9251,9 @@ Scene15.addChild(&Shape1922);
 
 Shape& Shape1927 =  Shape();
 Appearance& Appearance1928 =  Appearance();
+Appearance1928.setContainerField("appearance");
 Material& Material1929 =  Material();
+Material1929.setContainerField("material");
 Material1929.setAmbientIntensity(0);
 Material1929.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1929.setShininess(1);
@@ -8517,7 +9275,9 @@ Scene15.addChild(&Shape1927);
 
 Shape& Shape1932 =  Shape();
 Appearance& Appearance1933 =  Appearance();
+Appearance1933.setContainerField("appearance");
 Material& Material1934 =  Material();
+Material1934.setContainerField("material");
 Material1934.setAmbientIntensity(0);
 Material1934.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1934.setShininess(1);
@@ -8539,7 +9299,9 @@ Scene15.addChild(&Shape1932);
 
 Shape& Shape1937 =  Shape();
 Appearance& Appearance1938 =  Appearance();
+Appearance1938.setContainerField("appearance");
 Material& Material1939 =  Material();
+Material1939.setContainerField("material");
 Material1939.setAmbientIntensity(0);
 Material1939.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1939.setShininess(1);
@@ -8561,7 +9323,9 @@ Scene15.addChild(&Shape1937);
 
 Shape& Shape1942 =  Shape();
 Appearance& Appearance1943 =  Appearance();
+Appearance1943.setContainerField("appearance");
 Material& Material1944 =  Material();
+Material1944.setContainerField("material");
 Material1944.setAmbientIntensity(0);
 Material1944.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1944.setShininess(1);
@@ -8583,7 +9347,9 @@ Scene15.addChild(&Shape1942);
 
 Shape& Shape1947 =  Shape();
 Appearance& Appearance1948 =  Appearance();
+Appearance1948.setContainerField("appearance");
 Material& Material1949 =  Material();
+Material1949.setContainerField("material");
 Material1949.setAmbientIntensity(0);
 Material1949.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1949.setShininess(1);
@@ -8605,7 +9371,9 @@ Scene15.addChild(&Shape1947);
 
 Shape& Shape1952 =  Shape();
 Appearance& Appearance1953 =  Appearance();
+Appearance1953.setContainerField("appearance");
 Material& Material1954 =  Material();
+Material1954.setContainerField("material");
 Material1954.setAmbientIntensity(0);
 Material1954.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1954.setShininess(1);
@@ -8627,7 +9395,9 @@ Scene15.addChild(&Shape1952);
 
 Shape& Shape1957 =  Shape();
 Appearance& Appearance1958 =  Appearance();
+Appearance1958.setContainerField("appearance");
 Material& Material1959 =  Material();
+Material1959.setContainerField("material");
 Material1959.setAmbientIntensity(0);
 Material1959.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1959.setShininess(1);
@@ -8649,7 +9419,9 @@ Scene15.addChild(&Shape1957);
 
 Shape& Shape1962 =  Shape();
 Appearance& Appearance1963 =  Appearance();
+Appearance1963.setContainerField("appearance");
 Material& Material1964 =  Material();
+Material1964.setContainerField("material");
 Material1964.setAmbientIntensity(0);
 Material1964.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1964.setShininess(1);
@@ -8671,7 +9443,9 @@ Scene15.addChild(&Shape1962);
 
 Shape& Shape1967 =  Shape();
 Appearance& Appearance1968 =  Appearance();
+Appearance1968.setContainerField("appearance");
 Material& Material1969 =  Material();
+Material1969.setContainerField("material");
 Material1969.setAmbientIntensity(0);
 Material1969.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1969.setShininess(1);
@@ -8693,7 +9467,9 @@ Scene15.addChild(&Shape1967);
 
 Shape& Shape1972 =  Shape();
 Appearance& Appearance1973 =  Appearance();
+Appearance1973.setContainerField("appearance");
 Material& Material1974 =  Material();
+Material1974.setContainerField("material");
 Material1974.setAmbientIntensity(0);
 Material1974.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1974.setShininess(1);
@@ -8715,7 +9491,9 @@ Scene15.addChild(&Shape1972);
 
 Shape& Shape1977 =  Shape();
 Appearance& Appearance1978 =  Appearance();
+Appearance1978.setContainerField("appearance");
 Material& Material1979 =  Material();
+Material1979.setContainerField("material");
 Material1979.setAmbientIntensity(0);
 Material1979.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1979.setShininess(1);
@@ -8737,7 +9515,9 @@ Scene15.addChild(&Shape1977);
 
 Shape& Shape1982 =  Shape();
 Appearance& Appearance1983 =  Appearance();
+Appearance1983.setContainerField("appearance");
 Material& Material1984 =  Material();
+Material1984.setContainerField("material");
 Material1984.setAmbientIntensity(0);
 Material1984.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1984.setShininess(1);
@@ -8759,7 +9539,9 @@ Scene15.addChild(&Shape1982);
 
 Shape& Shape1987 =  Shape();
 Appearance& Appearance1988 =  Appearance();
+Appearance1988.setContainerField("appearance");
 Material& Material1989 =  Material();
+Material1989.setContainerField("material");
 Material1989.setAmbientIntensity(0);
 Material1989.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1989.setShininess(1);
@@ -8781,7 +9563,9 @@ Scene15.addChild(&Shape1987);
 
 Shape& Shape1992 =  Shape();
 Appearance& Appearance1993 =  Appearance();
+Appearance1993.setContainerField("appearance");
 Material& Material1994 =  Material();
+Material1994.setContainerField("material");
 Material1994.setAmbientIntensity(0);
 Material1994.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1994.setShininess(1);
@@ -8803,7 +9587,9 @@ Scene15.addChild(&Shape1992);
 
 Shape& Shape1997 =  Shape();
 Appearance& Appearance1998 =  Appearance();
+Appearance1998.setContainerField("appearance");
 Material& Material1999 =  Material();
+Material1999.setContainerField("material");
 Material1999.setAmbientIntensity(0);
 Material1999.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material1999.setShininess(1);
@@ -8825,7 +9611,9 @@ Scene15.addChild(&Shape1997);
 
 Shape& Shape2002 =  Shape();
 Appearance& Appearance2003 =  Appearance();
+Appearance2003.setContainerField("appearance");
 Material& Material2004 =  Material();
+Material2004.setContainerField("material");
 Material2004.setAmbientIntensity(0);
 Material2004.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2004.setShininess(1);
@@ -8847,7 +9635,9 @@ Scene15.addChild(&Shape2002);
 
 Shape& Shape2007 =  Shape();
 Appearance& Appearance2008 =  Appearance();
+Appearance2008.setContainerField("appearance");
 Material& Material2009 =  Material();
+Material2009.setContainerField("material");
 Material2009.setAmbientIntensity(0);
 Material2009.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2009.setShininess(1);
@@ -8869,7 +9659,9 @@ Scene15.addChild(&Shape2007);
 
 Shape& Shape2012 =  Shape();
 Appearance& Appearance2013 =  Appearance();
+Appearance2013.setContainerField("appearance");
 Material& Material2014 =  Material();
+Material2014.setContainerField("material");
 Material2014.setAmbientIntensity(0);
 Material2014.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2014.setShininess(1);
@@ -8891,7 +9683,9 @@ Scene15.addChild(&Shape2012);
 
 Shape& Shape2017 =  Shape();
 Appearance& Appearance2018 =  Appearance();
+Appearance2018.setContainerField("appearance");
 Material& Material2019 =  Material();
+Material2019.setContainerField("material");
 Material2019.setAmbientIntensity(0);
 Material2019.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2019.setShininess(1);
@@ -8913,7 +9707,9 @@ Scene15.addChild(&Shape2017);
 
 Shape& Shape2022 =  Shape();
 Appearance& Appearance2023 =  Appearance();
+Appearance2023.setContainerField("appearance");
 Material& Material2024 =  Material();
+Material2024.setContainerField("material");
 Material2024.setAmbientIntensity(0);
 Material2024.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2024.setShininess(1);
@@ -8935,7 +9731,9 @@ Scene15.addChild(&Shape2022);
 
 Shape& Shape2027 =  Shape();
 Appearance& Appearance2028 =  Appearance();
+Appearance2028.setContainerField("appearance");
 Material& Material2029 =  Material();
+Material2029.setContainerField("material");
 Material2029.setAmbientIntensity(0);
 Material2029.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2029.setShininess(1);
@@ -8957,7 +9755,9 @@ Scene15.addChild(&Shape2027);
 
 Shape& Shape2032 =  Shape();
 Appearance& Appearance2033 =  Appearance();
+Appearance2033.setContainerField("appearance");
 Material& Material2034 =  Material();
+Material2034.setContainerField("material");
 Material2034.setAmbientIntensity(0);
 Material2034.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2034.setShininess(1);
@@ -8979,7 +9779,9 @@ Scene15.addChild(&Shape2032);
 
 Shape& Shape2037 =  Shape();
 Appearance& Appearance2038 =  Appearance();
+Appearance2038.setContainerField("appearance");
 Material& Material2039 =  Material();
+Material2039.setContainerField("material");
 Material2039.setAmbientIntensity(0);
 Material2039.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2039.setShininess(1);
@@ -9001,7 +9803,9 @@ Scene15.addChild(&Shape2037);
 
 Shape& Shape2042 =  Shape();
 Appearance& Appearance2043 =  Appearance();
+Appearance2043.setContainerField("appearance");
 Material& Material2044 =  Material();
+Material2044.setContainerField("material");
 Material2044.setAmbientIntensity(0);
 Material2044.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2044.setShininess(1);
@@ -9023,7 +9827,9 @@ Scene15.addChild(&Shape2042);
 
 Shape& Shape2047 =  Shape();
 Appearance& Appearance2048 =  Appearance();
+Appearance2048.setContainerField("appearance");
 Material& Material2049 =  Material();
+Material2049.setContainerField("material");
 Material2049.setAmbientIntensity(0);
 Material2049.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2049.setShininess(1);
@@ -9045,7 +9851,9 @@ Scene15.addChild(&Shape2047);
 
 Shape& Shape2052 =  Shape();
 Appearance& Appearance2053 =  Appearance();
+Appearance2053.setContainerField("appearance");
 Material& Material2054 =  Material();
+Material2054.setContainerField("material");
 Material2054.setAmbientIntensity(0);
 Material2054.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2054.setShininess(1);
@@ -9067,7 +9875,9 @@ Scene15.addChild(&Shape2052);
 
 Shape& Shape2057 =  Shape();
 Appearance& Appearance2058 =  Appearance();
+Appearance2058.setContainerField("appearance");
 Material& Material2059 =  Material();
+Material2059.setContainerField("material");
 Material2059.setAmbientIntensity(0);
 Material2059.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2059.setShininess(1);
@@ -9089,7 +9899,9 @@ Scene15.addChild(&Shape2057);
 
 Shape& Shape2062 =  Shape();
 Appearance& Appearance2063 =  Appearance();
+Appearance2063.setContainerField("appearance");
 Material& Material2064 =  Material();
+Material2064.setContainerField("material");
 Material2064.setAmbientIntensity(0);
 Material2064.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2064.setShininess(1);
@@ -9111,7 +9923,9 @@ Scene15.addChild(&Shape2062);
 
 Shape& Shape2067 =  Shape();
 Appearance& Appearance2068 =  Appearance();
+Appearance2068.setContainerField("appearance");
 Material& Material2069 =  Material();
+Material2069.setContainerField("material");
 Material2069.setAmbientIntensity(0);
 Material2069.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2069.setShininess(1);
@@ -9133,7 +9947,9 @@ Scene15.addChild(&Shape2067);
 
 Shape& Shape2072 =  Shape();
 Appearance& Appearance2073 =  Appearance();
+Appearance2073.setContainerField("appearance");
 Material& Material2074 =  Material();
+Material2074.setContainerField("material");
 Material2074.setAmbientIntensity(0);
 Material2074.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2074.setShininess(1);
@@ -9155,7 +9971,9 @@ Scene15.addChild(&Shape2072);
 
 Shape& Shape2077 =  Shape();
 Appearance& Appearance2078 =  Appearance();
+Appearance2078.setContainerField("appearance");
 Material& Material2079 =  Material();
+Material2079.setContainerField("material");
 Material2079.setAmbientIntensity(0);
 Material2079.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2079.setShininess(1);
@@ -9177,7 +9995,9 @@ Scene15.addChild(&Shape2077);
 
 Shape& Shape2082 =  Shape();
 Appearance& Appearance2083 =  Appearance();
+Appearance2083.setContainerField("appearance");
 Material& Material2084 =  Material();
+Material2084.setContainerField("material");
 Material2084.setAmbientIntensity(0);
 Material2084.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2084.setShininess(1);
@@ -9199,7 +10019,9 @@ Scene15.addChild(&Shape2082);
 
 Shape& Shape2087 =  Shape();
 Appearance& Appearance2088 =  Appearance();
+Appearance2088.setContainerField("appearance");
 Material& Material2089 =  Material();
+Material2089.setContainerField("material");
 Material2089.setAmbientIntensity(0);
 Material2089.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2089.setShininess(1);
@@ -9221,7 +10043,9 @@ Scene15.addChild(&Shape2087);
 
 Shape& Shape2092 =  Shape();
 Appearance& Appearance2093 =  Appearance();
+Appearance2093.setContainerField("appearance");
 Material& Material2094 =  Material();
+Material2094.setContainerField("material");
 Material2094.setAmbientIntensity(0);
 Material2094.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2094.setShininess(1);
@@ -9243,7 +10067,9 @@ Scene15.addChild(&Shape2092);
 
 Shape& Shape2097 =  Shape();
 Appearance& Appearance2098 =  Appearance();
+Appearance2098.setContainerField("appearance");
 Material& Material2099 =  Material();
+Material2099.setContainerField("material");
 Material2099.setAmbientIntensity(0);
 Material2099.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2099.setShininess(1);
@@ -9265,7 +10091,9 @@ Scene15.addChild(&Shape2097);
 
 Shape& Shape2102 =  Shape();
 Appearance& Appearance2103 =  Appearance();
+Appearance2103.setContainerField("appearance");
 Material& Material2104 =  Material();
+Material2104.setContainerField("material");
 Material2104.setAmbientIntensity(0);
 Material2104.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2104.setShininess(1);
@@ -9287,7 +10115,9 @@ Scene15.addChild(&Shape2102);
 
 Shape& Shape2107 =  Shape();
 Appearance& Appearance2108 =  Appearance();
+Appearance2108.setContainerField("appearance");
 Material& Material2109 =  Material();
+Material2109.setContainerField("material");
 Material2109.setAmbientIntensity(0);
 Material2109.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2109.setShininess(1);
@@ -9309,7 +10139,9 @@ Scene15.addChild(&Shape2107);
 
 Shape& Shape2112 =  Shape();
 Appearance& Appearance2113 =  Appearance();
+Appearance2113.setContainerField("appearance");
 Material& Material2114 =  Material();
+Material2114.setContainerField("material");
 Material2114.setAmbientIntensity(0);
 Material2114.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2114.setShininess(1);
@@ -9331,7 +10163,9 @@ Scene15.addChild(&Shape2112);
 
 Shape& Shape2117 =  Shape();
 Appearance& Appearance2118 =  Appearance();
+Appearance2118.setContainerField("appearance");
 Material& Material2119 =  Material();
+Material2119.setContainerField("material");
 Material2119.setAmbientIntensity(0);
 Material2119.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2119.setShininess(1);
@@ -9353,7 +10187,9 @@ Scene15.addChild(&Shape2117);
 
 Shape& Shape2122 =  Shape();
 Appearance& Appearance2123 =  Appearance();
+Appearance2123.setContainerField("appearance");
 Material& Material2124 =  Material();
+Material2124.setContainerField("material");
 Material2124.setAmbientIntensity(0);
 Material2124.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2124.setShininess(1);
@@ -9375,7 +10211,9 @@ Scene15.addChild(&Shape2122);
 
 Shape& Shape2127 =  Shape();
 Appearance& Appearance2128 =  Appearance();
+Appearance2128.setContainerField("appearance");
 Material& Material2129 =  Material();
+Material2129.setContainerField("material");
 Material2129.setAmbientIntensity(0);
 Material2129.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2129.setShininess(1);
@@ -9397,7 +10235,9 @@ Scene15.addChild(&Shape2127);
 
 Shape& Shape2132 =  Shape();
 Appearance& Appearance2133 =  Appearance();
+Appearance2133.setContainerField("appearance");
 Material& Material2134 =  Material();
+Material2134.setContainerField("material");
 Material2134.setAmbientIntensity(0);
 Material2134.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2134.setShininess(1);
@@ -9419,7 +10259,9 @@ Scene15.addChild(&Shape2132);
 
 Shape& Shape2137 =  Shape();
 Appearance& Appearance2138 =  Appearance();
+Appearance2138.setContainerField("appearance");
 Material& Material2139 =  Material();
+Material2139.setContainerField("material");
 Material2139.setAmbientIntensity(0);
 Material2139.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2139.setShininess(1);
@@ -9441,7 +10283,9 @@ Scene15.addChild(&Shape2137);
 
 Shape& Shape2142 =  Shape();
 Appearance& Appearance2143 =  Appearance();
+Appearance2143.setContainerField("appearance");
 Material& Material2144 =  Material();
+Material2144.setContainerField("material");
 Material2144.setAmbientIntensity(0);
 Material2144.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2144.setShininess(1);
@@ -9463,7 +10307,9 @@ Scene15.addChild(&Shape2142);
 
 Shape& Shape2147 =  Shape();
 Appearance& Appearance2148 =  Appearance();
+Appearance2148.setContainerField("appearance");
 Material& Material2149 =  Material();
+Material2149.setContainerField("material");
 Material2149.setAmbientIntensity(0);
 Material2149.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2149.setShininess(1);
@@ -9485,7 +10331,9 @@ Scene15.addChild(&Shape2147);
 
 Shape& Shape2152 =  Shape();
 Appearance& Appearance2153 =  Appearance();
+Appearance2153.setContainerField("appearance");
 Material& Material2154 =  Material();
+Material2154.setContainerField("material");
 Material2154.setAmbientIntensity(0);
 Material2154.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2154.setShininess(1);
@@ -9507,7 +10355,9 @@ Scene15.addChild(&Shape2152);
 
 Shape& Shape2157 =  Shape();
 Appearance& Appearance2158 =  Appearance();
+Appearance2158.setContainerField("appearance");
 Material& Material2159 =  Material();
+Material2159.setContainerField("material");
 Material2159.setAmbientIntensity(0);
 Material2159.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2159.setShininess(1);
@@ -9529,7 +10379,9 @@ Scene15.addChild(&Shape2157);
 
 Shape& Shape2162 =  Shape();
 Appearance& Appearance2163 =  Appearance();
+Appearance2163.setContainerField("appearance");
 Material& Material2164 =  Material();
+Material2164.setContainerField("material");
 Material2164.setAmbientIntensity(0);
 Material2164.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2164.setShininess(1);
@@ -9551,7 +10403,9 @@ Scene15.addChild(&Shape2162);
 
 Shape& Shape2167 =  Shape();
 Appearance& Appearance2168 =  Appearance();
+Appearance2168.setContainerField("appearance");
 Material& Material2169 =  Material();
+Material2169.setContainerField("material");
 Material2169.setAmbientIntensity(0);
 Material2169.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2169.setShininess(1);
@@ -9573,7 +10427,9 @@ Scene15.addChild(&Shape2167);
 
 Shape& Shape2172 =  Shape();
 Appearance& Appearance2173 =  Appearance();
+Appearance2173.setContainerField("appearance");
 Material& Material2174 =  Material();
+Material2174.setContainerField("material");
 Material2174.setAmbientIntensity(0);
 Material2174.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2174.setShininess(1);
@@ -9595,7 +10451,9 @@ Scene15.addChild(&Shape2172);
 
 Shape& Shape2177 =  Shape();
 Appearance& Appearance2178 =  Appearance();
+Appearance2178.setContainerField("appearance");
 Material& Material2179 =  Material();
+Material2179.setContainerField("material");
 Material2179.setAmbientIntensity(0);
 Material2179.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2179.setShininess(1);
@@ -9617,7 +10475,9 @@ Scene15.addChild(&Shape2177);
 
 Shape& Shape2182 =  Shape();
 Appearance& Appearance2183 =  Appearance();
+Appearance2183.setContainerField("appearance");
 Material& Material2184 =  Material();
+Material2184.setContainerField("material");
 Material2184.setAmbientIntensity(0);
 Material2184.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2184.setShininess(1);
@@ -9639,7 +10499,9 @@ Scene15.addChild(&Shape2182);
 
 Shape& Shape2187 =  Shape();
 Appearance& Appearance2188 =  Appearance();
+Appearance2188.setContainerField("appearance");
 Material& Material2189 =  Material();
+Material2189.setContainerField("material");
 Material2189.setAmbientIntensity(0);
 Material2189.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2189.setShininess(1);
@@ -9661,7 +10523,9 @@ Scene15.addChild(&Shape2187);
 
 Shape& Shape2192 =  Shape();
 Appearance& Appearance2193 =  Appearance();
+Appearance2193.setContainerField("appearance");
 Material& Material2194 =  Material();
+Material2194.setContainerField("material");
 Material2194.setAmbientIntensity(0);
 Material2194.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2194.setShininess(1);
@@ -9683,7 +10547,9 @@ Scene15.addChild(&Shape2192);
 
 Shape& Shape2197 =  Shape();
 Appearance& Appearance2198 =  Appearance();
+Appearance2198.setContainerField("appearance");
 Material& Material2199 =  Material();
+Material2199.setContainerField("material");
 Material2199.setAmbientIntensity(0);
 Material2199.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2199.setShininess(1);
@@ -9705,7 +10571,9 @@ Scene15.addChild(&Shape2197);
 
 Shape& Shape2202 =  Shape();
 Appearance& Appearance2203 =  Appearance();
+Appearance2203.setContainerField("appearance");
 Material& Material2204 =  Material();
+Material2204.setContainerField("material");
 Material2204.setAmbientIntensity(0);
 Material2204.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2204.setShininess(1);
@@ -9727,7 +10595,9 @@ Scene15.addChild(&Shape2202);
 
 Shape& Shape2207 =  Shape();
 Appearance& Appearance2208 =  Appearance();
+Appearance2208.setContainerField("appearance");
 Material& Material2209 =  Material();
+Material2209.setContainerField("material");
 Material2209.setAmbientIntensity(0);
 Material2209.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2209.setShininess(1);
@@ -9749,7 +10619,9 @@ Scene15.addChild(&Shape2207);
 
 Shape& Shape2212 =  Shape();
 Appearance& Appearance2213 =  Appearance();
+Appearance2213.setContainerField("appearance");
 Material& Material2214 =  Material();
+Material2214.setContainerField("material");
 Material2214.setAmbientIntensity(0);
 Material2214.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2214.setShininess(1);
@@ -9771,7 +10643,9 @@ Scene15.addChild(&Shape2212);
 
 Shape& Shape2217 =  Shape();
 Appearance& Appearance2218 =  Appearance();
+Appearance2218.setContainerField("appearance");
 Material& Material2219 =  Material();
+Material2219.setContainerField("material");
 Material2219.setAmbientIntensity(0);
 Material2219.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2219.setShininess(1);
@@ -9793,7 +10667,9 @@ Scene15.addChild(&Shape2217);
 
 Shape& Shape2222 =  Shape();
 Appearance& Appearance2223 =  Appearance();
+Appearance2223.setContainerField("appearance");
 Material& Material2224 =  Material();
+Material2224.setContainerField("material");
 Material2224.setAmbientIntensity(0);
 Material2224.setDiffuseColor(new float[]{0.784313738,0.0,0.0});
 Material2224.setShininess(1);

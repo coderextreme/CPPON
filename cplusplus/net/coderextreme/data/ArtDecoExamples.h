@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ArtDecoExamples(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -360,7 +352,7 @@ Transform& Transform56 =  Transform();
 Transform56.setDEF(std::string("Close_travel"));
 PositionInterpolator& PositionInterpolator57 =  PositionInterpolator();
 PositionInterpolator57.setDEF(std::string("Close_Mover"));
-PositionInterpolator57.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+PositionInterpolator57.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
 PositionInterpolator57.setKeyValue(new float[]{0.0,2.5,0.0,0.0,0.0,0.0,0.0,-2.5,0.0,0.0,0.0,0.0,0.0,2.5,0.0}, 15);
 Transform56.addChild(&PositionInterpolator57);
 
@@ -413,7 +405,9 @@ Anchor67.setDescription(std::string("ArtDeco00 view"));
 Anchor67.setUrl((std::string[]){"#View00"}, 1);
 Shape& Shape68 =  Shape();
 Appearance& Appearance69 =  Appearance();
+Appearance69.setContainerField("appearance");
 ProtoInstance& ProtoInstance70 =  ProtoInstance();
+ProtoInstance70.setContainerField("material");
 ProtoInstance70.setName(std::string("ArtDeco00"));
 Appearance69.addChild(&ProtoInstance70);
 
@@ -436,7 +430,9 @@ Anchor73.setParameter((std::string[]){"target=_source"}, 1);
 Anchor73.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco00", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco00"}, 2);
 Shape& Shape74 =  Shape();
 Appearance& Appearance75 =  Appearance();
+Appearance75.setContainerField("appearance");
 Material& Material76 =  Material();
+Material76.setContainerField("material");
 Material76.setDEF(std::string("TextMat"));
 Material76.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance75.addChild(&Material76);
@@ -446,6 +442,7 @@ Shape74.addChild(&Appearance75);
 Text& Text77 =  Text();
 Text77.setString((std::string[]){"ArtDeco00"}, 1);
 CFontStyle& FontStyle78 =  CFontStyle();
+FontStyle78.setContainerField("fontStyle");
 FontStyle78.setDEF(std::string("Style"));
 FontStyle78.setFamily((std::string[]){"SANS"}, 1);
 FontStyle78.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -476,7 +473,9 @@ Anchor81.setDescription(std::string("ArtDeco01 view"));
 Anchor81.setUrl((std::string[]){"#View01"}, 1);
 Shape& Shape82 =  Shape();
 Appearance& Appearance83 =  Appearance();
+Appearance83.setContainerField("appearance");
 ProtoInstance& ProtoInstance84 =  ProtoInstance();
+ProtoInstance84.setContainerField("material");
 ProtoInstance84.setName(std::string("ArtDeco01"));
 Appearance83.addChild(&ProtoInstance84);
 
@@ -498,7 +497,9 @@ Anchor87.setParameter((std::string[]){"target=_source"}, 1);
 Anchor87.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco01", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco01"}, 2);
 Shape& Shape88 =  Shape();
 Appearance& Appearance89 =  Appearance();
+Appearance89.setContainerField("appearance");
 Material& Material90 =  Material();
+Material90.setContainerField("material");
 Material90.setUSE(std::string("TextMat"));
 Appearance89.addChild(&Material90);
 
@@ -507,6 +508,7 @@ Shape88.addChild(&Appearance89);
 Text& Text91 =  Text();
 Text91.setString((std::string[]){"ArtDeco01"}, 1);
 CFontStyle& FontStyle92 =  CFontStyle();
+FontStyle92.setContainerField("fontStyle");
 FontStyle92.setUSE(std::string("Style"));
 Text91.setFontStyle(&FontStyle92);
 
@@ -533,7 +535,9 @@ Anchor95.setDescription(std::string("ArtDeco02 view"));
 Anchor95.setUrl((std::string[]){"#View02"}, 1);
 Shape& Shape96 =  Shape();
 Appearance& Appearance97 =  Appearance();
+Appearance97.setContainerField("appearance");
 ProtoInstance& ProtoInstance98 =  ProtoInstance();
+ProtoInstance98.setContainerField("material");
 ProtoInstance98.setName(std::string("ArtDeco02"));
 Appearance97.addChild(&ProtoInstance98);
 
@@ -555,7 +559,9 @@ Anchor101.setParameter((std::string[]){"target=_source"}, 1);
 Anchor101.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco02", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco02"}, 2);
 Shape& Shape102 =  Shape();
 Appearance& Appearance103 =  Appearance();
+Appearance103.setContainerField("appearance");
 Material& Material104 =  Material();
+Material104.setContainerField("material");
 Material104.setUSE(std::string("TextMat"));
 Appearance103.addChild(&Material104);
 
@@ -564,6 +570,7 @@ Shape102.addChild(&Appearance103);
 Text& Text105 =  Text();
 Text105.setString((std::string[]){"ArtDeco02"}, 1);
 CFontStyle& FontStyle106 =  CFontStyle();
+FontStyle106.setContainerField("fontStyle");
 FontStyle106.setUSE(std::string("Style"));
 Text105.setFontStyle(&FontStyle106);
 
@@ -590,7 +597,9 @@ Anchor109.setDescription(std::string("ArtDeco03 view"));
 Anchor109.setUrl((std::string[]){"#View03"}, 1);
 Shape& Shape110 =  Shape();
 Appearance& Appearance111 =  Appearance();
+Appearance111.setContainerField("appearance");
 ProtoInstance& ProtoInstance112 =  ProtoInstance();
+ProtoInstance112.setContainerField("material");
 ProtoInstance112.setName(std::string("ArtDeco03"));
 Appearance111.addChild(&ProtoInstance112);
 
@@ -612,7 +621,9 @@ Anchor115.setParameter((std::string[]){"target=_source"}, 1);
 Anchor115.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco03", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco03"}, 2);
 Shape& Shape116 =  Shape();
 Appearance& Appearance117 =  Appearance();
+Appearance117.setContainerField("appearance");
 Material& Material118 =  Material();
+Material118.setContainerField("material");
 Material118.setUSE(std::string("TextMat"));
 Appearance117.addChild(&Material118);
 
@@ -621,6 +632,7 @@ Shape116.addChild(&Appearance117);
 Text& Text119 =  Text();
 Text119.setString((std::string[]){"ArtDeco03"}, 1);
 CFontStyle& FontStyle120 =  CFontStyle();
+FontStyle120.setContainerField("fontStyle");
 FontStyle120.setUSE(std::string("Style"));
 Text119.setFontStyle(&FontStyle120);
 
@@ -647,7 +659,9 @@ Anchor123.setDescription(std::string("ArtDeco04 view"));
 Anchor123.setUrl((std::string[]){"#View04"}, 1);
 Shape& Shape124 =  Shape();
 Appearance& Appearance125 =  Appearance();
+Appearance125.setContainerField("appearance");
 ProtoInstance& ProtoInstance126 =  ProtoInstance();
+ProtoInstance126.setContainerField("material");
 ProtoInstance126.setName(std::string("ArtDeco04"));
 Appearance125.addChild(&ProtoInstance126);
 
@@ -669,7 +683,9 @@ Anchor129.setParameter((std::string[]){"target=_source"}, 1);
 Anchor129.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco04", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco04"}, 2);
 Shape& Shape130 =  Shape();
 Appearance& Appearance131 =  Appearance();
+Appearance131.setContainerField("appearance");
 Material& Material132 =  Material();
+Material132.setContainerField("material");
 Material132.setUSE(std::string("TextMat"));
 Appearance131.addChild(&Material132);
 
@@ -678,6 +694,7 @@ Shape130.addChild(&Appearance131);
 Text& Text133 =  Text();
 Text133.setString((std::string[]){"ArtDeco04"}, 1);
 CFontStyle& FontStyle134 =  CFontStyle();
+FontStyle134.setContainerField("fontStyle");
 FontStyle134.setUSE(std::string("Style"));
 Text133.setFontStyle(&FontStyle134);
 
@@ -704,7 +721,9 @@ Anchor137.setDescription(std::string("ArtDeco05 view"));
 Anchor137.setUrl((std::string[]){"#View05"}, 1);
 Shape& Shape138 =  Shape();
 Appearance& Appearance139 =  Appearance();
+Appearance139.setContainerField("appearance");
 ProtoInstance& ProtoInstance140 =  ProtoInstance();
+ProtoInstance140.setContainerField("material");
 ProtoInstance140.setName(std::string("ArtDeco05"));
 Appearance139.addChild(&ProtoInstance140);
 
@@ -726,7 +745,9 @@ Anchor143.setParameter((std::string[]){"target=_source"}, 1);
 Anchor143.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco05", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco05"}, 2);
 Shape& Shape144 =  Shape();
 Appearance& Appearance145 =  Appearance();
+Appearance145.setContainerField("appearance");
 Material& Material146 =  Material();
+Material146.setContainerField("material");
 Material146.setUSE(std::string("TextMat"));
 Appearance145.addChild(&Material146);
 
@@ -735,6 +756,7 @@ Shape144.addChild(&Appearance145);
 Text& Text147 =  Text();
 Text147.setString((std::string[]){"ArtDeco05"}, 1);
 CFontStyle& FontStyle148 =  CFontStyle();
+FontStyle148.setContainerField("fontStyle");
 FontStyle148.setUSE(std::string("Style"));
 Text147.setFontStyle(&FontStyle148);
 
@@ -761,7 +783,9 @@ Anchor151.setDescription(std::string("ArtDeco06 view"));
 Anchor151.setUrl((std::string[]){"#View06"}, 1);
 Shape& Shape152 =  Shape();
 Appearance& Appearance153 =  Appearance();
+Appearance153.setContainerField("appearance");
 ProtoInstance& ProtoInstance154 =  ProtoInstance();
+ProtoInstance154.setContainerField("material");
 ProtoInstance154.setName(std::string("ArtDeco06"));
 Appearance153.addChild(&ProtoInstance154);
 
@@ -783,7 +807,9 @@ Anchor157.setParameter((std::string[]){"target=_source"}, 1);
 Anchor157.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco06", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco06"}, 2);
 Shape& Shape158 =  Shape();
 Appearance& Appearance159 =  Appearance();
+Appearance159.setContainerField("appearance");
 Material& Material160 =  Material();
+Material160.setContainerField("material");
 Material160.setUSE(std::string("TextMat"));
 Appearance159.addChild(&Material160);
 
@@ -792,6 +818,7 @@ Shape158.addChild(&Appearance159);
 Text& Text161 =  Text();
 Text161.setString((std::string[]){"ArtDeco06"}, 1);
 CFontStyle& FontStyle162 =  CFontStyle();
+FontStyle162.setContainerField("fontStyle");
 FontStyle162.setUSE(std::string("Style"));
 Text161.setFontStyle(&FontStyle162);
 
@@ -818,7 +845,9 @@ Anchor165.setDescription(std::string("ArtDeco07 view"));
 Anchor165.setUrl((std::string[]){"#View07"}, 1);
 Shape& Shape166 =  Shape();
 Appearance& Appearance167 =  Appearance();
+Appearance167.setContainerField("appearance");
 ProtoInstance& ProtoInstance168 =  ProtoInstance();
+ProtoInstance168.setContainerField("material");
 ProtoInstance168.setName(std::string("ArtDeco07"));
 Appearance167.addChild(&ProtoInstance168);
 
@@ -840,7 +869,9 @@ Anchor171.setParameter((std::string[]){"target=_source"}, 1);
 Anchor171.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco07", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco07"}, 2);
 Shape& Shape172 =  Shape();
 Appearance& Appearance173 =  Appearance();
+Appearance173.setContainerField("appearance");
 Material& Material174 =  Material();
+Material174.setContainerField("material");
 Material174.setUSE(std::string("TextMat"));
 Appearance173.addChild(&Material174);
 
@@ -849,6 +880,7 @@ Shape172.addChild(&Appearance173);
 Text& Text175 =  Text();
 Text175.setString((std::string[]){"ArtDeco07"}, 1);
 CFontStyle& FontStyle176 =  CFontStyle();
+FontStyle176.setContainerField("fontStyle");
 FontStyle176.setUSE(std::string("Style"));
 Text175.setFontStyle(&FontStyle176);
 
@@ -875,7 +907,9 @@ Anchor179.setDescription(std::string("ArtDeco08 view"));
 Anchor179.setUrl((std::string[]){"#View08"}, 1);
 Shape& Shape180 =  Shape();
 Appearance& Appearance181 =  Appearance();
+Appearance181.setContainerField("appearance");
 ProtoInstance& ProtoInstance182 =  ProtoInstance();
+ProtoInstance182.setContainerField("material");
 ProtoInstance182.setName(std::string("ArtDeco08"));
 Appearance181.addChild(&ProtoInstance182);
 
@@ -897,7 +931,9 @@ Anchor185.setParameter((std::string[]){"target=_source"}, 1);
 Anchor185.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco08", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco08"}, 2);
 Shape& Shape186 =  Shape();
 Appearance& Appearance187 =  Appearance();
+Appearance187.setContainerField("appearance");
 Material& Material188 =  Material();
+Material188.setContainerField("material");
 Material188.setUSE(std::string("TextMat"));
 Appearance187.addChild(&Material188);
 
@@ -906,6 +942,7 @@ Shape186.addChild(&Appearance187);
 Text& Text189 =  Text();
 Text189.setString((std::string[]){"ArtDeco08"}, 1);
 CFontStyle& FontStyle190 =  CFontStyle();
+FontStyle190.setContainerField("fontStyle");
 FontStyle190.setUSE(std::string("Style"));
 Text189.setFontStyle(&FontStyle190);
 
@@ -932,7 +969,9 @@ Anchor193.setDescription(std::string("ArtDeco09 view"));
 Anchor193.setUrl((std::string[]){"#View09"}, 1);
 Shape& Shape194 =  Shape();
 Appearance& Appearance195 =  Appearance();
+Appearance195.setContainerField("appearance");
 ProtoInstance& ProtoInstance196 =  ProtoInstance();
+ProtoInstance196.setContainerField("material");
 ProtoInstance196.setName(std::string("ArtDeco09"));
 Appearance195.addChild(&ProtoInstance196);
 
@@ -954,7 +993,9 @@ Anchor199.setParameter((std::string[]){"target=_source"}, 1);
 Anchor199.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco09", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco09"}, 2);
 Shape& Shape200 =  Shape();
 Appearance& Appearance201 =  Appearance();
+Appearance201.setContainerField("appearance");
 Material& Material202 =  Material();
+Material202.setContainerField("material");
 Material202.setUSE(std::string("TextMat"));
 Appearance201.addChild(&Material202);
 
@@ -963,6 +1004,7 @@ Shape200.addChild(&Appearance201);
 Text& Text203 =  Text();
 Text203.setString((std::string[]){"ArtDeco09"}, 1);
 CFontStyle& FontStyle204 =  CFontStyle();
+FontStyle204.setContainerField("fontStyle");
 FontStyle204.setUSE(std::string("Style"));
 Text203.setFontStyle(&FontStyle204);
 
@@ -989,7 +1031,9 @@ Anchor207.setDescription(std::string("ArtDeco10 view"));
 Anchor207.setUrl((std::string[]){"#View10"}, 1);
 Shape& Shape208 =  Shape();
 Appearance& Appearance209 =  Appearance();
+Appearance209.setContainerField("appearance");
 ProtoInstance& ProtoInstance210 =  ProtoInstance();
+ProtoInstance210.setContainerField("material");
 ProtoInstance210.setName(std::string("ArtDeco10"));
 Appearance209.addChild(&ProtoInstance210);
 
@@ -1011,7 +1055,9 @@ Anchor213.setParameter((std::string[]){"target=_source"}, 1);
 Anchor213.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco10", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco10"}, 2);
 Shape& Shape214 =  Shape();
 Appearance& Appearance215 =  Appearance();
+Appearance215.setContainerField("appearance");
 Material& Material216 =  Material();
+Material216.setContainerField("material");
 Material216.setUSE(std::string("TextMat"));
 Appearance215.addChild(&Material216);
 
@@ -1020,6 +1066,7 @@ Shape214.addChild(&Appearance215);
 Text& Text217 =  Text();
 Text217.setString((std::string[]){"ArtDeco10"}, 1);
 CFontStyle& FontStyle218 =  CFontStyle();
+FontStyle218.setContainerField("fontStyle");
 FontStyle218.setUSE(std::string("Style"));
 Text217.setFontStyle(&FontStyle218);
 
@@ -1046,7 +1093,9 @@ Anchor221.setDescription(std::string("ArtDeco11 view"));
 Anchor221.setUrl((std::string[]){"#View11"}, 1);
 Shape& Shape222 =  Shape();
 Appearance& Appearance223 =  Appearance();
+Appearance223.setContainerField("appearance");
 ProtoInstance& ProtoInstance224 =  ProtoInstance();
+ProtoInstance224.setContainerField("material");
 ProtoInstance224.setName(std::string("ArtDeco11"));
 Appearance223.addChild(&ProtoInstance224);
 
@@ -1068,7 +1117,9 @@ Anchor227.setParameter((std::string[]){"target=_source"}, 1);
 Anchor227.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco11", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco11"}, 2);
 Shape& Shape228 =  Shape();
 Appearance& Appearance229 =  Appearance();
+Appearance229.setContainerField("appearance");
 Material& Material230 =  Material();
+Material230.setContainerField("material");
 Material230.setUSE(std::string("TextMat"));
 Appearance229.addChild(&Material230);
 
@@ -1077,6 +1128,7 @@ Shape228.addChild(&Appearance229);
 Text& Text231 =  Text();
 Text231.setString((std::string[]){"ArtDeco11"}, 1);
 CFontStyle& FontStyle232 =  CFontStyle();
+FontStyle232.setContainerField("fontStyle");
 FontStyle232.setUSE(std::string("Style"));
 Text231.setFontStyle(&FontStyle232);
 
@@ -1103,7 +1155,9 @@ Anchor235.setDescription(std::string("ArtDeco12 view"));
 Anchor235.setUrl((std::string[]){"#View12"}, 1);
 Shape& Shape236 =  Shape();
 Appearance& Appearance237 =  Appearance();
+Appearance237.setContainerField("appearance");
 ProtoInstance& ProtoInstance238 =  ProtoInstance();
+ProtoInstance238.setContainerField("material");
 ProtoInstance238.setName(std::string("ArtDeco12"));
 Appearance237.addChild(&ProtoInstance238);
 
@@ -1125,7 +1179,9 @@ Anchor241.setParameter((std::string[]){"target=_source"}, 1);
 Anchor241.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco12", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco12"}, 2);
 Shape& Shape242 =  Shape();
 Appearance& Appearance243 =  Appearance();
+Appearance243.setContainerField("appearance");
 Material& Material244 =  Material();
+Material244.setContainerField("material");
 Material244.setUSE(std::string("TextMat"));
 Appearance243.addChild(&Material244);
 
@@ -1134,6 +1190,7 @@ Shape242.addChild(&Appearance243);
 Text& Text245 =  Text();
 Text245.setString((std::string[]){"ArtDeco12"}, 1);
 CFontStyle& FontStyle246 =  CFontStyle();
+FontStyle246.setContainerField("fontStyle");
 FontStyle246.setUSE(std::string("Style"));
 Text245.setFontStyle(&FontStyle246);
 
@@ -1160,7 +1217,9 @@ Anchor249.setDescription(std::string("ArtDeco13 view"));
 Anchor249.setUrl((std::string[]){"#View13"}, 1);
 Shape& Shape250 =  Shape();
 Appearance& Appearance251 =  Appearance();
+Appearance251.setContainerField("appearance");
 ProtoInstance& ProtoInstance252 =  ProtoInstance();
+ProtoInstance252.setContainerField("material");
 ProtoInstance252.setName(std::string("ArtDeco13"));
 Appearance251.addChild(&ProtoInstance252);
 
@@ -1182,7 +1241,9 @@ Anchor255.setParameter((std::string[]){"target=_source"}, 1);
 Anchor255.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco3", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco13"}, 2);
 Shape& Shape256 =  Shape();
 Appearance& Appearance257 =  Appearance();
+Appearance257.setContainerField("appearance");
 Material& Material258 =  Material();
+Material258.setContainerField("material");
 Material258.setUSE(std::string("TextMat"));
 Appearance257.addChild(&Material258);
 
@@ -1191,6 +1252,7 @@ Shape256.addChild(&Appearance257);
 Text& Text259 =  Text();
 Text259.setString((std::string[]){"ArtDeco13"}, 1);
 CFontStyle& FontStyle260 =  CFontStyle();
+FontStyle260.setContainerField("fontStyle");
 FontStyle260.setUSE(std::string("Style"));
 Text259.setFontStyle(&FontStyle260);
 
@@ -1217,7 +1279,9 @@ Anchor263.setDescription(std::string("ArtDeco14 view"));
 Anchor263.setUrl((std::string[]){"#View14"}, 1);
 Shape& Shape264 =  Shape();
 Appearance& Appearance265 =  Appearance();
+Appearance265.setContainerField("appearance");
 ProtoInstance& ProtoInstance266 =  ProtoInstance();
+ProtoInstance266.setContainerField("material");
 ProtoInstance266.setName(std::string("ArtDeco14"));
 Appearance265.addChild(&ProtoInstance266);
 
@@ -1239,7 +1303,9 @@ Anchor269.setParameter((std::string[]){"target=_source"}, 1);
 Anchor269.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco4", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco14"}, 2);
 Shape& Shape270 =  Shape();
 Appearance& Appearance271 =  Appearance();
+Appearance271.setContainerField("appearance");
 Material& Material272 =  Material();
+Material272.setContainerField("material");
 Material272.setUSE(std::string("TextMat"));
 Appearance271.addChild(&Material272);
 
@@ -1248,6 +1314,7 @@ Shape270.addChild(&Appearance271);
 Text& Text273 =  Text();
 Text273.setString((std::string[]){"ArtDeco14"}, 1);
 CFontStyle& FontStyle274 =  CFontStyle();
+FontStyle274.setContainerField("fontStyle");
 FontStyle274.setUSE(std::string("Style"));
 Text273.setFontStyle(&FontStyle274);
 
@@ -1274,7 +1341,9 @@ Anchor277.setDescription(std::string("ArtDeco15 view"));
 Anchor277.setUrl((std::string[]){"#View15"}, 1);
 Shape& Shape278 =  Shape();
 Appearance& Appearance279 =  Appearance();
+Appearance279.setContainerField("appearance");
 ProtoInstance& ProtoInstance280 =  ProtoInstance();
+ProtoInstance280.setContainerField("material");
 ProtoInstance280.setName(std::string("ArtDeco15"));
 Appearance279.addChild(&ProtoInstance280);
 
@@ -1296,7 +1365,9 @@ Anchor283.setParameter((std::string[]){"target=_source"}, 1);
 Anchor283.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco5", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco15"}, 2);
 Shape& Shape284 =  Shape();
 Appearance& Appearance285 =  Appearance();
+Appearance285.setContainerField("appearance");
 Material& Material286 =  Material();
+Material286.setContainerField("material");
 Material286.setUSE(std::string("TextMat"));
 Appearance285.addChild(&Material286);
 
@@ -1305,6 +1376,7 @@ Shape284.addChild(&Appearance285);
 Text& Text287 =  Text();
 Text287.setString((std::string[]){"ArtDeco15"}, 1);
 CFontStyle& FontStyle288 =  CFontStyle();
+FontStyle288.setContainerField("fontStyle");
 FontStyle288.setUSE(std::string("Style"));
 Text287.setFontStyle(&FontStyle288);
 
@@ -1331,7 +1403,9 @@ Anchor291.setDescription(std::string("ArtDeco16 view"));
 Anchor291.setUrl((std::string[]){"#View16"}, 1);
 Shape& Shape292 =  Shape();
 Appearance& Appearance293 =  Appearance();
+Appearance293.setContainerField("appearance");
 ProtoInstance& ProtoInstance294 =  ProtoInstance();
+ProtoInstance294.setContainerField("material");
 ProtoInstance294.setName(std::string("ArtDeco16"));
 Appearance293.addChild(&ProtoInstance294);
 
@@ -1353,7 +1427,9 @@ Anchor297.setParameter((std::string[]){"target=_source"}, 1);
 Anchor297.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco16", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco16"}, 2);
 Shape& Shape298 =  Shape();
 Appearance& Appearance299 =  Appearance();
+Appearance299.setContainerField("appearance");
 Material& Material300 =  Material();
+Material300.setContainerField("material");
 Material300.setUSE(std::string("TextMat"));
 Appearance299.addChild(&Material300);
 
@@ -1362,6 +1438,7 @@ Shape298.addChild(&Appearance299);
 Text& Text301 =  Text();
 Text301.setString((std::string[]){"ArtDeco16"}, 1);
 CFontStyle& FontStyle302 =  CFontStyle();
+FontStyle302.setContainerField("fontStyle");
 FontStyle302.setUSE(std::string("Style"));
 Text301.setFontStyle(&FontStyle302);
 
@@ -1388,7 +1465,9 @@ Anchor305.setDescription(std::string("ArtDeco17 view"));
 Anchor305.setUrl((std::string[]){"#View17"}, 1);
 Shape& Shape306 =  Shape();
 Appearance& Appearance307 =  Appearance();
+Appearance307.setContainerField("appearance");
 ProtoInstance& ProtoInstance308 =  ProtoInstance();
+ProtoInstance308.setContainerField("material");
 ProtoInstance308.setName(std::string("ArtDeco17"));
 Appearance307.addChild(&ProtoInstance308);
 
@@ -1410,7 +1489,9 @@ Anchor311.setParameter((std::string[]){"target=_source"}, 1);
 Anchor311.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco7", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco17"}, 2);
 Shape& Shape312 =  Shape();
 Appearance& Appearance313 =  Appearance();
+Appearance313.setContainerField("appearance");
 Material& Material314 =  Material();
+Material314.setContainerField("material");
 Material314.setUSE(std::string("TextMat"));
 Appearance313.addChild(&Material314);
 
@@ -1419,6 +1500,7 @@ Shape312.addChild(&Appearance313);
 Text& Text315 =  Text();
 Text315.setString((std::string[]){"ArtDeco17"}, 1);
 CFontStyle& FontStyle316 =  CFontStyle();
+FontStyle316.setContainerField("fontStyle");
 FontStyle316.setUSE(std::string("Style"));
 Text315.setFontStyle(&FontStyle316);
 
@@ -1445,7 +1527,9 @@ Anchor319.setDescription(std::string("ArtDeco18 view"));
 Anchor319.setUrl((std::string[]){"#View18"}, 1);
 Shape& Shape320 =  Shape();
 Appearance& Appearance321 =  Appearance();
+Appearance321.setContainerField("appearance");
 ProtoInstance& ProtoInstance322 =  ProtoInstance();
+ProtoInstance322.setContainerField("material");
 ProtoInstance322.setName(std::string("ArtDeco18"));
 Appearance321.addChild(&ProtoInstance322);
 
@@ -1467,7 +1551,9 @@ Anchor325.setParameter((std::string[]){"target=_source"}, 1);
 Anchor325.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco18", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco18"}, 2);
 Shape& Shape326 =  Shape();
 Appearance& Appearance327 =  Appearance();
+Appearance327.setContainerField("appearance");
 Material& Material328 =  Material();
+Material328.setContainerField("material");
 Material328.setUSE(std::string("TextMat"));
 Appearance327.addChild(&Material328);
 
@@ -1476,6 +1562,7 @@ Shape326.addChild(&Appearance327);
 Text& Text329 =  Text();
 Text329.setString((std::string[]){"ArtDeco18"}, 1);
 CFontStyle& FontStyle330 =  CFontStyle();
+FontStyle330.setContainerField("fontStyle");
 FontStyle330.setUSE(std::string("Style"));
 Text329.setFontStyle(&FontStyle330);
 
@@ -1502,7 +1589,9 @@ Anchor333.setDescription(std::string("ArtDeco19 view"));
 Anchor333.setUrl((std::string[]){"#View19"}, 1);
 Shape& Shape334 =  Shape();
 Appearance& Appearance335 =  Appearance();
+Appearance335.setContainerField("appearance");
 ProtoInstance& ProtoInstance336 =  ProtoInstance();
+ProtoInstance336.setContainerField("material");
 ProtoInstance336.setName(std::string("ArtDeco19"));
 Appearance335.addChild(&ProtoInstance336);
 
@@ -1524,7 +1613,9 @@ Anchor339.setParameter((std::string[]){"target=_source"}, 1);
 Anchor339.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco9", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco19"}, 2);
 Shape& Shape340 =  Shape();
 Appearance& Appearance341 =  Appearance();
+Appearance341.setContainerField("appearance");
 Material& Material342 =  Material();
+Material342.setContainerField("material");
 Material342.setUSE(std::string("TextMat"));
 Appearance341.addChild(&Material342);
 
@@ -1533,6 +1624,7 @@ Shape340.addChild(&Appearance341);
 Text& Text343 =  Text();
 Text343.setString((std::string[]){"ArtDeco19"}, 1);
 CFontStyle& FontStyle344 =  CFontStyle();
+FontStyle344.setContainerField("fontStyle");
 FontStyle344.setUSE(std::string("Style"));
 Text343.setFontStyle(&FontStyle344);
 
@@ -1559,7 +1651,9 @@ Anchor347.setDescription(std::string("ArtDeco20 view"));
 Anchor347.setUrl((std::string[]){"#View20"}, 1);
 Shape& Shape348 =  Shape();
 Appearance& Appearance349 =  Appearance();
+Appearance349.setContainerField("appearance");
 ProtoInstance& ProtoInstance350 =  ProtoInstance();
+ProtoInstance350.setContainerField("material");
 ProtoInstance350.setName(std::string("ArtDeco20"));
 Appearance349.addChild(&ProtoInstance350);
 
@@ -1581,7 +1675,9 @@ Anchor353.setParameter((std::string[]){"target=_source"}, 1);
 Anchor353.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco20", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco20"}, 2);
 Shape& Shape354 =  Shape();
 Appearance& Appearance355 =  Appearance();
+Appearance355.setContainerField("appearance");
 Material& Material356 =  Material();
+Material356.setContainerField("material");
 Material356.setUSE(std::string("TextMat"));
 Appearance355.addChild(&Material356);
 
@@ -1590,6 +1686,7 @@ Shape354.addChild(&Appearance355);
 Text& Text357 =  Text();
 Text357.setString((std::string[]){"ArtDeco20"}, 1);
 CFontStyle& FontStyle358 =  CFontStyle();
+FontStyle358.setContainerField("fontStyle");
 FontStyle358.setUSE(std::string("Style"));
 Text357.setFontStyle(&FontStyle358);
 
@@ -1616,7 +1713,9 @@ Anchor361.setDescription(std::string("ArtDeco21 view"));
 Anchor361.setUrl((std::string[]){"#View21"}, 1);
 Shape& Shape362 =  Shape();
 Appearance& Appearance363 =  Appearance();
+Appearance363.setContainerField("appearance");
 ProtoInstance& ProtoInstance364 =  ProtoInstance();
+ProtoInstance364.setContainerField("material");
 ProtoInstance364.setName(std::string("ArtDeco21"));
 Appearance363.addChild(&ProtoInstance364);
 
@@ -1638,7 +1737,9 @@ Anchor367.setParameter((std::string[]){"target=_source"}, 1);
 Anchor367.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco21", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco21"}, 2);
 Shape& Shape368 =  Shape();
 Appearance& Appearance369 =  Appearance();
+Appearance369.setContainerField("appearance");
 Material& Material370 =  Material();
+Material370.setContainerField("material");
 Material370.setUSE(std::string("TextMat"));
 Appearance369.addChild(&Material370);
 
@@ -1647,6 +1748,7 @@ Shape368.addChild(&Appearance369);
 Text& Text371 =  Text();
 Text371.setString((std::string[]){"ArtDeco21"}, 1);
 CFontStyle& FontStyle372 =  CFontStyle();
+FontStyle372.setContainerField("fontStyle");
 FontStyle372.setUSE(std::string("Style"));
 Text371.setFontStyle(&FontStyle372);
 
@@ -1673,7 +1775,9 @@ Anchor375.setDescription(std::string("ArtDeco22 view"));
 Anchor375.setUrl((std::string[]){"#View22"}, 1);
 Shape& Shape376 =  Shape();
 Appearance& Appearance377 =  Appearance();
+Appearance377.setContainerField("appearance");
 ProtoInstance& ProtoInstance378 =  ProtoInstance();
+ProtoInstance378.setContainerField("material");
 ProtoInstance378.setName(std::string("ArtDeco22"));
 Appearance377.addChild(&ProtoInstance378);
 
@@ -1695,7 +1799,9 @@ Anchor381.setParameter((std::string[]){"target=_source"}, 1);
 Anchor381.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco22", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco22"}, 2);
 Shape& Shape382 =  Shape();
 Appearance& Appearance383 =  Appearance();
+Appearance383.setContainerField("appearance");
 Material& Material384 =  Material();
+Material384.setContainerField("material");
 Material384.setUSE(std::string("TextMat"));
 Appearance383.addChild(&Material384);
 
@@ -1704,6 +1810,7 @@ Shape382.addChild(&Appearance383);
 Text& Text385 =  Text();
 Text385.setString((std::string[]){"ArtDeco22"}, 1);
 CFontStyle& FontStyle386 =  CFontStyle();
+FontStyle386.setContainerField("fontStyle");
 FontStyle386.setUSE(std::string("Style"));
 Text385.setFontStyle(&FontStyle386);
 
@@ -1730,7 +1837,9 @@ Anchor389.setDescription(std::string("ArtDeco23 view"));
 Anchor389.setUrl((std::string[]){"#View23"}, 1);
 Shape& Shape390 =  Shape();
 Appearance& Appearance391 =  Appearance();
+Appearance391.setContainerField("appearance");
 ProtoInstance& ProtoInstance392 =  ProtoInstance();
+ProtoInstance392.setContainerField("material");
 ProtoInstance392.setName(std::string("ArtDeco23"));
 Appearance391.addChild(&ProtoInstance392);
 
@@ -1752,7 +1861,9 @@ Anchor395.setParameter((std::string[]){"target=_source"}, 1);
 Anchor395.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco23", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco23"}, 2);
 Shape& Shape396 =  Shape();
 Appearance& Appearance397 =  Appearance();
+Appearance397.setContainerField("appearance");
 Material& Material398 =  Material();
+Material398.setContainerField("material");
 Material398.setUSE(std::string("TextMat"));
 Appearance397.addChild(&Material398);
 
@@ -1761,6 +1872,7 @@ Shape396.addChild(&Appearance397);
 Text& Text399 =  Text();
 Text399.setString((std::string[]){"ArtDeco23"}, 1);
 CFontStyle& FontStyle400 =  CFontStyle();
+FontStyle400.setContainerField("fontStyle");
 FontStyle400.setUSE(std::string("Style"));
 Text399.setFontStyle(&FontStyle400);
 
@@ -1787,7 +1899,9 @@ Anchor403.setDescription(std::string("ArtDeco24 view"));
 Anchor403.setUrl((std::string[]){"#View24"}, 1);
 Shape& Shape404 =  Shape();
 Appearance& Appearance405 =  Appearance();
+Appearance405.setContainerField("appearance");
 ProtoInstance& ProtoInstance406 =  ProtoInstance();
+ProtoInstance406.setContainerField("material");
 ProtoInstance406.setName(std::string("ArtDeco24"));
 Appearance405.addChild(&ProtoInstance406);
 
@@ -1809,7 +1923,9 @@ Anchor409.setParameter((std::string[]){"target=_source"}, 1);
 Anchor409.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco24", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco24"}, 2);
 Shape& Shape410 =  Shape();
 Appearance& Appearance411 =  Appearance();
+Appearance411.setContainerField("appearance");
 Material& Material412 =  Material();
+Material412.setContainerField("material");
 Material412.setUSE(std::string("TextMat"));
 Appearance411.addChild(&Material412);
 
@@ -1818,6 +1934,7 @@ Shape410.addChild(&Appearance411);
 Text& Text413 =  Text();
 Text413.setString((std::string[]){"ArtDeco24"}, 1);
 CFontStyle& FontStyle414 =  CFontStyle();
+FontStyle414.setContainerField("fontStyle");
 FontStyle414.setUSE(std::string("Style"));
 Text413.setFontStyle(&FontStyle414);
 
@@ -1844,7 +1961,9 @@ Anchor417.setDescription(std::string("ArtDeco25 view"));
 Anchor417.setUrl((std::string[]){"#View25"}, 1);
 Shape& Shape418 =  Shape();
 Appearance& Appearance419 =  Appearance();
+Appearance419.setContainerField("appearance");
 ProtoInstance& ProtoInstance420 =  ProtoInstance();
+ProtoInstance420.setContainerField("material");
 ProtoInstance420.setName(std::string("ArtDeco25"));
 Appearance419.addChild(&ProtoInstance420);
 
@@ -1866,7 +1985,9 @@ Anchor423.setParameter((std::string[]){"target=_source"}, 1);
 Anchor423.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco25", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco25"}, 2);
 Shape& Shape424 =  Shape();
 Appearance& Appearance425 =  Appearance();
+Appearance425.setContainerField("appearance");
 Material& Material426 =  Material();
+Material426.setContainerField("material");
 Material426.setUSE(std::string("TextMat"));
 Appearance425.addChild(&Material426);
 
@@ -1875,6 +1996,7 @@ Shape424.addChild(&Appearance425);
 Text& Text427 =  Text();
 Text427.setString((std::string[]){"ArtDeco25"}, 1);
 CFontStyle& FontStyle428 =  CFontStyle();
+FontStyle428.setContainerField("fontStyle");
 FontStyle428.setUSE(std::string("Style"));
 Text427.setFontStyle(&FontStyle428);
 
@@ -1901,7 +2023,9 @@ Anchor431.setDescription(std::string("ArtDeco26 view"));
 Anchor431.setUrl((std::string[]){"#View26"}, 1);
 Shape& Shape432 =  Shape();
 Appearance& Appearance433 =  Appearance();
+Appearance433.setContainerField("appearance");
 ProtoInstance& ProtoInstance434 =  ProtoInstance();
+ProtoInstance434.setContainerField("material");
 ProtoInstance434.setName(std::string("ArtDeco26"));
 Appearance433.addChild(&ProtoInstance434);
 
@@ -1923,7 +2047,9 @@ Anchor437.setParameter((std::string[]){"target=_source"}, 1);
 Anchor437.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco26", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco26"}, 2);
 Shape& Shape438 =  Shape();
 Appearance& Appearance439 =  Appearance();
+Appearance439.setContainerField("appearance");
 Material& Material440 =  Material();
+Material440.setContainerField("material");
 Material440.setUSE(std::string("TextMat"));
 Appearance439.addChild(&Material440);
 
@@ -1932,6 +2058,7 @@ Shape438.addChild(&Appearance439);
 Text& Text441 =  Text();
 Text441.setString((std::string[]){"ArtDeco26"}, 1);
 CFontStyle& FontStyle442 =  CFontStyle();
+FontStyle442.setContainerField("fontStyle");
 FontStyle442.setUSE(std::string("Style"));
 Text441.setFontStyle(&FontStyle442);
 
@@ -1958,7 +2085,9 @@ Anchor445.setDescription(std::string("ArtDeco27 view"));
 Anchor445.setUrl((std::string[]){"#View27"}, 1);
 Shape& Shape446 =  Shape();
 Appearance& Appearance447 =  Appearance();
+Appearance447.setContainerField("appearance");
 ProtoInstance& ProtoInstance448 =  ProtoInstance();
+ProtoInstance448.setContainerField("material");
 ProtoInstance448.setName(std::string("ArtDeco27"));
 Appearance447.addChild(&ProtoInstance448);
 
@@ -1980,7 +2109,9 @@ Anchor451.setParameter((std::string[]){"target=_source"}, 1);
 Anchor451.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco27", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco27"}, 2);
 Shape& Shape452 =  Shape();
 Appearance& Appearance453 =  Appearance();
+Appearance453.setContainerField("appearance");
 Material& Material454 =  Material();
+Material454.setContainerField("material");
 Material454.setUSE(std::string("TextMat"));
 Appearance453.addChild(&Material454);
 
@@ -1989,6 +2120,7 @@ Shape452.addChild(&Appearance453);
 Text& Text455 =  Text();
 Text455.setString((std::string[]){"ArtDeco27"}, 1);
 CFontStyle& FontStyle456 =  CFontStyle();
+FontStyle456.setContainerField("fontStyle");
 FontStyle456.setUSE(std::string("Style"));
 Text455.setFontStyle(&FontStyle456);
 
@@ -2015,7 +2147,9 @@ Anchor459.setDescription(std::string("ArtDeco28 view"));
 Anchor459.setUrl((std::string[]){"#View28"}, 1);
 Shape& Shape460 =  Shape();
 Appearance& Appearance461 =  Appearance();
+Appearance461.setContainerField("appearance");
 ProtoInstance& ProtoInstance462 =  ProtoInstance();
+ProtoInstance462.setContainerField("material");
 ProtoInstance462.setName(std::string("ArtDeco28"));
 Appearance461.addChild(&ProtoInstance462);
 
@@ -2037,7 +2171,9 @@ Anchor465.setParameter((std::string[]){"target=_source"}, 1);
 Anchor465.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco28", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco28"}, 2);
 Shape& Shape466 =  Shape();
 Appearance& Appearance467 =  Appearance();
+Appearance467.setContainerField("appearance");
 Material& Material468 =  Material();
+Material468.setContainerField("material");
 Material468.setUSE(std::string("TextMat"));
 Appearance467.addChild(&Material468);
 
@@ -2046,6 +2182,7 @@ Shape466.addChild(&Appearance467);
 Text& Text469 =  Text();
 Text469.setString((std::string[]){"ArtDeco28"}, 1);
 CFontStyle& FontStyle470 =  CFontStyle();
+FontStyle470.setContainerField("fontStyle");
 FontStyle470.setUSE(std::string("Style"));
 Text469.setFontStyle(&FontStyle470);
 
@@ -2072,7 +2209,9 @@ Anchor473.setDescription(std::string("ArtDeco29 view"));
 Anchor473.setUrl((std::string[]){"#View29"}, 1);
 Shape& Shape474 =  Shape();
 Appearance& Appearance475 =  Appearance();
+Appearance475.setContainerField("appearance");
 ProtoInstance& ProtoInstance476 =  ProtoInstance();
+ProtoInstance476.setContainerField("material");
 ProtoInstance476.setName(std::string("ArtDeco29"));
 Appearance475.addChild(&ProtoInstance476);
 
@@ -2094,7 +2233,9 @@ Anchor479.setParameter((std::string[]){"target=_source"}, 1);
 Anchor479.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco29", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco29"}, 2);
 Shape& Shape480 =  Shape();
 Appearance& Appearance481 =  Appearance();
+Appearance481.setContainerField("appearance");
 Material& Material482 =  Material();
+Material482.setContainerField("material");
 Material482.setUSE(std::string("TextMat"));
 Appearance481.addChild(&Material482);
 
@@ -2103,6 +2244,7 @@ Shape480.addChild(&Appearance481);
 Text& Text483 =  Text();
 Text483.setString((std::string[]){"ArtDeco29"}, 1);
 CFontStyle& FontStyle484 =  CFontStyle();
+FontStyle484.setContainerField("fontStyle");
 FontStyle484.setUSE(std::string("Style"));
 Text483.setFontStyle(&FontStyle484);
 
@@ -2129,7 +2271,9 @@ Anchor487.setDescription(std::string("ArtDeco30 view"));
 Anchor487.setUrl((std::string[]){"#View30"}, 1);
 Shape& Shape488 =  Shape();
 Appearance& Appearance489 =  Appearance();
+Appearance489.setContainerField("appearance");
 ProtoInstance& ProtoInstance490 =  ProtoInstance();
+ProtoInstance490.setContainerField("material");
 ProtoInstance490.setName(std::string("ArtDeco30"));
 Appearance489.addChild(&ProtoInstance490);
 
@@ -2151,7 +2295,9 @@ Anchor493.setParameter((std::string[]){"target=_source"}, 1);
 Anchor493.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco30", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco30"}, 2);
 Shape& Shape494 =  Shape();
 Appearance& Appearance495 =  Appearance();
+Appearance495.setContainerField("appearance");
 Material& Material496 =  Material();
+Material496.setContainerField("material");
 Material496.setUSE(std::string("TextMat"));
 Appearance495.addChild(&Material496);
 
@@ -2160,6 +2306,7 @@ Shape494.addChild(&Appearance495);
 Text& Text497 =  Text();
 Text497.setString((std::string[]){"ArtDeco30"}, 1);
 CFontStyle& FontStyle498 =  CFontStyle();
+FontStyle498.setContainerField("fontStyle");
 FontStyle498.setUSE(std::string("Style"));
 Text497.setFontStyle(&FontStyle498);
 
@@ -2186,7 +2333,9 @@ Anchor501.setDescription(std::string("ArtDeco31 view"));
 Anchor501.setUrl((std::string[]){"#View31"}, 1);
 Shape& Shape502 =  Shape();
 Appearance& Appearance503 =  Appearance();
+Appearance503.setContainerField("appearance");
 ProtoInstance& ProtoInstance504 =  ProtoInstance();
+ProtoInstance504.setContainerField("material");
 ProtoInstance504.setName(std::string("ArtDeco31"));
 Appearance503.addChild(&ProtoInstance504);
 
@@ -2208,7 +2357,9 @@ Anchor507.setParameter((std::string[]){"target=_source"}, 1);
 Anchor507.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco31", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco31"}, 2);
 Shape& Shape508 =  Shape();
 Appearance& Appearance509 =  Appearance();
+Appearance509.setContainerField("appearance");
 Material& Material510 =  Material();
+Material510.setContainerField("material");
 Material510.setUSE(std::string("TextMat"));
 Appearance509.addChild(&Material510);
 
@@ -2217,6 +2368,7 @@ Shape508.addChild(&Appearance509);
 Text& Text511 =  Text();
 Text511.setString((std::string[]){"ArtDeco31"}, 1);
 CFontStyle& FontStyle512 =  CFontStyle();
+FontStyle512.setContainerField("fontStyle");
 FontStyle512.setUSE(std::string("Style"));
 Text511.setFontStyle(&FontStyle512);
 
@@ -2243,7 +2395,9 @@ Anchor515.setDescription(std::string("ArtDeco32 view"));
 Anchor515.setUrl((std::string[]){"#View32"}, 1);
 Shape& Shape516 =  Shape();
 Appearance& Appearance517 =  Appearance();
+Appearance517.setContainerField("appearance");
 ProtoInstance& ProtoInstance518 =  ProtoInstance();
+ProtoInstance518.setContainerField("material");
 ProtoInstance518.setName(std::string("ArtDeco32"));
 Appearance517.addChild(&ProtoInstance518);
 
@@ -2265,7 +2419,9 @@ Anchor521.setParameter((std::string[]){"target=_source"}, 1);
 Anchor521.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco32", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco32"}, 2);
 Shape& Shape522 =  Shape();
 Appearance& Appearance523 =  Appearance();
+Appearance523.setContainerField("appearance");
 Material& Material524 =  Material();
+Material524.setContainerField("material");
 Material524.setUSE(std::string("TextMat"));
 Appearance523.addChild(&Material524);
 
@@ -2274,6 +2430,7 @@ Shape522.addChild(&Appearance523);
 Text& Text525 =  Text();
 Text525.setString((std::string[]){"ArtDeco32"}, 1);
 CFontStyle& FontStyle526 =  CFontStyle();
+FontStyle526.setContainerField("fontStyle");
 FontStyle526.setUSE(std::string("Style"));
 Text525.setFontStyle(&FontStyle526);
 
@@ -2300,7 +2457,9 @@ Anchor529.setDescription(std::string("ArtDeco33 view"));
 Anchor529.setUrl((std::string[]){"#View33"}, 1);
 Shape& Shape530 =  Shape();
 Appearance& Appearance531 =  Appearance();
+Appearance531.setContainerField("appearance");
 ProtoInstance& ProtoInstance532 =  ProtoInstance();
+ProtoInstance532.setContainerField("material");
 ProtoInstance532.setName(std::string("ArtDeco33"));
 Appearance531.addChild(&ProtoInstance532);
 
@@ -2322,7 +2481,9 @@ Anchor535.setParameter((std::string[]){"target=_source"}, 1);
 Anchor535.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco33", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco33"}, 2);
 Shape& Shape536 =  Shape();
 Appearance& Appearance537 =  Appearance();
+Appearance537.setContainerField("appearance");
 Material& Material538 =  Material();
+Material538.setContainerField("material");
 Material538.setUSE(std::string("TextMat"));
 Appearance537.addChild(&Material538);
 
@@ -2331,6 +2492,7 @@ Shape536.addChild(&Appearance537);
 Text& Text539 =  Text();
 Text539.setString((std::string[]){"ArtDeco33"}, 1);
 CFontStyle& FontStyle540 =  CFontStyle();
+FontStyle540.setContainerField("fontStyle");
 FontStyle540.setUSE(std::string("Style"));
 Text539.setFontStyle(&FontStyle540);
 
@@ -2357,7 +2519,9 @@ Anchor543.setDescription(std::string("ArtDeco34 view"));
 Anchor543.setUrl((std::string[]){"#View34"}, 1);
 Shape& Shape544 =  Shape();
 Appearance& Appearance545 =  Appearance();
+Appearance545.setContainerField("appearance");
 ProtoInstance& ProtoInstance546 =  ProtoInstance();
+ProtoInstance546.setContainerField("material");
 ProtoInstance546.setName(std::string("ArtDeco34"));
 Appearance545.addChild(&ProtoInstance546);
 
@@ -2379,7 +2543,9 @@ Anchor549.setParameter((std::string[]){"target=_source"}, 1);
 Anchor549.setUrl((std::string[]){"../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco34", "https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco34"}, 2);
 Shape& Shape550 =  Shape();
 Appearance& Appearance551 =  Appearance();
+Appearance551.setContainerField("appearance");
 Material& Material552 =  Material();
+Material552.setContainerField("material");
 Material552.setUSE(std::string("TextMat"));
 Appearance551.addChild(&Material552);
 
@@ -2388,6 +2554,7 @@ Shape550.addChild(&Appearance551);
 Text& Text553 =  Text();
 Text553.setString((std::string[]){"ArtDeco34"}, 1);
 CFontStyle& FontStyle554 =  CFontStyle();
+FontStyle554.setContainerField("fontStyle");
 FontStyle554.setUSE(std::string("Style"));
 Text553.setFontStyle(&FontStyle554);
 
@@ -2419,4 +2586,4 @@ Scene13.addChild(&ROUTE556);
 
 X3D0.setScene(&Scene13);
 
-//}
+}

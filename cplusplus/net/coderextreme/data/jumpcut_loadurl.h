@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int jumpcut_loadurl(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -95,7 +87,7 @@ WorldInfo17.setTitle(std::string("jumpcut_loadurl.x3d"));
 Scene16.addChild(&WorldInfo17);
 
 Background& Background18 =  Background();
-Background18.setGroundAngle(new float[]{1.57}, 1);
+Background18.setGroundAngle(new float[]{1.57});
 Background18.setGroundColor(new float[]{0.0,0.5,0.0,0.0,0.5,0.0}, 6);
 Background18.setSkyColor(new float[]{0.0,0.0,1.0}, 3);
 Scene16.addChild(&Background18);
@@ -125,7 +117,9 @@ Transform& Transform23 =  Transform();
 Transform23.setDEF(std::string("ROOT"));
 Shape& Shape24 =  Shape();
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Appearance25.addChild(&Material26);
 
 Shape24.addChild(&Appearance25);
@@ -171,4 +165,4 @@ Scene16.addChild(&ROUTE32);
 
 X3D0.setScene(&Scene16);
 
-//}
+}

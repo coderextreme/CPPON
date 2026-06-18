@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int flowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -110,34 +102,43 @@ Transform& Transform21 =  Transform();
 Transform21.setDEF(std::string("animate_transform"));
 Shape& Shape22 =  Shape();
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Material& Material24 =  Material();
+Material24.setContainerField("material");
 Material24.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material24.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance23.addChild(&Material24);
 
 ComposedCubeMapTexture& ComposedCubeMapTexture25 =  ComposedCubeMapTexture();
+ComposedCubeMapTexture25.setContainerField("texture");
 ComposedCubeMapTexture25.setDEF(std::string("texture"));
 ImageTexture& ImageTexture26 =  ImageTexture();
+ImageTexture26.setContainerField("backTexture");
 ImageTexture26.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
 ComposedCubeMapTexture25.setBack(ImageTexture26);
 
 ImageTexture& ImageTexture27 =  ImageTexture();
+ImageTexture27.setContainerField("bottomTexture");
 ImageTexture27.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
 ComposedCubeMapTexture25.setBottom(ImageTexture27);
 
 ImageTexture& ImageTexture28 =  ImageTexture();
+ImageTexture28.setContainerField("frontTexture");
 ImageTexture28.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
 ComposedCubeMapTexture25.setFront(ImageTexture28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
+ImageTexture29.setContainerField("leftTexture");
 ImageTexture29.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
 ComposedCubeMapTexture25.setLeft(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
+ImageTexture30.setContainerField("rightTexture");
 ImageTexture30.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
 ComposedCubeMapTexture25.setRight(ImageTexture30);
 
 ImageTexture& ImageTexture31 =  ImageTexture();
+ImageTexture31.setContainerField("topTexture");
 ImageTexture31.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
 ComposedCubeMapTexture25.setTop(ImageTexture31);
 
@@ -483,4 +484,4 @@ Scene16.addChild(&ProtoInstance69);
 
 X3D0.setScene(&Scene16);
 
-//}
+}

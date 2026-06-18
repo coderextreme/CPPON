@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int geo(int argc, char ** argv) {
+void geo(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -87,7 +79,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene15 =  Scene();
 NavigationInfo& NavigationInfo16 =  NavigationInfo();
-NavigationInfo16.setType((std::string[]){"ANY", "EXAMINE", "FLY", "LOOKAT"}, 4);
+NavigationInfo16.setType(new std::string[]{"ANY", "EXAMINE", "FLY", "LOOKAT"}, 4);
 Scene15.addChild(&NavigationInfo16);
 
 Viewpoint& Viewpoint17 =  Viewpoint();
@@ -97,12 +89,12 @@ Scene15.addChild(&Viewpoint17);
 
 //Viewpoint position='0 0 4' description='sphere in road'/
 Background& Background18 =  Background();
-Background18.setBackUrl((std::string[]){"../resources/images/bBK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBK.png"}, 2);
-Background18.setBottomUrl((std::string[]){"../resources/images/bBT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBT.png"}, 2);
-Background18.setFrontUrl((std::string[]){"../resources/images/bFR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bFR.png"}, 2);
-Background18.setLeftUrl((std::string[]){"../resources/images/bLF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bLF.png"}, 2);
-Background18.setRightUrl((std::string[]){"../resources/images/bRT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bRT.png"}, 2);
-Background18.setTopUrl((std::string[]){"../resources/images/bTP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bTP.png"}, 2);
+Background18.setBackUrl(new std::string[]{"../resources/images/bBK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBK.png"}, 2);
+Background18.setBottomUrl(new std::string[]{"../resources/images/bBT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBT.png"}, 2);
+Background18.setFrontUrl(new std::string[]{"../resources/images/bFR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bFR.png"}, 2);
+Background18.setLeftUrl(new std::string[]{"../resources/images/bLF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bLF.png"}, 2);
+Background18.setRightUrl(new std::string[]{"../resources/images/bRT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bRT.png"}, 2);
+Background18.setTopUrl(new std::string[]{"../resources/images/bTP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bTP.png"}, 2);
 Scene15.addChild(&Background18);
 
 Transform& Transform19 =  Transform();
@@ -111,35 +103,44 @@ Sphere& Sphere21 =  Sphere();
 Shape20.setGeometry(&Sphere21);
 
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material23.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance22.addChild(&Material23);
 
 ComposedCubeMapTexture& ComposedCubeMapTexture24 =  ComposedCubeMapTexture();
+ComposedCubeMapTexture24.setContainerField("texture");
 ComposedCubeMapTexture24.setDEF(std::string("texture"));
 ImageTexture& ImageTexture25 =  ImageTexture();
-ImageTexture25.setUrl((std::string[]){"../resources/images/bBK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBK.png"}, 2);
+ImageTexture25.setContainerField("backTexture");
+ImageTexture25.setUrl(new std::string[]{"../resources/images/bBK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBK.png"}, 2);
 ComposedCubeMapTexture24.setBack(ImageTexture25);
 
 ImageTexture& ImageTexture26 =  ImageTexture();
-ImageTexture26.setUrl((std::string[]){"../resources/images/bBT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBT.png"}, 2);
+ImageTexture26.setContainerField("bottomTexture");
+ImageTexture26.setUrl(new std::string[]{"../resources/images/bBT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bBT.png"}, 2);
 ComposedCubeMapTexture24.setBottom(ImageTexture26);
 
 ImageTexture& ImageTexture27 =  ImageTexture();
-ImageTexture27.setUrl((std::string[]){"../resources/images/bFR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bFR.png"}, 2);
+ImageTexture27.setContainerField("frontTexture");
+ImageTexture27.setUrl(new std::string[]{"../resources/images/bFR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bFR.png"}, 2);
 ComposedCubeMapTexture24.setFront(ImageTexture27);
 
 ImageTexture& ImageTexture28 =  ImageTexture();
-ImageTexture28.setUrl((std::string[]){"../resources/images/bLF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bLF.png"}, 2);
+ImageTexture28.setContainerField("leftTexture");
+ImageTexture28.setUrl(new std::string[]{"../resources/images/bLF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bLF.png"}, 2);
 ComposedCubeMapTexture24.setLeft(ImageTexture28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
-ImageTexture29.setUrl((std::string[]){"../resources/images/bRT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bRT.png"}, 2);
+ImageTexture29.setContainerField("rightTexture");
+ImageTexture29.setUrl(new std::string[]{"../resources/images/bRT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bRT.png"}, 2);
 ComposedCubeMapTexture24.setRight(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
-ImageTexture30.setUrl((std::string[]){"../resources/images/bTP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bTP.png"}, 2);
+ImageTexture30.setContainerField("topTexture");
+ImageTexture30.setUrl(new std::string[]{"../resources/images/bTP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/bTP.png"}, 2);
 ComposedCubeMapTexture24.setTop(ImageTexture30);
 
 Appearance22.addChild(&ComposedCubeMapTexture24);
@@ -185,13 +186,13 @@ field37.setValue(std::string("2"));
 ComposedShader31.addChild(&field37);
 
 ShaderPart& ShaderPart38 =  ShaderPart();
-ShaderPart38.setUrl((std::string[]){"../shaders/x3dom.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs"}, 2);
+ShaderPart38.setUrl(new std::string[]{"../shaders/x3dom.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs"}, 2);
 ShaderPart38.setType(std::string("VERTEX"));
 ComposedShader31.setParts(&ShaderPart38);
 
 ShaderPart& ShaderPart39 =  ShaderPart();
 ShaderPart39.setDEF(std::string("common"));
-ShaderPart39.setUrl((std::string[]){"../shaders/common.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/common.fs"}, 2);
+ShaderPart39.setUrl(new std::string[]{"../shaders/common.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/common.fs"}, 2);
 ShaderPart39.setType(std::string("FRAGMENT"));
 ComposedShader31.setParts(&ShaderPart39);
 
@@ -238,12 +239,12 @@ field46.setValue(std::string("2"));
 ComposedShader40.addChild(&field46);
 
 ShaderPart& ShaderPart47 =  ShaderPart();
-ShaderPart47.setUrl((std::string[]){"../shaders/x_ite.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs"}, 2);
+ShaderPart47.setUrl(new std::string[]{"../shaders/x_ite.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs"}, 2);
 ShaderPart47.setType(std::string("VERTEX"));
 ComposedShader40.setParts(&ShaderPart47);
 
 ShaderPart& ShaderPart48 =  ShaderPart();
-ShaderPart48.setUrl((std::string[]){"../shaders/x_ite.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.fs"}, 2);
+ShaderPart48.setUrl(new std::string[]{"../shaders/x_ite.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.fs"}, 2);
 ShaderPart48.setType(std::string("FRAGMENT"));
 ComposedShader40.setParts(&ShaderPart48);
 

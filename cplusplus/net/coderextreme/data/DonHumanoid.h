@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int DonHumanoid(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -79,6 +71,7 @@ Coordinate15.setPoint(new float[]{0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.
 IndexedLineSet14.setCoord(&Coordinate15);
 
 CColor& Color16 =  CColor();
+Color16.setContainerField("color");
 Color16.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet14.setColor(&Color16);
 
@@ -100,7 +93,9 @@ Sphere21.setRadius(0.02);
 Shape20.setGeometry(&Sphere21);
 
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDEF(std::string("HAnimJointMaterial"));
 Material23.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Appearance22.addChild(&Material23);
@@ -118,6 +113,7 @@ Shape25.setDEF(std::string("HAnimSegmentLine"));
 LineSet& LineSet26 =  LineSet();
 LineSet26.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA27 =  ColorRGBA();
+ColorRGBA27.setContainerField("color");
 ColorRGBA27.setDEF(std::string("HAnimSegmentLineColorRGBA"));
 ColorRGBA27.setColor(new float[]{1.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0}, 8);
 LineSet26.addChild(&ColorRGBA27);
@@ -142,6 +138,7 @@ IndexedFaceSet31.setCreaseAngle(0.5);
 IndexedFaceSet31.setSolid(false);
 IndexedFaceSet31.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1,5,2,1,-1,5,3,2,-1,5,4,3,-1,5,1,4,-1}, 32);
 ColorRGBA& ColorRGBA32 =  ColorRGBA();
+ColorRGBA32.setContainerField("color");
 ColorRGBA32.setDEF(std::string("HAnimSiteColorRGBA"));
 ColorRGBA32.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet31.addChild(&ColorRGBA32);
@@ -153,7 +150,9 @@ IndexedFaceSet31.setCoord(&Coordinate33);
 Shape30.setGeometry(&IndexedFaceSet31);
 
 Appearance& Appearance34 =  Appearance();
+Appearance34.setContainerField("appearance");
 Material& Material35 =  Material();
+Material35.setContainerField("material");
 Material35.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material35.setTransparency(1);
 Appearance34.addChild(&Material35);
@@ -187,6 +186,7 @@ HAnimHumanoid38.setVersion(std::string("2.0"));
 //</LOD>
 Shape& Shape39 =  Shape();
 Shape39.setDEF(std::string("SkinShape"));
+Shape39.setContainerField("skin");
 IndexedFaceSet& IndexedFaceSet40 =  IndexedFaceSet();
 IndexedFaceSet40.setCoordIndex(new int32_t[]{0,9,5,-1,0,7,9,-1,0,5,1,-1,1,5,2,-1,1,3,7,-1,2,4,3,-1,0,1,7,-1,1,2,3,-1,5,6,2,-1,7,3,8,-1,6,4,2,-1,3,4,8,-1,9,6,5,-1,9,7,8,-1,4,6,10,-1,4,10,12,-1,4,12,8,-1,10,11,12,-1,9,75,24,-1,9,24,74,-1,9,8,75,-1,9,74,6,-1,10,6,74,-1,12,75,8,-1,74,24,29,-1,24,77,29,-1,10,74,29,-1,77,32,29,-1,32,78,29,-1,78,30,29,-1,30,10,29,-1,41,24,75,-1,41,75,12,-1,41,12,42,-1,41,42,80,-1,41,80,44,-1,41,44,79,-1,41,79,24,-1,81,24,79,-1,81,77,24,-1,81,25,77,-1,81,79,25,-1,25,79,44,-1,25,32,77,-1,25,83,32,-1,25,26,83,-1,25,27,26,-1,25,84,27,-1,25,44,84,-1,11,10,30,-1,11,30,13,-1,11,13,15,-1,11,15,14,-1,11,14,42,-1,11,42,12,-1,15,13,16,-1,15,18,14,-1,15,16,76,-1,15,76,18,-1,76,16,17,-1,76,17,82,-1,76,82,19,-1,76,19,18,-1,22,18,19,-1,22,87,18,-1,22,27,84,-1,22,84,87,-1,87,84,85,-1,85,84,44,-1,85,42,14,-1,87,14,18,-1,87,85,14,-1,20,83,26,-1,20,17,16,-1,20,16,88,-1,20,88,83,-1,88,16,13,-1,88,13,86,-1,88,86,83,-1,86,13,30,-1,86,32,83,-1,23,89,22,-1,89,27,22,-1,89,91,27,-1,91,26,27,-1,91,20,26,-1,21,20,91,-1,21,17,20,-1,21,92,17,-1,82,17,92,-1,82,90,19,-1,23,22,19,-1,23,19,90,-1,82,92,101,-1,82,101,99,-1,82,99,93,-1,82,93,95,-1,82,95,97,-1,82,97,90,-1,23,90,97,-1,23,97,94,-1,23,94,89,-1,89,94,96,-1,89,96,95,-1,89,95,93,-1,89,93,91,-1,91,93,99,-1,91,99,100,-1,91,100,98,-1,21,91,98,-1,21,98,101,-1,21,101,92,-1,85,105,42,-1,85,103,105,-1,85,44,103,-1,103,44,104,-1,80,42,105,-1,80,105,102,-1,80,102,104,-1,80,104,44,-1,105,109,102,-1,102,109,47,-1,47,104,102,-1,104,47,45,-1,104,45,103,-1,103,45,46,-1,103,46,109,-1,103,109,105,-1,109,112,110,-1,109,110,47,-1,47,110,111,-1,47,111,45,-1,45,111,113,-1,113,46,45,-1,46,113,112,-1,112,109,46,-1,112,118,110,-1,110,118,115,-1,110,115,111,-1,111,115,117,-1,111,117,113,-1,113,117,116,-1,113,116,112,-1,112,116,118,-1,115,118,119,-1,119,118,122,-1,118,116,122,-1,122,116,120,-1,116,117,120,-1,120,117,121,-1,117,115,121,-1,115,119,121,-1,119,127,123,-1,119,122,127,-1,122,126,127,-1,122,128,126,-1,122,120,128,-1,120,124,128,-1,120,121,124,-1,121,125,124,-1,121,119,125,-1,119,123,125,-1,127,129,123,-1,127,126,129,-1,129,126,141,-1,141,126,143,-1,126,142,143,-1,126,128,142,-1,128,124,130,-1,142,128,130,-1,124,132,130,-1,124,134,132,-1,125,134,124,-1,125,136,134,-1,125,137,136,-1,125,135,137,-1,125,133,135,-1,125,123,133,-1,123,131,133,-1,123,129,131,-1,131,129,138,-1,129,141,138,-1,138,141,144,-1,141,143,144,-1,143,146,144,-1,142,146,143,-1,142,145,146,-1,139,145,142,-1,130,139,142,-1,139,130,132,-1,139,132,154,-1,132,157,154,-1,132,159,157,-1,132,134,159,-1,134,136,159,-1,136,161,159,-1,136,137,161,-1,137,162,161,-1,160,162,137,-1,135,160,137,-1,133,160,135,-1,133,158,160,-1,131,158,133,-1,156,158,131,-1,153,156,131,-1,131,138,153,-1,138,155,153,-1,140,155,138,-1,138,144,140,-1,144,147,140,-1,140,147,145,-1,140,145,139,-1,139,155,140,-1,154,155,139,-1,146,149,144,-1,146,151,149,-1,145,151,146,-1,150,151,145,-1,145,152,150,-1,147,152,145,-1,147,149,152,-1,147,144,149,-1,148,149,151,-1,148,152,149,-1,148,150,152,-1,148,151,150,-1,160,207,162,-1,160,205,207,-1,165,208,205,-1,160,165,205,-1,158,165,160,-1,161,162,207,-1,161,207,206,-1,165,206,208,-1,206,165,161,-1,161,165,159,-1,207,209,211,-1,205,209,207,-1,205,212,209,-1,205,208,212,-1,206,212,208,-1,206,210,212,-1,206,207,210,-1,207,211,210,-1,209,212,213,-1,212,216,213,-1,212,214,216,-1,210,214,212,-1,210,215,214,-1,210,211,215,-1,209,215,211,-1,209,213,215,-1,217,213,216,-1,217,215,213,-1,217,214,215,-1,217,216,214,-1,158,194,165,-1,192,194,158,-1,164,195,192,-1,158,164,192,-1,156,164,158,-1,159,194,165,-1,159,194,193,-1,159,193,195,-1,159,195,164,-1,159,164,157,-1,157,164,180,-1,192,198,194,-1,192,196,198,-1,192,195,196,-1,195,199,196,-1,196,199,200,-1,199,203,200,-1,193,199,195,-1,193,197,199,-1,193,198,197,-1,193,194,198,-1,199,201,203,-1,197,201,199,-1,197,198,201,-1,198,202,201,-1,196,202,198,-1,200,202,196,-1,204,202,200,-1,204,201,202,-1,204,203,201,-1,204,200,203,-1,156,181,164,-1,156,179,181,-1,156,182,179,-1,156,163,182,-1,163,180,182,-1,157,180,163,-1,164,181,180,-1,179,182,183,-1,182,186,183,-1,182,184,186,-1,180,184,182,-1,180,181,184,-1,181,185,184,-1,179,185,181,-1,183,185,179,-1,183,186,187,-1,186,190,187,-1,184,190,186,-1,184,188,190,-1,184,185,188,-1,185,189,188,-1,185,183,189,-1,183,187,189,-1,191,189,187,-1,191,188,189,-1,191,190,188,-1,191,187,190,-1,153,163,156,-1,153,168,163,-1,153,166,168,-1,153,169,166,-1,155,169,153,-1,155,167,169,-1,154,167,155,-1,154,163,167,-1,154,157,163,-1,163,168,167,-1,166,169,170,-1,169,173,170,-1,169,171,173,-1,169,167,171,-1,167,168,171,-1,168,172,171,-1,168,170,172,-1,170,168,166,-1,170,173,174,-1,173,177,174,-1,173,175,177,-1,173,171,175,-1,171,172,175,-1,172,176,175,-1,172,174,176,-1,170,174,172,-1,178,176,174,-1,178,175,176,-1,178,177,175,-1,178,174,177,-1,86,30,221,-1,86,221,219,-1,86,219,32,-1,32,219,220,-1,78,32,220,-1,78,220,218,-1,78,218,221,-1,78,221,30,-1,221,225,219,-1,219,225,35,-1,35,33,219,-1,33,220,219,-1,33,34,220,-1,220,34,218,-1,221,218,34,-1,34,225,221,-1,225,226,228,-1,225,228,35,-1,35,228,229,-1,35,229,33,-1,33,229,227,-1,33,227,34,-1,34,227,226,-1,34,226,225,-1,226,234,228,-1,228,234,232,-1,232,229,228,-1,232,233,229,-1,229,233,227,-1,227,233,231,-1,227,231,226,-1,226,231,234,-1,231,235,234,-1,235,238,234,-1,234,238,232,-1,238,236,232,-1,232,236,233,-1,236,237,233,-1,233,237,231,-1,231,237,235,-1,235,239,243,-1,235,243,238,-1,238,243,242,-1,238,242,244,-1,238,244,236,-1,236,244,240,-1,236,240,237,-1,237,240,241,-1,237,241,235,-1,235,241,239,-1,243,239,245,-1,243,245,242,-1,245,257,242,-1,257,259,242,-1,242,259,258,-1,242,258,244,-1,244,246,240,-1,258,246,244,-1,240,246,248,-1,240,248,250,-1,241,240,250,-1,241,250,252,-1,241,252,253,-1,241,253,251,-1,241,251,249,-1,241,249,239,-1,239,249,247,-1,239,247,245,-1,247,254,245,-1,245,254,257,-1,254,260,257,-1,257,260,259,-1,259,260,262,-1,258,259,262,-1,258,262,261,-1,255,258,261,-1,246,258,255,-1,255,248,246,-1,255,270,248,-1,248,270,273,-1,248,273,275,-1,248,275,250,-1,250,275,252,-1,252,275,277,-1,252,277,253,-1,253,277,278,-1,276,253,278,-1,251,253,276,-1,249,251,276,-1,249,276,274,-1,247,249,274,-1,272,247,274,-1,269,247,272,-1,247,269,254,-1,254,269,271,-1,256,254,271,-1,254,256,260,-1,260,256,263,-1,256,261,263,-1,256,255,261,-1,255,256,271,-1,270,255,271,-1,262,260,265,-1,262,265,267,-1,261,262,267,-1,266,261,267,-1,261,266,268,-1,263,261,268,-1,263,268,265,-1,263,265,260,-1,264,267,265,-1,264,265,268,-1,264,268,266,-1,264,266,267,-1,276,278,323,-1,276,323,321,-1,281,321,324,-1,276,321,281,-1,274,276,281,-1,277,323,278,-1,277,322,323,-1,281,324,322,-1,322,277,281,-1,277,275,281,-1,323,327,325,-1,321,323,325,-1,321,325,328,-1,321,328,324,-1,322,324,328,-1,322,328,326,-1,322,326,323,-1,323,326,327,-1,325,329,328,-1,328,329,332,-1,328,332,330,-1,326,328,330,-1,326,330,331,-1,326,331,327,-1,325,327,331,-1,325,331,329,-1,333,332,329,-1,333,329,331,-1,333,331,330,-1,333,330,332,-1,274,281,310,-1,308,274,310,-1,280,308,311,-1,274,308,280,-1,272,274,280,-1,275,310,281,-1,275,309,310,-1,275,311,309,-1,275,280,311,-1,275,273,280,-1,273,296,280,-1,308,310,314,-1,308,314,312,-1,308,312,311,-1,311,312,315,-1,312,316,315,-1,315,316,319,-1,309,311,315,-1,309,315,313,-1,309,313,314,-1,309,314,310,-1,315,319,317,-1,313,315,317,-1,313,317,314,-1,314,317,318,-1,312,314,318,-1,316,312,318,-1,320,316,318,-1,320,318,317,-1,320,317,319,-1,320,319,316,-1,272,280,297,-1,272,297,295,-1,272,295,298,-1,272,298,279,-1,279,298,296,-1,273,279,296,-1,280,296,297,-1,295,299,298,-1,298,299,302,-1,298,302,300,-1,296,298,300,-1,296,300,297,-1,297,300,301,-1,295,297,301,-1,299,295,301,-1,299,303,302,-1,302,303,306,-1,300,302,306,-1,300,306,304,-1,300,304,301,-1,301,304,305,-1,301,305,299,-1,299,305,303,-1,307,303,305,-1,307,305,304,-1,307,304,306,-1,307,306,303,-1,269,272,279,-1,269,279,284,-1,269,284,282,-1,269,282,285,-1,271,269,285,-1,271,285,283,-1,270,271,283,-1,270,283,279,-1,270,279,273,-1,279,283,284,-1,282,286,285,-1,285,286,289,-1,285,289,287,-1,285,287,283,-1,283,287,284,-1,284,287,288,-1,284,288,286,-1,286,282,284,-1,286,290,289,-1,289,290,293,-1,289,293,291,-1,289,291,287,-1,287,291,288,-1,288,291,292,-1,288,292,290,-1,286,288,290,-1,294,290,292,-1,294,292,291,-1,294,291,293,-1,294,293,290,-1,97,334,336,-1,97,336,94,-1,94,336,96,-1,336,335,96,-1,96,335,95,-1,95,335,337,-1,95,337,334,-1,95,334,97,-1,334,341,336,-1,336,341,338,-1,336,338,335,-1,335,338,340,-1,335,340,337,-1,337,340,339,-1,337,339,334,-1,334,339,341,-1,341,345,342,-1,341,342,338,-1,338,342,340,-1,340,342,344,-1,340,344,339,-1,339,344,343,-1,339,343,345,-1,339,345,341,-1,345,349,342,-1,342,349,351,-1,342,351,346,-1,342,346,344,-1,71,346,348,-1,71,344,346,-1,71,348,347,-1,71,347,344,-1,344,347,343,-1,343,347,352,-1,343,352,349,-1,343,349,345,-1,349,352,356,-1,349,356,353,-1,349,353,355,-1,349,355,351,-1,354,356,352,-1,354,352,350,-1,354,350,351,-1,354,351,355,-1,353,356,357,-1,353,357,358,-1,353,358,359,-1,353,359,360,-1,353,360,361,-1,353,361,355,-1,354,357,356,-1,350,346,351,-1,348,346,347,-1,350,347,346,-1,350,352,347,-1,354,358,357,-1,354,359,358,-1,354,360,359,-1,354,361,360,-1,354,355,361,-1,101,362,365,-1,101,365,99,-1,99,365,100,-1,100,365,363,-1,100,363,98,-1,98,363,364,-1,98,364,101,-1,101,364,362,-1,362,369,367,-1,362,367,365,-1,365,367,363,-1,363,367,368,-1,363,367,368,-1,363,368,366,-1,363,366,364,-1,364,366,362,-1,362,366,369,-1,369,373,371,-1,369,371,367,-1,367,371,368,-1,368,371,372,-1,368,372,366,-1,366,372,370,-1,366,370,369,-1,369,370,373,-1,373,377,380,-1,373,380,375,-1,373,375,371,-1,371,375,372,-1,372,375,376,-1,372,376,374,-1,372,374,370,-1,370,374,379,-1,373,370,379,-1,373,379,377,-1,377,379,383,-1,377,383,381,-1,377,381,384,-1,377,384,380,-1,381,383,389,-1,381,389,388,-1,381,388,387,-1,381,387,386,-1,381,386,385,-1,381,385,384,-1,376,375,374,-1,378,379,374,-1,378,374,375,-1,378,375,380,-1,382,386,387,-1,382,387,388,-1,382,388,389,-1,382,389,383,-1,382,383,379,-1,382,379,378,-1,382,378,380,-1,382,380,384,-1,382,384,385,-1,382,385,386,-1}, 2780);
 IndexedFaceSet40.setCreaseAngle(3.1);
@@ -196,20 +196,24 @@ Coordinate41.setPoint(new float[]{0.0,1.77,0.0,0.0,1.665,0.09,-0.033,1.62,0.087,
 IndexedFaceSet40.setCoord(&Coordinate41);
 
 CColor& Color42 =  CColor();
+Color42.setContainerField("color");
 Color42.setColor(new float[]{1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0}, 2079);
 IndexedFaceSet40.setColor(&Color42);
 
 Shape39.setGeometry(&IndexedFaceSet40);
 
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Appearance43.setDEF(std::string("SkinAppearance"));
 ImageTexture& ImageTexture44 =  ImageTexture();
+ImageTexture44.setContainerField("texture");
 ImageTexture44.setDEF(std::string("zBlueSpiralBkg2"));
 ImageTexture44.setDescription(std::string("Blue Spiral Pattern"));
 ImageTexture44.setUrl((std::string[]){"../data/zBlueSpiralBkg2.gif", "zBlueSpiralBkg2.gif", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/zBlueSpiralBkg2.gif"}, 3);
 Appearance43.addChild(&ImageTexture44);
 
 Material& Material45 =  Material();
+Material45.setContainerField("material");
 Material45.setDEF(std::string("SkinMaterial"));
 Material45.setAmbientIntensity(0.6);
 Material45.setDiffuseColor(new float[]{1.0,1.0,1.0});
@@ -222,6 +226,7 @@ Shape39.addChild(&Appearance43);
 HAnimHumanoid38.setSkin(&Shape39);
 
 Coordinate& Coordinate46 =  Coordinate();
+Coordinate46.setContainerField("skinCoord");
 Coordinate46.setUSE(std::string("TheSkinCoord"));
 HAnimHumanoid38.setSkinCoord(&Coordinate46);
 
@@ -229,6 +234,7 @@ HAnimJoint& HAnimJoint47 =  HAnimJoint();
 HAnimJoint47.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint47.setDEF(std::string("hanim_humanoid_root"));
 HAnimJoint47.setCenter(new float[]{0.0,0.824,0.0277});
+HAnimJoint47.setContainerField("skeleton");
 HAnimSegment& HAnimSegment48 =  HAnimSegment();
 HAnimSegment48.X3DNode::setName(std::string("sacrum"));
 HAnimSegment48.setDEF(std::string("hanim_sacrum"));
@@ -253,6 +259,7 @@ LineSet53.setCoord(Coordinate54);
 
 //from humanoid_root to sacroiliac vertices 2
 ColorRGBA& ColorRGBA55 =  ColorRGBA();
+ColorRGBA55.setContainerField("color");
 ColorRGBA55.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet53.addChild(&ColorRGBA55);
 
@@ -269,6 +276,7 @@ LineSet57.setCoord(Coordinate58);
 
 //from humanoid_root to vl5 vertices 2
 ColorRGBA& ColorRGBA59 =  ColorRGBA();
+ColorRGBA59.setContainerField("color");
 ColorRGBA59.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet57.addChild(&ColorRGBA59);
 
@@ -306,6 +314,7 @@ LineSet66.setCoord(Coordinate67);
 
 //from sacroiliac to l_hip vertices 2
 ColorRGBA& ColorRGBA68 =  ColorRGBA();
+ColorRGBA68.setContainerField("color");
 ColorRGBA68.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet66.addChild(&ColorRGBA68);
 
@@ -329,6 +338,7 @@ Shape& Shape73 =  Shape();
 Text& Text74 =  Text();
 Text74.setString((std::string[]){"93"}, 1);
 CFontStyle& FontStyle75 =  CFontStyle();
+FontStyle75.setContainerField("fontStyle");
 FontStyle75.setSize(0.035);
 Text74.setFontStyle(&FontStyle75);
 
@@ -357,6 +367,7 @@ Shape& Shape80 =  Shape();
 Text& Text81 =  Text();
 Text81.setString((std::string[]){"38"}, 1);
 CFontStyle& FontStyle82 =  CFontStyle();
+FontStyle82.setContainerField("fontStyle");
 FontStyle82.setSize(0.035);
 Text81.setFontStyle(&FontStyle82);
 
@@ -385,6 +396,7 @@ Shape& Shape87 =  Shape();
 Text& Text88 =  Text();
 Text88.setString((std::string[]){"32"}, 1);
 CFontStyle& FontStyle89 =  CFontStyle();
+FontStyle89.setContainerField("fontStyle");
 FontStyle89.setSize(0.035);
 Text88.setFontStyle(&FontStyle89);
 
@@ -413,6 +425,7 @@ Shape& Shape94 =  Shape();
 Text& Text95 =  Text();
 Text95.setString((std::string[]){"33"}, 1);
 CFontStyle& FontStyle96 =  CFontStyle();
+FontStyle96.setContainerField("fontStyle");
 FontStyle96.setSize(0.035);
 Text95.setFontStyle(&FontStyle96);
 
@@ -441,6 +454,7 @@ Shape& Shape101 =  Shape();
 Text& Text102 =  Text();
 Text102.setString((std::string[]){"34"}, 1);
 CFontStyle& FontStyle103 =  CFontStyle();
+FontStyle103.setContainerField("fontStyle");
 FontStyle103.setSize(0.035);
 Text102.setFontStyle(&FontStyle103);
 
@@ -469,6 +483,7 @@ Shape& Shape108 =  Shape();
 Text& Text109 =  Text();
 Text109.setString((std::string[]){"42"}, 1);
 CFontStyle& FontStyle110 =  CFontStyle();
+FontStyle110.setContainerField("fontStyle");
 FontStyle110.setSize(0.035);
 Text109.setFontStyle(&FontStyle110);
 
@@ -497,6 +512,7 @@ Shape& Shape115 =  Shape();
 Text& Text116 =  Text();
 Text116.setString((std::string[]){"35"}, 1);
 CFontStyle& FontStyle117 =  CFontStyle();
+FontStyle117.setContainerField("fontStyle");
 FontStyle117.setSize(0.035);
 Text116.setFontStyle(&FontStyle117);
 
@@ -525,6 +541,7 @@ Shape& Shape122 =  Shape();
 Text& Text123 =  Text();
 Text123.setString((std::string[]){"36"}, 1);
 CFontStyle& FontStyle124 =  CFontStyle();
+FontStyle124.setContainerField("fontStyle");
 FontStyle124.setSize(0.035);
 Text123.setFontStyle(&FontStyle124);
 
@@ -553,6 +570,7 @@ Shape& Shape129 =  Shape();
 Text& Text130 =  Text();
 Text130.setString((std::string[]){"37"}, 1);
 CFontStyle& FontStyle131 =  CFontStyle();
+FontStyle131.setContainerField("fontStyle");
 FontStyle131.setSize(0.035);
 Text130.setFontStyle(&FontStyle131);
 
@@ -581,6 +599,7 @@ Shape& Shape136 =  Shape();
 Text& Text137 =  Text();
 Text137.setString((std::string[]){"46"}, 1);
 CFontStyle& FontStyle138 =  CFontStyle();
+FontStyle138.setContainerField("fontStyle");
 FontStyle138.setSize(0.035);
 Text137.setFontStyle(&FontStyle138);
 
@@ -601,6 +620,7 @@ LineSet140.setCoord(Coordinate141);
 
 //from sacroiliac to r_hip vertices 2
 ColorRGBA& ColorRGBA142 =  ColorRGBA();
+ColorRGBA142.setContainerField("color");
 ColorRGBA142.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet140.addChild(&ColorRGBA142);
 
@@ -638,6 +658,7 @@ LineSet149.setCoord(Coordinate150);
 
 //from l_hip to l_knee vertices 2
 ColorRGBA& ColorRGBA151 =  ColorRGBA();
+ColorRGBA151.setContainerField("color");
 ColorRGBA151.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet149.addChild(&ColorRGBA151);
 
@@ -662,6 +683,7 @@ Shape& Shape156 =  Shape();
 Text& Text157 =  Text();
 Text157.setString((std::string[]){"40"}, 1);
 CFontStyle& FontStyle158 =  CFontStyle();
+FontStyle158.setContainerField("fontStyle");
 FontStyle158.setSize(0.035);
 Text157.setFontStyle(&FontStyle158);
 
@@ -690,6 +712,7 @@ Shape& Shape163 =  Shape();
 Text& Text164 =  Text();
 Text164.setString((std::string[]){"39"}, 1);
 CFontStyle& FontStyle165 =  CFontStyle();
+FontStyle165.setContainerField("fontStyle");
 FontStyle165.setSize(0.035);
 Text164.setFontStyle(&FontStyle165);
 
@@ -718,6 +741,7 @@ Shape& Shape170 =  Shape();
 Text& Text171 =  Text();
 Text171.setString((std::string[]){"90"}, 1);
 CFontStyle& FontStyle172 =  CFontStyle();
+FontStyle172.setContainerField("fontStyle");
 FontStyle172.setSize(0.035);
 Text171.setFontStyle(&FontStyle172);
 
@@ -745,6 +769,7 @@ Shape& Shape177 =  Shape();
 Text& Text178 =  Text();
 Text178.setString((std::string[]){"41"}, 1);
 CFontStyle& FontStyle179 =  CFontStyle();
+FontStyle179.setContainerField("fontStyle");
 FontStyle179.setSize(0.035);
 Text178.setFontStyle(&FontStyle179);
 
@@ -786,6 +811,7 @@ LineSet186.setCoord(Coordinate187);
 
 //from l_knee to l_talocrural vertices 2
 ColorRGBA& ColorRGBA188 =  ColorRGBA();
+ColorRGBA188.setContainerField("color");
 ColorRGBA188.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet186.addChild(&ColorRGBA188);
 
@@ -810,6 +836,7 @@ Shape& Shape193 =  Shape();
 Text& Text194 =  Text();
 Text194.setString((std::string[]){"49"}, 1);
 CFontStyle& FontStyle195 =  CFontStyle();
+FontStyle195.setContainerField("fontStyle");
 FontStyle195.setSize(0.035);
 Text194.setFontStyle(&FontStyle195);
 
@@ -838,6 +865,7 @@ Shape& Shape200 =  Shape();
 Text& Text201 =  Text();
 Text201.setString((std::string[]){"48"}, 1);
 CFontStyle& FontStyle202 =  CFontStyle();
+FontStyle202.setContainerField("fontStyle");
 FontStyle202.setSize(0.035);
 Text201.setFontStyle(&FontStyle202);
 
@@ -865,6 +893,7 @@ Shape& Shape207 =  Shape();
 Text& Text208 =  Text();
 Text208.setString((std::string[]){"47"}, 1);
 CFontStyle& FontStyle209 =  CFontStyle();
+FontStyle209.setContainerField("fontStyle");
 FontStyle209.setSize(0.035);
 Text208.setFontStyle(&FontStyle209);
 
@@ -909,6 +938,7 @@ LineSet216.setCoord(Coordinate217);
 
 //from l_talocrural to l_talocalcaneonavicular vertices 2
 ColorRGBA& ColorRGBA218 =  ColorRGBA();
+ColorRGBA218.setContainerField("color");
 ColorRGBA218.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet216.addChild(&ColorRGBA218);
 
@@ -933,6 +963,7 @@ Shape& Shape223 =  Shape();
 Text& Text224 =  Text();
 Text224.setString((std::string[]){"58"}, 1);
 CFontStyle& FontStyle225 =  CFontStyle();
+FontStyle225.setContainerField("fontStyle");
 FontStyle225.setSize(0.035);
 Text224.setFontStyle(&FontStyle225);
 
@@ -961,6 +992,7 @@ Shape& Shape230 =  Shape();
 Text& Text231 =  Text();
 Text231.setString((std::string[]){"50"}, 1);
 CFontStyle& FontStyle232 =  CFontStyle();
+FontStyle232.setContainerField("fontStyle");
 FontStyle232.setSize(0.035);
 Text231.setFontStyle(&FontStyle232);
 
@@ -981,6 +1013,7 @@ LineSet234.setCoord(Coordinate235);
 
 //from l_talocrural to l_calcaneocuboid vertices 2
 ColorRGBA& ColorRGBA236 =  ColorRGBA();
+ColorRGBA236.setContainerField("color");
 ColorRGBA236.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet234.addChild(&ColorRGBA236);
 
@@ -1018,6 +1051,7 @@ LineSet243.setCoord(Coordinate244);
 
 //from l_talocalcaneonavicular to l_cuneonavicular_1 vertices 2
 ColorRGBA& ColorRGBA245 =  ColorRGBA();
+ColorRGBA245.setContainerField("color");
 ColorRGBA245.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet243.addChild(&ColorRGBA245);
 
@@ -1034,6 +1068,7 @@ LineSet247.setCoord(Coordinate248);
 
 //from l_talocalcaneonavicular to l_cuneonavicular_2 vertices 2
 ColorRGBA& ColorRGBA249 =  ColorRGBA();
+ColorRGBA249.setContainerField("color");
 ColorRGBA249.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet247.addChild(&ColorRGBA249);
 
@@ -1050,6 +1085,7 @@ LineSet251.setCoord(Coordinate252);
 
 //from l_talocalcaneonavicular to l_cuneonavicular_3 vertices 2
 ColorRGBA& ColorRGBA253 =  ColorRGBA();
+ColorRGBA253.setContainerField("color");
 ColorRGBA253.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet251.addChild(&ColorRGBA253);
 
@@ -1087,6 +1123,7 @@ LineSet260.setCoord(Coordinate261);
 
 //from l_cuneonavicular_1 to l_tarsometatarsal_1 vertices 2
 ColorRGBA& ColorRGBA262 =  ColorRGBA();
+ColorRGBA262.setContainerField("color");
 ColorRGBA262.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet260.addChild(&ColorRGBA262);
 
@@ -1124,6 +1161,7 @@ LineSet269.setCoord(Coordinate270);
 
 //from l_tarsometatarsal_1 to l_metatarsophalangeal_1 vertices 2
 ColorRGBA& ColorRGBA271 =  ColorRGBA();
+ColorRGBA271.setContainerField("color");
 ColorRGBA271.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet269.addChild(&ColorRGBA271);
 
@@ -1161,6 +1199,7 @@ LineSet278.setCoord(Coordinate279);
 
 //from l_metatarsophalangeal_1 to l_tarsal_interphalangeal_1 vertices 2
 ColorRGBA& ColorRGBA280 =  ColorRGBA();
+ColorRGBA280.setContainerField("color");
 ColorRGBA280.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet278.addChild(&ColorRGBA280);
 
@@ -1184,6 +1223,7 @@ Shape& Shape285 =  Shape();
 Text& Text286 =  Text();
 Text286.setString((std::string[]){"55"}, 1);
 CFontStyle& FontStyle287 =  CFontStyle();
+FontStyle287.setContainerField("fontStyle");
 FontStyle287.setSize(0.035);
 Text286.setFontStyle(&FontStyle287);
 
@@ -1236,6 +1276,7 @@ LineSet295.setCoord(Coordinate296);
 
 //from l_cuneonavicular_2 to l_tarsometatarsal_2 vertices 2
 ColorRGBA& ColorRGBA297 =  ColorRGBA();
+ColorRGBA297.setContainerField("color");
 ColorRGBA297.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet295.addChild(&ColorRGBA297);
 
@@ -1273,6 +1314,7 @@ LineSet304.setCoord(Coordinate305);
 
 //from l_tarsometatarsal_2 to l_metatarsophalangeal_2 vertices 2
 ColorRGBA& ColorRGBA306 =  ColorRGBA();
+ColorRGBA306.setContainerField("color");
 ColorRGBA306.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet304.addChild(&ColorRGBA306);
 
@@ -1310,6 +1352,7 @@ LineSet313.setCoord(Coordinate314);
 
 //from l_metatarsophalangeal_2 to l_tarsal_proximal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA315 =  ColorRGBA();
+ColorRGBA315.setContainerField("color");
 ColorRGBA315.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet313.addChild(&ColorRGBA315);
 
@@ -1347,6 +1390,7 @@ LineSet322.setCoord(Coordinate323);
 
 //from l_tarsal_proximal_interphalangeal_2 to l_tarsal_distal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA324 =  ColorRGBA();
+ColorRGBA324.setContainerField("color");
 ColorRGBA324.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet322.addChild(&ColorRGBA324);
 
@@ -1398,6 +1442,7 @@ LineSet332.setCoord(Coordinate333);
 
 //from l_cuneonavicular_3 to l_tarsometatarsal_3 vertices 2
 ColorRGBA& ColorRGBA334 =  ColorRGBA();
+ColorRGBA334.setContainerField("color");
 ColorRGBA334.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet332.addChild(&ColorRGBA334);
 
@@ -1435,6 +1480,7 @@ LineSet341.setCoord(Coordinate342);
 
 //from l_tarsometatarsal_3 to l_metatarsophalangeal_3 vertices 2
 ColorRGBA& ColorRGBA343 =  ColorRGBA();
+ColorRGBA343.setContainerField("color");
 ColorRGBA343.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet341.addChild(&ColorRGBA343);
 
@@ -1472,6 +1518,7 @@ LineSet350.setCoord(Coordinate351);
 
 //from l_metatarsophalangeal_3 to l_tarsal_proximal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA352 =  ColorRGBA();
+ColorRGBA352.setContainerField("color");
 ColorRGBA352.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet350.addChild(&ColorRGBA352);
 
@@ -1509,6 +1556,7 @@ LineSet359.setCoord(Coordinate360);
 
 //from l_tarsal_proximal_interphalangeal_3 to l_tarsal_distal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA361 =  ColorRGBA();
+ColorRGBA361.setContainerField("color");
 ColorRGBA361.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet359.addChild(&ColorRGBA361);
 
@@ -1562,6 +1610,7 @@ LineSet369.setCoord(Coordinate370);
 
 //from l_calcaneocuboid to l_transversetarsal vertices 2
 ColorRGBA& ColorRGBA371 =  ColorRGBA();
+ColorRGBA371.setContainerField("color");
 ColorRGBA371.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet369.addChild(&ColorRGBA371);
 
@@ -1599,6 +1648,7 @@ LineSet378.setCoord(Coordinate379);
 
 //from l_transversetarsal to l_tarsometatarsal_4 vertices 2
 ColorRGBA& ColorRGBA380 =  ColorRGBA();
+ColorRGBA380.setContainerField("color");
 ColorRGBA380.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet378.addChild(&ColorRGBA380);
 
@@ -1615,6 +1665,7 @@ LineSet382.setCoord(Coordinate383);
 
 //from l_transversetarsal to l_tarsometatarsal_5 vertices 2
 ColorRGBA& ColorRGBA384 =  ColorRGBA();
+ColorRGBA384.setContainerField("color");
 ColorRGBA384.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet382.addChild(&ColorRGBA384);
 
@@ -1652,6 +1703,7 @@ LineSet391.setCoord(Coordinate392);
 
 //from l_tarsometatarsal_4 to l_metatarsophalangeal_4 vertices 2
 ColorRGBA& ColorRGBA393 =  ColorRGBA();
+ColorRGBA393.setContainerField("color");
 ColorRGBA393.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet391.addChild(&ColorRGBA393);
 
@@ -1689,6 +1741,7 @@ LineSet400.setCoord(Coordinate401);
 
 //from l_metatarsophalangeal_4 to l_tarsal_proximal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA402 =  ColorRGBA();
+ColorRGBA402.setContainerField("color");
 ColorRGBA402.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet400.addChild(&ColorRGBA402);
 
@@ -1726,6 +1779,7 @@ LineSet409.setCoord(Coordinate410);
 
 //from l_tarsal_proximal_interphalangeal_4 to l_tarsal_distal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA411 =  ColorRGBA();
+ColorRGBA411.setContainerField("color");
 ColorRGBA411.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet409.addChild(&ColorRGBA411);
 
@@ -1775,6 +1829,7 @@ LineSet419.setCoord(Coordinate420);
 
 //from l_tarsometatarsal_5 to l_metatarsophalangeal_5 vertices 2
 ColorRGBA& ColorRGBA421 =  ColorRGBA();
+ColorRGBA421.setContainerField("color");
 ColorRGBA421.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet419.addChild(&ColorRGBA421);
 
@@ -1812,6 +1867,7 @@ LineSet428.setCoord(Coordinate429);
 
 //from l_metatarsophalangeal_5 to l_tarsal_proximal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA430 =  ColorRGBA();
+ColorRGBA430.setContainerField("color");
 ColorRGBA430.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet428.addChild(&ColorRGBA430);
 
@@ -1835,6 +1891,7 @@ Shape& Shape435 =  Shape();
 Text& Text436 =  Text();
 Text436.setString((std::string[]){"56"}, 1);
 CFontStyle& FontStyle437 =  CFontStyle();
+FontStyle437.setContainerField("fontStyle");
 FontStyle437.setSize(0.035);
 Text436.setFontStyle(&FontStyle437);
 
@@ -1876,6 +1933,7 @@ LineSet444.setCoord(Coordinate445);
 
 //from l_tarsal_proximal_interphalangeal_5 to l_tarsal_distal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA446 =  ColorRGBA();
+ColorRGBA446.setContainerField("color");
 ColorRGBA446.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet444.addChild(&ColorRGBA446);
 
@@ -1935,6 +1993,7 @@ LineSet454.setCoord(Coordinate455);
 
 //from r_hip to r_knee vertices 2
 ColorRGBA& ColorRGBA456 =  ColorRGBA();
+ColorRGBA456.setContainerField("color");
 ColorRGBA456.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet454.addChild(&ColorRGBA456);
 
@@ -1959,6 +2018,7 @@ Shape& Shape461 =  Shape();
 Text& Text462 =  Text();
 Text462.setString((std::string[]){"44"}, 1);
 CFontStyle& FontStyle463 =  CFontStyle();
+FontStyle463.setContainerField("fontStyle");
 FontStyle463.setSize(0.035);
 Text462.setFontStyle(&FontStyle463);
 
@@ -1987,6 +2047,7 @@ Shape& Shape468 =  Shape();
 Text& Text469 =  Text();
 Text469.setString((std::string[]){"43"}, 1);
 CFontStyle& FontStyle470 =  CFontStyle();
+FontStyle470.setContainerField("fontStyle");
 FontStyle470.setSize(0.035);
 Text469.setFontStyle(&FontStyle470);
 
@@ -2015,6 +2076,7 @@ Shape& Shape475 =  Shape();
 Text& Text476 =  Text();
 Text476.setString((std::string[]){"91"}, 1);
 CFontStyle& FontStyle477 =  CFontStyle();
+FontStyle477.setContainerField("fontStyle");
 FontStyle477.setSize(0.035);
 Text476.setFontStyle(&FontStyle477);
 
@@ -2042,6 +2104,7 @@ Shape& Shape482 =  Shape();
 Text& Text483 =  Text();
 Text483.setString((std::string[]){"45"}, 1);
 CFontStyle& FontStyle484 =  CFontStyle();
+FontStyle484.setContainerField("fontStyle");
 FontStyle484.setSize(0.035);
 Text483.setFontStyle(&FontStyle484);
 
@@ -2083,6 +2146,7 @@ LineSet491.setCoord(Coordinate492);
 
 //from r_knee to r_talocrural vertices 2
 ColorRGBA& ColorRGBA493 =  ColorRGBA();
+ColorRGBA493.setContainerField("color");
 ColorRGBA493.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet491.addChild(&ColorRGBA493);
 
@@ -2107,6 +2171,7 @@ Shape& Shape498 =  Shape();
 Text& Text499 =  Text();
 Text499.setString((std::string[]){"53"}, 1);
 CFontStyle& FontStyle500 =  CFontStyle();
+FontStyle500.setContainerField("fontStyle");
 FontStyle500.setSize(0.035);
 Text499.setFontStyle(&FontStyle500);
 
@@ -2135,6 +2200,7 @@ Shape& Shape505 =  Shape();
 Text& Text506 =  Text();
 Text506.setString((std::string[]){"52"}, 1);
 CFontStyle& FontStyle507 =  CFontStyle();
+FontStyle507.setContainerField("fontStyle");
 FontStyle507.setSize(0.035);
 Text506.setFontStyle(&FontStyle507);
 
@@ -2162,6 +2228,7 @@ Shape& Shape512 =  Shape();
 Text& Text513 =  Text();
 Text513.setString((std::string[]){"51"}, 1);
 CFontStyle& FontStyle514 =  CFontStyle();
+FontStyle514.setContainerField("fontStyle");
 FontStyle514.setSize(0.035);
 Text513.setFontStyle(&FontStyle514);
 
@@ -2206,6 +2273,7 @@ LineSet521.setCoord(Coordinate522);
 
 //from r_talocrural to r_talocalcaneonavicular vertices 2
 ColorRGBA& ColorRGBA523 =  ColorRGBA();
+ColorRGBA523.setContainerField("color");
 ColorRGBA523.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet521.addChild(&ColorRGBA523);
 
@@ -2230,6 +2298,7 @@ Shape& Shape528 =  Shape();
 Text& Text529 =  Text();
 Text529.setString((std::string[]){"62"}, 1);
 CFontStyle& FontStyle530 =  CFontStyle();
+FontStyle530.setContainerField("fontStyle");
 FontStyle530.setSize(0.035);
 Text529.setFontStyle(&FontStyle530);
 
@@ -2258,6 +2327,7 @@ Shape& Shape535 =  Shape();
 Text& Text536 =  Text();
 Text536.setString((std::string[]){"54"}, 1);
 CFontStyle& FontStyle537 =  CFontStyle();
+FontStyle537.setContainerField("fontStyle");
 FontStyle537.setSize(0.035);
 Text536.setFontStyle(&FontStyle537);
 
@@ -2278,6 +2348,7 @@ LineSet539.setCoord(Coordinate540);
 
 //from r_talocrural to r_calcaneocuboid vertices 2
 ColorRGBA& ColorRGBA541 =  ColorRGBA();
+ColorRGBA541.setContainerField("color");
 ColorRGBA541.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet539.addChild(&ColorRGBA541);
 
@@ -2315,6 +2386,7 @@ LineSet548.setCoord(Coordinate549);
 
 //from r_talocalcaneonavicular to r_cuneonavicular_1 vertices 2
 ColorRGBA& ColorRGBA550 =  ColorRGBA();
+ColorRGBA550.setContainerField("color");
 ColorRGBA550.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet548.addChild(&ColorRGBA550);
 
@@ -2331,6 +2403,7 @@ LineSet552.setCoord(Coordinate553);
 
 //from r_talocalcaneonavicular to r_cuneonavicular_2 vertices 2
 ColorRGBA& ColorRGBA554 =  ColorRGBA();
+ColorRGBA554.setContainerField("color");
 ColorRGBA554.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet552.addChild(&ColorRGBA554);
 
@@ -2347,6 +2420,7 @@ LineSet556.setCoord(Coordinate557);
 
 //from r_talocalcaneonavicular to r_cuneonavicular_3 vertices 2
 ColorRGBA& ColorRGBA558 =  ColorRGBA();
+ColorRGBA558.setContainerField("color");
 ColorRGBA558.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet556.addChild(&ColorRGBA558);
 
@@ -2384,6 +2458,7 @@ LineSet565.setCoord(Coordinate566);
 
 //from r_cuneonavicular_1 to r_tarsometatarsal_1 vertices 2
 ColorRGBA& ColorRGBA567 =  ColorRGBA();
+ColorRGBA567.setContainerField("color");
 ColorRGBA567.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet565.addChild(&ColorRGBA567);
 
@@ -2421,6 +2496,7 @@ LineSet574.setCoord(Coordinate575);
 
 //from r_tarsometatarsal_1 to r_metatarsophalangeal_1 vertices 2
 ColorRGBA& ColorRGBA576 =  ColorRGBA();
+ColorRGBA576.setContainerField("color");
 ColorRGBA576.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet574.addChild(&ColorRGBA576);
 
@@ -2458,6 +2534,7 @@ LineSet583.setCoord(Coordinate584);
 
 //from r_metatarsophalangeal_1 to r_tarsal_interphalangeal_1 vertices 2
 ColorRGBA& ColorRGBA585 =  ColorRGBA();
+ColorRGBA585.setContainerField("color");
 ColorRGBA585.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet583.addChild(&ColorRGBA585);
 
@@ -2481,6 +2558,7 @@ Shape& Shape590 =  Shape();
 Text& Text591 =  Text();
 Text591.setString((std::string[]){"59"}, 1);
 CFontStyle& FontStyle592 =  CFontStyle();
+FontStyle592.setContainerField("fontStyle");
 FontStyle592.setSize(0.035);
 Text591.setFontStyle(&FontStyle592);
 
@@ -2533,6 +2611,7 @@ LineSet600.setCoord(Coordinate601);
 
 //from r_cuneonavicular_2 to r_tarsometatarsal_2 vertices 2
 ColorRGBA& ColorRGBA602 =  ColorRGBA();
+ColorRGBA602.setContainerField("color");
 ColorRGBA602.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet600.addChild(&ColorRGBA602);
 
@@ -2570,6 +2649,7 @@ LineSet609.setCoord(Coordinate610);
 
 //from r_tarsometatarsal_2 to r_metatarsophalangeal_2 vertices 2
 ColorRGBA& ColorRGBA611 =  ColorRGBA();
+ColorRGBA611.setContainerField("color");
 ColorRGBA611.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet609.addChild(&ColorRGBA611);
 
@@ -2607,6 +2687,7 @@ LineSet618.setCoord(Coordinate619);
 
 //from r_metatarsophalangeal_2 to r_tarsal_proximal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA620 =  ColorRGBA();
+ColorRGBA620.setContainerField("color");
 ColorRGBA620.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet618.addChild(&ColorRGBA620);
 
@@ -2644,6 +2725,7 @@ LineSet627.setCoord(Coordinate628);
 
 //from r_tarsal_proximal_interphalangeal_2 to r_tarsal_distal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA629 =  ColorRGBA();
+ColorRGBA629.setContainerField("color");
 ColorRGBA629.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet627.addChild(&ColorRGBA629);
 
@@ -2695,6 +2777,7 @@ LineSet637.setCoord(Coordinate638);
 
 //from r_cuneonavicular_3 to r_tarsometatarsal_3 vertices 2
 ColorRGBA& ColorRGBA639 =  ColorRGBA();
+ColorRGBA639.setContainerField("color");
 ColorRGBA639.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet637.addChild(&ColorRGBA639);
 
@@ -2732,6 +2815,7 @@ LineSet646.setCoord(Coordinate647);
 
 //from r_tarsometatarsal_3 to r_metatarsophalangeal_3 vertices 2
 ColorRGBA& ColorRGBA648 =  ColorRGBA();
+ColorRGBA648.setContainerField("color");
 ColorRGBA648.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet646.addChild(&ColorRGBA648);
 
@@ -2769,6 +2853,7 @@ LineSet655.setCoord(Coordinate656);
 
 //from r_metatarsophalangeal_3 to r_tarsal_proximal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA657 =  ColorRGBA();
+ColorRGBA657.setContainerField("color");
 ColorRGBA657.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet655.addChild(&ColorRGBA657);
 
@@ -2806,6 +2891,7 @@ LineSet664.setCoord(Coordinate665);
 
 //from r_tarsal_proximal_interphalangeal_3 to r_tarsal_distal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA666 =  ColorRGBA();
+ColorRGBA666.setContainerField("color");
 ColorRGBA666.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet664.addChild(&ColorRGBA666);
 
@@ -2859,6 +2945,7 @@ LineSet674.setCoord(Coordinate675);
 
 //from r_calcaneocuboid to r_transversetarsal vertices 2
 ColorRGBA& ColorRGBA676 =  ColorRGBA();
+ColorRGBA676.setContainerField("color");
 ColorRGBA676.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet674.addChild(&ColorRGBA676);
 
@@ -2896,6 +2983,7 @@ LineSet683.setCoord(Coordinate684);
 
 //from r_transversetarsal to r_tarsometatarsal_4 vertices 2
 ColorRGBA& ColorRGBA685 =  ColorRGBA();
+ColorRGBA685.setContainerField("color");
 ColorRGBA685.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet683.addChild(&ColorRGBA685);
 
@@ -2912,6 +3000,7 @@ LineSet687.setCoord(Coordinate688);
 
 //from r_transversetarsal to r_tarsometatarsal_5 vertices 2
 ColorRGBA& ColorRGBA689 =  ColorRGBA();
+ColorRGBA689.setContainerField("color");
 ColorRGBA689.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet687.addChild(&ColorRGBA689);
 
@@ -2949,6 +3038,7 @@ LineSet696.setCoord(Coordinate697);
 
 //from r_tarsometatarsal_4 to r_metatarsophalangeal_4 vertices 2
 ColorRGBA& ColorRGBA698 =  ColorRGBA();
+ColorRGBA698.setContainerField("color");
 ColorRGBA698.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet696.addChild(&ColorRGBA698);
 
@@ -2986,6 +3076,7 @@ LineSet705.setCoord(Coordinate706);
 
 //from r_metatarsophalangeal_4 to r_tarsal_proximal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA707 =  ColorRGBA();
+ColorRGBA707.setContainerField("color");
 ColorRGBA707.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet705.addChild(&ColorRGBA707);
 
@@ -3023,6 +3114,7 @@ LineSet714.setCoord(Coordinate715);
 
 //from r_tarsal_proximal_interphalangeal_4 to r_tarsal_distal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA716 =  ColorRGBA();
+ColorRGBA716.setContainerField("color");
 ColorRGBA716.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet714.addChild(&ColorRGBA716);
 
@@ -3072,6 +3164,7 @@ LineSet724.setCoord(Coordinate725);
 
 //from r_tarsometatarsal_5 to r_metatarsophalangeal_5 vertices 2
 ColorRGBA& ColorRGBA726 =  ColorRGBA();
+ColorRGBA726.setContainerField("color");
 ColorRGBA726.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet724.addChild(&ColorRGBA726);
 
@@ -3109,6 +3202,7 @@ LineSet733.setCoord(Coordinate734);
 
 //from r_metatarsophalangeal_5 to r_tarsal_proximal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA735 =  ColorRGBA();
+ColorRGBA735.setContainerField("color");
 ColorRGBA735.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet733.addChild(&ColorRGBA735);
 
@@ -3132,6 +3226,7 @@ Shape& Shape740 =  Shape();
 Text& Text741 =  Text();
 Text741.setString((std::string[]){"60"}, 1);
 CFontStyle& FontStyle742 =  CFontStyle();
+FontStyle742.setContainerField("fontStyle");
 FontStyle742.setSize(0.035);
 Text741.setFontStyle(&FontStyle742);
 
@@ -3173,6 +3268,7 @@ LineSet749.setCoord(Coordinate750);
 
 //from r_tarsal_proximal_interphalangeal_5 to r_tarsal_distal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA751 =  ColorRGBA();
+ColorRGBA751.setContainerField("color");
 ColorRGBA751.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet749.addChild(&ColorRGBA751);
 
@@ -3234,6 +3330,7 @@ LineSet759.setCoord(Coordinate760);
 
 //from vl5 to vl4 vertices 2
 ColorRGBA& ColorRGBA761 =  ColorRGBA();
+ColorRGBA761.setContainerField("color");
 ColorRGBA761.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet759.addChild(&ColorRGBA761);
 
@@ -3258,6 +3355,7 @@ Shape& Shape766 =  Shape();
 Text& Text767 =  Text();
 Text767.setString((std::string[]){"84"}, 1);
 CFontStyle& FontStyle768 =  CFontStyle();
+FontStyle768.setContainerField("fontStyle");
 FontStyle768.setSize(0.035);
 Text767.setFontStyle(&FontStyle768);
 
@@ -3285,6 +3383,7 @@ Shape& Shape773 =  Shape();
 Text& Text774 =  Text();
 Text774.setString((std::string[]){"26"}, 1);
 CFontStyle& FontStyle775 =  CFontStyle();
+FontStyle775.setContainerField("fontStyle");
 FontStyle775.setSize(0.035);
 Text774.setFontStyle(&FontStyle775);
 
@@ -3313,6 +3412,7 @@ Shape& Shape780 =  Shape();
 Text& Text781 =  Text();
 Text781.setString((std::string[]){"27"}, 1);
 CFontStyle& FontStyle782 =  CFontStyle();
+FontStyle782.setContainerField("fontStyle");
 FontStyle782.setSize(0.035);
 Text781.setFontStyle(&FontStyle782);
 
@@ -3354,6 +3454,7 @@ LineSet789.setCoord(Coordinate790);
 
 //from vl4 to vl3 vertices 2
 ColorRGBA& ColorRGBA791 =  ColorRGBA();
+ColorRGBA791.setContainerField("color");
 ColorRGBA791.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet789.addChild(&ColorRGBA791);
 
@@ -3391,6 +3492,7 @@ LineSet798.setCoord(Coordinate799);
 
 //from vl3 to vl2 vertices 2
 ColorRGBA& ColorRGBA800 =  ColorRGBA();
+ColorRGBA800.setContainerField("color");
 ColorRGBA800.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet798.addChild(&ColorRGBA800);
 
@@ -3428,6 +3530,7 @@ LineSet807.setCoord(Coordinate808);
 
 //from vl2 to vl1 vertices 2
 ColorRGBA& ColorRGBA809 =  ColorRGBA();
+ColorRGBA809.setContainerField("color");
 ColorRGBA809.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet807.addChild(&ColorRGBA809);
 
@@ -3452,6 +3555,7 @@ Shape& Shape814 =  Shape();
 Text& Text815 =  Text();
 Text815.setString((std::string[]){"28"}, 1);
 CFontStyle& FontStyle816 =  CFontStyle();
+FontStyle816.setContainerField("fontStyle");
 FontStyle816.setSize(0.035);
 Text815.setFontStyle(&FontStyle816);
 
@@ -3480,6 +3584,7 @@ Shape& Shape821 =  Shape();
 Text& Text822 =  Text();
 Text822.setString((std::string[]){"30"}, 1);
 CFontStyle& FontStyle823 =  CFontStyle();
+FontStyle823.setContainerField("fontStyle");
 FontStyle823.setSize(0.035);
 Text822.setFontStyle(&FontStyle823);
 
@@ -3507,6 +3612,7 @@ Shape& Shape828 =  Shape();
 Text& Text829 =  Text();
 Text829.setString((std::string[]){""}, 0);
 CFontStyle& FontStyle830 =  CFontStyle();
+FontStyle830.setContainerField("fontStyle");
 FontStyle830.setSize(0.035);
 Text829.setFontStyle(&FontStyle830);
 
@@ -3548,6 +3654,7 @@ LineSet837.setCoord(Coordinate838);
 
 //from vl1 to vt12 vertices 2
 ColorRGBA& ColorRGBA839 =  ColorRGBA();
+ColorRGBA839.setContainerField("color");
 ColorRGBA839.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet837.addChild(&ColorRGBA839);
 
@@ -3585,6 +3692,7 @@ LineSet846.setCoord(Coordinate847);
 
 //from vt12 to vt11 vertices 2
 ColorRGBA& ColorRGBA848 =  ColorRGBA();
+ColorRGBA848.setContainerField("color");
 ColorRGBA848.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet846.addChild(&ColorRGBA848);
 
@@ -3622,6 +3730,7 @@ LineSet855.setCoord(Coordinate856);
 
 //from vt11 to vt10 vertices 2
 ColorRGBA& ColorRGBA857 =  ColorRGBA();
+ColorRGBA857.setContainerField("color");
 ColorRGBA857.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet855.addChild(&ColorRGBA857);
 
@@ -3659,6 +3768,7 @@ LineSet864.setCoord(Coordinate865);
 
 //from vt10 to vt9 vertices 2
 ColorRGBA& ColorRGBA866 =  ColorRGBA();
+ColorRGBA866.setContainerField("color");
 ColorRGBA866.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet864.addChild(&ColorRGBA866);
 
@@ -3683,6 +3793,7 @@ Shape& Shape871 =  Shape();
 Text& Text872 =  Text();
 Text872.setString((std::string[]){"13"}, 1);
 CFontStyle& FontStyle873 =  CFontStyle();
+FontStyle873.setContainerField("fontStyle");
 FontStyle873.setSize(0.035);
 Text872.setFontStyle(&FontStyle873);
 
@@ -3724,6 +3835,7 @@ LineSet880.setCoord(Coordinate881);
 
 //from vt9 to vt8 vertices 2
 ColorRGBA& ColorRGBA882 =  ColorRGBA();
+ColorRGBA882.setContainerField("color");
 ColorRGBA882.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet880.addChild(&ColorRGBA882);
 
@@ -3748,6 +3860,7 @@ Shape& Shape887 =  Shape();
 Text& Text888 =  Text();
 Text888.setString((std::string[]){"29"}, 1);
 CFontStyle& FontStyle889 =  CFontStyle();
+FontStyle889.setContainerField("fontStyle");
 FontStyle889.setSize(0.035);
 Text888.setFontStyle(&FontStyle889);
 
@@ -3776,6 +3889,7 @@ Shape& Shape894 =  Shape();
 Text& Text895 =  Text();
 Text895.setString((std::string[]){"31"}, 1);
 CFontStyle& FontStyle896 =  CFontStyle();
+FontStyle896.setContainerField("fontStyle");
 FontStyle896.setSize(0.035);
 Text895.setFontStyle(&FontStyle896);
 
@@ -3817,6 +3931,7 @@ LineSet903.setCoord(Coordinate904);
 
 //from vt8 to vt7 vertices 2
 ColorRGBA& ColorRGBA905 =  ColorRGBA();
+ColorRGBA905.setContainerField("color");
 ColorRGBA905.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet903.addChild(&ColorRGBA905);
 
@@ -3854,6 +3969,7 @@ LineSet912.setCoord(Coordinate913);
 
 //from vt7 to vt6 vertices 2
 ColorRGBA& ColorRGBA914 =  ColorRGBA();
+ColorRGBA914.setContainerField("color");
 ColorRGBA914.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet912.addChild(&ColorRGBA914);
 
@@ -3891,6 +4007,7 @@ LineSet921.setCoord(Coordinate922);
 
 //from vt6 to vt5 vertices 2
 ColorRGBA& ColorRGBA923 =  ColorRGBA();
+ColorRGBA923.setContainerField("color");
 ColorRGBA923.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet921.addChild(&ColorRGBA923);
 
@@ -3914,6 +4031,7 @@ Shape& Shape928 =  Shape();
 Text& Text929 =  Text();
 Text929.setString((std::string[]){"94"}, 1);
 CFontStyle& FontStyle930 =  CFontStyle();
+FontStyle930.setContainerField("fontStyle");
 FontStyle930.setSize(0.035);
 Text929.setFontStyle(&FontStyle930);
 
@@ -3941,6 +4059,7 @@ Shape& Shape935 =  Shape();
 Text& Text936 =  Text();
 Text936.setString((std::string[]){"88"}, 1);
 CFontStyle& FontStyle937 =  CFontStyle();
+FontStyle937.setContainerField("fontStyle");
 FontStyle937.setSize(0.035);
 Text936.setFontStyle(&FontStyle937);
 
@@ -3968,6 +4087,7 @@ Shape& Shape942 =  Shape();
 Text& Text943 =  Text();
 Text943.setString((std::string[]){"95"}, 1);
 CFontStyle& FontStyle944 =  CFontStyle();
+FontStyle944.setContainerField("fontStyle");
 FontStyle944.setSize(0.035);
 Text943.setFontStyle(&FontStyle944);
 
@@ -3995,6 +4115,7 @@ Shape& Shape949 =  Shape();
 Text& Text950 =  Text();
 Text950.setString((std::string[]){"92"}, 1);
 CFontStyle& FontStyle951 =  CFontStyle();
+FontStyle951.setContainerField("fontStyle");
 FontStyle951.setSize(0.035);
 Text950.setFontStyle(&FontStyle951);
 
@@ -4036,6 +4157,7 @@ LineSet958.setCoord(Coordinate959);
 
 //from vt5 to vt4 vertices 2
 ColorRGBA& ColorRGBA960 =  ColorRGBA();
+ColorRGBA960.setContainerField("color");
 ColorRGBA960.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet958.addChild(&ColorRGBA960);
 
@@ -4059,6 +4181,7 @@ Shape& Shape965 =  Shape();
 Text& Text966 =  Text();
 Text966.setString((std::string[]){"24"}, 1);
 CFontStyle& FontStyle967 =  CFontStyle();
+FontStyle967.setContainerField("fontStyle");
 FontStyle967.setSize(0.035);
 Text966.setFontStyle(&FontStyle967);
 
@@ -4100,6 +4223,7 @@ LineSet974.setCoord(Coordinate975);
 
 //from vt4 to vt3 vertices 2
 ColorRGBA& ColorRGBA976 =  ColorRGBA();
+ColorRGBA976.setContainerField("color");
 ColorRGBA976.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet974.addChild(&ColorRGBA976);
 
@@ -4137,6 +4261,7 @@ LineSet983.setCoord(Coordinate984);
 
 //from vt3 to vt2 vertices 2
 ColorRGBA& ColorRGBA985 =  ColorRGBA();
+ColorRGBA985.setContainerField("color");
 ColorRGBA985.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet983.addChild(&ColorRGBA985);
 
@@ -4174,6 +4299,7 @@ LineSet992.setCoord(Coordinate993);
 
 //from vt2 to vt1 vertices 2
 ColorRGBA& ColorRGBA994 =  ColorRGBA();
+ColorRGBA994.setContainerField("color");
 ColorRGBA994.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet992.addChild(&ColorRGBA994);
 
@@ -4211,6 +4337,7 @@ LineSet1001.setCoord(Coordinate1002);
 
 //from vt1 to vc7 vertices 2
 ColorRGBA& ColorRGBA1003 =  ColorRGBA();
+ColorRGBA1003.setContainerField("color");
 ColorRGBA1003.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1001.addChild(&ColorRGBA1003);
 
@@ -4235,6 +4362,7 @@ Shape& Shape1008 =  Shape();
 Text& Text1009 =  Text();
 Text1009.setString((std::string[]){"10"}, 1);
 CFontStyle& FontStyle1010 =  CFontStyle();
+FontStyle1010.setContainerField("fontStyle");
 FontStyle1010.setSize(0.035);
 Text1009.setFontStyle(&FontStyle1010);
 
@@ -4263,6 +4391,7 @@ Shape& Shape1015 =  Shape();
 Text& Text1016 =  Text();
 Text1016.setString((std::string[]){"12"}, 1);
 CFontStyle& FontStyle1017 =  CFontStyle();
+FontStyle1017.setContainerField("fontStyle");
 FontStyle1017.setSize(0.035);
 Text1016.setFontStyle(&FontStyle1017);
 
@@ -4283,6 +4412,7 @@ LineSet1019.setCoord(Coordinate1020);
 
 //from vt1 to l_sternoclavicular vertices 2
 ColorRGBA& ColorRGBA1021 =  ColorRGBA();
+ColorRGBA1021.setContainerField("color");
 ColorRGBA1021.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1019.addChild(&ColorRGBA1021);
 
@@ -4299,6 +4429,7 @@ LineSet1023.setCoord(Coordinate1024);
 
 //from vt1 to r_sternoclavicular vertices 2
 ColorRGBA& ColorRGBA1025 =  ColorRGBA();
+ColorRGBA1025.setContainerField("color");
 ColorRGBA1025.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1023.addChild(&ColorRGBA1025);
 
@@ -4336,6 +4467,7 @@ LineSet1032.setCoord(Coordinate1033);
 
 //from vc7 to vc6 vertices 2
 ColorRGBA& ColorRGBA1034 =  ColorRGBA();
+ColorRGBA1034.setContainerField("color");
 ColorRGBA1034.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1032.addChild(&ColorRGBA1034);
 
@@ -4360,6 +4492,7 @@ Shape& Shape1039 =  Shape();
 Text& Text1040 =  Text();
 Text1040.setString((std::string[]){"82"}, 1);
 CFontStyle& FontStyle1041 =  CFontStyle();
+FontStyle1041.setContainerField("fontStyle");
 FontStyle1041.setSize(0.035);
 Text1040.setFontStyle(&FontStyle1041);
 
@@ -4388,6 +4521,7 @@ Shape& Shape1046 =  Shape();
 Text& Text1047 =  Text();
 Text1047.setString((std::string[]){"83"}, 1);
 CFontStyle& FontStyle1048 =  CFontStyle();
+FontStyle1048.setContainerField("fontStyle");
 FontStyle1048.setSize(0.035);
 Text1047.setFontStyle(&FontStyle1048);
 
@@ -4429,6 +4563,7 @@ LineSet1055.setCoord(Coordinate1056);
 
 //from vc6 to vc5 vertices 2
 ColorRGBA& ColorRGBA1057 =  ColorRGBA();
+ColorRGBA1057.setContainerField("color");
 ColorRGBA1057.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1055.addChild(&ColorRGBA1057);
 
@@ -4466,6 +4601,7 @@ LineSet1064.setCoord(Coordinate1065);
 
 //from vc5 to vc4 vertices 2
 ColorRGBA& ColorRGBA1066 =  ColorRGBA();
+ColorRGBA1066.setContainerField("color");
 ColorRGBA1066.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1064.addChild(&ColorRGBA1066);
 
@@ -4503,6 +4639,7 @@ LineSet1073.setCoord(Coordinate1074);
 
 //from vc4 to vc3 vertices 2
 ColorRGBA& ColorRGBA1075 =  ColorRGBA();
+ColorRGBA1075.setContainerField("color");
 ColorRGBA1075.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1073.addChild(&ColorRGBA1075);
 
@@ -4540,6 +4677,7 @@ LineSet1082.setCoord(Coordinate1083);
 
 //from vc3 to vc2 vertices 2
 ColorRGBA& ColorRGBA1084 =  ColorRGBA();
+ColorRGBA1084.setContainerField("color");
 ColorRGBA1084.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1082.addChild(&ColorRGBA1084);
 
@@ -4577,6 +4715,7 @@ LineSet1091.setCoord(Coordinate1092);
 
 //from vc2 to vc1 vertices 2
 ColorRGBA& ColorRGBA1093 =  ColorRGBA();
+ColorRGBA1093.setContainerField("color");
 ColorRGBA1093.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1091.addChild(&ColorRGBA1093);
 
@@ -4600,6 +4739,7 @@ Shape& Shape1098 =  Shape();
 Text& Text1099 =  Text();
 Text1099.setString((std::string[]){"11"}, 1);
 CFontStyle& FontStyle1100 =  CFontStyle();
+FontStyle1100.setContainerField("fontStyle");
 FontStyle1100.setSize(0.035);
 Text1099.setFontStyle(&FontStyle1100);
 
@@ -4641,6 +4781,7 @@ LineSet1107.setCoord(Coordinate1108);
 
 //from vc1 to skullbase vertices 2
 ColorRGBA& ColorRGBA1109 =  ColorRGBA();
+ColorRGBA1109.setContainerField("color");
 ColorRGBA1109.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1107.addChild(&ColorRGBA1109);
 
@@ -4678,6 +4819,7 @@ LineSet1116.setCoord(Coordinate1117);
 
 //from skullbase to l_eyelid_joint vertices 2
 ColorRGBA& ColorRGBA1118 =  ColorRGBA();
+ColorRGBA1118.setContainerField("color");
 ColorRGBA1118.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1116.addChild(&ColorRGBA1118);
 
@@ -4701,6 +4843,7 @@ Shape& Shape1123 =  Shape();
 Text& Text1124 =  Text();
 Text1124.setString((std::string[]){"1"}, 1);
 CFontStyle& FontStyle1125 =  CFontStyle();
+FontStyle1125.setContainerField("fontStyle");
 FontStyle1125.setSize(0.035);
 Text1124.setFontStyle(&FontStyle1125);
 
@@ -4728,6 +4871,7 @@ Shape& Shape1130 =  Shape();
 Text& Text1131 =  Text();
 Text1131.setString((std::string[]){"85"}, 1);
 CFontStyle& FontStyle1132 =  CFontStyle();
+FontStyle1132.setContainerField("fontStyle");
 FontStyle1132.setSize(0.035);
 Text1131.setFontStyle(&FontStyle1132);
 
@@ -4756,6 +4900,7 @@ Shape& Shape1137 =  Shape();
 Text& Text1138 =  Text();
 Text1138.setString((std::string[]){"3"}, 1);
 CFontStyle& FontStyle1139 =  CFontStyle();
+FontStyle1139.setContainerField("fontStyle");
 FontStyle1139.setSize(0.035);
 Text1138.setFontStyle(&FontStyle1139);
 
@@ -4784,6 +4929,7 @@ Shape& Shape1144 =  Shape();
 Text& Text1145 =  Text();
 Text1145.setString((std::string[]){"4"}, 1);
 CFontStyle& FontStyle1146 =  CFontStyle();
+FontStyle1146.setContainerField("fontStyle");
 FontStyle1146.setSize(0.035);
 Text1145.setFontStyle(&FontStyle1146);
 
@@ -4812,6 +4958,7 @@ Shape& Shape1151 =  Shape();
 Text& Text1152 =  Text();
 Text1152.setString((std::string[]){"81"}, 1);
 CFontStyle& FontStyle1153 =  CFontStyle();
+FontStyle1153.setContainerField("fontStyle");
 FontStyle1153.setSize(0.035);
 Text1152.setFontStyle(&FontStyle1153);
 
@@ -4839,6 +4986,7 @@ Shape& Shape1158 =  Shape();
 Text& Text1159 =  Text();
 Text1159.setString((std::string[]){"89"}, 1);
 CFontStyle& FontStyle1160 =  CFontStyle();
+FontStyle1160.setContainerField("fontStyle");
 FontStyle1160.setSize(0.035);
 Text1159.setFontStyle(&FontStyle1160);
 
@@ -4866,6 +5014,7 @@ Shape& Shape1165 =  Shape();
 Text& Text1166 =  Text();
 Text1166.setString((std::string[]){"86"}, 1);
 CFontStyle& FontStyle1167 =  CFontStyle();
+FontStyle1167.setContainerField("fontStyle");
 FontStyle1167.setSize(0.035);
 Text1166.setFontStyle(&FontStyle1167);
 
@@ -4894,6 +5043,7 @@ Shape& Shape1172 =  Shape();
 Text& Text1173 =  Text();
 Text1173.setString((std::string[]){"6"}, 1);
 CFontStyle& FontStyle1174 =  CFontStyle();
+FontStyle1174.setContainerField("fontStyle");
 FontStyle1174.setSize(0.035);
 Text1173.setFontStyle(&FontStyle1174);
 
@@ -4922,6 +5072,7 @@ Shape& Shape1179 =  Shape();
 Text& Text1180 =  Text();
 Text1180.setString((std::string[]){"7"}, 1);
 CFontStyle& FontStyle1181 =  CFontStyle();
+FontStyle1181.setContainerField("fontStyle");
 FontStyle1181.setSize(0.035);
 Text1180.setFontStyle(&FontStyle1181);
 
@@ -4950,6 +5101,7 @@ Shape& Shape1186 =  Shape();
 Text& Text1187 =  Text();
 Text1187.setString((std::string[]){"2"}, 1);
 CFontStyle& FontStyle1188 =  CFontStyle();
+FontStyle1188.setContainerField("fontStyle");
 FontStyle1188.setSize(0.035);
 Text1187.setFontStyle(&FontStyle1188);
 
@@ -4978,6 +5130,7 @@ Shape& Shape1193 =  Shape();
 Text& Text1194 =  Text();
 Text1194.setString((std::string[]){"0"}, 1);
 CFontStyle& FontStyle1195 =  CFontStyle();
+FontStyle1195.setContainerField("fontStyle");
 FontStyle1195.setSize(0.035);
 Text1194.setFontStyle(&FontStyle1195);
 
@@ -4998,6 +5151,7 @@ LineSet1197.setCoord(Coordinate1198);
 
 //from skullbase to r_eyelid_joint vertices 2
 ColorRGBA& ColorRGBA1199 =  ColorRGBA();
+ColorRGBA1199.setContainerField("color");
 ColorRGBA1199.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1197.addChild(&ColorRGBA1199);
 
@@ -5014,6 +5168,7 @@ LineSet1201.setCoord(Coordinate1202);
 
 //from skullbase to l_eyeball_joint vertices 2
 ColorRGBA& ColorRGBA1203 =  ColorRGBA();
+ColorRGBA1203.setContainerField("color");
 ColorRGBA1203.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1201.addChild(&ColorRGBA1203);
 
@@ -5030,6 +5185,7 @@ LineSet1205.setCoord(Coordinate1206);
 
 //from skullbase to r_eyeball_joint vertices 2
 ColorRGBA& ColorRGBA1207 =  ColorRGBA();
+ColorRGBA1207.setContainerField("color");
 ColorRGBA1207.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1205.addChild(&ColorRGBA1207);
 
@@ -5046,6 +5202,7 @@ LineSet1209.setCoord(Coordinate1210);
 
 //from skullbase to l_eyebrow_joint vertices 2
 ColorRGBA& ColorRGBA1211 =  ColorRGBA();
+ColorRGBA1211.setContainerField("color");
 ColorRGBA1211.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1209.addChild(&ColorRGBA1211);
 
@@ -5062,6 +5219,7 @@ LineSet1213.setCoord(Coordinate1214);
 
 //from skullbase to r_eyebrow_joint vertices 2
 ColorRGBA& ColorRGBA1215 =  ColorRGBA();
+ColorRGBA1215.setContainerField("color");
 ColorRGBA1215.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1213.addChild(&ColorRGBA1215);
 
@@ -5078,6 +5236,7 @@ LineSet1217.setCoord(Coordinate1218);
 
 //from skullbase to temporomandibular vertices 2
 ColorRGBA& ColorRGBA1219 =  ColorRGBA();
+ColorRGBA1219.setContainerField("color");
 ColorRGBA1219.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1217.addChild(&ColorRGBA1219);
 
@@ -5173,6 +5332,7 @@ LineSet1233.setCoord(Coordinate1234);
 
 //from l_sternoclavicular to l_acromioclavicular vertices 2
 ColorRGBA& ColorRGBA1235 =  ColorRGBA();
+ColorRGBA1235.setContainerField("color");
 ColorRGBA1235.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1233.addChild(&ColorRGBA1235);
 
@@ -5197,6 +5357,7 @@ Shape& Shape1240 =  Shape();
 Text& Text1241 =  Text();
 Text1241.setString((std::string[]){"15"}, 1);
 CFontStyle& FontStyle1242 =  CFontStyle();
+FontStyle1242.setContainerField("fontStyle");
 FontStyle1242.setSize(0.035);
 Text1241.setFontStyle(&FontStyle1242);
 
@@ -5225,6 +5386,7 @@ Shape& Shape1247 =  Shape();
 Text& Text1248 =  Text();
 Text1248.setString((std::string[]){"17"}, 1);
 CFontStyle& FontStyle1249 =  CFontStyle();
+FontStyle1249.setContainerField("fontStyle");
 FontStyle1249.setSize(0.035);
 Text1248.setFontStyle(&FontStyle1249);
 
@@ -5252,6 +5414,7 @@ Shape& Shape1254 =  Shape();
 Text& Text1255 =  Text();
 Text1255.setString((std::string[]){"18"}, 1);
 CFontStyle& FontStyle1256 =  CFontStyle();
+FontStyle1256.setContainerField("fontStyle");
 FontStyle1256.setSize(0.035);
 Text1255.setFontStyle(&FontStyle1256);
 
@@ -5280,6 +5443,7 @@ Shape& Shape1261 =  Shape();
 Text& Text1262 =  Text();
 Text1262.setString((std::string[]){"16"}, 1);
 CFontStyle& FontStyle1263 =  CFontStyle();
+FontStyle1263.setContainerField("fontStyle");
 FontStyle1263.setSize(0.035);
 Text1262.setFontStyle(&FontStyle1263);
 
@@ -5308,6 +5472,7 @@ Shape& Shape1268 =  Shape();
 Text& Text1269 =  Text();
 Text1269.setString((std::string[]){"14"}, 1);
 CFontStyle& FontStyle1270 =  CFontStyle();
+FontStyle1270.setContainerField("fontStyle");
 FontStyle1270.setSize(0.035);
 Text1269.setFontStyle(&FontStyle1270);
 
@@ -5349,6 +5514,7 @@ LineSet1277.setCoord(Coordinate1278);
 
 //from l_acromioclavicular to l_shoulder vertices 2
 ColorRGBA& ColorRGBA1279 =  ColorRGBA();
+ColorRGBA1279.setContainerField("color");
 ColorRGBA1279.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1277.addChild(&ColorRGBA1279);
 
@@ -5386,6 +5552,7 @@ LineSet1286.setCoord(Coordinate1287);
 
 //from l_shoulder to l_elbow vertices 2
 ColorRGBA& ColorRGBA1288 =  ColorRGBA();
+ColorRGBA1288.setContainerField("color");
 ColorRGBA1288.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1286.addChild(&ColorRGBA1288);
 
@@ -5409,6 +5576,7 @@ Shape& Shape1293 =  Shape();
 Text& Text1294 =  Text();
 Text1294.setString((std::string[]){"96"}, 1);
 CFontStyle& FontStyle1295 =  CFontStyle();
+FontStyle1295.setContainerField("fontStyle");
 FontStyle1295.setSize(0.035);
 Text1294.setFontStyle(&FontStyle1295);
 
@@ -5437,6 +5605,7 @@ Shape& Shape1300 =  Shape();
 Text& Text1301 =  Text();
 Text1301.setString((std::string[]){"63"}, 1);
 CFontStyle& FontStyle1302 =  CFontStyle();
+FontStyle1302.setContainerField("fontStyle");
 FontStyle1302.setSize(0.035);
 Text1301.setFontStyle(&FontStyle1302);
 
@@ -5478,6 +5647,7 @@ LineSet1309.setCoord(Coordinate1310);
 
 //from l_elbow to l_radiocarpal vertices 2
 ColorRGBA& ColorRGBA1311 =  ColorRGBA();
+ColorRGBA1311.setContainerField("color");
 ColorRGBA1311.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1309.addChild(&ColorRGBA1311);
 
@@ -5502,6 +5672,7 @@ Shape& Shape1316 =  Shape();
 Text& Text1317 =  Text();
 Text1317.setString((std::string[]){"64"}, 1);
 CFontStyle& FontStyle1318 =  CFontStyle();
+FontStyle1318.setContainerField("fontStyle");
 FontStyle1318.setSize(0.035);
 Text1317.setFontStyle(&FontStyle1318);
 
@@ -5530,6 +5701,7 @@ Shape& Shape1323 =  Shape();
 Text& Text1324 =  Text();
 Text1324.setString((std::string[]){"65"}, 1);
 CFontStyle& FontStyle1325 =  CFontStyle();
+FontStyle1325.setContainerField("fontStyle");
 FontStyle1325.setSize(0.035);
 Text1324.setFontStyle(&FontStyle1325);
 
@@ -5558,6 +5730,7 @@ Shape& Shape1330 =  Shape();
 Text& Text1331 =  Text();
 Text1331.setString((std::string[]){"71"}, 1);
 CFontStyle& FontStyle1332 =  CFontStyle();
+FontStyle1332.setContainerField("fontStyle");
 FontStyle1332.setSize(0.035);
 Text1331.setFontStyle(&FontStyle1332);
 
@@ -5586,6 +5759,7 @@ Shape& Shape1337 =  Shape();
 Text& Text1338 =  Text();
 Text1338.setString((std::string[]){"69"}, 1);
 CFontStyle& FontStyle1339 =  CFontStyle();
+FontStyle1339.setContainerField("fontStyle");
 FontStyle1339.setSize(0.035);
 Text1338.setFontStyle(&FontStyle1339);
 
@@ -5631,6 +5805,7 @@ LineSet1346.setCoord(Coordinate1347);
 
 //from l_radiocarpal to l_midcarpal_1 vertices 2
 ColorRGBA& ColorRGBA1348 =  ColorRGBA();
+ColorRGBA1348.setContainerField("color");
 ColorRGBA1348.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1346.addChild(&ColorRGBA1348);
 
@@ -5655,6 +5830,7 @@ Shape& Shape1353 =  Shape();
 Text& Text1354 =  Text();
 Text1354.setString((std::string[]){"70"}, 1);
 CFontStyle& FontStyle1355 =  CFontStyle();
+FontStyle1355.setContainerField("fontStyle");
 FontStyle1355.setSize(0.035);
 Text1354.setFontStyle(&FontStyle1355);
 
@@ -5675,6 +5851,7 @@ LineSet1357.setCoord(Coordinate1358);
 
 //from l_radiocarpal to l_midcarpal_2 vertices 2
 ColorRGBA& ColorRGBA1359 =  ColorRGBA();
+ColorRGBA1359.setContainerField("color");
 ColorRGBA1359.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1357.addChild(&ColorRGBA1359);
 
@@ -5691,6 +5868,7 @@ LineSet1361.setCoord(Coordinate1362);
 
 //from l_radiocarpal to l_midcarpal_3 vertices 2
 ColorRGBA& ColorRGBA1363 =  ColorRGBA();
+ColorRGBA1363.setContainerField("color");
 ColorRGBA1363.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1361.addChild(&ColorRGBA1363);
 
@@ -5707,6 +5885,7 @@ LineSet1365.setCoord(Coordinate1366);
 
 //from l_radiocarpal to l_midcarpal_4_5 vertices 2
 ColorRGBA& ColorRGBA1367 =  ColorRGBA();
+ColorRGBA1367.setContainerField("color");
 ColorRGBA1367.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1365.addChild(&ColorRGBA1367);
 
@@ -5744,6 +5923,7 @@ LineSet1374.setCoord(Coordinate1375);
 
 //from l_midcarpal_1 to l_carpometacarpal_1 vertices 2
 ColorRGBA& ColorRGBA1376 =  ColorRGBA();
+ColorRGBA1376.setContainerField("color");
 ColorRGBA1376.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1374.addChild(&ColorRGBA1376);
 
@@ -5781,6 +5961,7 @@ LineSet1383.setCoord(Coordinate1384);
 
 //from l_carpometacarpal_1 to l_metacarpophalangeal_1 vertices 2
 ColorRGBA& ColorRGBA1385 =  ColorRGBA();
+ColorRGBA1385.setContainerField("color");
 ColorRGBA1385.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1383.addChild(&ColorRGBA1385);
 
@@ -5818,6 +5999,7 @@ LineSet1392.setCoord(Coordinate1393);
 
 //from l_metacarpophalangeal_1 to l_carpal_interphalangeal_1 vertices 2
 ColorRGBA& ColorRGBA1394 =  ColorRGBA();
+ColorRGBA1394.setContainerField("color");
 ColorRGBA1394.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1392.addChild(&ColorRGBA1394);
 
@@ -5867,6 +6049,7 @@ LineSet1402.setCoord(Coordinate1403);
 
 //from l_midcarpal_2 to l_carpometacarpal_2 vertices 2
 ColorRGBA& ColorRGBA1404 =  ColorRGBA();
+ColorRGBA1404.setContainerField("color");
 ColorRGBA1404.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1402.addChild(&ColorRGBA1404);
 
@@ -5904,6 +6087,7 @@ LineSet1411.setCoord(Coordinate1412);
 
 //from l_carpometacarpal_2 to l_metacarpophalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1413 =  ColorRGBA();
+ColorRGBA1413.setContainerField("color");
 ColorRGBA1413.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1411.addChild(&ColorRGBA1413);
 
@@ -5928,6 +6112,7 @@ Shape& Shape1418 =  Shape();
 Text& Text1419 =  Text();
 Text1419.setString((std::string[]){"75"}, 1);
 CFontStyle& FontStyle1420 =  CFontStyle();
+FontStyle1420.setContainerField("fontStyle");
 FontStyle1420.setSize(0.035);
 Text1419.setFontStyle(&FontStyle1420);
 
@@ -5969,6 +6154,7 @@ LineSet1427.setCoord(Coordinate1428);
 
 //from l_metacarpophalangeal_2 to l_carpal_proximal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1429 =  ColorRGBA();
+ColorRGBA1429.setContainerField("color");
 ColorRGBA1429.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1427.addChild(&ColorRGBA1429);
 
@@ -6006,6 +6192,7 @@ LineSet1436.setCoord(Coordinate1437);
 
 //from l_carpal_proximal_interphalangeal_2 to l_carpal_distal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1438 =  ColorRGBA();
+ColorRGBA1438.setContainerField("color");
 ColorRGBA1438.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1436.addChild(&ColorRGBA1438);
 
@@ -6057,6 +6244,7 @@ LineSet1446.setCoord(Coordinate1447);
 
 //from l_midcarpal_3 to l_carpometacarpal_3 vertices 2
 ColorRGBA& ColorRGBA1448 =  ColorRGBA();
+ColorRGBA1448.setContainerField("color");
 ColorRGBA1448.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1446.addChild(&ColorRGBA1448);
 
@@ -6094,6 +6282,7 @@ LineSet1455.setCoord(Coordinate1456);
 
 //from l_carpometacarpal_3 to l_metacarpophalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1457 =  ColorRGBA();
+ColorRGBA1457.setContainerField("color");
 ColorRGBA1457.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1455.addChild(&ColorRGBA1457);
 
@@ -6117,6 +6306,7 @@ Shape& Shape1462 =  Shape();
 Text& Text1463 =  Text();
 Text1463.setString((std::string[]){"76"}, 1);
 CFontStyle& FontStyle1464 =  CFontStyle();
+FontStyle1464.setContainerField("fontStyle");
 FontStyle1464.setSize(0.035);
 Text1463.setFontStyle(&FontStyle1464);
 
@@ -6158,6 +6348,7 @@ LineSet1471.setCoord(Coordinate1472);
 
 //from l_metacarpophalangeal_3 to l_carpal_proximal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1473 =  ColorRGBA();
+ColorRGBA1473.setContainerField("color");
 ColorRGBA1473.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1471.addChild(&ColorRGBA1473);
 
@@ -6195,6 +6386,7 @@ LineSet1480.setCoord(Coordinate1481);
 
 //from l_carpal_proximal_interphalangeal_3 to l_carpal_distal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1482 =  ColorRGBA();
+ColorRGBA1482.setContainerField("color");
 ColorRGBA1482.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1480.addChild(&ColorRGBA1482);
 
@@ -6246,6 +6438,7 @@ LineSet1490.setCoord(Coordinate1491);
 
 //from l_midcarpal_4_5 to l_carpometacarpal_4 vertices 2
 ColorRGBA& ColorRGBA1492 =  ColorRGBA();
+ColorRGBA1492.setContainerField("color");
 ColorRGBA1492.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1490.addChild(&ColorRGBA1492);
 
@@ -6262,6 +6455,7 @@ LineSet1494.setCoord(Coordinate1495);
 
 //from l_midcarpal_4_5 to l_carpometacarpal_5 vertices 2
 ColorRGBA& ColorRGBA1496 =  ColorRGBA();
+ColorRGBA1496.setContainerField("color");
 ColorRGBA1496.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1494.addChild(&ColorRGBA1496);
 
@@ -6299,6 +6493,7 @@ LineSet1503.setCoord(Coordinate1504);
 
 //from l_carpometacarpal_4 to l_metacarpophalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1505 =  ColorRGBA();
+ColorRGBA1505.setContainerField("color");
 ColorRGBA1505.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1503.addChild(&ColorRGBA1505);
 
@@ -6336,6 +6531,7 @@ LineSet1512.setCoord(Coordinate1513);
 
 //from l_metacarpophalangeal_4 to l_carpal_proximal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1514 =  ColorRGBA();
+ColorRGBA1514.setContainerField("color");
 ColorRGBA1514.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1512.addChild(&ColorRGBA1514);
 
@@ -6373,6 +6569,7 @@ LineSet1521.setCoord(Coordinate1522);
 
 //from l_carpal_proximal_interphalangeal_4 to l_carpal_distal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1523 =  ColorRGBA();
+ColorRGBA1523.setContainerField("color");
 ColorRGBA1523.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1521.addChild(&ColorRGBA1523);
 
@@ -6422,6 +6619,7 @@ LineSet1531.setCoord(Coordinate1532);
 
 //from l_carpometacarpal_5 to l_metacarpophalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1533 =  ColorRGBA();
+ColorRGBA1533.setContainerField("color");
 ColorRGBA1533.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1531.addChild(&ColorRGBA1533);
 
@@ -6446,6 +6644,7 @@ Shape& Shape1538 =  Shape();
 Text& Text1539 =  Text();
 Text1539.setString((std::string[]){"77"}, 1);
 CFontStyle& FontStyle1540 =  CFontStyle();
+FontStyle1540.setContainerField("fontStyle");
 FontStyle1540.setSize(0.035);
 Text1539.setFontStyle(&FontStyle1540);
 
@@ -6487,6 +6686,7 @@ LineSet1547.setCoord(Coordinate1548);
 
 //from l_metacarpophalangeal_5 to l_carpal_proximal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1549 =  ColorRGBA();
+ColorRGBA1549.setContainerField("color");
 ColorRGBA1549.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1547.addChild(&ColorRGBA1549);
 
@@ -6524,6 +6724,7 @@ LineSet1556.setCoord(Coordinate1557);
 
 //from l_carpal_proximal_interphalangeal_5 to l_carpal_distal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1558 =  ColorRGBA();
+ColorRGBA1558.setContainerField("color");
 ColorRGBA1558.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1556.addChild(&ColorRGBA1558);
 
@@ -6585,6 +6786,7 @@ LineSet1566.setCoord(Coordinate1567);
 
 //from r_sternoclavicular to r_acromioclavicular vertices 2
 ColorRGBA& ColorRGBA1568 =  ColorRGBA();
+ColorRGBA1568.setContainerField("color");
 ColorRGBA1568.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1566.addChild(&ColorRGBA1568);
 
@@ -6609,6 +6811,7 @@ Shape& Shape1573 =  Shape();
 Text& Text1574 =  Text();
 Text1574.setString((std::string[]){"20"}, 1);
 CFontStyle& FontStyle1575 =  CFontStyle();
+FontStyle1575.setContainerField("fontStyle");
 FontStyle1575.setSize(0.035);
 Text1574.setFontStyle(&FontStyle1575);
 
@@ -6637,6 +6840,7 @@ Shape& Shape1580 =  Shape();
 Text& Text1581 =  Text();
 Text1581.setString((std::string[]){"22"}, 1);
 CFontStyle& FontStyle1582 =  CFontStyle();
+FontStyle1582.setContainerField("fontStyle");
 FontStyle1582.setSize(0.035);
 Text1581.setFontStyle(&FontStyle1582);
 
@@ -6664,6 +6868,7 @@ Shape& Shape1587 =  Shape();
 Text& Text1588 =  Text();
 Text1588.setString((std::string[]){"23"}, 1);
 CFontStyle& FontStyle1589 =  CFontStyle();
+FontStyle1589.setContainerField("fontStyle");
 FontStyle1589.setSize(0.035);
 Text1588.setFontStyle(&FontStyle1589);
 
@@ -6692,6 +6897,7 @@ Shape& Shape1594 =  Shape();
 Text& Text1595 =  Text();
 Text1595.setString((std::string[]){"21"}, 1);
 CFontStyle& FontStyle1596 =  CFontStyle();
+FontStyle1596.setContainerField("fontStyle");
 FontStyle1596.setSize(0.035);
 Text1595.setFontStyle(&FontStyle1596);
 
@@ -6720,6 +6926,7 @@ Shape& Shape1601 =  Shape();
 Text& Text1602 =  Text();
 Text1602.setString((std::string[]){"19"}, 1);
 CFontStyle& FontStyle1603 =  CFontStyle();
+FontStyle1603.setContainerField("fontStyle");
 FontStyle1603.setSize(0.035);
 Text1602.setFontStyle(&FontStyle1603);
 
@@ -6761,6 +6968,7 @@ LineSet1610.setCoord(Coordinate1611);
 
 //from r_acromioclavicular to r_shoulder vertices 2
 ColorRGBA& ColorRGBA1612 =  ColorRGBA();
+ColorRGBA1612.setContainerField("color");
 ColorRGBA1612.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1610.addChild(&ColorRGBA1612);
 
@@ -6798,6 +7006,7 @@ LineSet1619.setCoord(Coordinate1620);
 
 //from r_shoulder to r_elbow vertices 2
 ColorRGBA& ColorRGBA1621 =  ColorRGBA();
+ColorRGBA1621.setContainerField("color");
 ColorRGBA1621.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1619.addChild(&ColorRGBA1621);
 
@@ -6821,6 +7030,7 @@ Shape& Shape1626 =  Shape();
 Text& Text1627 =  Text();
 Text1627.setString((std::string[]){"97"}, 1);
 CFontStyle& FontStyle1628 =  CFontStyle();
+FontStyle1628.setContainerField("fontStyle");
 FontStyle1628.setSize(0.035);
 Text1627.setFontStyle(&FontStyle1628);
 
@@ -6849,6 +7059,7 @@ Shape& Shape1633 =  Shape();
 Text& Text1634 =  Text();
 Text1634.setString((std::string[]){"66"}, 1);
 CFontStyle& FontStyle1635 =  CFontStyle();
+FontStyle1635.setContainerField("fontStyle");
 FontStyle1635.setSize(0.035);
 Text1634.setFontStyle(&FontStyle1635);
 
@@ -6890,6 +7101,7 @@ LineSet1642.setCoord(Coordinate1643);
 
 //from r_elbow to r_radiocarpal vertices 2
 ColorRGBA& ColorRGBA1644 =  ColorRGBA();
+ColorRGBA1644.setContainerField("color");
 ColorRGBA1644.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1642.addChild(&ColorRGBA1644);
 
@@ -6914,6 +7126,7 @@ Shape& Shape1649 =  Shape();
 Text& Text1650 =  Text();
 Text1650.setString((std::string[]){"67"}, 1);
 CFontStyle& FontStyle1651 =  CFontStyle();
+FontStyle1651.setContainerField("fontStyle");
 FontStyle1651.setSize(0.035);
 Text1650.setFontStyle(&FontStyle1651);
 
@@ -6942,6 +7155,7 @@ Shape& Shape1656 =  Shape();
 Text& Text1657 =  Text();
 Text1657.setString((std::string[]){"68"}, 1);
 CFontStyle& FontStyle1658 =  CFontStyle();
+FontStyle1658.setContainerField("fontStyle");
 FontStyle1658.setSize(0.035);
 Text1657.setFontStyle(&FontStyle1658);
 
@@ -6970,6 +7184,7 @@ Shape& Shape1663 =  Shape();
 Text& Text1664 =  Text();
 Text1664.setString((std::string[]){"74"}, 1);
 CFontStyle& FontStyle1665 =  CFontStyle();
+FontStyle1665.setContainerField("fontStyle");
 FontStyle1665.setSize(0.035);
 Text1664.setFontStyle(&FontStyle1665);
 
@@ -6998,6 +7213,7 @@ Shape& Shape1670 =  Shape();
 Text& Text1671 =  Text();
 Text1671.setString((std::string[]){"72"}, 1);
 CFontStyle& FontStyle1672 =  CFontStyle();
+FontStyle1672.setContainerField("fontStyle");
 FontStyle1672.setSize(0.035);
 Text1671.setFontStyle(&FontStyle1672);
 
@@ -7043,6 +7259,7 @@ LineSet1679.setCoord(Coordinate1680);
 
 //from r_radiocarpal to r_midcarpal_1 vertices 2
 ColorRGBA& ColorRGBA1681 =  ColorRGBA();
+ColorRGBA1681.setContainerField("color");
 ColorRGBA1681.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1679.addChild(&ColorRGBA1681);
 
@@ -7067,6 +7284,7 @@ Shape& Shape1686 =  Shape();
 Text& Text1687 =  Text();
 Text1687.setString((std::string[]){"73"}, 1);
 CFontStyle& FontStyle1688 =  CFontStyle();
+FontStyle1688.setContainerField("fontStyle");
 FontStyle1688.setSize(0.035);
 Text1687.setFontStyle(&FontStyle1688);
 
@@ -7087,6 +7305,7 @@ LineSet1690.setCoord(Coordinate1691);
 
 //from r_radiocarpal to r_midcarpal_2 vertices 2
 ColorRGBA& ColorRGBA1692 =  ColorRGBA();
+ColorRGBA1692.setContainerField("color");
 ColorRGBA1692.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1690.addChild(&ColorRGBA1692);
 
@@ -7103,6 +7322,7 @@ LineSet1694.setCoord(Coordinate1695);
 
 //from r_radiocarpal to r_midcarpal_3 vertices 2
 ColorRGBA& ColorRGBA1696 =  ColorRGBA();
+ColorRGBA1696.setContainerField("color");
 ColorRGBA1696.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1694.addChild(&ColorRGBA1696);
 
@@ -7119,6 +7339,7 @@ LineSet1698.setCoord(Coordinate1699);
 
 //from r_radiocarpal to r_midcarpal_4_5 vertices 2
 ColorRGBA& ColorRGBA1700 =  ColorRGBA();
+ColorRGBA1700.setContainerField("color");
 ColorRGBA1700.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1698.addChild(&ColorRGBA1700);
 
@@ -7156,6 +7377,7 @@ LineSet1707.setCoord(Coordinate1708);
 
 //from r_midcarpal_1 to r_carpometacarpal_1 vertices 2
 ColorRGBA& ColorRGBA1709 =  ColorRGBA();
+ColorRGBA1709.setContainerField("color");
 ColorRGBA1709.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1707.addChild(&ColorRGBA1709);
 
@@ -7193,6 +7415,7 @@ LineSet1716.setCoord(Coordinate1717);
 
 //from r_carpometacarpal_1 to r_metacarpophalangeal_1 vertices 2
 ColorRGBA& ColorRGBA1718 =  ColorRGBA();
+ColorRGBA1718.setContainerField("color");
 ColorRGBA1718.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1716.addChild(&ColorRGBA1718);
 
@@ -7230,6 +7453,7 @@ LineSet1725.setCoord(Coordinate1726);
 
 //from r_metacarpophalangeal_1 to r_carpal_interphalangeal_1 vertices 2
 ColorRGBA& ColorRGBA1727 =  ColorRGBA();
+ColorRGBA1727.setContainerField("color");
 ColorRGBA1727.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1725.addChild(&ColorRGBA1727);
 
@@ -7279,6 +7503,7 @@ LineSet1735.setCoord(Coordinate1736);
 
 //from r_midcarpal_2 to r_carpometacarpal_2 vertices 2
 ColorRGBA& ColorRGBA1737 =  ColorRGBA();
+ColorRGBA1737.setContainerField("color");
 ColorRGBA1737.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1735.addChild(&ColorRGBA1737);
 
@@ -7316,6 +7541,7 @@ LineSet1744.setCoord(Coordinate1745);
 
 //from r_carpometacarpal_2 to r_metacarpophalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1746 =  ColorRGBA();
+ColorRGBA1746.setContainerField("color");
 ColorRGBA1746.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1744.addChild(&ColorRGBA1746);
 
@@ -7340,6 +7566,7 @@ Shape& Shape1751 =  Shape();
 Text& Text1752 =  Text();
 Text1752.setString((std::string[]){"78"}, 1);
 CFontStyle& FontStyle1753 =  CFontStyle();
+FontStyle1753.setContainerField("fontStyle");
 FontStyle1753.setSize(0.035);
 Text1752.setFontStyle(&FontStyle1753);
 
@@ -7381,6 +7608,7 @@ LineSet1760.setCoord(Coordinate1761);
 
 //from r_metacarpophalangeal_2 to r_carpal_proximal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1762 =  ColorRGBA();
+ColorRGBA1762.setContainerField("color");
 ColorRGBA1762.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1760.addChild(&ColorRGBA1762);
 
@@ -7418,6 +7646,7 @@ LineSet1769.setCoord(Coordinate1770);
 
 //from r_carpal_proximal_interphalangeal_2 to r_carpal_distal_interphalangeal_2 vertices 2
 ColorRGBA& ColorRGBA1771 =  ColorRGBA();
+ColorRGBA1771.setContainerField("color");
 ColorRGBA1771.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1769.addChild(&ColorRGBA1771);
 
@@ -7469,6 +7698,7 @@ LineSet1779.setCoord(Coordinate1780);
 
 //from r_midcarpal_3 to r_carpometacarpal_3 vertices 2
 ColorRGBA& ColorRGBA1781 =  ColorRGBA();
+ColorRGBA1781.setContainerField("color");
 ColorRGBA1781.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1779.addChild(&ColorRGBA1781);
 
@@ -7506,6 +7736,7 @@ LineSet1788.setCoord(Coordinate1789);
 
 //from r_carpometacarpal_3 to r_metacarpophalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1790 =  ColorRGBA();
+ColorRGBA1790.setContainerField("color");
 ColorRGBA1790.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1788.addChild(&ColorRGBA1790);
 
@@ -7529,6 +7760,7 @@ Shape& Shape1795 =  Shape();
 Text& Text1796 =  Text();
 Text1796.setString((std::string[]){"79"}, 1);
 CFontStyle& FontStyle1797 =  CFontStyle();
+FontStyle1797.setContainerField("fontStyle");
 FontStyle1797.setSize(0.035);
 Text1796.setFontStyle(&FontStyle1797);
 
@@ -7570,6 +7802,7 @@ LineSet1804.setCoord(Coordinate1805);
 
 //from r_metacarpophalangeal_3 to r_carpal_proximal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1806 =  ColorRGBA();
+ColorRGBA1806.setContainerField("color");
 ColorRGBA1806.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1804.addChild(&ColorRGBA1806);
 
@@ -7607,6 +7840,7 @@ LineSet1813.setCoord(Coordinate1814);
 
 //from r_carpal_proximal_interphalangeal_3 to r_carpal_distal_interphalangeal_3 vertices 2
 ColorRGBA& ColorRGBA1815 =  ColorRGBA();
+ColorRGBA1815.setContainerField("color");
 ColorRGBA1815.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1813.addChild(&ColorRGBA1815);
 
@@ -7658,6 +7892,7 @@ LineSet1823.setCoord(Coordinate1824);
 
 //from r_midcarpal_4_5 to r_carpometacarpal_4 vertices 2
 ColorRGBA& ColorRGBA1825 =  ColorRGBA();
+ColorRGBA1825.setContainerField("color");
 ColorRGBA1825.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1823.addChild(&ColorRGBA1825);
 
@@ -7674,6 +7909,7 @@ LineSet1827.setCoord(Coordinate1828);
 
 //from r_midcarpal_4_5 to r_carpometacarpal_5 vertices 2
 ColorRGBA& ColorRGBA1829 =  ColorRGBA();
+ColorRGBA1829.setContainerField("color");
 ColorRGBA1829.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1827.addChild(&ColorRGBA1829);
 
@@ -7711,6 +7947,7 @@ LineSet1836.setCoord(Coordinate1837);
 
 //from r_carpometacarpal_4 to r_metacarpophalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1838 =  ColorRGBA();
+ColorRGBA1838.setContainerField("color");
 ColorRGBA1838.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1836.addChild(&ColorRGBA1838);
 
@@ -7748,6 +7985,7 @@ LineSet1845.setCoord(Coordinate1846);
 
 //from r_metacarpophalangeal_4 to r_carpal_proximal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1847 =  ColorRGBA();
+ColorRGBA1847.setContainerField("color");
 ColorRGBA1847.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1845.addChild(&ColorRGBA1847);
 
@@ -7785,6 +8023,7 @@ LineSet1854.setCoord(Coordinate1855);
 
 //from r_carpal_proximal_interphalangeal_4 to r_carpal_distal_interphalangeal_4 vertices 2
 ColorRGBA& ColorRGBA1856 =  ColorRGBA();
+ColorRGBA1856.setContainerField("color");
 ColorRGBA1856.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1854.addChild(&ColorRGBA1856);
 
@@ -7834,6 +8073,7 @@ LineSet1864.setCoord(Coordinate1865);
 
 //from r_carpometacarpal_5 to r_metacarpophalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1866 =  ColorRGBA();
+ColorRGBA1866.setContainerField("color");
 ColorRGBA1866.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1864.addChild(&ColorRGBA1866);
 
@@ -7858,6 +8098,7 @@ Shape& Shape1871 =  Shape();
 Text& Text1872 =  Text();
 Text1872.setString((std::string[]){"80"}, 1);
 CFontStyle& FontStyle1873 =  CFontStyle();
+FontStyle1873.setContainerField("fontStyle");
 FontStyle1873.setSize(0.035);
 Text1872.setFontStyle(&FontStyle1873);
 
@@ -7899,6 +8140,7 @@ LineSet1880.setCoord(Coordinate1881);
 
 //from r_metacarpophalangeal_5 to r_carpal_proximal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1882 =  ColorRGBA();
+ColorRGBA1882.setContainerField("color");
 ColorRGBA1882.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1880.addChild(&ColorRGBA1882);
 
@@ -7936,6 +8178,7 @@ LineSet1889.setCoord(Coordinate1890);
 
 //from r_carpal_proximal_interphalangeal_5 to r_carpal_distal_interphalangeal_5 vertices 2
 ColorRGBA& ColorRGBA1891 =  ColorRGBA();
+ColorRGBA1891.setContainerField("color");
 ColorRGBA1891.setUSE(std::string("HAnimSegmentLineColorRGBA"));
 LineSet1889.addChild(&ColorRGBA1891);
 
@@ -8006,586 +8249,732 @@ HAnimJoint47.addChildren(&HAnimJoint753);
 HAnimHumanoid38.setSkeleton(&HAnimJoint47);
 
 HAnimJoint& HAnimJoint1893 =  HAnimJoint();
+HAnimJoint1893.setContainerField("joints");
 HAnimJoint1893.setUSE(std::string("hanim_humanoid_root"));
 HAnimHumanoid38.setJoints(&HAnimJoint1893);
 
 HAnimJoint& HAnimJoint1894 =  HAnimJoint();
+HAnimJoint1894.setContainerField("joints");
 HAnimJoint1894.setUSE(std::string("hanim_sacroiliac"));
 HAnimHumanoid38.setJoints(&HAnimJoint1894);
 
 HAnimJoint& HAnimJoint1895 =  HAnimJoint();
+HAnimJoint1895.setContainerField("joints");
 HAnimJoint1895.setUSE(std::string("hanim_l_hip"));
 HAnimHumanoid38.setJoints(&HAnimJoint1895);
 
 HAnimJoint& HAnimJoint1896 =  HAnimJoint();
+HAnimJoint1896.setContainerField("joints");
 HAnimJoint1896.setUSE(std::string("hanim_l_knee"));
 HAnimHumanoid38.setJoints(&HAnimJoint1896);
 
 HAnimJoint& HAnimJoint1897 =  HAnimJoint();
+HAnimJoint1897.setContainerField("joints");
 HAnimJoint1897.setUSE(std::string("hanim_l_talocrural"));
 HAnimHumanoid38.setJoints(&HAnimJoint1897);
 
 HAnimJoint& HAnimJoint1898 =  HAnimJoint();
+HAnimJoint1898.setContainerField("joints");
 HAnimJoint1898.setUSE(std::string("hanim_l_talocalcaneonavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint1898);
 
 HAnimJoint& HAnimJoint1899 =  HAnimJoint();
+HAnimJoint1899.setContainerField("joints");
 HAnimJoint1899.setUSE(std::string("hanim_l_cuneonavicular_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1899);
 
 HAnimJoint& HAnimJoint1900 =  HAnimJoint();
+HAnimJoint1900.setContainerField("joints");
 HAnimJoint1900.setUSE(std::string("hanim_l_tarsometatarsal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1900);
 
 HAnimJoint& HAnimJoint1901 =  HAnimJoint();
+HAnimJoint1901.setContainerField("joints");
 HAnimJoint1901.setUSE(std::string("hanim_l_metatarsophalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1901);
 
 HAnimJoint& HAnimJoint1902 =  HAnimJoint();
+HAnimJoint1902.setContainerField("joints");
 HAnimJoint1902.setUSE(std::string("hanim_l_tarsal_interphalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1902);
 
 HAnimJoint& HAnimJoint1903 =  HAnimJoint();
+HAnimJoint1903.setContainerField("joints");
 HAnimJoint1903.setUSE(std::string("hanim_l_cuneonavicular_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1903);
 
 HAnimJoint& HAnimJoint1904 =  HAnimJoint();
+HAnimJoint1904.setContainerField("joints");
 HAnimJoint1904.setUSE(std::string("hanim_l_tarsometatarsal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1904);
 
 HAnimJoint& HAnimJoint1905 =  HAnimJoint();
+HAnimJoint1905.setContainerField("joints");
 HAnimJoint1905.setUSE(std::string("hanim_l_metatarsophalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1905);
 
 HAnimJoint& HAnimJoint1906 =  HAnimJoint();
+HAnimJoint1906.setContainerField("joints");
 HAnimJoint1906.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1906);
 
 HAnimJoint& HAnimJoint1907 =  HAnimJoint();
+HAnimJoint1907.setContainerField("joints");
 HAnimJoint1907.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1907);
 
 HAnimJoint& HAnimJoint1908 =  HAnimJoint();
+HAnimJoint1908.setContainerField("joints");
 HAnimJoint1908.setUSE(std::string("hanim_l_cuneonavicular_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1908);
 
 HAnimJoint& HAnimJoint1909 =  HAnimJoint();
+HAnimJoint1909.setContainerField("joints");
 HAnimJoint1909.setUSE(std::string("hanim_l_tarsometatarsal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1909);
 
 HAnimJoint& HAnimJoint1910 =  HAnimJoint();
+HAnimJoint1910.setContainerField("joints");
 HAnimJoint1910.setUSE(std::string("hanim_l_metatarsophalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1910);
 
 HAnimJoint& HAnimJoint1911 =  HAnimJoint();
+HAnimJoint1911.setContainerField("joints");
 HAnimJoint1911.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1911);
 
 HAnimJoint& HAnimJoint1912 =  HAnimJoint();
+HAnimJoint1912.setContainerField("joints");
 HAnimJoint1912.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1912);
 
 HAnimJoint& HAnimJoint1913 =  HAnimJoint();
+HAnimJoint1913.setContainerField("joints");
 HAnimJoint1913.setUSE(std::string("hanim_l_calcaneocuboid"));
 HAnimHumanoid38.setJoints(&HAnimJoint1913);
 
 HAnimJoint& HAnimJoint1914 =  HAnimJoint();
+HAnimJoint1914.setContainerField("joints");
 HAnimJoint1914.setUSE(std::string("hanim_l_transversetarsal"));
 HAnimHumanoid38.setJoints(&HAnimJoint1914);
 
 HAnimJoint& HAnimJoint1915 =  HAnimJoint();
+HAnimJoint1915.setContainerField("joints");
 HAnimJoint1915.setUSE(std::string("hanim_l_tarsometatarsal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1915);
 
 HAnimJoint& HAnimJoint1916 =  HAnimJoint();
+HAnimJoint1916.setContainerField("joints");
 HAnimJoint1916.setUSE(std::string("hanim_l_metatarsophalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1916);
 
 HAnimJoint& HAnimJoint1917 =  HAnimJoint();
+HAnimJoint1917.setContainerField("joints");
 HAnimJoint1917.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1917);
 
 HAnimJoint& HAnimJoint1918 =  HAnimJoint();
+HAnimJoint1918.setContainerField("joints");
 HAnimJoint1918.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1918);
 
 HAnimJoint& HAnimJoint1919 =  HAnimJoint();
+HAnimJoint1919.setContainerField("joints");
 HAnimJoint1919.setUSE(std::string("hanim_l_tarsometatarsal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1919);
 
 HAnimJoint& HAnimJoint1920 =  HAnimJoint();
+HAnimJoint1920.setContainerField("joints");
 HAnimJoint1920.setUSE(std::string("hanim_l_metatarsophalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1920);
 
 HAnimJoint& HAnimJoint1921 =  HAnimJoint();
+HAnimJoint1921.setContainerField("joints");
 HAnimJoint1921.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1921);
 
 HAnimJoint& HAnimJoint1922 =  HAnimJoint();
+HAnimJoint1922.setContainerField("joints");
 HAnimJoint1922.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1922);
 
 HAnimJoint& HAnimJoint1923 =  HAnimJoint();
+HAnimJoint1923.setContainerField("joints");
 HAnimJoint1923.setUSE(std::string("hanim_r_hip"));
 HAnimHumanoid38.setJoints(&HAnimJoint1923);
 
 HAnimJoint& HAnimJoint1924 =  HAnimJoint();
+HAnimJoint1924.setContainerField("joints");
 HAnimJoint1924.setUSE(std::string("hanim_r_knee"));
 HAnimHumanoid38.setJoints(&HAnimJoint1924);
 
 HAnimJoint& HAnimJoint1925 =  HAnimJoint();
+HAnimJoint1925.setContainerField("joints");
 HAnimJoint1925.setUSE(std::string("hanim_r_talocrural"));
 HAnimHumanoid38.setJoints(&HAnimJoint1925);
 
 HAnimJoint& HAnimJoint1926 =  HAnimJoint();
+HAnimJoint1926.setContainerField("joints");
 HAnimJoint1926.setUSE(std::string("hanim_r_talocalcaneonavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint1926);
 
 HAnimJoint& HAnimJoint1927 =  HAnimJoint();
+HAnimJoint1927.setContainerField("joints");
 HAnimJoint1927.setUSE(std::string("hanim_r_cuneonavicular_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1927);
 
 HAnimJoint& HAnimJoint1928 =  HAnimJoint();
+HAnimJoint1928.setContainerField("joints");
 HAnimJoint1928.setUSE(std::string("hanim_r_tarsometatarsal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1928);
 
 HAnimJoint& HAnimJoint1929 =  HAnimJoint();
+HAnimJoint1929.setContainerField("joints");
 HAnimJoint1929.setUSE(std::string("hanim_r_metatarsophalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1929);
 
 HAnimJoint& HAnimJoint1930 =  HAnimJoint();
+HAnimJoint1930.setContainerField("joints");
 HAnimJoint1930.setUSE(std::string("hanim_r_tarsal_interphalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1930);
 
 HAnimJoint& HAnimJoint1931 =  HAnimJoint();
+HAnimJoint1931.setContainerField("joints");
 HAnimJoint1931.setUSE(std::string("hanim_r_cuneonavicular_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1931);
 
 HAnimJoint& HAnimJoint1932 =  HAnimJoint();
+HAnimJoint1932.setContainerField("joints");
 HAnimJoint1932.setUSE(std::string("hanim_r_tarsometatarsal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1932);
 
 HAnimJoint& HAnimJoint1933 =  HAnimJoint();
+HAnimJoint1933.setContainerField("joints");
 HAnimJoint1933.setUSE(std::string("hanim_r_metatarsophalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1933);
 
 HAnimJoint& HAnimJoint1934 =  HAnimJoint();
+HAnimJoint1934.setContainerField("joints");
 HAnimJoint1934.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1934);
 
 HAnimJoint& HAnimJoint1935 =  HAnimJoint();
+HAnimJoint1935.setContainerField("joints");
 HAnimJoint1935.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1935);
 
 HAnimJoint& HAnimJoint1936 =  HAnimJoint();
+HAnimJoint1936.setContainerField("joints");
 HAnimJoint1936.setUSE(std::string("hanim_r_cuneonavicular_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1936);
 
 HAnimJoint& HAnimJoint1937 =  HAnimJoint();
+HAnimJoint1937.setContainerField("joints");
 HAnimJoint1937.setUSE(std::string("hanim_r_tarsometatarsal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1937);
 
 HAnimJoint& HAnimJoint1938 =  HAnimJoint();
+HAnimJoint1938.setContainerField("joints");
 HAnimJoint1938.setUSE(std::string("hanim_r_metatarsophalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1938);
 
 HAnimJoint& HAnimJoint1939 =  HAnimJoint();
+HAnimJoint1939.setContainerField("joints");
 HAnimJoint1939.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1939);
 
 HAnimJoint& HAnimJoint1940 =  HAnimJoint();
+HAnimJoint1940.setContainerField("joints");
 HAnimJoint1940.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1940);
 
 HAnimJoint& HAnimJoint1941 =  HAnimJoint();
+HAnimJoint1941.setContainerField("joints");
 HAnimJoint1941.setUSE(std::string("hanim_r_calcaneocuboid"));
 HAnimHumanoid38.setJoints(&HAnimJoint1941);
 
 HAnimJoint& HAnimJoint1942 =  HAnimJoint();
+HAnimJoint1942.setContainerField("joints");
 HAnimJoint1942.setUSE(std::string("hanim_r_transversetarsal"));
 HAnimHumanoid38.setJoints(&HAnimJoint1942);
 
 HAnimJoint& HAnimJoint1943 =  HAnimJoint();
+HAnimJoint1943.setContainerField("joints");
 HAnimJoint1943.setUSE(std::string("hanim_r_tarsometatarsal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1943);
 
 HAnimJoint& HAnimJoint1944 =  HAnimJoint();
+HAnimJoint1944.setContainerField("joints");
 HAnimJoint1944.setUSE(std::string("hanim_r_metatarsophalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1944);
 
 HAnimJoint& HAnimJoint1945 =  HAnimJoint();
+HAnimJoint1945.setContainerField("joints");
 HAnimJoint1945.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1945);
 
 HAnimJoint& HAnimJoint1946 =  HAnimJoint();
+HAnimJoint1946.setContainerField("joints");
 HAnimJoint1946.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1946);
 
 HAnimJoint& HAnimJoint1947 =  HAnimJoint();
+HAnimJoint1947.setContainerField("joints");
 HAnimJoint1947.setUSE(std::string("hanim_r_tarsometatarsal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1947);
 
 HAnimJoint& HAnimJoint1948 =  HAnimJoint();
+HAnimJoint1948.setContainerField("joints");
 HAnimJoint1948.setUSE(std::string("hanim_r_metatarsophalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1948);
 
 HAnimJoint& HAnimJoint1949 =  HAnimJoint();
+HAnimJoint1949.setContainerField("joints");
 HAnimJoint1949.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1949);
 
 HAnimJoint& HAnimJoint1950 =  HAnimJoint();
+HAnimJoint1950.setContainerField("joints");
 HAnimJoint1950.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1950);
 
 HAnimJoint& HAnimJoint1951 =  HAnimJoint();
+HAnimJoint1951.setContainerField("joints");
 HAnimJoint1951.setUSE(std::string("hanim_vl5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1951);
 
 HAnimJoint& HAnimJoint1952 =  HAnimJoint();
+HAnimJoint1952.setContainerField("joints");
 HAnimJoint1952.setUSE(std::string("hanim_vl4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1952);
 
 HAnimJoint& HAnimJoint1953 =  HAnimJoint();
+HAnimJoint1953.setContainerField("joints");
 HAnimJoint1953.setUSE(std::string("hanim_vl3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1953);
 
 HAnimJoint& HAnimJoint1954 =  HAnimJoint();
+HAnimJoint1954.setContainerField("joints");
 HAnimJoint1954.setUSE(std::string("hanim_vl2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1954);
 
 HAnimJoint& HAnimJoint1955 =  HAnimJoint();
+HAnimJoint1955.setContainerField("joints");
 HAnimJoint1955.setUSE(std::string("hanim_vl1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1955);
 
 HAnimJoint& HAnimJoint1956 =  HAnimJoint();
+HAnimJoint1956.setContainerField("joints");
 HAnimJoint1956.setUSE(std::string("hanim_vt12"));
 HAnimHumanoid38.setJoints(&HAnimJoint1956);
 
 HAnimJoint& HAnimJoint1957 =  HAnimJoint();
+HAnimJoint1957.setContainerField("joints");
 HAnimJoint1957.setUSE(std::string("hanim_vt11"));
 HAnimHumanoid38.setJoints(&HAnimJoint1957);
 
 HAnimJoint& HAnimJoint1958 =  HAnimJoint();
+HAnimJoint1958.setContainerField("joints");
 HAnimJoint1958.setUSE(std::string("hanim_vt10"));
 HAnimHumanoid38.setJoints(&HAnimJoint1958);
 
 HAnimJoint& HAnimJoint1959 =  HAnimJoint();
+HAnimJoint1959.setContainerField("joints");
 HAnimJoint1959.setUSE(std::string("hanim_vt9"));
 HAnimHumanoid38.setJoints(&HAnimJoint1959);
 
 HAnimJoint& HAnimJoint1960 =  HAnimJoint();
+HAnimJoint1960.setContainerField("joints");
 HAnimJoint1960.setUSE(std::string("hanim_vt8"));
 HAnimHumanoid38.setJoints(&HAnimJoint1960);
 
 HAnimJoint& HAnimJoint1961 =  HAnimJoint();
+HAnimJoint1961.setContainerField("joints");
 HAnimJoint1961.setUSE(std::string("hanim_vt7"));
 HAnimHumanoid38.setJoints(&HAnimJoint1961);
 
 HAnimJoint& HAnimJoint1962 =  HAnimJoint();
+HAnimJoint1962.setContainerField("joints");
 HAnimJoint1962.setUSE(std::string("hanim_vt6"));
 HAnimHumanoid38.setJoints(&HAnimJoint1962);
 
 HAnimJoint& HAnimJoint1963 =  HAnimJoint();
+HAnimJoint1963.setContainerField("joints");
 HAnimJoint1963.setUSE(std::string("hanim_vt5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1963);
 
 HAnimJoint& HAnimJoint1964 =  HAnimJoint();
+HAnimJoint1964.setContainerField("joints");
 HAnimJoint1964.setUSE(std::string("hanim_vt4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1964);
 
 HAnimJoint& HAnimJoint1965 =  HAnimJoint();
+HAnimJoint1965.setContainerField("joints");
 HAnimJoint1965.setUSE(std::string("hanim_vt3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1965);
 
 HAnimJoint& HAnimJoint1966 =  HAnimJoint();
+HAnimJoint1966.setContainerField("joints");
 HAnimJoint1966.setUSE(std::string("hanim_vt2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1966);
 
 HAnimJoint& HAnimJoint1967 =  HAnimJoint();
+HAnimJoint1967.setContainerField("joints");
 HAnimJoint1967.setUSE(std::string("hanim_vt1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1967);
 
 HAnimJoint& HAnimJoint1968 =  HAnimJoint();
+HAnimJoint1968.setContainerField("joints");
 HAnimJoint1968.setUSE(std::string("hanim_vc7"));
 HAnimHumanoid38.setJoints(&HAnimJoint1968);
 
 HAnimJoint& HAnimJoint1969 =  HAnimJoint();
+HAnimJoint1969.setContainerField("joints");
 HAnimJoint1969.setUSE(std::string("hanim_vc6"));
 HAnimHumanoid38.setJoints(&HAnimJoint1969);
 
 HAnimJoint& HAnimJoint1970 =  HAnimJoint();
+HAnimJoint1970.setContainerField("joints");
 HAnimJoint1970.setUSE(std::string("hanim_vc5"));
 HAnimHumanoid38.setJoints(&HAnimJoint1970);
 
 HAnimJoint& HAnimJoint1971 =  HAnimJoint();
+HAnimJoint1971.setContainerField("joints");
 HAnimJoint1971.setUSE(std::string("hanim_vc4"));
 HAnimHumanoid38.setJoints(&HAnimJoint1971);
 
 HAnimJoint& HAnimJoint1972 =  HAnimJoint();
+HAnimJoint1972.setContainerField("joints");
 HAnimJoint1972.setUSE(std::string("hanim_vc3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1972);
 
 HAnimJoint& HAnimJoint1973 =  HAnimJoint();
+HAnimJoint1973.setContainerField("joints");
 HAnimJoint1973.setUSE(std::string("hanim_vc2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1973);
 
 HAnimJoint& HAnimJoint1974 =  HAnimJoint();
+HAnimJoint1974.setContainerField("joints");
 HAnimJoint1974.setUSE(std::string("hanim_vc1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1974);
 
 HAnimJoint& HAnimJoint1975 =  HAnimJoint();
+HAnimJoint1975.setContainerField("joints");
 HAnimJoint1975.setUSE(std::string("hanim_skullbase"));
 HAnimHumanoid38.setJoints(&HAnimJoint1975);
 
 HAnimJoint& HAnimJoint1976 =  HAnimJoint();
+HAnimJoint1976.setContainerField("joints");
 HAnimJoint1976.setUSE(std::string("hanim_l_eyelid_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1976);
 
 HAnimJoint& HAnimJoint1977 =  HAnimJoint();
+HAnimJoint1977.setContainerField("joints");
 HAnimJoint1977.setUSE(std::string("hanim_r_eyelid_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1977);
 
 HAnimJoint& HAnimJoint1978 =  HAnimJoint();
+HAnimJoint1978.setContainerField("joints");
 HAnimJoint1978.setUSE(std::string("hanim_l_eyeball_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1978);
 
 HAnimJoint& HAnimJoint1979 =  HAnimJoint();
+HAnimJoint1979.setContainerField("joints");
 HAnimJoint1979.setUSE(std::string("hanim_r_eyeball_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1979);
 
 HAnimJoint& HAnimJoint1980 =  HAnimJoint();
+HAnimJoint1980.setContainerField("joints");
 HAnimJoint1980.setUSE(std::string("hanim_l_eyebrow_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1980);
 
 HAnimJoint& HAnimJoint1981 =  HAnimJoint();
+HAnimJoint1981.setContainerField("joints");
 HAnimJoint1981.setUSE(std::string("hanim_r_eyebrow_joint"));
 HAnimHumanoid38.setJoints(&HAnimJoint1981);
 
 HAnimJoint& HAnimJoint1982 =  HAnimJoint();
+HAnimJoint1982.setContainerField("joints");
 HAnimJoint1982.setUSE(std::string("hanim_temporomandibular"));
 HAnimHumanoid38.setJoints(&HAnimJoint1982);
 
 HAnimJoint& HAnimJoint1983 =  HAnimJoint();
+HAnimJoint1983.setContainerField("joints");
 HAnimJoint1983.setUSE(std::string("hanim_l_sternoclavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint1983);
 
 HAnimJoint& HAnimJoint1984 =  HAnimJoint();
+HAnimJoint1984.setContainerField("joints");
 HAnimJoint1984.setUSE(std::string("hanim_l_acromioclavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint1984);
 
 HAnimJoint& HAnimJoint1985 =  HAnimJoint();
+HAnimJoint1985.setContainerField("joints");
 HAnimJoint1985.setUSE(std::string("hanim_l_shoulder"));
 HAnimHumanoid38.setJoints(&HAnimJoint1985);
 
 HAnimJoint& HAnimJoint1986 =  HAnimJoint();
+HAnimJoint1986.setContainerField("joints");
 HAnimJoint1986.setUSE(std::string("hanim_l_elbow"));
 HAnimHumanoid38.setJoints(&HAnimJoint1986);
 
 HAnimJoint& HAnimJoint1987 =  HAnimJoint();
+HAnimJoint1987.setContainerField("joints");
 HAnimJoint1987.setUSE(std::string("hanim_l_radiocarpal"));
 HAnimHumanoid38.setJoints(&HAnimJoint1987);
 
 HAnimJoint& HAnimJoint1988 =  HAnimJoint();
+HAnimJoint1988.setContainerField("joints");
 HAnimJoint1988.setUSE(std::string("hanim_l_midcarpal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1988);
 
 HAnimJoint& HAnimJoint1989 =  HAnimJoint();
+HAnimJoint1989.setContainerField("joints");
 HAnimJoint1989.setUSE(std::string("hanim_l_carpometacarpal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1989);
 
 HAnimJoint& HAnimJoint1990 =  HAnimJoint();
+HAnimJoint1990.setContainerField("joints");
 HAnimJoint1990.setUSE(std::string("hanim_l_metacarpophalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1990);
 
 HAnimJoint& HAnimJoint1991 =  HAnimJoint();
+HAnimJoint1991.setContainerField("joints");
 HAnimJoint1991.setUSE(std::string("hanim_l_carpal_interphalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint1991);
 
 HAnimJoint& HAnimJoint1992 =  HAnimJoint();
+HAnimJoint1992.setContainerField("joints");
 HAnimJoint1992.setUSE(std::string("hanim_l_midcarpal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1992);
 
 HAnimJoint& HAnimJoint1993 =  HAnimJoint();
+HAnimJoint1993.setContainerField("joints");
 HAnimJoint1993.setUSE(std::string("hanim_l_carpometacarpal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1993);
 
 HAnimJoint& HAnimJoint1994 =  HAnimJoint();
+HAnimJoint1994.setContainerField("joints");
 HAnimJoint1994.setUSE(std::string("hanim_l_metacarpophalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1994);
 
 HAnimJoint& HAnimJoint1995 =  HAnimJoint();
+HAnimJoint1995.setContainerField("joints");
 HAnimJoint1995.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1995);
 
 HAnimJoint& HAnimJoint1996 =  HAnimJoint();
+HAnimJoint1996.setContainerField("joints");
 HAnimJoint1996.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint1996);
 
 HAnimJoint& HAnimJoint1997 =  HAnimJoint();
+HAnimJoint1997.setContainerField("joints");
 HAnimJoint1997.setUSE(std::string("hanim_l_midcarpal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1997);
 
 HAnimJoint& HAnimJoint1998 =  HAnimJoint();
+HAnimJoint1998.setContainerField("joints");
 HAnimJoint1998.setUSE(std::string("hanim_l_carpometacarpal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1998);
 
 HAnimJoint& HAnimJoint1999 =  HAnimJoint();
+HAnimJoint1999.setContainerField("joints");
 HAnimJoint1999.setUSE(std::string("hanim_l_metacarpophalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint1999);
 
 HAnimJoint& HAnimJoint2000 =  HAnimJoint();
+HAnimJoint2000.setContainerField("joints");
 HAnimJoint2000.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2000);
 
 HAnimJoint& HAnimJoint2001 =  HAnimJoint();
+HAnimJoint2001.setContainerField("joints");
 HAnimJoint2001.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2001);
 
 HAnimJoint& HAnimJoint2002 =  HAnimJoint();
+HAnimJoint2002.setContainerField("joints");
 HAnimJoint2002.setUSE(std::string("hanim_l_midcarpal_4_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2002);
 
 HAnimJoint& HAnimJoint2003 =  HAnimJoint();
+HAnimJoint2003.setContainerField("joints");
 HAnimJoint2003.setUSE(std::string("hanim_l_carpometacarpal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2003);
 
 HAnimJoint& HAnimJoint2004 =  HAnimJoint();
+HAnimJoint2004.setContainerField("joints");
 HAnimJoint2004.setUSE(std::string("hanim_l_metacarpophalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2004);
 
 HAnimJoint& HAnimJoint2005 =  HAnimJoint();
+HAnimJoint2005.setContainerField("joints");
 HAnimJoint2005.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2005);
 
 HAnimJoint& HAnimJoint2006 =  HAnimJoint();
+HAnimJoint2006.setContainerField("joints");
 HAnimJoint2006.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2006);
 
 HAnimJoint& HAnimJoint2007 =  HAnimJoint();
+HAnimJoint2007.setContainerField("joints");
 HAnimJoint2007.setUSE(std::string("hanim_l_carpometacarpal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2007);
 
 HAnimJoint& HAnimJoint2008 =  HAnimJoint();
+HAnimJoint2008.setContainerField("joints");
 HAnimJoint2008.setUSE(std::string("hanim_l_metacarpophalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2008);
 
 HAnimJoint& HAnimJoint2009 =  HAnimJoint();
+HAnimJoint2009.setContainerField("joints");
 HAnimJoint2009.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2009);
 
 HAnimJoint& HAnimJoint2010 =  HAnimJoint();
+HAnimJoint2010.setContainerField("joints");
 HAnimJoint2010.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2010);
 
 HAnimJoint& HAnimJoint2011 =  HAnimJoint();
+HAnimJoint2011.setContainerField("joints");
 HAnimJoint2011.setUSE(std::string("hanim_r_sternoclavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint2011);
 
 HAnimJoint& HAnimJoint2012 =  HAnimJoint();
+HAnimJoint2012.setContainerField("joints");
 HAnimJoint2012.setUSE(std::string("hanim_r_acromioclavicular"));
 HAnimHumanoid38.setJoints(&HAnimJoint2012);
 
 HAnimJoint& HAnimJoint2013 =  HAnimJoint();
+HAnimJoint2013.setContainerField("joints");
 HAnimJoint2013.setUSE(std::string("hanim_r_shoulder"));
 HAnimHumanoid38.setJoints(&HAnimJoint2013);
 
 HAnimJoint& HAnimJoint2014 =  HAnimJoint();
+HAnimJoint2014.setContainerField("joints");
 HAnimJoint2014.setUSE(std::string("hanim_r_elbow"));
 HAnimHumanoid38.setJoints(&HAnimJoint2014);
 
 HAnimJoint& HAnimJoint2015 =  HAnimJoint();
+HAnimJoint2015.setContainerField("joints");
 HAnimJoint2015.setUSE(std::string("hanim_r_radiocarpal"));
 HAnimHumanoid38.setJoints(&HAnimJoint2015);
 
 HAnimJoint& HAnimJoint2016 =  HAnimJoint();
+HAnimJoint2016.setContainerField("joints");
 HAnimJoint2016.setUSE(std::string("hanim_r_midcarpal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint2016);
 
 HAnimJoint& HAnimJoint2017 =  HAnimJoint();
+HAnimJoint2017.setContainerField("joints");
 HAnimJoint2017.setUSE(std::string("hanim_r_carpometacarpal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint2017);
 
 HAnimJoint& HAnimJoint2018 =  HAnimJoint();
+HAnimJoint2018.setContainerField("joints");
 HAnimJoint2018.setUSE(std::string("hanim_r_metacarpophalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint2018);
 
 HAnimJoint& HAnimJoint2019 =  HAnimJoint();
+HAnimJoint2019.setContainerField("joints");
 HAnimJoint2019.setUSE(std::string("hanim_r_carpal_interphalangeal_1"));
 HAnimHumanoid38.setJoints(&HAnimJoint2019);
 
 HAnimJoint& HAnimJoint2020 =  HAnimJoint();
+HAnimJoint2020.setContainerField("joints");
 HAnimJoint2020.setUSE(std::string("hanim_r_midcarpal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint2020);
 
 HAnimJoint& HAnimJoint2021 =  HAnimJoint();
+HAnimJoint2021.setContainerField("joints");
 HAnimJoint2021.setUSE(std::string("hanim_r_carpometacarpal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint2021);
 
 HAnimJoint& HAnimJoint2022 =  HAnimJoint();
+HAnimJoint2022.setContainerField("joints");
 HAnimJoint2022.setUSE(std::string("hanim_r_metacarpophalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint2022);
 
 HAnimJoint& HAnimJoint2023 =  HAnimJoint();
+HAnimJoint2023.setContainerField("joints");
 HAnimJoint2023.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint2023);
 
 HAnimJoint& HAnimJoint2024 =  HAnimJoint();
+HAnimJoint2024.setContainerField("joints");
 HAnimJoint2024.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_2"));
 HAnimHumanoid38.setJoints(&HAnimJoint2024);
 
 HAnimJoint& HAnimJoint2025 =  HAnimJoint();
+HAnimJoint2025.setContainerField("joints");
 HAnimJoint2025.setUSE(std::string("hanim_r_midcarpal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2025);
 
 HAnimJoint& HAnimJoint2026 =  HAnimJoint();
+HAnimJoint2026.setContainerField("joints");
 HAnimJoint2026.setUSE(std::string("hanim_r_carpometacarpal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2026);
 
 HAnimJoint& HAnimJoint2027 =  HAnimJoint();
+HAnimJoint2027.setContainerField("joints");
 HAnimJoint2027.setUSE(std::string("hanim_r_metacarpophalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2027);
 
 HAnimJoint& HAnimJoint2028 =  HAnimJoint();
+HAnimJoint2028.setContainerField("joints");
 HAnimJoint2028.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2028);
 
 HAnimJoint& HAnimJoint2029 =  HAnimJoint();
+HAnimJoint2029.setContainerField("joints");
 HAnimJoint2029.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_3"));
 HAnimHumanoid38.setJoints(&HAnimJoint2029);
 
 HAnimJoint& HAnimJoint2030 =  HAnimJoint();
+HAnimJoint2030.setContainerField("joints");
 HAnimJoint2030.setUSE(std::string("hanim_r_midcarpal_4_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2030);
 
 HAnimJoint& HAnimJoint2031 =  HAnimJoint();
+HAnimJoint2031.setContainerField("joints");
 HAnimJoint2031.setUSE(std::string("hanim_r_carpometacarpal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2031);
 
 HAnimJoint& HAnimJoint2032 =  HAnimJoint();
+HAnimJoint2032.setContainerField("joints");
 HAnimJoint2032.setUSE(std::string("hanim_r_metacarpophalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2032);
 
 HAnimJoint& HAnimJoint2033 =  HAnimJoint();
+HAnimJoint2033.setContainerField("joints");
 HAnimJoint2033.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2033);
 
 HAnimJoint& HAnimJoint2034 =  HAnimJoint();
+HAnimJoint2034.setContainerField("joints");
 HAnimJoint2034.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_4"));
 HAnimHumanoid38.setJoints(&HAnimJoint2034);
 
 HAnimJoint& HAnimJoint2035 =  HAnimJoint();
+HAnimJoint2035.setContainerField("joints");
 HAnimJoint2035.setUSE(std::string("hanim_r_carpometacarpal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2035);
 
 HAnimJoint& HAnimJoint2036 =  HAnimJoint();
+HAnimJoint2036.setContainerField("joints");
 HAnimJoint2036.setUSE(std::string("hanim_r_metacarpophalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2036);
 
 HAnimJoint& HAnimJoint2037 =  HAnimJoint();
+HAnimJoint2037.setContainerField("joints");
 HAnimJoint2037.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2037);
 
 HAnimJoint& HAnimJoint2038 =  HAnimJoint();
+HAnimJoint2038.setContainerField("joints");
 HAnimJoint2038.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_5"));
 HAnimHumanoid38.setJoints(&HAnimJoint2038);
 
@@ -8593,4 +8982,4 @@ Scene11.addChild(&HAnimHumanoid38);
 
 X3D0.setScene(&Scene11);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int Oxytocin(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -138,7 +130,9 @@ Transform26.addChild(&IS27);
 
 Shape& Shape29 =  Shape();
 Appearance& Appearance30 =  Appearance();
+Appearance30.setContainerField("appearance");
 Material& Material31 =  Material();
+Material31.setContainerField("material");
 Material31.setDEF(std::string("atoC_mat"));
 Material31.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Material31.setShininess(0.8);
@@ -163,7 +157,9 @@ Transform26.addChild(&Shape29);
 
 Shape& Shape35 =  Shape();
 Appearance& Appearance36 =  Appearance();
+Appearance36.setContainerField("appearance");
 Material& Material37 =  Material();
+Material37.setContainerField("material");
 Material37.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance36.addChild(&Material37);
 
@@ -172,6 +168,7 @@ Shape35.addChild(&Appearance36);
 Text& Text38 =  Text();
 Text38.setString((std::string[]){"C"}, 1);
 CFontStyle& FontStyle39 =  CFontStyle();
+FontStyle39.setContainerField("fontStyle");
 FontStyle39.setSize(0.8);
 Text38.setFontStyle(&FontStyle39);
 
@@ -220,7 +217,9 @@ Transform46.addChild(&IS47);
 
 Shape& Shape49 =  Shape();
 Appearance& Appearance50 =  Appearance();
+Appearance50.setContainerField("appearance");
 Material& Material51 =  Material();
+Material51.setContainerField("material");
 Material51.setDEF(std::string("atoH_mat"));
 Material51.setAmbientIntensity(0.0933);
 Material51.setDiffuseColor(new float[]{0.38,0.38,0.42});
@@ -246,7 +245,9 @@ Transform46.addChild(&Shape49);
 
 Shape& Shape55 =  Shape();
 Appearance& Appearance56 =  Appearance();
+Appearance56.setContainerField("appearance");
 Material& Material57 =  Material();
+Material57.setContainerField("material");
 Material57.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance56.addChild(&Material57);
 
@@ -255,6 +256,7 @@ Shape55.addChild(&Appearance56);
 Text& Text58 =  Text();
 Text58.setString((std::string[]){"H"}, 1);
 CFontStyle& FontStyle59 =  CFontStyle();
+FontStyle59.setContainerField("fontStyle");
 FontStyle59.setSize(0.4);
 Text58.setFontStyle(&FontStyle59);
 
@@ -303,7 +305,9 @@ Transform66.addChild(&IS67);
 
 Shape& Shape69 =  Shape();
 Appearance& Appearance70 =  Appearance();
+Appearance70.setContainerField("appearance");
 Material& Material71 =  Material();
+Material71.setContainerField("material");
 Material71.setDEF(std::string("atoN_mat"));
 Material71.setDiffuseColor(new float[]{0.0,0.0,0.72});
 Material71.setEmissiveColor(new float[]{0.0,0.0,0.13});
@@ -328,7 +332,9 @@ Transform66.addChild(&Shape69);
 
 Shape& Shape75 =  Shape();
 Appearance& Appearance76 =  Appearance();
+Appearance76.setContainerField("appearance");
 Material& Material77 =  Material();
+Material77.setContainerField("material");
 Material77.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance76.addChild(&Material77);
 
@@ -337,6 +343,7 @@ Shape75.addChild(&Appearance76);
 Text& Text78 =  Text();
 Text78.setString((std::string[]){"N"}, 1);
 CFontStyle& FontStyle79 =  CFontStyle();
+FontStyle79.setContainerField("fontStyle");
 FontStyle79.setSize(0.8);
 Text78.setFontStyle(&FontStyle79);
 
@@ -385,7 +392,9 @@ Transform86.addChild(&IS87);
 
 Shape& Shape89 =  Shape();
 Appearance& Appearance90 =  Appearance();
+Appearance90.setContainerField("appearance");
 Material& Material91 =  Material();
+Material91.setContainerField("material");
 Material91.setDEF(std::string("atoO_mat"));
 Material91.setAmbientIntensity(0.487);
 Material91.setDiffuseColor(new float[]{0.54,0.05,0.25});
@@ -411,7 +420,9 @@ Transform86.addChild(&Shape89);
 
 Shape& Shape95 =  Shape();
 Appearance& Appearance96 =  Appearance();
+Appearance96.setContainerField("appearance");
 Material& Material97 =  Material();
+Material97.setContainerField("material");
 Material97.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance96.addChild(&Material97);
 
@@ -420,6 +431,7 @@ Shape95.addChild(&Appearance96);
 Text& Text98 =  Text();
 Text98.setString((std::string[]){"O"}, 1);
 CFontStyle& FontStyle99 =  CFontStyle();
+FontStyle99.setContainerField("fontStyle");
 FontStyle99.setSize(0.8);
 Text98.setFontStyle(&FontStyle99);
 
@@ -468,7 +480,9 @@ Transform106.addChild(&IS107);
 
 Shape& Shape109 =  Shape();
 Appearance& Appearance110 =  Appearance();
+Appearance110.setContainerField("appearance");
 Material& Material111 =  Material();
+Material111.setContainerField("material");
 Material111.setDEF(std::string("atoF_mat"));
 Material111.setDiffuseColor(new float[]{1.0,0.48,0.79});
 Material111.setEmissiveColor(new float[]{0.09,0.04,0.07});
@@ -492,7 +506,9 @@ Transform106.addChild(&Shape109);
 
 Shape& Shape115 =  Shape();
 Appearance& Appearance116 =  Appearance();
+Appearance116.setContainerField("appearance");
 Material& Material117 =  Material();
+Material117.setContainerField("material");
 Material117.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance116.addChild(&Material117);
 
@@ -501,6 +517,7 @@ Shape115.addChild(&Appearance116);
 Text& Text118 =  Text();
 Text118.setString((std::string[]){"F"}, 1);
 CFontStyle& FontStyle119 =  CFontStyle();
+FontStyle119.setContainerField("fontStyle");
 FontStyle119.setSize(0.8);
 Text118.setFontStyle(&FontStyle119);
 
@@ -549,7 +566,9 @@ Transform126.addChild(&IS127);
 
 Shape& Shape129 =  Shape();
 Appearance& Appearance130 =  Appearance();
+Appearance130.setContainerField("appearance");
 Material& Material131 =  Material();
+Material131.setContainerField("material");
 Material131.setDEF(std::string("atoSi_mat"));
 Material131.setDiffuseColor(new float[]{0.8,0.8,0.8});
 IS& IS132 =  IS();
@@ -572,7 +591,9 @@ Transform126.addChild(&Shape129);
 
 Shape& Shape135 =  Shape();
 Appearance& Appearance136 =  Appearance();
+Appearance136.setContainerField("appearance");
 Material& Material137 =  Material();
+Material137.setContainerField("material");
 Material137.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance136.addChild(&Material137);
 
@@ -581,6 +602,7 @@ Shape135.addChild(&Appearance136);
 Text& Text138 =  Text();
 Text138.setString((std::string[]){"Si"}, 1);
 CFontStyle& FontStyle139 =  CFontStyle();
+FontStyle139.setContainerField("fontStyle");
 FontStyle139.setSize(0.8);
 Text138.setFontStyle(&FontStyle139);
 
@@ -629,7 +651,9 @@ Transform146.addChild(&IS147);
 
 Shape& Shape149 =  Shape();
 Appearance& Appearance150 =  Appearance();
+Appearance150.setContainerField("appearance");
 Material& Material151 =  Material();
+Material151.setContainerField("material");
 Material151.setDEF(std::string("atoP_mat"));
 Material151.setAmbientIntensity(0.11);
 Material151.setDiffuseColor(new float[]{0.9,0.41,0.0});
@@ -656,7 +680,9 @@ Transform146.addChild(&Shape149);
 
 Shape& Shape155 =  Shape();
 Appearance& Appearance156 =  Appearance();
+Appearance156.setContainerField("appearance");
 Material& Material157 =  Material();
+Material157.setContainerField("material");
 Material157.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance156.addChild(&Material157);
 
@@ -665,6 +691,7 @@ Shape155.addChild(&Appearance156);
 Text& Text158 =  Text();
 Text158.setString((std::string[]){"P"}, 1);
 CFontStyle& FontStyle159 =  CFontStyle();
+FontStyle159.setContainerField("fontStyle");
 FontStyle159.setSize(0.8);
 Text158.setFontStyle(&FontStyle159);
 
@@ -713,7 +740,9 @@ Transform166.addChild(&IS167);
 
 Shape& Shape169 =  Shape();
 Appearance& Appearance170 =  Appearance();
+Appearance170.setContainerField("appearance");
 Material& Material171 =  Material();
+Material171.setContainerField("material");
 Material171.setDEF(std::string("atoS_mat"));
 Material171.setAmbientIntensity(0.0467);
 Material171.setDiffuseColor(new float[]{0.25,0.39,0.25});
@@ -740,7 +769,9 @@ Transform166.addChild(&Shape169);
 
 Shape& Shape175 =  Shape();
 Appearance& Appearance176 =  Appearance();
+Appearance176.setContainerField("appearance");
 Material& Material177 =  Material();
+Material177.setContainerField("material");
 Material177.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance176.addChild(&Material177);
 
@@ -749,6 +780,7 @@ Shape175.addChild(&Appearance176);
 Text& Text178 =  Text();
 Text178.setString((std::string[]){"S"}, 1);
 CFontStyle& FontStyle179 =  CFontStyle();
+FontStyle179.setContainerField("fontStyle");
 FontStyle179.setSize(0.8);
 Text178.setFontStyle(&FontStyle179);
 
@@ -797,7 +829,9 @@ Transform186.addChild(&IS187);
 
 Shape& Shape189 =  Shape();
 Appearance& Appearance190 =  Appearance();
+Appearance190.setContainerField("appearance");
 Material& Material191 =  Material();
+Material191.setContainerField("material");
 Material191.setDEF(std::string("atoCl_mat"));
 Material191.setDiffuseColor(new float[]{0.28,0.7,0.0});
 Material191.setEmissiveColor(new float[]{0.06,0.15,0.0});
@@ -823,7 +857,9 @@ Transform186.addChild(&Shape189);
 
 Shape& Shape195 =  Shape();
 Appearance& Appearance196 =  Appearance();
+Appearance196.setContainerField("appearance");
 Material& Material197 =  Material();
+Material197.setContainerField("material");
 Material197.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance196.addChild(&Material197);
 
@@ -832,6 +868,7 @@ Shape195.addChild(&Appearance196);
 Text& Text198 =  Text();
 Text198.setString((std::string[]){"Cl"}, 1);
 CFontStyle& FontStyle199 =  CFontStyle();
+FontStyle199.setContainerField("fontStyle");
 FontStyle199.setSize(0.8);
 Text198.setFontStyle(&FontStyle199);
 
@@ -880,7 +917,9 @@ Transform206.addChild(&IS207);
 
 Shape& Shape209 =  Shape();
 Appearance& Appearance210 =  Appearance();
+Appearance210.setContainerField("appearance");
 Material& Material211 =  Material();
+Material211.setContainerField("material");
 Material211.setDEF(std::string("atoBr_mat"));
 Material211.setAmbientIntensity(0.0833);
 Material211.setDiffuseColor(new float[]{0.5,0.3,0.19});
@@ -907,7 +946,9 @@ Transform206.addChild(&Shape209);
 
 Shape& Shape215 =  Shape();
 Appearance& Appearance216 =  Appearance();
+Appearance216.setContainerField("appearance");
 Material& Material217 =  Material();
+Material217.setContainerField("material");
 Material217.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance216.addChild(&Material217);
 
@@ -916,6 +957,7 @@ Shape215.addChild(&Appearance216);
 Text& Text218 =  Text();
 Text218.setString((std::string[]){"Br"}, 1);
 CFontStyle& FontStyle219 =  CFontStyle();
+FontStyle219.setContainerField("fontStyle");
 FontStyle219.setSize(0.8);
 Text218.setFontStyle(&FontStyle219);
 
@@ -964,7 +1006,9 @@ Transform226.addChild(&IS227);
 
 Shape& Shape229 =  Shape();
 Appearance& Appearance230 =  Appearance();
+Appearance230.setContainerField("appearance");
 Material& Material231 =  Material();
+Material231.setContainerField("material");
 Material231.setDEF(std::string("atoI_mat"));
 Material231.setDiffuseColor(new float[]{0.56,0.37,0.74});
 Material231.setEmissiveColor(new float[]{0.15,0.1,0.2});
@@ -990,7 +1034,9 @@ Transform226.addChild(&Shape229);
 
 Shape& Shape235 =  Shape();
 Appearance& Appearance236 =  Appearance();
+Appearance236.setContainerField("appearance");
 Material& Material237 =  Material();
+Material237.setContainerField("material");
 Material237.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance236.addChild(&Material237);
 
@@ -999,6 +1045,7 @@ Shape235.addChild(&Appearance236);
 Text& Text238 =  Text();
 Text238.setString((std::string[]){"I"}, 1);
 CFontStyle& FontStyle239 =  CFontStyle();
+FontStyle239.setContainerField("fontStyle");
 FontStyle239.setSize(0.8);
 Text238.setFontStyle(&FontStyle239);
 
@@ -1047,7 +1094,9 @@ Transform246.addChild(&IS247);
 
 Shape& Shape249 =  Shape();
 Appearance& Appearance250 =  Appearance();
+Appearance250.setContainerField("appearance");
 Material& Material251 =  Material();
+Material251.setContainerField("material");
 Material251.setDEF(std::string("ato__mat"));
 Material251.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material251.setEmissiveColor(new float[]{0.15,0.1,0.2});
@@ -1073,7 +1122,9 @@ Transform246.addChild(&Shape249);
 
 Shape& Shape255 =  Shape();
 Appearance& Appearance256 =  Appearance();
+Appearance256.setContainerField("appearance");
 Material& Material257 =  Material();
+Material257.setContainerField("material");
 Material257.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance256.addChild(&Material257);
 
@@ -1082,6 +1133,7 @@ Shape255.addChild(&Appearance256);
 Text& Text258 =  Text();
 Text258.setString((std::string[]){"?"}, 1);
 CFontStyle& FontStyle259 =  CFontStyle();
+FontStyle259.setContainerField("fontStyle");
 FontStyle259.setSize(0.8);
 Text258.setFontStyle(&FontStyle259);
 
@@ -1113,7 +1165,9 @@ ProtoBody& ProtoBody263 =  ProtoBody();
 Group& Group264 =  Group();
 Shape& Shape265 =  Shape();
 Appearance& Appearance266 =  Appearance();
+Appearance266.setContainerField("appearance");
 Material& Material267 =  Material();
+Material267.setContainerField("material");
 Material267.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material267.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance266.addChild(&Material267);
@@ -1161,7 +1215,9 @@ Group& Group277 =  Group();
 Transform& Transform278 =  Transform();
 Shape& Shape279 =  Shape();
 Appearance& Appearance280 =  Appearance();
+Appearance280.setContainerField("appearance");
 Material& Material281 =  Material();
+Material281.setContainerField("material");
 Material281.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance280.addChild(&Material281);
 
@@ -1178,6 +1234,7 @@ IS283.addChild(&connect284);
 Text282.addChild(&IS283);
 
 CFontStyle& FontStyle285 =  CFontStyle();
+FontStyle285.setContainerField("fontStyle");
 Text282.setFontStyle(&FontStyle285);
 
 Shape279.setGeometry(&Text282);
@@ -1211,7 +1268,9 @@ Group& Group291 =  Group();
 Transform& Transform292 =  Transform();
 Shape& Shape293 =  Shape();
 Appearance& Appearance294 =  Appearance();
+Appearance294.setContainerField("appearance");
 Material& Material295 =  Material();
+Material295.setContainerField("material");
 Material295.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance294.addChild(&Material295);
 
@@ -1228,6 +1287,7 @@ IS297.addChild(&connect298);
 Text296.addChild(&IS297);
 
 CFontStyle& FontStyle299 =  CFontStyle();
+FontStyle299.setContainerField("fontStyle");
 FontStyle299.setSize(0.8);
 Text296.setFontStyle(&FontStyle299);
 
@@ -1262,7 +1322,9 @@ Group& Group305 =  Group();
 Transform& Transform306 =  Transform();
 Shape& Shape307 =  Shape();
 Appearance& Appearance308 =  Appearance();
+Appearance308.setContainerField("appearance");
 Material& Material309 =  Material();
+Material309.setContainerField("material");
 Material309.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance308.addChild(&Material309);
 
@@ -1279,6 +1341,7 @@ IS311.addChild(&connect312);
 Text310.addChild(&IS311);
 
 CFontStyle& FontStyle313 =  CFontStyle();
+FontStyle313.setContainerField("fontStyle");
 FontStyle313.setSize(0.6);
 Text310.setFontStyle(&FontStyle313);
 
@@ -1297,9 +1360,9 @@ ProtoDeclare300.addChild(&ProtoBody303);
 Scene19.addChild(&ProtoDeclare300);
 
 Background& Background314 =  Background();
-Background314.setGroundAngle(new float[]{1.309,1.570796}, 2);
+Background314.setGroundAngle(new float[]{1.309,1.570796});
 Background314.setGroundColor(new float[]{0.0,0.5,0.7,0.0,0.4,0.7,0.6,0.5,0.7}, 9);
-Background314.setSkyAngle(new float[]{1.309,1.570796}, 2);
+Background314.setSkyAngle(new float[]{1.309,1.570796});
 Background314.setSkyColor(new float[]{0.0,0.5,0.8,0.0,0.6,0.7,0.6,0.6,0.7}, 9);
 Scene19.addChild(&Background314);
 
@@ -3098,4 +3161,4 @@ Scene19.addChild(&Group531);
 
 X3D0.setScene(&Scene19);
 
-//}
+}

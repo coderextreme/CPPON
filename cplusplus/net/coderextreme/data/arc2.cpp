@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int arc2(int argc, char ** argv) {
+void arc2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -64,7 +56,9 @@ Sphere13.setRadius(0.1);
 Shape12.setGeometry(&Sphere13);
 
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance14.addChild(&Material15);
 
@@ -171,7 +165,9 @@ Sphere31.setRadius(0.1);
 Shape30.setGeometry(&Sphere31);
 
 Appearance& Appearance32 =  Appearance();
+Appearance32.setContainerField("appearance");
 Material& Material33 =  Material();
+Material33.setContainerField("material");
 Material33.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance32.addChild(&Material33);
 
@@ -274,7 +270,9 @@ Transform& Transform47 =  Transform();
 Transform47.setDEF(std::string("rotscaleC1"));
 Shape& Shape48 =  Shape();
 Appearance& Appearance49 =  Appearance();
+Appearance49.setContainerField("appearance");
 Material& Material50 =  Material();
+Material50.setContainerField("material");
 Material50.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Material50.setTransparency(0.5);
 Appearance49.addChild(&Material50);

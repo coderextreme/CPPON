@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int HAnimModelHandRight(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -141,11 +133,13 @@ HAnimHumanoid26.setLoa(4);
 HAnimHumanoid26.setVersion(std::string("2.0"));
 //original HAnimHumanoid info='\"authorName=Kwan-Hee YOO, Don Brutzman and Joe Williams\"'
 MetadataSet& MetadataSet27 =  MetadataSet();
+MetadataSet27.setContainerField("metadata");
 MetadataSet27.X3DNode::setName(std::string("HAnimHumanoid.info"));
 MetadataSet27.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid"));
 MetadataString& MetadataString28 =  MetadataString();
 MetadataString28.X3DNode::setName(std::string("authorName"));
 MetadataString28.setValue((std::string[]){"Kwan-Hee YOO, Don Brutzman and Joe Williams"}, 1);
+MetadataString28.setContainerField("value");
 MetadataSet27.setValue((X3DNode *)&MetadataString28);
 
 HAnimHumanoid26.setMetadata(&MetadataSet27);
@@ -153,6 +147,7 @@ HAnimHumanoid26.setMetadata(&MetadataSet27);
 HAnimJoint& HAnimJoint29 =  HAnimJoint();
 HAnimJoint29.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint29.setDEF(std::string("hanim_humanoid_root"));
+HAnimJoint29.setContainerField("skeleton");
 //Might consider putting a HAnimSegment here, but that doesn't help with re-use of this hand model
 HAnimJoint& HAnimJoint30 =  HAnimJoint();
 HAnimJoint30.X3DNode::setName(std::string("r_radiocarpal"));
@@ -169,8 +164,10 @@ Sphere34.setRadius(0.025);
 Shape33.setGeometry(&Sphere34);
 
 Appearance& Appearance35 =  Appearance();
+Appearance35.setContainerField("appearance");
 Appearance35.setDEF(std::string("HAnimJointAppearanceBlue"));
 Material& Material36 =  Material();
+Material36.setContainerField("material");
 Material36.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance35.addChild(&Material36);
 
@@ -182,7 +179,9 @@ HAnimSegment31.addChild(&Transform32);
 
 Shape& Shape37 =  Shape();
 Appearance& Appearance38 =  Appearance();
+Appearance38.setContainerField("appearance");
 Material& Material39 =  Material();
+Material39.setContainerField("material");
 Material39.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance38.addChild(&Material39);
 
@@ -201,7 +200,9 @@ HAnimSegment31.addChild(&Shape37);
 
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance43.addChild(&Material44);
 
@@ -220,7 +221,9 @@ HAnimSegment31.addChild(&Shape42);
 
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance48.addChild(&Material49);
 
@@ -256,8 +259,10 @@ Sphere56.setRadius(0.025);
 Shape55.setGeometry(&Sphere56);
 
 Appearance& Appearance57 =  Appearance();
+Appearance57.setContainerField("appearance");
 Appearance57.setDEF(std::string("HAnimJointAppearanceRed"));
 Material& Material58 =  Material();
+Material58.setContainerField("material");
 Material58.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance57.addChild(&Material58);
 
@@ -269,7 +274,9 @@ HAnimSegment53.addChild(&Transform54);
 
 Shape& Shape59 =  Shape();
 Appearance& Appearance60 =  Appearance();
+Appearance60.setContainerField("appearance");
 Material& Material61 =  Material();
+Material61.setContainerField("material");
 Material61.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance60.addChild(&Material61);
 
@@ -306,7 +313,9 @@ HAnimSegment65.addChild(&Transform66);
 
 Shape& Shape68 =  Shape();
 Appearance& Appearance69 =  Appearance();
+Appearance69.setContainerField("appearance");
 Material& Material70 =  Material();
+Material70.setContainerField("material");
 Material70.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance69.addChild(&Material70);
 
@@ -342,7 +351,9 @@ HAnimSegment74.addChild(&Transform75);
 
 Shape& Shape77 =  Shape();
 Appearance& Appearance78 =  Appearance();
+Appearance78.setContainerField("appearance");
 Material& Material79 =  Material();
+Material79.setContainerField("material");
 Material79.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance78.addChild(&Material79);
 
@@ -378,7 +389,9 @@ HAnimSegment83.addChild(&Transform84);
 
 Shape& Shape86 =  Shape();
 Appearance& Appearance87 =  Appearance();
+Appearance87.setContainerField("appearance");
 Material& Material88 =  Material();
+Material88.setContainerField("material");
 Material88.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance87.addChild(&Material88);
 
@@ -423,7 +436,9 @@ HAnimSegment92.addChild(&Transform93);
 
 Shape& Shape95 =  Shape();
 Appearance& Appearance96 =  Appearance();
+Appearance96.setContainerField("appearance");
 Material& Material97 =  Material();
+Material97.setContainerField("material");
 Material97.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance96.addChild(&Material97);
 
@@ -460,7 +475,9 @@ HAnimSegment101.addChild(&Transform102);
 
 Shape& Shape104 =  Shape();
 Appearance& Appearance105 =  Appearance();
+Appearance105.setContainerField("appearance");
 Material& Material106 =  Material();
+Material106.setContainerField("material");
 Material106.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance105.addChild(&Material106);
 
@@ -496,7 +513,9 @@ HAnimSegment110.addChild(&Transform111);
 
 Shape& Shape113 =  Shape();
 Appearance& Appearance114 =  Appearance();
+Appearance114.setContainerField("appearance");
 Material& Material115 =  Material();
+Material115.setContainerField("material");
 Material115.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance114.addChild(&Material115);
 
@@ -532,7 +551,9 @@ HAnimSegment119.addChild(&Transform120);
 
 Shape& Shape122 =  Shape();
 Appearance& Appearance123 =  Appearance();
+Appearance123.setContainerField("appearance");
 Material& Material124 =  Material();
+Material124.setContainerField("material");
 Material124.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance123.addChild(&Material124);
 
@@ -568,7 +589,9 @@ HAnimSegment128.addChild(&Transform129);
 
 Shape& Shape131 =  Shape();
 Appearance& Appearance132 =  Appearance();
+Appearance132.setContainerField("appearance");
 Material& Material133 =  Material();
+Material133.setContainerField("material");
 Material133.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance132.addChild(&Material133);
 
@@ -615,7 +638,9 @@ HAnimSegment137.addChild(&Transform138);
 
 Shape& Shape140 =  Shape();
 Appearance& Appearance141 =  Appearance();
+Appearance141.setContainerField("appearance");
 Material& Material142 =  Material();
+Material142.setContainerField("material");
 Material142.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance141.addChild(&Material142);
 
@@ -652,7 +677,9 @@ HAnimSegment146.addChild(&Transform147);
 
 Shape& Shape149 =  Shape();
 Appearance& Appearance150 =  Appearance();
+Appearance150.setContainerField("appearance");
 Material& Material151 =  Material();
+Material151.setContainerField("material");
 Material151.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance150.addChild(&Material151);
 
@@ -688,7 +715,9 @@ HAnimSegment155.addChild(&Transform156);
 
 Shape& Shape158 =  Shape();
 Appearance& Appearance159 =  Appearance();
+Appearance159.setContainerField("appearance");
 Material& Material160 =  Material();
+Material160.setContainerField("material");
 Material160.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance159.addChild(&Material160);
 
@@ -724,7 +753,9 @@ HAnimSegment164.addChild(&Transform165);
 
 Shape& Shape167 =  Shape();
 Appearance& Appearance168 =  Appearance();
+Appearance168.setContainerField("appearance");
 Material& Material169 =  Material();
+Material169.setContainerField("material");
 Material169.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance168.addChild(&Material169);
 
@@ -760,7 +791,9 @@ HAnimSegment173.addChild(&Transform174);
 
 Shape& Shape176 =  Shape();
 Appearance& Appearance177 =  Appearance();
+Appearance177.setContainerField("appearance");
 Material& Material178 =  Material();
+Material178.setContainerField("material");
 Material178.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance177.addChild(&Material178);
 
@@ -807,7 +840,9 @@ HAnimSegment182.addChild(&Transform183);
 
 Shape& Shape185 =  Shape();
 Appearance& Appearance186 =  Appearance();
+Appearance186.setContainerField("appearance");
 Material& Material187 =  Material();
+Material187.setContainerField("material");
 Material187.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance186.addChild(&Material187);
 
@@ -826,7 +861,9 @@ HAnimSegment182.addChild(&Shape185);
 
 Shape& Shape190 =  Shape();
 Appearance& Appearance191 =  Appearance();
+Appearance191.setContainerField("appearance");
 Material& Material192 =  Material();
+Material192.setContainerField("material");
 Material192.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance191.addChild(&Material192);
 
@@ -863,7 +900,9 @@ HAnimSegment196.addChild(&Transform197);
 
 Shape& Shape199 =  Shape();
 Appearance& Appearance200 =  Appearance();
+Appearance200.setContainerField("appearance");
 Material& Material201 =  Material();
+Material201.setContainerField("material");
 Material201.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance200.addChild(&Material201);
 
@@ -899,7 +938,9 @@ HAnimSegment205.addChild(&Transform206);
 
 Shape& Shape208 =  Shape();
 Appearance& Appearance209 =  Appearance();
+Appearance209.setContainerField("appearance");
 Material& Material210 =  Material();
+Material210.setContainerField("material");
 Material210.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance209.addChild(&Material210);
 
@@ -935,7 +976,9 @@ HAnimSegment214.addChild(&Transform215);
 
 Shape& Shape217 =  Shape();
 Appearance& Appearance218 =  Appearance();
+Appearance218.setContainerField("appearance");
 Material& Material219 =  Material();
+Material219.setContainerField("material");
 Material219.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance218.addChild(&Material219);
 
@@ -971,7 +1014,9 @@ HAnimSegment223.addChild(&Transform224);
 
 Shape& Shape226 =  Shape();
 Appearance& Appearance227 =  Appearance();
+Appearance227.setContainerField("appearance");
 Material& Material228 =  Material();
+Material228.setContainerField("material");
 Material228.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance227.addChild(&Material228);
 
@@ -1016,7 +1061,9 @@ HAnimSegment232.addChild(&Transform233);
 
 Shape& Shape235 =  Shape();
 Appearance& Appearance236 =  Appearance();
+Appearance236.setContainerField("appearance");
 Material& Material237 =  Material();
+Material237.setContainerField("material");
 Material237.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance236.addChild(&Material237);
 
@@ -1052,7 +1099,9 @@ HAnimSegment241.addChild(&Transform242);
 
 Shape& Shape244 =  Shape();
 Appearance& Appearance245 =  Appearance();
+Appearance245.setContainerField("appearance");
 Material& Material246 =  Material();
+Material246.setContainerField("material");
 Material246.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance245.addChild(&Material246);
 
@@ -1088,7 +1137,9 @@ HAnimSegment250.addChild(&Transform251);
 
 Shape& Shape253 =  Shape();
 Appearance& Appearance254 =  Appearance();
+Appearance254.setContainerField("appearance");
 Material& Material255 =  Material();
+Material255.setContainerField("material");
 Material255.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance254.addChild(&Material255);
 
@@ -1124,7 +1175,9 @@ HAnimSegment259.addChild(&Transform260);
 
 Shape& Shape262 =  Shape();
 Appearance& Appearance263 =  Appearance();
+Appearance263.setContainerField("appearance");
 Material& Material264 =  Material();
+Material264.setContainerField("material");
 Material264.setEmissiveColor(new float[]{1.0,1.0,1.0});
 Appearance263.addChild(&Material264);
 
@@ -1158,102 +1211,127 @@ HAnimJoint29.addChildren(&HAnimJoint30);
 HAnimHumanoid26.setSkeleton(&HAnimJoint29);
 
 HAnimJoint& HAnimJoint267 =  HAnimJoint();
+HAnimJoint267.setContainerField("joints");
 HAnimJoint267.setUSE(std::string("hanim_humanoid_root"));
 HAnimHumanoid26.setJoints(&HAnimJoint267);
 
 HAnimJoint& HAnimJoint268 =  HAnimJoint();
+HAnimJoint268.setContainerField("joints");
 HAnimJoint268.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_2"));
 HAnimHumanoid26.setJoints(&HAnimJoint268);
 
 HAnimJoint& HAnimJoint269 =  HAnimJoint();
+HAnimJoint269.setContainerField("joints");
 HAnimJoint269.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_3"));
 HAnimHumanoid26.setJoints(&HAnimJoint269);
 
 HAnimJoint& HAnimJoint270 =  HAnimJoint();
+HAnimJoint270.setContainerField("joints");
 HAnimJoint270.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_4"));
 HAnimHumanoid26.setJoints(&HAnimJoint270);
 
 HAnimJoint& HAnimJoint271 =  HAnimJoint();
+HAnimJoint271.setContainerField("joints");
 HAnimJoint271.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_5"));
 HAnimHumanoid26.setJoints(&HAnimJoint271);
 
 HAnimJoint& HAnimJoint272 =  HAnimJoint();
+HAnimJoint272.setContainerField("joints");
 HAnimJoint272.setUSE(std::string("hanim_r_carpal_interphalangeal_1"));
 HAnimHumanoid26.setJoints(&HAnimJoint272);
 
 HAnimJoint& HAnimJoint273 =  HAnimJoint();
+HAnimJoint273.setContainerField("joints");
 HAnimJoint273.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid26.setJoints(&HAnimJoint273);
 
 HAnimJoint& HAnimJoint274 =  HAnimJoint();
+HAnimJoint274.setContainerField("joints");
 HAnimJoint274.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid26.setJoints(&HAnimJoint274);
 
 HAnimJoint& HAnimJoint275 =  HAnimJoint();
+HAnimJoint275.setContainerField("joints");
 HAnimJoint275.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid26.setJoints(&HAnimJoint275);
 
 HAnimJoint& HAnimJoint276 =  HAnimJoint();
+HAnimJoint276.setContainerField("joints");
 HAnimJoint276.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid26.setJoints(&HAnimJoint276);
 
 HAnimJoint& HAnimJoint277 =  HAnimJoint();
+HAnimJoint277.setContainerField("joints");
 HAnimJoint277.setUSE(std::string("hanim_r_carpometacarpal_1"));
 HAnimHumanoid26.setJoints(&HAnimJoint277);
 
 HAnimJoint& HAnimJoint278 =  HAnimJoint();
+HAnimJoint278.setContainerField("joints");
 HAnimJoint278.setUSE(std::string("hanim_r_carpometacarpal_2"));
 HAnimHumanoid26.setJoints(&HAnimJoint278);
 
 HAnimJoint& HAnimJoint279 =  HAnimJoint();
+HAnimJoint279.setContainerField("joints");
 HAnimJoint279.setUSE(std::string("hanim_r_carpometacarpal_3"));
 HAnimHumanoid26.setJoints(&HAnimJoint279);
 
 HAnimJoint& HAnimJoint280 =  HAnimJoint();
+HAnimJoint280.setContainerField("joints");
 HAnimJoint280.setUSE(std::string("hanim_r_carpometacarpal_4"));
 HAnimHumanoid26.setJoints(&HAnimJoint280);
 
 HAnimJoint& HAnimJoint281 =  HAnimJoint();
+HAnimJoint281.setContainerField("joints");
 HAnimJoint281.setUSE(std::string("hanim_r_carpometacarpal_5"));
 HAnimHumanoid26.setJoints(&HAnimJoint281);
 
 HAnimJoint& HAnimJoint282 =  HAnimJoint();
+HAnimJoint282.setContainerField("joints");
 HAnimJoint282.setUSE(std::string("hanim_r_metacarpophalangeal_1"));
 HAnimHumanoid26.setJoints(&HAnimJoint282);
 
 HAnimJoint& HAnimJoint283 =  HAnimJoint();
+HAnimJoint283.setContainerField("joints");
 HAnimJoint283.setUSE(std::string("hanim_r_metacarpophalangeal_2"));
 HAnimHumanoid26.setJoints(&HAnimJoint283);
 
 HAnimJoint& HAnimJoint284 =  HAnimJoint();
+HAnimJoint284.setContainerField("joints");
 HAnimJoint284.setUSE(std::string("hanim_r_metacarpophalangeal_3"));
 HAnimHumanoid26.setJoints(&HAnimJoint284);
 
 HAnimJoint& HAnimJoint285 =  HAnimJoint();
+HAnimJoint285.setContainerField("joints");
 HAnimJoint285.setUSE(std::string("hanim_r_metacarpophalangeal_4"));
 HAnimHumanoid26.setJoints(&HAnimJoint285);
 
 HAnimJoint& HAnimJoint286 =  HAnimJoint();
+HAnimJoint286.setContainerField("joints");
 HAnimJoint286.setUSE(std::string("hanim_r_metacarpophalangeal_5"));
 HAnimHumanoid26.setJoints(&HAnimJoint286);
 
 HAnimJoint& HAnimJoint287 =  HAnimJoint();
+HAnimJoint287.setContainerField("joints");
 HAnimJoint287.setUSE(std::string("hanim_r_midcarpal_1"));
 HAnimHumanoid26.setJoints(&HAnimJoint287);
 
 HAnimJoint& HAnimJoint288 =  HAnimJoint();
+HAnimJoint288.setContainerField("joints");
 HAnimJoint288.setUSE(std::string("hanim_r_midcarpal_2"));
 HAnimHumanoid26.setJoints(&HAnimJoint288);
 
 HAnimJoint& HAnimJoint289 =  HAnimJoint();
+HAnimJoint289.setContainerField("joints");
 HAnimJoint289.setUSE(std::string("hanim_r_midcarpal_3"));
 HAnimHumanoid26.setJoints(&HAnimJoint289);
 
 HAnimJoint& HAnimJoint290 =  HAnimJoint();
+HAnimJoint290.setContainerField("joints");
 HAnimJoint290.setUSE(std::string("hanim_r_midcarpal_4_5"));
 HAnimHumanoid26.setJoints(&HAnimJoint290);
 
 HAnimJoint& HAnimJoint291 =  HAnimJoint();
+HAnimJoint291.setContainerField("joints");
 HAnimJoint291.setUSE(std::string("hanim_r_radiocarpal"));
 HAnimHumanoid26.setJoints(&HAnimJoint291);
 
@@ -1261,4 +1339,4 @@ Scene24.addChild(&HAnimHumanoid26);
 
 X3D0.setScene(&Scene24);
 
-//}
+}

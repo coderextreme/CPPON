@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int geobubbles(int argc, char ** argv) {
+void geobubbles(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -60,12 +52,12 @@ GeoViewpoint9.setDescription(std::string("Tour Views"));
 Scene8.addChild(&GeoViewpoint9);
 
 Background& Background10 =  Background();
-Background10.setBackUrl((std::string[]){"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
-Background10.setBottomUrl((std::string[]){"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
-Background10.setFrontUrl((std::string[]){"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
-Background10.setLeftUrl((std::string[]){"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
-Background10.setRightUrl((std::string[]){"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
-Background10.setTopUrl((std::string[]){"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
+Background10.setBackUrl(new std::string[]{"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
+Background10.setBottomUrl(new std::string[]{"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
+Background10.setFrontUrl(new std::string[]{"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
+Background10.setLeftUrl(new std::string[]{"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
+Background10.setRightUrl(new std::string[]{"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
+Background10.setTopUrl(new std::string[]{"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
 Scene8.addChild(&Background10);
 
 Transform& Transform11 =  Transform();
@@ -74,7 +66,9 @@ Sphere& Sphere13 =  Sphere();
 Shape12.setGeometry(&Sphere13);
 
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material15.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance14.addChild(&Material15);

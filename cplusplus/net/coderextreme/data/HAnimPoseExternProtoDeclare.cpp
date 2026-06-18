@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HAnimPoseExternProtoDeclare(int argc, char ** argv) {
+void HAnimPoseExternProtoDeclare(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -112,7 +104,7 @@ X3D0.setHead(&head1);
 Scene& Scene20 =  Scene();
 WorldInfo& WorldInfo21 =  WorldInfo();
 WorldInfo21.setDEF(std::string("ModelInfo"));
-WorldInfo21.setInfo((std::string[]){"Design to illustrate a potential HAnimPose node"}, 1);
+WorldInfo21.setInfo(new std::string[]{"Design to illustrate a potential HAnimPose node"}, 1);
 WorldInfo21.setTitle(std::string("HAnimPoseExternProtoDeclare"));
 Scene20.addChild(&WorldInfo21);
 
@@ -126,7 +118,7 @@ Scene20.addChild(&NavigationInfo23);
 ExternProtoDeclare& ExternProtoDeclare24 =  ExternProtoDeclare();
 ExternProtoDeclare24.setName(std::string("HAnimPose"));
 ExternProtoDeclare24.setAppinfo(std::string("Experimental node to assign joint values to a humanoid and assume a pose. Assumes that baseline HAnimHumanoid configuration must be I pose, which can be achieved by resetting every HAnimJoint to default values."));
-ExternProtoDeclare24.setUrl((std::string[]){"Filename.x3d#HAnimPose", "https://some.address.org/Filename.x3d#HAnimPose"}, 2);
+ExternProtoDeclare24.setUrl(new std::string[]{"Filename.x3d#HAnimPose", "https://some.address.org/Filename.x3d#HAnimPose"}, 2);
 field& field25 =  field();
 field25.setName(std::string("parentHAnimHumanoid"));
 field25.setAccessType(std::string("inputOutput"));
@@ -245,15 +237,16 @@ Transform41.setDEF(std::string("DisplayHeader1"));
 Transform41.setTranslation(new float[]{0.0,1.5,0.0});
 Anchor& Anchor42 =  Anchor();
 Anchor42.setDescription(std::string("go to HAnimPoseExternProtoDeclareIndex page"));
-Anchor42.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor42.setUrl((std::string[]){"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPoseExternProtoDeclareIndex.html"}, 1);
+Anchor42.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor42.setUrl(new std::string[]{"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPoseExternProtoDeclareIndex.html"}, 1);
 Shape& Shape43 =  Shape();
 Text& Text44 =  Text();
-Text44.setString((std::string[]){"Utility scene", "HAnimPoseExternProtoDeclare.x3d"}, 2);
+Text44.setString(new std::string[]{"Utility scene", "HAnimPoseExternProtoDeclare.x3d"}, 2);
 CFontStyle& FontStyle45 =  CFontStyle();
+FontStyle45.setContainerField("fontStyle");
 FontStyle45.setDEF(std::string("HeaderFont"));
-FontStyle45.setFamily((std::string[]){"SANS"}, 1);
-FontStyle45.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle45.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle45.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle45.setSize(0.15);
 FontStyle45.setStyle(std::string("BOLD"));
 Text44.setFontStyle(&FontStyle45);
@@ -261,8 +254,10 @@ Text44.setFontStyle(&FontStyle45);
 Shape43.setGeometry(&Text44);
 
 Appearance& Appearance46 =  Appearance();
+Appearance46.setContainerField("appearance");
 Appearance46.setDEF(std::string("PoseTextAppearance"));
 Material& Material47 =  Material();
+Material47.setContainerField("material");
 Material47.setDiffuseColor(new float[]{0.1,0.3,0.5});
 Appearance46.addChild(&Material47);
 
@@ -276,8 +271,10 @@ Box49.setSize(new float[]{3.5,0.5,0.001});
 Shape48.setGeometry(&Box49);
 
 Appearance& Appearance50 =  Appearance();
+Appearance50.setContainerField("appearance");
 Appearance50.setDEF(std::string("TransparentAppearance"));
 Material& Material51 =  Material();
+Material51.setContainerField("material");
 Material51.setTransparency(1);
 Appearance50.addChild(&Material51);
 
@@ -294,18 +291,20 @@ Transform52.setDEF(std::string("DisplayHeader2"));
 Transform52.setTranslation(new float[]{0.0,0.5,0.0});
 Anchor& Anchor53 =  Anchor();
 Anchor53.setDescription(std::string("go to HAnimPosePrototypeIndex page"));
-Anchor53.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor53.setUrl((std::string[]){"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPosePrototypeIndex.html"}, 1);
+Anchor53.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor53.setUrl(new std::string[]{"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPosePrototypeIndex.html"}, 1);
 Shape& Shape54 =  Shape();
 Text& Text55 =  Text();
-Text55.setString((std::string[]){"This model supports", "HAnimPosePrototype.x3d"}, 2);
+Text55.setString(new std::string[]{"This model supports", "HAnimPosePrototype.x3d"}, 2);
 CFontStyle& FontStyle56 =  CFontStyle();
+FontStyle56.setContainerField("fontStyle");
 FontStyle56.setUSE(std::string("HeaderFont"));
 Text55.setFontStyle(&FontStyle56);
 
 Shape54.setGeometry(&Text55);
 
 Appearance& Appearance57 =  Appearance();
+Appearance57.setContainerField("appearance");
 Appearance57.setUSE(std::string("PoseTextAppearance"));
 Shape54.addChild(&Appearance57);
 
@@ -319,6 +318,7 @@ Box59.setSize(new float[]{2.6,0.5,0.001});
 Shape58.setGeometry(&Box59);
 
 Appearance& Appearance60 =  Appearance();
+Appearance60.setContainerField("appearance");
 Appearance60.setUSE(std::string("TransparentAppearance"));
 Shape58.addChild(&Appearance60);
 

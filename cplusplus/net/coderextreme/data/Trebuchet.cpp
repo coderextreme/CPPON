@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Trebuchet(int argc, char ** argv) {
+void Trebuchet(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -100,26 +92,27 @@ WorldInfo18.setTitle(std::string("Trebuchet.x3d"));
 Scene17.addChild(&WorldInfo18);
 
 Background& Background19 =  Background();
-Background19.setBackUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_back.jpg"}, 1);
-Background19.setBottomUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_bottom.jpg"}, 1);
-Background19.setFrontUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_front.jpg"}, 1);
+Background19.setBackUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_back.jpg"}, 1);
+Background19.setBottomUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_bottom.jpg"}, 1);
+Background19.setFrontUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_front.jpg"}, 1);
 Background19.setGroundAngle(new float[]{1.309,1.570796}, 2);
 Background19.setGroundColor(new float[]{0.1,0.1,0.0,0.4,0.25,0.2,0.6,0.6,0.6}, 9);
-Background19.setLeftUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_left.jpg"}, 1);
-Background19.setRightUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_right.jpg"}, 1);
+Background19.setLeftUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_left.jpg"}, 1);
+Background19.setRightUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_right.jpg"}, 1);
 Background19.setSkyAngle(new float[]{1.309,1.57079}, 2);
 Background19.setSkyColor(new float[]{0.0,0.2,0.7,0.0,0.5,1.0,1.0,1.0,1.0}, 9);
-Background19.setTopUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_top.jpg"}, 1);
+Background19.setTopUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_top.jpg"}, 1);
 Scene17.addChild(&Background19);
 
 Sound& Sound20 =  Sound();
 Sound20.setMaxBack(1000);
 Sound20.setMaxFront(1000);
 AudioClip& AudioClip21 =  AudioClip();
+AudioClip21.setContainerField("source");
 AudioClip21.setDEF(std::string("HolyGrail"));
 AudioClip21.setDescription(std::string("HolyGrail"));
 AudioClip21.setLoop(true);
-AudioClip21.setUrl((std::string[]){"holygral.mp3", "http://www.nps.navy.mil/code32/vrml/holygral.mp3"}, 2);
+AudioClip21.setUrl(new std::string[]{"holygral.mp3", "http://www.nps.navy.mil/code32/vrml/holygral.mp3"}, 2);
 Sound20.setSource(AudioClip21);
 
 Scene17.addChild(&Sound20);
@@ -130,8 +123,10 @@ Box23.setSize(new float[]{10000.0,1.0,10000.0});
 Shape22.setGeometry(&Box23);
 
 Appearance& Appearance24 =  Appearance();
+Appearance24.setContainerField("appearance");
 ImageTexture& ImageTexture25 =  ImageTexture();
-ImageTexture25.setUrl((std::string[]){"grass.jpg", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/grass.jpg"}, 2);
+ImageTexture25.setContainerField("texture");
+ImageTexture25.setUrl(new std::string[]{"grass.jpg", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/grass.jpg"}, 2);
 Appearance24.addChild(&ImageTexture25);
 
 Shape22.addChild(&Appearance24);
@@ -144,8 +139,10 @@ Transform26.setScale(new float[]{0.5,0.5,0.5});
 Transform26.setTranslation(new float[]{10.5,6.5,4.5});
 Shape& Shape27 =  Shape();
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Appearance28.setDEF(std::string("TextAppearance"));
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Material29.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material29.setEmissiveColor(new float[]{1.0,1.0,0.0});
 Appearance28.addChild(&Material29);
@@ -153,8 +150,9 @@ Appearance28.addChild(&Material29);
 Shape27.addChild(&Appearance28);
 
 Text& Text30 =  Text();
-Text30.setString((std::string[]){"Click Sling to Select Projectile"}, 1);
+Text30.setString(new std::string[]{"Click Sling to Select Projectile"}, 1);
 CFontStyle& FontStyle31 =  CFontStyle();
+FontStyle31.setContainerField("fontStyle");
 Text30.setFontStyle(&FontStyle31);
 
 Shape27.setGeometry(&Text30);
@@ -173,11 +171,12 @@ Switch33.setWhichChoice(0);
 Group& Group34 =  Group();
 Shape& Shape35 =  Shape();
 Appearance& Appearance36 =  Appearance();
+Appearance36.setContainerField("appearance");
 Appearance36.setUSE(std::string("TextAppearance"));
 Shape35.addChild(&Appearance36);
 
 Text& Text37 =  Text();
-Text37.setString((std::string[]){"Click Here to Change Counter Weight (50 lbs)"}, 1);
+Text37.setString(new std::string[]{"Click Here to Change Counter Weight (50 lbs)"}, 1);
 Shape35.setGeometry(&Text37);
 
 Group34.addChild(&Shape35);
@@ -187,11 +186,12 @@ Switch33.addChild(&Group34);
 Group& Group38 =  Group();
 Shape& Shape39 =  Shape();
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Appearance40.setUSE(std::string("TextAppearance"));
 Shape39.addChild(&Appearance40);
 
 Text& Text41 =  Text();
-Text41.setString((std::string[]){"Click Here to Change Counter Weight (500 lbs)"}, 1);
+Text41.setString(new std::string[]{"Click Here to Change Counter Weight (500 lbs)"}, 1);
 Shape39.setGeometry(&Text41);
 
 Group38.addChild(&Shape39);
@@ -201,11 +201,12 @@ Switch33.addChild(&Group38);
 Group& Group42 =  Group();
 Shape& Shape43 =  Shape();
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Appearance44.setUSE(std::string("TextAppearance"));
 Shape43.addChild(&Appearance44);
 
 Text& Text45 =  Text();
-Text45.setString((std::string[]){"Click Here to Change Counter Weight (1000 lbs)"}, 1);
+Text45.setString(new std::string[]{"Click Here to Change Counter Weight (1000 lbs)"}, 1);
 Shape43.setGeometry(&Text45);
 
 Group42.addChild(&Shape43);
@@ -215,11 +216,12 @@ Switch33.addChild(&Group42);
 Group& Group46 =  Group();
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Appearance48.setUSE(std::string("TextAppearance"));
 Shape47.addChild(&Appearance48);
 
 Text& Text49 =  Text();
-Text49.setString((std::string[]){"Click Here to Change Counter Weight (10000 lbs)"}, 1);
+Text49.setString(new std::string[]{"Click Here to Change Counter Weight (10000 lbs)"}, 1);
 Shape47.setGeometry(&Text49);
 
 Group46.addChild(&Shape47);
@@ -241,7 +243,9 @@ Box53.setSize(new float[]{20.0,1.0,1.0});
 Shape52.setGeometry(&Box53);
 
 Appearance& Appearance54 =  Appearance();
+Appearance54.setContainerField("appearance");
 Material& Material55 =  Material();
+Material55.setContainerField("material");
 Material55.setTransparency(1);
 Appearance54.addChild(&Material55);
 
@@ -262,15 +266,18 @@ Transform57.setTranslation(new float[]{0.0,2.0,5.0});
 Billboard& Billboard58 =  Billboard();
 Shape& Shape59 =  Shape();
 Appearance& Appearance60 =  Appearance();
+Appearance60.setContainerField("appearance");
 Material& Material61 =  Material();
+Material61.setContainerField("material");
 Material61.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance60.addChild(&Material61);
 
 Shape59.addChild(&Appearance60);
 
 Text& Text62 =  Text();
-Text62.setString((std::string[]){"LAUNCH"}, 1);
+Text62.setString(new std::string[]{"LAUNCH"}, 1);
 CFontStyle& FontStyle63 =  CFontStyle();
+FontStyle63.setContainerField("fontStyle");
 Text62.setFontStyle(&FontStyle63);
 
 Shape59.setGeometry(&Text62);
@@ -285,7 +292,9 @@ Box66.setSize(new float[]{5.0,1.0,1.0});
 Shape65.setGeometry(&Box66);
 
 Appearance& Appearance67 =  Appearance();
+Appearance67.setContainerField("appearance");
 Material& Material68 =  Material();
+Material68.setContainerField("material");
 Material68.setTransparency(1);
 Appearance67.addChild(&Material68);
 
@@ -303,9 +312,10 @@ Sound& Sound71 =  Sound();
 Sound71.setMaxBack(1000);
 Sound71.setMaxFront(1000);
 AudioClip& AudioClip72 =  AudioClip();
+AudioClip72.setContainerField("source");
 AudioClip72.setDEF(std::string("PigDogSound"));
 AudioClip72.setDescription(std::string("PigDogSound"));
-AudioClip72.setUrl((std::string[]){"pigdog.wav", "http://www.nps.navy.mil/code32/vrml/pigdog.wav"}, 2);
+AudioClip72.setUrl(new std::string[]{"pigdog.wav", "http://www.nps.navy.mil/code32/vrml/pigdog.wav"}, 2);
 Sound71.setSource(AudioClip72);
 
 Group70.addChild(&Sound71);
@@ -317,9 +327,10 @@ Sound& Sound74 =  Sound();
 Sound74.setMaxBack(1000);
 Sound74.setMaxFront(1000);
 AudioClip& AudioClip75 =  AudioClip();
+AudioClip75.setContainerField("source");
 AudioClip75.setDEF(std::string("MonkSound"));
 AudioClip75.setDescription(std::string("MonkSound"));
-AudioClip75.setUrl((std::string[]){"monks.wav", "http://www.nps.navy.mil/code32/vrml/monks.wav"}, 2);
+AudioClip75.setUrl(new std::string[]{"monks.wav", "http://www.nps.navy.mil/code32/vrml/monks.wav"}, 2);
 Sound74.setSource(AudioClip75);
 
 Group73.addChild(&Sound74);
@@ -344,12 +355,14 @@ Switch78.setWhichChoice(0);
 Group& Group79 =  Group();
 Shape& Shape80 =  Shape();
 Appearance& Appearance81 =  Appearance();
+Appearance81.setContainerField("appearance");
 Appearance81.setUSE(std::string("TextAppearance"));
 Shape80.addChild(&Appearance81);
 
 Text& Text82 =  Text();
-Text82.setString((std::string[]){"Bowling Ball (10 lbs)"}, 1);
+Text82.setString(new std::string[]{"Bowling Ball (10 lbs)"}, 1);
 CFontStyle& FontStyle83 =  CFontStyle();
+FontStyle83.setContainerField("fontStyle");
 FontStyle83.setSize(0.5);
 Text82.setFontStyle(&FontStyle83);
 
@@ -362,9 +375,10 @@ Sound84.setMaxBack(1000);
 Sound84.setMaxFront(1000);
 Sound84.setPriority(1);
 AudioClip& AudioClip85 =  AudioClip();
+AudioClip85.setContainerField("source");
 AudioClip85.setDEF(std::string("HolyHandGrenadeSound"));
 AudioClip85.setDescription(std::string("HolyHandGrenadeSound"));
-AudioClip85.setUrl((std::string[]){"grenade.wav", "http://www.nps.navy.mil/code32/vrml/grenade.wav"}, 2);
+AudioClip85.setUrl(new std::string[]{"grenade.wav", "http://www.nps.navy.mil/code32/vrml/grenade.wav"}, 2);
 Sound84.setSource(AudioClip85);
 
 Group79.addChild(&Sound84);
@@ -374,12 +388,14 @@ Switch78.addChild(&Group79);
 Group& Group86 =  Group();
 Shape& Shape87 =  Shape();
 Appearance& Appearance88 =  Appearance();
+Appearance88.setContainerField("appearance");
 Appearance88.setUSE(std::string("TextAppearance"));
 Shape87.addChild(&Appearance88);
 
 Text& Text89 =  Text();
-Text89.setString((std::string[]){"Cow (1000 lbs)"}, 1);
+Text89.setString(new std::string[]{"Cow (1000 lbs)"}, 1);
 CFontStyle& FontStyle90 =  CFontStyle();
+FontStyle90.setContainerField("fontStyle");
 FontStyle90.setSize(0.5);
 Text89.setFontStyle(&FontStyle90);
 
@@ -391,9 +407,10 @@ Sound& Sound91 =  Sound();
 Sound91.setMaxBack(1000);
 Sound91.setMaxFront(1000);
 AudioClip& AudioClip92 =  AudioClip();
+AudioClip92.setContainerField("source");
 AudioClip92.setDEF(std::string("CowSound"));
 AudioClip92.setDescription(std::string("CowSound"));
-AudioClip92.setUrl((std::string[]){"lavache.wav", "http://www.nps.navy.mil/code32/vrml/lavache.wav"}, 2);
+AudioClip92.setUrl(new std::string[]{"lavache.wav", "http://www.nps.navy.mil/code32/vrml/lavache.wav"}, 2);
 Sound91.setSource(AudioClip92);
 
 Group86.addChild(&Sound91);
@@ -403,12 +420,14 @@ Switch78.addChild(&Group86);
 Group& Group93 =  Group();
 Shape& Shape94 =  Shape();
 Appearance& Appearance95 =  Appearance();
+Appearance95.setContainerField("appearance");
 Appearance95.setUSE(std::string("TextAppearance"));
 Shape94.addChild(&Appearance95);
 
 Text& Text96 =  Text();
-Text96.setString((std::string[]){"Chicken (5 lbs)"}, 1);
+Text96.setString(new std::string[]{"Chicken (5 lbs)"}, 1);
 CFontStyle& FontStyle97 =  CFontStyle();
+FontStyle97.setContainerField("fontStyle");
 FontStyle97.setSize(0.5);
 Text96.setFontStyle(&FontStyle97);
 
@@ -421,9 +440,10 @@ Sound98.setMaxBack(1000);
 Sound98.setMaxFront(1000);
 Sound98.setPriority(1);
 AudioClip& AudioClip99 =  AudioClip();
+AudioClip99.setContainerField("source");
 AudioClip99.setDEF(std::string("HamsterSound"));
 AudioClip99.setDescription(std::string("HamsterSound"));
-AudioClip99.setUrl((std::string[]){"hamster.wav", "http://www.nps.navy.mil/code32/vrml/hamster.wav"}, 2);
+AudioClip99.setUrl(new std::string[]{"hamster.wav", "http://www.nps.navy.mil/code32/vrml/hamster.wav"}, 2);
 Sound98.setSource(AudioClip99);
 
 Group93.addChild(&Sound98);
@@ -462,10 +482,12 @@ Box106.setSize(new float[]{25.0,1.0,1.0});
 Shape105.setGeometry(&Box106);
 
 Appearance& Appearance107 =  Appearance();
+Appearance107.setContainerField("appearance");
 Appearance107.setDEF(std::string("wood"));
 ImageTexture& ImageTexture108 =  ImageTexture();
+ImageTexture108.setContainerField("texture");
 ImageTexture108.setDEF(std::string("woodTexture"));
-ImageTexture108.setUrl((std::string[]){"wood.gif", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/wood.gif"}, 2);
+ImageTexture108.setUrl(new std::string[]{"wood.gif", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/wood.gif"}, 2);
 Appearance107.addChild(&ImageTexture108);
 
 Shape105.addChild(&Appearance107);
@@ -537,6 +559,7 @@ Box122.setSize(new float[]{5.0,5.0,0.5});
 Shape121.setGeometry(&Box122);
 
 Appearance& Appearance123 =  Appearance();
+Appearance123.setContainerField("appearance");
 Appearance123.setUSE(std::string("wood"));
 Shape121.addChild(&Appearance123);
 
@@ -559,6 +582,7 @@ Extrusion127.setSpine(new float[]{0.0,6.0,0.0,0.0,-11.0,0.0}, 6);
 Shape126.setGeometry(&Extrusion127);
 
 Appearance& Appearance128 =  Appearance();
+Appearance128.setContainerField("appearance");
 Appearance128.setUSE(std::string("wood"));
 Shape126.addChild(&Appearance128);
 
@@ -581,6 +605,7 @@ Box132.setSize(new float[]{35.0,1.0,1.0});
 Shape131.setGeometry(&Box132);
 
 Appearance& Appearance133 =  Appearance();
+Appearance133.setContainerField("appearance");
 Appearance133.setUSE(std::string("wood"));
 Shape131.addChild(&Appearance133);
 
@@ -594,6 +619,7 @@ Box136.setSize(new float[]{8.0,2.0,2.0});
 Shape135.setGeometry(&Box136);
 
 Appearance& Appearance137 =  Appearance();
+Appearance137.setContainerField("appearance");
 Appearance137.setUSE(std::string("wood"));
 Shape135.addChild(&Appearance137);
 
@@ -610,7 +636,9 @@ Transform138.setTranslation(new float[]{-15.0,-1.0,0.0});
 Shape& Shape139 =  Shape();
 Shape139.setDEF(std::string("Torus"));
 Appearance& Appearance140 =  Appearance();
+Appearance140.setContainerField("appearance");
 Material& Material141 =  Material();
+Material141.setContainerField("material");
 Material141.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance140.addChild(&Material141);
 
@@ -631,8 +659,10 @@ Transform& Transform143 =  Transform();
 Transform143.setTranslation(new float[]{1.0,0.0,2.0});
 Shape& Shape144 =  Shape();
 Appearance& Appearance145 =  Appearance();
+Appearance145.setContainerField("appearance");
 Appearance145.setDEF(std::string("rope"));
 ImageTexture& ImageTexture146 =  ImageTexture();
+ImageTexture146.setContainerField("texture");
 ImageTexture146.setUSE(std::string("woodTexture"));
 Appearance145.addChild(&ImageTexture146);
 
@@ -660,7 +690,9 @@ Cylinder150.setHeight(10);
 Shape149.setGeometry(&Cylinder150);
 
 Appearance& Appearance151 =  Appearance();
+Appearance151.setContainerField("appearance");
 Material& Material152 =  Material();
+Material152.setContainerField("material");
 Material152.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance151.addChild(&Material152);
 
@@ -683,6 +715,7 @@ Sphere157.setRadius(1.5);
 Shape156.setGeometry(&Sphere157);
 
 Appearance& Appearance158 =  Appearance();
+Appearance158.setContainerField("appearance");
 Appearance158.setUSE(std::string("rope"));
 Shape156.addChild(&Appearance158);
 
@@ -700,6 +733,7 @@ Transform& Transform160 =  Transform();
 Transform160.setScale(new float[]{5.0,5.0,5.0});
 Shape& Shape161 =  Shape();
 Appearance& Appearance162 =  Appearance();
+Appearance162.setContainerField("appearance");
 Appearance162.setUSE(std::string("rope"));
 Shape161.addChild(&Appearance162);
 
@@ -738,6 +772,7 @@ Sphere169.setRadius(1.5);
 Shape168.setGeometry(&Sphere169);
 
 Appearance& Appearance170 =  Appearance();
+Appearance170.setContainerField("appearance");
 Appearance170.setUSE(std::string("rope"));
 Shape168.addChild(&Appearance170);
 
@@ -758,6 +793,7 @@ Transform173.setRotation(new float[]{0.0,0.0,1.0,-0.82});
 Transform173.setTranslation(new float[]{7.0,-26.0,-2.5});
 Shape& Shape174 =  Shape();
 Appearance& Appearance175 =  Appearance();
+Appearance175.setContainerField("appearance");
 Appearance175.setUSE(std::string("rope"));
 Shape174.addChild(&Appearance175);
 
@@ -774,6 +810,7 @@ Transform173.addChild(&Shape174);
 
 Shape& Shape177 =  Shape();
 Appearance& Appearance178 =  Appearance();
+Appearance178.setContainerField("appearance");
 Appearance178.setUSE(std::string("rope"));
 Shape177.addChild(&Appearance178);
 
@@ -808,8 +845,10 @@ Transform184.setScale(new float[]{0.3,0.3,0.3});
 Shape& Shape185 =  Shape();
 Shape185.setDEF(std::string("halfsling"));
 Appearance& Appearance186 =  Appearance();
+Appearance186.setContainerField("appearance");
 Appearance186.setDEF(std::string("clear"));
 Material& Material187 =  Material();
+Material187.setContainerField("material");
 Material187.setTransparency(0.5);
 Appearance186.addChild(&Material187);
 
@@ -833,6 +872,7 @@ Transform& Transform191 =  Transform();
 Transform191.setTranslation(new float[]{0.0,0.0,2.0});
 Shape& Shape192 =  Shape();
 Appearance& Appearance193 =  Appearance();
+Appearance193.setContainerField("appearance");
 Appearance193.setUSE(std::string("rope"));
 Shape192.addChild(&Appearance193);
 
@@ -866,6 +906,7 @@ Transform& Transform199 =  Transform();
 Transform199.setTranslation(new float[]{0.0,0.0,2.0});
 Shape& Shape200 =  Shape();
 Appearance& Appearance201 =  Appearance();
+Appearance201.setContainerField("appearance");
 Appearance201.setUSE(std::string("rope"));
 Shape200.addChild(&Appearance201);
 
@@ -894,6 +935,7 @@ Extrusion205.setSpine(new float[]{0.0,-1.0,0.0,0.0,1.0,0.0}, 6);
 Shape204.setGeometry(&Extrusion205);
 
 Appearance& Appearance206 =  Appearance();
+Appearance206.setContainerField("appearance");
 Appearance206.setUSE(std::string("clear"));
 Shape204.addChild(&Appearance206);
 
@@ -925,8 +967,10 @@ Sphere213.setRadius(0.7);
 Shape212.setGeometry(&Sphere213);
 
 Appearance& Appearance214 =  Appearance();
+Appearance214.setContainerField("appearance");
 Appearance214.setDEF(std::string("black"));
 Material& Material215 =  Material();
+Material215.setContainerField("material");
 Material215.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Material215.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance214.addChild(&Material215);
@@ -942,7 +986,7 @@ Switch209.addChild(&Group210);
 Group& Group216 =  Group();
 Transform& Transform217 =  Transform();
 Inline& Inline218 =  Inline();
-Inline218.setUrl((std::string[]){"cow.wrl", "http://www.uoguelph.ca/~dchiu/cow.wrl"}, 2);
+Inline218.setUrl(new std::string[]{"cow.wrl", "http://www.uoguelph.ca/~dchiu/cow.wrl"}, 2);
 Transform217.addChild(&Inline218);
 
 Group216.addChild(&Transform217);
@@ -955,7 +999,7 @@ Transform220.setRotation(new float[]{0.0,1.0,0.0,1.57});
 Transform220.setScale(new float[]{0.4,0.4,0.4});
 Transform220.setTranslation(new float[]{0.0,0.7,0.0});
 Inline& Inline221 =  Inline();
-Inline221.setUrl((std::string[]){"vrml_ginger.wrl", "http://home.inreach.com/ntamura/vrml/vrml_ginger.wrl"}, 2);
+Inline221.setUrl(new std::string[]{"vrml_ginger.wrl", "http://home.inreach.com/ntamura/vrml/vrml_ginger.wrl"}, 2);
 Transform220.addChild(&Inline221);
 
 Group219.addChild(&Transform220);
@@ -984,7 +1028,9 @@ Cylinder224.setRadius(0.4);
 Shape223.setGeometry(&Cylinder224);
 
 Appearance& Appearance225 =  Appearance();
+Appearance225.setContainerField("appearance");
 Material& Material226 =  Material();
+Material226.setContainerField("material");
 Material226.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Material226.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance225.addChild(&Material226);
@@ -1006,6 +1052,7 @@ Box230.setSize(new float[]{1.0,10.0,0.5});
 Shape229.setGeometry(&Box230);
 
 Appearance& Appearance231 =  Appearance();
+Appearance231.setContainerField("appearance");
 Appearance231.setUSE(std::string("wood"));
 Shape229.addChild(&Appearance231);
 
@@ -1021,6 +1068,7 @@ Box234.setSize(new float[]{1.0,10.0,0.5});
 Shape233.setGeometry(&Box234);
 
 Appearance& Appearance235 =  Appearance();
+Appearance235.setContainerField("appearance");
 Appearance235.setUSE(std::string("wood"));
 Shape233.addChild(&Appearance235);
 
@@ -1038,7 +1086,9 @@ Cylinder238.setRadius(1.5);
 Shape237.setGeometry(&Cylinder238);
 
 Appearance& Appearance239 =  Appearance();
+Appearance239.setContainerField("appearance");
 Material& Material240 =  Material();
+Material240.setContainerField("material");
 Material240.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Material240.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance239.addChild(&Material240);
@@ -1059,7 +1109,9 @@ Cylinder243.setRadius(0.3);
 Shape242.setGeometry(&Cylinder243);
 
 Appearance& Appearance244 =  Appearance();
+Appearance244.setContainerField("appearance");
 Material& Material245 =  Material();
+Material245.setContainerField("material");
 Material245.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Material245.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance244.addChild(&Material245);
@@ -1093,7 +1145,9 @@ Cylinder251.setRadius(0.7);
 Shape250.setGeometry(&Cylinder251);
 
 Appearance& Appearance252 =  Appearance();
+Appearance252.setContainerField("appearance");
 Material& Material253 =  Material();
+Material253.setContainerField("material");
 Material253.setSpecularColor(new float[]{1.0,1.0,1.0});
 Appearance252.addChild(&Material253);
 
@@ -1191,6 +1245,7 @@ Box273.setSize(new float[]{1.0,1.0,8.0});
 Shape272.setGeometry(&Box273);
 
 Appearance& Appearance274 =  Appearance();
+Appearance274.setContainerField("appearance");
 Appearance274.setUSE(std::string("wood"));
 Shape272.addChild(&Appearance274);
 
@@ -1206,6 +1261,7 @@ Cylinder277.setRadius(2);
 Shape276.setGeometry(&Cylinder277);
 
 Appearance& Appearance278 =  Appearance();
+Appearance278.setContainerField("appearance");
 Appearance278.setUSE(std::string("wood"));
 Shape276.addChild(&Appearance278);
 
@@ -1218,6 +1274,7 @@ Sphere280.setRadius(1.5);
 Shape279.setGeometry(&Sphere280);
 
 Appearance& Appearance281 =  Appearance();
+Appearance281.setContainerField("appearance");
 Appearance281.setUSE(std::string("black"));
 Shape279.addChild(&Appearance281);
 
@@ -1232,6 +1289,7 @@ Sphere284.setRadius(1.5);
 Shape283.setGeometry(&Sphere284);
 
 Appearance& Appearance285 =  Appearance();
+Appearance285.setContainerField("appearance");
 Appearance285.setUSE(std::string("black"));
 Shape283.addChild(&Appearance285);
 
@@ -1344,7 +1402,9 @@ Box312.setSize(new float[]{5.0,0.5,0.5});
 Shape311.setGeometry(&Box312);
 
 Appearance& Appearance313 =  Appearance();
+Appearance313.setContainerField("appearance");
 Material& Material314 =  Material();
+Material314.setContainerField("material");
 Material314.setTransparency(1);
 Appearance313.addChild(&Material314);
 
@@ -1375,7 +1435,9 @@ Box320.setSize(new float[]{17.0,1.0,0.5});
 Shape319.setGeometry(&Box320);
 
 Appearance& Appearance321 =  Appearance();
+Appearance321.setContainerField("appearance");
 Material& Material322 =  Material();
+Material322.setContainerField("material");
 Material322.setTransparency(1);
 Appearance321.addChild(&Material322);
 

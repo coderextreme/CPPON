@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int LOA1_StandAnimation(int argc, char ** argv) {
+void LOA1_StandAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -723,20 +715,23 @@ Scene18.addChild(&ProtoDeclare20);
 //Point to example use in case someone inspects this file
 Anchor& Anchor135 =  Anchor();
 Anchor135.setDescription(std::string("InterchangableActorsViaDynamicRouting"));
-Anchor135.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor135.setUrl((std::string[]){"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
+Anchor135.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor135.setUrl(new std::string[]{"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
 Shape& Shape136 =  Shape();
 Text& Text137 =  Text();
-Text137.setString((std::string[]){"LOA1_StandAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
+Text137.setString(new std::string[]{"LOA1_StandAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
 CFontStyle& FontStyle138 =  CFontStyle();
-FontStyle138.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle138.setContainerField("fontStyle");
+FontStyle138.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle138.setSize(0.8);
 Text137.setFontStyle(&FontStyle138);
 
 Shape136.setGeometry(&Text137);
 
 Appearance& Appearance139 =  Appearance();
+Appearance139.setContainerField("appearance");
 Material& Material140 =  Material();
+Material140.setContainerField("material");
 Material140.setDiffuseColor(new float[]{1.0,1.0,0.2});
 Appearance139.addChild(&Material140);
 

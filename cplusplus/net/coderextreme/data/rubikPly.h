@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int rubikPly(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -73,7 +65,9 @@ Sphere& Sphere15 =  Sphere();
 Shape14.setGeometry(&Sphere15);
 
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance16.addChild(&Material17);
 
@@ -125,7 +119,9 @@ Sphere& Sphere28 =  Sphere();
 Shape27.setGeometry(&Sphere28);
 
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance29.addChild(&Material30);
 
@@ -223,7 +219,9 @@ Sphere& Sphere52 =  Sphere();
 Shape51.setGeometry(&Sphere52);
 
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Material& Material54 =  Material();
+Material54.setContainerField("material");
 Material54.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance53.addChild(&Material54);
 
@@ -321,7 +319,9 @@ Sphere& Sphere76 =  Sphere();
 Shape75.setGeometry(&Sphere76);
 
 Appearance& Appearance77 =  Appearance();
+Appearance77.setContainerField("appearance");
 Material& Material78 =  Material();
+Material78.setContainerField("material");
 Material78.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance77.addChild(&Material78);
 
@@ -420,6 +420,7 @@ Coordinate101.setPoint(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0
 IndexedFaceSet100.setCoord(&Coordinate101);
 
 CColor& Color102 =  CColor();
+Color102.setContainerField("color");
 Color102.setColor(new float[]{1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0}, 24);
 IndexedFaceSet100.setColor(&Color102);
 
@@ -435,6 +436,7 @@ Coordinate105.setPoint(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0
 IndexedLineSet104.setCoord(&Coordinate105);
 
 CColor& Color106 =  CColor();
+Color106.setContainerField("color");
 Color106.setColor(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0}, 15);
 IndexedLineSet104.setColor(&Color106);
 
@@ -450,4 +452,4 @@ Scene7.addChild(&ProtoInstance95);
 
 X3D0.setScene(&Scene7);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int AllenBox(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -45,7 +37,7 @@ WorldInfo7.setTitle(std::string("AllenBox.x3d"));
 Scene6.addChild(&WorldInfo7);
 
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setAvatarSize(new float[]{0.15,1.53,0.75}, 3);
+NavigationInfo8.setAvatarSize(new float[]{0.15,1.53,0.75});
 NavigationInfo8.setSpeed(0.5);
 NavigationInfo8.setType((std::string[]){"EXAMINE"}, 1);
 Scene6.addChild(&NavigationInfo8);
@@ -59,7 +51,9 @@ Box& Box11 =  Box();
 Shape10.setGeometry(&Box11);
 
 Appearance& Appearance12 =  Appearance();
+Appearance12.setContainerField("appearance");
 Material& Material13 =  Material();
+Material13.setContainerField("material");
 Appearance12.addChild(&Material13);
 
 Shape10.addChild(&Appearance12);
@@ -70,4 +64,4 @@ Scene6.addChild(&Transform9);
 
 X3D0.setScene(&Scene6);
 
-//}
+}

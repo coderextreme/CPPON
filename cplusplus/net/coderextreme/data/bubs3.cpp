@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int bubs3(int argc, char ** argv) {
+void bubs3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -46,7 +38,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo8.setType(new std::string[]{"EXAMINE"}, 1);
 Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
@@ -56,12 +48,12 @@ Viewpoint9.setDescription(std::string("Bubbles in action"));
 Scene7.addChild(&Viewpoint9);
 
 Background& Background10 =  Background();
-Background10.setBackUrl((std::string[]){"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
-Background10.setBottomUrl((std::string[]){"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
-Background10.setFrontUrl((std::string[]){"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
-Background10.setLeftUrl((std::string[]){"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
-Background10.setRightUrl((std::string[]){"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
-Background10.setTopUrl((std::string[]){"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
+Background10.setBackUrl(new std::string[]{"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
+Background10.setBottomUrl(new std::string[]{"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
+Background10.setFrontUrl(new std::string[]{"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
+Background10.setLeftUrl(new std::string[]{"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
+Background10.setRightUrl(new std::string[]{"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
+Background10.setTopUrl(new std::string[]{"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
 Scene7.addChild(&Background10);
 
 Transform& Transform11 =  Transform();
@@ -72,7 +64,9 @@ Sphere13.setRadius(0.25);
 Shape12.setGeometry(&Sphere13);
 
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material15.setTransparency(0.2);
 Appearance14.addChild(&Material15);
@@ -194,7 +188,9 @@ Sphere28.setRadius(0.25);
 Shape27.setGeometry(&Sphere28);
 
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material30.setTransparency(0.2);
 Appearance29.addChild(&Material30);
@@ -316,7 +312,9 @@ Sphere43.setRadius(0.25);
 Shape42.setGeometry(&Sphere43);
 
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Material& Material45 =  Material();
+Material45.setContainerField("material");
 Material45.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material45.setTransparency(0.2);
 Appearance44.addChild(&Material45);
@@ -438,7 +436,9 @@ Sphere58.setRadius(0.25);
 Shape57.setGeometry(&Sphere58);
 
 Appearance& Appearance59 =  Appearance();
+Appearance59.setContainerField("appearance");
 Material& Material60 =  Material();
+Material60.setContainerField("material");
 Material60.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material60.setTransparency(0.2);
 Appearance59.addChild(&Material60);

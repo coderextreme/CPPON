@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int HAnimPosePrototype(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -1095,6 +1087,7 @@ Shape& Shape204 =  Shape();
 Text& Text205 =  Text();
 Text205.setString((std::string[]){"HAnimPosePrototype example implementation"}, 1);
 CFontStyle& FontStyle206 =  CFontStyle();
+FontStyle206.setContainerField("fontStyle");
 FontStyle206.setDEF(std::string("HeaderFont"));
 FontStyle206.setFamily((std::string[]){"SANS"}, 1);
 FontStyle206.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1105,8 +1098,10 @@ Text205.setFontStyle(&FontStyle206);
 Shape204.setGeometry(&Text205);
 
 Appearance& Appearance207 =  Appearance();
+Appearance207.setContainerField("appearance");
 Appearance207.setDEF(std::string("PoseTextAppearance"));
 Material& Material208 =  Material();
+Material208.setContainerField("material");
 Material208.setDiffuseColor(new float[]{0.1,0.5,0.3});
 Appearance207.addChild(&Material208);
 
@@ -1123,6 +1118,7 @@ Shape& Shape210 =  Shape();
 Text& Text211 =  Text();
 Text211.setString((std::string[]){"\"T\" Pose"}, 1);
 CFontStyle& FontStyle212 =  CFontStyle();
+FontStyle212.setContainerField("fontStyle");
 FontStyle212.setDEF(std::string("SharedFont"));
 FontStyle212.setFamily((std::string[]){"SANS"}, 1);
 FontStyle212.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1133,6 +1129,7 @@ Text211.setFontStyle(&FontStyle212);
 Shape210.setGeometry(&Text211);
 
 Appearance& Appearance213 =  Appearance();
+Appearance213.setContainerField("appearance");
 Appearance213.setUSE(std::string("PoseTextAppearance"));
 Shape210.addChild(&Appearance213);
 
@@ -1140,8 +1137,10 @@ Transform209.addChild(&Shape210);
 
 Shape& Shape214 =  Shape();
 Appearance& Appearance215 =  Appearance();
+Appearance215.setContainerField("appearance");
 Appearance215.setDEF(std::string("TransparentAppearance"));
 Material& Material216 =  Material();
+Material216.setContainerField("material");
 Material216.setTransparency(0.8);
 Appearance215.addChild(&Material216);
 
@@ -1174,12 +1173,14 @@ Shape& Shape221 =  Shape();
 Text& Text222 =  Text();
 Text222.setString((std::string[]){"\"A\" Pose"}, 1);
 CFontStyle& FontStyle223 =  CFontStyle();
+FontStyle223.setContainerField("fontStyle");
 FontStyle223.setUSE(std::string("SharedFont"));
 Text222.setFontStyle(&FontStyle223);
 
 Shape221.setGeometry(&Text222);
 
 Appearance& Appearance224 =  Appearance();
+Appearance224.setContainerField("appearance");
 Appearance224.setUSE(std::string("PoseTextAppearance"));
 Shape221.addChild(&Appearance224);
 
@@ -1188,6 +1189,7 @@ Transform220.addChild(&Shape221);
 Shape& Shape225 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance226 =  Appearance();
+Appearance226.setContainerField("appearance");
 Appearance226.setUSE(std::string("TransparentAppearance"));
 Shape225.addChild(&Appearance226);
 
@@ -1218,12 +1220,14 @@ Shape& Shape231 =  Shape();
 Text& Text232 =  Text();
 Text232.setString((std::string[]){"TouchDown Pose"}, 1);
 CFontStyle& FontStyle233 =  CFontStyle();
+FontStyle233.setContainerField("fontStyle");
 FontStyle233.setUSE(std::string("SharedFont"));
 Text232.setFontStyle(&FontStyle233);
 
 Shape231.setGeometry(&Text232);
 
 Appearance& Appearance234 =  Appearance();
+Appearance234.setContainerField("appearance");
 Appearance234.setUSE(std::string("PoseTextAppearance"));
 Shape231.addChild(&Appearance234);
 
@@ -1232,6 +1236,7 @@ Transform230.addChild(&Shape231);
 Shape& Shape235 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance236 =  Appearance();
+Appearance236.setContainerField("appearance");
 Appearance236.setUSE(std::string("TransparentAppearance"));
 Shape235.addChild(&Appearance236);
 
@@ -1262,12 +1267,14 @@ Shape& Shape241 =  Shape();
 Text& Text242 =  Text();
 Text242.setString((std::string[]){"\"I\" Pose"}, 1);
 CFontStyle& FontStyle243 =  CFontStyle();
+FontStyle243.setContainerField("fontStyle");
 FontStyle243.setUSE(std::string("SharedFont"));
 Text242.setFontStyle(&FontStyle243);
 
 Shape241.setGeometry(&Text242);
 
 Appearance& Appearance244 =  Appearance();
+Appearance244.setContainerField("appearance");
 Appearance244.setUSE(std::string("PoseTextAppearance"));
 Shape241.addChild(&Appearance244);
 
@@ -1276,6 +1283,7 @@ Transform240.addChild(&Shape241);
 Shape& Shape245 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance246 =  Appearance();
+Appearance246.setContainerField("appearance");
 Appearance246.setUSE(std::string("TransparentAppearance"));
 Shape245.addChild(&Appearance246);
 
@@ -1306,12 +1314,14 @@ Shape& Shape251 =  Shape();
 Text& Text252 =  Text();
 Text252.setString((std::string[]){"Face Left Pose"}, 1);
 CFontStyle& FontStyle253 =  CFontStyle();
+FontStyle253.setContainerField("fontStyle");
 FontStyle253.setUSE(std::string("SharedFont"));
 Text252.setFontStyle(&FontStyle253);
 
 Shape251.setGeometry(&Text252);
 
 Appearance& Appearance254 =  Appearance();
+Appearance254.setContainerField("appearance");
 Appearance254.setUSE(std::string("PoseTextAppearance"));
 Shape251.addChild(&Appearance254);
 
@@ -1319,6 +1329,7 @@ Transform250.addChild(&Shape251);
 
 Shape& Shape255 =  Shape();
 Appearance& Appearance256 =  Appearance();
+Appearance256.setContainerField("appearance");
 Appearance256.setUSE(std::string("TransparentAppearance"));
 Shape255.addChild(&Appearance256);
 
@@ -1349,12 +1360,14 @@ Shape& Shape261 =  Shape();
 Text& Text262 =  Text();
 Text262.setString((std::string[]){"Face Right Pose"}, 1);
 CFontStyle& FontStyle263 =  CFontStyle();
+FontStyle263.setContainerField("fontStyle");
 FontStyle263.setUSE(std::string("SharedFont"));
 Text262.setFontStyle(&FontStyle263);
 
 Shape261.setGeometry(&Text262);
 
 Appearance& Appearance264 =  Appearance();
+Appearance264.setContainerField("appearance");
 Appearance264.setUSE(std::string("PoseTextAppearance"));
 Shape261.addChild(&Appearance264);
 
@@ -1363,6 +1376,7 @@ Transform260.addChild(&Shape261);
 Shape& Shape265 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance266 =  Appearance();
+Appearance266.setContainerField("appearance");
 Appearance266.setUSE(std::string("TransparentAppearance"));
 Shape265.addChild(&Appearance266);
 
@@ -1393,14 +1407,17 @@ Shape& Shape271 =  Shape();
 Text& Text272 =  Text();
 Text272.setString((std::string[]){"Direct animation", "to, from \"I\" Pose"}, 2);
 CFontStyle& FontStyle273 =  CFontStyle();
+FontStyle273.setContainerField("fontStyle");
 FontStyle273.setUSE(std::string("SharedFont"));
 Text272.setFontStyle(&FontStyle273);
 
 Shape271.setGeometry(&Text272);
 
 Appearance& Appearance274 =  Appearance();
+Appearance274.setContainerField("appearance");
 Appearance274.setDEF(std::string("AnimationTextAppearance"));
 Material& Material275 =  Material();
+Material275.setContainerField("material");
 Material275.setDiffuseColor(new float[]{0.1,0.2,0.3});
 Appearance274.addChild(&Material275);
 
@@ -1411,6 +1428,7 @@ Transform270.addChild(&Shape271);
 Shape& Shape276 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance277 =  Appearance();
+Appearance277.setContainerField("appearance");
 Appearance277.setUSE(std::string("TransparentAppearance"));
 Shape276.addChild(&Appearance277);
 
@@ -1434,8 +1452,8 @@ Transform270.addChild(&TimeSensor280);
 
 ScalarInterpolator& ScalarInterpolator281 =  ScalarInterpolator();
 ScalarInterpolator281.setDEF(std::string("AnimatePosesLoopInterpolator"));
-ScalarInterpolator281.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0}, 6);
-ScalarInterpolator281.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0}, 6);
+ScalarInterpolator281.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0});
+ScalarInterpolator281.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0});
 Transform270.addChild(&ScalarInterpolator281);
 
 ROUTE& ROUTE282 =  ROUTE();
@@ -1468,12 +1486,14 @@ Shape& Shape286 =  Shape();
 Text& Text287 =  Text();
 Text287.setString((std::string[]){"Reset All Joints", "to Default \"I\" Pose"}, 2);
 CFontStyle& FontStyle288 =  CFontStyle();
+FontStyle288.setContainerField("fontStyle");
 FontStyle288.setUSE(std::string("SharedFont"));
 Text287.setFontStyle(&FontStyle288);
 
 Shape286.setGeometry(&Text287);
 
 Appearance& Appearance289 =  Appearance();
+Appearance289.setContainerField("appearance");
 Appearance289.setUSE(std::string("AnimationTextAppearance"));
 Shape286.addChild(&Appearance289);
 
@@ -1482,6 +1502,7 @@ Transform285.addChild(&Shape286);
 Shape& Shape290 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance291 =  Appearance();
+Appearance291.setContainerField("appearance");
 Appearance291.setUSE(std::string("TransparentAppearance"));
 Shape290.addChild(&Appearance291);
 
@@ -1562,4 +1583,4 @@ Scene42.addChild(&Group295);
 
 X3D0.setScene(&Scene42);
 
-//}
+}

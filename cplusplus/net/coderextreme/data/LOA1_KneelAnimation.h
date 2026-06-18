@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int LOA1_KneelAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -311,7 +303,7 @@ Group48.addChild(&TimeSensor49);
 
 PositionInterpolator& PositionInterpolator58 =  PositionInterpolator();
 PositionInterpolator58.setDEF(std::string("HUMANOIDROOT_POSITION_ANIMATOR"));
-PositionInterpolator58.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+PositionInterpolator58.setKey(new float[]{0.0,0.3125,0.625,1.0});
 PositionInterpolator58.setKeyValue(new float[]{0.0,0.0,0.0,0.0,-0.049999,0.0,0.0,-0.195,0.0,0.0,-0.439997,0.0}, 12);
 IS& IS59 =  IS();
 Connect& connect60 =  Connect();
@@ -325,7 +317,7 @@ Group48.addChild(&PositionInterpolator58);
 
 OrientationInterpolator& OrientationInterpolator61 =  OrientationInterpolator();
 OrientationInterpolator61.setDEF(std::string("HUMANOIDROOT_ANIMATOR"));
-OrientationInterpolator61.setKey(new float[]{0.0,1.0}, 2);
+OrientationInterpolator61.setKey(new float[]{0.0,1.0});
 OrientationInterpolator61.setKeyValue(new float[]{0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0}, 8);
 IS& IS62 =  IS();
 Connect& connect63 =  Connect();
@@ -340,7 +332,7 @@ Group48.addChild(&OrientationInterpolator61);
 //no SACROILIAC_ANIMATOR
 OrientationInterpolator& OrientationInterpolator64 =  OrientationInterpolator();
 OrientationInterpolator64.setDEF(std::string("L_HIP_ANIMATOR"));
-OrientationInterpolator64.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator64.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator64.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.619393,-1.0,0.0,0.0,1.069302,-1.0,0.0,0.0,1.937315}, 16);
 IS& IS65 =  IS();
 Connect& connect66 =  Connect();
@@ -354,7 +346,7 @@ Group48.addChild(&OrientationInterpolator64);
 
 OrientationInterpolator& OrientationInterpolator67 =  OrientationInterpolator();
 OrientationInterpolator67.setDEF(std::string("L_KNEE_ANIMATOR"));
-OrientationInterpolator67.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator67.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator67.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.615228,1.0,0.0,0.0,0.984524,1.0,0.0,0.0,2.076941}, 16);
 IS& IS68 =  IS();
 Connect& connect69 =  Connect();
@@ -368,7 +360,7 @@ Group48.addChild(&OrientationInterpolator67);
 
 OrientationInterpolator& OrientationInterpolator70 =  OrientationInterpolator();
 OrientationInterpolator70.setDEF(std::string("L_ANKLE_ANIMATOR"));
-OrientationInterpolator70.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator70.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator70.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.017453,-1.0,0.0,0.0,0.069812,1.0,0.0,0.0,0.261799}, 16);
 IS& IS71 =  IS();
 Connect& connect72 =  Connect();
@@ -383,7 +375,7 @@ Group48.addChild(&OrientationInterpolator70);
 //no L_MIDTARSAL_ANIMATOR
 OrientationInterpolator& OrientationInterpolator73 =  OrientationInterpolator();
 OrientationInterpolator73.setDEF(std::string("R_HIP_ANIMATOR"));
-OrientationInterpolator73.setKey(new float[]{0.0,0.3125,1.0}, 3);
+OrientationInterpolator73.setKey(new float[]{0.0,0.3125,1.0});
 OrientationInterpolator73.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.523598,-1.0,0.0,0.0,0.157079}, 12);
 IS& IS74 =  IS();
 Connect& connect75 =  Connect();
@@ -397,7 +389,7 @@ Group48.addChild(&OrientationInterpolator73);
 
 OrientationInterpolator& OrientationInterpolator76 =  OrientationInterpolator();
 OrientationInterpolator76.setDEF(std::string("R_KNEE_ANIMATOR"));
-OrientationInterpolator76.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator76.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator76.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.349065,1.0,0.0,0.0,1.023397,0.999934,0.008043,0.008185,1.727938}, 16);
 IS& IS77 =  IS();
 Connect& connect78 =  Connect();
@@ -411,7 +403,7 @@ Group48.addChild(&OrientationInterpolator76);
 
 OrientationInterpolator& OrientationInterpolator79 =  OrientationInterpolator();
 OrientationInterpolator79.setDEF(std::string("R_ANKLE_ANIMATOR"));
-OrientationInterpolator79.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator79.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator79.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-0.991692,-0.072372,0.106338,0.205053,-0.981083,-0.103267,0.163741,0.272231,-1.0,0.0,0.0,0.349065}, 16);
 IS& IS80 =  IS();
 Connect& connect81 =  Connect();
@@ -426,7 +418,7 @@ Group48.addChild(&OrientationInterpolator79);
 //no R_MIDTARSAL_ANIMATOR
 OrientationInterpolator& OrientationInterpolator82 =  OrientationInterpolator();
 OrientationInterpolator82.setDEF(std::string("VL5_ANIMATOR"));
-OrientationInterpolator82.setKey(new float[]{0.0,1.0}, 2);
+OrientationInterpolator82.setKey(new float[]{0.0,1.0});
 OrientationInterpolator82.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.174533}, 8);
 IS& IS83 =  IS();
 Connect& connect84 =  Connect();
@@ -441,7 +433,7 @@ Group48.addChild(&OrientationInterpolator82);
 //no SKULLBASE_ANIMATOR
 OrientationInterpolator& OrientationInterpolator85 =  OrientationInterpolator();
 OrientationInterpolator85.setDEF(std::string("L_SHOULDER_ANIMATOR"));
-OrientationInterpolator85.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator85.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator85.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.279252,-1.0,0.0,0.0,0.506145,-1.0,0.0,0.0,0.191986}, 16);
 IS& IS86 =  IS();
 Connect& connect87 =  Connect();
@@ -455,7 +447,7 @@ Group48.addChild(&OrientationInterpolator85);
 
 OrientationInterpolator& OrientationInterpolator88 =  OrientationInterpolator();
 OrientationInterpolator88.setDEF(std::string("L_ELBOW_ANIMATOR"));
-OrientationInterpolator88.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator88.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator88.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.052359,-1.0,0.0,0.0,0.296706,-1.0,0.0,0.0,1.431169}, 16);
 IS& IS89 =  IS();
 Connect& connect90 =  Connect();
@@ -470,7 +462,7 @@ Group48.addChild(&OrientationInterpolator88);
 //no L_WRIST_ANIMATOR
 OrientationInterpolator& OrientationInterpolator91 =  OrientationInterpolator();
 OrientationInterpolator91.setDEF(std::string("R_SHOULDER_ANIMATOR"));
-OrientationInterpolator91.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator91.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator91.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.104719,-1.0,0.0,0.0,0.157079,1.0,0.0,0.0,0.314159}, 16);
 IS& IS92 =  IS();
 Connect& connect93 =  Connect();
@@ -484,7 +476,7 @@ Group48.addChild(&OrientationInterpolator91);
 
 OrientationInterpolator& OrientationInterpolator94 =  OrientationInterpolator();
 OrientationInterpolator94.setDEF(std::string("R_ELBOW_ANIMATOR"));
-OrientationInterpolator94.setKey(new float[]{0.0,0.3125,0.625,1.0}, 4);
+OrientationInterpolator94.setKey(new float[]{0.0,0.3125,0.625,1.0});
 OrientationInterpolator94.setKeyValue(new float[]{1.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.837757,-1.0,0.0,0.0,1.239183,-1.0,0.0,0.0,1.500983}, 16);
 IS& IS95 =  IS();
 Connect& connect96 =  Connect();
@@ -602,6 +594,7 @@ Shape& Shape111 =  Shape();
 Text& Text112 =  Text();
 Text112.setString((std::string[]){"LOA1_KneelAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
 CFontStyle& FontStyle113 =  CFontStyle();
+FontStyle113.setContainerField("fontStyle");
 FontStyle113.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle113.setSize(0.8);
 Text112.setFontStyle(&FontStyle113);
@@ -609,7 +602,9 @@ Text112.setFontStyle(&FontStyle113);
 Shape111.setGeometry(&Text112);
 
 Appearance& Appearance114 =  Appearance();
+Appearance114.setContainerField("appearance");
 Material& Material115 =  Material();
+Material115.setContainerField("material");
 Material115.setDiffuseColor(new float[]{1.0,1.0,0.2});
 Appearance114.addChild(&Material115);
 
@@ -621,4 +616,4 @@ Scene17.addChild(&Anchor110);
 
 X3D0.setScene(&Scene17);
 
-//}
+}

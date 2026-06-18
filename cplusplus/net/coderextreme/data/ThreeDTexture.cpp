@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ThreeDTexture(int argc, char ** argv) {
+void ThreeDTexture(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -46,7 +38,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo8.setType(new std::string[]{"EXAMINE"}, 1);
 Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
@@ -81,7 +73,9 @@ Sphere& Sphere18 =  Sphere();
 Shape17.setGeometry(&Sphere18);
 
 Appearance& Appearance19 =  Appearance();
+Appearance19.setContainerField("appearance");
 Material& Material20 =  Material();
+Material20.setContainerField("material");
 Material20.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance19.addChild(&Material20);
 

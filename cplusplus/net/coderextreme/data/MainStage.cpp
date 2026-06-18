@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int MainStage(int argc, char ** argv) {
+void MainStage(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -149,7 +141,7 @@ Transform& Transform26 =  Transform();
 Transform26.setDEF(std::string("cordsysfloor"));
 Transform26.setScale(new float[]{0.174999997,0.174999997,0.174999997});
 Inline& Inline27 =  Inline();
-Inline27.setUrl((std::string[]){"JointCoordinateAxes.x3dv"}, 1);
+Inline27.setUrl(new std::string[]{"JointCoordinateAxes.x3dv"}, 1);
 Transform26.addChild(&Inline27);
 
 Group25.addChild(&Transform26);
@@ -160,7 +152,9 @@ Transform28.setScale(new float[]{1.0,0.01,1.0});
 Transform28.setTranslation(new float[]{0.0,-0.01,0.0});
 Shape& Shape29 =  Shape();
 Appearance& Appearance30 =  Appearance();
+Appearance30.setContainerField("appearance");
 Material& Material31 =  Material();
+Material31.setContainerField("material");
 Material31.setTransparency(0.6);
 Appearance30.addChild(&Material31);
 
@@ -176,8 +170,10 @@ Transform& Transform33 =  Transform();
 Transform33.setDEF(std::string("Circle0"));
 Shape& Shape34 =  Shape();
 Appearance& Appearance35 =  Appearance();
+Appearance35.setContainerField("appearance");
 Appearance35.setDEF(std::string("LineColor"));
 Material& Material36 =  Material();
+Material36.setContainerField("material");
 Material36.setAmbientIntensity(1);
 Material36.setDiffuseColor(new float[]{0.699999988,0.0,0.899999976});
 Material36.setEmissiveColor(new float[]{0.449999988,0.449999988,1.0});
@@ -205,6 +201,7 @@ Transform39.setDEF(std::string("Circle1"));
 Transform39.setScale(new float[]{0.5,1.0,0.5});
 Shape& Shape40 =  Shape();
 Appearance& Appearance41 =  Appearance();
+Appearance41.setContainerField("appearance");
 Appearance41.setUSE(std::string("LineColor"));
 Shape40.addChild(&Appearance41);
 
@@ -221,6 +218,7 @@ Transform43.setDEF(std::string("Circle2"));
 Transform43.setScale(new float[]{0.25,1.0,0.25});
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
+Appearance45.setContainerField("appearance");
 Appearance45.setUSE(std::string("LineColor"));
 Shape44.addChild(&Appearance45);
 
@@ -237,6 +235,7 @@ Transform47.setDEF(std::string("Circle3"));
 Transform47.setScale(new float[]{2.0,1.0,2.0});
 Shape& Shape48 =  Shape();
 Appearance& Appearance49 =  Appearance();
+Appearance49.setContainerField("appearance");
 Appearance49.setUSE(std::string("LineColor"));
 Shape48.addChild(&Appearance49);
 
@@ -253,6 +252,7 @@ Transform51.setDEF(std::string("Circle4"));
 Transform51.setScale(new float[]{3.0,1.0,3.0});
 Shape& Shape52 =  Shape();
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Appearance53.setUSE(std::string("LineColor"));
 Shape52.addChild(&Appearance53);
 

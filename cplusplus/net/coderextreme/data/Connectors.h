@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int Connectors(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -225,7 +217,9 @@ IS38.addChild(&connect39);
 Shape37.addChild(&IS38);
 
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Material& Material41 =  Material();
+Material41.setContainerField("material");
 IS& IS42 =  IS();
 Connect& connect43 =  Connect();
 connect43.setNodeField(std::string("diffuseColor"));
@@ -250,12 +244,15 @@ IS45.addChild(&connect46);
 Shape44.addChild(&IS45);
 
 Appearance& Appearance47 =  Appearance();
+Appearance47.setContainerField("appearance");
 FillProperties& FillProperties48 =  FillProperties();
+FillProperties48.setContainerField("fillProperties");
 FillProperties48.setFilled(false);
 FillProperties48.setHatched(false);
 Appearance47.setFillProperties(FillProperties48);
 
 LineProperties& LineProperties49 =  LineProperties();
+LineProperties49.setContainerField("lineProperties");
 IS& IS50 =  IS();
 Connect& connect51 =  Connect();
 connect51.setNodeField(std::string("linewidthScaleFactor"));
@@ -267,6 +264,7 @@ LineProperties49.addChild(&IS50);
 Appearance47.setLineProperties(LineProperties49);
 
 Material& Material52 =  Material();
+Material52.setContainerField("material");
 Material52.setDiffuseColor(new float[]{0.0,0.0,0.0});
 IS& IS53 =  IS();
 Connect& connect54 =  Connect();
@@ -475,7 +473,9 @@ ProtoDeclare88.addChild(&ProtoInterface89);
 ProtoBody& ProtoBody94 =  ProtoBody();
 Shape& Shape95 =  Shape();
 Appearance& Appearance96 =  Appearance();
+Appearance96.setContainerField("appearance");
 LineProperties& LineProperties97 =  LineProperties();
+LineProperties97.setContainerField("lineProperties");
 IS& IS98 =  IS();
 Connect& connect99 =  Connect();
 connect99.setNodeField(std::string("linewidthScaleFactor"));
@@ -487,6 +487,7 @@ LineProperties97.addChild(&IS98);
 Appearance96.setLineProperties(LineProperties97);
 
 Material& Material100 =  Material();
+Material100.setContainerField("material");
 Material100.setDiffuseColor(new float[]{0.0,0.0,0.0});
 IS& IS101 =  IS();
 Connect& connect102 =  Connect();
@@ -612,7 +613,7 @@ OrthoViewpoint& OrthoViewpoint119 =  OrthoViewpoint();
 OrthoViewpoint119.setDescription(std::string("OthoViewpoint"));
 OrthoViewpoint119.setPosition(new float[]{-3.13496,-4.19776,10.0});
 OrthoViewpoint119.setCenterOfRotation(new float[]{-3.13496,-4.19776,0.0});
-OrthoViewpoint119.setFieldOfView(new float[]{0.0,0.0,10.0,10.0}, 4);
+OrthoViewpoint119.setFieldOfView(new float[]{0.0,0.0,10.0,10.0});
 Scene9.addChild(&OrthoViewpoint119);
 
 Viewpoint& Viewpoint120 =  Viewpoint();
@@ -925,4 +926,4 @@ Scene9.addChild(&Transform121);
 
 X3D0.setScene(&Scene9);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Tongue(int argc, char ** argv) {
+void Tongue(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -122,7 +114,7 @@ TimeSensor22.setCycleInterval(0.99);
 TimeSensor22.setLoop(true);
 Scene20.addChild(&TimeSensor22);
 
-EXPORT& EXPORT23 =  EXPORT();
+Export& EXPORT23 =  Export();
 EXPORT23.setLocalDEF(std::string("JinMouthStretch_Clock"));
 EXPORT23.setAS(std::string("JinMouthStretch_Clock"));
 Scene20.addChild(&EXPORT23);
@@ -140,6 +132,7 @@ HAnimHumanoid25.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint26 =  HAnimJoint();
 HAnimJoint26.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint26.setDEF(std::string("hanim_root"));
+HAnimJoint26.setContainerField("skeleton");
 HAnimSegment& HAnimSegment27 =  HAnimSegment();
 HAnimSegment27.X3DNode::setName(std::string("sacrum"));
 HAnimSegment27.setDEF(std::string("hanim_sacrum"));
@@ -152,7 +145,7 @@ Background29.setSkyColor(new float[]{0.8,0.9,1.0}, 3);
 HAnimSegment27.addChild(&Background29);
 
 NavigationInfo& NavigationInfo30 =  NavigationInfo();
-NavigationInfo30.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo30.setType(new std::string[]{"EXAMINE"}, 1);
 HAnimSegment27.addChild(&NavigationInfo30);
 
 HAnimJoint26.addChildren(&HAnimSegment27);
@@ -168,8 +161,10 @@ Transform33.setDEF(std::string("Tongue"));
 Transform33.setTranslation(new float[]{0.0,8.886,11.1});
 Shape& Shape34 =  Shape();
 Appearance& Appearance35 =  Appearance();
+Appearance35.setContainerField("appearance");
 Appearance35.setDEF(std::string("BaseAppearance"));
 Material& Material36 =  Material();
+Material36.setContainerField("material");
 Material36.setDEF(std::string("BaseMaterial"));
 Material36.setAmbientIntensity(1);
 Material36.setDiffuseColor(new float[]{0.588,0.588,0.588});
@@ -177,8 +172,9 @@ Material36.setShininess(0.145);
 Appearance35.addChild(&Material36);
 
 ImageTexture& ImageTexture37 =  ImageTexture();
+ImageTexture37.setContainerField("texture");
 ImageTexture37.setDEF(std::string("JinImageAtlas"));
-ImageTexture37.setUrl((std::string[]){"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
+ImageTexture37.setUrl(new std::string[]{"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
 Appearance35.addChild(&ImageTexture37);
 
 Shape34.addChild(&Appearance35);
@@ -190,6 +186,7 @@ IndexedFaceSet38.setCreaseAngle(3.14159);
 IndexedFaceSet38.setSolid(false);
 IndexedFaceSet38.setTexCoordIndex(new int32_t[]{0,1,2,-1,2,3,0,-1,4,5,2,-1,2,1,4,-1,6,7,2,-1,2,5,6,-1,8,3,2,-1,2,7,8,-1,9,10,11,-1,11,12,9,-1,13,14,11,-1,11,10,13,-1,15,16,11,-1,11,14,15,-1,17,12,11,-1,11,16,17,-1,18,19,20,-1,20,21,18,-1,22,23,20,-1,20,19,22,-1,24,25,20,-1,20,23,24,-1,26,21,20,-1,20,25,26,-1,27,28,29,-1,29,30,27,-1,31,32,29,-1,29,28,31,-1,33,34,29,-1,29,32,33,-1,35,30,29,-1,29,34,35,-1,36,37,38,-1,38,39,36,-1,4,40,38,-1,38,37,4,-1,17,41,38,-1,38,40,17,-1,42,39,38,-1,38,41,42,-1,4,37,43,-1,43,5,4,-1,36,44,43,-1,43,37,36,-1,45,46,43,-1,43,44,45,-1,6,5,43,-1,43,46,6,-1,33,47,48,-1,48,49,33,-1,50,51,48,-1,48,47,50,-1,52,53,48,-1,48,51,52,-1,54,49,48,-1,48,53,54,-1,31,55,56,-1,56,32,31,-1,57,58,56,-1,56,55,57,-1,50,47,56,-1,56,58,50,-1,33,32,56,-1,56,47,33,-1,4,1,59,-1,59,40,4,-1,0,60,59,-1,59,1,0,-1,9,12,59,-1,59,60,9,-1,17,40,59,-1,59,12,17,-1,0,3,61,-1,61,62,0,-1,8,63,61,-1,61,3,8,-1,22,19,61,-1,61,63,22,-1,18,62,61,-1,61,19,18,-1,27,30,64,-1,64,65,27,-1,35,66,64,-1,64,30,35,-1,67,68,64,-1,64,66,67,-1,69,65,64,-1,64,68,69,-1,35,70,71,-1,71,66,35,-1,72,73,71,-1,71,70,72,-1,74,75,71,-1,71,73,74,-1,67,66,71,-1,71,75,67,-1,9,60,76,-1,76,77,9,-1,0,62,76,-1,76,60,0,-1,18,21,76,-1,76,62,18,-1,26,77,76,-1,76,21,26,-1,78,79,80,-1,80,81,78,-1,31,28,80,-1,80,79,31,-1,27,82,80,-1,80,28,27,-1,83,81,80,-1,80,82,83,-1,72,70,84,-1,84,85,72,-1,35,34,84,-1,84,70,35,-1,33,49,84,-1,84,34,33,-1,54,85,84,-1,84,49,54,-1,86,87,88,-1,88,89,86,-1,69,68,88,-1,88,87,69,-1,67,75,88,-1,88,68,67,-1,74,89,88,-1,88,75,74,-1,90,91,92,-1,92,93,90,-1,57,55,92,-1,92,91,57,-1,31,79,92,-1,92,55,31,-1,78,93,92,-1,92,79,78,-1,94,95,96,-1,96,97,94,-1,42,41,96,-1,96,95,42,-1,17,16,96,-1,96,41,17,-1,15,97,96,-1,96,16,15,-1,83,82,98,-1,98,99,83,-1,27,65,98,-1,98,82,27,-1,69,87,98,-1,98,65,69,-1,86,99,98,-1,98,87,86,-1,13,10,100,-1,100,101,13,-1,9,77,100,-1,100,10,9,-1,26,25,100,-1,100,77,26,-1,24,101,100,-1,100,25,24,-1,6,102,103,-1,103,7,6,-1,78,81,103,-1,103,102,78,-1,83,104,103,-1,103,81,83,-1,8,7,103,-1,103,104,8,-1,13,105,106,-1,106,14,13,-1,72,85,106,-1,106,105,72,-1,54,107,106,-1,106,85,54,-1,15,14,106,-1,106,107,15,-1,22,108,109,-1,109,23,22,-1,86,89,109,-1,109,108,86,-1,74,110,109,-1,109,89,74,-1,24,23,109,-1,109,110,24,-1,45,111,112,-1,112,46,45,-1,90,93,112,-1,112,111,90,-1,78,102,112,-1,112,93,78,-1,6,46,112,-1,112,102,6,-1,52,113,114,-1,114,53,52,-1,94,97,114,-1,114,113,94,-1,15,107,114,-1,114,97,15,-1,54,53,114,-1,114,107,54,-1,8,104,115,-1,115,63,8,-1,83,99,115,-1,115,104,83,-1,86,108,115,-1,115,99,86,-1,22,63,115,-1,115,108,22,-1,72,105,116,-1,116,73,72,-1,13,101,116,-1,116,105,13,-1,24,110,116,-1,116,101,24,-1,74,73,116,-1,116,110,74,-1}, 864);
 TextureCoordinate& TextureCoordinate39 =  TextureCoordinate();
+TextureCoordinate39.setContainerField("texCoord");
 TextureCoordinate39.setDEF(std::string("Tongue-TEXCOORD"));
 TextureCoordinate39.setPoint(new float[]{0.6665,0.04796,0.6621,0.05829,0.6755,0.05429,0.678,0.04407,0.6594,0.0736,0.6739,0.06941,0.6934,0.06941,0.6938,0.05429,0.6944,0.04387,0.6665,0.07002,0.678,0.07332,0.6755,0.08631,0.6621,0.08231,0.6944,0.07293,0.6938,0.08631,0.6934,0.103,0.6739,0.103,0.6594,0.09877,0.6775,0.03908,0.6841,0.03457,0.685,0.04057,0.677,0.04467,0.6959,0.03299,0.6961,0.03821,0.6959,0.0483,0.6841,0.05084,0.6775,0.0521,0.7593,0.04796,0.7636,0.05829,0.7681,0.0703,0.7631,0.05909,0.7664,0.0736,0.7713,0.08619,0.7664,0.09877,0.7636,0.08231,0.7593,0.07002,0.6584,0.1215,0.6584,0.09583,0.6535,0.1086,0.6535,0.1343,0.6545,0.08619,0.6584,0.1214,0.6584,0.1471,0.6734,0.09157,0.6734,0.1172,0.6932,0.1172,0.6932,0.09157,0.7673,0.1214,0.7524,0.1256,0.7519,0.103,0.7673,0.1471,0.7524,0.1513,0.7326,0.1513,0.7326,0.1256,0.7324,0.103,0.7673,0.09583,0.7723,0.1086,0.7673,0.1215,0.7723,0.1343,0.6577,0.0703,0.6627,0.05909,0.6813,0.03662,0.6723,0.04066,0.6952,0.03583,0.7565,0.05069,0.7535,0.04066,0.7535,0.05994,0.7482,0.0521,0.7488,0.04467,0.7482,0.03908,0.7478,0.07332,0.7445,0.06163,0.7314,0.07293,0.7306,0.06006,0.7299,0.0483,0.7417,0.05084,0.6693,0.05069,0.6723,0.05994,0.7324,0.06941,0.7519,0.06941,0.7503,0.05429,0.732,0.05429,0.7478,0.04407,0.7314,0.04387,0.7503,0.08631,0.732,0.08631,0.7299,0.03299,0.7417,0.03457,0.7408,0.04057,0.7296,0.03821,0.7326,0.1172,0.7524,0.1172,0.7524,0.09157,0.7326,0.09157,0.6932,0.1513,0.6734,0.1513,0.6734,0.1256,0.6932,0.1256,0.7445,0.03662,0.7306,0.03583,0.6813,0.06163,0.6952,0.06006,0.7129,0.06941,0.7129,0.05429,0.7129,0.04381,0.7129,0.0728,0.7129,0.08631,0.7129,0.103,0.7129,0.03246,0.7129,0.03742,0.7129,0.04745,0.7129,0.1172,0.7129,0.09157,0.7129,0.1513,0.7129,0.1256,0.7129,0.03556,0.7129,0.05954}, 234);
 IndexedFaceSet38.setTexCoord(&TextureCoordinate39);
@@ -207,7 +204,7 @@ HAnimSegment32.addChild(&Transform33);
 
 Coordinate& Coordinate41 =  Coordinate();
 Coordinate41.setUSE(std::string("Tongue_COORD"));
-HAnimSegment32.setCoord(&Coordinate41);
+HAnimSegment32.setCoord(Coordinate41);
 
 HAnimDisplacer& HAnimDisplacer42 =  HAnimDisplacer();
 HAnimDisplacer42.X3DNode::setName(std::string("tongue_morphinterpolator"));
@@ -223,10 +220,12 @@ HAnimJoint26.addChildren(&HAnimJoint31);
 HAnimHumanoid25.setSkeleton(&HAnimJoint26);
 
 HAnimJoint& HAnimJoint43 =  HAnimJoint();
+HAnimJoint43.setContainerField("joints");
 HAnimJoint43.setUSE(std::string("hanim_root"));
 HAnimHumanoid25.setJoints(&HAnimJoint43);
 
 HAnimJoint& HAnimJoint44 =  HAnimJoint();
+HAnimJoint44.setContainerField("joints");
 HAnimJoint44.setUSE(std::string("hanim_skullbase"));
 HAnimHumanoid25.setJoints(&HAnimJoint44);
 

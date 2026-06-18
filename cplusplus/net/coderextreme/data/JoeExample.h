@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int JoeExample(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -64,7 +56,9 @@ Scene3.addChild(&Script4);
 
 Shape& Shape9 =  Shape();
 Appearance& Appearance10 =  Appearance();
+Appearance10.setContainerField("appearance");
 Material& Material11 =  Material();
+Material11.setContainerField("material");
 Material11.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance10.addChild(&Material11);
 
@@ -81,6 +75,7 @@ Sound13.setMaxFront(1000);
 Sound13.setMinBack(1000);
 Sound13.setMinFront(1000);
 AudioClip& AudioClip14 =  AudioClip();
+AudioClip14.setContainerField("source");
 AudioClip14.setDEF(std::string("Click"));
 AudioClip14.setStopTime(1);
 AudioClip14.setDescription(std::string("clicking sound"));
@@ -116,4 +111,4 @@ Scene3.addChild(&ROUTE18);
 
 X3D0.setScene(&Scene3);
 
-//}
+}

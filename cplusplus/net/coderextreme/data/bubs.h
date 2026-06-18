@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int bubs(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -80,7 +72,9 @@ Sphere16.setRadius(0.25);
 Shape15.setGeometry(&Sphere16);
 
 Appearance& Appearance17 =  Appearance();
+Appearance17.setContainerField("appearance");
 Material& Material18 =  Material();
+Material18.setContainerField("material");
 Material18.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material18.setTransparency(0.2);
 Appearance17.addChild(&Material18);
@@ -220,4 +214,4 @@ Scene8.addChild(&ProtoInstance32);
 
 X3D0.setScene(&Scene8);
 
-//}
+}

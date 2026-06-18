@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int sphereflowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -185,6 +177,7 @@ Sound37.setMinBack(20);
 Sound37.setMinFront(20);
 Sound37.setLocation(new float[]{0.0,1.0,0.0});
 AudioClip& AudioClip38 =  AudioClip();
+AudioClip38.setContainerField("source");
 AudioClip38.setDEF(std::string("AudioClip"));
 AudioClip38.setDescription(std::string("Chandubabamusic #1"));
 AudioClip38.setUrl((std::string[]){"../resources/chandubabamusic1.wav", "https://coderextreme.net/X3DJSONLD/src/main/resources/chandubabamusic1.wav"}, 2);
@@ -203,4 +196,4 @@ Scene17.addChild(&Group20);
 
 X3D0.setScene(&Scene17);
 
-//}
+}

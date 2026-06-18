@@ -7,10 +7,10 @@ const NEW = ""; // new
 const PTR = ""; // *
 const REF = "&"; // *
 
-var DOMSerializer = require('./DOMSerializer.js');
+import DOMSerializer from './DOMSerializer.js';
 let serializer = new DOMSerializer();
 
-function CppSerializer () {
+export default function CppSerializer () {
 this.code = [];
 this.codeno = 0;
 this.preno = 0;
@@ -34,18 +34,10 @@ CppSerializer.prototype = {
         // https://stackoverflow.com/questions/3151436/how-can-i-get-the-current-directory-name-in-javascript
         // console.log('Current directory: ' + process.cwd()); // Node.js method for current directory - not what is needed here
         // https://flaviocopes.com/node-get-current-folder/ use __dirname under Node.js
-		str += "#ifndef WIN32\n";
-		str += "#define WINAPI\n";
-		str += "#define AFX_EXT_CLASS\n";
-		str += "#define EXPORT32\n";
-		str += "#define WINGDIAPI\n";
-		str += "#define APIENTRY\n";
-		str += "#endif\n";
-		str += "#define BOOL bool\n";
-		str += "#define XML_PARSER_H\n";
-		str += "//#include \"pch.h\"\n";
-		str += "//#include \"framework.h\"\n";
-		str += "//#include \"glut.h\"\n";
+		str += "#include \"pch.h\"\n";
+		str += "#define WIN32_LEAN_AND_MEAN\n";
+		str += "#include <windows.h>\n";
+		str += "#include <wingdi.h>\n";
 		str += "#include <string>\n";
 		str += "#include \"X3DLib.h\"\n";
                 let ls = clazz.lastIndexOf("/")
@@ -53,7 +45,7 @@ CppSerializer.prototype = {
                         ls = clazz.lastIndexOf("\\")
                 }
                 ls += 1;
-                str += "int "+(clazz.substring(ls))+"(int argc, char ** argv) {\n";
+                str += "void "+(clazz.substring(ls))+"(int argc, char ** argv) {\n";
 		bodystr += element.nodeName+REF+" "+element.nodeName+stack[0]+" = "+NEW+" "+element.nodeName+"();\n";
 		bodystr += this.subSerializeToString(element, mapToMethod, fieldTypes, 3, stack);
 		bodystr += "}\n";
@@ -118,6 +110,7 @@ CppSerializer.prototype = {
 		case "int32_t":
 		case "double":
 		case "bool":
+		case "std::string":
 			shim = "new";
 			break;
 		}
@@ -132,8 +125,9 @@ CppSerializer.prototype = {
 			case "coordIndex":
 			case "vertexCount":
 			case "order":
+			case "keyValue":
 				str = shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}, '+values.length;
-				if (attr == "colorIndex") {
+				if (attr === "colorIndex") {
 					if (element.nodeName === "IndexedFaceSet") {
 						str = ""+str;
 					} else if (element.nodeName === "IndexedLineSet") {
@@ -149,8 +143,10 @@ CppSerializer.prototype = {
 				// this.codeno++;
 				// return attrType+co;
 			}
-		} else if (attrType === "MFString") {
-			return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
+		// } else if (attrType === "MFFloat") {
+		// 	return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}';
+		// } else if (attrType === "MFString") {
+		// 	return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
 		} else {
 			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}'+(attrType.startsWith("MF") && type !== "bool" ? ', '+values.length : '');
 		}
@@ -211,6 +207,10 @@ CppSerializer.prototype = {
 			method = "Metadata"
 			addpre = "add";
 		}
+		if (element.nodeName === 'ParticleSystem' && addpre+method === "addPhysics") {
+			method = "Physics"
+			addpre = "set";
+		}
 		/*
 		if (node.nodeName === 'LayerSet' && addpre+method === "addChild") {
 			method = "LayerSet"
@@ -261,7 +261,7 @@ CppSerializer.prototype = {
 			strval = this.printSubArray(attr, attrType, "double", nodeValue.split(/[ ,\t\r\n]+/), this.codeno, DOUBLE_SUFFIX+',', '', DOUBLE_SUFFIX, element);
 		} else if (attrType === "MFString") {
 			nodeValue = nodeValue.replace(/^ *(.*) *$/, "$1");
-			strval = this.printSubArray(attr, attrType, "(std::string[])",
+			strval = this.printSubArray(attr, attrType, "std::string",
 				nodeValue.substr(1, nodeValue.length-2).split(/"[ ,\t\r\n]+"/).
 				map(function(x) {
 					let y = x.
@@ -341,8 +341,8 @@ CppSerializer.prototype = {
 						continue;
 					} else if (attr === "xsd:noNamespaceSchemaLocation" ) {
 						continue;
-					} else if (attr === 'containerField') {
-						continue;
+					//} else if (attr === 'containerField') {
+					//	continue;
 					} else if (attr === "id") {
 						continue;
 					} else if (element.nodeName === "Sphere" && attr === "subdivision") {
@@ -416,8 +416,10 @@ CppSerializer.prototype = {
 				    nodeName = "CBooleanSequencer";
 				} else if (node.nodeName === "FontStyle") {
 				    nodeName = "CFontStyle";
-				} else if (node.nodeName === "Color") {
-				    nodeName = "CColor";
+				} else if (node.nodeName === "EXPORT") {
+				    nodeName = "Export";
+				//} else if (node.nodeName === "Color") {
+				    //nodeName = "CColor";
 				}
 
 				ch += nodeName+REF+" "+node.nodeName+stack[0]+" = "+NEW+" "+nodeName+"();\n";
@@ -505,9 +507,8 @@ CppSerializer.prototype = {
 						shim = REF;
 						break;
 					}
-				} else if (method.endsWith("setGeometry") || method.endsWith("setSkin")) {
+				} else if (method.endsWith("setGeometry")) {
 					switch (node.nodeName) {
-					case "Transform":
 					case "Text":
 					case "GeoElevationGrid":
 					case "IndexedLineSet":
@@ -516,7 +517,20 @@ CppSerializer.prototype = {
 					case "IndexedTriangleSet":
 					case "Cone":
 					case "Cylinder":
+					case "Box":
+					case "Sphere":
 					case "Extrusion":
+					case "Rectangle2D":
+					case "NurbsPatchSurface":
+						if (element.nodeName === 'Shape') {
+							shim = REF;
+						}
+						break;
+					}
+				} else if (method.endsWith("setSkin")) {
+					switch (node.nodeName) {
+					case "Transform":
+					case "Group":
 					case "Shape":
 						shim = REF;
 						break;
@@ -524,7 +538,13 @@ CppSerializer.prototype = {
 				} else if (method.endsWith("setColor")) {
 					switch (node.nodeName) {
 					case "Color":
-						shim = REF;
+						switch (element.nodeName) {
+						case "IndexedLineSet":
+							shim = REF;
+							break;
+						default:
+							break;
+						}
 						break;
 					case "ColorRGBA":
 						method = OBJ+"addChild";
@@ -567,7 +587,7 @@ CppSerializer.prototype = {
 						shim = REF;
 						break;
 					}
-				} else if (method.endsWith("setCoord")) {
+				} else if (element.nodeName !== 'HAnimSegment' && method.endsWith("setCoord")) {
 					switch (node.nodeName) {
 					case "Coordinate":
 						shim = REF;
@@ -596,6 +616,7 @@ CppSerializer.prototype = {
 					case "LayerSet":
 					case "Shape":
 					case "ProtoBody":
+					case "Billboard":
 					case "Appearance":
 						shim = REF;
 					case "head":
@@ -618,6 +639,9 @@ CppSerializer.prototype = {
 						break;
 					}
 					switch (node.nodeName) {
+					case "GeoViewpoint":
+					case "GeoLocation":
+						method = method.replace("addChildren", "addChild");
 					case "GeoLOD":
 					case "GeoElevationGrid":
 					case "HAnimHumanoid":
@@ -644,6 +668,7 @@ CppSerializer.prototype = {
 				}
 				switch (node.nodeName) {
 				case "ROUTE":
+					method = method.replace("addChildren", "addChild");
 				case "FontStyle":
 					shim = REF;
 					break;
@@ -662,7 +687,7 @@ CppSerializer.prototype = {
 						switch (node.nodeName) {
 						case "Shape":
 						case "Extrusion":
-						case "Coordinate":
+						case "Billboard":
 							shim = REF;
 							break;
 						case "CADPart":
@@ -680,6 +705,15 @@ CppSerializer.prototype = {
 							break;
 						case "CADPart":
 						case "CADAssembly":
+							startshim = OBJ+"X3DBaseNode::";
+							shim = "static_cast<X3DGroupingNode*>("+REF;
+							endshim = ")";
+							break;
+						}
+						break;
+					case "ShaderPart":
+						switch (node.nodeName) {
+						case "IS":
 							startshim = OBJ+"X3DBaseNode::";
 							shim = "static_cast<X3DGroupingNode*>("+REF;
 							endshim = ")";
@@ -720,7 +754,7 @@ CppSerializer.prototype = {
 					node.nodeName === "PointLight" ||
 					node.nodeName === "Scene" ||
 					node.nodeName === "ShaderPart" ||
-					node.nodeName === "Sphere" ||
+					(node.nodeName === "Sphere" && element.nodeName === "Shape") ||
 					node.nodeName.endsWith("Sensor") ||
 					node.nodeName === "Collision" ||
 					node.nodeName.endsWith("Interpolator") ||
@@ -732,9 +766,11 @@ CppSerializer.prototype = {
 				if ((method.endsWith("setValue") && node.nodeName.startsWith("Metadata") && element.nodeName === "MetadataSet")) {
 					shim = "(X3DNode *)&";
 				}
+				/*
 				if (method.endsWith("setMetadata")) {
 					shim = REF;
 				}
+				*/
 				if (startshim.startsWith(OBJ)) {
 					method = method.substring(OBJ.length);
 				}
@@ -768,4 +804,3 @@ CppSerializer.prototype = {
 		return str;
 	}
 };
-module.exports = CppSerializer;

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int Menu(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -58,7 +50,9 @@ Transform11.addChild(&TouchSensor12);
 
 Shape& Shape13 =  Shape();
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance14.addChild(&Material15);
 
@@ -75,6 +69,7 @@ IS17.addChild(&connect18);
 Text16.addChild(&IS17);
 
 CFontStyle& FontStyle19 =  CFontStyle();
+FontStyle19.setContainerField("fontStyle");
 FontStyle19.setSize(2.4);
 FontStyle19.setSpacing(1.2);
 FontStyle19.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -86,7 +81,9 @@ Transform11.addChild(&Shape13);
 
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance21.addChild(&Material22);
 
@@ -369,4 +366,4 @@ Scene4.addChild(&ProtoInstance68);
 
 X3D0.setScene(&Scene4);
 
-//}
+}

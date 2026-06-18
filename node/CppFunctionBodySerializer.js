@@ -7,10 +7,10 @@ const NEW = ""; // new
 const PTR = ""; // *
 const REF = "&"; // *
 
-var DOMSerializer = require('./DOMSerializer.js');
+import DOMSerializer from './DOMSerializer.js';
 let serializer = new DOMSerializer();
 
-function CppFunctionBodySerializer () {
+export default function CppFunctionBodySerializer () {
 this.code = [];
 this.codeno = 0;
 this.preno = 0;
@@ -34,24 +34,21 @@ CppFunctionBodySerializer.prototype = {
         // https://stackoverflow.com/questions/3151436/how-can-i-get-the-current-directory-name-in-javascript
         // console.log('Current directory: ' + process.cwd()); // Node.js method for current directory - not what is needed here
         // https://flaviocopes.com/node-get-current-folder/ use __dirname under Node.js
-		str += "#ifndef WIN32\n";
-		str += "#define WINAPI\n";
-		str += "#define AFX_EXT_CLASS\n";
-		str += "#define EXPORT32\n";
-		str += "#define WINGDIAPI\n";
-		str += "#define APIENTRY\n";
-		str += "#endif\n";
-		str += "#define BOOL bool\n";
-		str += "#define XML_PARSER_H\n";
-		str += "//#include \"pch.h\"\n";
-		str += "//#include \"framework.h\"\n";
-		str += "//#include \"glut.h\"\n";
-		str += "//#include \"X3DLib.h\"\n";
-		str += "//int main(int argc, char ** argv) \n";
-		str += "//{\n";
+		str += "#include \"pch.h\"\n";
+		str += "#define WIN32_LEAN_AND_MEAN\n";
+		str += "#include <windows.h>\n";
+		str += "#include <wingdi.h>\n";
+		str += "#include <string>\n";
+		str += "#include \"X3DLib.h\"\n";
+                let ls = clazz.lastIndexOf("/")
+                if (ls < 0) {
+                        ls = clazz.lastIndexOf("\\")
+                }
+                ls += 1;
+                str += "int "+(clazz.substring(ls))+"(int argc, char ** argv) {\n";
 		bodystr += element.nodeName+REF+" "+element.nodeName+stack[0]+" = "+NEW+" "+element.nodeName+"();\n";
 		bodystr += this.subSerializeToString(element, mapToMethod, fieldTypes, 3, stack);
-		bodystr += "//}\n";
+		bodystr += "}\n";
 		// MFInt32 declarations (for now)
 		for (var co in this.code) {
 			str += this.code[co];
@@ -144,6 +141,8 @@ CppFunctionBodySerializer.prototype = {
 				// this.codeno++;
 				// return attrType+co;
 			}
+		} else if (attrType === "MFFloat") {
+			return shim+' '+type+'['+""/*values.length*/+']{'+lead+values.join(j)+trail+'}';
 		} else if (attrType === "MFString") {
 			return type+'{'+lead+values.join(j)+trail+'}, '+values.length;
 		} else {
@@ -336,8 +335,8 @@ CppFunctionBodySerializer.prototype = {
 						continue;
 					} else if (attr === "xsd:noNamespaceSchemaLocation" ) {
 						continue;
-					} else if (attr === 'containerField') {
-						continue;
+					//} else if (attr === 'containerField') {
+					//	continue;
 					} else if (attr === "id") {
 						continue;
 					} else if (element.nodeName === "Sphere" && attr === "subdivision") {
@@ -763,4 +762,3 @@ CppFunctionBodySerializer.prototype = {
 		return str;
 	}
 };
-module.exports = CppFunctionBodySerializer;

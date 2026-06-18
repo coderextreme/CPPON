@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int pp3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -69,7 +61,9 @@ Transform& Transform14 =  Transform();
 Transform14.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape15 =  Shape();
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setDiffuseColor(new float[]{0.7,1.0,0.0});
 Material17.setTransparency(0.5);
 Appearance16.addChild(&Material17);
@@ -92,7 +86,9 @@ Transform& Transform19 =  Transform();
 Transform19.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.0,0.7,1.0});
 Material22.setTransparency(0.5);
 Appearance21.addChild(&Material22);
@@ -111,7 +107,9 @@ Transform& Transform24 =  Transform();
 Transform24.setTranslation(new float[]{2.0,0.0,0.0});
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Material& Material27 =  Material();
+Material27.setContainerField("material");
 Material27.setDEF(std::string("MaterialLightBlue"));
 Material27.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance26.addChild(&Material27);
@@ -144,7 +142,9 @@ Transform& Transform31 =  Transform();
 Transform31.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setDiffuseColor(new float[]{0.0,0.7,1.0});
 Material34.setTransparency(0.5);
 Appearance33.addChild(&Material34);
@@ -163,7 +163,9 @@ Transform& Transform36 =  Transform();
 Transform36.setTranslation(new float[]{-0.5,2.0,0.0});
 Shape& Shape37 =  Shape();
 Appearance& Appearance38 =  Appearance();
+Appearance38.setContainerField("appearance");
 Material& Material39 =  Material();
+Material39.setContainerField("material");
 Material39.setUSE(std::string("MaterialLightBlue"));
 Appearance38.addChild(&Material39);
 
@@ -195,7 +197,9 @@ Transform& Transform43 =  Transform();
 Transform43.setScale(new float[]{0.5,0.5,0.5});
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
+Appearance45.setContainerField("appearance");
 Material& Material46 =  Material();
+Material46.setContainerField("material");
 Material46.setDiffuseColor(new float[]{0.7,1.0,0.0});
 Material46.setTransparency(0.5);
 Appearance45.addChild(&Material46);
@@ -217,7 +221,9 @@ Group13.addChild(&Transform43);
 Transform& Transform48 =  Transform();
 Shape& Shape49 =  Shape();
 Appearance& Appearance50 =  Appearance();
+Appearance50.setContainerField("appearance");
 Material& Material51 =  Material();
+Material51.setContainerField("material");
 Material51.setDiffuseColor(new float[]{1.0,0.0,0.7});
 Appearance50.addChild(&Material51);
 
@@ -233,7 +239,9 @@ Transform53.setScale(new float[]{0.5,0.5,0.5});
 Transform53.setTranslation(new float[]{-0.5,0.0,1.0});
 Shape& Shape54 =  Shape();
 Appearance& Appearance55 =  Appearance();
+Appearance55.setContainerField("appearance");
 Material& Material56 =  Material();
+Material56.setContainerField("material");
 Material56.setUSE(std::string("MaterialLightBlue"));
 Appearance55.addChild(&Material56);
 
@@ -434,4 +442,4 @@ Scene10.addChild(&Transform84);
 
 X3D0.setScene(&Scene10);
 
-//}
+}

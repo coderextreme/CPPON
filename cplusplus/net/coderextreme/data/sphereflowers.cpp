@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int sphereflowers(int argc, char ** argv) {
+void sphereflowers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -99,18 +91,18 @@ NavigationInfo& NavigationInfo18 =  NavigationInfo();
 Scene17.addChild(&NavigationInfo18);
 
 Background& Background19 =  Background();
-Background19.setBackUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
-Background19.setBottomUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
-Background19.setFrontUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
-Background19.setLeftUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
-Background19.setRightUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
-Background19.setTopUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
+Background19.setBackUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
+Background19.setBottomUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
+Background19.setFrontUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
+Background19.setLeftUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
+Background19.setRightUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
+Background19.setTopUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
 Scene17.addChild(&Background19);
 
 Group& Group20 =  Group();
 ExternProtoDeclare& ExternProtoDeclare21 =  ExternProtoDeclare();
 ExternProtoDeclare21.setName(std::string("FlowerProto"));
-ExternProtoDeclare21.setUrl((std::string[]){"../data/flowerproto.x3d#FlowerProto", "https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto"}, 2);
+ExternProtoDeclare21.setUrl(new std::string[]{"../data/flowerproto.x3d#FlowerProto", "https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto"}, 2);
 field& field22 =  field();
 field22.setName(std::string("vertex"));
 field22.setAccessType(std::string("inputOutput"));
@@ -185,9 +177,10 @@ Sound37.setMinBack(20);
 Sound37.setMinFront(20);
 Sound37.setLocation(new float[]{0.0,1.0,0.0});
 AudioClip& AudioClip38 =  AudioClip();
+AudioClip38.setContainerField("source");
 AudioClip38.setDEF(std::string("AudioClip"));
 AudioClip38.setDescription(std::string("Chandubabamusic #1"));
-AudioClip38.setUrl((std::string[]){"../resources/chandubabamusic1.wav", "https://coderextreme.net/X3DJSONLD/src/main/resources/chandubabamusic1.wav"}, 2);
+AudioClip38.setUrl(new std::string[]{"../resources/chandubabamusic1.wav", "https://coderextreme.net/X3DJSONLD/src/main/resources/chandubabamusic1.wav"}, 2);
 Sound37.setSource(AudioClip38);
 
 Group20.addChild(&Sound37);

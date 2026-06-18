@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int InlineSoundSource(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -111,8 +103,10 @@ Transform19.setDEF(std::string("Floor"));
 Transform19.setTranslation(new float[]{1.241,0.0,0.358});
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Appearance21.setDEF(std::string("WireColor"));
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.122,0.114,0.125});
 Appearance21.addChild(&Material22);
 
@@ -127,6 +121,7 @@ Coordinate24.setPoint(new float[]{-1000.0,0.0,1000.0,-1000.0,0.0,-1000.0,1000.0,
 IndexedFaceSet23.setCoord(&Coordinate24);
 
 Normal& Normal25 =  Normal();
+Normal25.setContainerField("normal");
 Normal25.setVector(new float[]{0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0,-1.0,0.0,0.0}, 108);
 IndexedFaceSet23.setNormal(&Normal25);
 
@@ -147,4 +142,4 @@ Scene14.addChild(&Transform26);
 
 X3D0.setScene(&Scene14);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int GridXZ_20x20Fixed(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("3.0"));
@@ -95,6 +87,7 @@ Coordinate19.setPoint(new float[]{0.0,0.0,0.0,-10.0,0.0,10.0,-9.0,0.0,10.0,-8.0,
 IndexedLineSet18.setCoord(&Coordinate19);
 
 CColor& Color20 =  CColor();
+Color20.setContainerField("color");
 Color20.setColor(new float[]{0.4,0.4,0.4,0.8,0.2,0.0,0.4,0.1,0.05}, 9);
 IndexedLineSet18.setColor(&Color20);
 
@@ -119,6 +112,7 @@ Text& Text26 =  Text();
 Text26.setDEF(std::string("CenterTextNode"));
 Text26.setString((std::string[]){"origin"}, 1);
 CFontStyle& FontStyle27 =  CFontStyle();
+FontStyle27.setContainerField("fontStyle");
 FontStyle27.setDEF(std::string("FS4"));
 FontStyle27.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle27.setSize(0.4);
@@ -127,8 +121,10 @@ Text26.setFontStyle(&FontStyle27);
 Shape25.setGeometry(&Text26);
 
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Appearance28.setDEF(std::string("DefaultAppearance"));
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Appearance28.addChild(&Material29);
 
 Shape25.addChild(&Appearance28);
@@ -146,12 +142,14 @@ Shape& Shape32 =  Shape();
 Text& Text33 =  Text();
 Text33.setString((std::string[]){"10 0 10"}, 1);
 CFontStyle& FontStyle34 =  CFontStyle();
+FontStyle34.setContainerField("fontStyle");
 FontStyle34.setUSE(std::string("FS4"));
 Text33.setFontStyle(&FontStyle34);
 
 Shape32.setGeometry(&Text33);
 
 Appearance& Appearance35 =  Appearance();
+Appearance35.setContainerField("appearance");
 Appearance35.setUSE(std::string("DefaultAppearance"));
 Shape32.addChild(&Appearance35);
 
@@ -168,12 +166,14 @@ Shape& Shape38 =  Shape();
 Text& Text39 =  Text();
 Text39.setString((std::string[]){"10 0 -10"}, 1);
 CFontStyle& FontStyle40 =  CFontStyle();
+FontStyle40.setContainerField("fontStyle");
 FontStyle40.setUSE(std::string("FS4"));
 Text39.setFontStyle(&FontStyle40);
 
 Shape38.setGeometry(&Text39);
 
 Appearance& Appearance41 =  Appearance();
+Appearance41.setContainerField("appearance");
 Appearance41.setUSE(std::string("DefaultAppearance"));
 Shape38.addChild(&Appearance41);
 
@@ -190,12 +190,14 @@ Shape& Shape44 =  Shape();
 Text& Text45 =  Text();
 Text45.setString((std::string[]){"-10 0 10"}, 1);
 CFontStyle& FontStyle46 =  CFontStyle();
+FontStyle46.setContainerField("fontStyle");
 FontStyle46.setUSE(std::string("FS4"));
 Text45.setFontStyle(&FontStyle46);
 
 Shape44.setGeometry(&Text45);
 
 Appearance& Appearance47 =  Appearance();
+Appearance47.setContainerField("appearance");
 Appearance47.setUSE(std::string("DefaultAppearance"));
 Shape44.addChild(&Appearance47);
 
@@ -212,12 +214,14 @@ Shape& Shape50 =  Shape();
 Text& Text51 =  Text();
 Text51.setString((std::string[]){"-10 0 -10"}, 1);
 CFontStyle& FontStyle52 =  CFontStyle();
+FontStyle52.setContainerField("fontStyle");
 FontStyle52.setUSE(std::string("FS4"));
 Text51.setFontStyle(&FontStyle52);
 
 Shape50.setGeometry(&Text51);
 
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Appearance53.setUSE(std::string("DefaultAppearance"));
 Shape50.addChild(&Appearance53);
 
@@ -233,4 +237,4 @@ Scene12.addChild(&Transform15);
 
 X3D0.setScene(&Scene12);
 
-//}
+}

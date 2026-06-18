@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int jumpcut_loadurl(int argc, char ** argv) {
+void jumpcut_loadurl(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -101,7 +93,7 @@ Background18.setSkyColor(new float[]{0.0,0.0,1.0}, 3);
 Scene16.addChild(&Background18);
 
 NavigationInfo& NavigationInfo19 =  NavigationInfo();
-NavigationInfo19.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo19.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene16.addChild(&NavigationInfo19);
 
 Viewpoint& Viewpoint20 =  Viewpoint();
@@ -125,7 +117,9 @@ Transform& Transform23 =  Transform();
 Transform23.setDEF(std::string("ROOT"));
 Shape& Shape24 =  Shape();
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Appearance25.addChild(&Material26);
 
 Shape24.addChild(&Appearance25);
@@ -139,7 +133,7 @@ Scene16.addChild(&Transform23);
 
 Script& Script28 =  Script();
 Script28.setDEF(std::string("MYSCRIPT"));
-Script28.setUrl((std::string[]){"jumpcut_loadurl.js", "https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.js"}, 2);
+Script28.setUrl(new std::string[]{"jumpcut_loadurl.js", "https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.js"}, 2);
 field& field29 =  field();
 field29.setName(std::string("myParameter"));
 field29.setAccessType(std::string("initializeOnly"));

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JinLOA4_scaled1_Final(int argc, char ** argv) {
+void JinLOA4_scaled1_Final(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -125,56 +117,67 @@ HAnimHumanoid23.setDEF(std::string("hanim_JinLOA4"));
 HAnimHumanoid23.setLoa(4);
 HAnimHumanoid23.setVersion(std::string("2.0"));
 MetadataSet& MetadataSet24 =  MetadataSet();
+MetadataSet24.setContainerField("metadata");
 MetadataSet24.X3DNode::setName(std::string("HAnimHumanoid.info"));
 MetadataSet24.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid"));
 MetadataString& MetadataString25 =  MetadataString();
 MetadataString25.X3DNode::setName(std::string("authorName"));
-MetadataString25.setValue((std::string[]){"Jin Hoon Lee and Min Joo Lee, Chul Hee Jung and Myeong Won Lee"}, 1);
+MetadataString25.setValue(new std::string[]{"Jin Hoon Lee and Min Joo Lee, Chul Hee Jung and Myeong Won Lee"}, 1);
+MetadataString25.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataString25);
 
 MetadataString& MetadataString26 =  MetadataString();
 MetadataString26.X3DNode::setName(std::string("authorEmail"));
-MetadataString26.setValue((std::string[]){"myeongwonlee@gmail.com"}, 1);
+MetadataString26.setValue(new std::string[]{"myeongwonlee@gmail.com"}, 1);
+MetadataString26.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataString26);
 
 MetadataString& MetadataString27 =  MetadataString();
 MetadataString27.X3DNode::setName(std::string("creationDate"));
-MetadataString27.setValue((std::string[]){"31 March 2011"}, 1);
+MetadataString27.setValue(new std::string[]{"31 March 2011"}, 1);
+MetadataString27.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataString27);
 
 MetadataString& MetadataString28 =  MetadataString();
 MetadataString28.X3DNode::setName(std::string("gender"));
-MetadataString28.setValue((std::string[]){"female"}, 1);
+MetadataString28.setValue(new std::string[]{"female"}, 1);
+MetadataString28.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataString28);
 
 MetadataFloat& MetadataFloat29 =  MetadataFloat();
 MetadataFloat29.X3DNode::setName(std::string("height"));
 MetadataFloat29.setValue(new float[]{1.5}, 1);
+MetadataFloat29.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataFloat29);
 
 MetadataString& MetadataString30 =  MetadataString();
 MetadataString30.X3DNode::setName(std::string("humanoidVersion"));
-MetadataString30.setValue((std::string[]){"2.0"}, 1);
+MetadataString30.setValue(new std::string[]{"2.0"}, 1);
+MetadataString30.setContainerField("value");
 MetadataSet24.setValue((X3DNode *)&MetadataString30);
 
-HAnimHumanoid23.setMetadata(&MetadataSet24);
+HAnimHumanoid23.setMetadata(MetadataSet24);
 
 HAnimJoint& HAnimJoint31 =  HAnimJoint();
 HAnimJoint31.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint31.setDEF(std::string("hanim_humanoid_root"));
 HAnimJoint31.setCenter(new float[]{0.0,0.825975,-0.015921});
+HAnimJoint31.setContainerField("skeleton");
 HAnimSegment& HAnimSegment32 =  HAnimSegment();
 HAnimSegment32.X3DNode::setName(std::string("sacrum"));
 HAnimSegment32.setDEF(std::string("hanim_sacrum"));
 Shape& Shape33 =  Shape();
 Appearance& Appearance34 =  Appearance();
+Appearance34.setContainerField("appearance");
 Material& Material35 =  Material();
+Material35.setContainerField("material");
 Material35.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance34.addChild(&Material35);
 
 ImageTexture& ImageTexture36 =  ImageTexture();
+ImageTexture36.setContainerField("texture");
 ImageTexture36.setDEF(std::string("JinLOA4TextureAtlas"));
-ImageTexture36.setUrl((std::string[]){"images/Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png"}, 2);
+ImageTexture36.setUrl(new std::string[]{"images/Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png"}, 2);
 Appearance34.addChild(&ImageTexture36);
 
 Shape33.addChild(&Appearance34);
@@ -188,6 +191,7 @@ Coordinate38.setPoint(new float[]{0.0,0.8496675,-0.01530675,0.0,0.84650177,-0.02
 IndexedFaceSet37.setCoord(&Coordinate38);
 
 TextureCoordinate& TextureCoordinate39 =  TextureCoordinate();
+TextureCoordinate39.setContainerField("texCoord");
 TextureCoordinate39.setPoint(new float[]{0.6211,0.5754,0.7851,0.572,0.7614,0.572,0.6907,0.5698,0.62,0.5698,0.6158,0.5702,0.5451,0.5702,0.4167,0.5698,0.5451,0.5702,0.6158,0.5702,0.62,0.5698,0.6907,0.5698,0.7614,0.572,0.8036,0.5346,0.7761,0.5346,0.6989,0.4838,0.6219,0.4428,0.6154,0.4438,0.5492,0.4639,0.4166,0.5346,0.5492,0.4639,0.6154,0.4438,0.6219,0.4428,0.6989,0.4838,0.7761,0.5346,0.7912,0.4044,0.7635,0.4044,0.7042,0.3925,0.6194,0.3907,0.6148,0.3907,0.545,0.3974,0.4163,0.4938,0.545,0.3974,0.6148,0.3907,0.6194,0.3907,0.7042,0.3925,0.7635,0.4044,0.795,0.3772,0.7662,0.3772,0.6945,0.3645,0.6236,0.3695,0.616,0.3695,0.5438,0.378,0.416,0.453,0.5438,0.378,0.616,0.3695,0.6236,0.3695,0.6945,0.3645,0.7662,0.3772,0.7887,0.3451,0.7635,0.3451,0.698,0.3508,0.6262,0.3508,0.6297,0.3503,0.5389,0.3503,0.4181,0.3884,0.5389,0.3503,0.6297,0.3503,0.6262,0.3508,0.698,0.3508,0.7635,0.3451,0.6237,0.3398}, 124);
 IndexedFaceSet37.setTexCoord(&TextureCoordinate39);
 
@@ -206,11 +210,14 @@ HAnimSegment41.X3DNode::setName(std::string("pelvis"));
 HAnimSegment41.setDEF(std::string("hanim_pelvis"));
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance43.addChild(&Material44);
 
 ImageTexture& ImageTexture45 =  ImageTexture();
+ImageTexture45.setContainerField("texture");
 ImageTexture45.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance43.addChild(&ImageTexture45);
 
@@ -225,6 +232,7 @@ Coordinate47.setPoint(new float[]{0.0,0.94995004,-0.012717,0.0,0.933525,-0.07948
 IndexedFaceSet46.setCoord(&Coordinate47);
 
 TextureCoordinate& TextureCoordinate48 =  TextureCoordinate();
+TextureCoordinate48.setContainerField("texCoord");
 TextureCoordinate48.setPoint(new float[]{0.6211,0.5754,0.7851,0.572,0.7614,0.572,0.6907,0.5698,0.62,0.5698,0.6158,0.5702,0.5451,0.5702,0.4167,0.5698,0.5451,0.5702,0.6158,0.5702,0.62,0.5698,0.6907,0.5698,0.7614,0.572,0.8036,0.5346,0.7761,0.5346,0.6989,0.4838,0.6219,0.4428,0.6154,0.4438,0.5492,0.4639,0.4166,0.5346,0.5492,0.4639,0.6154,0.4438,0.6219,0.4428,0.6989,0.4838,0.7761,0.5346,0.7912,0.4044,0.7635,0.4044,0.7042,0.3925,0.6194,0.3907,0.6148,0.3907,0.545,0.3974,0.4163,0.4938,0.545,0.3974,0.6148,0.3907,0.6194,0.3907,0.7042,0.3925,0.7635,0.4044,0.795,0.3772,0.7662,0.3772,0.6945,0.3645,0.6236,0.3695,0.616,0.3695,0.5438,0.378,0.416,0.453,0.5438,0.378,0.616,0.3695,0.6236,0.3695,0.6945,0.3645,0.7662,0.3772,0.7887,0.3451,0.7635,0.3451,0.698,0.3508,0.6262,0.3508,0.6297,0.3503,0.5389,0.3503,0.4181,0.3884,0.5389,0.3503,0.6297,0.3503,0.6262,0.3508,0.698,0.3508,0.7635,0.3451,0.6237,0.3398}, 124);
 IndexedFaceSet46.setTexCoord(&TextureCoordinate48);
 
@@ -243,11 +251,14 @@ HAnimSegment50.X3DNode::setName(std::string("l_thigh"));
 HAnimSegment50.setDEF(std::string("hanim_l_thigh"));
 Shape& Shape51 =  Shape();
 Appearance& Appearance52 =  Appearance();
+Appearance52.setContainerField("appearance");
 Material& Material53 =  Material();
+Material53.setContainerField("material");
 Material53.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance52.addChild(&Material53);
 
 ImageTexture& ImageTexture54 =  ImageTexture();
+ImageTexture54.setContainerField("texture");
 ImageTexture54.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance52.addChild(&ImageTexture54);
 
@@ -262,6 +273,7 @@ Coordinate56.setPoint(new float[]{0.1612575,0.82506156,-0.018348752,0.131625,0.8
 IndexedFaceSet55.setCoord(&Coordinate56);
 
 TextureCoordinate& TextureCoordinate57 =  TextureCoordinate();
+TextureCoordinate57.setContainerField("texCoord");
 TextureCoordinate57.setPoint(new float[]{0.719,0.5576,0.6284,0.5576,0.7414,0.5576,0.6787,0.5576,0.5781,0.5576,0.5154,0.5576,0.5378,0.5576,0.6284,0.5029,0.7509,0.3997,0.6284,0.3997,0.7509,0.5029,0.7811,0.3997,0.7811,0.5029,0.6964,0.3997,0.6964,0.5029,0.5604,0.3997,0.5604,0.5029,0.4756,0.3997,0.4756,0.5029,0.5059,0.3997,0.5059,0.5029,0.7509,0.3197,0.6284,0.3197,0.7811,0.3197,0.6964,0.3197,0.5604,0.3197,0.4756,0.3197,0.5059,0.3197,0.7651,0.2166,0.6284,0.2166,0.7989,0.2166,0.7043,0.2166,0.5525,0.2166,0.4579,0.2166,0.4917,0.2166,0.7224,0.263,0.6284,0.263,0.7456,0.263,0.6805,0.263,0.5762,0.263,0.5112,0.263,0.5344,0.263,0.8705,0.5452,0.8705,0.5383,0.8705,0.5369,0.8705,0.5408,0.8705,0.5483,0.8705,0.5522,0.8705,0.5509,0.917,0.5452,0.917,0.5266,0.89,0.5304,0.89,0.5452,0.917,0.522,0.89,0.5268,0.917,0.5349,0.89,0.537,0.917,0.5555,0.89,0.5534,0.917,0.5684,0.89,0.5636,0.917,0.5638,0.89,0.56,0.8746,0.531,0.8746,0.5452,0.8746,0.5279,0.8746,0.5368,0.8746,0.5524,0.8746,0.5613,0.8746,0.5581}, 140);
 IndexedFaceSet55.setTexCoord(&TextureCoordinate57);
 
@@ -280,11 +292,14 @@ HAnimSegment59.X3DNode::setName(std::string("l_calf"));
 HAnimSegment59.setDEF(std::string("hanim_l_calf"));
 Shape& Shape60 =  Shape();
 Appearance& Appearance61 =  Appearance();
+Appearance61.setContainerField("appearance");
 Material& Material62 =  Material();
+Material62.setContainerField("material");
 Material62.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance61.addChild(&Material62);
 
 ImageTexture& ImageTexture63 =  ImageTexture();
+ImageTexture63.setContainerField("texture");
 ImageTexture63.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance61.addChild(&ImageTexture63);
 
@@ -299,6 +314,7 @@ Coordinate65.setPoint(new float[]{0.10877851,0.43062302,-0.018911252,0.10078201,
 IndexedFaceSet64.setCoord(&Coordinate65);
 
 TextureCoordinate& TextureCoordinate66 =  TextureCoordinate();
+TextureCoordinate66.setContainerField("texCoord");
 TextureCoordinate66.setPoint(new float[]{0.9309,0.5848,0.919,0.5848,0.8921,0.5848,0.8706,0.5848,0.8706,0.5848,0.8921,0.5848,0.919,0.5848,0.9845,0.5321,0.955,0.5475,0.9491,0.5599,0.9788,0.5571,0.8787,0.5475,0.8825,0.5599,0.8302,0.5321,0.8291,0.5571,0.8302,0.52,0.8291,0.5571,0.8787,0.52,0.8825,0.5571,0.955,0.52,0.9491,0.5571,0.9444,0.5755,0.9717,0.5755,0.8831,0.5755,0.8339,0.5755,0.8339,0.5755,0.8831,0.5755,0.9444,0.5755,0.9632,0.3942,0.9402,0.3943,0.8884,0.3943,0.8469,0.3942,0.8469,0.3941,0.8884,0.3941,0.9402,0.3941,0.9325,0.3742,0.9208,0.3742,0.8947,0.3742,0.8737,0.3742,0.8737,0.3741,0.8947,0.3741,0.9208,0.3741}, 84);
 IndexedFaceSet64.setTexCoord(&TextureCoordinate66);
 
@@ -317,11 +333,14 @@ HAnimSegment68.X3DNode::setName(std::string("l_talus"));
 HAnimSegment68.setDEF(std::string("hanim_l_talus"));
 Shape& Shape69 =  Shape();
 Appearance& Appearance70 =  Appearance();
+Appearance70.setContainerField("appearance");
 Material& Material71 =  Material();
+Material71.setContainerField("material");
 Material71.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance70.addChild(&Material71);
 
 ImageTexture& ImageTexture72 =  ImageTexture();
+ImageTexture72.setContainerField("texture");
 ImageTexture72.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance70.addChild(&ImageTexture72);
 
@@ -336,6 +355,7 @@ Coordinate74.setPoint(new float[]{0.06994575,0.09505351,-0.03718125,0.06309,0.09
 IndexedFaceSet73.setCoord(&Coordinate74);
 
 TextureCoordinate& TextureCoordinate75 =  TextureCoordinate();
+TextureCoordinate75.setContainerField("texCoord");
 TextureCoordinate75.setPoint(new float[]{0.227,0.1089,0.2217,0.1285,0.2533,0.0835,0.273,0.1232,0.2824,0.0941,0.2433,0.1632,0.2685,0.0797,0.2165,0.148,0.2759,0.0832,0.2428,0.156,0.2563,0.142,0.2584,0.1419,0.2431,0.1588,0.2715,0.1062,0.2761,0.1011,0.2698,0.09,0.2775,0.078,0.2629,0.0863,0.248,0.0935,0.2498,0.0895,0.2702,0.0748,0.2296,0.1148,0.2397,0.101,0.2249,0.1266,0.2295,0.1126,0.2207,0.1406,0.2252,0.1591,0.2245,0.1634,0.2202,0.1406,0.2407,0.0951,0.2662,0.1249,0.2599,0.1313,0.2623,0.1418,0.2691,0.1232,0.2231,0.166,0.2217,0.1285,0.227,0.1089,0.2407,0.0951,0.2533,0.0835,0.2685,0.0797,0.2759,0.0832,0.2824,0.0941,0.273,0.1232,0.2623,0.1418,0.2433,0.1632,0.2231,0.166,0.2165,0.148}, 94);
 IndexedFaceSet73.setTexCoord(&TextureCoordinate75);
 
@@ -354,11 +374,14 @@ HAnimSegment77.X3DNode::setName(std::string("l_navicular"));
 HAnimSegment77.setDEF(std::string("hanim_l_navicular"));
 Shape& Shape78 =  Shape();
 Appearance& Appearance79 =  Appearance();
+Appearance79.setContainerField("appearance");
 Material& Material80 =  Material();
+Material80.setContainerField("material");
 Material80.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance79.addChild(&Material80);
 
 ImageTexture& ImageTexture81 =  ImageTexture();
+ImageTexture81.setContainerField("texture");
 ImageTexture81.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance79.addChild(&ImageTexture81);
 
@@ -373,6 +396,7 @@ Coordinate83.setPoint(new float[]{0.098487005,0.05500125,0.0201375,0.062829,0.01
 IndexedFaceSet82.setCoord(&Coordinate83);
 
 TextureCoordinate& TextureCoordinate84 =  TextureCoordinate();
+TextureCoordinate84.setContainerField("texCoord");
 TextureCoordinate84.setPoint(new float[]{0.2314,0.0879,0.21,0.1541,0.2053,0.1595,0.2104,0.1443,0.2271,0.0958,0.2224,0.1067,0.2032,0.149,0.2132,0.1285,0.2197,0.1123,0.2163,0.1174,0.227,0.1089,0.2165,0.148,0.2217,0.1285,0.2407,0.0951,0.2178,0.1526,0.2363,0.0929,0.2213,0.1179,0.2171,0.1588,0.2129,0.1643,0.21,0.1541,0.2053,0.1595,0.2032,0.149,0.2132,0.1285,0.2224,0.1067,0.2314,0.0879,0.2271,0.0958,0.2197,0.1123,0.2163,0.1174,0.2104,0.1443,0.227,0.1089,0.2217,0.1285,0.2165,0.148,0.2129,0.1643,0.2171,0.1588,0.2178,0.1526,0.2213,0.1179,0.2363,0.0929,0.2407,0.0951,0.2314,0.0879,0.2407,0.0951,0.2407,0.0951,0.2363,0.0929,0.2363,0.0929,0.2271,0.0958,0.2271,0.0958,0.2314,0.0879}, 92);
 IndexedFaceSet82.setTexCoord(&TextureCoordinate84);
 
@@ -391,11 +415,14 @@ HAnimSegment86.X3DNode::setName(std::string("l_cuneiform_1"));
 HAnimSegment86.setDEF(std::string("hanim_l_cuneiform_1"));
 Shape& Shape87 =  Shape();
 Appearance& Appearance88 =  Appearance();
+Appearance88.setContainerField("appearance");
 Material& Material89 =  Material();
+Material89.setContainerField("material");
 Material89.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance88.addChild(&Material89);
 
 ImageTexture& ImageTexture90 =  ImageTexture();
+ImageTexture90.setContainerField("texture");
 ImageTexture90.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance88.addChild(&ImageTexture90);
 
@@ -410,6 +437,7 @@ Coordinate92.setPoint(new float[]{0.06738075,0.007155002,0.027960751,0.06141825,
 IndexedFaceSet91.setCoord(&Coordinate92);
 
 TextureCoordinate& TextureCoordinate93 =  TextureCoordinate();
+TextureCoordinate93.setContainerField("texCoord");
 TextureCoordinate93.setPoint(new float[]{0.2027,0.1355,0.2132,0.1171,0.1958,0.1447,0.1899,0.1499,0.2047,0.1286,0.1825,0.1473,0.1858,0.1369,0.1864,0.1452,0.1953,0.1244,0.2059,0.1148,0.21,0.1541,0.2053,0.1595,0.2104,0.1443,0.2032,0.149,0.2132,0.1285,0.2163,0.1174,0.2047,0.1286,0.2132,0.1285,0.2163,0.1174,0.2132,0.1171,0.2059,0.1148,0.1953,0.1244,0.1858,0.1369,0.1864,0.1452,0.1825,0.1473,0.1953,0.1244,0.1953,0.1244,0.2059,0.1148,0.2059,0.1148}, 58);
 IndexedFaceSet91.setTexCoord(&TextureCoordinate93);
 
@@ -428,11 +456,14 @@ HAnimSegment95.X3DNode::setName(std::string("l_metatarsal_1"));
 HAnimSegment95.setDEF(std::string("hanim_l_metatarsal_1"));
 Shape& Shape96 =  Shape();
 Appearance& Appearance97 =  Appearance();
+Appearance97.setContainerField("appearance");
 Material& Material98 =  Material();
+Material98.setContainerField("material");
 Material98.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance97.addChild(&Material98);
 
 ImageTexture& ImageTexture99 =  ImageTexture();
+ImageTexture99.setContainerField("texture");
 ImageTexture99.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance97.addChild(&ImageTexture99);
 
@@ -447,6 +478,7 @@ Coordinate101.setPoint(new float[]{0.051975,0.0019080002,0.075330004,0.0506295,0
 IndexedFaceSet100.setCoord(&Coordinate101);
 
 TextureCoordinate& TextureCoordinate102 =  TextureCoordinate();
+TextureCoordinate102.setContainerField("texCoord");
 TextureCoordinate102.setPoint(new float[]{0.177,0.1457,0.1567,0.1378,0.1506,0.1431,0.1539,0.1386,0.1751,0.1447,0.1523,0.1336,0.1493,0.1348,0.1463,0.1377,0.1689,0.1382,0.1638,0.1444,0.1645,0.1416,0.1607,0.138,0.1731,0.1071,0.1859,0.1202,0.175,0.1048,0.1985,0.1126,0.1682,0.1025,0.1699,0.1017,0.1795,0.1136,0.1825,0.1473,0.1858,0.1369,0.1864,0.1452,0.1953,0.1244,0.2059,0.1148,0.1795,0.1136,0.1859,0.1202,0.1953,0.1244,0.2059,0.1148,0.1985,0.1126,0.175,0.1048,0.1699,0.1017,0.1682,0.1025,0.1731,0.1071,0.1523,0.1336,0.1463,0.1377,0.1493,0.1348,0.1682,0.1025,0.1682,0.1025,0.1699,0.1017,0.1699,0.1017,0.1864,0.1452,0.1858,0.1369,0.2059,0.1148,0.2059,0.1148,0.1953,0.1244,0.1953,0.1244,0.1825,0.1473}, 94);
 IndexedFaceSet100.setTexCoord(&TextureCoordinate102);
 
@@ -465,11 +497,14 @@ HAnimSegment104.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_1"));
 HAnimSegment104.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_1"));
 Shape& Shape105 =  Shape();
 Appearance& Appearance106 =  Appearance();
+Appearance106.setContainerField("appearance");
 Material& Material107 =  Material();
+Material107.setContainerField("material");
 Material107.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance106.addChild(&Material107);
 
 ImageTexture& ImageTexture108 =  ImageTexture();
+ImageTexture108.setContainerField("texture");
 ImageTexture108.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance106.addChild(&ImageTexture108);
 
@@ -484,6 +519,7 @@ Coordinate110.setPoint(new float[]{0.07342425,0.01488825,0.10537875,0.07352775,0
 IndexedFaceSet109.setCoord(&Coordinate110);
 
 TextureCoordinate& TextureCoordinate111 =  TextureCoordinate();
+TextureCoordinate111.setContainerField("texCoord");
 TextureCoordinate111.setPoint(new float[]{0.148,0.1294,0.142,0.1322,0.1446,0.131,0.1613,0.0957,0.1341,0.1263,0.1554,0.0919,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889,0.1392,0.1292,0.16,0.0958,0.1443,0.128,0.1415,0.1284,0.1616,0.0962,0.1346,0.0953,0.1273,0.0961,0.126,0.0891,0.1339,0.0889,0.1175,0.0992,0.228,0.0809,0.2186,0.0857,0.2172,0.0848,0.2097,0.0859,0.2098,0.0901,0.2285,0.0738,0.1152,0.1058,0.1523,0.1336,0.1493,0.1348,0.1463,0.1377,0.1682,0.1025,0.1699,0.1017,0.2293,0.0837,0.1648,0.0986,0.112,0.093,0.1632,0.098,0.113,0.0993,0.2302,0.0796,0.1153,0.1053,0.2293,0.0736,0.1463,0.1377,0.1523,0.1336,0.1699,0.1017,0.1682,0.1025,0.1493,0.1348,0.1699,0.1017,0.1648,0.0986,0.2302,0.0796,0.2293,0.0736,0.113,0.0993,0.112,0.093,0.1682,0.1025,0.1341,0.1263,0.1554,0.0919,0.1559,0.0889,0.1571,0.0927,0.1363,0.1268,0.1317,0.1272}, 116);
 IndexedFaceSet109.setTexCoord(&TextureCoordinate111);
 
@@ -502,11 +538,14 @@ HAnimSegment113.X3DNode::setName(std::string("l_tarsal_distal_phalanx_1"));
 HAnimSegment113.setDEF(std::string("hanim_l_tarsal_distal_phalanx_1"));
 Shape& Shape114 =  Shape();
 Appearance& Appearance115 =  Appearance();
+Appearance115.setContainerField("appearance");
 Material& Material116 =  Material();
+Material116.setContainerField("material");
 Material116.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance115.addChild(&Material116);
 
 ImageTexture& ImageTexture117 =  ImageTexture();
+ImageTexture117.setContainerField("texture");
 ImageTexture117.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance115.addChild(&ImageTexture117);
 
@@ -521,6 +560,7 @@ Coordinate119.setPoint(new float[]{0.0698625,0.018261,0.13208626,0.05414625,0.01
 IndexedFaceSet118.setCoord(&Coordinate119);
 
 TextureCoordinate& TextureCoordinate120 =  TextureCoordinate();
+TextureCoordinate120.setContainerField("texCoord");
 TextureCoordinate120.setPoint(new float[]{0.1287,0.113,0.1423,0.0921,0.1396,0.0889,0.1257,0.1107,0.1415,0.0903,0.1274,0.1123,0.1297,0.1214,0.15,0.0896,0.1273,0.1223,0.1313,0.1227,0.1521,0.0901,0.1498,0.0859,0.0527,0.151,0.0282,0.1325,0.0446,0.0894,0.0746,0.0899,0.1016,0.0977,0.1554,0.0919,0.0779,0.162,0.1341,0.1263,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889,0.1554,0.0919,0.0779,0.162,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889}, 60);
 IndexedFaceSet118.setTexCoord(&TextureCoordinate120);
 
@@ -547,11 +587,14 @@ HAnimSegment122.X3DNode::setName(std::string("l_cuneiform_2"));
 HAnimSegment122.setDEF(std::string("hanim_l_cuneiform_2"));
 Shape& Shape123 =  Shape();
 Appearance& Appearance124 =  Appearance();
+Appearance124.setContainerField("appearance");
 Material& Material125 =  Material();
+Material125.setContainerField("material");
 Material125.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance124.addChild(&Material125);
 
 ImageTexture& ImageTexture126 =  ImageTexture();
+ImageTexture126.setContainerField("texture");
 ImageTexture126.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance124.addChild(&ImageTexture126);
 
@@ -566,6 +609,7 @@ Coordinate128.setPoint(new float[]{0.086868,0.0038924997,0.028325252,0.0873225,0
 IndexedFaceSet127.setCoord(&Coordinate128);
 
 TextureCoordinate& TextureCoordinate129 =  TextureCoordinate();
+TextureCoordinate129.setContainerField("texCoord");
 TextureCoordinate129.setPoint(new float[]{0.2179,0.1044,0.2186,0.1086,0.2128,0.1035,0.2098,0.0996,0.2047,0.1286,0.2132,0.1171,0.1953,0.1244,0.2059,0.1148,0.2224,0.1067,0.2132,0.1285,0.2197,0.1123,0.2163,0.1174,0.2132,0.1285,0.2047,0.1286,0.1953,0.1244,0.1953,0.1244,0.2132,0.1171,0.2163,0.1174,0.2098,0.0996,0.2179,0.1044,0.2224,0.1067,0.2224,0.1067,0.2186,0.1086,0.2128,0.1035,0.1953,0.1244,0.2098,0.0996,0.2098,0.0996,0.2128,0.1035,0.2098,0.0996,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.2224,0.1067,0.2132,0.1285,0.2132,0.1285,0.2163,0.1174,0.2132,0.1285,0.2224,0.1067,0.2224,0.1067,0.2224,0.1067}, 80);
 IndexedFaceSet127.setTexCoord(&TextureCoordinate129);
 
@@ -584,11 +628,14 @@ HAnimSegment131.X3DNode::setName(std::string("l_metatarsal_2"));
 HAnimSegment131.setDEF(std::string("hanim_l_metatarsal_2"));
 Shape& Shape132 =  Shape();
 Appearance& Appearance133 =  Appearance();
+Appearance133.setContainerField("appearance");
 Material& Material134 =  Material();
+Material134.setContainerField("material");
 Material134.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance133.addChild(&Material134);
 
 ImageTexture& ImageTexture135 =  ImageTexture();
+ImageTexture135.setContainerField("texture");
 ImageTexture135.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance133.addChild(&ImageTexture135);
 
@@ -603,6 +650,7 @@ Coordinate137.setPoint(new float[]{0.08865,0.03174975,0.079515,0.08774325,0.0435
 IndexedFaceSet136.setCoord(&Coordinate137);
 
 TextureCoordinate& TextureCoordinate138 =  TextureCoordinate();
+TextureCoordinate138.setContainerField("texCoord");
 TextureCoordinate138.setPoint(new float[]{0.175,0.1048,0.1833,0.0898,0.1856,0.0872,0.1731,0.1071,0.1985,0.1126,0.2017,0.0948,0.1859,0.1202,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.1699,0.1017,0.1937,0.091,0.1795,0.1136,0.2068,0.0986,0.2128,0.1035,0.2098,0.0996,0.1953,0.1244,0.2059,0.1148,0.1795,0.1136,0.1859,0.1202,0.1731,0.1071,0.2017,0.0948,0.1859,0.1202,0.1795,0.1136,0.1731,0.1071,0.1682,0.1025,0.1682,0.1025,0.1731,0.1071,0.1795,0.1136,0.1859,0.1202,0.1953,0.1244,0.1953,0.1244,0.1856,0.0872,0.1937,0.091,0.2017,0.0948,0.2098,0.0996,0.2098,0.0996,0.2017,0.0948,0.1856,0.0872,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.1682,0.1025,0.1682,0.1025,0.1682,0.1025,0.1682,0.1025,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.2098,0.0996,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996}, 114);
 IndexedFaceSet136.setTexCoord(&TextureCoordinate138);
 
@@ -621,11 +669,14 @@ HAnimSegment140.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_2"));
 HAnimSegment140.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_2"));
 Shape& Shape141 =  Shape();
 Appearance& Appearance142 =  Appearance();
+Appearance142.setContainerField("appearance");
 Material& Material143 =  Material();
+Material143.setContainerField("material");
 Material143.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance142.addChild(&Material143);
 
 ImageTexture& ImageTexture144 =  ImageTexture();
+ImageTexture144.setContainerField("texture");
 ImageTexture144.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance142.addChild(&ImageTexture144);
 
@@ -640,6 +691,7 @@ Coordinate146.setPoint(new float[]{0.074895754,0.0222525,0.10377,0.07523775,0.00
 IndexedFaceSet145.setCoord(&Coordinate146);
 
 TextureCoordinate& TextureCoordinate147 =  TextureCoordinate();
+TextureCoordinate147.setContainerField("texCoord");
 TextureCoordinate147.setPoint(new float[]{0.2327,0.0796,0.2439,0.0803,0.2062,0.05,0.2147,0.0491,0.2302,0.0796,0.2205,0.0532,0.2301,0.0734,0.2486,0.0743,0.2013,0.0552,0.2187,0.0481,0.221,0.0541,0.2293,0.0736,0.1746,0.075,0.1709,0.0678,0.1706,0.0686,0.1745,0.076,0.1824,0.0523,0.1886,0.0572,0.183,0.0511,0.1834,0.0508,0.1882,0.0556,0.1885,0.0566,0.1716,0.0676,0.1748,0.0736,0.2444,0.0847,0.2027,0.042,0.2022,0.0485,0.2464,0.0799,0.2486,0.0741,0.2011,0.0554,0.2293,0.0837,0.2177,0.0418,0.1769,0.0796,0.1648,0.0986,0.1632,0.098,0.1766,0.0777,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.1699,0.1017,0.1699,0.1017,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.2022,0.0485,0.2027,0.042,0.1811,0.0824,0.1801,0.0847,0.1769,0.0796,0.2464,0.0799,0.2486,0.0741,0.1632,0.098,0.2187,0.0481,0.221,0.0541,0.2302,0.0796,0.2293,0.0837,0.1699,0.1017,0.1682,0.1025}, 116);
 IndexedFaceSet145.setTexCoord(&TextureCoordinate147);
 
@@ -658,11 +710,14 @@ HAnimSegment149.X3DNode::setName(std::string("l_tarsal_middle_phalanx_2"));
 HAnimSegment149.setDEF(std::string("hanim_l_tarsal_middle_phalanx_2"));
 Shape& Shape150 =  Shape();
 Appearance& Appearance151 =  Appearance();
+Appearance151.setContainerField("appearance");
 Material& Material152 =  Material();
+Material152.setContainerField("material");
 Material152.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance151.addChild(&Material152);
 
 ImageTexture& ImageTexture153 =  ImageTexture();
+ImageTexture153.setContainerField("texture");
 ImageTexture153.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance151.addChild(&ImageTexture153);
 
@@ -677,6 +732,7 @@ Coordinate155.setPoint(new float[]{0.077145755,0.0020925,0.124110006,0.07650675,
 IndexedFaceSet154.setCoord(&Coordinate155);
 
 TextureCoordinate& TextureCoordinate156 =  TextureCoordinate();
+TextureCoordinate156.setContainerField("texCoord");
 TextureCoordinate156.setPoint(new float[]{0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261,0.0949,0.0775,0.1651,0.0639,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1291,0.0918,0.1834,0.0508,0.1554,0.0532,0.1716,0.0676,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1554,0.0532,0.1653,0.0654,0.1636,0.063,0.1651,0.0639,0.0949,0.0775,0.1792,0.0409,0.1795,0.0453}, 56);
 IndexedFaceSet154.setTexCoord(&TextureCoordinate156);
 
@@ -695,11 +751,14 @@ HAnimSegment158.X3DNode::setName(std::string("l_tarsal_distal_phalanx_2"));
 HAnimSegment158.setDEF(std::string("hanim_l_tarsal_distal_phalanx_2"));
 Shape& Shape159 =  Shape();
 Appearance& Appearance160 =  Appearance();
+Appearance160.setContainerField("appearance");
 Material& Material161 =  Material();
+Material161.setContainerField("material");
 Material161.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance160.addChild(&Material161);
 
 ImageTexture& ImageTexture162 =  ImageTexture();
+ImageTexture162.setContainerField("texture");
 ImageTexture162.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance160.addChild(&ImageTexture162);
 
@@ -714,6 +773,7 @@ Coordinate164.setPoint(new float[]{0.0795195,0.00385875,0.13077226,0.07962525,0.
 IndexedFaceSet163.setCoord(&Coordinate164);
 
 TextureCoordinate& TextureCoordinate165 =  TextureCoordinate();
+TextureCoordinate165.setContainerField("texCoord");
 TextureCoordinate165.setPoint(new float[]{0.1643,0.0579,0.1638,0.0538,0.174,0.0396,0.1747,0.0423,0.1756,0.0403,0.1632,0.0573,0.066,0.0493,0.0915,0.0082,0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.0949,0.0775,0.1293,0.0261,0.1651,0.0639,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261}, 44);
 IndexedFaceSet163.setTexCoord(&TextureCoordinate165);
 
@@ -742,11 +802,14 @@ HAnimSegment167.X3DNode::setName(std::string("l_cuneiform_3"));
 HAnimSegment167.setDEF(std::string("hanim_l_cuneiform_3"));
 Shape& Shape168 =  Shape();
 Appearance& Appearance169 =  Appearance();
+Appearance169.setContainerField("appearance");
 Material& Material170 =  Material();
+Material170.setContainerField("material");
 Material170.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance169.addChild(&Material170);
 
 ImageTexture& ImageTexture171 =  ImageTexture();
+ImageTexture171.setContainerField("texture");
 ImageTexture171.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance169.addChild(&ImageTexture171);
 
@@ -761,6 +824,7 @@ Coordinate173.setPoint(new float[]{0.100037254,0.047187,0.03966075,0.098388,0.00
 IndexedFaceSet172.setCoord(&Coordinate173);
 
 TextureCoordinate& TextureCoordinate174 =  TextureCoordinate();
+TextureCoordinate174.setContainerField("texCoord");
 TextureCoordinate174.setPoint(new float[]{0.2226,0.0828,0.2197,0.0903,0.2186,0.1086,0.2179,0.1044,0.2314,0.0879,0.2128,0.1035,0.2098,0.0996,0.2271,0.0958,0.2224,0.1067,0.2197,0.1123,0.2224,0.1067,0.2314,0.0879,0.2226,0.0828,0.2314,0.0879,0.2314,0.0879,0.2197,0.0903,0.2179,0.1044,0.2098,0.0996,0.2098,0.0996,0.2186,0.1086,0.2197,0.1123,0.2224,0.1067,0.2098,0.0996,0.2226,0.0828,0.2226,0.0828,0.2197,0.0903,0.2226,0.0828,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996}, 60);
 IndexedFaceSet172.setTexCoord(&TextureCoordinate174);
 
@@ -779,11 +843,14 @@ HAnimSegment176.X3DNode::setName(std::string("l_metatarsal_3"));
 HAnimSegment176.setDEF(std::string("hanim_l_metatarsal_3"));
 Shape& Shape177 =  Shape();
 Appearance& Appearance178 =  Appearance();
+Appearance178.setContainerField("appearance");
 Material& Material179 =  Material();
+Material179.setContainerField("material");
 Material179.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance178.addChild(&Material179);
 
 ImageTexture& ImageTexture180 =  ImageTexture();
+ImageTexture180.setContainerField("texture");
 ImageTexture180.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance178.addChild(&ImageTexture180);
 
@@ -798,6 +865,7 @@ Coordinate182.setPoint(new float[]{0.102496505,0.026298,0.08865,0.08885025,0.003
 IndexedFaceSet181.setCoord(&Coordinate182);
 
 TextureCoordinate& TextureCoordinate183 =  TextureCoordinate();
+TextureCoordinate183.setContainerField("texCoord");
 TextureCoordinate183.setPoint(new float[]{0.195,0.0629,0.1801,0.0847,0.1811,0.0824,0.1937,0.091,0.2128,0.1035,0.2098,0.0996,0.2197,0.0903,0.2138,0.0778,0.1989,0.0701,0.1984,0.068,0.2129,0.0844,0.1833,0.0898,0.1856,0.0872,0.1937,0.091,0.2068,0.0986,0.2138,0.0778,0.2061,0.0729,0.2061,0.0729,0.1989,0.0701,0.1984,0.068,0.1952,0.0651,0.2129,0.0844,0.1833,0.0898,0.1856,0.0872,0.2017,0.0948,0.2017,0.0948,0.2226,0.0828,0.2138,0.0778,0.1937,0.091,0.1811,0.0824,0.1856,0.0872,0.1856,0.0872,0.1937,0.091,0.2017,0.0948,0.2098,0.0996,0.2098,0.0996,0.2017,0.0948,0.2017,0.0948,0.1937,0.091,0.1937,0.091,0.1856,0.0872,0.1856,0.0872,0.1811,0.0824,0.2061,0.0729,0.2061,0.0729,0.2138,0.0778,0.2138,0.0778,0.2226,0.0828,0.2226,0.0828,0.2138,0.0778,0.2138,0.0778,0.1984,0.068,0.1984,0.068,0.195,0.0629,0.195,0.0629,0.1984,0.068,0.1984,0.068,0.195,0.0629,0.1811,0.0824,0.1801,0.0847,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.2226,0.0828,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996,0.2226,0.0828,0.2197,0.0903,0.2226,0.0828,0.2226,0.0828}, 150);
 IndexedFaceSet181.setTexCoord(&TextureCoordinate183);
 
@@ -816,11 +884,14 @@ HAnimSegment185.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_3"));
 HAnimSegment185.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_3"));
 Shape& Shape186 =  Shape();
 Appearance& Appearance187 =  Appearance();
+Appearance187.setContainerField("appearance");
 Material& Material188 =  Material();
+Material188.setContainerField("material");
 Material188.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance187.addChild(&Material188);
 
 ImageTexture& ImageTexture189 =  ImageTexture();
+ImageTexture189.setContainerField("texture");
 ImageTexture189.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance187.addChild(&ImageTexture189);
 
@@ -835,6 +906,7 @@ Coordinate191.setPoint(new float[]{0.0928935,0.012060001,0.11196676,0.094043255,
 IndexedFaceSet190.setCoord(&Coordinate191);
 
 TextureCoordinate& TextureCoordinate192 =  TextureCoordinate();
+TextureCoordinate192.setContainerField("texCoord");
 TextureCoordinate192.setPoint(new float[]{0.1706,0.0686,0.1709,0.0678,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1716,0.0676,0.1882,0.0556,0.1745,0.076,0.1748,0.0736,0.1886,0.0572,0.2327,0.0796,0.2439,0.0803,0.2076,0.0485,0.2162,0.0476,0.2201,0.0466,0.2302,0.0796,0.2219,0.0517,0.2301,0.0734,0.2486,0.0743,0.2027,0.0537,0.2224,0.0526,0.2293,0.0736,0.1746,0.075,0.1885,0.0566,0.1801,0.0847,0.1811,0.0824,0.1952,0.0651,0.195,0.0629,0.2293,0.0837,0.1769,0.0796,0.2191,0.0403,0.1766,0.0777,0.2037,0.047,0.2486,0.0741,0.2026,0.0539,0.2444,0.0847,0.1915,0.0602,0.2041,0.0405,0.1915,0.0578,0.2464,0.0799,0.1801,0.0847,0.1952,0.0651,0.195,0.0629,0.1811,0.0824,0.1952,0.0651,0.1915,0.0602,0.2464,0.0799,0.2486,0.0741,0.2037,0.047,0.2041,0.0405,0.195,0.0629,0.1766,0.0777,0.2201,0.0466,0.2224,0.0526,0.2302,0.0796,0.2293,0.0837,0.1801,0.0847,0.1811,0.0824}, 116);
 IndexedFaceSet190.setTexCoord(&TextureCoordinate192);
 
@@ -853,11 +925,14 @@ HAnimSegment194.X3DNode::setName(std::string("l_tarsal_middle_phalanx_3"));
 HAnimSegment194.setDEF(std::string("hanim_l_tarsal_middle_phalanx_3"));
 Shape& Shape195 =  Shape();
 Appearance& Appearance196 =  Appearance();
+Appearance196.setContainerField("appearance");
 Material& Material197 =  Material();
+Material197.setContainerField("material");
 Material197.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance196.addChild(&Material197);
 
 ImageTexture& ImageTexture198 =  ImageTexture();
+ImageTexture198.setContainerField("texture");
 ImageTexture198.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance196.addChild(&ImageTexture198);
 
@@ -872,6 +947,7 @@ Coordinate200.setPoint(new float[]{0.092927255,0.010451251,0.12121875,0.09370351
 IndexedFaceSet199.setCoord(&Coordinate200);
 
 TextureCoordinate& TextureCoordinate201 =  TextureCoordinate();
+TextureCoordinate201.setContainerField("texCoord");
 TextureCoordinate201.setPoint(new float[]{0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1651,0.0639,0.1293,0.0261,0.0949,0.0775,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1291,0.0918,0.1834,0.0508,0.1554,0.0532,0.1716,0.0676,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1554,0.0532,0.1653,0.0654,0.1636,0.063,0.1651,0.0639,0.0949,0.0775,0.1792,0.0409,0.1795,0.0453}, 56);
 IndexedFaceSet199.setTexCoord(&TextureCoordinate201);
 
@@ -890,11 +966,14 @@ HAnimSegment203.X3DNode::setName(std::string("l_tarsal_distal_phalanx_3"));
 HAnimSegment203.setDEF(std::string("hanim_l_tarsal_distal_phalanx_3"));
 Shape& Shape204 =  Shape();
 Appearance& Appearance205 =  Appearance();
+Appearance205.setContainerField("appearance");
 Material& Material206 =  Material();
+Material206.setContainerField("material");
 Material206.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance205.addChild(&Material206);
 
 ImageTexture& ImageTexture207 =  ImageTexture();
+ImageTexture207.setContainerField("texture");
 ImageTexture207.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance205.addChild(&ImageTexture207);
 
@@ -909,6 +988,7 @@ Coordinate209.setPoint(new float[]{0.0969255,0.00919575,0.1282905,0.0966825,0.00
 IndexedFaceSet208.setCoord(&Coordinate209);
 
 TextureCoordinate& TextureCoordinate210 =  TextureCoordinate();
+TextureCoordinate210.setContainerField("texCoord");
 TextureCoordinate210.setPoint(new float[]{0.1643,0.0579,0.1747,0.0423,0.174,0.0396,0.1638,0.0538,0.1756,0.0403,0.1632,0.0573,0.0915,0.0082,0.066,0.0493,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.0949,0.0775,0.1293,0.0261,0.1651,0.0639,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261}, 44);
 IndexedFaceSet208.setTexCoord(&TextureCoordinate210);
 
@@ -939,11 +1019,14 @@ HAnimSegment212.X3DNode::setName(std::string("l_calcaneus"));
 HAnimSegment212.setDEF(std::string("hanim_l_calcaneus"));
 Shape& Shape213 =  Shape();
 Appearance& Appearance214 =  Appearance();
+Appearance214.setContainerField("appearance");
 Material& Material215 =  Material();
+Material215.setContainerField("material");
 Material215.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance214.addChild(&Material215);
 
 ImageTexture& ImageTexture216 =  ImageTexture();
+ImageTexture216.setContainerField("texture");
 ImageTexture216.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance214.addChild(&ImageTexture216);
 
@@ -958,6 +1041,7 @@ Coordinate218.setPoint(new float[]{0.11156625,0.0018899972,-0.045627754,0.096849
 IndexedFaceSet217.setCoord(&Coordinate218);
 
 TextureCoordinate& TextureCoordinate219 =  TextureCoordinate();
+TextureCoordinate219.setContainerField("texCoord");
 TextureCoordinate219.setPoint(new float[]{0.2845,0.0964,0.2768,0.1211,0.2792,0.1228,0.2886,0.0939,0.2493,0.1586,0.2252,0.161,0.2241,0.1634,0.2489,0.1638,0.2727,0.0786,0.2746,0.076,0.2809,0.1238,0.2914,0.0926,0.2206,0.1691,0.249,0.1672,0.2762,0.0729,0.2769,0.1234,0.2869,0.0933,0.2461,0.1652,0.2661,0.1399,0.2685,0.1417,0.27,0.1429,0.2661,0.1424,0.24,0.098,0.2266,0.1229,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2178,0.1526,0.2363,0.0929,0.2213,0.1179,0.2171,0.1588,0.2129,0.1643,0.2165,0.148,0.2533,0.0835,0.273,0.1232,0.2824,0.0941,0.2433,0.1632,0.2759,0.0832,0.2685,0.0797,0.2623,0.1418,0.2231,0.166,0.273,0.1232,0.2824,0.0941,0.2759,0.0832,0.2685,0.0797,0.2533,0.0835,0.2165,0.148,0.2231,0.166,0.2433,0.1632,0.2623,0.1418,0.2665,0.0671,0.2628,0.0703,0.2363,0.0929,0.2213,0.1179,0.2178,0.1526,0.2171,0.1588,0.2129,0.1643,0.2165,0.148,0.2533,0.0835,0.2664,0.0668}, 120);
 IndexedFaceSet217.setTexCoord(&TextureCoordinate219);
 
@@ -976,11 +1060,14 @@ HAnimSegment221.X3DNode::setName(std::string("l_cuboid"));
 HAnimSegment221.setDEF(std::string("hanim_l_cuboid"));
 Shape& Shape222 =  Shape();
 Appearance& Appearance223 =  Appearance();
+Appearance223.setContainerField("appearance");
 Material& Material224 =  Material();
+Material224.setContainerField("material");
 Material224.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance223.addChild(&Material224);
 
 ImageTexture& ImageTexture225 =  ImageTexture();
+ImageTexture225.setContainerField("texture");
 ImageTexture225.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance223.addChild(&ImageTexture225);
 
@@ -995,6 +1082,7 @@ Coordinate227.setPoint(new float[]{0.11946825,0.0050174985,0.016718626,0.1230367
 IndexedFaceSet226.setCoord(&Coordinate227);
 
 TextureCoordinate& TextureCoordinate228 =  TextureCoordinate();
+TextureCoordinate228.setContainerField("texCoord");
 TextureCoordinate228.setPoint(new float[]{0.2528,0.0622,0.2585,0.0581,0.2383,0.0796,0.2566,0.0607,0.243,0.0749,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2292,0.0691,0.2342,0.0682,0.2533,0.0835,0.2407,0.0951,0.2314,0.0879,0.2226,0.0828,0.2271,0.0958,0.2197,0.0903,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2363,0.0929,0.2407,0.0951,0.2314,0.0879,0.2226,0.0828,0.2197,0.0903,0.2271,0.0958,0.2363,0.0929,0.2533,0.0835,0.2407,0.0951,0.2407,0.0951,0.2363,0.0929,0.2363,0.0929,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2469,0.052,0.2292,0.0691,0.2197,0.0903,0.2197,0.0903,0.2226,0.0828,0.2226,0.0828,0.2342,0.0682,0.2484,0.051,0.2512,0.047}, 86);
 IndexedFaceSet226.setTexCoord(&TextureCoordinate228);
 
@@ -1013,11 +1101,14 @@ HAnimSegment230.X3DNode::setName(std::string("l_metatarsal_4"));
 HAnimSegment230.setDEF(std::string("hanim_l_metatarsal_4"));
 Shape& Shape231 =  Shape();
 Appearance& Appearance232 =  Appearance();
+Appearance232.setContainerField("appearance");
 Material& Material233 =  Material();
+Material233.setContainerField("material");
 Material233.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance232.addChild(&Material233);
 
 ImageTexture& ImageTexture234 =  ImageTexture();
+ImageTexture234.setContainerField("texture");
 ImageTexture234.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance232.addChild(&ImageTexture234);
 
@@ -1032,6 +1123,7 @@ Coordinate236.setPoint(new float[]{0.1161675,0.0291195,0.07461,0.11416725,0.0352
 IndexedFaceSet235.setCoord(&Coordinate236);
 
 TextureCoordinate& TextureCoordinate237 =  TextureCoordinate();
+TextureCoordinate237.setContainerField("texCoord");
 TextureCoordinate237.setPoint(new float[]{0.2117,0.0481,0.2254,0.0615,0.2142,0.0508,0.2102,0.0461,0.2083,0.0443,0.2202,0.0585,0.2186,0.0548,0.1989,0.0701,0.1984,0.068,0.2138,0.0778,0.1952,0.0651,0.195,0.0629,0.2061,0.0729,0.2292,0.0691,0.2342,0.0682,0.2226,0.0828,0.2129,0.0844,0.2197,0.0903,0.2254,0.0615,0.2061,0.0729,0.2138,0.0778,0.2061,0.0729,0.1984,0.068,0.195,0.0629,0.195,0.0629,0.1984,0.068,0.2061,0.0729,0.2226,0.0828,0.2226,0.0828,0.2186,0.0548,0.2254,0.0615,0.2342,0.0682,0.2342,0.0682,0.2254,0.0615,0.2117,0.0481,0.2083,0.0443,0.2083,0.0443,0.2117,0.0481,0.2083,0.0443,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.2083,0.0443,0.2083,0.0443,0.2083,0.0443,0.2226,0.0828,0.2342,0.0682,0.2342,0.0682,0.2342,0.0682,0.2342,0.0682,0.2226,0.0828,0.2226,0.0828,0.2226,0.0828}, 108);
 IndexedFaceSet235.setTexCoord(&TextureCoordinate237);
 
@@ -1050,11 +1142,14 @@ HAnimSegment239.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_4"));
 HAnimSegment239.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_4"));
 Shape& Shape240 =  Shape();
 Appearance& Appearance241 =  Appearance();
+Appearance241.setContainerField("appearance");
 Material& Material242 =  Material();
+Material242.setContainerField("material");
 Material242.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance241.addChild(&Material242);
 
 ImageTexture& ImageTexture243 =  ImageTexture();
+ImageTexture243.setContainerField("texture");
 ImageTexture243.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance241.addChild(&ImageTexture243);
 
@@ -1069,6 +1164,7 @@ Coordinate245.setPoint(new float[]{0.117243,0.013070251,0.095406756,0.10868625,0
 IndexedFaceSet244.setCoord(&Coordinate245);
 
 TextureCoordinate& TextureCoordinate246 =  TextureCoordinate();
+TextureCoordinate246.setContainerField("texCoord");
 TextureCoordinate246.setPoint(new float[]{0.2033,0.0375,0.1866,0.0487,0.186,0.0472,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.1873,0.048,0.1915,0.0602,0.1915,0.0578,0.1897,0.0535,0.1888,0.0569,0.2031,0.037,0.2012,0.0381,0.2444,0.0847,0.2208,0.06,0.2111,0.0557,0.2254,0.054,0.2483,0.0809,0.2464,0.0799,0.2587,0.0865,0.225,0.0604,0.2239,0.0673,0.2238,0.0671,0.267,0.0845,0.2486,0.0741,0.2486,0.074,0.2049,0.059,0.1896,0.055,0.2102,0.0461,0.1952,0.0651,0.2083,0.0443,0.195,0.0629,0.2109,0.0476,0.2048,0.0404,0.2576,0.0911,0.2063,0.0414,0.2083,0.0537,0.2612,0.0869,0.2671,0.0842,0.2047,0.0593,0.1952,0.0651,0.2102,0.0461,0.2083,0.0443,0.195,0.0629,0.2102,0.0461,0.2063,0.0414,0.2612,0.0869,0.2671,0.0842,0.2083,0.0537,0.2109,0.0476,0.2083,0.0443,0.2444,0.0847,0.1952,0.0651,0.195,0.0629,0.1915,0.0578,0.225,0.0604,0.2239,0.0673,0.2464,0.0799}, 116);
 IndexedFaceSet244.setTexCoord(&TextureCoordinate246);
 
@@ -1087,11 +1183,14 @@ HAnimSegment248.X3DNode::setName(std::string("l_tarsal_middle_phalanx_4"));
 HAnimSegment248.setDEF(std::string("hanim_l_tarsal_middle_phalanx_4"));
 Shape& Shape249 =  Shape();
 Appearance& Appearance250 =  Appearance();
+Appearance250.setContainerField("appearance");
 Material& Material251 =  Material();
+Material251.setContainerField("material");
 Material251.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance250.addChild(&Material251);
 
 ImageTexture& ImageTexture252 =  ImageTexture();
+ImageTexture252.setContainerField("texture");
 ImageTexture252.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance250.addChild(&ImageTexture252);
 
@@ -1106,6 +1205,7 @@ Coordinate254.setPoint(new float[]{0.109172255,0.002007,0.115029,0.108081006,0.0
 IndexedFaceSet253.setCoord(&Coordinate254);
 
 TextureCoordinate& TextureCoordinate255 =  TextureCoordinate();
+TextureCoordinate255.setContainerField("texCoord");
 TextureCoordinate255.setPoint(new float[]{0.1822,0.0458,0.1809,0.0434,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.1816,0.0411,0.1287,0.0243,0.0943,0.0785,0.1866,0.0487,0.186,0.0472,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.1322,0.09,0.157,0.0552,0.1873,0.048,0.186,0.0472,0.1866,0.0487,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.157,0.0552,0.1822,0.0458,0.1809,0.0434,0.1816,0.0411,0.0943,0.0785,0.1948,0.024,0.1953,0.0282}, 56);
 IndexedFaceSet253.setTexCoord(&TextureCoordinate255);
 
@@ -1124,11 +1224,14 @@ HAnimSegment257.X3DNode::setName(std::string("l_tarsal_distal_phalanx_4"));
 HAnimSegment257.setDEF(std::string("hanim_l_tarsal_distal_phalanx_4"));
 Shape& Shape258 =  Shape();
 Appearance& Appearance259 =  Appearance();
+Appearance259.setContainerField("appearance");
 Material& Material260 =  Material();
+Material260.setContainerField("material");
 Material260.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance259.addChild(&Material260);
 
 ImageTexture& ImageTexture261 =  ImageTexture();
+ImageTexture261.setContainerField("texture");
 ImageTexture261.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance259.addChild(&ImageTexture261);
 
@@ -1143,6 +1246,7 @@ Coordinate263.setPoint(new float[]{0.112239,0.0039284998,0.11950425,0.119268,0.0
 IndexedFaceSet262.setCoord(&Coordinate263);
 
 TextureCoordinate& TextureCoordinate264 =  TextureCoordinate();
+TextureCoordinate264.setContainerField("texCoord");
 TextureCoordinate264.setPoint(new float[]{0.1831,0.0355,0.1904,0.0263,0.1901,0.0243,0.1819,0.0351,0.1913,0.0249,0.182,0.0368,0.088,0.0133,0.0677,0.0461,0.1822,0.0458,0.1809,0.0434,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.0943,0.0785,0.1287,0.0243,0.1816,0.0411,0.1809,0.0434,0.1822,0.0458,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.1287,0.0243}, 44);
 IndexedFaceSet262.setTexCoord(&TextureCoordinate264);
 
@@ -1169,11 +1273,14 @@ HAnimSegment266.X3DNode::setName(std::string("l_metatarsal_5"));
 HAnimSegment266.setDEF(std::string("hanim_l_metatarsal_5"));
 Shape& Shape267 =  Shape();
 Appearance& Appearance268 =  Appearance();
+Appearance268.setContainerField("appearance");
 Material& Material269 =  Material();
+Material269.setContainerField("material");
 Material269.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance268.addChild(&Material269);
 
 ImageTexture& ImageTexture270 =  ImageTexture();
+ImageTexture270.setContainerField("texture");
 ImageTexture270.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance268.addChild(&ImageTexture270);
 
@@ -1188,6 +1295,7 @@ Coordinate272.setPoint(new float[]{0.1282635,0.0019034995,0.060480006,0.134163,0
 IndexedFaceSet271.setCoord(&Coordinate272);
 
 TextureCoordinate& TextureCoordinate273 =  TextureCoordinate();
+TextureCoordinate273.setContainerField("texCoord");
 TextureCoordinate273.setPoint(new float[]{0.2299,0.0317,0.2316,0.0247,0.2265,0.0269,0.241,0.0419,0.244,0.0359,0.2401,0.0413,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2333,0.0341,0.2378,0.0303,0.2142,0.0508,0.2117,0.0481,0.2254,0.0615,0.2102,0.0461,0.2083,0.0443,0.2202,0.0585,0.2186,0.0548,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2292,0.0691,0.2342,0.0682,0.2142,0.0508,0.2202,0.0585,0.2292,0.0691,0.2342,0.0682,0.2254,0.0615,0.2186,0.0548,0.2117,0.0481,0.2083,0.0443,0.2102,0.0461,0.2292,0.0691,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2342,0.0682,0.2342,0.0682,0.2292,0.0691,0.226,0.0221,0.2245,0.0286,0.2102,0.0461,0.2102,0.0461,0.2083,0.0443,0.2083,0.0443,0.2232,0.0245}, 92);
 IndexedFaceSet271.setTexCoord(&TextureCoordinate273);
 
@@ -1206,11 +1314,14 @@ HAnimSegment275.X3DNode::setName(std::string("l_tarsal_proximal_phalanx_5"));
 HAnimSegment275.setDEF(std::string("hanim_l_tarsal_proximal_phalanx_5"));
 Shape& Shape276 =  Shape();
 Appearance& Appearance277 =  Appearance();
+Appearance277.setContainerField("appearance");
 Material& Material278 =  Material();
+Material278.setContainerField("material");
 Material278.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance277.addChild(&Material278);
 
 ImageTexture& ImageTexture279 =  ImageTexture();
+ImageTexture279.setContainerField("texture");
 ImageTexture279.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance277.addChild(&ImageTexture279);
 
@@ -1225,6 +1336,7 @@ Coordinate281.setPoint(new float[]{0.13023226,0.01971675,0.08492625,0.12904425,0
 IndexedFaceSet280.setCoord(&Coordinate281);
 
 TextureCoordinate& TextureCoordinate282 =  TextureCoordinate();
+TextureCoordinate282.setContainerField("texCoord");
 TextureCoordinate282.setPoint(new float[]{0.2192,0.0256,0.2205,0.0195,0.2048,0.0404,0.2199,0.022,0.2063,0.0414,0.2047,0.0523,0.1956,0.0462,0.1979,0.0386,0.2109,0.0476,0.277,0.1031,0.2673,0.0987,0.263,0.1,0.2744,0.109,0.1892,0.0439,0.1911,0.0375,0.2576,0.0911,0.2083,0.0537,0.263,0.0893,0.2612,0.0869,0.2047,0.0593,0.2048,0.0593,0.2671,0.0842,0.2673,0.0839,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2102,0.0461,0.2083,0.0443,0.2039,0.0358,0.2152,0.0224,0.2154,0.0203,0.2126,0.0258,0.2034,0.0366,0.2033,0.0375,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2083,0.0443,0.2102,0.0461,0.2576,0.0911,0.2102,0.0461,0.2083,0.0443,0.2048,0.0404,0.2083,0.0537,0.2047,0.0593,0.2612,0.0869}, 104);
 IndexedFaceSet280.setTexCoord(&TextureCoordinate282);
 
@@ -1243,11 +1355,14 @@ HAnimSegment284.X3DNode::setName(std::string("l_tarsal_middle_phalanx_5"));
 HAnimSegment284.setDEF(std::string("hanim_l_tarsal_middle_phalanx_5"));
 Shape& Shape285 =  Shape();
 Appearance& Appearance286 =  Appearance();
+Appearance286.setContainerField("appearance");
 Material& Material287 =  Material();
+Material287.setContainerField("material");
 Material287.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance286.addChild(&Material287);
 
 ImageTexture& ImageTexture288 =  ImageTexture();
+ImageTexture288.setContainerField("texture");
 ImageTexture288.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance286.addChild(&ImageTexture288);
 
@@ -1262,6 +1377,7 @@ Coordinate290.setPoint(new float[]{0.1318005,0.001701,0.10044675,0.13336651,0.00
 IndexedFaceSet289.setCoord(&Coordinate290);
 
 TextureCoordinate& TextureCoordinate291 =  TextureCoordinate();
+TextureCoordinate291.setContainerField("texCoord");
 TextureCoordinate291.setPoint(new float[]{0.2109,0.0133,0.2102,0.0181,0.2093,0.0169,0.1959,0.0354,0.1986,0.0324,0.1989,0.0342,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2109,0.0133,0.2102,0.0181,0.1989,0.0342,0.1986,0.0324,0.1959,0.0354,0.2093,0.0169}, 48);
 IndexedFaceSet289.setTexCoord(&TextureCoordinate291);
 
@@ -1280,11 +1396,14 @@ HAnimSegment293.X3DNode::setName(std::string("l_tarsal_distal_phalanx_5"));
 HAnimSegment293.setDEF(std::string("hanim_l_tarsal_distal_phalanx_5"));
 Shape& Shape294 =  Shape();
 Appearance& Appearance295 =  Appearance();
+Appearance295.setContainerField("appearance");
 Material& Material296 =  Material();
+Material296.setContainerField("material");
 Material296.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance295.addChild(&Material296);
 
 ImageTexture& ImageTexture297 =  ImageTexture();
+ImageTexture297.setContainerField("texture");
 ImageTexture297.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance295.addChild(&ImageTexture297);
 
@@ -1299,6 +1418,7 @@ Coordinate299.setPoint(new float[]{0.13008375,0.001818,0.10640925,0.1321695,0.00
 IndexedFaceSet298.setCoord(&Coordinate299);
 
 TextureCoordinate& TextureCoordinate300 =  TextureCoordinate();
+TextureCoordinate300.setContainerField("texCoord");
 TextureCoordinate300.setPoint(new float[]{0.2048,0.0135,0.2053,0.0142,0.1964,0.026,0.1976,0.0232,0.1977,0.0271,0.2052,0.017,0.0639,0.0523,0.0903,0.0107,0.2102,0.0181,0.2109,0.0133,0.2093,0.0169,0.1317,0.0215,0.0951,0.0836,0.1959,0.0354,0.1986,0.0324,0.1989,0.0342,0.2102,0.0181,0.2109,0.0133,0.2093,0.0169,0.0951,0.0836,0.1986,0.0324,0.1989,0.0342}, 44);
 IndexedFaceSet298.setTexCoord(&TextureCoordinate300);
 
@@ -1335,11 +1455,14 @@ HAnimSegment302.X3DNode::setName(std::string("r_thigh"));
 HAnimSegment302.setDEF(std::string("hanim_r_thigh"));
 Shape& Shape303 =  Shape();
 Appearance& Appearance304 =  Appearance();
+Appearance304.setContainerField("appearance");
 Material& Material305 =  Material();
+Material305.setContainerField("material");
 Material305.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance304.addChild(&Material305);
 
 ImageTexture& ImageTexture306 =  ImageTexture();
+ImageTexture306.setContainerField("texture");
 ImageTexture306.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance304.addChild(&ImageTexture306);
 
@@ -1354,6 +1477,7 @@ Coordinate308.setPoint(new float[]{-0.1612575,0.82506156,-0.018348752,-0.131625,
 IndexedFaceSet307.setCoord(&Coordinate308);
 
 TextureCoordinate& TextureCoordinate309 =  TextureCoordinate();
+TextureCoordinate309.setContainerField("texCoord");
 TextureCoordinate309.setPoint(new float[]{0.719,0.5576,0.6284,0.5576,0.7414,0.5576,0.6787,0.5576,0.5781,0.5576,0.5154,0.5576,0.5378,0.5576,0.6284,0.5029,0.7509,0.3997,0.6284,0.3997,0.7509,0.5029,0.7811,0.3997,0.7811,0.5029,0.6964,0.3997,0.6964,0.5029,0.5604,0.3997,0.5604,0.5029,0.4756,0.3997,0.4756,0.5029,0.5059,0.3997,0.5059,0.5029,0.7509,0.3197,0.6284,0.3197,0.7811,0.3197,0.6964,0.3197,0.5604,0.3197,0.4756,0.3197,0.5059,0.3197,0.7651,0.2166,0.6284,0.2166,0.7989,0.2166,0.7043,0.2166,0.5525,0.2166,0.4579,0.2166,0.4917,0.2166,0.7224,0.263,0.6284,0.263,0.7456,0.263,0.6805,0.263,0.5762,0.263,0.5112,0.263,0.5344,0.263,0.8705,0.5452,0.8705,0.5383,0.8705,0.5369,0.8705,0.5408,0.8705,0.5483,0.8705,0.5522,0.8705,0.5509,0.917,0.5452,0.917,0.5266,0.89,0.5304,0.89,0.5452,0.917,0.522,0.89,0.5268,0.917,0.5349,0.89,0.537,0.917,0.5555,0.89,0.5534,0.917,0.5684,0.89,0.5636,0.917,0.5638,0.89,0.56,0.8746,0.531,0.8746,0.5452,0.8746,0.5279,0.8746,0.5368,0.8746,0.5524,0.8746,0.5613,0.8746,0.5581}, 140);
 IndexedFaceSet307.setTexCoord(&TextureCoordinate309);
 
@@ -1372,11 +1496,14 @@ HAnimSegment311.X3DNode::setName(std::string("r_calf"));
 HAnimSegment311.setDEF(std::string("hanim_r_calf"));
 Shape& Shape312 =  Shape();
 Appearance& Appearance313 =  Appearance();
+Appearance313.setContainerField("appearance");
 Material& Material314 =  Material();
+Material314.setContainerField("material");
 Material314.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance313.addChild(&Material314);
 
 ImageTexture& ImageTexture315 =  ImageTexture();
+ImageTexture315.setContainerField("texture");
 ImageTexture315.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance313.addChild(&ImageTexture315);
 
@@ -1391,6 +1518,7 @@ Coordinate317.setPoint(new float[]{-0.10877851,0.43062302,-0.018911252,-0.100782
 IndexedFaceSet316.setCoord(&Coordinate317);
 
 TextureCoordinate& TextureCoordinate318 =  TextureCoordinate();
+TextureCoordinate318.setContainerField("texCoord");
 TextureCoordinate318.setPoint(new float[]{0.9309,0.5848,0.919,0.5848,0.8921,0.5848,0.8706,0.5848,0.8706,0.5848,0.8921,0.5848,0.919,0.5848,0.9845,0.5321,0.955,0.5475,0.9491,0.5599,0.9788,0.5571,0.8787,0.5475,0.8825,0.5599,0.8302,0.5321,0.8291,0.5571,0.8302,0.52,0.8291,0.5571,0.8787,0.52,0.8825,0.5571,0.955,0.52,0.9491,0.5571,0.9444,0.5755,0.9717,0.5755,0.8831,0.5755,0.8339,0.5755,0.8339,0.5755,0.8831,0.5755,0.9444,0.5755,0.9632,0.3942,0.9402,0.3943,0.8884,0.3943,0.8469,0.3942,0.8469,0.3941,0.8884,0.3941,0.9402,0.3941,0.9325,0.3742,0.9208,0.3742,0.8947,0.3742,0.8737,0.3742,0.8737,0.3741,0.8947,0.3741,0.9208,0.3741}, 84);
 IndexedFaceSet316.setTexCoord(&TextureCoordinate318);
 
@@ -1409,11 +1537,14 @@ HAnimSegment320.X3DNode::setName(std::string("r_talus"));
 HAnimSegment320.setDEF(std::string("hanim_r_talus"));
 Shape& Shape321 =  Shape();
 Appearance& Appearance322 =  Appearance();
+Appearance322.setContainerField("appearance");
 Material& Material323 =  Material();
+Material323.setContainerField("material");
 Material323.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance322.addChild(&Material323);
 
 ImageTexture& ImageTexture324 =  ImageTexture();
+ImageTexture324.setContainerField("texture");
 ImageTexture324.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance322.addChild(&ImageTexture324);
 
@@ -1428,6 +1559,7 @@ Coordinate326.setPoint(new float[]{-0.069563255,0.09505351,-0.03718125,-0.062707
 IndexedFaceSet325.setCoord(&Coordinate326);
 
 TextureCoordinate& TextureCoordinate327 =  TextureCoordinate();
+TextureCoordinate327.setContainerField("texCoord");
 TextureCoordinate327.setPoint(new float[]{0.227,0.1089,0.2217,0.1285,0.2533,0.0835,0.273,0.1232,0.2824,0.0941,0.2433,0.1632,0.2685,0.0797,0.2165,0.148,0.2759,0.0832,0.2428,0.156,0.2563,0.142,0.2584,0.1419,0.2431,0.1588,0.2715,0.1062,0.2761,0.1011,0.2698,0.09,0.2775,0.078,0.2629,0.0863,0.248,0.0935,0.2498,0.0895,0.2702,0.0748,0.2296,0.1148,0.2397,0.101,0.2249,0.1266,0.2295,0.1126,0.2207,0.1406,0.2252,0.1591,0.2245,0.1634,0.2202,0.1406,0.2407,0.0951,0.2662,0.1249,0.2599,0.1313,0.2623,0.1418,0.2691,0.1232,0.2231,0.166,0.2217,0.1285,0.227,0.1089,0.2407,0.0951,0.2533,0.0835,0.2685,0.0797,0.2759,0.0832,0.2824,0.0941,0.273,0.1232,0.2623,0.1418,0.2433,0.1632,0.2231,0.166,0.2165,0.148}, 94);
 IndexedFaceSet325.setTexCoord(&TextureCoordinate327);
 
@@ -1446,11 +1578,14 @@ HAnimSegment329.X3DNode::setName(std::string("r_navicular"));
 HAnimSegment329.setDEF(std::string("hanim_r_navicular"));
 Shape& Shape330 =  Shape();
 Appearance& Appearance331 =  Appearance();
+Appearance331.setContainerField("appearance");
 Material& Material332 =  Material();
+Material332.setContainerField("material");
 Material332.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance331.addChild(&Material332);
 
 ImageTexture& ImageTexture333 =  ImageTexture();
+ImageTexture333.setContainerField("texture");
 ImageTexture333.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance331.addChild(&ImageTexture333);
 
@@ -1465,6 +1600,7 @@ Coordinate335.setPoint(new float[]{-0.098127,0.05500125,0.0201375,-0.062469,0.01
 IndexedFaceSet334.setCoord(&Coordinate335);
 
 TextureCoordinate& TextureCoordinate336 =  TextureCoordinate();
+TextureCoordinate336.setContainerField("texCoord");
 TextureCoordinate336.setPoint(new float[]{0.2314,0.0879,0.21,0.1541,0.2053,0.1595,0.2104,0.1443,0.2271,0.0958,0.2224,0.1067,0.2032,0.149,0.2132,0.1285,0.2197,0.1123,0.2163,0.1174,0.227,0.1089,0.2165,0.148,0.2217,0.1285,0.2407,0.0951,0.2178,0.1526,0.2363,0.0929,0.2213,0.1179,0.2171,0.1588,0.2129,0.1643,0.21,0.1541,0.2053,0.1595,0.2032,0.149,0.2132,0.1285,0.2224,0.1067,0.2314,0.0879,0.2271,0.0958,0.2197,0.1123,0.2163,0.1174,0.2104,0.1443,0.227,0.1089,0.2217,0.1285,0.2165,0.148,0.2129,0.1643,0.2171,0.1588,0.2178,0.1526,0.2213,0.1179,0.2363,0.0929,0.2407,0.0951,0.2314,0.0879,0.2407,0.0951,0.2407,0.0951,0.2363,0.0929,0.2363,0.0929,0.2271,0.0958,0.2271,0.0958,0.2314,0.0879}, 92);
 IndexedFaceSet334.setTexCoord(&TextureCoordinate336);
 
@@ -1483,11 +1619,14 @@ HAnimSegment338.X3DNode::setName(std::string("r_cuneiform_1"));
 HAnimSegment338.setDEF(std::string("hanim_r_cuneiform_1"));
 Shape& Shape339 =  Shape();
 Appearance& Appearance340 =  Appearance();
+Appearance340.setContainerField("appearance");
 Material& Material341 =  Material();
+Material341.setContainerField("material");
 Material341.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance340.addChild(&Material341);
 
 ImageTexture& ImageTexture342 =  ImageTexture();
+ImageTexture342.setContainerField("texture");
 ImageTexture342.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance340.addChild(&ImageTexture342);
 
@@ -1502,6 +1641,7 @@ Coordinate344.setPoint(new float[]{-0.06699825,0.007155002,0.027960751,-0.061035
 IndexedFaceSet343.setCoord(&Coordinate344);
 
 TextureCoordinate& TextureCoordinate345 =  TextureCoordinate();
+TextureCoordinate345.setContainerField("texCoord");
 TextureCoordinate345.setPoint(new float[]{0.2027,0.1355,0.2132,0.1171,0.1958,0.1447,0.1899,0.1499,0.2047,0.1286,0.1825,0.1473,0.1858,0.1369,0.1864,0.1452,0.1953,0.1244,0.2059,0.1148,0.21,0.1541,0.2053,0.1595,0.2104,0.1443,0.2032,0.149,0.2132,0.1285,0.2163,0.1174,0.2047,0.1286,0.2132,0.1285,0.2163,0.1174,0.2132,0.1171,0.2059,0.1148,0.1953,0.1244,0.1858,0.1369,0.1864,0.1452,0.1825,0.1473,0.1953,0.1244,0.1953,0.1244,0.2059,0.1148,0.2059,0.1148}, 58);
 IndexedFaceSet343.setTexCoord(&TextureCoordinate345);
 
@@ -1520,11 +1660,14 @@ HAnimSegment347.X3DNode::setName(std::string("r_metatarsal_1"));
 HAnimSegment347.setDEF(std::string("hanim_r_metatarsal_1"));
 Shape& Shape348 =  Shape();
 Appearance& Appearance349 =  Appearance();
+Appearance349.setContainerField("appearance");
 Material& Material350 =  Material();
+Material350.setContainerField("material");
 Material350.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance349.addChild(&Material350);
 
 ImageTexture& ImageTexture351 =  ImageTexture();
+ImageTexture351.setContainerField("texture");
 ImageTexture351.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance349.addChild(&ImageTexture351);
 
@@ -1539,6 +1682,7 @@ Coordinate353.setPoint(new float[]{-0.051615,0.0019080002,0.075330004,-0.0502695
 IndexedFaceSet352.setCoord(&Coordinate353);
 
 TextureCoordinate& TextureCoordinate354 =  TextureCoordinate();
+TextureCoordinate354.setContainerField("texCoord");
 TextureCoordinate354.setPoint(new float[]{0.177,0.1457,0.1567,0.1378,0.1506,0.1431,0.1539,0.1386,0.1751,0.1447,0.1523,0.1336,0.1493,0.1348,0.1463,0.1377,0.1689,0.1382,0.1638,0.1444,0.1645,0.1416,0.1607,0.138,0.1731,0.1071,0.1859,0.1202,0.175,0.1048,0.1985,0.1126,0.1682,0.1025,0.1699,0.1017,0.1795,0.1136,0.1825,0.1473,0.1858,0.1369,0.1864,0.1452,0.1953,0.1244,0.2059,0.1148,0.1795,0.1136,0.1859,0.1202,0.1953,0.1244,0.2059,0.1148,0.1985,0.1126,0.175,0.1048,0.1699,0.1017,0.1682,0.1025,0.1731,0.1071,0.1523,0.1336,0.1463,0.1377,0.1493,0.1348,0.1682,0.1025,0.1682,0.1025,0.1699,0.1017,0.1699,0.1017,0.1864,0.1452,0.1858,0.1369,0.2059,0.1148,0.2059,0.1148,0.1953,0.1244,0.1953,0.1244,0.1825,0.1473}, 94);
 IndexedFaceSet352.setTexCoord(&TextureCoordinate354);
 
@@ -1557,11 +1701,14 @@ HAnimSegment356.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_1"));
 HAnimSegment356.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_1"));
 Shape& Shape357 =  Shape();
 Appearance& Appearance358 =  Appearance();
+Appearance358.setContainerField("appearance");
 Material& Material359 =  Material();
+Material359.setContainerField("material");
 Material359.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance358.addChild(&Material359);
 
 ImageTexture& ImageTexture360 =  ImageTexture();
+ImageTexture360.setContainerField("texture");
 ImageTexture360.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance358.addChild(&ImageTexture360);
 
@@ -1576,6 +1723,7 @@ Coordinate362.setPoint(new float[]{-0.07306425,0.01488825,0.10537875,-0.07316775
 IndexedFaceSet361.setCoord(&Coordinate362);
 
 TextureCoordinate& TextureCoordinate363 =  TextureCoordinate();
+TextureCoordinate363.setContainerField("texCoord");
 TextureCoordinate363.setPoint(new float[]{0.148,0.1294,0.142,0.1322,0.1446,0.131,0.1613,0.0957,0.1341,0.1263,0.1554,0.0919,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889,0.1392,0.1292,0.16,0.0958,0.1443,0.128,0.1415,0.1284,0.1616,0.0962,0.1346,0.0953,0.1273,0.0961,0.126,0.0891,0.1339,0.0889,0.1175,0.0992,0.228,0.0809,0.2186,0.0857,0.2172,0.0848,0.2097,0.0859,0.2098,0.0901,0.2285,0.0738,0.1152,0.1058,0.1523,0.1336,0.1493,0.1348,0.1463,0.1377,0.1682,0.1025,0.1699,0.1017,0.2293,0.0837,0.1648,0.0986,0.112,0.093,0.1632,0.098,0.113,0.0993,0.2302,0.0796,0.1153,0.1053,0.2293,0.0736,0.1463,0.1377,0.1523,0.1336,0.1699,0.1017,0.1682,0.1025,0.1493,0.1348,0.1699,0.1017,0.1648,0.0986,0.2302,0.0796,0.2293,0.0736,0.113,0.0993,0.112,0.093,0.1682,0.1025,0.1341,0.1263,0.1554,0.0919,0.1559,0.0889,0.1571,0.0927,0.1363,0.1268,0.1317,0.1272}, 116);
 IndexedFaceSet361.setTexCoord(&TextureCoordinate363);
 
@@ -1594,11 +1742,14 @@ HAnimSegment365.X3DNode::setName(std::string("r_tarsal_distal_phalanx_1"));
 HAnimSegment365.setDEF(std::string("hanim_r_tarsal_distal_phalanx_1"));
 Shape& Shape366 =  Shape();
 Appearance& Appearance367 =  Appearance();
+Appearance367.setContainerField("appearance");
 Material& Material368 =  Material();
+Material368.setContainerField("material");
 Material368.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance367.addChild(&Material368);
 
 ImageTexture& ImageTexture369 =  ImageTexture();
+ImageTexture369.setContainerField("texture");
 ImageTexture369.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance367.addChild(&ImageTexture369);
 
@@ -1613,6 +1764,7 @@ Coordinate371.setPoint(new float[]{-0.06948,0.018261,0.13208626,-0.05376375,0.01
 IndexedFaceSet370.setCoord(&Coordinate371);
 
 TextureCoordinate& TextureCoordinate372 =  TextureCoordinate();
+TextureCoordinate372.setContainerField("texCoord");
 TextureCoordinate372.setPoint(new float[]{0.1287,0.113,0.1423,0.0921,0.1396,0.0889,0.1257,0.1107,0.1415,0.0903,0.1274,0.1123,0.1297,0.1214,0.15,0.0896,0.1273,0.1223,0.1313,0.1227,0.1521,0.0901,0.1498,0.0859,0.0527,0.151,0.0282,0.1325,0.0446,0.0894,0.0746,0.0899,0.1016,0.0977,0.1554,0.0919,0.0779,0.162,0.1341,0.1263,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889,0.1554,0.0919,0.0779,0.162,0.1317,0.1272,0.1363,0.1268,0.1571,0.0927,0.1559,0.0889}, 60);
 IndexedFaceSet370.setTexCoord(&TextureCoordinate372);
 
@@ -1639,11 +1791,14 @@ HAnimSegment374.X3DNode::setName(std::string("r_cuneiform_2"));
 HAnimSegment374.setDEF(std::string("hanim_r_cuneiform_2"));
 Shape& Shape375 =  Shape();
 Appearance& Appearance376 =  Appearance();
+Appearance376.setContainerField("appearance");
 Material& Material377 =  Material();
+Material377.setContainerField("material");
 Material377.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance376.addChild(&Material377);
 
 ImageTexture& ImageTexture378 =  ImageTexture();
+ImageTexture378.setContainerField("texture");
 ImageTexture378.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance376.addChild(&ImageTexture378);
 
@@ -1658,6 +1813,7 @@ Coordinate380.setPoint(new float[]{-0.086485505,0.0038924997,0.028325252,-0.0869
 IndexedFaceSet379.setCoord(&Coordinate380);
 
 TextureCoordinate& TextureCoordinate381 =  TextureCoordinate();
+TextureCoordinate381.setContainerField("texCoord");
 TextureCoordinate381.setPoint(new float[]{0.2179,0.1044,0.2186,0.1086,0.2128,0.1035,0.2098,0.0996,0.2047,0.1286,0.2132,0.1171,0.1953,0.1244,0.2059,0.1148,0.2224,0.1067,0.2132,0.1285,0.2197,0.1123,0.2163,0.1174,0.2132,0.1285,0.2047,0.1286,0.1953,0.1244,0.1953,0.1244,0.2132,0.1171,0.2163,0.1174,0.2098,0.0996,0.2179,0.1044,0.2224,0.1067,0.2224,0.1067,0.2186,0.1086,0.2128,0.1035,0.1953,0.1244,0.2098,0.0996,0.2098,0.0996,0.2128,0.1035,0.2098,0.0996,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.2224,0.1067,0.2132,0.1285,0.2132,0.1285,0.2163,0.1174,0.2132,0.1285,0.2224,0.1067,0.2224,0.1067,0.2224,0.1067}, 80);
 IndexedFaceSet379.setTexCoord(&TextureCoordinate381);
 
@@ -1676,11 +1832,14 @@ HAnimSegment383.X3DNode::setName(std::string("r_metatarsal_2"));
 HAnimSegment383.setDEF(std::string("hanim_r_metatarsal_2"));
 Shape& Shape384 =  Shape();
 Appearance& Appearance385 =  Appearance();
+Appearance385.setContainerField("appearance");
 Material& Material386 =  Material();
+Material386.setContainerField("material");
 Material386.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance385.addChild(&Material386);
 
 ImageTexture& ImageTexture387 =  ImageTexture();
+ImageTexture387.setContainerField("texture");
 ImageTexture387.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance385.addChild(&ImageTexture387);
 
@@ -1695,6 +1854,7 @@ Coordinate389.setPoint(new float[]{-0.088290006,0.03174975,0.079515,-0.087383255
 IndexedFaceSet388.setCoord(&Coordinate389);
 
 TextureCoordinate& TextureCoordinate390 =  TextureCoordinate();
+TextureCoordinate390.setContainerField("texCoord");
 TextureCoordinate390.setPoint(new float[]{0.175,0.1048,0.1833,0.0898,0.1856,0.0872,0.1731,0.1071,0.1985,0.1126,0.2017,0.0948,0.1859,0.1202,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.1699,0.1017,0.1937,0.091,0.1795,0.1136,0.2068,0.0986,0.2128,0.1035,0.2098,0.0996,0.1953,0.1244,0.2059,0.1148,0.1795,0.1136,0.1859,0.1202,0.1731,0.1071,0.2017,0.0948,0.1859,0.1202,0.1795,0.1136,0.1731,0.1071,0.1682,0.1025,0.1682,0.1025,0.1731,0.1071,0.1795,0.1136,0.1859,0.1202,0.1953,0.1244,0.1953,0.1244,0.1856,0.0872,0.1937,0.091,0.2017,0.0948,0.2098,0.0996,0.2098,0.0996,0.2017,0.0948,0.1856,0.0872,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.1682,0.1025,0.1682,0.1025,0.1682,0.1025,0.1682,0.1025,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.2098,0.0996,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.1953,0.1244,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996}, 114);
 IndexedFaceSet388.setTexCoord(&TextureCoordinate390);
 
@@ -1713,11 +1873,14 @@ HAnimSegment392.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_2"));
 HAnimSegment392.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_2"));
 Shape& Shape393 =  Shape();
 Appearance& Appearance394 =  Appearance();
+Appearance394.setContainerField("appearance");
 Material& Material395 =  Material();
+Material395.setContainerField("material");
 Material395.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance394.addChild(&Material395);
 
 ImageTexture& ImageTexture396 =  ImageTexture();
+ImageTexture396.setContainerField("texture");
 ImageTexture396.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance394.addChild(&ImageTexture396);
 
@@ -1732,6 +1895,7 @@ Coordinate398.setPoint(new float[]{-0.07451326,0.0222525,0.10377,-0.07485525,0.0
 IndexedFaceSet397.setCoord(&Coordinate398);
 
 TextureCoordinate& TextureCoordinate399 =  TextureCoordinate();
+TextureCoordinate399.setContainerField("texCoord");
 TextureCoordinate399.setPoint(new float[]{0.2327,0.0796,0.2439,0.0803,0.2062,0.05,0.2147,0.0491,0.2302,0.0796,0.2205,0.0532,0.2301,0.0734,0.2486,0.0743,0.2013,0.0552,0.2187,0.0481,0.221,0.0541,0.2293,0.0736,0.1746,0.075,0.1709,0.0678,0.1706,0.0686,0.1745,0.076,0.1824,0.0523,0.1886,0.0572,0.183,0.0511,0.1834,0.0508,0.1882,0.0556,0.1885,0.0566,0.1716,0.0676,0.1748,0.0736,0.2444,0.0847,0.2027,0.042,0.2022,0.0485,0.2464,0.0799,0.2486,0.0741,0.2011,0.0554,0.2293,0.0837,0.2177,0.0418,0.1769,0.0796,0.1648,0.0986,0.1632,0.098,0.1766,0.0777,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.1699,0.1017,0.1699,0.1017,0.1801,0.0847,0.1811,0.0824,0.1682,0.1025,0.2022,0.0485,0.2027,0.042,0.1811,0.0824,0.1801,0.0847,0.1769,0.0796,0.2464,0.0799,0.2486,0.0741,0.1632,0.098,0.2187,0.0481,0.221,0.0541,0.2302,0.0796,0.2293,0.0837,0.1699,0.1017,0.1682,0.1025}, 116);
 IndexedFaceSet397.setTexCoord(&TextureCoordinate399);
 
@@ -1750,11 +1914,14 @@ HAnimSegment401.X3DNode::setName(std::string("r_tarsal_middle_phalanx_2"));
 HAnimSegment401.setDEF(std::string("hanim_r_tarsal_middle_phalanx_2"));
 Shape& Shape402 =  Shape();
 Appearance& Appearance403 =  Appearance();
+Appearance403.setContainerField("appearance");
 Material& Material404 =  Material();
+Material404.setContainerField("material");
 Material404.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance403.addChild(&Material404);
 
 ImageTexture& ImageTexture405 =  ImageTexture();
+ImageTexture405.setContainerField("texture");
 ImageTexture405.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance403.addChild(&ImageTexture405);
 
@@ -1769,6 +1936,7 @@ Coordinate407.setPoint(new float[]{-0.07676325,0.0020925,0.124110006,-0.07612425
 IndexedFaceSet406.setCoord(&Coordinate407);
 
 TextureCoordinate& TextureCoordinate408 =  TextureCoordinate();
+TextureCoordinate408.setContainerField("texCoord");
 TextureCoordinate408.setPoint(new float[]{0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261,0.0949,0.0775,0.1651,0.0639,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1291,0.0918,0.1834,0.0508,0.1554,0.0532,0.1716,0.0676,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1554,0.0532,0.1653,0.0654,0.1636,0.063,0.1651,0.0639,0.0949,0.0775,0.1792,0.0409,0.1795,0.0453}, 56);
 IndexedFaceSet406.setTexCoord(&TextureCoordinate408);
 
@@ -1787,11 +1955,14 @@ HAnimSegment410.X3DNode::setName(std::string("r_tarsal_distal_phalanx_2"));
 HAnimSegment410.setDEF(std::string("hanim_r_tarsal_distal_phalanx_2"));
 Shape& Shape411 =  Shape();
 Appearance& Appearance412 =  Appearance();
+Appearance412.setContainerField("appearance");
 Material& Material413 =  Material();
+Material413.setContainerField("material");
 Material413.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance412.addChild(&Material413);
 
 ImageTexture& ImageTexture414 =  ImageTexture();
+ImageTexture414.setContainerField("texture");
 ImageTexture414.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance412.addChild(&ImageTexture414);
 
@@ -1806,6 +1977,7 @@ Coordinate416.setPoint(new float[]{-0.079137005,0.00385875,0.13077226,-0.0792427
 IndexedFaceSet415.setCoord(&Coordinate416);
 
 TextureCoordinate& TextureCoordinate417 =  TextureCoordinate();
+TextureCoordinate417.setContainerField("texCoord");
 TextureCoordinate417.setPoint(new float[]{0.1643,0.0579,0.1638,0.0538,0.174,0.0396,0.1747,0.0423,0.1756,0.0403,0.1632,0.0573,0.066,0.0493,0.0915,0.0082,0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.0949,0.0775,0.1293,0.0261,0.1651,0.0639,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261}, 44);
 IndexedFaceSet415.setTexCoord(&TextureCoordinate417);
 
@@ -1834,11 +2006,14 @@ HAnimSegment419.X3DNode::setName(std::string("r_cuneiform_3"));
 HAnimSegment419.setDEF(std::string("hanim_r_cuneiform_3"));
 Shape& Shape420 =  Shape();
 Appearance& Appearance421 =  Appearance();
+Appearance421.setContainerField("appearance");
 Material& Material422 =  Material();
+Material422.setContainerField("material");
 Material422.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance421.addChild(&Material422);
 
 ImageTexture& ImageTexture423 =  ImageTexture();
+ImageTexture423.setContainerField("texture");
 ImageTexture423.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance421.addChild(&ImageTexture423);
 
@@ -1853,6 +2028,7 @@ Coordinate425.setPoint(new float[]{-0.09967726,0.047187,0.03966075,-0.098028004,
 IndexedFaceSet424.setCoord(&Coordinate425);
 
 TextureCoordinate& TextureCoordinate426 =  TextureCoordinate();
+TextureCoordinate426.setContainerField("texCoord");
 TextureCoordinate426.setPoint(new float[]{0.2226,0.0828,0.2197,0.0903,0.2186,0.1086,0.2179,0.1044,0.2314,0.0879,0.2128,0.1035,0.2098,0.0996,0.2271,0.0958,0.2224,0.1067,0.2197,0.1123,0.2224,0.1067,0.2314,0.0879,0.2226,0.0828,0.2314,0.0879,0.2314,0.0879,0.2197,0.0903,0.2179,0.1044,0.2098,0.0996,0.2098,0.0996,0.2186,0.1086,0.2197,0.1123,0.2224,0.1067,0.2098,0.0996,0.2226,0.0828,0.2226,0.0828,0.2197,0.0903,0.2226,0.0828,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996}, 60);
 IndexedFaceSet424.setTexCoord(&TextureCoordinate426);
 
@@ -1871,11 +2047,14 @@ HAnimSegment428.X3DNode::setName(std::string("r_metatarsal_3"));
 HAnimSegment428.setDEF(std::string("hanim_r_metatarsal_3"));
 Shape& Shape429 =  Shape();
 Appearance& Appearance430 =  Appearance();
+Appearance430.setContainerField("appearance");
 Material& Material431 =  Material();
+Material431.setContainerField("material");
 Material431.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance430.addChild(&Material431);
 
 ImageTexture& ImageTexture432 =  ImageTexture();
+ImageTexture432.setContainerField("texture");
 ImageTexture432.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance430.addChild(&ImageTexture432);
 
@@ -1890,6 +2069,7 @@ Coordinate434.setPoint(new float[]{-0.10213651,0.026298,0.08865,-0.088490255,0.0
 IndexedFaceSet433.setCoord(&Coordinate434);
 
 TextureCoordinate& TextureCoordinate435 =  TextureCoordinate();
+TextureCoordinate435.setContainerField("texCoord");
 TextureCoordinate435.setPoint(new float[]{0.195,0.0629,0.1801,0.0847,0.1811,0.0824,0.1937,0.091,0.2128,0.1035,0.2098,0.0996,0.2197,0.0903,0.2138,0.0778,0.1989,0.0701,0.1984,0.068,0.2129,0.0844,0.1833,0.0898,0.1856,0.0872,0.1937,0.091,0.2068,0.0986,0.2138,0.0778,0.2061,0.0729,0.2061,0.0729,0.1989,0.0701,0.1984,0.068,0.1952,0.0651,0.2129,0.0844,0.1833,0.0898,0.1856,0.0872,0.2017,0.0948,0.2017,0.0948,0.2226,0.0828,0.2138,0.0778,0.1937,0.091,0.1811,0.0824,0.1856,0.0872,0.1856,0.0872,0.1937,0.091,0.2017,0.0948,0.2098,0.0996,0.2098,0.0996,0.2017,0.0948,0.2017,0.0948,0.1937,0.091,0.1937,0.091,0.1856,0.0872,0.1856,0.0872,0.1811,0.0824,0.2061,0.0729,0.2061,0.0729,0.2138,0.0778,0.2138,0.0778,0.2226,0.0828,0.2226,0.0828,0.2138,0.0778,0.2138,0.0778,0.1984,0.068,0.1984,0.068,0.195,0.0629,0.195,0.0629,0.1984,0.068,0.1984,0.068,0.195,0.0629,0.1811,0.0824,0.1801,0.0847,0.1811,0.0824,0.1811,0.0824,0.1811,0.0824,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.2226,0.0828,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996,0.2098,0.0996,0.2226,0.0828,0.2197,0.0903,0.2226,0.0828,0.2226,0.0828}, 150);
 IndexedFaceSet433.setTexCoord(&TextureCoordinate435);
 
@@ -1908,11 +2088,14 @@ HAnimSegment437.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_3"));
 HAnimSegment437.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_3"));
 Shape& Shape438 =  Shape();
 Appearance& Appearance439 =  Appearance();
+Appearance439.setContainerField("appearance");
 Material& Material440 =  Material();
+Material440.setContainerField("material");
 Material440.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance439.addChild(&Material440);
 
 ImageTexture& ImageTexture441 =  ImageTexture();
+ImageTexture441.setContainerField("texture");
 ImageTexture441.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance439.addChild(&ImageTexture441);
 
@@ -1927,6 +2110,7 @@ Coordinate443.setPoint(new float[]{-0.092511,0.012060001,0.11196676,-0.09366075,
 IndexedFaceSet442.setCoord(&Coordinate443);
 
 TextureCoordinate& TextureCoordinate444 =  TextureCoordinate();
+TextureCoordinate444.setContainerField("texCoord");
 TextureCoordinate444.setPoint(new float[]{0.1706,0.0686,0.1709,0.0678,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1716,0.0676,0.1882,0.0556,0.1745,0.076,0.1748,0.0736,0.1886,0.0572,0.2327,0.0796,0.2439,0.0803,0.2076,0.0485,0.2162,0.0476,0.2201,0.0466,0.2302,0.0796,0.2219,0.0517,0.2301,0.0734,0.2486,0.0743,0.2027,0.0537,0.2224,0.0526,0.2293,0.0736,0.1746,0.075,0.1885,0.0566,0.1801,0.0847,0.1811,0.0824,0.1952,0.0651,0.195,0.0629,0.2293,0.0837,0.1769,0.0796,0.2191,0.0403,0.1766,0.0777,0.2037,0.047,0.2486,0.0741,0.2026,0.0539,0.2444,0.0847,0.1915,0.0602,0.2041,0.0405,0.1915,0.0578,0.2464,0.0799,0.1801,0.0847,0.1952,0.0651,0.195,0.0629,0.1811,0.0824,0.1952,0.0651,0.1915,0.0602,0.2464,0.0799,0.2486,0.0741,0.2037,0.047,0.2041,0.0405,0.195,0.0629,0.1766,0.0777,0.2201,0.0466,0.2224,0.0526,0.2302,0.0796,0.2293,0.0837,0.1801,0.0847,0.1811,0.0824}, 116);
 IndexedFaceSet442.setTexCoord(&TextureCoordinate444);
 
@@ -1945,11 +2129,14 @@ HAnimSegment446.X3DNode::setName(std::string("r_tarsal_middle_phalanx_3"));
 HAnimSegment446.setDEF(std::string("hanim_r_tarsal_middle_phalanx_3"));
 Shape& Shape447 =  Shape();
 Appearance& Appearance448 =  Appearance();
+Appearance448.setContainerField("appearance");
 Material& Material449 =  Material();
+Material449.setContainerField("material");
 Material449.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance448.addChild(&Material449);
 
 ImageTexture& ImageTexture450 =  ImageTexture();
+ImageTexture450.setContainerField("texture");
 ImageTexture450.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance448.addChild(&ImageTexture450);
 
@@ -1964,6 +2151,7 @@ Coordinate452.setPoint(new float[]{-0.09256725,0.010451251,0.12121875,-0.0933435
 IndexedFaceSet451.setCoord(&Coordinate452);
 
 TextureCoordinate& TextureCoordinate453 =  TextureCoordinate();
+TextureCoordinate453.setContainerField("texCoord");
 TextureCoordinate453.setPoint(new float[]{0.1653,0.0654,0.1636,0.063,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1651,0.0639,0.1293,0.0261,0.0949,0.0775,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1291,0.0918,0.1834,0.0508,0.1554,0.0532,0.1716,0.0676,0.1709,0.0678,0.1706,0.0686,0.1824,0.0523,0.183,0.0511,0.1834,0.0508,0.1554,0.0532,0.1653,0.0654,0.1636,0.063,0.1651,0.0639,0.0949,0.0775,0.1792,0.0409,0.1795,0.0453}, 56);
 IndexedFaceSet451.setTexCoord(&TextureCoordinate453);
 
@@ -1982,11 +2170,14 @@ HAnimSegment455.X3DNode::setName(std::string("r_tarsal_distal_phalanx_3"));
 HAnimSegment455.setDEF(std::string("hanim_r_tarsal_distal_phalanx_3"));
 Shape& Shape456 =  Shape();
 Appearance& Appearance457 =  Appearance();
+Appearance457.setContainerField("appearance");
 Material& Material458 =  Material();
+Material458.setContainerField("material");
 Material458.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance457.addChild(&Material458);
 
 ImageTexture& ImageTexture459 =  ImageTexture();
+ImageTexture459.setContainerField("texture");
 ImageTexture459.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance457.addChild(&ImageTexture459);
 
@@ -2001,6 +2192,7 @@ Coordinate461.setPoint(new float[]{-0.09654301,0.00919575,0.1282905,-0.096300006
 IndexedFaceSet460.setCoord(&Coordinate461);
 
 TextureCoordinate& TextureCoordinate462 =  TextureCoordinate();
+TextureCoordinate462.setContainerField("texCoord");
 TextureCoordinate462.setPoint(new float[]{0.1643,0.0579,0.1747,0.0423,0.174,0.0396,0.1638,0.0538,0.1756,0.0403,0.1632,0.0573,0.0915,0.0082,0.066,0.0493,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.0949,0.0775,0.1293,0.0261,0.1651,0.0639,0.1636,0.063,0.1653,0.0654,0.1795,0.0453,0.1792,0.0409,0.1786,0.0451,0.1293,0.0261}, 44);
 IndexedFaceSet460.setTexCoord(&TextureCoordinate462);
 
@@ -2031,11 +2223,14 @@ HAnimSegment464.X3DNode::setName(std::string("r_calcaneus"));
 HAnimSegment464.setDEF(std::string("hanim_r_calcaneus"));
 Shape& Shape465 =  Shape();
 Appearance& Appearance466 =  Appearance();
+Appearance466.setContainerField("appearance");
 Material& Material467 =  Material();
+Material467.setContainerField("material");
 Material467.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance466.addChild(&Material467);
 
 ImageTexture& ImageTexture468 =  ImageTexture();
+ImageTexture468.setContainerField("texture");
 ImageTexture468.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance466.addChild(&ImageTexture468);
 
@@ -2050,6 +2245,7 @@ Coordinate470.setPoint(new float[]{-0.111183755,0.0018899972,-0.045627754,-0.096
 IndexedFaceSet469.setCoord(&Coordinate470);
 
 TextureCoordinate& TextureCoordinate471 =  TextureCoordinate();
+TextureCoordinate471.setContainerField("texCoord");
 TextureCoordinate471.setPoint(new float[]{0.2845,0.0964,0.2768,0.1211,0.2792,0.1228,0.2886,0.0939,0.2493,0.1586,0.2252,0.161,0.2241,0.1634,0.2489,0.1638,0.2727,0.0786,0.2746,0.076,0.2809,0.1238,0.2914,0.0926,0.2206,0.1691,0.249,0.1672,0.2762,0.0729,0.2769,0.1234,0.2869,0.0933,0.2461,0.1652,0.2661,0.1399,0.2685,0.1417,0.27,0.1429,0.2661,0.1424,0.24,0.098,0.2266,0.1229,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2178,0.1526,0.2363,0.0929,0.2213,0.1179,0.2171,0.1588,0.2129,0.1643,0.2165,0.148,0.2533,0.0835,0.273,0.1232,0.2824,0.0941,0.2433,0.1632,0.2759,0.0832,0.2685,0.0797,0.2623,0.1418,0.2231,0.166,0.273,0.1232,0.2824,0.0941,0.2759,0.0832,0.2685,0.0797,0.2533,0.0835,0.2165,0.148,0.2231,0.166,0.2433,0.1632,0.2623,0.1418,0.2665,0.0671,0.2628,0.0703,0.2363,0.0929,0.2213,0.1179,0.2178,0.1526,0.2171,0.1588,0.2129,0.1643,0.2165,0.148,0.2533,0.0835,0.2664,0.0668}, 120);
 IndexedFaceSet469.setTexCoord(&TextureCoordinate471);
 
@@ -2068,11 +2264,14 @@ HAnimSegment473.X3DNode::setName(std::string("r_cuboid"));
 HAnimSegment473.setDEF(std::string("hanim_r_cuboid"));
 Shape& Shape474 =  Shape();
 Appearance& Appearance475 =  Appearance();
+Appearance475.setContainerField("appearance");
 Material& Material476 =  Material();
+Material476.setContainerField("material");
 Material476.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance475.addChild(&Material476);
 
 ImageTexture& ImageTexture477 =  ImageTexture();
+ImageTexture477.setContainerField("texture");
 ImageTexture477.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance475.addChild(&ImageTexture477);
 
@@ -2087,6 +2286,7 @@ Coordinate479.setPoint(new float[]{-0.11910825,0.0050174985,0.016718626,-0.12267
 IndexedFaceSet478.setCoord(&Coordinate479);
 
 TextureCoordinate& TextureCoordinate480 =  TextureCoordinate();
+TextureCoordinate480.setContainerField("texCoord");
 TextureCoordinate480.setPoint(new float[]{0.2528,0.0622,0.2585,0.0581,0.2383,0.0796,0.2566,0.0607,0.243,0.0749,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2292,0.0691,0.2342,0.0682,0.2533,0.0835,0.2407,0.0951,0.2314,0.0879,0.2226,0.0828,0.2271,0.0958,0.2197,0.0903,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2363,0.0929,0.2407,0.0951,0.2314,0.0879,0.2226,0.0828,0.2197,0.0903,0.2271,0.0958,0.2363,0.0929,0.2533,0.0835,0.2407,0.0951,0.2407,0.0951,0.2363,0.0929,0.2363,0.0929,0.2628,0.0703,0.2665,0.0671,0.2664,0.0668,0.2469,0.052,0.2292,0.0691,0.2197,0.0903,0.2197,0.0903,0.2226,0.0828,0.2226,0.0828,0.2342,0.0682,0.2484,0.051,0.2512,0.047}, 86);
 IndexedFaceSet478.setTexCoord(&TextureCoordinate480);
 
@@ -2105,11 +2305,14 @@ HAnimSegment482.X3DNode::setName(std::string("r_metatarsal_4"));
 HAnimSegment482.setDEF(std::string("hanim_r_metatarsal_4"));
 Shape& Shape483 =  Shape();
 Appearance& Appearance484 =  Appearance();
+Appearance484.setContainerField("appearance");
 Material& Material485 =  Material();
+Material485.setContainerField("material");
 Material485.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance484.addChild(&Material485);
 
 ImageTexture& ImageTexture486 =  ImageTexture();
+ImageTexture486.setContainerField("texture");
 ImageTexture486.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance484.addChild(&ImageTexture486);
 
@@ -2124,6 +2327,7 @@ Coordinate488.setPoint(new float[]{-0.1158075,0.0291195,0.07461,-0.11380725,0.03
 IndexedFaceSet487.setCoord(&Coordinate488);
 
 TextureCoordinate& TextureCoordinate489 =  TextureCoordinate();
+TextureCoordinate489.setContainerField("texCoord");
 TextureCoordinate489.setPoint(new float[]{0.2117,0.0481,0.2254,0.0615,0.2142,0.0508,0.2102,0.0461,0.2083,0.0443,0.2202,0.0585,0.2186,0.0548,0.1989,0.0701,0.1984,0.068,0.2138,0.0778,0.1952,0.0651,0.195,0.0629,0.2061,0.0729,0.2292,0.0691,0.2342,0.0682,0.2226,0.0828,0.2129,0.0844,0.2197,0.0903,0.2254,0.0615,0.2061,0.0729,0.2138,0.0778,0.2061,0.0729,0.1984,0.068,0.195,0.0629,0.195,0.0629,0.1984,0.068,0.2061,0.0729,0.2226,0.0828,0.2226,0.0828,0.2186,0.0548,0.2254,0.0615,0.2342,0.0682,0.2342,0.0682,0.2254,0.0615,0.2117,0.0481,0.2083,0.0443,0.2083,0.0443,0.2117,0.0481,0.2083,0.0443,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.195,0.0629,0.2083,0.0443,0.2083,0.0443,0.2083,0.0443,0.2226,0.0828,0.2342,0.0682,0.2342,0.0682,0.2342,0.0682,0.2342,0.0682,0.2226,0.0828,0.2226,0.0828,0.2226,0.0828}, 108);
 IndexedFaceSet487.setTexCoord(&TextureCoordinate489);
 
@@ -2142,11 +2346,14 @@ HAnimSegment491.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_4"));
 HAnimSegment491.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_4"));
 Shape& Shape492 =  Shape();
 Appearance& Appearance493 =  Appearance();
+Appearance493.setContainerField("appearance");
 Material& Material494 =  Material();
+Material494.setContainerField("material");
 Material494.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance493.addChild(&Material494);
 
 ImageTexture& ImageTexture495 =  ImageTexture();
+ImageTexture495.setContainerField("texture");
 ImageTexture495.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance493.addChild(&ImageTexture495);
 
@@ -2161,6 +2368,7 @@ Coordinate497.setPoint(new float[]{-0.11688301,0.013070251,0.095406756,-0.108326
 IndexedFaceSet496.setCoord(&Coordinate497);
 
 TextureCoordinate& TextureCoordinate498 =  TextureCoordinate();
+TextureCoordinate498.setContainerField("texCoord");
 TextureCoordinate498.setPoint(new float[]{0.2033,0.0375,0.1866,0.0487,0.186,0.0472,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.1873,0.048,0.1915,0.0602,0.1915,0.0578,0.1897,0.0535,0.1888,0.0569,0.2031,0.037,0.2012,0.0381,0.2444,0.0847,0.2208,0.06,0.2111,0.0557,0.2254,0.054,0.2483,0.0809,0.2464,0.0799,0.2587,0.0865,0.225,0.0604,0.2239,0.0673,0.2238,0.0671,0.267,0.0845,0.2486,0.0741,0.2486,0.074,0.2049,0.059,0.1896,0.055,0.2102,0.0461,0.1952,0.0651,0.2083,0.0443,0.195,0.0629,0.2109,0.0476,0.2048,0.0404,0.2576,0.0911,0.2063,0.0414,0.2083,0.0537,0.2612,0.0869,0.2671,0.0842,0.2047,0.0593,0.1952,0.0651,0.2102,0.0461,0.2083,0.0443,0.195,0.0629,0.2102,0.0461,0.2063,0.0414,0.2612,0.0869,0.2671,0.0842,0.2083,0.0537,0.2109,0.0476,0.2083,0.0443,0.2444,0.0847,0.1952,0.0651,0.195,0.0629,0.1915,0.0578,0.225,0.0604,0.2239,0.0673,0.2464,0.0799}, 116);
 IndexedFaceSet496.setTexCoord(&TextureCoordinate498);
 
@@ -2179,11 +2387,14 @@ HAnimSegment500.X3DNode::setName(std::string("r_tarsal_middle_phalanx_4"));
 HAnimSegment500.setDEF(std::string("hanim_r_tarsal_middle_phalanx_4"));
 Shape& Shape501 =  Shape();
 Appearance& Appearance502 =  Appearance();
+Appearance502.setContainerField("appearance");
 Material& Material503 =  Material();
+Material503.setContainerField("material");
 Material503.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance502.addChild(&Material503);
 
 ImageTexture& ImageTexture504 =  ImageTexture();
+ImageTexture504.setContainerField("texture");
 ImageTexture504.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance502.addChild(&ImageTexture504);
 
@@ -2198,6 +2409,7 @@ Coordinate506.setPoint(new float[]{-0.10878976,0.002007,0.115029,-0.10769851,0.0
 IndexedFaceSet505.setCoord(&Coordinate506);
 
 TextureCoordinate& TextureCoordinate507 =  TextureCoordinate();
+TextureCoordinate507.setContainerField("texCoord");
 TextureCoordinate507.setPoint(new float[]{0.1822,0.0458,0.1809,0.0434,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.1816,0.0411,0.1287,0.0243,0.0943,0.0785,0.1866,0.0487,0.186,0.0472,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.1322,0.09,0.157,0.0552,0.1873,0.048,0.186,0.0472,0.1866,0.0487,0.1969,0.0343,0.1963,0.0328,0.1973,0.0341,0.157,0.0552,0.1822,0.0458,0.1809,0.0434,0.1816,0.0411,0.0943,0.0785,0.1948,0.024,0.1953,0.0282}, 56);
 IndexedFaceSet505.setTexCoord(&TextureCoordinate507);
 
@@ -2216,11 +2428,14 @@ HAnimSegment509.X3DNode::setName(std::string("r_tarsal_distal_phalanx_4"));
 HAnimSegment509.setDEF(std::string("hanim_r_tarsal_distal_phalanx_4"));
 Shape& Shape510 =  Shape();
 Appearance& Appearance511 =  Appearance();
+Appearance511.setContainerField("appearance");
 Material& Material512 =  Material();
+Material512.setContainerField("material");
 Material512.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance511.addChild(&Material512);
 
 ImageTexture& ImageTexture513 =  ImageTexture();
+ImageTexture513.setContainerField("texture");
 ImageTexture513.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance511.addChild(&ImageTexture513);
 
@@ -2235,6 +2450,7 @@ Coordinate515.setPoint(new float[]{-0.111879006,0.0039284998,0.11950425,-0.11890
 IndexedFaceSet514.setCoord(&Coordinate515);
 
 TextureCoordinate& TextureCoordinate516 =  TextureCoordinate();
+TextureCoordinate516.setContainerField("texCoord");
 TextureCoordinate516.setPoint(new float[]{0.1831,0.0355,0.1904,0.0263,0.1901,0.0243,0.1819,0.0351,0.1913,0.0249,0.182,0.0368,0.088,0.0133,0.0677,0.0461,0.1822,0.0458,0.1809,0.0434,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.0943,0.0785,0.1287,0.0243,0.1816,0.0411,0.1809,0.0434,0.1822,0.0458,0.1953,0.0282,0.1948,0.024,0.1933,0.0293,0.1287,0.0243}, 44);
 IndexedFaceSet514.setTexCoord(&TextureCoordinate516);
 
@@ -2261,11 +2477,14 @@ HAnimSegment518.X3DNode::setName(std::string("r_metatarsal_5"));
 HAnimSegment518.setDEF(std::string("hanim_r_metatarsal_5"));
 Shape& Shape519 =  Shape();
 Appearance& Appearance520 =  Appearance();
+Appearance520.setContainerField("appearance");
 Material& Material521 =  Material();
+Material521.setContainerField("material");
 Material521.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance520.addChild(&Material521);
 
 ImageTexture& ImageTexture522 =  ImageTexture();
+ImageTexture522.setContainerField("texture");
 ImageTexture522.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance520.addChild(&ImageTexture522);
 
@@ -2280,6 +2499,7 @@ Coordinate524.setPoint(new float[]{-0.127881,0.0019034995,0.060480006,-0.1337805
 IndexedFaceSet523.setCoord(&Coordinate524);
 
 TextureCoordinate& TextureCoordinate525 =  TextureCoordinate();
+TextureCoordinate525.setContainerField("texCoord");
 TextureCoordinate525.setPoint(new float[]{0.2299,0.0317,0.2316,0.0247,0.2265,0.0269,0.241,0.0419,0.244,0.0359,0.2401,0.0413,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2333,0.0341,0.2378,0.0303,0.2142,0.0508,0.2117,0.0481,0.2254,0.0615,0.2102,0.0461,0.2083,0.0443,0.2202,0.0585,0.2186,0.0548,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2292,0.0691,0.2342,0.0682,0.2142,0.0508,0.2202,0.0585,0.2292,0.0691,0.2342,0.0682,0.2254,0.0615,0.2186,0.0548,0.2117,0.0481,0.2083,0.0443,0.2102,0.0461,0.2292,0.0691,0.2469,0.052,0.2512,0.047,0.2484,0.051,0.2342,0.0682,0.2342,0.0682,0.2292,0.0691,0.226,0.0221,0.2245,0.0286,0.2102,0.0461,0.2102,0.0461,0.2083,0.0443,0.2083,0.0443,0.2232,0.0245}, 92);
 IndexedFaceSet523.setTexCoord(&TextureCoordinate525);
 
@@ -2298,11 +2518,14 @@ HAnimSegment527.X3DNode::setName(std::string("r_tarsal_proximal_phalanx_5"));
 HAnimSegment527.setDEF(std::string("hanim_r_tarsal_proximal_phalanx_5"));
 Shape& Shape528 =  Shape();
 Appearance& Appearance529 =  Appearance();
+Appearance529.setContainerField("appearance");
 Material& Material530 =  Material();
+Material530.setContainerField("material");
 Material530.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance529.addChild(&Material530);
 
 ImageTexture& ImageTexture531 =  ImageTexture();
+ImageTexture531.setContainerField("texture");
 ImageTexture531.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance529.addChild(&ImageTexture531);
 
@@ -2317,6 +2540,7 @@ Coordinate533.setPoint(new float[]{-0.12984976,0.01971675,0.08492625,-0.12866177
 IndexedFaceSet532.setCoord(&Coordinate533);
 
 TextureCoordinate& TextureCoordinate534 =  TextureCoordinate();
+TextureCoordinate534.setContainerField("texCoord");
 TextureCoordinate534.setPoint(new float[]{0.2192,0.0256,0.2205,0.0195,0.2048,0.0404,0.2199,0.022,0.2063,0.0414,0.2047,0.0523,0.1956,0.0462,0.1979,0.0386,0.2109,0.0476,0.277,0.1031,0.2673,0.0987,0.263,0.1,0.2744,0.109,0.1892,0.0439,0.1911,0.0375,0.2576,0.0911,0.2083,0.0537,0.263,0.0893,0.2612,0.0869,0.2047,0.0593,0.2048,0.0593,0.2671,0.0842,0.2673,0.0839,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2102,0.0461,0.2083,0.0443,0.2039,0.0358,0.2152,0.0224,0.2154,0.0203,0.2126,0.0258,0.2034,0.0366,0.2033,0.0375,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2245,0.0286,0.226,0.0221,0.2232,0.0245,0.2083,0.0443,0.2102,0.0461,0.2576,0.0911,0.2102,0.0461,0.2083,0.0443,0.2048,0.0404,0.2083,0.0537,0.2047,0.0593,0.2612,0.0869}, 104);
 IndexedFaceSet532.setTexCoord(&TextureCoordinate534);
 
@@ -2335,11 +2559,14 @@ HAnimSegment536.X3DNode::setName(std::string("r_tarsal_middle_phalanx_5"));
 HAnimSegment536.setDEF(std::string("hanim_r_tarsal_middle_phalanx_5"));
 Shape& Shape537 =  Shape();
 Appearance& Appearance538 =  Appearance();
+Appearance538.setContainerField("appearance");
 Material& Material539 =  Material();
+Material539.setContainerField("material");
 Material539.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance538.addChild(&Material539);
 
 ImageTexture& ImageTexture540 =  ImageTexture();
+ImageTexture540.setContainerField("texture");
 ImageTexture540.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance538.addChild(&ImageTexture540);
 
@@ -2354,6 +2581,7 @@ Coordinate542.setPoint(new float[]{-0.131418,0.001701,0.10044675,-0.132984,0.007
 IndexedFaceSet541.setCoord(&Coordinate542);
 
 TextureCoordinate& TextureCoordinate543 =  TextureCoordinate();
+TextureCoordinate543.setContainerField("texCoord");
 TextureCoordinate543.setPoint(new float[]{0.2109,0.0133,0.2102,0.0181,0.2093,0.0169,0.1959,0.0354,0.1986,0.0324,0.1989,0.0342,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2114,0.0219,0.2132,0.0168,0.2123,0.0196,0.1999,0.0356,0.201,0.0349,0.2011,0.0354,0.2109,0.0133,0.2102,0.0181,0.1989,0.0342,0.1986,0.0324,0.1959,0.0354,0.2093,0.0169}, 48);
 IndexedFaceSet541.setTexCoord(&TextureCoordinate543);
 
@@ -2372,11 +2600,14 @@ HAnimSegment545.X3DNode::setName(std::string("r_tarsal_distal_phalanx_5"));
 HAnimSegment545.setDEF(std::string("hanim_r_tarsal_distal_phalanx_5"));
 Shape& Shape546 =  Shape();
 Appearance& Appearance547 =  Appearance();
+Appearance547.setContainerField("appearance");
 Material& Material548 =  Material();
+Material548.setContainerField("material");
 Material548.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance547.addChild(&Material548);
 
 ImageTexture& ImageTexture549 =  ImageTexture();
+ImageTexture549.setContainerField("texture");
 ImageTexture549.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance547.addChild(&ImageTexture549);
 
@@ -2391,6 +2622,7 @@ Coordinate551.setPoint(new float[]{-0.12972376,0.001818,0.10640925,-0.1318095,0.
 IndexedFaceSet550.setCoord(&Coordinate551);
 
 TextureCoordinate& TextureCoordinate552 =  TextureCoordinate();
+TextureCoordinate552.setContainerField("texCoord");
 TextureCoordinate552.setPoint(new float[]{0.2048,0.0135,0.2053,0.0142,0.1964,0.026,0.1976,0.0232,0.1977,0.0271,0.2052,0.017,0.0639,0.0523,0.0903,0.0107,0.2102,0.0181,0.2109,0.0133,0.2093,0.0169,0.1317,0.0215,0.0951,0.0836,0.1959,0.0354,0.1986,0.0324,0.1989,0.0342,0.2102,0.0181,0.2109,0.0133,0.2093,0.0169,0.0951,0.0836,0.1986,0.0324,0.1989,0.0342}, 44);
 IndexedFaceSet550.setTexCoord(&TextureCoordinate552);
 
@@ -2427,11 +2659,14 @@ HAnimSegment554.X3DNode::setName(std::string("l5"));
 HAnimSegment554.setDEF(std::string("hanim_l5"));
 Shape& Shape555 =  Shape();
 Appearance& Appearance556 =  Appearance();
+Appearance556.setContainerField("appearance");
 Material& Material557 =  Material();
+Material557.setContainerField("material");
 Material557.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance556.addChild(&Material557);
 
 ImageTexture& ImageTexture558 =  ImageTexture();
+ImageTexture558.setContainerField("texture");
 ImageTexture558.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance556.addChild(&ImageTexture558);
 
@@ -2446,6 +2681,7 @@ Coordinate560.setPoint(new float[]{0.094005,0.95049006,0.06973425,0.1296,0.95130
 IndexedFaceSet559.setCoord(&Coordinate560);
 
 TextureCoordinate& TextureCoordinate561 =  TextureCoordinate();
+TextureCoordinate561.setContainerField("texCoord");
 TextureCoordinate561.setPoint(new float[]{0.019,0.2349,0.1011,0.241,0.1445,0.2419,0.2369,0.2375,0.3561,0.2404,0.1927,0.24,0.0206,0.2122,0.1067,0.2154,0.1463,0.2162,0.227,0.2131,0.3536,0.2151,0.1879,0.2143,0.3553,0.2398,0.3555,0.2151,0.3557,0.2401,0.3545,0.2151,0.3536,0.2151,0.019,0.2349,0.0206,0.2122,0.0206,0.2122,0.1067,0.2154,0.1011,0.241,0.019,0.2349,0.1463,0.2162,0.1445,0.2419,0.227,0.2131,0.3536,0.2151,0.3561,0.2404,0.2369,0.2375,0.1879,0.2143,0.1927,0.24,0.3553,0.2398,0.3555,0.2151,0.3545,0.2151,0.3557,0.2401,0.0206,0.2122,0.019,0.2349,0.3536,0.2151,0.019,0.2349,0.1011,0.241,0.1445,0.2419,0.1927,0.24,0.2369,0.2375,0.3561,0.2404,0.3557,0.2401,0.3553,0.2398,0.2369,0.2375,0.1927,0.24,0.1445,0.2419,0.1011,0.241,0.019,0.2349,0.019,0.2349}, 104);
 IndexedFaceSet559.setTexCoord(&TextureCoordinate561);
 
@@ -2464,11 +2700,14 @@ HAnimSegment563.X3DNode::setName(std::string("l4"));
 HAnimSegment563.setDEF(std::string("hanim_l4"));
 Shape& Shape564 =  Shape();
 Appearance& Appearance565 =  Appearance();
+Appearance565.setContainerField("appearance");
 Material& Material566 =  Material();
+Material566.setContainerField("material");
 Material566.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance565.addChild(&Material566);
 
 ImageTexture& ImageTexture567 =  ImageTexture();
+ImageTexture567.setContainerField("texture");
 ImageTexture567.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance565.addChild(&ImageTexture567);
 
@@ -2483,6 +2722,7 @@ Coordinate569.setPoint(new float[]{0.090585,0.96652126,0.061949253,0.12501001,0.
 IndexedFaceSet568.setCoord(&Coordinate569);
 
 TextureCoordinate& TextureCoordinate570 =  TextureCoordinate();
+TextureCoordinate570.setContainerField("texCoord");
 TextureCoordinate570.setPoint(new float[]{0.1026,0.2616,0.1481,0.2604,0.3503,0.2575,0.3578,0.2568,0.0179,0.2574,0.2289,0.2559,0.1884,0.2584,0.0186,0.2582,0.3542,0.2515,0.1011,0.241,0.1445,0.2419,0.3553,0.2398,0.3561,0.2404,0.2369,0.2375,0.1927,0.24,0.019,0.2349,0.3557,0.2401,0.019,0.2349,0.019,0.2349,0.1011,0.241,0.1026,0.2616,0.0179,0.2574,0.1445,0.2419,0.1481,0.2604,0.2369,0.2375,0.3561,0.2404,0.3503,0.2575,0.2289,0.2559,0.1927,0.24,0.1884,0.2584,0.019,0.2349,0.0186,0.2582,0.3578,0.2568,0.3553,0.2398,0.3557,0.2401,0.3542,0.2515,0.0179,0.2574,0.1026,0.2616,0.1481,0.2604,0.1884,0.2584,0.2289,0.2559,0.3503,0.2575,0.3542,0.2515,0.3578,0.2568,0.2289,0.2559,0.1884,0.2584,0.1481,0.2604,0.1026,0.2616,0.0179,0.2574,0.0186,0.2582,0.1011,0.241,0.019,0.2349,0.019,0.2349,0.019,0.2349,0.1011,0.241,0.1445,0.2419,0.1927,0.24,0.2369,0.2375,0.3561,0.2404,0.3557,0.2401,0.3553,0.2398,0.2369,0.2375,0.1927,0.24,0.1445,0.2419}, 128);
 IndexedFaceSet568.setTexCoord(&TextureCoordinate570);
 
@@ -2501,11 +2741,14 @@ HAnimSegment572.X3DNode::setName(std::string("l3"));
 HAnimSegment572.setDEF(std::string("hanim_l3"));
 Shape& Shape573 =  Shape();
 Appearance& Appearance574 =  Appearance();
+Appearance574.setContainerField("appearance");
 Material& Material575 =  Material();
+Material575.setContainerField("material");
 Material575.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance574.addChild(&Material575);
 
 ImageTexture& ImageTexture576 =  ImageTexture();
+ImageTexture576.setContainerField("texture");
 ImageTexture576.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance574.addChild(&ImageTexture576);
 
@@ -2520,6 +2763,7 @@ Coordinate578.setPoint(new float[]{0.087165006,0.98242205,0.05418675,0.030757502
 IndexedFaceSet577.setCoord(&Coordinate578);
 
 TextureCoordinate& TextureCoordinate579 =  TextureCoordinate();
+TextureCoordinate579.setContainerField("texCoord");
 TextureCoordinate579.setPoint(new float[]{0.1041,0.2822,0.0168,0.2798,0.1518,0.2789,0.3444,0.2746,0.3604,0.2737,0.221,0.2742,0.1842,0.2768,0.3527,0.263,0.0181,0.2816,0.1026,0.2616,0.1481,0.2604,0.3578,0.2568,0.3503,0.2575,0.0179,0.2574,0.2289,0.2559,0.1884,0.2584,0.0186,0.2582,0.3542,0.2515,0.3604,0.2737,0.3578,0.2568,0.3542,0.2515,0.3527,0.263,0.1026,0.2616,0.1041,0.2822,0.0168,0.2798,0.0179,0.2574,0.1481,0.2604,0.1518,0.2789,0.3503,0.2575,0.3444,0.2746,0.221,0.2742,0.2289,0.2559,0.1842,0.2768,0.1884,0.2584,0.0181,0.2816,0.0186,0.2582,0.0168,0.2798,0.1041,0.2822,0.1518,0.2789,0.1842,0.2768,0.221,0.2742,0.3444,0.2746,0.3527,0.263,0.3604,0.2737,0.221,0.2742,0.1842,0.2768,0.1518,0.2789,0.1041,0.2822,0.0168,0.2798,0.0181,0.2816,0.1026,0.2616,0.0179,0.2574,0.0186,0.2582,0.0179,0.2574,0.1026,0.2616,0.1481,0.2604,0.1884,0.2584,0.2289,0.2559,0.3503,0.2575,0.3542,0.2515,0.3578,0.2568,0.2289,0.2559,0.1884,0.2584,0.1481,0.2604}, 128);
 IndexedFaceSet577.setTexCoord(&TextureCoordinate579);
 
@@ -2538,11 +2782,14 @@ HAnimSegment581.X3DNode::setName(std::string("l2"));
 HAnimSegment581.setDEF(std::string("hanim_l2"));
 Shape& Shape582 =  Shape();
 Appearance& Appearance583 =  Appearance();
+Appearance583.setContainerField("appearance");
 Material& Material584 =  Material();
+Material584.setContainerField("material");
 Material584.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance583.addChild(&Material584);
 
 ImageTexture& ImageTexture585 =  ImageTexture();
+ImageTexture585.setContainerField("texture");
 ImageTexture585.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance583.addChild(&ImageTexture585);
 
@@ -2557,6 +2804,7 @@ Coordinate587.setPoint(new float[]{0.083475,0.9998325,0.045816753,0.108405,0.999
 IndexedFaceSet586.setCoord(&Coordinate587);
 
 TextureCoordinate& TextureCoordinate588 =  TextureCoordinate();
+TextureCoordinate588.setContainerField("texCoord");
 TextureCoordinate588.setPoint(new float[]{0.0177,0.3051,0.0982,0.302,0.1487,0.2975,0.2175,0.2944,0.3621,0.2922,0.1849,0.2961,0.3633,0.2922,0.3627,0.2922,0.0177,0.3051,0.1055,0.2814,0.3697,0.2711,0.3605,0.2757,0.2204,0.275,0.1853,0.2768,0.024,0.2813,0.1448,0.2785,0.3603,0.2745,0.0155,0.2778,0.3633,0.2922,0.3697,0.2711,0.3603,0.2745,0.3627,0.2922,0.1055,0.2814,0.0982,0.302,0.0177,0.3051,0.024,0.2813,0.1448,0.2785,0.1487,0.2975,0.3605,0.2757,0.3621,0.2922,0.2175,0.2944,0.2204,0.275,0.1849,0.2961,0.1853,0.2768,0.0177,0.3051,0.0155,0.2778,0.0177,0.3051,0.0982,0.302,0.1487,0.2975,0.1849,0.2961,0.2175,0.2944,0.3621,0.2922,0.3627,0.2922,0.3633,0.2922,0.2175,0.2944,0.1849,0.2961,0.1487,0.2975,0.0982,0.302,0.0177,0.3051,0.0177,0.3051,0.1055,0.2814,0.024,0.2813,0.0155,0.2778,0.024,0.2813,0.1055,0.2814,0.1448,0.2785,0.1853,0.2768,0.2204,0.275,0.3605,0.2757,0.3603,0.2745,0.3697,0.2711,0.2204,0.275,0.1853,0.2768,0.1448,0.2785}, 128);
 IndexedFaceSet586.setTexCoord(&TextureCoordinate588);
 
@@ -2575,11 +2823,14 @@ HAnimSegment590.X3DNode::setName(std::string("l1"));
 HAnimSegment590.setDEF(std::string("hanim_l1"));
 Shape& Shape591 =  Shape();
 Appearance& Appearance592 =  Appearance();
+Appearance592.setContainerField("appearance");
 Material& Material593 =  Material();
+Material593.setContainerField("material");
 Material593.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance592.addChild(&Material593);
 
 ImageTexture& ImageTexture594 =  ImageTexture();
+ImageTexture594.setContainerField("texture");
 ImageTexture594.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance592.addChild(&ImageTexture594);
 
@@ -2594,6 +2845,7 @@ Coordinate596.setPoint(new float[]{0.083295,1.023435,0.044466753,0.028935002,1.0
 IndexedFaceSet595.setCoord(&Coordinate596);
 
 TextureCoordinate& TextureCoordinate597 =  TextureCoordinate();
+TextureCoordinate597.setContainerField("texCoord");
 TextureCoordinate597.setPoint(new float[]{0.0943,0.3233,0.0192,0.3251,0.1489,0.3212,0.3615,0.3195,0.3631,0.318,0.2175,0.3185,0.1844,0.32,0.3623,0.3188,0.0192,0.3251,0.0982,0.302,0.1849,0.2961,0.0177,0.3051,0.3627,0.2922,0.1487,0.2975,0.3633,0.2922,0.3621,0.2922,0.2175,0.2944,0.0177,0.3051,0.0177,0.3051,0.0982,0.302,0.0943,0.3233,0.0192,0.3251,0.1487,0.2975,0.1489,0.3212,0.2175,0.2944,0.3621,0.2922,0.3615,0.3195,0.2175,0.3185,0.1849,0.2961,0.1844,0.32,0.0177,0.3051,0.0192,0.3251,0.3631,0.318,0.3633,0.2922,0.3627,0.2922,0.3623,0.3188,0.0192,0.3251,0.0943,0.3233,0.1489,0.3212,0.1844,0.32,0.2175,0.3185,0.3615,0.3195,0.3623,0.3188,0.3631,0.318,0.2175,0.3185,0.1844,0.32,0.1489,0.3212,0.0943,0.3233,0.0192,0.3251,0.0192,0.3251,0.0982,0.302,0.0177,0.3051,0.0177,0.3051,0.0177,0.3051,0.0982,0.302,0.1487,0.2975,0.1849,0.2961,0.2175,0.2944,0.3621,0.2922,0.3627,0.2922,0.3633,0.2922,0.2175,0.2944,0.1849,0.2961,0.1487,0.2975}, 128);
 IndexedFaceSet595.setTexCoord(&TextureCoordinate597);
 
@@ -2612,11 +2864,14 @@ HAnimSegment599.X3DNode::setName(std::string("t12"));
 HAnimSegment599.setDEF(std::string("hanim_t12"));
 Shape& Shape600 =  Shape();
 Appearance& Appearance601 =  Appearance();
+Appearance601.setContainerField("appearance");
 Material& Material602 =  Material();
+Material602.setContainerField("material");
 Material602.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance601.addChild(&Material602);
 
 ImageTexture& ImageTexture603 =  ImageTexture();
+ImageTexture603.setContainerField("texture");
 ImageTexture603.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance601.addChild(&ImageTexture603);
 
@@ -2631,6 +2886,7 @@ Coordinate605.setPoint(new float[]{0.083137505,1.0467901,0.043139253,0.1143225,1
 IndexedFaceSet604.setCoord(&Coordinate605);
 
 TextureCoordinate& TextureCoordinate606 =  TextureCoordinate();
+TextureCoordinate606.setContainerField("texCoord");
 TextureCoordinate606.setPoint(new float[]{0.0903,0.3446,0.1491,0.3449,0.0206,0.3452,0.3608,0.3469,0.3629,0.3439,0.2175,0.3427,0.1838,0.3438,0.3619,0.3454,0.0206,0.3452,0.0943,0.3233,0.0192,0.3251,0.1489,0.3212,0.3631,0.318,0.3615,0.3195,0.2175,0.3185,0.1844,0.32,0.3623,0.3188,0.0192,0.3251,0.2175,0.3427,0.1838,0.3438,0.1844,0.32,0.2175,0.3185,0.3619,0.3454,0.3629,0.3439,0.3631,0.318,0.3623,0.3188,0.0943,0.3233,0.0903,0.3446,0.0206,0.3452,0.0192,0.3251,0.1489,0.3212,0.1491,0.3449,0.3615,0.3195,0.3608,0.3469,0.0206,0.3452,0.0192,0.3251,0.0206,0.3452,0.0903,0.3446,0.1491,0.3449,0.1838,0.3438,0.2175,0.3427,0.3608,0.3469,0.3619,0.3454,0.3629,0.3439,0.2175,0.3427,0.1838,0.3438,0.1491,0.3449,0.0903,0.3446,0.0206,0.3452,0.0206,0.3452,0.0943,0.3233,0.0192,0.3251,0.0192,0.3251,0.0192,0.3251,0.0943,0.3233,0.1489,0.3212,0.1844,0.32,0.2175,0.3185,0.3615,0.3195,0.3623,0.3188,0.3631,0.318,0.2175,0.3185,0.1844,0.32,0.1489,0.3212}, 128);
 IndexedFaceSet604.setTexCoord(&TextureCoordinate606);
 
@@ -2649,11 +2905,14 @@ HAnimSegment608.X3DNode::setName(std::string("t11"));
 HAnimSegment608.setDEF(std::string("hanim_t11"));
 Shape& Shape609 =  Shape();
 Appearance& Appearance610 =  Appearance();
+Appearance610.setContainerField("appearance");
 Material& Material611 =  Material();
+Material611.setContainerField("material");
 Material611.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance610.addChild(&Material611);
 
 ImageTexture& ImageTexture612 =  ImageTexture();
+ImageTexture612.setContainerField("texture");
 ImageTexture612.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance610.addChild(&ImageTexture612);
 
@@ -2668,6 +2927,7 @@ Coordinate614.setPoint(new float[]{0.083137505,1.0469205,0.043139253,0.1143225,1
 IndexedFaceSet613.setCoord(&Coordinate614);
 
 TextureCoordinate& TextureCoordinate615 =  TextureCoordinate();
+TextureCoordinate615.setContainerField("texCoord");
 TextureCoordinate615.setPoint(new float[]{0.0206,0.3452,0.0903,0.3446,0.0903,0.3446,0.1491,0.3449,0.3629,0.3439,0.3608,0.3469,0.2175,0.3427,0.1838,0.3438,0.0206,0.3452,0.3619,0.3454,0.0206,0.3452,0.089,0.3604,0.1508,0.3559,0.3623,0.3532,0.3588,0.3561,0.0232,0.3561,0.2188,0.3538,0.1874,0.3541,0.0232,0.3546,0.3608,0.3537,0.2175,0.3427,0.3608,0.3469,0.3588,0.3561,0.2188,0.3538,0.1838,0.3438,0.1874,0.3541,0.1491,0.3449,0.1508,0.3559,0.0206,0.3452,0.0206,0.3452,0.0232,0.3561,0.0232,0.3546,0.0903,0.3446,0.0206,0.3452,0.0903,0.3446,0.089,0.3604,0.3623,0.3532,0.3629,0.3439,0.3619,0.3454,0.3608,0.3537,0.0903,0.3446,0.0206,0.3452,0.0206,0.3452,0.0206,0.3452,0.0903,0.3446,0.1491,0.3449,0.1838,0.3438,0.2175,0.3427,0.3608,0.3469,0.3619,0.3454,0.3629,0.3439,0.2175,0.3427,0.1838,0.3438,0.1491,0.3449,0.2188,0.3538,0.3588,0.3561,0.3608,0.3537,0.3623,0.3532,0.2188,0.3538,0.1874,0.3541,0.1508,0.3559,0.089,0.3604,0.0232,0.3561,0.0232,0.3546,0.0232,0.3561,0.089,0.3604,0.1508,0.3559,0.1874,0.3541}, 136);
 IndexedFaceSet613.setTexCoord(&TextureCoordinate615);
 
@@ -2686,11 +2946,14 @@ HAnimSegment617.X3DNode::setName(std::string("t10"));
 HAnimSegment617.setDEF(std::string("hanim_t10"));
 Shape& Shape618 =  Shape();
 Appearance& Appearance619 =  Appearance();
+Appearance619.setContainerField("appearance");
 Material& Material620 =  Material();
+Material620.setContainerField("material");
 Material620.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance619.addChild(&Material620);
 
 ImageTexture& ImageTexture621 =  ImageTexture();
+ImageTexture621.setContainerField("texture");
 ImageTexture621.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance619.addChild(&ImageTexture621);
 
@@ -2705,6 +2968,7 @@ Coordinate623.setPoint(new float[]{0.08685,1.0640655,0.052274253,0.12062251,1.06
 IndexedFaceSet622.setCoord(&Coordinate623);
 
 TextureCoordinate& TextureCoordinate624 =  TextureCoordinate();
+TextureCoordinate624.setContainerField("texCoord");
 TextureCoordinate624.setPoint(new float[]{0.089,0.3604,0.1508,0.3559,0.3588,0.3561,0.3623,0.3532,0.0232,0.3561,0.2188,0.3538,0.1874,0.3541,0.0232,0.3546,0.3608,0.3537,0.0245,0.3617,0.2207,0.3633,0.1922,0.3628,0.3616,0.3609,0.0859,0.3657,0.1489,0.3665,0.3589,0.3648,0.3617,0.3609,0.0254,0.3626,0.3588,0.3561,0.3589,0.3648,0.2207,0.3633,0.2188,0.3538,0.1922,0.3628,0.1874,0.3541,0.1489,0.3665,0.1508,0.3559,0.0232,0.3561,0.0245,0.3617,0.0254,0.3626,0.0232,0.3546,0.089,0.3604,0.0859,0.3657,0.3617,0.3609,0.3623,0.3532,0.3608,0.3537,0.3616,0.3609,0.3623,0.3532,0.2188,0.3538,0.1874,0.3541,0.1508,0.3559,0.089,0.3604,0.0232,0.3561,0.0232,0.3546,0.0232,0.3561,0.089,0.3604,0.1508,0.3559,0.1874,0.3541,0.2188,0.3538,0.3588,0.3561,0.3608,0.3537,0.0245,0.3617,0.0859,0.3657,0.1489,0.3665,0.1922,0.3628,0.2207,0.3633,0.3589,0.3648,0.3616,0.3609,0.3617,0.3609,0.2207,0.3633,0.1922,0.3628,0.1489,0.3665,0.0859,0.3657,0.0245,0.3617,0.0254,0.3626}, 128);
 IndexedFaceSet622.setTexCoord(&TextureCoordinate624);
 
@@ -2723,11 +2987,14 @@ HAnimSegment626.X3DNode::setName(std::string("t9"));
 HAnimSegment626.setDEF(std::string("hanim_t9"));
 Shape& Shape627 =  Shape();
 Appearance& Appearance628 =  Appearance();
+Appearance628.setContainerField("appearance");
 Material& Material629 =  Material();
+Material629.setContainerField("material");
 Material629.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance628.addChild(&Material629);
 
 ImageTexture& ImageTexture630 =  ImageTexture();
+ImageTexture630.setContainerField("texture");
 ImageTexture630.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance628.addChild(&ImageTexture630);
 
@@ -2742,6 +3009,7 @@ Coordinate632.setPoint(new float[]{0.031905,1.0785578,0.06188175,0.087570004,1.0
 IndexedFaceSet631.setCoord(&Coordinate632);
 
 TextureCoordinate& TextureCoordinate633 =  TextureCoordinate();
+TextureCoordinate633.setContainerField("texCoord");
 TextureCoordinate633.setPoint(new float[]{0.0245,0.3617,0.2207,0.3633,0.1922,0.3628,0.3616,0.3609,0.0859,0.3657,0.1489,0.3665,0.3589,0.3648,0.3617,0.3609,0.0254,0.3626,0.0258,0.3672,0.2227,0.3728,0.1969,0.3716,0.0826,0.3711,0.1469,0.377,0.3589,0.3735,0.3612,0.3687,0.0276,0.3706,0.3625,0.3682,0.0258,0.3672,0.0245,0.3617,0.0859,0.3657,0.0826,0.3711,0.3612,0.3687,0.3617,0.3609,0.3616,0.3609,0.3625,0.3682,0.1489,0.3665,0.1469,0.377,0.3589,0.3648,0.3589,0.3735,0.2227,0.3728,0.2207,0.3633,0.1969,0.3716,0.1922,0.3628,0.0276,0.3706,0.0254,0.3626,0.0859,0.3657,0.0245,0.3617,0.0254,0.3626,0.0245,0.3617,0.0859,0.3657,0.1489,0.3665,0.1922,0.3628,0.2207,0.3633,0.3589,0.3648,0.3616,0.3609,0.3617,0.3609,0.2207,0.3633,0.1922,0.3628,0.1489,0.3665,0.2227,0.3728,0.3589,0.3735,0.3625,0.3682,0.3612,0.3687,0.2227,0.3728,0.1969,0.3716,0.1469,0.377,0.0826,0.3711,0.0258,0.3672,0.0276,0.3706,0.0258,0.3672,0.0826,0.3711,0.1469,0.377,0.1969,0.3716}, 128);
 IndexedFaceSet631.setTexCoord(&TextureCoordinate633);
 
@@ -2760,11 +3028,14 @@ HAnimSegment635.X3DNode::setName(std::string("t8"));
 HAnimSegment635.setDEF(std::string("hanim_t8"));
 Shape& Shape636 =  Shape();
 Appearance& Appearance637 =  Appearance();
+Appearance637.setContainerField("appearance");
 Material& Material638 =  Material();
+Material638.setContainerField("material");
 Material638.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance637.addChild(&Material638);
 
 ImageTexture& ImageTexture639 =  ImageTexture();
+ImageTexture639.setContainerField("texture");
 ImageTexture639.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance637.addChild(&ImageTexture639);
 
@@ -2779,6 +3050,7 @@ Coordinate641.setPoint(new float[]{0.033210002,1.0930524,0.06572925,0.090742506,
 IndexedFaceSet640.setCoord(&Coordinate641);
 
 TextureCoordinate& TextureCoordinate642 =  TextureCoordinate();
+TextureCoordinate642.setContainerField("texCoord");
 TextureCoordinate642.setPoint(new float[]{0.0908,0.3999,0.0325,0.3879,0.0306,0.3835,0.1568,0.3845,0.3535,0.3812,0.3589,0.3783,0.2214,0.3832,0.1952,0.3809,0.3561,0.3769,0.0802,0.3883,0.1575,0.3746,0.3637,0.3704,0.356,0.3713,0.3581,0.3683,0.0256,0.3731,0.0261,0.363,0.2218,0.3729,0.1941,0.3712,0.0325,0.3879,0.0256,0.3731,0.0802,0.3883,0.0908,0.3999,0.3589,0.3783,0.3637,0.3704,0.3581,0.3683,0.3561,0.3769,0.1575,0.3746,0.1568,0.3845,0.356,0.3713,0.3535,0.3812,0.2214,0.3832,0.2218,0.3729,0.1952,0.3809,0.1941,0.3712,0.0306,0.3835,0.0261,0.363,0.3637,0.3704,0.2218,0.3729,0.1941,0.3712,0.1575,0.3746,0.0802,0.3883,0.0256,0.3731,0.0261,0.363,0.0256,0.3731,0.0802,0.3883,0.1575,0.3746,0.1941,0.3712,0.2218,0.3729,0.356,0.3713,0.3581,0.3683,0.0306,0.3835,0.0325,0.3879,0.0908,0.3999,0.1568,0.3845,0.1952,0.3809,0.2214,0.3832,0.3535,0.3812,0.3561,0.3769,0.3589,0.3783,0.2214,0.3832,0.1952,0.3809,0.1568,0.3845,0.0908,0.3999,0.0325,0.3879}, 128);
 IndexedFaceSet640.setTexCoord(&TextureCoordinate642);
 
@@ -2797,11 +3069,14 @@ HAnimSegment644.X3DNode::setName(std::string("t7"));
 HAnimSegment644.setDEF(std::string("hanim_t7"));
 Shape& Shape645 =  Shape();
 Appearance& Appearance646 =  Appearance();
+Appearance646.setContainerField("appearance");
 Material& Material647 =  Material();
+Material647.setContainerField("material");
 Material647.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance646.addChild(&Material647);
 
 ImageTexture& ImageTexture648 =  ImageTexture();
+ImageTexture648.setContainerField("texture");
 ImageTexture648.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance646.addChild(&ImageTexture648);
 
@@ -2816,6 +3091,7 @@ Coordinate650.setPoint(new float[]{0.1414125,1.1218928,0.01591425,0.046395004,1.
 IndexedFaceSet649.setCoord(&Coordinate650);
 
 TextureCoordinate& TextureCoordinate651 =  TextureCoordinate();
+TextureCoordinate651.setContainerField("texCoord");
 TextureCoordinate651.setPoint(new float[]{0.0437,0.4075,0.2185,0.3912,0.3484,0.3944,0.1518,0.3905,0.1902,0.3894,0.3503,0.3879,0.3505,0.3886,0.0427,0.408,0.0961,0.4138,0.0908,0.3999,0.0325,0.3879,0.1568,0.3845,0.3535,0.3812,0.3589,0.3783,0.2214,0.3832,0.1952,0.3809,0.3561,0.3769,0.0306,0.3835,0.1568,0.3845,0.1518,0.3905,0.0961,0.4138,0.0908,0.3999,0.3503,0.3879,0.3589,0.3783,0.3561,0.3769,0.3505,0.3886,0.0325,0.3879,0.0437,0.4075,0.0427,0.408,0.0306,0.3835,0.3535,0.3812,0.3484,0.3944,0.2185,0.3912,0.2214,0.3832,0.1902,0.3894,0.1952,0.3809,0.3484,0.3944,0.3505,0.3886,0.3503,0.3879,0.2185,0.3912,0.1902,0.3894,0.1518,0.3905,0.0961,0.4138,0.0437,0.4075,0.0427,0.408,0.0437,0.4075,0.0961,0.4138,0.1518,0.3905,0.1902,0.3894,0.2185,0.3912,0.0325,0.3879,0.0306,0.3835,0.0325,0.3879,0.0908,0.3999,0.1568,0.3845,0.1952,0.3809,0.2214,0.3832,0.3535,0.3812,0.3561,0.3769,0.3589,0.3783,0.2214,0.3832,0.1952,0.3809,0.1568,0.3845,0.0908,0.3999}, 128);
 IndexedFaceSet649.setTexCoord(&TextureCoordinate651);
 
@@ -2834,11 +3110,14 @@ HAnimSegment653.X3DNode::setName(std::string("t6"));
 HAnimSegment653.setDEF(std::string("hanim_t6"));
 Shape& Shape654 =  Shape();
 Appearance& Appearance655 =  Appearance();
+Appearance655.setContainerField("appearance");
 Material& Material656 =  Material();
+Material656.setContainerField("material");
 Material656.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance655.addChild(&Material656);
 
 ImageTexture& ImageTexture657 =  ImageTexture();
+ImageTexture657.setContainerField("texture");
 ImageTexture657.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance655.addChild(&ImageTexture657);
 
@@ -2853,6 +3132,7 @@ Coordinate659.setPoint(new float[]{0.043582503,1.137141,-0.07325325,0.13932,1.13
 IndexedFaceSet658.setCoord(&Coordinate659);
 
 TextureCoordinate& TextureCoordinate660 =  TextureCoordinate();
+TextureCoordinate660.setContainerField("texCoord");
 TextureCoordinate660.setPoint(new float[]{0.3061,0.4256,0.3364,0.4029,0.1528,0.4078,0.1843,0.4071,0.055,0.4216,0.3325,0.4068,0.0482,0.4185,0.221,0.4256,0.1008,0.4259,0.1518,0.3905,0.3506,0.3865,0.3484,0.3944,0.0427,0.408,0.0961,0.4138,0.3437,0.3934,0.2185,0.3912,0.1902,0.3894,0.0437,0.4075,0.0437,0.4075,0.0961,0.4138,0.1008,0.4259,0.055,0.4216,0.1902,0.3894,0.1843,0.4071,0.1528,0.4078,0.1518,0.3905,0.3364,0.4029,0.3506,0.3865,0.3437,0.3934,0.3325,0.4068,0.0482,0.4185,0.0427,0.408,0.2185,0.3912,0.221,0.4256,0.3484,0.3944,0.3061,0.4256,0.055,0.4216,0.1008,0.4259,0.1528,0.4078,0.1843,0.4071,0.221,0.4256,0.3061,0.4256,0.3325,0.4068,0.3364,0.4029,0.221,0.4256,0.1843,0.4071,0.1528,0.4078,0.1008,0.4259,0.055,0.4216,0.0482,0.4185,0.3437,0.3934,0.3506,0.3865,0.2185,0.3912,0.1902,0.3894,0.1518,0.3905,0.0961,0.4138,0.0437,0.4075,0.0427,0.408,0.0437,0.4075,0.0961,0.4138,0.1518,0.3905,0.1902,0.3894,0.2185,0.3912,0.3484,0.3944}, 128);
 IndexedFaceSet658.setTexCoord(&TextureCoordinate660);
 
@@ -2871,11 +3151,14 @@ HAnimSegment662.X3DNode::setName(std::string("t5"));
 HAnimSegment662.setDEF(std::string("hanim_t5"));
 Shape& Shape663 =  Shape();
 Appearance& Appearance664 =  Appearance();
+Appearance664.setContainerField("appearance");
 Material& Material665 =  Material();
+Material665.setContainerField("material");
 Material665.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance664.addChild(&Material665);
 
 ImageTexture& ImageTexture666 =  ImageTexture();
+ImageTexture666.setContainerField("texture");
 ImageTexture666.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance664.addChild(&ImageTexture666);
 
@@ -2890,6 +3173,7 @@ Coordinate668.setPoint(new float[]{0.0407475,1.1525738,-0.07383826,0.1328175,1.1
 IndexedFaceSet667.setCoord(&Coordinate668);
 
 TextureCoordinate& TextureCoordinate669 =  TextureCoordinate();
+TextureCoordinate669.setContainerField("texCoord");
 TextureCoordinate669.setPoint(new float[]{0.2236,0.46,0.2638,0.4568,0.3214,0.4203,0.1538,0.4251,0.1784,0.4249,0.3223,0.4192,0.1055,0.438,0.0663,0.4356,0.0537,0.4289,0.3061,0.4256,0.3364,0.4029,0.1528,0.4078,0.1843,0.4071,0.055,0.4216,0.3325,0.4068,0.0482,0.4185,0.221,0.4256,0.1008,0.4259,0.3214,0.4203,0.3223,0.4192,0.3364,0.4029,0.3325,0.4068,0.0537,0.4289,0.0482,0.4185,0.055,0.4216,0.0663,0.4356,0.1055,0.438,0.1008,0.4259,0.1528,0.4078,0.1538,0.4251,0.1784,0.4249,0.1843,0.4071,0.221,0.4256,0.2236,0.46,0.3061,0.4256,0.2638,0.4568,0.0663,0.4356,0.1055,0.438,0.1538,0.4251,0.1784,0.4249,0.2236,0.46,0.2638,0.4568,0.3214,0.4203,0.3223,0.4192,0.2236,0.46,0.1784,0.4249,0.1538,0.4251,0.1055,0.438,0.0663,0.4356,0.0537,0.4289,0.1008,0.4259,0.055,0.4216,0.0482,0.4185,0.055,0.4216,0.1008,0.4259,0.1528,0.4078,0.1843,0.4071,0.221,0.4256,0.3061,0.4256,0.3325,0.4068,0.3364,0.4029,0.221,0.4256,0.1843,0.4071,0.1528,0.4078}, 128);
 IndexedFaceSet667.setTexCoord(&TextureCoordinate669);
 
@@ -2908,11 +3192,14 @@ HAnimSegment671.X3DNode::setName(std::string("t4"));
 HAnimSegment671.setDEF(std::string("hanim_t4"));
 Shape& Shape672 =  Shape();
 Appearance& Appearance673 =  Appearance();
+Appearance673.setContainerField("appearance");
 Material& Material674 =  Material();
+Material674.setContainerField("material");
 Material674.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance673.addChild(&Material674);
 
 ImageTexture& ImageTexture675 =  ImageTexture();
+ImageTexture675.setContainerField("texture");
 ImageTexture675.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance673.addChild(&ImageTexture675);
 
@@ -2927,6 +3214,7 @@ Coordinate677.setPoint(new float[]{0.0378225,1.170945,0.06561676,0.12993751,1.17
 IndexedFaceSet676.setCoord(&Coordinate677);
 
 TextureCoordinate& TextureCoordinate678 =  TextureCoordinate();
+TextureCoordinate678.setContainerField("texCoord");
 TextureCoordinate678.setPoint(new float[]{0.0639,0.4488,0.0777,0.4495,0.1846,0.4438,0.1504,0.4433,0.1107,0.4532,0.2633,0.457,0.3222,0.4193,0.3214,0.4203,0.2198,0.4731,0.2144,0.4674,0.3223,0.4192,0.2638,0.4568,0.1784,0.4249,0.1784,0.4249,0.1055,0.438,0.0663,0.4356,0.2236,0.46,0.3214,0.4203,0.1538,0.4251,0.0537,0.4289,0.1538,0.4251,0.1504,0.4433,0.1107,0.4532,0.1055,0.438,0.0777,0.4495,0.0663,0.4356,0.3223,0.4192,0.3214,0.4203,0.3214,0.4203,0.3222,0.4193,0.2236,0.46,0.2638,0.4568,0.2633,0.457,0.2198,0.4731,0.0639,0.4488,0.0537,0.4289,0.2144,0.4674,0.1846,0.4438,0.1784,0.4249,0.1784,0.4249,0.1107,0.4532,0.1504,0.4433,0.1846,0.4438,0.2144,0.4674,0.2198,0.4731,0.2633,0.457,0.3214,0.4203,0.3222,0.4193,0.2198,0.4731,0.2144,0.4674,0.1846,0.4438,0.1504,0.4433,0.1107,0.4532,0.0777,0.4495,0.0639,0.4488,0.0777,0.4495,0.1055,0.438,0.0663,0.4356,0.0537,0.4289,0.0663,0.4356,0.1055,0.438,0.1538,0.4251,0.1784,0.4249,0.2236,0.46,0.2638,0.4568,0.3214,0.4203,0.3223,0.4192,0.2236,0.46,0.1784,0.4249,0.1538,0.4251}, 140);
 IndexedFaceSet676.setTexCoord(&TextureCoordinate678);
 
@@ -2945,11 +3233,14 @@ HAnimSegment680.X3DNode::setName(std::string("t3"));
 HAnimSegment680.setDEF(std::string("hanim_t3"));
 Shape& Shape681 =  Shape();
 Appearance& Appearance682 =  Appearance();
+Appearance682.setContainerField("appearance");
 Material& Material683 =  Material();
+Material683.setContainerField("material");
 Material683.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance682.addChild(&Material683);
 
 ImageTexture& ImageTexture684 =  ImageTexture();
+ImageTexture684.setContainerField("texture");
 ImageTexture684.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance682.addChild(&ImageTexture684);
 
@@ -2964,6 +3255,7 @@ Coordinate686.setPoint(new float[]{0.0385425,1.1876289,0.06336675,0.121005,1.198
 IndexedFaceSet685.setCoord(&Coordinate686);
 
 TextureCoordinate& TextureCoordinate687 =  TextureCoordinate();
+TextureCoordinate687.setContainerField("texCoord");
 TextureCoordinate687.setPoint(new float[]{0.0763,0.4945,0.0877,0.4617,0.0525,0.4715,0.0399,0.5407,0.1491,0.4682,0.2169,0.492,0.2035,0.4795,0.1915,0.4696,0.1178,0.4708,0.2635,0.4569,0.3223,0.4193,0.3214,0.4203,0.0639,0.4488,0.0777,0.4495,0.1846,0.4438,0.1504,0.4433,0.1107,0.4532,0.3222,0.4193,0.2633,0.457,0.3214,0.4203,0.2198,0.4731,0.2144,0.4674,0.2035,0.4795,0.2169,0.492,0.2635,0.4569,0.3214,0.4203,0.0763,0.4945,0.1178,0.4708,0.1491,0.4682,0.1915,0.4696,0.1504,0.4433,0.1107,0.4532,0.0777,0.4495,0.0639,0.4488,0.3214,0.4203,0.3222,0.4193,0.2198,0.4731,0.2144,0.4674,0.1846,0.4438,0.0639,0.4488,0.0877,0.4617,0.0763,0.4945,0.0525,0.4715,0.0777,0.4495,0.1504,0.4433,0.1491,0.4682,0.1178,0.4708,0.1107,0.4532,0.3214,0.4203,0.3214,0.4203,0.3223,0.4193,0.3222,0.4193,0.2035,0.4795,0.2144,0.4674,0.2198,0.4731,0.2169,0.492,0.1915,0.4696,0.1846,0.4438,0.2633,0.457,0.2635,0.4569,0.0399,0.5407,0.2169,0.492,0.2035,0.4795,0.2635,0.4569,0.3214,0.4203,0.1178,0.4708,0.0763,0.4945,0.1491,0.4682,0.1915,0.4696,0.1107,0.4532,0.1504,0.4433,0.0777,0.4495,0.0639,0.4488,0.3222,0.4193,0.3214,0.4203,0.2198,0.4731,0.2144,0.4674,0.1846,0.4438}, 156);
 IndexedFaceSet685.setTexCoord(&TextureCoordinate687);
 
@@ -2982,11 +3274,14 @@ HAnimSegment689.X3DNode::setName(std::string("t2"));
 HAnimSegment689.setDEF(std::string("hanim_t2"));
 Shape& Shape690 =  Shape();
 Appearance& Appearance691 =  Appearance();
+Appearance691.setContainerField("appearance");
 Material& Material692 =  Material();
+Material692.setContainerField("material");
 Material692.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance691.addChild(&Material692);
 
 ImageTexture& ImageTexture693 =  ImageTexture();
+ImageTexture693.setContainerField("texture");
 ImageTexture693.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance691.addChild(&ImageTexture693);
 
@@ -3001,6 +3296,7 @@ Coordinate695.setPoint(new float[]{0.070447505,1.2065018,0.06856426,0.030892503,
 IndexedFaceSet694.setCoord(&Coordinate695);
 
 TextureCoordinate& TextureCoordinate696 =  TextureCoordinate();
+TextureCoordinate696.setContainerField("texCoord");
 TextureCoordinate696.setPoint(new float[]{0.4473,0.6921,0.4449,0.6914,0.4513,0.6918,0.1025,0.5076,0.0865,0.5614,0.0652,0.5465,0.0786,0.5849,0.0516,0.5759,0.1474,0.4856,0.1963,0.4863,0.0346,0.5664,0.3214,0.4203,0.3223,0.4192,0.2638,0.4568,0.2146,0.5039,0.1227,0.5144,0.4468,0.6898,0.4495,0.6881,0.1491,0.4682,0.2169,0.492,0.2035,0.4795,0.1915,0.4696,0.1178,0.4708,0.2635,0.4569,0.3223,0.4193,0.3214,0.4203,0.0763,0.4945,0.0399,0.5407,0.1474,0.4856,0.1963,0.4863,0.2146,0.5039,0.2638,0.4568,0.3214,0.4203,0.2169,0.492,0.2035,0.4795,0.1915,0.4696,0.1491,0.4682,0.1178,0.4708,0.0763,0.4945,0.0399,0.5407,0.3214,0.4203,0.3223,0.4193,0.4473,0.6921,0.4449,0.6914,0.4468,0.6898,0.0763,0.4945,0.1025,0.5076,0.0865,0.5614,0.0652,0.5465,0.1227,0.5144,0.0786,0.5849,0.0516,0.5759,0.1178,0.4708,0.1474,0.4856,0.0346,0.5664,0.0399,0.5407,0.2146,0.5039,0.1963,0.4863,0.2035,0.4795,0.2169,0.492,0.1915,0.4696,0.2635,0.4569,0.2638,0.4568,0.1491,0.4682,0.3214,0.4203,0.3214,0.4203,0.3223,0.4192,0.3223,0.4193,0.4495,0.6881,0.4513,0.6918,0.1963,0.4863,0.1474,0.4856,0.2146,0.5039,0.2638,0.4568,0.3214,0.4203,0.2035,0.4795,0.2169,0.492,0.1915,0.4696,0.1491,0.4682,0.1178,0.4708,0.0763,0.4945,0.0399,0.5407,0.3223,0.4193,0.3214,0.4203}, 168);
 IndexedFaceSet694.setTexCoord(&TextureCoordinate696);
 
@@ -3019,11 +3315,14 @@ HAnimSegment698.X3DNode::setName(std::string("t1"));
 HAnimSegment698.setDEF(std::string("hanim_t1"));
 Shape& Shape699 =  Shape();
 Appearance& Appearance700 =  Appearance();
+Appearance700.setContainerField("appearance");
 Material& Material701 =  Material();
+Material701.setContainerField("material");
 Material701.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance700.addChild(&Material701);
 
 ImageTexture& ImageTexture702 =  ImageTexture();
+ImageTexture702.setContainerField("texture");
 ImageTexture702.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance700.addChild(&ImageTexture702);
 
@@ -3038,6 +3337,7 @@ Coordinate704.setPoint(new float[]{0.033075,1.2579751,-0.03963825,0.045360003,1.
 IndexedFaceSet703.setCoord(&Coordinate704);
 
 TextureCoordinate& TextureCoordinate705 =  TextureCoordinate();
+TextureCoordinate705.setContainerField("texCoord");
 TextureCoordinate705.setPoint(new float[]{0.4416,0.6747,0.4535,0.6485,0.4483,0.6438,0.4499,0.6371,0.4594,0.6763,0.4399,0.6472,0.4645,0.6783,0.4385,0.6236,0.4279,0.6258,0.1412,0.5207,0.1108,0.5655,0.1073,0.5839,0.1708,0.4854,0.4376,0.6345,0.4528,0.6648,0.4548,0.6714,0.4459,0.6652,0.4669,0.6678,0.0786,0.5849,0.4476,0.6884,0.1474,0.4856,0.0865,0.5614,0.1963,0.4863,0.1227,0.5144,0.4539,0.6879,0.4621,0.6889,0.2661,0.5914,0.3505,0.5919,0.241,0.592,0.1724,0.5255,0.2089,0.5196,0.2133,0.556,0.1645,0.5709,0.2067,0.5908,0.2708,0.4736,0.347,0.4317,0.3616,0.5328,0.2733,0.5359,0.238,0.493,0.249,0.5451,0.3477,0.431,0.3623,0.5333,0.3623,0.5333,0.3505,0.5919,0.3477,0.431,0.3511,0.5932,0.3206,0.4193,0.2505,0.5754,0.3554,0.5911,0.2112,0.5805,0.1632,0.5887,0.1073,0.5839,0.1474,0.4856,0.1108,0.5655,0.1412,0.5207,0.1708,0.4854,0.1963,0.4863,0.3223,0.4192,0.2638,0.4568,0.3206,0.4193,0.1963,0.4863,0.1963,0.4863,0.1963,0.4863,0.2252,0.4828,0.2252,0.4828,0.2252,0.4828,0.4337,0.6239,0.4689,0.6806,0.4689,0.6702,0.4627,0.667,0.4583,0.6722,0.4578,0.6906,0.1073,0.5839,0.0786,0.5849,0.0865,0.5614,0.1108,0.5655,0.4514,0.6379,0.4463,0.6454,0.4498,0.6514,0.4521,0.6748,0.4466,0.6744,0.4444,0.685,0.4523,0.6875,0.4395,0.6457,0.4393,0.633,0.4295,0.6275,0.4284,0.6322,0.4488,0.6639,0.1708,0.4854,0.1412,0.5207,0.1227,0.5144,0.1963,0.4863,0.2661,0.5914,0.3505,0.5919,0.3554,0.5911,0.2505,0.5754,0.241,0.592,0.2112,0.5805,0.1724,0.5255,0.2089,0.5196,0.2133,0.556,0.1645,0.5709,0.1412,0.5207,0.1108,0.5655,0.2067,0.5908,0.1632,0.5887,0.1073,0.5839,0.1708,0.4854,0.1963,0.4863,0.1474,0.4856,0.3477,0.431,0.347,0.4317,0.3616,0.5328,0.3623,0.5333,0.238,0.493,0.2708,0.4736,0.2733,0.5359,0.249,0.5451,0.3505,0.5919,0.3511,0.5932,0.3623,0.5333,0.3223,0.4192,0.3206,0.4193,0.3477,0.431,0.2252,0.4828,0.2638,0.4568,0.1963,0.4863,0.1963,0.4863,0.2252,0.4828,0.2252,0.4828,0.1963,0.4863,0.3206,0.4193,0.1474,0.4856,0.4323,0.622,0.0865,0.5614,0.0786,0.5849,0.4539,0.6879,0.4621,0.6889,0.4523,0.6875,0.4578,0.6906,0.0865,0.5614,0.1227,0.5144,0.1474,0.4856,0.1474,0.4856,0.1227,0.5144,0.1963,0.4863,0.1963,0.4863,0.1963,0.4863,0.1963,0.4863,0.1999,0.4849,0.1421,0.507,0.1227,0.5144}, 304);
 IndexedFaceSet703.setTexCoord(&TextureCoordinate705);
 
@@ -3056,11 +3356,14 @@ HAnimSegment707.X3DNode::setName(std::string("c7"));
 HAnimSegment707.setDEF(std::string("hanim_c7"));
 Shape& Shape708 =  Shape();
 Appearance& Appearance709 =  Appearance();
+Appearance709.setContainerField("appearance");
 Material& Material710 =  Material();
+Material710.setContainerField("material");
 Material710.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance709.addChild(&Material710);
 
 ImageTexture& ImageTexture711 =  ImageTexture();
+ImageTexture711.setContainerField("texture");
 ImageTexture711.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance709.addChild(&ImageTexture711);
 
@@ -3075,6 +3378,7 @@ Coordinate713.setPoint(new float[]{0.01208025,1.2477847,-0.04035375,0.0,1.249186
 IndexedFaceSet712.setCoord(&Coordinate713);
 
 TextureCoordinate& TextureCoordinate714 =  TextureCoordinate();
+TextureCoordinate714.setContainerField("texCoord");
 TextureCoordinate714.setPoint(new float[]{0.3995,0.6285,0.3906,0.6293,0.4094,0.632,0.4164,0.6316,0.4107,0.6267,0.3906,0.6224,0.4006,0.6225,0.3818,0.6285,0.3719,0.632,0.3649,0.6316,0.3706,0.6267,0.3807,0.6225,0.3906,0.6293,0.3995,0.6285,0.4094,0.632,0.4164,0.6316,0.4107,0.6267,0.4006,0.6225,0.3906,0.6224,0.3807,0.6225,0.3706,0.6267,0.3649,0.6316,0.3719,0.632,0.3818,0.6285,0.3995,0.6534,0.4094,0.6549,0.4164,0.6547,0.4107,0.6527,0.3906,0.6475,0.3807,0.6518,0.3719,0.6549,0.3649,0.6547,0.3906,0.6538,0.4006,0.6518,0.3818,0.6534,0.3706,0.6527,0.3995,0.6534,0.3906,0.6538,0.3818,0.6534,0.3719,0.6549,0.3649,0.6547,0.3706,0.6527,0.3807,0.6518,0.3906,0.6475,0.4006,0.6518,0.4107,0.6527,0.4164,0.6547,0.4094,0.6549}, 96);
 IndexedFaceSet712.setTexCoord(&TextureCoordinate714);
 
@@ -3093,11 +3397,14 @@ HAnimSegment716.X3DNode::setName(std::string("c6"));
 HAnimSegment716.setDEF(std::string("hanim_c6"));
 Shape& Shape717 =  Shape();
 Appearance& Appearance718 =  Appearance();
+Appearance718.setContainerField("appearance");
 Material& Material719 =  Material();
+Material719.setContainerField("material");
 Material719.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance718.addChild(&Material719);
 
 ImageTexture& ImageTexture720 =  ImageTexture();
+ImageTexture720.setContainerField("texture");
 ImageTexture720.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance718.addChild(&ImageTexture720);
 
@@ -3112,6 +3419,7 @@ Coordinate722.setPoint(new float[]{0.01208025,1.2700822,-0.04035375,0.025627503,
 IndexedFaceSet721.setCoord(&Coordinate722);
 
 TextureCoordinate& TextureCoordinate723 =  TextureCoordinate();
+TextureCoordinate723.setContainerField("texCoord");
 TextureCoordinate723.setPoint(new float[]{0.3995,0.6565,0.4094,0.6578,0.4164,0.6576,0.4107,0.6559,0.3906,0.6507,0.3807,0.6555,0.3719,0.6578,0.3649,0.6576,0.3906,0.6568,0.4006,0.6555,0.3818,0.6565,0.3706,0.6559,0.3995,0.6534,0.4094,0.6549,0.4164,0.6547,0.4107,0.6527,0.3906,0.6475,0.3807,0.6518,0.3719,0.6549,0.3649,0.6547,0.3906,0.6538,0.4006,0.6518,0.3818,0.6534,0.3706,0.6527,0.3995,0.6565,0.3906,0.6568,0.3818,0.6565,0.3719,0.6578,0.3649,0.6576,0.3706,0.6559,0.3807,0.6555,0.3906,0.6507,0.4006,0.6555,0.4107,0.6559,0.4164,0.6576,0.4094,0.6578,0.3906,0.6538,0.3995,0.6534,0.4094,0.6549,0.4164,0.6547,0.4107,0.6527,0.4006,0.6518,0.3906,0.6475,0.3807,0.6518,0.3706,0.6527,0.3649,0.6547,0.3719,0.6549,0.3818,0.6534}, 96);
 IndexedFaceSet721.setTexCoord(&TextureCoordinate723);
 
@@ -3130,11 +3438,14 @@ HAnimSegment725.X3DNode::setName(std::string("c5"));
 HAnimSegment725.setDEF(std::string("hanim_c5"));
 Shape& Shape726 =  Shape();
 Appearance& Appearance727 =  Appearance();
+Appearance727.setContainerField("appearance");
 Material& Material728 =  Material();
+Material728.setContainerField("material");
 Material728.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance727.addChild(&Material728);
 
 ImageTexture& ImageTexture729 =  ImageTexture();
+ImageTexture729.setContainerField("texture");
 ImageTexture729.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance727.addChild(&ImageTexture729);
 
@@ -3149,6 +3460,7 @@ Coordinate731.setPoint(new float[]{0.01208025,1.282176,-0.04035375,0.025627503,1
 IndexedFaceSet730.setCoord(&Coordinate731);
 
 TextureCoordinate& TextureCoordinate732 =  TextureCoordinate();
+TextureCoordinate732.setContainerField("texCoord");
 TextureCoordinate732.setPoint(new float[]{0.3995,0.6596,0.4094,0.6606,0.4164,0.6605,0.4107,0.6591,0.3906,0.6538,0.3807,0.6592,0.3719,0.6606,0.3649,0.6605,0.3906,0.6599,0.4006,0.6592,0.3818,0.6596,0.3706,0.6591,0.3995,0.6565,0.4094,0.6578,0.4164,0.6576,0.4107,0.6559,0.3906,0.6507,0.3807,0.6555,0.3719,0.6578,0.3649,0.6576,0.3906,0.6568,0.4006,0.6555,0.3818,0.6565,0.3706,0.6559,0.3995,0.6596,0.3906,0.6599,0.3818,0.6596,0.3719,0.6606,0.3649,0.6605,0.3706,0.6591,0.3807,0.6592,0.3906,0.6538,0.4006,0.6592,0.4107,0.6591,0.4164,0.6605,0.4094,0.6606,0.3906,0.6568,0.3995,0.6565,0.4094,0.6578,0.4164,0.6576,0.4107,0.6559,0.4006,0.6555,0.3906,0.6507,0.3807,0.6555,0.3706,0.6559,0.3649,0.6576,0.3719,0.6578,0.3818,0.6565}, 96);
 IndexedFaceSet730.setTexCoord(&TextureCoordinate732);
 
@@ -3167,11 +3479,14 @@ HAnimSegment734.X3DNode::setName(std::string("c4"));
 HAnimSegment734.setDEF(std::string("hanim_c4"));
 Shape& Shape735 =  Shape();
 Appearance& Appearance736 =  Appearance();
+Appearance736.setContainerField("appearance");
 Material& Material737 =  Material();
+Material737.setContainerField("material");
 Material737.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance736.addChild(&Material737);
 
 ImageTexture& ImageTexture738 =  ImageTexture();
+ImageTexture738.setContainerField("texture");
 ImageTexture738.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance736.addChild(&ImageTexture738);
 
@@ -3186,6 +3501,7 @@ Coordinate740.setPoint(new float[]{0.01208025,1.295271,-0.04035375,0.025627503,1
 IndexedFaceSet739.setCoord(&Coordinate740);
 
 TextureCoordinate& TextureCoordinate741 =  TextureCoordinate();
+TextureCoordinate741.setContainerField("texCoord");
 TextureCoordinate741.setPoint(new float[]{0.3995,0.6628,0.4094,0.6635,0.4164,0.6634,0.4107,0.6624,0.3906,0.657,0.3807,0.6628,0.3719,0.6635,0.3649,0.6634,0.3906,0.6629,0.4006,0.6628,0.3818,0.6628,0.3706,0.6624,0.3995,0.6596,0.4094,0.6606,0.4164,0.6605,0.4107,0.6591,0.3906,0.6538,0.3807,0.6592,0.3719,0.6606,0.3649,0.6605,0.3906,0.6599,0.4006,0.6592,0.3818,0.6596,0.3706,0.6591,0.3995,0.6628,0.3906,0.6629,0.3818,0.6628,0.3719,0.6635,0.3649,0.6634,0.3706,0.6624,0.3807,0.6628,0.3906,0.657,0.4006,0.6628,0.4107,0.6624,0.4164,0.6634,0.4094,0.6635,0.3906,0.6599,0.3995,0.6596,0.4094,0.6606,0.4164,0.6605,0.4107,0.6591,0.4006,0.6592,0.3906,0.6538,0.3807,0.6592,0.3706,0.6591,0.3649,0.6605,0.3719,0.6606,0.3818,0.6596}, 96);
 IndexedFaceSet739.setTexCoord(&TextureCoordinate741);
 
@@ -3204,11 +3520,14 @@ HAnimSegment743.X3DNode::setName(std::string("c3"));
 HAnimSegment743.setDEF(std::string("hanim_c3"));
 Shape& Shape744 =  Shape();
 Appearance& Appearance745 =  Appearance();
+Appearance745.setContainerField("appearance");
 Material& Material746 =  Material();
+Material746.setContainerField("material");
 Material746.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance745.addChild(&Material746);
 
 ImageTexture& ImageTexture747 =  ImageTexture();
+ImageTexture747.setContainerField("texture");
 ImageTexture747.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance745.addChild(&ImageTexture747);
 
@@ -3223,6 +3542,7 @@ Coordinate749.setPoint(new float[]{0.01208025,1.3066921,-0.04035375,0.025627503,
 IndexedFaceSet748.setCoord(&Coordinate749);
 
 TextureCoordinate& TextureCoordinate750 =  TextureCoordinate();
+TextureCoordinate750.setContainerField("texCoord");
 TextureCoordinate750.setPoint(new float[]{0.3995,0.6659,0.4094,0.6664,0.4164,0.6663,0.4107,0.6656,0.3906,0.6601,0.3807,0.6665,0.3719,0.6664,0.3649,0.6663,0.3906,0.666,0.4006,0.6665,0.3818,0.6659,0.3706,0.6656,0.3995,0.6628,0.4094,0.6635,0.4164,0.6634,0.4107,0.6624,0.3906,0.657,0.3807,0.6628,0.3719,0.6635,0.3649,0.6634,0.3906,0.6629,0.4006,0.6628,0.3818,0.6628,0.3706,0.6624,0.3995,0.6659,0.3906,0.666,0.3818,0.6659,0.3719,0.6664,0.3649,0.6663,0.3706,0.6656,0.3807,0.6665,0.3906,0.6601,0.4006,0.6665,0.4107,0.6656,0.4164,0.6663,0.4094,0.6664,0.3906,0.6629,0.3995,0.6628,0.4094,0.6635,0.4164,0.6634,0.4107,0.6624,0.4006,0.6628,0.3906,0.657,0.3807,0.6628,0.3706,0.6624,0.3649,0.6634,0.3719,0.6635,0.3818,0.6628}, 96);
 IndexedFaceSet748.setTexCoord(&TextureCoordinate750);
 
@@ -3241,11 +3561,14 @@ HAnimSegment752.X3DNode::setName(std::string("c2"));
 HAnimSegment752.setDEF(std::string("hanim_c2"));
 Shape& Shape753 =  Shape();
 Appearance& Appearance754 =  Appearance();
+Appearance754.setContainerField("appearance");
 Material& Material755 =  Material();
+Material755.setContainerField("material");
 Material755.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance754.addChild(&Material755);
 
 ImageTexture& ImageTexture756 =  ImageTexture();
+ImageTexture756.setContainerField("texture");
 ImageTexture756.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance754.addChild(&ImageTexture756);
 
@@ -3260,6 +3583,7 @@ Coordinate758.setPoint(new float[]{0.01208025,1.318536,-0.04035375,0.0,1.318536,
 IndexedFaceSet757.setCoord(&Coordinate758);
 
 TextureCoordinate& TextureCoordinate759 =  TextureCoordinate();
+TextureCoordinate759.setContainerField("texCoord");
 TextureCoordinate759.setPoint(new float[]{0.3995,0.6721,0.3906,0.6721,0.4094,0.6721,0.4164,0.6721,0.4107,0.6721,0.4006,0.6738,0.3906,0.6664,0.3818,0.6721,0.3719,0.6721,0.3649,0.6721,0.3706,0.6721,0.3807,0.6738,0.3995,0.6721,0.3906,0.6721,0.3818,0.6721,0.3719,0.6721,0.3649,0.6721,0.3706,0.6721,0.3807,0.6738,0.3906,0.6664,0.4006,0.6738,0.4107,0.6721,0.4164,0.6721,0.4094,0.6721,0.3995,0.669,0.4094,0.6692,0.4164,0.6692,0.4107,0.6689,0.3906,0.6632,0.3807,0.6702,0.3719,0.6692,0.3649,0.6692,0.3906,0.669,0.4006,0.6702,0.3818,0.669,0.3706,0.6689,0.3906,0.669,0.3995,0.669,0.4094,0.6692,0.4164,0.6692,0.4107,0.6689,0.4006,0.6702,0.3906,0.6632,0.3807,0.6702,0.3706,0.6689,0.3649,0.6692,0.3719,0.6692,0.3818,0.669}, 96);
 IndexedFaceSet757.setTexCoord(&TextureCoordinate759);
 
@@ -3278,11 +3602,14 @@ HAnimSegment761.X3DNode::setName(std::string("c1"));
 HAnimSegment761.setDEF(std::string("hanim_c1"));
 Shape& Shape762 =  Shape();
 Appearance& Appearance763 =  Appearance();
+Appearance763.setContainerField("appearance");
 Material& Material764 =  Material();
+Material764.setContainerField("material");
 Material764.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance763.addChild(&Material764);
 
 ImageTexture& ImageTexture765 =  ImageTexture();
+ImageTexture765.setContainerField("texture");
 ImageTexture765.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance763.addChild(&ImageTexture765);
 
@@ -3297,6 +3624,7 @@ Coordinate767.setPoint(new float[]{0.01208025,1.331379,-0.04035375,0.025627503,1
 IndexedFaceSet766.setCoord(&Coordinate767);
 
 TextureCoordinate& TextureCoordinate768 =  TextureCoordinate();
+TextureCoordinate768.setContainerField("texCoord");
 TextureCoordinate768.setPoint(new float[]{0.3995,0.669,0.4094,0.6692,0.4164,0.6692,0.4107,0.6689,0.3906,0.6632,0.3807,0.6702,0.3719,0.6692,0.3649,0.6692,0.3906,0.669,0.4006,0.6702,0.3818,0.669,0.3706,0.6689,0.3995,0.6659,0.4094,0.6664,0.4164,0.6663,0.4107,0.6656,0.3906,0.6601,0.3807,0.6665,0.3719,0.6664,0.3649,0.6663,0.3906,0.666,0.4006,0.6665,0.3818,0.6659,0.3706,0.6656,0.3995,0.669,0.3906,0.669,0.3818,0.669,0.3719,0.6692,0.3649,0.6692,0.3706,0.6689,0.3807,0.6702,0.3906,0.6632,0.4006,0.6702,0.4107,0.6689,0.4164,0.6692,0.4094,0.6692,0.3906,0.666,0.3995,0.6659,0.4094,0.6664,0.4164,0.6663,0.4107,0.6656,0.4006,0.6665,0.3906,0.6601,0.3807,0.6665,0.3706,0.6656,0.3649,0.6663,0.3719,0.6664,0.3818,0.6659}, 96);
 IndexedFaceSet766.setTexCoord(&TextureCoordinate768);
 
@@ -3315,11 +3643,14 @@ HAnimSegment770.X3DNode::setName(std::string("skull"));
 HAnimSegment770.setDEF(std::string("hanim_skull"));
 Shape& Shape771 =  Shape();
 Appearance& Appearance772 =  Appearance();
+Appearance772.setContainerField("appearance");
 Material& Material773 =  Material();
+Material773.setContainerField("material");
 Material773.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance772.addChild(&Material773);
 
 ImageTexture& ImageTexture774 =  ImageTexture();
+ImageTexture774.setContainerField("texture");
 ImageTexture774.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance772.addChild(&ImageTexture774);
 
@@ -3334,6 +3665,7 @@ Coordinate776.setPoint(new float[]{0.05841,1.3813876,-0.17548425,0.13095,1.40073
 IndexedFaceSet775.setCoord(&Coordinate776);
 
 TextureCoordinate& TextureCoordinate777 =  TextureCoordinate();
+TextureCoordinate777.setContainerField("texCoord");
 TextureCoordinate777.setPoint(new float[]{0.9175,0.8974,0.9509,0.8981,0.9421,0.8701,0.924,0.8702,0.9824,0.8971,0.9824,0.8682,0.9541,0.8718,0.9147,0.8129,0.9437,0.8153,0.9638,0.8095,0.9824,0.809,0.9461,0.923,0.9071,0.9135,0.9824,0.9287,0.7343,0.9169,0.7616,0.9147,0.7553,0.8982,0.7343,0.8968,0.7739,0.9327,0.7343,0.9365,0.8187,0.8433,0.8348,0.9045,0.8324,0.8647,0.74,0.8745,0.761,0.8768,0.7497,0.8755,0.777,0.8787,0.7647,0.8593,0.7596,0.8565,0.7438,0.8546,0.7343,0.8756,0.7372,0.8736,0.7394,0.8706,0.7405,0.8536,0.7808,0.8802,0.7786,0.8666,0.7875,0.8787,0.7821,0.8667,0.7952,0.9076,0.8011,0.8823,0.7745,0.9003,0.7939,0.8518,0.7845,0.8549,0.7731,0.8049,0.7979,0.8609,0.8185,0.8054,0.8439,0.8655,0.8131,0.8741,0.786,0.7876,0.8107,0.8538,0.8058,0.8252,0.8096,0.8166,0.8589,0.7975,0.8767,0.8622,0.8568,0.8668,0.8669,0.8674,0.9208,0.8549,0.8792,0.7991,0.8835,0.8633,0.9139,0.8636,0.9513,0.84,0.9824,0.8358,0.8845,0.9021,0.888,0.931,0.8761,0.9036,0.8705,0.9018,0.8544,0.902,0.8538,0.9345,0.8173,0.9068,0.8156,0.9257,0.7753,0.9186,0.7832,0.9041,0.7338,0.8385,0.7279,0.8339,0.7208,0.8401,0.7397,0.7767,0.7338,0.7681,0.7338,0.7727,0.7192,0.8201,0.7171,0.8352,0.7139,0.8364,0.7127,0.8419,0.7175,0.832,0.7247,0.8312,0.7224,0.8292,0.7239,0.8169,0.7146,0.8334,0.7152,0.8309,0.753,0.7762,0.7452,0.772,0.7409,0.7703,0.756,0.7661,0.7502,0.7748,0.7102,0.837,0.7574,0.7798,0.7054,0.8378,0.7338,0.8253,0.7338,0.8299,0.7267,0.8275,0.7291,0.8283,0.7338,0.8254,0.7338,0.7682,0.7385,0.7711,0.7338,0.7628,0.7338,0.82,0.7437,0.7597,0.7429,0.774,0.7484,0.7629,0.7505,0.778,0.7116,0.8233,0.7622,0.7806,0.7576,0.779,0.763,0.7872,0.7046,0.8444,0.7572,0.7769,0.7524,0.7737,0.7104,0.8341,0.7881,0.9479,0.7343,0.9577,0.8497,0.9637,0.9158,0.9539,0.7343,0.9872,0.9824,0.9663,0.4263,0.6263,0.4421,0.6351,0.4514,0.6319,0.4298,0.637,0.4385,0.639,0.4385,0.6403,0.4369,0.6596,0.4321,0.6555,0.4385,0.6553,0.4451,0.6548,0.4452,0.6463,0.4227,0.6454,0.4263,0.652,0.4193,0.6633,0.4176,0.6328,0.4376,0.6237,0.4196,0.6187,0.3384,0.9887,0.2934,0.905,0.2441,0.9417,0.2441,0.9723,0.4437,0.6405,0.4519,0.6235,0.3367,0.9059,0.4034,0.9073,0.4566,0.6329,0.4157,0.6257,0.4137,0.6192,0.2959,0.626,0.3051,0.6166,0.2511,0.6816,0.2548,0.6653,0.2441,0.6653,0.2441,0.6816,0.2661,0.696,0.2636,0.664,0.3484,0.6888,0.3007,0.651,0.2881,0.7397,0.3623,0.7239,0.4151,0.6155,0.4295,0.6197,0.4116,0.6201,0.4088,0.6855,0.4123,0.7323,0.4518,0.7703,0.364,0.6372,0.2441,0.7326,0.2441,0.7109,0.2441,0.7705,0.2441,0.816,0.2466,0.8272,0.2826,0.8198,0.263,0.8101,0.3011,0.7644,0.4294,0.848,0.295,0.8569,0.4229,0.7906,0.445,0.8342,0.3273,0.8725,0.3401,0.8443,0.4194,0.891,0.3844,0.8819,0.3962,0.7639,0.3654,0.758,0.3664,0.7923,0.3312,0.7931,0.3858,0.7947,0.2864,0.8094,0.3065,0.7969,0.4051,0.8004,0.4267,0.8291,0.3243,0.8795,0.293,0.8645,0.4715,0.8911,0.431,0.9594,0.4658,0.6252,0.465,0.6281,0.3862,0.8876,0.4544,0.6426,0.2548,0.6553,0.2441,0.6553,0.4156,0.6279,0.3783,0.625,0.3984,0.649,0.4325,0.6718,0.4443,0.6446,0.428,0.6022,0.4445,0.6357,0.4021,0.656,0.4052,0.6271,0.4253,0.6199,0.4215,0.6174,0.6418,0.6585,0.6441,0.671,0.6214,0.6731,0.616,0.6731,0.6418,0.6585,0.623,0.6494,0.6418,0.6585,0.6441,0.671,0.3003,0.6509,0.2548,0.6558,0.2549,0.6531,0.2441,0.6558,0.616,0.6731,0.6214,0.6731,0.2441,0.6529,0.314,0.8296,0.3898,0.85,0.2746,0.7881,0.2889,0.7981,0.4442,0.8857,0.2745,0.8415,0.3079,0.8417,0.3393,0.8544,0.3891,0.8542,0.2699,0.8521,0.246,0.853,0.4715,0.8911,0.9421,0.8701,0.9509,0.8981,0.9175,0.8974,0.924,0.8702,0.9824,0.8682,0.9824,0.8971,0.9541,0.8718,0.9147,0.8129,0.9437,0.8153,0.9638,0.8095,0.9824,0.809,0.9461,0.923,0.9071,0.9135,0.9824,0.9287,0.7553,0.8982,0.7616,0.9147,0.7343,0.9169,0.7343,0.8968,0.7739,0.9327,0.7343,0.9365,0.8324,0.8647,0.8348,0.9045,0.8187,0.8433,0.74,0.8745,0.7497,0.8755,0.761,0.8768,0.7647,0.8593,0.777,0.8787,0.7438,0.8546,0.7596,0.8565,0.7372,0.8736,0.7343,0.8756,0.7394,0.8706,0.7405,0.8536,0.7808,0.8802,0.7786,0.8666,0.7821,0.8667,0.7875,0.8787,0.8011,0.8823,0.7952,0.9076,0.7745,0.9003,0.7939,0.8518,0.7845,0.8549,0.7731,0.8049,0.7979,0.8609,0.8185,0.8054,0.8439,0.8655,0.8131,0.8741,0.8107,0.8538,0.8058,0.8252,0.786,0.7876,0.8096,0.8166,0.8767,0.8622,0.8589,0.7975,0.8669,0.8674,0.8568,0.8668,0.9208,0.8549,0.8792,0.7991,0.9139,0.8636,0.8835,0.8633,0.9513,0.84,0.9824,0.8358,0.8845,0.9021,0.888,0.931,0.8761,0.9036,0.8705,0.9018,0.8544,0.902,0.8538,0.9345,0.8173,0.9068,0.8156,0.9257,0.7753,0.9186,0.7832,0.9041,0.7208,0.8401,0.7279,0.8339,0.7338,0.8385,0.7338,0.7727,0.7338,0.7681,0.7397,0.7767,0.7192,0.8201,0.7139,0.8364,0.7171,0.8352,0.7127,0.8419,0.7175,0.832,0.7224,0.8292,0.7247,0.8312,0.7239,0.8169,0.7146,0.8334,0.7452,0.772,0.753,0.7762,0.7152,0.8309,0.7409,0.7703,0.7502,0.7748,0.756,0.7661,0.7102,0.837,0.7574,0.7798,0.7054,0.8378,0.7338,0.8253,0.7338,0.8299,0.7338,0.8254,0.7291,0.8283,0.7267,0.8275,0.7338,0.7628,0.7385,0.7711,0.7338,0.7682,0.7338,0.82,0.7437,0.7597,0.7484,0.7629,0.7429,0.774,0.7505,0.778,0.7116,0.8233,0.763,0.7872,0.7576,0.779,0.7622,0.7806,0.7046,0.8444,0.7572,0.7769,0.7524,0.7737,0.7104,0.8341,0.7881,0.9479,0.7343,0.9577,0.8497,0.9637,0.9158,0.9539,0.7343,0.9872,0.9824,0.9663,0.4514,0.6319,0.4421,0.6351,0.4263,0.6263,0.4385,0.639,0.4298,0.637,0.4385,0.6403,0.4385,0.6553,0.4321,0.6555,0.4369,0.6596,0.4451,0.6548,0.4452,0.6463,0.4263,0.652,0.4227,0.6454,0.4193,0.6633,0.4176,0.6328,0.4196,0.6187,0.4376,0.6237,0.2441,0.9417,0.2934,0.905,0.3384,0.9887,0.2441,0.9723,0.4437,0.6405,0.4519,0.6235,0.3367,0.9059,0.4034,0.9073,0.4566,0.6329,0.4157,0.6257,0.4137,0.6192,0.2441,0.6653,0.2548,0.6653,0.2511,0.6816,0.2441,0.6816,0.2636,0.664,0.2661,0.696,0.3484,0.6888,0.3007,0.651,0.3623,0.7239,0.2881,0.7397,0.4215,0.6174,0.4295,0.6197,0.4151,0.6155,0.4116,0.6201,0.4518,0.7703,0.4123,0.7323,0.4088,0.6855,0.364,0.6372,0.2959,0.626,0.3051,0.6166,0.2441,0.7326,0.2441,0.7705,0.2441,0.7109,0.2745,0.8415,0.2466,0.8272,0.2441,0.816,0.263,0.8101,0.3011,0.7644,0.2746,0.7881,0.246,0.853,0.2699,0.8521,0.4229,0.7906,0.445,0.8342,0.3401,0.8443,0.3393,0.8544,0.3079,0.8417,0.314,0.8296,0.3962,0.7639,0.3654,0.758,0.3664,0.7923,0.3312,0.7931,0.3858,0.7947,0.3065,0.7969,0.2889,0.7981,0.2826,0.8198,0.2864,0.8094,0.4051,0.8004,0.3243,0.8795,0.4267,0.8291,0.293,0.8645,0.4715,0.8911,0.431,0.9594,0.4715,0.8911,0.4658,0.6252,0.465,0.6281,0.4194,0.891,0.3862,0.8876,0.4544,0.6426,0.2548,0.6553,0.2441,0.6553,0.3984,0.649,0.3783,0.625,0.4156,0.6279,0.4325,0.6718,0.428,0.6022,0.4443,0.6446,0.4445,0.6357,0.4021,0.656,0.4052,0.6271,0.4253,0.6199,0.3898,0.85,0.6418,0.6585,0.6441,0.671,0.6441,0.671,0.6418,0.6585,0.6214,0.6731,0.6214,0.6731,0.616,0.6731,0.616,0.6731,0.623,0.6494,0.6418,0.6585,0.3003,0.6509,0.2548,0.6558,0.2549,0.6531,0.2441,0.6558,0.2441,0.6529,0.3891,0.8542,0.4294,0.848,0.4442,0.8857,0.295,0.8569,0.3273,0.8725,0.3844,0.8819}, 972);
 IndexedFaceSet775.setTexCoord(&TextureCoordinate777);
 
@@ -3352,11 +3684,14 @@ HAnimSegment779.X3DNode::setName(std::string("l_eyelid"));
 HAnimSegment779.setDEF(std::string("hanim_l_eyelid"));
 Shape& Shape780 =  Shape();
 Appearance& Appearance781 =  Appearance();
+Appearance781.setContainerField("appearance");
 Material& Material782 =  Material();
+Material782.setContainerField("material");
 Material782.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance781.addChild(&Material782);
 
 ImageTexture& ImageTexture783 =  ImageTexture();
+ImageTexture783.setContainerField("texture");
 ImageTexture783.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance781.addChild(&ImageTexture783);
 
@@ -3371,6 +3706,7 @@ Coordinate785.setPoint(new float[]{0.0680895,1.4455328,0.08745751,0.0484515,1.45
 IndexedFaceSet784.setCoord(&Coordinate785);
 
 TextureCoordinate& TextureCoordinate786 =  TextureCoordinate();
+TextureCoordinate786.setContainerField("texCoord");
 TextureCoordinate786.setPoint(new float[]{0.3562,0.7836,0.3424,0.7815,0.3432,0.7614,0.3553,0.7628,0.3328,0.7723,0.3344,0.7557,0.3248,0.7567,0.3294,0.7475,0.3666,0.7703,0.3614,0.7771,0.3598,0.7618,0.364,0.76,0.3542,0.784,0.3411,0.7782,0.3327,0.7703,0.3246,0.7567,0.3657,0.7703,0.3598,0.7771,0.3534,0.7431,0.3436,0.742,0.3428,0.7423,0.3522,0.7429,0.335,0.743,0.3345,0.743,0.3291,0.7475,0.3576,0.7438,0.3566,0.7438,0.3632,0.7603}, 56);
 IndexedFaceSet784.setTexCoord(&TextureCoordinate786);
 
@@ -3391,11 +3727,14 @@ HAnimSegment788.X3DNode::setName(std::string("r_eyelid"));
 HAnimSegment788.setDEF(std::string("hanim_r_eyelid"));
 Shape& Shape789 =  Shape();
 Appearance& Appearance790 =  Appearance();
+Appearance790.setContainerField("appearance");
 Material& Material791 =  Material();
+Material791.setContainerField("material");
 Material791.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance790.addChild(&Material791);
 
 ImageTexture& ImageTexture792 =  ImageTexture();
+ImageTexture792.setContainerField("texture");
 ImageTexture792.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance790.addChild(&ImageTexture792);
 
@@ -3410,6 +3749,7 @@ Coordinate794.setPoint(new float[]{-0.0680895,1.4455328,0.08745751,-0.0484515,1.
 IndexedFaceSet793.setCoord(&Coordinate794);
 
 TextureCoordinate& TextureCoordinate795 =  TextureCoordinate();
+TextureCoordinate795.setContainerField("texCoord");
 TextureCoordinate795.setPoint(new float[]{0.3562,0.7836,0.3424,0.7815,0.3432,0.7614,0.3553,0.7628,0.3328,0.7723,0.3344,0.7557,0.3248,0.7567,0.3294,0.7475,0.3666,0.7703,0.3614,0.7771,0.3598,0.7618,0.364,0.76,0.3542,0.784,0.3411,0.7782,0.3327,0.7703,0.3246,0.7567,0.3657,0.7703,0.3598,0.7771,0.3534,0.7431,0.3436,0.742,0.3428,0.7423,0.3522,0.7429,0.335,0.743,0.3345,0.743,0.3291,0.7475,0.3576,0.7438,0.3566,0.7438,0.3632,0.7603}, 56);
 IndexedFaceSet793.setTexCoord(&TextureCoordinate795);
 
@@ -3430,11 +3770,14 @@ HAnimSegment797.X3DNode::setName(std::string("l_eyeball"));
 HAnimSegment797.setDEF(std::string("hanim_l_eyeball"));
 Shape& Shape798 =  Shape();
 Appearance& Appearance799 =  Appearance();
+Appearance799.setContainerField("appearance");
 Material& Material800 =  Material();
+Material800.setContainerField("material");
 Material800.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance799.addChild(&Material800);
 
 ImageTexture& ImageTexture801 =  ImageTexture();
+ImageTexture801.setContainerField("texture");
 ImageTexture801.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance799.addChild(&ImageTexture801);
 
@@ -3449,6 +3792,7 @@ Coordinate803.setPoint(new float[]{0.035271,1.407843,0.106042504,0.04827375,1.41
 IndexedFaceSet802.setCoord(&Coordinate803);
 
 TextureCoordinate& TextureCoordinate804 =  TextureCoordinate();
+TextureCoordinate804.setContainerField("texCoord");
 TextureCoordinate804.setPoint(new float[]{0.3217,0.8278,0.3482,0.8386,0.3916,0.7984,0.3206,0.8292,0.3482,0.8386,0.3916,0.7984,0.2977,0.8092,0.309,0.8013,0.3985,0.8044,0.3868,0.8428,0.4182,0.8265,0.3778,0.7978,0.3319,0.7987,0.3868,0.8428,0.3482,0.8386,0.3206,0.8292,0.3319,0.7987,0.3778,0.7978,0.3916,0.7984,0.309,0.8013,0.3985,0.8029,0.2977,0.8092,0.4182,0.8263,0.3482,0.8386,0.3868,0.8428,0.4182,0.8265,0.3985,0.8044,0.3916,0.7984,0.3778,0.7978,0.3319,0.7987,0.309,0.8013,0.2977,0.8092,0.3206,0.8292,0.2978,0.8092,0.309,0.8013,0.3985,0.8044,0.3868,0.8428,0.4182,0.8265,0.3778,0.7978,0.3319,0.7986,0.3567,0.819}, 82);
 IndexedFaceSet802.setTexCoord(&TextureCoordinate804);
 
@@ -3469,11 +3813,14 @@ HAnimSegment806.X3DNode::setName(std::string("r_eyeball"));
 HAnimSegment806.setDEF(std::string("hanim_r_eyeball"));
 Shape& Shape807 =  Shape();
 Appearance& Appearance808 =  Appearance();
+Appearance808.setContainerField("appearance");
 Material& Material809 =  Material();
+Material809.setContainerField("material");
 Material809.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance808.addChild(&Material809);
 
 ImageTexture& ImageTexture810 =  ImageTexture();
+ImageTexture810.setContainerField("texture");
 ImageTexture810.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance808.addChild(&ImageTexture810);
 
@@ -3488,6 +3835,7 @@ Coordinate812.setPoint(new float[]{-0.035271,1.407843,0.106042504,-0.04827375,1.
 IndexedFaceSet811.setCoord(&Coordinate812);
 
 TextureCoordinate& TextureCoordinate813 =  TextureCoordinate();
+TextureCoordinate813.setContainerField("texCoord");
 TextureCoordinate813.setPoint(new float[]{0.3217,0.8278,0.3482,0.8386,0.3916,0.7984,0.3206,0.8292,0.3482,0.8386,0.3916,0.7984,0.2977,0.8092,0.309,0.8013,0.3985,0.8044,0.3868,0.8428,0.4182,0.8265,0.3778,0.7978,0.3319,0.7987,0.3868,0.8428,0.3482,0.8386,0.3206,0.8292,0.3319,0.7987,0.3778,0.7978,0.3916,0.7984,0.309,0.8013,0.3985,0.8029,0.2977,0.8092,0.4182,0.8263,0.3482,0.8386,0.3868,0.8428,0.4182,0.8265,0.3985,0.8044,0.3916,0.7984,0.3778,0.7978,0.3319,0.7987,0.309,0.8013,0.2977,0.8092,0.3206,0.8292,0.2978,0.8092,0.309,0.8013,0.3985,0.8044,0.3868,0.8428,0.4182,0.8265,0.3778,0.7978,0.3319,0.7986,0.3567,0.819}, 82);
 IndexedFaceSet811.setTexCoord(&TextureCoordinate813);
 
@@ -3508,11 +3856,14 @@ HAnimSegment815.X3DNode::setName(std::string("l_eyebrow"));
 HAnimSegment815.setDEF(std::string("hanim_l_eyebrow"));
 Shape& Shape816 =  Shape();
 Appearance& Appearance817 =  Appearance();
+Appearance817.setContainerField("appearance");
 Material& Material818 =  Material();
+Material818.setContainerField("material");
 Material818.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance817.addChild(&Material818);
 
 ImageTexture& ImageTexture819 =  ImageTexture();
+ImageTexture819.setContainerField("texture");
 ImageTexture819.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance817.addChild(&ImageTexture819);
 
@@ -3527,6 +3878,7 @@ Coordinate821.setPoint(new float[]{0.014508001,1.4087296,0.12278925,0.046116002,
 IndexedFaceSet820.setCoord(&Coordinate821);
 
 TextureCoordinate& TextureCoordinate822 =  TextureCoordinate();
+TextureCoordinate822.setContainerField("texCoord");
 TextureCoordinate822.setPoint(new float[]{0.344,0.8611,0.3991,0.8726,0.2757,0.8301,0.4299,0.8749,0.3424,0.8703,0.297,0.8558,0.4,0.8788,0.3445,0.8554,0.397,0.8649,0.2794,0.8281,0.4294,0.8703,0.3456,0.8724,0.3008,0.857,0.3469,0.8565,0.2795,0.829,0.4293,0.8745,0.3996,0.8793,0.3963,0.8659,0.2847,0.831,0.4284,0.8697,0.3046,0.8466,0.3082,0.8407,0.3105,0.8417}, 46);
 IndexedFaceSet820.setTexCoord(&TextureCoordinate822);
 
@@ -3547,11 +3899,14 @@ HAnimSegment824.X3DNode::setName(std::string("r_eyebrow"));
 HAnimSegment824.setDEF(std::string("hanim_r_eyebrow"));
 Shape& Shape825 =  Shape();
 Appearance& Appearance826 =  Appearance();
+Appearance826.setContainerField("appearance");
 Material& Material827 =  Material();
+Material827.setContainerField("material");
 Material827.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance826.addChild(&Material827);
 
 ImageTexture& ImageTexture828 =  ImageTexture();
+ImageTexture828.setContainerField("texture");
 ImageTexture828.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance826.addChild(&ImageTexture828);
 
@@ -3566,6 +3921,7 @@ Coordinate830.setPoint(new float[]{-0.014508001,1.4087296,0.12278925,-0.04611600
 IndexedFaceSet829.setCoord(&Coordinate830);
 
 TextureCoordinate& TextureCoordinate831 =  TextureCoordinate();
+TextureCoordinate831.setContainerField("texCoord");
 TextureCoordinate831.setPoint(new float[]{0.344,0.8611,0.3991,0.8726,0.2757,0.8301,0.4299,0.8749,0.3424,0.8703,0.297,0.8558,0.4,0.8788,0.3445,0.8554,0.397,0.8649,0.2794,0.8281,0.4294,0.8703,0.3456,0.8724,0.3008,0.857,0.3469,0.8565,0.2795,0.829,0.4293,0.8745,0.3996,0.8793,0.3963,0.8659,0.2847,0.831,0.4284,0.8697,0.3046,0.8466,0.3082,0.8407,0.3105,0.8417}, 46);
 IndexedFaceSet829.setTexCoord(&TextureCoordinate831);
 
@@ -3586,11 +3942,14 @@ HAnimSegment833.X3DNode::setName(std::string("jaw"));
 HAnimSegment833.setDEF(std::string("hanim_jaw"));
 Shape& Shape834 =  Shape();
 Appearance& Appearance835 =  Appearance();
+Appearance835.setContainerField("appearance");
 Material& Material836 =  Material();
+Material836.setContainerField("material");
 Material836.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance835.addChild(&Material836);
 
 ImageTexture& ImageTexture837 =  ImageTexture();
+ImageTexture837.setContainerField("texture");
 ImageTexture837.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance835.addChild(&ImageTexture837);
 
@@ -3605,6 +3964,7 @@ Coordinate839.setPoint(new float[]{0.0,1.2832425,0.080943756,0.02817,1.2966278,0
 IndexedFaceSet838.setCoord(&Coordinate839);
 
 TextureCoordinate& TextureCoordinate840 =  TextureCoordinate();
+TextureCoordinate840.setContainerField("texCoord");
 TextureCoordinate840.setPoint(new float[]{0.2448,0.6067,0.3051,0.6166,0.2959,0.6259,0.2442,0.6234,0.2438,0.6465,0.2546,0.6556,0.2439,0.6556,0.3007,0.651,0.3051,0.6166,0.3007,0.651,0.6104,0.6278,0.6104,0.661,0.6021,0.661,0.2546,0.6556,0.2439,0.6556,0.3007,0.651,0.3007,0.651,0.6021,0.6278,0.6425,0.6334,0.6294,0.6619,0.3051,0.6166,0.3051,0.6166,0.2442,0.6234,0.2438,0.6465,0.2546,0.6556,0.2439,0.6556,0.3007,0.651,0.3051,0.6166,0.3051,0.6166,0.3007,0.651,0.3007,0.651,0.2546,0.6556,0.2439,0.6556,0.3007,0.651,0.6104,0.6278,0.6104,0.661,0.6021,0.661,0.6021,0.6278,0.6425,0.6334,0.6294,0.6619,0.3051,0.6166,0.3051,0.6166}, 84);
 IndexedFaceSet838.setTexCoord(&TextureCoordinate840);
 
@@ -3641,11 +4001,14 @@ HAnimSegment842.X3DNode::setName(std::string("l_clavicle"));
 HAnimSegment842.setDEF(std::string("hanim_l_clavicle"));
 Shape& Shape843 =  Shape();
 Appearance& Appearance844 =  Appearance();
+Appearance844.setContainerField("appearance");
 Material& Material845 =  Material();
+Material845.setContainerField("material");
 Material845.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance844.addChild(&Material845);
 
 ImageTexture& ImageTexture846 =  ImageTexture();
+ImageTexture846.setContainerField("texture");
 ImageTexture846.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance844.addChild(&ImageTexture846);
 
@@ -3660,6 +4023,7 @@ Coordinate848.setPoint(new float[]{0.15075,1.21104,-0.033234753,0.1526175,1.2199
 IndexedFaceSet847.setCoord(&Coordinate848);
 
 TextureCoordinate& TextureCoordinate849 =  TextureCoordinate();
+TextureCoordinate849.setContainerField("texCoord");
 TextureCoordinate849.setPoint(new float[]{0.1911,0.4797,0.171,0.4832,0.1497,0.4806,0.1519,0.4334,0.1831,0.4416,0.1474,0.4856,0.1708,0.4854,0.1784,0.4249,0.1538,0.4251,0.1963,0.4863,0.19,0.5091,0.1847,0.499,0.172,0.4382,0.1568,0.4457,0.1409,0.4926}, 30);
 IndexedFaceSet847.setTexCoord(&TextureCoordinate849);
 
@@ -3678,11 +4042,14 @@ HAnimSegment851.X3DNode::setName(std::string("l_scapula"));
 HAnimSegment851.setDEF(std::string("hanim_l_scapula"));
 Shape& Shape852 =  Shape();
 Appearance& Appearance853 =  Appearance();
+Appearance853.setContainerField("appearance");
 Material& Material854 =  Material();
+Material854.setContainerField("material");
 Material854.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance853.addChild(&Material854);
 
 ImageTexture& ImageTexture855 =  ImageTexture();
+ImageTexture855.setContainerField("texture");
 ImageTexture855.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance853.addChild(&ImageTexture855);
 
@@ -3697,6 +4064,7 @@ Coordinate857.setPoint(new float[]{0.16647752,1.2248101,-0.014994,0.15702751,1.2
 IndexedFaceSet856.setCoord(&Coordinate857);
 
 TextureCoordinate& TextureCoordinate858 =  TextureCoordinate();
+TextureCoordinate858.setContainerField("texCoord");
 TextureCoordinate858.setPoint(new float[]{0.1715,0.4655,0.1797,0.4646,0.1569,0.4642,0.1474,0.4856,0.1708,0.4854,0.1963,0.4863,0.1544,0.4288,0.1782,0.4286,0.1538,0.4251,0.1784,0.4249,0.1544,0.4288,0.1782,0.4286,0.1538,0.4251,0.1784,0.4249,0.1703,0.4865,0.1895,0.487,0.1761,0.4271,0.1552,0.4287,0.1491,0.4835,0.1671,0.4618}, 40);
 IndexedFaceSet856.setTexCoord(&TextureCoordinate858);
 
@@ -3715,11 +4083,14 @@ HAnimSegment860.X3DNode::setName(std::string("l_upperarm"));
 HAnimSegment860.setDEF(std::string("hanim_l_upperarm"));
 Shape& Shape861 =  Shape();
 Appearance& Appearance862 =  Appearance();
+Appearance862.setContainerField("appearance");
 Material& Material863 =  Material();
+Material863.setContainerField("material");
 Material863.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance862.addChild(&Material863);
 
 ImageTexture& ImageTexture864 =  ImageTexture();
+ImageTexture864.setContainerField("texture");
 ImageTexture864.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance862.addChild(&ImageTexture864);
 
@@ -3734,6 +4105,7 @@ Coordinate866.setPoint(new float[]{0.19125001,1.2183076,-0.041067,0.21726,1.2180
 IndexedFaceSet865.setCoord(&Coordinate866);
 
 TextureCoordinate& TextureCoordinate867 =  TextureCoordinate();
+TextureCoordinate867.setContainerField("texCoord");
 TextureCoordinate867.setPoint(new float[]{0.2986,0.2114,0.2726,0.2114,0.3201,0.2114,0.3415,0.2114,0.2466,0.2114,0.2979,0.2417,0.2726,0.2417,0.3197,0.2417,0.3418,0.2417,0.2473,0.2417,0.2979,0.3018,0.2726,0.3018,0.3197,0.3018,0.3418,0.3018,0.2473,0.3018,0.2978,0.3276,0.2726,0.3276,0.3197,0.3276,0.3419,0.3276,0.2474,0.3276,0.2932,0.2834,0.2689,0.2834,0.316,0.2834,0.3322,0.2834,0.245,0.2834,0.2251,0.2114,0.2255,0.2417,0.2255,0.2417,0.2255,0.3018,0.2255,0.3018,0.2255,0.3276,0.2255,0.3276,0.2159,0.2834,0.9467,0.4943,0.9572,0.4943,0.9099,0.4943,0.9193,0.4943,0.9332,0.4943,0.9567,0.4691,0.9455,0.4691,0.9105,0.4691,0.9205,0.4691,0.9332,0.4691,0.9567,0.4913,0.9458,0.4913,0.9102,0.4913,0.9203,0.4913,0.9334,0.4913,0.8898,0.4943,0.9003,0.4943,0.8997,0.4691,0.8997,0.4691,0.8998,0.4913,0.8998,0.4913,0.9003,0.4943,0.3481,0.2114,0.9448,0.4374,0.9561,0.4374,0.8991,0.4374,0.9117,0.4374,0.9198,0.4374,0.9341,0.4374}, 124);
 IndexedFaceSet865.setTexCoord(&TextureCoordinate867);
 
@@ -3752,11 +4124,14 @@ HAnimSegment869.X3DNode::setName(std::string("l_forearm"));
 HAnimSegment869.setDEF(std::string("hanim_l_forearm"));
 Shape& Shape870 =  Shape();
 Appearance& Appearance871 =  Appearance();
+Appearance871.setContainerField("appearance");
 Material& Material872 =  Material();
+Material872.setContainerField("material");
 Material872.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance871.addChild(&Material872);
 
 ImageTexture& ImageTexture873 =  ImageTexture();
+ImageTexture873.setContainerField("texture");
 ImageTexture873.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance871.addChild(&ImageTexture873);
 
@@ -3771,6 +4146,7 @@ Coordinate875.setPoint(new float[]{0.18693002,0.9356558,-0.0315495,0.20808002,0.
 IndexedFaceSet874.setCoord(&Coordinate875);
 
 TextureCoordinate& TextureCoordinate876 =  TextureCoordinate();
+TextureCoordinate876.setContainerField("texCoord");
 TextureCoordinate876.setPoint(new float[]{0.8857,0.572,0.9344,0.572,0.9377,0.5719,0.8909,0.5718,0.8588,0.5719,0.8849,0.5578,0.8418,0.558,0.9588,0.5579,0.9536,0.5581,0.8765,0.5581,0.885,0.5257,0.8424,0.5258,0.9582,0.5328,0.9531,0.533,0.8768,0.526,0.8957,0.4625,0.8485,0.4627,0.9546,0.4626,0.9498,0.4628,0.8879,0.4628,0.8953,0.4552,0.8684,0.4551,0.9006,0.455,0.9378,0.4551,0.9345,0.4552}, 50);
 IndexedFaceSet874.setTexCoord(&TextureCoordinate876);
 
@@ -3789,11 +4165,14 @@ HAnimSegment878.X3DNode::setName(std::string("l_carpal"));
 HAnimSegment878.setDEF(std::string("hanim_l_carpal"));
 Shape& Shape879 =  Shape();
 Appearance& Appearance880 =  Appearance();
+Appearance880.setContainerField("appearance");
 Material& Material881 =  Material();
+Material881.setContainerField("material");
 Material881.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance880.addChild(&Material881);
 
 ImageTexture& ImageTexture882 =  ImageTexture();
+ImageTexture882.setContainerField("texture");
 ImageTexture882.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance880.addChild(&ImageTexture882);
 
@@ -3808,6 +4187,7 @@ Coordinate884.setPoint(new float[]{0.18355052,0.7267612,-0.027749252,0.19342802,
 IndexedFaceSet883.setCoord(&Coordinate884);
 
 TextureCoordinate& TextureCoordinate885 =  TextureCoordinate();
+TextureCoordinate885.setContainerField("texCoord");
 TextureCoordinate885.setPoint(new float[]{0.7729,0.0334,0.7695,0.0151,0.7598,0.0161,0.7624,0.0345,0.791,0.0281,0.7896,0.0131,0.8111,0.0113,0.813,0.0266,0.8476,0.0256,0.8461,0.0079,0.8312,0.0091,0.8327,0.0273,0.9162,0.2899,0.8453,0.0081,0.8466,0.0257,0.9122,0.2724,0.9531,0.2644,0.9573,0.2786,0.936,0.2844,0.9315,0.2698,0.9706,0.2558,0.9766,0.2733,0.8032,0.0047,0.8134,0.033,0.8325,0.0338,0.792,0.0345,0.7756,0.0396,0.7675,0.0404,0.9666,0.2503,0.9509,0.2584,0.9297,0.2636,0.9113,0.266,0.8439,0.0324,0.8447,0.0323,0.8081,0.0397,0.986,0.2708,0.9803,0.2531,0.9032,0.2936,0.8989,0.2764,0.9452,0.2896,0.9743,0.2482,0.9004,0.2693,0.9343,0.2559}, 86);
 IndexedFaceSet883.setTexCoord(&TextureCoordinate885);
 
@@ -3826,11 +4206,14 @@ HAnimSegment887.X3DNode::setName(std::string("l_trapezium"));
 HAnimSegment887.setDEF(std::string("hanim_l_trapezium"));
 Shape& Shape888 =  Shape();
 Appearance& Appearance889 =  Appearance();
+Appearance889.setContainerField("appearance");
 Material& Material890 =  Material();
+Material890.setContainerField("material");
 Material890.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance889.addChild(&Material890);
 
 ImageTexture& ImageTexture891 =  ImageTexture();
+ImageTexture891.setContainerField("texture");
 ImageTexture891.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance889.addChild(&ImageTexture891);
 
@@ -3845,6 +4228,7 @@ Coordinate893.setPoint(new float[]{0.19715177,0.6884955,0.017084252,0.16690727,0
 IndexedFaceSet892.setCoord(&Coordinate893);
 
 TextureCoordinate& TextureCoordinate894 =  TextureCoordinate();
+TextureCoordinate894.setContainerField("texCoord");
 TextureCoordinate894.setPoint(new float[]{0.8327,0.0273,0.8381,0.0441,0.8625,0.0344,0.8476,0.0256,0.8625,0.0359,0.8466,0.0257,0.9122,0.2724,0.904,0.2568,0.8948,0.2599,0.8401,0.0478,0.8395,0.0482,0.8319,0.0206,0.9141,0.2788,0.844,0.0192,0.8432,0.0193,0.8491,0.0466,0.8611,0.0409,0.8611,0.0397,0.8814,0.2691,0.8989,0.2764,0.9014,0.2535,0.9142,0.2789,0.9026,0.2823,0.9033,0.2821,0.8928,0.2563,0.8819,0.264,0.8327,0.0273,0.8381,0.0441,0.8395,0.0482,0.8401,0.0478,0.904,0.2568,0.9122,0.2724,0.9141,0.2788,0.9142,0.2789}, 68);
 IndexedFaceSet892.setTexCoord(&TextureCoordinate894);
 
@@ -3863,11 +4247,14 @@ HAnimSegment896.X3DNode::setName(std::string("l_metacarpal_1"));
 HAnimSegment896.setDEF(std::string("hanim_l_metacarpal_1"));
 Shape& Shape897 =  Shape();
 Appearance& Appearance898 =  Appearance();
+Appearance898.setContainerField("appearance");
 Material& Material899 =  Material();
+Material899.setContainerField("material");
 Material899.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance898.addChild(&Material899);
 
 ImageTexture& ImageTexture900 =  ImageTexture();
+ImageTexture900.setContainerField("texture");
 ImageTexture900.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance898.addChild(&ImageTexture900);
 
@@ -3882,6 +4269,7 @@ Coordinate902.setPoint(new float[]{0.16755526,0.6742823,0.03437775,0.17370002,0.
 IndexedFaceSet901.setCoord(&Coordinate902);
 
 TextureCoordinate& TextureCoordinate903 =  TextureCoordinate();
+TextureCoordinate903.setContainerField("texCoord");
 TextureCoordinate903.setPoint(new float[]{0.8819,0.0483,0.8625,0.0359,0.8625,0.0344,0.8786,0.0507,0.8948,0.2599,0.867,0.0598,0.857,0.0621,0.8381,0.0441,0.8533,0.0697,0.8381,0.0441,0.8503,0.0646,0.8419,0.0407,0.8588,0.0334,0.8588,0.0347,0.8467,0.0405,0.8415,0.0402,0.8445,0.0658,0.8331,0.0451,0.8331,0.0451,0.8468,0.0705,0.8593,0.0711,0.8712,0.0644,0.8626,0.068,0.8607,0.0696,0.877,0.0609,0.8798,0.0581,0.8632,0.2548,0.8814,0.2691,0.8729,0.2464,0.8847,0.2342,0.904,0.2568,0.8853,0.2697,0.8962,0.2618,0.9014,0.2613,0.9088,0.2549,0.8909,0.2323}, 72);
 IndexedFaceSet901.setTexCoord(&TextureCoordinate903);
 
@@ -3900,11 +4288,14 @@ HAnimSegment905.X3DNode::setName(std::string("l_carpal_proximal_phalanx_1"));
 HAnimSegment905.setDEF(std::string("hanim_l_carpal_proximal_phalanx_1"));
 Shape& Shape906 =  Shape();
 Appearance& Appearance907 =  Appearance();
+Appearance907.setContainerField("appearance");
 Material& Material908 =  Material();
+Material908.setContainerField("material");
 Material908.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance907.addChild(&Material908);
 
 ImageTexture& ImageTexture909 =  ImageTexture();
+ImageTexture909.setContainerField("texture");
 ImageTexture909.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance907.addChild(&ImageTexture909);
 
@@ -3919,6 +4310,7 @@ Coordinate911.setPoint(new float[]{0.195615,0.669213,0.031689003,0.18601875,0.66
 IndexedFaceSet910.setCoord(&Coordinate911);
 
 TextureCoordinate& TextureCoordinate912 =  TextureCoordinate();
+TextureCoordinate912.setContainerField("texCoord");
 TextureCoordinate912.setPoint(new float[]{0.8786,0.0507,0.857,0.0621,0.8601,0.0649,0.867,0.0598,0.8887,0.0786,0.8747,0.0865,0.8533,0.0697,0.876,0.0783,0.893,0.0688,0.8992,0.0702,0.8819,0.0483,0.8561,0.0728,0.8736,0.0851,0.8532,0.0697,0.8503,0.0646,0.8986,0.0785,0.897,0.0809,0.8914,0.0813,0.8802,0.0861,0.8841,0.0856,0.8821,0.0883,0.8487,0.0595,0.8509,0.0581,0.8683,0.0489,0.868,0.0507,0.8608,0.0544,0.8505,0.0603,0.8455,0.0706,0.8468,0.073,0.8455,0.0707,0.8437,0.0676,0.8416,0.0639,0.8422,0.0648,0.8729,0.2464,0.8482,0.2317,0.8612,0.2211,0.8847,0.2342,0.8433,0.2381,0.8632,0.2548,0.8814,0.2316,0.8625,0.2222,0.8799,0.2506,0.8891,0.243,0.8922,0.232,0.8964,0.2371}, 90);
 IndexedFaceSet910.setTexCoord(&TextureCoordinate912);
 
@@ -3937,11 +4329,14 @@ HAnimSegment914.X3DNode::setName(std::string("l_carpal_distal_phalanx_1"));
 HAnimSegment914.setDEF(std::string("hanim_l_carpal_distal_phalanx_1"));
 Shape& Shape915 =  Shape();
 Appearance& Appearance916 =  Appearance();
+Appearance916.setContainerField("appearance");
 Material& Material917 =  Material();
+Material917.setContainerField("material");
 Material917.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance916.addChild(&Material917);
 
 ImageTexture& ImageTexture918 =  ImageTexture();
+ImageTexture918.setContainerField("texture");
 ImageTexture918.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance916.addChild(&ImageTexture918);
 
@@ -3956,6 +4351,7 @@ Coordinate920.setPoint(new float[]{0.17514676,0.636309,0.049167003,0.19165726,0.
 IndexedFaceSet919.setCoord(&Coordinate920);
 
 TextureCoordinate& TextureCoordinate921 =  TextureCoordinate();
+TextureCoordinate921.setContainerField("texCoord");
 TextureCoordinate921.setPoint(new float[]{0.8747,0.0865,0.8887,0.0786,0.8299,0.2203,0.8424,0.2111,0.8736,0.0851,0.8939,0.0989,0.8978,0.0975,0.8834,0.0852,0.8992,0.0766,0.9092,0.0888,0.8992,0.0702,0.9115,0.0859,0.876,0.0783,0.893,0.0688,0.9109,0.102,0.9135,0.0996,0.9144,0.0973,0.9172,0.0962,0.8241,0.2146,0.8338,0.2074,0.8247,0.2116,0.8291,0.2083,0.9028,0.1054,0.9046,0.1032,0.9153,0.1012,0.9125,0.1038,0.9081,0.1033,0.9082,0.1057,0.8266,0.2097,0.8885,0.0681,0.8723,0.0776,0.8843,0.0701,0.8696,0.0781,0.8612,0.2211,0.8482,0.2317,0.8625,0.2222,0.8417,0.2109,0.8433,0.2381,0.8245,0.2237,0.8192,0.2167,0.8322,0.2071,0.8195,0.2131,0.8224,0.2103,0.8256,0.2083}, 88);
 IndexedFaceSet919.setTexCoord(&TextureCoordinate921);
 
@@ -3982,11 +4378,14 @@ HAnimSegment923.X3DNode::setName(std::string("l_trapezoid"));
 HAnimSegment923.setDEF(std::string("hanim_l_trapezoid"));
 Shape& Shape924 =  Shape();
 Appearance& Appearance925 =  Appearance();
+Appearance925.setContainerField("appearance");
 Material& Material926 =  Material();
+Material926.setContainerField("material");
 Material926.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance925.addChild(&Material926);
 
 ImageTexture& ImageTexture927 =  ImageTexture();
+ImageTexture927.setContainerField("texture");
 ImageTexture927.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance925.addChild(&ImageTexture927);
 
@@ -4001,6 +4400,7 @@ Coordinate929.setPoint(new float[]{0.166977,0.6858473,0.0032265,0.19887976,0.685
 IndexedFaceSet928.setCoord(&Coordinate929);
 
 TextureCoordinate& TextureCoordinate930 =  TextureCoordinate();
+TextureCoordinate930.setContainerField("texCoord");
 TextureCoordinate930.setPoint(new float[]{0.813,0.0266,0.8136,0.0488,0.8136,0.0488,0.8133,0.0266,0.8111,0.0474,0.8105,0.0283,0.8108,0.0283,0.8111,0.0474,0.8141,0.0525,0.8141,0.0525,0.8123,0.0198,0.8125,0.0198,0.9273,0.2479,0.9315,0.2698,0.9337,0.2676,0.9301,0.2489,0.9262,0.2444,0.9337,0.2762,0.9335,0.2763,0.8381,0.0441,0.904,0.2568,0.8327,0.0273,0.9122,0.2724,0.8401,0.0478,0.9014,0.2535,0.8395,0.0482,0.9142,0.2789,0.8319,0.0206,0.9141,0.2788,0.8381,0.0441,0.8327,0.0273,0.8319,0.0206,0.9141,0.2788,0.9122,0.2724,0.904,0.2568,0.9014,0.2535,0.8395,0.0482}, 74);
 IndexedFaceSet928.setTexCoord(&TextureCoordinate930);
 
@@ -4019,11 +4419,14 @@ HAnimSegment932.X3DNode::setName(std::string("l_metacarpal_2"));
 HAnimSegment932.setDEF(std::string("hanim_l_metacarpal_2"));
 Shape& Shape933 =  Shape();
 Appearance& Appearance934 =  Appearance();
+Appearance934.setContainerField("appearance");
 Material& Material935 =  Material();
+Material935.setContainerField("material");
 Material935.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance934.addChild(&Material935);
 
 ImageTexture& ImageTexture936 =  ImageTexture();
+ImageTexture936.setContainerField("texture");
 ImageTexture936.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance934.addChild(&ImageTexture936);
 
@@ -4038,6 +4441,7 @@ Coordinate938.setPoint(new float[]{0.19339876,0.638955,0.021003751,0.18276526,0.
 IndexedFaceSet937.setCoord(&Coordinate938);
 
 TextureCoordinate& TextureCoordinate939 =  TextureCoordinate();
+TextureCoordinate939.setContainerField("texCoord");
 TextureCoordinate939.setPoint(new float[]{0.8514,0.0953,0.8526,0.0788,0.846,0.0768,0.8466,0.0958,0.8195,0.0808,0.8225,0.0994,0.8225,0.0994,0.8195,0.0808,0.8903,0.2261,0.8467,0.0958,0.8381,0.0441,0.8136,0.0488,0.8561,0.0728,0.8532,0.0697,0.8381,0.0441,0.8136,0.0488,0.8436,0.0662,0.8533,0.0697,0.8503,0.0646,0.8461,0.0998,0.8248,0.1027,0.8248,0.1027,0.8462,0.0997,0.8498,0.0994,0.8184,0.0977,0.8157,0.0811,0.8157,0.0809,0.8184,0.0977,0.8165,0.0457,0.8341,0.0424,0.8341,0.0424,0.8165,0.0457,0.844,0.0417,0.8554,0.0622,0.8575,0.0659,0.8594,0.0677,0.8574,0.0658,0.844,0.0417,0.8099,0.0493,0.8099,0.0493,0.82,0.101,0.82,0.101,0.8821,0.2087,0.8838,0.2252,0.9098,0.1997,0.916,0.2175,0.8866,0.2074,0.904,0.2568,0.9273,0.2479,0.8814,0.2316,0.8847,0.2342,0.9197,0.2166,0.9083,0.2577,0.925,0.2515,0.8813,0.2388,0.8986,0.2602,0.931,0.2468}, 114);
 IndexedFaceSet937.setTexCoord(&TextureCoordinate939);
 
@@ -4056,11 +4460,14 @@ HAnimSegment941.X3DNode::setName(std::string("l_carpal_proximal_phalanx_2"));
 HAnimSegment941.setDEF(std::string("hanim_l_carpal_proximal_phalanx_2"));
 Shape& Shape942 =  Shape();
 Appearance& Appearance943 =  Appearance();
+Appearance943.setContainerField("appearance");
 Material& Material944 =  Material();
+Material944.setContainerField("material");
 Material944.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance943.addChild(&Material944);
 
 ImageTexture& ImageTexture945 =  ImageTexture();
+ImageTexture945.setContainerField("texture");
 ImageTexture945.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance943.addChild(&ImageTexture945);
 
@@ -4075,6 +4482,7 @@ Coordinate947.setPoint(new float[]{0.18112727,0.60633004,0.022119751,0.17212276,
 IndexedFaceSet946.setCoord(&Coordinate947);
 
 TextureCoordinate& TextureCoordinate948 =  TextureCoordinate();
+TextureCoordinate948.setContainerField("texCoord");
 TextureCoordinate948.setPoint(new float[]{0.8511,0.1006,0.8514,0.0953,0.8466,0.0958,0.8466,0.1011,0.8225,0.0994,0.8283,0.1035,0.9023,0.1969,0.8225,0.0994,0.8467,0.0958,0.8857,0.2021,0.8231,0.1042,0.8931,0.1724,0.8782,0.1769,0.8338,0.1268,0.8493,0.125,0.8543,0.1273,0.8302,0.1302,0.8258,0.1072,0.8236,0.1075,0.8231,0.1042,0.8504,0.1328,0.8508,0.1334,0.8781,0.1731,0.8909,0.1692,0.8352,0.1346,0.8353,0.1353,0.8228,0.0929,0.844,0.0896,0.8482,0.0889,0.8441,0.0896,0.8228,0.0929,0.8203,0.0995,0.8207,0.1038,0.8212,0.1068,0.8207,0.1037,0.8203,0.0995,0.8206,0.0933,0.8205,0.0933,0.8815,0.2034,0.8821,0.2087,0.9098,0.1997,0.8866,0.2074,0.8737,0.1777,0.8969,0.1707,0.9052,0.1925,0.9074,0.1918,0.9084,0.195,0.876,0.171,0.891,0.1665}, 98);
 IndexedFaceSet946.setTexCoord(&TextureCoordinate948);
 
@@ -4093,11 +4501,14 @@ HAnimSegment950.X3DNode::setName(std::string("l_carpal_middle_phalanx_2"));
 HAnimSegment950.setDEF(std::string("hanim_l_carpal_middle_phalanx_2"));
 Shape& Shape951 =  Shape();
 Appearance& Appearance952 =  Appearance();
+Appearance952.setContainerField("appearance");
 Material& Material953 =  Material();
+Material953.setContainerField("material");
 Material953.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance952.addChild(&Material953);
 
 ImageTexture& ImageTexture954 =  ImageTexture();
+ImageTexture954.setContainerField("texture");
 ImageTexture954.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance952.addChild(&ImageTexture954);
 
@@ -4112,6 +4523,7 @@ Coordinate956.setPoint(new float[]{0.17981552,0.5814675,0.0060615004,0.17215426,
 IndexedFaceSet955.setCoord(&Coordinate956);
 
 TextureCoordinate& TextureCoordinate957 =  TextureCoordinate();
+TextureCoordinate957.setContainerField("texCoord");
 TextureCoordinate957.setPoint(new float[]{0.8782,0.1769,0.8543,0.1273,0.8574,0.1518,0.8703,0.1535,0.8493,0.125,0.8504,0.1318,0.8846,0.1491,0.8931,0.1724,0.8349,0.1336,0.8379,0.1515,0.8533,0.1496,0.8338,0.1268,0.8302,0.1302,0.8351,0.1545,0.849,0.1233,0.8336,0.1251,0.849,0.123,0.8335,0.1249,0.8539,0.1573,0.8543,0.1579,0.8703,0.1496,0.8822,0.146,0.8398,0.159,0.8399,0.1597,0.8737,0.1777,0.8664,0.1541,0.8969,0.1707,0.8878,0.1476,0.8796,0.181,0.8945,0.1764,0.8684,0.1475,0.8822,0.1433}, 64);
 IndexedFaceSet955.setTexCoord(&TextureCoordinate957);
 
@@ -4130,11 +4542,14 @@ HAnimSegment959.X3DNode::setName(std::string("l_carpal_distal_phalanx_2"));
 HAnimSegment959.setDEF(std::string("hanim_l_carpal_distal_phalanx_2"));
 Shape& Shape960 =  Shape();
 Appearance& Appearance961 =  Appearance();
+Appearance961.setContainerField("appearance");
 Material& Material962 =  Material();
+Material962.setContainerField("material");
 Material962.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance961.addChild(&Material962);
 
 ImageTexture& ImageTexture963 =  ImageTexture();
+ImageTexture963.setContainerField("texture");
 ImageTexture963.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance961.addChild(&ImageTexture963);
 
@@ -4149,6 +4564,7 @@ Coordinate965.setPoint(new float[]{0.187767,0.5783625,0.018859502,0.1877625,0.57
 IndexedFaceSet964.setCoord(&Coordinate965);
 
 TextureCoordinate& TextureCoordinate966 =  TextureCoordinate();
+TextureCoordinate966.setContainerField("texCoord");
 TextureCoordinate966.setPoint(new float[]{0.8542,0.1553,0.8574,0.1518,0.8533,0.1496,0.8379,0.1515,0.8351,0.1545,0.8388,0.1572,0.8414,0.1663,0.8547,0.1647,0.8578,0.1639,0.8665,0.142,0.8703,0.1535,0.8804,0.1378,0.8846,0.1491,0.8382,0.1663,0.8495,0.1759,0.8523,0.1752,0.8544,0.1737,0.8566,0.1736,0.8658,0.1324,0.8753,0.1296,0.8677,0.1303,0.8725,0.1289,0.842,0.1753,0.8441,0.175,0.8533,0.1759,0.8496,0.1769,0.8467,0.1759,0.846,0.1768,0.87,0.1292,0.8525,0.1477,0.8382,0.1495,0.8525,0.1475,0.8381,0.1492,0.8664,0.1541,0.8878,0.1476,0.8639,0.1422,0.8827,0.1365,0.8634,0.1325,0.8774,0.1283,0.8662,0.1297,0.8697,0.1281,0.8732,0.1275,0.872,0.1575,0.8858,0.1533}, 88);
 IndexedFaceSet964.setTexCoord(&TextureCoordinate966);
 
@@ -4177,11 +4593,14 @@ HAnimSegment968.X3DNode::setName(std::string("l_capitate"));
 HAnimSegment968.setDEF(std::string("hanim_l_capitate"));
 Shape& Shape969 =  Shape();
 Appearance& Appearance970 =  Appearance();
+Appearance970.setContainerField("appearance");
 Material& Material971 =  Material();
+Material971.setContainerField("material");
 Material971.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance970.addChild(&Material971);
 
 ImageTexture& ImageTexture972 =  ImageTexture();
+ImageTexture972.setContainerField("texture");
 ImageTexture972.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance970.addChild(&ImageTexture972);
 
@@ -4196,6 +4615,7 @@ Coordinate974.setPoint(new float[]{0.19895177,0.68589,-0.012235501,0.16650002,0.
 IndexedFaceSet973.setCoord(&Coordinate974);
 
 TextureCoordinate& TextureCoordinate975 =  TextureCoordinate();
+TextureCoordinate975.setContainerField("texCoord");
 TextureCoordinate975.setPoint(new float[]{0.9315,0.2698,0.8136,0.0488,0.7924,0.0507,0.7911,0.0281,0.8136,0.0488,0.813,0.0266,0.791,0.0281,0.7924,0.0508,0.7924,0.0543,0.8143,0.0526,0.8143,0.0526,0.7924,0.0543,0.9335,0.2763,0.7903,0.0215,0.7903,0.0215,0.8123,0.0198,0.7875,0.03,0.7875,0.03,0.7887,0.0494,0.7887,0.0495,0.9277,0.2691,0.8167,0.0279,0.8173,0.0471,0.8173,0.0471,0.9273,0.2479,0.9479,0.2423,0.9531,0.2644,0.9318,0.2697,0.9473,0.2389,0.926,0.2443,0.955,0.2707,0.9551,0.2707,0.9337,0.2763,0.9563,0.262,0.9518,0.243,0.928,0.269,0.924,0.2502,0.9241,0.2502}, 76);
 IndexedFaceSet973.setTexCoord(&TextureCoordinate975);
 
@@ -4214,11 +4634,14 @@ HAnimSegment977.X3DNode::setName(std::string("l_metacarpal_3"));
 HAnimSegment977.setDEF(std::string("hanim_l_metacarpal_3"));
 Shape& Shape978 =  Shape();
 Appearance& Appearance979 =  Appearance();
+Appearance979.setContainerField("appearance");
 Material& Material980 =  Material();
+Material980.setContainerField("material");
 Material980.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance979.addChild(&Material980);
 
 ImageTexture& ImageTexture981 =  ImageTexture();
+ImageTexture981.setContainerField("texture");
 ImageTexture981.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance979.addChild(&ImageTexture981);
 
@@ -4233,6 +4656,7 @@ Coordinate983.setPoint(new float[]{0.19760627,0.6594075,-0.0120825,0.16938001,0.
 IndexedFaceSet982.setCoord(&Coordinate983);
 
 TextureCoordinate& TextureCoordinate984 =  TextureCoordinate();
+TextureCoordinate984.setContainerField("texCoord");
 TextureCoordinate984.setPoint(new float[]{0.8225,0.0994,0.8195,0.0808,0.7938,0.0824,0.7939,0.1016,0.8195,0.0808,0.7938,0.0824,0.7924,0.0507,0.8136,0.0488,0.7939,0.1016,0.8225,0.0994,0.8136,0.0488,0.7924,0.0508,0.7964,0.1053,0.8205,0.103,0.8205,0.103,0.7964,0.1053,0.796,0.0481,0.809,0.0468,0.809,0.0469,0.796,0.048,0.7888,0.0827,0.7888,0.0826,0.7886,0.1011,0.7887,0.1011,0.8243,0.0799,0.8186,0.0479,0.8186,0.0479,0.8243,0.0801,0.7878,0.051,0.7878,0.0509,0.8275,0.0984,0.8275,0.0983,0.7902,0.1036,0.7902,0.1036,0.8264,0.1006,0.8264,0.1006,0.916,0.2175,0.941,0.2114,0.9479,0.2423,0.9273,0.2479,0.9376,0.1925,0.9098,0.1997,0.9479,0.2423,0.9448,0.2456,0.9323,0.249,0.9323,0.249,0.9448,0.2456,0.9459,0.2103,0.9115,0.2191,0.9226,0.2496,0.9226,0.2496,0.9114,0.219,0.9524,0.2413,0.9524,0.2414}, 108);
 IndexedFaceSet982.setTexCoord(&TextureCoordinate984);
 
@@ -4251,11 +4675,14 @@ HAnimSegment986.X3DNode::setName(std::string("l_carpal_proximal_phalanx_3"));
 HAnimSegment986.setDEF(std::string("hanim_l_carpal_proximal_phalanx_3"));
 Shape& Shape987 =  Shape();
 Appearance& Appearance988 =  Appearance();
+Appearance988.setContainerField("appearance");
 Material& Material989 =  Material();
+Material989.setContainerField("material");
 Material989.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance988.addChild(&Material989);
 
 ImageTexture& ImageTexture990 =  ImageTexture();
+ImageTexture990.setContainerField("texture");
 ImageTexture990.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance988.addChild(&ImageTexture990);
 
@@ -4270,6 +4697,7 @@ Coordinate992.setPoint(new float[]{0.17212725,0.6032025,-0.0089145005,0.19116,0.
 IndexedFaceSet991.setCoord(&Coordinate992);
 
 TextureCoordinate& TextureCoordinate993 =  TextureCoordinate();
+TextureCoordinate993.setContainerField("texCoord");
 TextureCoordinate993.setPoint(new float[]{0.8168,0.105,0.8225,0.0994,0.7939,0.1016,0.7996,0.1065,0.9311,0.1887,0.7939,0.1016,0.8225,0.0994,0.9145,0.1932,0.794,0.107,0.9232,0.1611,0.908,0.1649,0.8025,0.1324,0.818,0.1313,0.7986,0.1359,0.7957,0.11,0.7939,0.1101,0.794,0.107,0.8228,0.1342,0.8186,0.1401,0.819,0.1409,0.9081,0.1606,0.921,0.1574,0.8033,0.1412,0.8033,0.142,0.8231,0.1042,0.8212,0.1078,0.8231,0.1042,0.8236,0.1075,0.7948,0.0956,0.8206,0.0932,0.8206,0.0932,0.7948,0.0956,0.8249,0.0987,0.8253,0.1032,0.8258,0.1063,0.8253,0.1032,0.8249,0.0987,0.823,0.0929,0.823,0.0929,0.7917,0.1017,0.7916,0.1064,0.7918,0.1091,0.7916,0.1063,0.7917,0.1017,0.7927,0.0957,0.7927,0.0957,0.9376,0.1925,0.9098,0.1997,0.927,0.1595,0.9344,0.1846,0.9361,0.1842,0.9366,0.1872,0.9035,0.1654,0.9061,0.1582,0.9213,0.1544,0.9096,0.1911,0.9084,0.195,0.9074,0.1918}, 116);
 IndexedFaceSet991.setTexCoord(&TextureCoordinate993);
 
@@ -4288,11 +4716,14 @@ HAnimSegment995.X3DNode::setName(std::string("l_carpal_middle_phalanx_3"));
 HAnimSegment995.setDEF(std::string("hanim_l_carpal_middle_phalanx_3"));
 Shape& Shape996 =  Shape();
 Appearance& Appearance997 =  Appearance();
+Appearance997.setContainerField("appearance");
 Material& Material998 =  Material();
+Material998.setContainerField("material");
 Material998.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance997.addChild(&Material998);
 
 ImageTexture& ImageTexture999 =  ImageTexture();
+ImageTexture999.setContainerField("texture");
 ImageTexture999.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance997.addChild(&ImageTexture999);
 
@@ -4307,6 +4738,7 @@ Coordinate1001.setPoint(new float[]{0.18004051,0.575235,-0.01091025,0.17236575,0
 IndexedFaceSet1000.setCoord(&Coordinate1001);
 
 TextureCoordinate& TextureCoordinate1002 =  TextureCoordinate();
+TextureCoordinate1002.setContainerField("texCoord");
 TextureCoordinate1002.setPoint(new float[]{0.908,0.1649,0.8228,0.1342,0.8238,0.1612,0.9018,0.1387,0.818,0.1313,0.8186,0.139,0.9163,0.135,0.9232,0.1611,0.8031,0.1401,0.8044,0.1596,0.8199,0.1584,0.8025,0.1324,0.7986,0.1359,0.8014,0.1628,0.8179,0.1294,0.8023,0.1305,0.8179,0.1291,0.8023,0.1302,0.8199,0.1671,0.8202,0.1672,0.902,0.1343,0.914,0.1313,0.8058,0.1681,0.8058,0.1689,0.9035,0.1654,0.8978,0.139,0.927,0.1595,0.9196,0.1336,0.9092,0.1696,0.9243,0.1658,0.9003,0.1324,0.9142,0.1283}, 64);
 IndexedFaceSet1000.setTexCoord(&TextureCoordinate1002);
 
@@ -4325,11 +4757,14 @@ HAnimSegment1004.X3DNode::setName(std::string("l_carpal_distal_phalanx_3"));
 HAnimSegment1004.setDEF(std::string("hanim_l_carpal_distal_phalanx_3"));
 Shape& Shape1005 =  Shape();
 Appearance& Appearance1006 =  Appearance();
+Appearance1006.setContainerField("appearance");
 Material& Material1007 =  Material();
+Material1007.setContainerField("material");
 Material1007.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1006.addChild(&Material1007);
 
 ImageTexture& ImageTexture1008 =  ImageTexture();
+ImageTexture1008.setContainerField("texture");
 ImageTexture1008.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1006.addChild(&ImageTexture1008);
 
@@ -4344,6 +4779,7 @@ Coordinate1010.setPoint(new float[]{0.18762301,0.572184,0.00201825,0.1876275,0.5
 IndexedFaceSet1009.setCoord(&Coordinate1010);
 
 TextureCoordinate& TextureCoordinate1011 =  TextureCoordinate();
+TextureCoordinate1011.setContainerField("texCoord");
 TextureCoordinate1011.setPoint(new float[]{0.8204,0.1649,0.8238,0.1612,0.8199,0.1584,0.8044,0.1596,0.8014,0.1628,0.8049,0.166,0.807,0.1802,0.8204,0.1792,0.8232,0.1783,0.8982,0.1238,0.9018,0.1387,0.9123,0.1202,0.9163,0.135,0.8038,0.18,0.8141,0.1881,0.8169,0.1876,0.8192,0.1861,0.8213,0.1861,0.8983,0.1142,0.9079,0.1117,0.9004,0.112,0.9052,0.1108,0.8067,0.1872,0.8088,0.1869,0.8179,0.1883,0.8142,0.1891,0.8114,0.188,0.8106,0.1889,0.9027,0.111,0.8192,0.1563,0.8048,0.1573,0.8192,0.156,0.8048,0.1571,0.8978,0.139,0.9196,0.1336,0.8956,0.1239,0.9147,0.119,0.8959,0.1141,0.9101,0.1105,0.8989,0.1113,0.9025,0.1098,0.906,0.1094,0.9033,0.1433,0.9173,0.1398}, 88);
 IndexedFaceSet1009.setTexCoord(&TextureCoordinate1011);
 
@@ -4372,11 +4808,14 @@ HAnimSegment1013.X3DNode::setName(std::string("l_hamate"));
 HAnimSegment1013.setDEF(std::string("hanim_l_hamate"));
 Shape& Shape1014 =  Shape();
 Appearance& Appearance1015 =  Appearance();
+Appearance1015.setContainerField("appearance");
 Material& Material1016 =  Material();
+Material1016.setContainerField("material");
 Material1016.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1015.addChild(&Material1016);
 
 ImageTexture& ImageTexture1017 =  ImageTexture();
+ImageTexture1017.setContainerField("texture");
 ImageTexture1017.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1015.addChild(&ImageTexture1017);
 
@@ -4391,6 +4830,7 @@ Coordinate1019.setPoint(new float[]{0.19811927,0.68704206,-0.027623253,0.1708110
 IndexedFaceSet1018.setCoord(&Coordinate1019);
 
 TextureCoordinate& TextureCoordinate1020 =  TextureCoordinate();
+TextureCoordinate1020.setContainerField("texCoord");
 TextureCoordinate1020.setPoint(new float[]{0.7624,0.0345,0.7525,0.0502,0.7571,0.0508,0.7729,0.0334,0.7734,0.0512,0.7924,0.0508,0.791,0.0281,0.9531,0.2644,0.9665,0.2386,0.9827,0.2362,0.9706,0.2558,0.9479,0.2423,0.7736,0.0553,0.7595,0.0549,0.7559,0.0544,0.7596,0.0549,0.7736,0.0553,0.7721,0.0268,0.7644,0.0276,0.7723,0.0268,0.7938,0.0298,0.795,0.0487,0.9457,0.2448,0.9501,0.2632,0.7926,0.0543,0.7926,0.0544,0.7903,0.0215,0.7903,0.0215,0.9803,0.2531,0.9874,0.236,0.9479,0.2423,0.9532,0.2644,0.9832,0.2324,0.9795,0.2325,0.9656,0.2346,0.9721,0.2624,0.9795,0.2602,0.9719,0.2625,0.9502,0.2632,0.9457,0.2447,0.9471,0.2389,0.9471,0.2388,0.9551,0.2707,0.955,0.2707}, 88);
 IndexedFaceSet1018.setTexCoord(&TextureCoordinate1020);
 
@@ -4409,11 +4849,14 @@ HAnimSegment1022.X3DNode::setName(std::string("l_metacarpal_4"));
 HAnimSegment1022.setDEF(std::string("hanim_l_metacarpal_4"));
 Shape& Shape1023 =  Shape();
 Appearance& Appearance1024 =  Appearance();
+Appearance1024.setContainerField("appearance");
 Material& Material1025 =  Material();
+Material1025.setContainerField("material");
 Material1025.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1024.addChild(&Material1025);
 
 ImageTexture& ImageTexture1026 =  ImageTexture();
+ImageTexture1026.setContainerField("texture");
 ImageTexture1026.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1024.addChild(&ImageTexture1026);
 
@@ -4428,6 +4871,7 @@ Coordinate1028.setPoint(new float[]{0.19615726,0.6612975,-0.02849175,0.16982551,
 IndexedFaceSet1027.setCoord(&Coordinate1028);
 
 TextureCoordinate& TextureCoordinate1029 =  TextureCoordinate();
+TextureCoordinate1029.setContainerField("texCoord");
 TextureCoordinate1029.setPoint(new float[]{0.7939,0.1016,0.7938,0.0824,0.7694,0.0827,0.766,0.1014,0.7924,0.0508,0.7734,0.0512,0.7938,0.0824,0.7939,0.1016,0.766,0.1015,0.965,0.2069,0.7734,0.0512,0.7924,0.0507,0.7909,0.1057,0.7677,0.1056,0.7677,0.1057,0.7909,0.1057,0.9517,0.2441,0.7765,0.0488,0.7765,0.0488,0.789,0.0484,0.7643,0.0825,0.7643,0.0824,0.7614,0.1009,0.7614,0.1009,0.7991,0.0823,0.7971,0.0505,0.7971,0.0505,0.7991,0.0824,0.7688,0.0511,0.7688,0.0511,0.7994,0.1003,0.7994,0.1003,0.7625,0.1038,0.7625,0.1038,0.7972,0.1034,0.7972,0.1034,0.9479,0.2423,0.9665,0.2385,0.941,0.2114,0.9376,0.1925,0.9651,0.1878,0.9665,0.2386,0.9479,0.2423,0.9639,0.2415,0.9639,0.2415,0.9517,0.244,0.9701,0.2063,0.9698,0.1875,0.9358,0.2124,0.9433,0.2434,0.9433,0.2434,0.9358,0.2123,0.9711,0.2379,0.9711,0.2379}, 108);
 IndexedFaceSet1027.setTexCoord(&TextureCoordinate1029);
 
@@ -4446,11 +4890,14 @@ HAnimSegment1031.X3DNode::setName(std::string("l_carpal_proximal_phalanx_4"));
 HAnimSegment1031.setDEF(std::string("hanim_l_carpal_proximal_phalanx_4"));
 Shape& Shape1032 =  Shape();
 Appearance& Appearance1033 =  Appearance();
+Appearance1033.setContainerField("appearance");
 Material& Material1034 =  Material();
+Material1034.setContainerField("material");
 Material1034.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1033.addChild(&Material1034);
 
 ImageTexture& ImageTexture1035 =  ImageTexture();
+ImageTexture1035.setContainerField("texture");
 ImageTexture1035.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1033.addChild(&ImageTexture1035);
 
@@ -4465,6 +4912,7 @@ Coordinate1037.setPoint(new float[]{0.1721295,0.60705,-0.0258795,0.19116224,0.60
 IndexedFaceSet1036.setCoord(&Coordinate1037);
 
 TextureCoordinate& TextureCoordinate1038 =  TextureCoordinate();
+TextureCoordinate1038.setContainerField("texCoord");
 TextureCoordinate1038.setPoint(new float[]{0.7878,0.1071,0.7939,0.1016,0.766,0.1014,0.7709,0.1068,0.9594,0.1833,0.766,0.1015,0.7939,0.1016,0.9426,0.186,0.7648,0.1066,0.9545,0.1568,0.9398,0.1599,0.771,0.1315,0.7861,0.131,0.767,0.1345,0.7667,0.1094,0.7644,0.1092,0.7648,0.1066,0.7904,0.1338,0.786,0.139,0.7863,0.1397,0.9402,0.1559,0.9531,0.1532,0.7709,0.1396,0.7709,0.1403,0.794,0.107,0.7917,0.1102,0.794,0.107,0.7939,0.1101,0.7675,0.0958,0.7934,0.0956,0.7934,0.0956,0.7675,0.0958,0.7967,0.1011,0.7964,0.1056,0.7964,0.1088,0.7964,0.1057,0.7967,0.1011,0.7958,0.0955,0.7958,0.0955,0.7633,0.1008,0.7625,0.1056,0.7622,0.1084,0.7625,0.1055,0.7633,0.1008,0.765,0.0957,0.765,0.0957,0.9651,0.1878,0.9376,0.1925,0.9583,0.1554,0.963,0.1801,0.9654,0.1799,0.9654,0.1826,0.9354,0.1602,0.9385,0.1536,0.9536,0.1504,0.9383,0.1837,0.9366,0.1872,0.9361,0.1842}, 116);
 IndexedFaceSet1036.setTexCoord(&TextureCoordinate1038);
 
@@ -4483,11 +4931,14 @@ HAnimSegment1040.X3DNode::setName(std::string("l_carpal_middle_phalanx_4"));
 HAnimSegment1040.setDEF(std::string("hanim_l_carpal_middle_phalanx_4"));
 Shape& Shape1041 =  Shape();
 Appearance& Appearance1042 =  Appearance();
+Appearance1042.setContainerField("appearance");
 Material& Material1043 =  Material();
+Material1043.setContainerField("material");
 Material1043.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1042.addChild(&Material1043);
 
 ImageTexture& ImageTexture1044 =  ImageTexture();
+ImageTexture1044.setContainerField("texture");
 ImageTexture1044.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1042.addChild(&ImageTexture1044);
 
@@ -4502,6 +4953,7 @@ Coordinate1046.setPoint(new float[]{0.17985827,0.5802075,-0.027360002,0.17218351
 IndexedFaceSet1045.setCoord(&Coordinate1046);
 
 TextureCoordinate& TextureCoordinate1047 =  TextureCoordinate();
+TextureCoordinate1047.setContainerField("texCoord");
 TextureCoordinate1047.setPoint(new float[]{0.9398,0.1599,0.7904,0.1338,0.7888,0.1598,0.9363,0.1341,0.7861,0.131,0.7859,0.138,0.9502,0.1313,0.9545,0.1568,0.7712,0.1385,0.7707,0.1575,0.7854,0.1571,0.771,0.1315,0.767,0.1345,0.7676,0.1604,0.786,0.1292,0.7713,0.1297,0.786,0.129,0.7713,0.1294,0.7847,0.165,0.7849,0.1652,0.9369,0.1301,0.9483,0.1278,0.7712,0.1654,0.7712,0.1661,0.9354,0.1602,0.9325,0.1343,0.9583,0.1554,0.9533,0.1301,0.9406,0.1642,0.9551,0.1612,0.9355,0.1283,0.9488,0.1251}, 64);
 IndexedFaceSet1045.setTexCoord(&TextureCoordinate1047);
 
@@ -4520,11 +4972,14 @@ HAnimSegment1049.X3DNode::setName(std::string("l_carpal_distal_phalanx_4"));
 HAnimSegment1049.setDEF(std::string("hanim_l_carpal_distal_phalanx_4"));
 Shape& Shape1050 =  Shape();
 Appearance& Appearance1051 =  Appearance();
+Appearance1051.setContainerField("appearance");
 Material& Material1052 =  Material();
+Material1052.setContainerField("material");
 Material1052.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1051.addChild(&Material1052);
 
 ImageTexture& ImageTexture1053 =  ImageTexture();
+ImageTexture1053.setContainerField("texture");
 ImageTexture1053.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1051.addChild(&ImageTexture1053);
 
@@ -4539,6 +4994,7 @@ Coordinate1055.setPoint(new float[]{0.1877985,0.57750076,-0.015099751,0.18780525
 IndexedFaceSet1054.setCoord(&Coordinate1055);
 
 TextureCoordinate& TextureCoordinate1056 =  TextureCoordinate();
+TextureCoordinate1056.setContainerField("texCoord");
 TextureCoordinate1056.setPoint(new float[]{0.7853,0.163,0.7888,0.1598,0.7854,0.1571,0.7707,0.1575,0.7676,0.1604,0.7706,0.1634,0.7714,0.1739,0.7841,0.1736,0.787,0.1731,0.9344,0.121,0.9363,0.1341,0.9479,0.1182,0.9502,0.1313,0.7684,0.1736,0.7774,0.1846,0.7801,0.1842,0.7824,0.1828,0.7844,0.1829,0.9351,0.111,0.9443,0.1091,0.9372,0.109,0.9418,0.1081,0.7705,0.1833,0.7725,0.1831,0.781,0.1849,0.7774,0.1856,0.7748,0.1843,0.774,0.1852,0.9395,0.1081,0.7849,0.1552,0.7712,0.1555,0.7849,0.1549,0.7712,0.1553,0.9325,0.1343,0.9533,0.1301,0.9319,0.1209,0.9502,0.1172,0.9329,0.1108,0.9464,0.108,0.9358,0.1082,0.9393,0.1069,0.9427,0.1067,0.9372,0.1384,0.9506,0.1357}, 88);
 IndexedFaceSet1054.setTexCoord(&TextureCoordinate1056);
 
@@ -4567,11 +5023,14 @@ HAnimSegment1058.X3DNode::setName(std::string("l_metacarpal_5"));
 HAnimSegment1058.setDEF(std::string("hanim_l_metacarpal_5"));
 Shape& Shape1059 =  Shape();
 Appearance& Appearance1060 =  Appearance();
+Appearance1060.setContainerField("appearance");
 Material& Material1061 =  Material();
+Material1061.setContainerField("material");
 Material1061.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1060.addChild(&Material1061);
 
 ImageTexture& ImageTexture1062 =  ImageTexture();
+ImageTexture1062.setContainerField("texture");
 ImageTexture1062.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1060.addChild(&ImageTexture1062);
 
@@ -4586,6 +5045,7 @@ Coordinate1064.setPoint(new float[]{0.19387576,0.6631875,-0.041503504,0.171351,0
 IndexedFaceSet1063.setCoord(&Coordinate1064);
 
 TextureCoordinate& TextureCoordinate1065 =  TextureCoordinate();
+TextureCoordinate1065.setContainerField("texCoord");
 TextureCoordinate1065.setPoint(new float[]{0.766,0.1014,0.7694,0.0827,0.748,0.0813,0.7455,0.0995,0.7415,0.0989,0.7435,0.0798,0.9864,0.2045,0.7455,0.0995,0.7734,0.0512,0.7571,0.0508,0.7525,0.0502,0.9827,0.2362,0.9665,0.2386,0.7694,0.0827,0.766,0.1015,0.774,0.0829,0.9619,0.2395,0.7782,0.0512,0.774,0.083,0.7619,0.1052,0.7474,0.1039,0.7446,0.1034,0.7473,0.1038,0.7619,0.1052,0.9712,0.2404,0.9799,0.239,0.7566,0.0479,0.7602,0.0485,0.7691,0.0486,0.771,0.1015,0.771,0.1014,0.768,0.1042,0.768,0.1042,0.9897,0.1861,0.991,0.2053,0.9856,0.1862,0.9665,0.2385,0.9874,0.236,0.965,0.2069,0.9651,0.1878,0.9604,0.2075,0.9619,0.2395,0.9604,0.2074,0.9836,0.239,0.98,0.239,0.9712,0.2404}, 92);
 IndexedFaceSet1063.setTexCoord(&TextureCoordinate1065);
 
@@ -4604,11 +5064,14 @@ HAnimSegment1067.X3DNode::setName(std::string("l_carpal_proximal_phalanx_5"));
 HAnimSegment1067.setDEF(std::string("hanim_l_carpal_proximal_phalanx_5"));
 Shape& Shape1068 =  Shape();
 Appearance& Appearance1069 =  Appearance();
+Appearance1069.setContainerField("appearance");
 Material& Material1070 =  Material();
+Material1070.setContainerField("material");
 Material1070.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1069.addChild(&Material1070);
 
 ImageTexture& ImageTexture1071 =  ImageTexture();
+ImageTexture1071.setContainerField("texture");
 ImageTexture1071.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1069.addChild(&ImageTexture1071);
 
@@ -4623,6 +5086,7 @@ Coordinate1073.setPoint(new float[]{0.1728855,0.62123626,-0.0415125,0.190647,0.6
 IndexedFaceSet1072.setCoord(&Coordinate1073);
 
 TextureCoordinate& TextureCoordinate1074 =  TextureCoordinate();
+TextureCoordinate1074.setContainerField("texCoord");
 TextureCoordinate1074.setPoint(new float[]{0.7578,0.1276,0.7543,0.1247,0.753,0.131,0.7531,0.1316,0.9854,0.1598,0.9725,0.1615,0.9734,0.1584,0.9844,0.1569,0.7413,0.123,0.7403,0.1293,0.7378,0.1249,0.7401,0.1299,0.7405,0.104,0.7443,0.1047,0.9859,0.1809,0.7455,0.0995,0.766,0.1015,0.9713,0.1822,0.7589,0.1059,0.7648,0.1066,0.766,0.1014,0.7622,0.1091,0.7648,0.1066,0.7644,0.1092,0.7455,0.0995,0.7415,0.0989,0.7664,0.0954,0.7667,0.0954,0.7485,0.0932,0.7449,0.0928,0.7484,0.0932,0.7683,0.1016,0.7686,0.0957,0.7683,0.0956,0.7679,0.1015,0.7671,0.1055,0.7666,0.1084,0.7674,0.1056,0.9687,0.1615,0.9723,0.1564,0.9888,0.1589,0.9852,0.1547,0.9898,0.1809,0.9856,0.1862,0.9651,0.1878,0.9675,0.1796,0.9654,0.1826,0.9654,0.1799,0.9897,0.1861}, 98);
 IndexedFaceSet1072.setTexCoord(&TextureCoordinate1074);
 
@@ -4641,11 +5105,14 @@ HAnimSegment1076.X3DNode::setName(std::string("l_carpal_middle_phalanx_5"));
 HAnimSegment1076.setDEF(std::string("hanim_l_carpal_middle_phalanx_5"));
 Shape& Shape1077 =  Shape();
 Appearance& Appearance1078 =  Appearance();
+Appearance1078.setContainerField("appearance");
 Material& Material1079 =  Material();
+Material1079.setContainerField("material");
 Material1079.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1078.addChild(&Material1079);
 
 ImageTexture& ImageTexture1080 =  ImageTexture();
+ImageTexture1080.setContainerField("texture");
 ImageTexture1080.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1078.addChild(&ImageTexture1080);
 
@@ -4660,6 +5127,7 @@ Coordinate1082.setPoint(new float[]{0.17999777,0.60232055,-0.043692753,0.1725187
 IndexedFaceSet1081.setCoord(&Coordinate1082);
 
 TextureCoordinate& TextureCoordinate1083 =  TextureCoordinate();
+TextureCoordinate1083.setContainerField("texCoord");
 TextureCoordinate1083.setPoint(new float[]{0.9725,0.1615,0.7578,0.1276,0.7541,0.1444,0.9727,0.1441,0.7543,0.1247,0.7533,0.1302,0.9851,0.1424,0.9854,0.1598,0.7404,0.1285,0.7384,0.1404,0.7513,0.1418,0.7413,0.123,0.7378,0.1249,0.7355,0.1424,0.7545,0.1231,0.7416,0.1216,0.7546,0.1229,0.7417,0.1214,0.7496,0.1479,0.7498,0.1481,0.9738,0.1409,0.9839,0.1396,0.738,0.1467,0.7381,0.1469,0.9687,0.1616,0.9694,0.1441,0.9888,0.1589,0.988,0.1416,0.9725,0.165,0.9854,0.1633,0.9728,0.1395,0.9846,0.1375}, 64);
 IndexedFaceSet1081.setTexCoord(&TextureCoordinate1083);
 
@@ -4678,11 +5146,14 @@ HAnimSegment1085.X3DNode::setName(std::string("l_carpal_distal_phalanx_5"));
 HAnimSegment1085.setDEF(std::string("hanim_l_carpal_distal_phalanx_5"));
 Shape& Shape1086 =  Shape();
 Appearance& Appearance1087 =  Appearance();
+Appearance1087.setContainerField("appearance");
 Material& Material1088 =  Material();
+Material1088.setContainerField("material");
 Material1088.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1087.addChild(&Material1088);
 
 ImageTexture& ImageTexture1089 =  ImageTexture();
+ImageTexture1089.setContainerField("texture");
 ImageTexture1089.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1087.addChild(&ImageTexture1089);
 
@@ -4697,6 +5168,7 @@ Coordinate1091.setPoint(new float[]{0.18792452,0.600165,-0.032132253,0.18794927,
 IndexedFaceSet1090.setCoord(&Coordinate1091);
 
 TextureCoordinate& TextureCoordinate1092 =  TextureCoordinate();
+TextureCoordinate1092.setContainerField("texCoord");
 TextureCoordinate1092.setPoint(new float[]{0.7505,0.1465,0.7541,0.1444,0.7513,0.1418,0.7384,0.1404,0.7355,0.1424,0.7377,0.1451,0.7372,0.1554,0.7483,0.1563,0.7507,0.1564,0.9726,0.1318,0.9727,0.1441,0.9847,0.1302,0.9851,0.1424,0.7347,0.1548,0.7409,0.1641,0.7434,0.1641,0.7455,0.1632,0.7469,0.164,0.9746,0.124,0.9828,0.1229,0.9766,0.1225,0.9807,0.1219,0.7351,0.1625,0.7369,0.1626,0.7443,0.165,0.7408,0.1649,0.7387,0.1637,0.7379,0.1643,0.9788,0.1219,0.7512,0.1402,0.7392,0.1389,0.7512,0.14,0.7393,0.1388,0.9694,0.1441,0.988,0.1416,0.9705,0.1317,0.9868,0.1295,0.9727,0.1237,0.9848,0.1221,0.9756,0.1218,0.9787,0.1209,0.9817,0.1209,0.973,0.1475,0.9849,0.146}, 88);
 IndexedFaceSet1090.setTexCoord(&TextureCoordinate1092);
 
@@ -4733,11 +5205,14 @@ HAnimSegment1094.X3DNode::setName(std::string("r_clavicle"));
 HAnimSegment1094.setDEF(std::string("hanim_r_clavicle"));
 Shape& Shape1095 =  Shape();
 Appearance& Appearance1096 =  Appearance();
+Appearance1096.setContainerField("appearance");
 Material& Material1097 =  Material();
+Material1097.setContainerField("material");
 Material1097.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1096.addChild(&Material1097);
 
 ImageTexture& ImageTexture1098 =  ImageTexture();
+ImageTexture1098.setContainerField("texture");
 ImageTexture1098.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1096.addChild(&ImageTexture1098);
 
@@ -4752,6 +5227,7 @@ Coordinate1100.setPoint(new float[]{-0.15075,1.21104,-0.033234753,-0.1526175,1.2
 IndexedFaceSet1099.setCoord(&Coordinate1100);
 
 TextureCoordinate& TextureCoordinate1101 =  TextureCoordinate();
+TextureCoordinate1101.setContainerField("texCoord");
 TextureCoordinate1101.setPoint(new float[]{0.1911,0.4797,0.171,0.4832,0.1497,0.4806,0.1519,0.4334,0.1831,0.4416,0.1474,0.4856,0.1708,0.4854,0.1784,0.4249,0.1538,0.4251,0.1963,0.4863,0.19,0.5091,0.1847,0.499,0.172,0.4382,0.1568,0.4457,0.1409,0.4926}, 30);
 IndexedFaceSet1099.setTexCoord(&TextureCoordinate1101);
 
@@ -4770,11 +5246,14 @@ HAnimSegment1103.X3DNode::setName(std::string("r_scapula"));
 HAnimSegment1103.setDEF(std::string("hanim_r_scapula"));
 Shape& Shape1104 =  Shape();
 Appearance& Appearance1105 =  Appearance();
+Appearance1105.setContainerField("appearance");
 Material& Material1106 =  Material();
+Material1106.setContainerField("material");
 Material1106.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1105.addChild(&Material1106);
 
 ImageTexture& ImageTexture1107 =  ImageTexture();
+ImageTexture1107.setContainerField("texture");
 ImageTexture1107.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1105.addChild(&ImageTexture1107);
 
@@ -4789,6 +5268,7 @@ Coordinate1109.setPoint(new float[]{-0.16647752,1.2248101,-0.014994,-0.15702751,
 IndexedFaceSet1108.setCoord(&Coordinate1109);
 
 TextureCoordinate& TextureCoordinate1110 =  TextureCoordinate();
+TextureCoordinate1110.setContainerField("texCoord");
 TextureCoordinate1110.setPoint(new float[]{0.1715,0.4655,0.1797,0.4646,0.1569,0.4642,0.1474,0.4856,0.1708,0.4854,0.1963,0.4863,0.1544,0.4288,0.1782,0.4286,0.1538,0.4251,0.1784,0.4249,0.1544,0.4288,0.1782,0.4286,0.1538,0.4251,0.1784,0.4249,0.1703,0.4865,0.1895,0.487,0.1761,0.4271,0.1552,0.4287,0.1491,0.4835,0.1671,0.4618}, 40);
 IndexedFaceSet1108.setTexCoord(&TextureCoordinate1110);
 
@@ -4807,11 +5287,14 @@ HAnimSegment1112.X3DNode::setName(std::string("r_upperarm"));
 HAnimSegment1112.setDEF(std::string("hanim_r_upperarm"));
 Shape& Shape1113 =  Shape();
 Appearance& Appearance1114 =  Appearance();
+Appearance1114.setContainerField("appearance");
 Material& Material1115 =  Material();
+Material1115.setContainerField("material");
 Material1115.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1114.addChild(&Material1115);
 
 ImageTexture& ImageTexture1116 =  ImageTexture();
+ImageTexture1116.setContainerField("texture");
 ImageTexture1116.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1114.addChild(&ImageTexture1116);
 
@@ -4826,6 +5309,7 @@ Coordinate1118.setPoint(new float[]{-0.19089001,1.2183076,-0.041067,-0.2169,1.21
 IndexedFaceSet1117.setCoord(&Coordinate1118);
 
 TextureCoordinate& TextureCoordinate1119 =  TextureCoordinate();
+TextureCoordinate1119.setContainerField("texCoord");
 TextureCoordinate1119.setPoint(new float[]{0.2986,0.2114,0.2726,0.2114,0.3201,0.2114,0.3415,0.2114,0.2466,0.2114,0.2979,0.2417,0.2726,0.2417,0.3197,0.2417,0.3418,0.2417,0.2473,0.2417,0.2979,0.3018,0.2726,0.3018,0.3197,0.3018,0.3418,0.3018,0.2473,0.3018,0.2978,0.3276,0.2726,0.3276,0.3197,0.3276,0.3419,0.3276,0.2474,0.3276,0.2932,0.2834,0.2689,0.2834,0.316,0.2834,0.3322,0.2834,0.245,0.2834,0.2251,0.2114,0.2255,0.2417,0.2255,0.2417,0.2255,0.3018,0.2255,0.3018,0.2255,0.3276,0.2255,0.3276,0.2159,0.2834,0.9467,0.4943,0.9572,0.4943,0.9099,0.4943,0.9193,0.4943,0.9332,0.4943,0.9567,0.4691,0.9455,0.4691,0.9105,0.4691,0.9205,0.4691,0.9332,0.4691,0.9567,0.4913,0.9458,0.4913,0.9102,0.4913,0.9203,0.4913,0.9334,0.4913,0.8898,0.4943,0.9003,0.4943,0.8997,0.4691,0.8997,0.4691,0.8998,0.4913,0.8998,0.4913,0.9003,0.4943,0.3481,0.2114,0.9448,0.4374,0.9561,0.4374,0.8991,0.4374,0.9117,0.4374,0.9198,0.4374,0.9341,0.4374}, 124);
 IndexedFaceSet1117.setTexCoord(&TextureCoordinate1119);
 
@@ -4844,11 +5328,14 @@ HAnimSegment1121.X3DNode::setName(std::string("r_forearm"));
 HAnimSegment1121.setDEF(std::string("hanim_r_forearm"));
 Shape& Shape1122 =  Shape();
 Appearance& Appearance1123 =  Appearance();
+Appearance1123.setContainerField("appearance");
 Material& Material1124 =  Material();
+Material1124.setContainerField("material");
 Material1124.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1123.addChild(&Material1124);
 
 ImageTexture& ImageTexture1125 =  ImageTexture();
+ImageTexture1125.setContainerField("texture");
 ImageTexture1125.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1123.addChild(&ImageTexture1125);
 
@@ -4863,6 +5350,7 @@ Coordinate1127.setPoint(new float[]{-0.18657,0.9356558,-0.0315495,-0.20772,0.935
 IndexedFaceSet1126.setCoord(&Coordinate1127);
 
 TextureCoordinate& TextureCoordinate1128 =  TextureCoordinate();
+TextureCoordinate1128.setContainerField("texCoord");
 TextureCoordinate1128.setPoint(new float[]{0.8857,0.572,0.9344,0.572,0.9377,0.5719,0.8909,0.5718,0.8588,0.5719,0.8849,0.5578,0.8418,0.558,0.9588,0.5579,0.9536,0.5581,0.8765,0.5581,0.885,0.5257,0.8424,0.5258,0.9582,0.5328,0.9531,0.533,0.8768,0.526,0.8957,0.4625,0.8485,0.4627,0.9546,0.4626,0.9498,0.4628,0.8879,0.4628,0.8953,0.4552,0.8684,0.4551,0.9006,0.455,0.9378,0.4551,0.9345,0.4552}, 50);
 IndexedFaceSet1126.setTexCoord(&TextureCoordinate1128);
 
@@ -4881,11 +5369,14 @@ HAnimSegment1130.X3DNode::setName(std::string("r_carpal"));
 HAnimSegment1130.setDEF(std::string("hanim_r_carpal"));
 Shape& Shape1131 =  Shape();
 Appearance& Appearance1132 =  Appearance();
+Appearance1132.setContainerField("appearance");
 Material& Material1133 =  Material();
+Material1133.setContainerField("material");
 Material1133.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1132.addChild(&Material1133);
 
 ImageTexture& ImageTexture1134 =  ImageTexture();
+ImageTexture1134.setContainerField("texture");
 ImageTexture1134.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1132.addChild(&ImageTexture1134);
 
@@ -4900,6 +5391,7 @@ Coordinate1136.setPoint(new float[]{-0.1831905,0.7267612,-0.027747001,-0.193068,
 IndexedFaceSet1135.setCoord(&Coordinate1136);
 
 TextureCoordinate& TextureCoordinate1137 =  TextureCoordinate();
+TextureCoordinate1137.setContainerField("texCoord");
 TextureCoordinate1137.setPoint(new float[]{0.7729,0.0334,0.7695,0.0151,0.7598,0.0161,0.7624,0.0345,0.791,0.0281,0.7896,0.0131,0.8111,0.0113,0.813,0.0266,0.8476,0.0256,0.8461,0.0079,0.8312,0.0091,0.8327,0.0273,0.9162,0.2899,0.8453,0.0081,0.8466,0.0257,0.9122,0.2724,0.9531,0.2644,0.9573,0.2786,0.936,0.2844,0.9315,0.2698,0.9706,0.2558,0.9766,0.2733,0.8032,0.0047,0.8134,0.033,0.8325,0.0338,0.792,0.0345,0.7756,0.0396,0.7675,0.0404,0.9666,0.2503,0.9509,0.2584,0.9297,0.2636,0.9113,0.266,0.8439,0.0324,0.8447,0.0323,0.8081,0.0397,0.986,0.2708,0.9803,0.2531,0.9032,0.2936,0.8989,0.2764,0.9452,0.2896,0.9743,0.2482,0.9004,0.2693,0.9343,0.2559}, 86);
 IndexedFaceSet1135.setTexCoord(&TextureCoordinate1137);
 
@@ -4918,11 +5410,14 @@ HAnimSegment1139.X3DNode::setName(std::string("r_trapezium"));
 HAnimSegment1139.setDEF(std::string("hanim_r_trapezium"));
 Shape& Shape1140 =  Shape();
 Appearance& Appearance1141 =  Appearance();
+Appearance1141.setContainerField("appearance");
 Material& Material1142 =  Material();
+Material1142.setContainerField("material");
 Material1142.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1141.addChild(&Material1142);
 
 ImageTexture& ImageTexture1143 =  ImageTexture();
+ImageTexture1143.setContainerField("texture");
 ImageTexture1143.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1141.addChild(&ImageTexture1143);
 
@@ -4937,6 +5432,7 @@ Coordinate1145.setPoint(new float[]{-0.19683677,0.6884955,0.017084252,-0.1665922
 IndexedFaceSet1144.setCoord(&Coordinate1145);
 
 TextureCoordinate& TextureCoordinate1146 =  TextureCoordinate();
+TextureCoordinate1146.setContainerField("texCoord");
 TextureCoordinate1146.setPoint(new float[]{0.8327,0.0273,0.8381,0.0441,0.8625,0.0344,0.8476,0.0256,0.8625,0.0359,0.8466,0.0257,0.9122,0.2724,0.904,0.2568,0.8948,0.2599,0.8401,0.0478,0.8395,0.0482,0.8319,0.0206,0.9141,0.2788,0.844,0.0192,0.8432,0.0193,0.8491,0.0466,0.8611,0.0409,0.8611,0.0397,0.8814,0.2691,0.8989,0.2764,0.9014,0.2535,0.9142,0.2789,0.9026,0.2823,0.9033,0.2821,0.8928,0.2563,0.8819,0.264,0.8327,0.0273,0.8381,0.0441,0.8395,0.0482,0.8401,0.0478,0.904,0.2568,0.9122,0.2724,0.9141,0.2788,0.9142,0.2789}, 68);
 IndexedFaceSet1144.setTexCoord(&TextureCoordinate1146);
 
@@ -4955,11 +5451,14 @@ HAnimSegment1148.X3DNode::setName(std::string("r_metacarpal_1"));
 HAnimSegment1148.setDEF(std::string("hanim_r_metacarpal_1"));
 Shape& Shape1149 =  Shape();
 Appearance& Appearance1150 =  Appearance();
+Appearance1150.setContainerField("appearance");
 Material& Material1151 =  Material();
+Material1151.setContainerField("material");
 Material1151.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1150.addChild(&Material1151);
 
 ImageTexture& ImageTexture1152 =  ImageTexture();
+ImageTexture1152.setContainerField("texture");
 ImageTexture1152.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1150.addChild(&ImageTexture1152);
 
@@ -4974,6 +5473,7 @@ Coordinate1154.setPoint(new float[]{-0.16719525,0.6742823,0.03437775,-0.17334,0.
 IndexedFaceSet1153.setCoord(&Coordinate1154);
 
 TextureCoordinate& TextureCoordinate1155 =  TextureCoordinate();
+TextureCoordinate1155.setContainerField("texCoord");
 TextureCoordinate1155.setPoint(new float[]{0.8819,0.0483,0.8625,0.0359,0.8625,0.0344,0.8786,0.0507,0.8948,0.2599,0.867,0.0598,0.857,0.0621,0.8381,0.0441,0.8533,0.0697,0.8381,0.0441,0.8503,0.0646,0.8419,0.0407,0.8588,0.0334,0.8588,0.0347,0.8467,0.0405,0.8415,0.0402,0.8445,0.0658,0.8331,0.0451,0.8331,0.0451,0.8468,0.0705,0.8593,0.0711,0.8712,0.0644,0.8626,0.068,0.8607,0.0696,0.877,0.0609,0.8798,0.0581,0.8632,0.2548,0.8814,0.2691,0.8729,0.2464,0.8847,0.2342,0.904,0.2568,0.8853,0.2697,0.8962,0.2618,0.9014,0.2613,0.9088,0.2549,0.8909,0.2323}, 72);
 IndexedFaceSet1153.setTexCoord(&TextureCoordinate1155);
 
@@ -4992,11 +5492,14 @@ HAnimSegment1157.X3DNode::setName(std::string("r_carpal_proximal_phalanx_1"));
 HAnimSegment1157.setDEF(std::string("hanim_r_carpal_proximal_phalanx_1"));
 Shape& Shape1158 =  Shape();
 Appearance& Appearance1159 =  Appearance();
+Appearance1159.setContainerField("appearance");
 Material& Material1160 =  Material();
+Material1160.setContainerField("material");
 Material1160.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1159.addChild(&Material1160);
 
 ImageTexture& ImageTexture1161 =  ImageTexture();
+ImageTexture1161.setContainerField("texture");
 ImageTexture1161.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1159.addChild(&ImageTexture1161);
 
@@ -5011,6 +5514,7 @@ Coordinate1163.setPoint(new float[]{-0.19523251,0.669213,0.031689003,-0.18563627
 IndexedFaceSet1162.setCoord(&Coordinate1163);
 
 TextureCoordinate& TextureCoordinate1164 =  TextureCoordinate();
+TextureCoordinate1164.setContainerField("texCoord");
 TextureCoordinate1164.setPoint(new float[]{0.8786,0.0507,0.857,0.0621,0.8601,0.0649,0.867,0.0598,0.8887,0.0786,0.8747,0.0865,0.8533,0.0697,0.876,0.0783,0.893,0.0688,0.8992,0.0702,0.8819,0.0483,0.8561,0.0728,0.8736,0.0851,0.8532,0.0697,0.8503,0.0646,0.8986,0.0785,0.897,0.0809,0.8914,0.0813,0.8802,0.0861,0.8841,0.0856,0.8821,0.0883,0.8487,0.0595,0.8509,0.0581,0.8683,0.0489,0.868,0.0507,0.8608,0.0544,0.8505,0.0603,0.8455,0.0706,0.8468,0.073,0.8455,0.0707,0.8437,0.0676,0.8416,0.0639,0.8422,0.0648,0.8729,0.2464,0.8482,0.2317,0.8612,0.2211,0.8847,0.2342,0.8433,0.2381,0.8632,0.2548,0.8814,0.2316,0.8625,0.2222,0.8799,0.2506,0.8891,0.243,0.8922,0.232,0.8922,0.232}, 90);
 IndexedFaceSet1162.setTexCoord(&TextureCoordinate1164);
 
@@ -5029,11 +5533,14 @@ HAnimSegment1166.X3DNode::setName(std::string("r_carpal_distal_phalanx_1"));
 HAnimSegment1166.setDEF(std::string("hanim_r_carpal_distal_phalanx_1"));
 Shape& Shape1167 =  Shape();
 Appearance& Appearance1168 =  Appearance();
+Appearance1168.setContainerField("appearance");
 Material& Material1169 =  Material();
+Material1169.setContainerField("material");
 Material1169.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1168.addChild(&Material1169);
 
 ImageTexture& ImageTexture1170 =  ImageTexture();
+ImageTexture1170.setContainerField("texture");
 ImageTexture1170.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1168.addChild(&ImageTexture1170);
 
@@ -5048,6 +5555,7 @@ Coordinate1172.setPoint(new float[]{-0.17476425,0.636309,0.049167003,-0.19127475
 IndexedFaceSet1171.setCoord(&Coordinate1172);
 
 TextureCoordinate& TextureCoordinate1173 =  TextureCoordinate();
+TextureCoordinate1173.setContainerField("texCoord");
 TextureCoordinate1173.setPoint(new float[]{0.8747,0.0865,0.8887,0.0786,0.8299,0.2203,0.8424,0.2111,0.8736,0.0851,0.8939,0.0989,0.8978,0.0975,0.8834,0.0852,0.8992,0.0766,0.9092,0.0888,0.8992,0.0702,0.9115,0.0859,0.876,0.0783,0.893,0.0688,0.9109,0.102,0.9135,0.0996,0.9144,0.0973,0.9172,0.0962,0.8241,0.2146,0.8338,0.2074,0.8247,0.2116,0.8291,0.2083,0.9028,0.1054,0.9046,0.1032,0.9153,0.1012,0.9125,0.1038,0.9081,0.1033,0.9082,0.1057,0.8266,0.2097,0.8885,0.0681,0.8723,0.0776,0.8843,0.0701,0.8696,0.0781,0.8612,0.2211,0.8482,0.2317,0.8625,0.2222,0.8417,0.2109,0.8433,0.2381,0.8245,0.2237,0.8192,0.2167,0.8322,0.2071,0.8195,0.2131,0.8224,0.2103,0.8256,0.2083}, 88);
 IndexedFaceSet1171.setTexCoord(&TextureCoordinate1173);
 
@@ -5074,11 +5582,14 @@ HAnimSegment1175.X3DNode::setName(std::string("r_trapezoid"));
 HAnimSegment1175.setDEF(std::string("hanim_r_trapezoid"));
 Shape& Shape1176 =  Shape();
 Appearance& Appearance1177 =  Appearance();
+Appearance1177.setContainerField("appearance");
 Material& Material1178 =  Material();
+Material1178.setContainerField("material");
 Material1178.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1177.addChild(&Material1178);
 
 ImageTexture& ImageTexture1179 =  ImageTexture();
+ImageTexture1179.setContainerField("texture");
 ImageTexture1179.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1177.addChild(&ImageTexture1179);
 
@@ -5093,6 +5604,7 @@ Coordinate1181.setPoint(new float[]{-0.16666201,0.6858473,0.0032265,-0.19856477,
 IndexedFaceSet1180.setCoord(&Coordinate1181);
 
 TextureCoordinate& TextureCoordinate1182 =  TextureCoordinate();
+TextureCoordinate1182.setContainerField("texCoord");
 TextureCoordinate1182.setPoint(new float[]{0.813,0.0266,0.8136,0.0488,0.8136,0.0488,0.8133,0.0266,0.8111,0.0474,0.8105,0.0283,0.8108,0.0283,0.8111,0.0474,0.8141,0.0525,0.8141,0.0525,0.8123,0.0198,0.8125,0.0198,0.9273,0.2479,0.9315,0.2698,0.9337,0.2676,0.9301,0.2489,0.9262,0.2444,0.9337,0.2762,0.9335,0.2763,0.8381,0.0441,0.904,0.2568,0.8327,0.0273,0.9122,0.2724,0.8401,0.0478,0.9014,0.2535,0.8395,0.0482,0.9142,0.2789,0.8319,0.0206,0.9141,0.2788,0.8381,0.0441,0.8327,0.0273,0.8319,0.0206,0.9141,0.2788,0.9122,0.2724,0.904,0.2568,0.9014,0.2535,0.8395,0.0482}, 74);
 IndexedFaceSet1180.setTexCoord(&TextureCoordinate1182);
 
@@ -5111,11 +5623,14 @@ HAnimSegment1184.X3DNode::setName(std::string("r_metacarpal_2"));
 HAnimSegment1184.setDEF(std::string("hanim_r_metacarpal_2"));
 Shape& Shape1185 =  Shape();
 Appearance& Appearance1186 =  Appearance();
+Appearance1186.setContainerField("appearance");
 Material& Material1187 =  Material();
+Material1187.setContainerField("material");
 Material1187.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1186.addChild(&Material1187);
 
 ImageTexture& ImageTexture1188 =  ImageTexture();
+ImageTexture1188.setContainerField("texture");
 ImageTexture1188.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1186.addChild(&ImageTexture1188);
 
@@ -5130,6 +5645,7 @@ Coordinate1190.setPoint(new float[]{-0.19301626,0.638955,0.021003751,-0.18238276
 IndexedFaceSet1189.setCoord(&Coordinate1190);
 
 TextureCoordinate& TextureCoordinate1191 =  TextureCoordinate();
+TextureCoordinate1191.setContainerField("texCoord");
 TextureCoordinate1191.setPoint(new float[]{0.8514,0.0953,0.8526,0.0788,0.846,0.0768,0.8466,0.0958,0.8195,0.0808,0.8225,0.0994,0.8225,0.0994,0.8195,0.0808,0.8903,0.2261,0.8467,0.0958,0.8381,0.0441,0.8136,0.0488,0.8561,0.0728,0.8532,0.0697,0.8381,0.0441,0.8136,0.0488,0.8436,0.0662,0.8533,0.0697,0.8503,0.0646,0.8461,0.0998,0.8248,0.1027,0.8248,0.1027,0.8462,0.0997,0.8498,0.0994,0.8184,0.0977,0.8157,0.0811,0.8157,0.0809,0.8184,0.0977,0.8165,0.0457,0.8341,0.0424,0.8341,0.0424,0.8165,0.0457,0.844,0.0417,0.8554,0.0622,0.8575,0.0659,0.8594,0.0677,0.8574,0.0658,0.844,0.0417,0.8099,0.0493,0.8099,0.0493,0.82,0.101,0.82,0.101,0.8821,0.2087,0.8838,0.2252,0.9098,0.1997,0.916,0.2175,0.8866,0.2074,0.904,0.2568,0.9273,0.2479,0.8814,0.2316,0.8847,0.2342,0.9197,0.2166,0.9083,0.2577,0.925,0.2515,0.8813,0.2388,0.8986,0.2602,0.931,0.2468}, 114);
 IndexedFaceSet1189.setTexCoord(&TextureCoordinate1191);
 
@@ -5148,11 +5664,14 @@ HAnimSegment1193.X3DNode::setName(std::string("r_carpal_proximal_phalanx_2"));
 HAnimSegment1193.setDEF(std::string("hanim_r_carpal_proximal_phalanx_2"));
 Shape& Shape1194 =  Shape();
 Appearance& Appearance1195 =  Appearance();
+Appearance1195.setContainerField("appearance");
 Material& Material1196 =  Material();
+Material1196.setContainerField("material");
 Material1196.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1195.addChild(&Material1196);
 
 ImageTexture& ImageTexture1197 =  ImageTexture();
+ImageTexture1197.setContainerField("texture");
 ImageTexture1197.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1195.addChild(&ImageTexture1197);
 
@@ -5167,6 +5686,7 @@ Coordinate1199.setPoint(new float[]{-0.18074477,0.60633004,0.022119751,-0.171740
 IndexedFaceSet1198.setCoord(&Coordinate1199);
 
 TextureCoordinate& TextureCoordinate1200 =  TextureCoordinate();
+TextureCoordinate1200.setContainerField("texCoord");
 TextureCoordinate1200.setPoint(new float[]{0.8511,0.1006,0.8514,0.0953,0.8466,0.0958,0.8466,0.1011,0.8225,0.0994,0.8283,0.1035,0.9023,0.1969,0.8225,0.0994,0.8467,0.0958,0.8857,0.2021,0.8231,0.1042,0.8931,0.1724,0.8782,0.1769,0.8338,0.1268,0.8493,0.125,0.8543,0.1273,0.8302,0.1302,0.8258,0.1072,0.8236,0.1075,0.8231,0.1042,0.8504,0.1328,0.8508,0.1334,0.8781,0.1731,0.8909,0.1692,0.8352,0.1346,0.8353,0.1353,0.8228,0.0929,0.844,0.0896,0.8482,0.0889,0.8441,0.0896,0.8228,0.0929,0.8203,0.0995,0.8207,0.1038,0.8212,0.1068,0.8207,0.1037,0.8203,0.0995,0.8206,0.0933,0.8205,0.0933,0.8815,0.2034,0.8821,0.2087,0.9098,0.1997,0.8866,0.2074,0.8737,0.1777,0.8969,0.1707,0.9052,0.1925,0.9074,0.1918,0.9084,0.195,0.876,0.171,0.891,0.1665}, 98);
 IndexedFaceSet1198.setTexCoord(&TextureCoordinate1200);
 
@@ -5185,11 +5705,14 @@ HAnimSegment1202.X3DNode::setName(std::string("r_carpal_middle_phalanx_2"));
 HAnimSegment1202.setDEF(std::string("hanim_r_carpal_middle_phalanx_2"));
 Shape& Shape1203 =  Shape();
 Appearance& Appearance1204 =  Appearance();
+Appearance1204.setContainerField("appearance");
 Material& Material1205 =  Material();
+Material1205.setContainerField("material");
 Material1205.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1204.addChild(&Material1205);
 
 ImageTexture& ImageTexture1206 =  ImageTexture();
+ImageTexture1206.setContainerField("texture");
 ImageTexture1206.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1204.addChild(&ImageTexture1206);
 
@@ -5204,6 +5727,7 @@ Coordinate1208.setPoint(new float[]{-0.179433,0.5814675,0.0060592503,-0.17177176
 IndexedFaceSet1207.setCoord(&Coordinate1208);
 
 TextureCoordinate& TextureCoordinate1209 =  TextureCoordinate();
+TextureCoordinate1209.setContainerField("texCoord");
 TextureCoordinate1209.setPoint(new float[]{0.8782,0.1769,0.8543,0.1273,0.8574,0.1518,0.8703,0.1535,0.8493,0.125,0.8504,0.1318,0.8846,0.1491,0.8931,0.1724,0.8349,0.1336,0.8379,0.1515,0.8533,0.1496,0.8338,0.1268,0.8302,0.1302,0.8351,0.1545,0.849,0.1233,0.8336,0.1251,0.849,0.123,0.8335,0.1249,0.8539,0.1573,0.8543,0.1579,0.8703,0.1496,0.8822,0.146,0.8398,0.159,0.8399,0.1597,0.8737,0.1777,0.8664,0.1541,0.8969,0.1707,0.8878,0.1476,0.8796,0.181,0.8945,0.1764,0.8684,0.1475,0.8822,0.1433}, 64);
 IndexedFaceSet1207.setTexCoord(&TextureCoordinate1209);
 
@@ -5222,11 +5746,14 @@ HAnimSegment1211.X3DNode::setName(std::string("r_carpal_distal_phalanx_2"));
 HAnimSegment1211.setDEF(std::string("hanim_r_carpal_distal_phalanx_2"));
 Shape& Shape1212 =  Shape();
 Appearance& Appearance1213 =  Appearance();
+Appearance1213.setContainerField("appearance");
 Material& Material1214 =  Material();
+Material1214.setContainerField("material");
 Material1214.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1213.addChild(&Material1214);
 
 ImageTexture& ImageTexture1215 =  ImageTexture();
+ImageTexture1215.setContainerField("texture");
 ImageTexture1215.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1213.addChild(&ImageTexture1215);
 
@@ -5241,6 +5768,7 @@ Coordinate1217.setPoint(new float[]{-0.1873845,0.5783625,0.018859502,-0.18738,0.
 IndexedFaceSet1216.setCoord(&Coordinate1217);
 
 TextureCoordinate& TextureCoordinate1218 =  TextureCoordinate();
+TextureCoordinate1218.setContainerField("texCoord");
 TextureCoordinate1218.setPoint(new float[]{0.8542,0.1553,0.8574,0.1518,0.8533,0.1496,0.8379,0.1515,0.8351,0.1545,0.8388,0.1572,0.8414,0.1663,0.8547,0.1647,0.8578,0.1639,0.8665,0.142,0.8703,0.1535,0.8804,0.1378,0.8846,0.1491,0.8382,0.1663,0.8495,0.1759,0.8523,0.1752,0.8544,0.1737,0.8566,0.1736,0.8658,0.1324,0.8753,0.1296,0.8677,0.1303,0.8725,0.1289,0.842,0.1753,0.8441,0.175,0.8533,0.1759,0.8496,0.1769,0.8467,0.1759,0.846,0.1768,0.87,0.1292,0.8525,0.1477,0.8382,0.1495,0.8525,0.1475,0.8381,0.1492,0.8664,0.1541,0.8878,0.1476,0.8639,0.1422,0.8827,0.1365,0.8634,0.1325,0.8774,0.1283,0.8662,0.1297,0.8697,0.1281,0.8732,0.1275,0.872,0.1575,0.8858,0.1533}, 88);
 IndexedFaceSet1216.setTexCoord(&TextureCoordinate1218);
 
@@ -5269,11 +5797,14 @@ HAnimSegment1220.X3DNode::setName(std::string("r_capitate"));
 HAnimSegment1220.setDEF(std::string("hanim_r_capitate"));
 Shape& Shape1221 =  Shape();
 Appearance& Appearance1222 =  Appearance();
+Appearance1222.setContainerField("appearance");
 Material& Material1223 =  Material();
+Material1223.setContainerField("material");
 Material1223.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1222.addChild(&Material1223);
 
 ImageTexture& ImageTexture1224 =  ImageTexture();
+ImageTexture1224.setContainerField("texture");
 ImageTexture1224.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1222.addChild(&ImageTexture1224);
 
@@ -5288,6 +5819,7 @@ Coordinate1226.setPoint(new float[]{-0.19859175,0.68589,-0.012235501,-0.16613999
 IndexedFaceSet1225.setCoord(&Coordinate1226);
 
 TextureCoordinate& TextureCoordinate1227 =  TextureCoordinate();
+TextureCoordinate1227.setContainerField("texCoord");
 TextureCoordinate1227.setPoint(new float[]{0.9315,0.2698,0.8136,0.0488,0.7924,0.0507,0.7911,0.0281,0.8136,0.0488,0.813,0.0266,0.791,0.0281,0.7924,0.0508,0.7924,0.0543,0.8143,0.0526,0.8143,0.0526,0.7924,0.0543,0.9335,0.2763,0.7903,0.0215,0.7903,0.0215,0.8123,0.0198,0.7875,0.03,0.7875,0.03,0.7887,0.0494,0.7887,0.0495,0.9277,0.2691,0.8167,0.0279,0.8173,0.0471,0.8173,0.0471,0.9273,0.2479,0.9479,0.2423,0.9531,0.2644,0.9318,0.2697,0.9473,0.2389,0.926,0.2443,0.955,0.2707,0.9551,0.2707,0.9337,0.2763,0.9563,0.262,0.9518,0.243,0.928,0.269,0.924,0.2502,0.9241,0.2502}, 76);
 IndexedFaceSet1225.setTexCoord(&TextureCoordinate1227);
 
@@ -5306,11 +5838,14 @@ HAnimSegment1229.X3DNode::setName(std::string("r_metacarpal_3"));
 HAnimSegment1229.setDEF(std::string("hanim_r_metacarpal_3"));
 Shape& Shape1230 =  Shape();
 Appearance& Appearance1231 =  Appearance();
+Appearance1231.setContainerField("appearance");
 Material& Material1232 =  Material();
+Material1232.setContainerField("material");
 Material1232.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1231.addChild(&Material1232);
 
 ImageTexture& ImageTexture1233 =  ImageTexture();
+ImageTexture1233.setContainerField("texture");
 ImageTexture1233.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1231.addChild(&ImageTexture1233);
 
@@ -5325,6 +5860,7 @@ Coordinate1235.setPoint(new float[]{-0.19724625,0.6594075,-0.0120825,-0.16902,0.
 IndexedFaceSet1234.setCoord(&Coordinate1235);
 
 TextureCoordinate& TextureCoordinate1236 =  TextureCoordinate();
+TextureCoordinate1236.setContainerField("texCoord");
 TextureCoordinate1236.setPoint(new float[]{0.8225,0.0994,0.8195,0.0808,0.7938,0.0824,0.7939,0.1016,0.8195,0.0808,0.7938,0.0824,0.7924,0.0507,0.8136,0.0488,0.7939,0.1016,0.8225,0.0994,0.8136,0.0488,0.7924,0.0508,0.7964,0.1053,0.8205,0.103,0.8205,0.103,0.7964,0.1053,0.796,0.0481,0.809,0.0468,0.809,0.0469,0.796,0.048,0.7888,0.0827,0.7888,0.0826,0.7886,0.1011,0.7887,0.1011,0.8243,0.0799,0.8186,0.0479,0.8186,0.0479,0.8243,0.0801,0.7878,0.051,0.7878,0.0509,0.8275,0.0984,0.8275,0.0983,0.7902,0.1036,0.7902,0.1036,0.8264,0.1006,0.8264,0.1006,0.916,0.2175,0.941,0.2114,0.9479,0.2423,0.9273,0.2479,0.9376,0.1925,0.9098,0.1997,0.9479,0.2423,0.9448,0.2456,0.9323,0.249,0.9323,0.249,0.9448,0.2456,0.9459,0.2103,0.9115,0.2191,0.9226,0.2496,0.9226,0.2496,0.9114,0.219,0.9524,0.2413,0.9524,0.2414}, 108);
 IndexedFaceSet1234.setTexCoord(&TextureCoordinate1236);
 
@@ -5343,11 +5879,14 @@ HAnimSegment1238.X3DNode::setName(std::string("r_carpal_proximal_phalanx_3"));
 HAnimSegment1238.setDEF(std::string("hanim_r_carpal_proximal_phalanx_3"));
 Shape& Shape1239 =  Shape();
 Appearance& Appearance1240 =  Appearance();
+Appearance1240.setContainerField("appearance");
 Material& Material1241 =  Material();
+Material1241.setContainerField("material");
 Material1241.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1240.addChild(&Material1241);
 
 ImageTexture& ImageTexture1242 =  ImageTexture();
+ImageTexture1242.setContainerField("texture");
 ImageTexture1242.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1240.addChild(&ImageTexture1242);
 
@@ -5362,6 +5901,7 @@ Coordinate1244.setPoint(new float[]{-0.17174476,0.6032025,-0.0089145005,-0.19077
 IndexedFaceSet1243.setCoord(&Coordinate1244);
 
 TextureCoordinate& TextureCoordinate1245 =  TextureCoordinate();
+TextureCoordinate1245.setContainerField("texCoord");
 TextureCoordinate1245.setPoint(new float[]{0.8168,0.105,0.8225,0.0994,0.7939,0.1016,0.7996,0.1065,0.9311,0.1887,0.7939,0.1016,0.8225,0.0994,0.9145,0.1932,0.794,0.107,0.9232,0.1611,0.908,0.1649,0.8025,0.1324,0.818,0.1313,0.7986,0.1359,0.7957,0.11,0.7939,0.1101,0.794,0.107,0.8228,0.1342,0.8186,0.1401,0.819,0.1409,0.9081,0.1606,0.921,0.1574,0.8033,0.1412,0.8033,0.142,0.8231,0.1042,0.8212,0.1078,0.8231,0.1042,0.8236,0.1075,0.7948,0.0956,0.8206,0.0932,0.8206,0.0932,0.7948,0.0956,0.8249,0.0987,0.8253,0.1032,0.8258,0.1063,0.8253,0.1032,0.8249,0.0987,0.823,0.0929,0.823,0.0929,0.7917,0.1017,0.7916,0.1064,0.7918,0.1091,0.7916,0.1063,0.7917,0.1017,0.7927,0.0957,0.7927,0.0957,0.9376,0.1925,0.9098,0.1997,0.927,0.1595,0.9344,0.1846,0.9361,0.1842,0.9366,0.1872,0.9035,0.1654,0.9061,0.1582,0.9213,0.1544,0.9096,0.1911,0.9084,0.195,0.9074,0.1918}, 116);
 IndexedFaceSet1243.setTexCoord(&TextureCoordinate1245);
 
@@ -5380,11 +5920,14 @@ HAnimSegment1247.X3DNode::setName(std::string("r_carpal_middle_phalanx_3"));
 HAnimSegment1247.setDEF(std::string("hanim_r_carpal_middle_phalanx_3"));
 Shape& Shape1248 =  Shape();
 Appearance& Appearance1249 =  Appearance();
+Appearance1249.setContainerField("appearance");
 Material& Material1250 =  Material();
+Material1250.setContainerField("material");
 Material1250.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1249.addChild(&Material1250);
 
 ImageTexture& ImageTexture1251 =  ImageTexture();
+ImageTexture1251.setContainerField("texture");
 ImageTexture1251.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1249.addChild(&ImageTexture1251);
 
@@ -5399,6 +5942,7 @@ Coordinate1253.setPoint(new float[]{-0.17965801,0.575235,-0.01091025,-0.17198326
 IndexedFaceSet1252.setCoord(&Coordinate1253);
 
 TextureCoordinate& TextureCoordinate1254 =  TextureCoordinate();
+TextureCoordinate1254.setContainerField("texCoord");
 TextureCoordinate1254.setPoint(new float[]{0.908,0.1649,0.8228,0.1342,0.8238,0.1612,0.9018,0.1387,0.818,0.1313,0.8186,0.139,0.9163,0.135,0.9232,0.1611,0.8031,0.1401,0.8044,0.1596,0.8199,0.1584,0.8025,0.1324,0.7986,0.1359,0.8014,0.1628,0.8179,0.1294,0.8023,0.1305,0.8179,0.1291,0.8023,0.1302,0.8199,0.1671,0.8202,0.1672,0.902,0.1343,0.914,0.1313,0.8058,0.1681,0.8058,0.1689,0.9035,0.1654,0.8978,0.139,0.927,0.1595,0.9196,0.1336,0.9092,0.1696,0.9243,0.1658,0.9003,0.1324,0.9142,0.1283}, 64);
 IndexedFaceSet1252.setTexCoord(&TextureCoordinate1254);
 
@@ -5417,11 +5961,14 @@ HAnimSegment1256.X3DNode::setName(std::string("r_carpal_distal_phalanx_3"));
 HAnimSegment1256.setDEF(std::string("hanim_r_carpal_distal_phalanx_3"));
 Shape& Shape1257 =  Shape();
 Appearance& Appearance1258 =  Appearance();
+Appearance1258.setContainerField("appearance");
 Material& Material1259 =  Material();
+Material1259.setContainerField("material");
 Material1259.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1258.addChild(&Material1259);
 
 ImageTexture& ImageTexture1260 =  ImageTexture();
+ImageTexture1260.setContainerField("texture");
 ImageTexture1260.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1258.addChild(&ImageTexture1260);
 
@@ -5436,6 +5983,7 @@ Coordinate1262.setPoint(new float[]{-0.1872405,0.572184,0.00201825,-0.187245,0.5
 IndexedFaceSet1261.setCoord(&Coordinate1262);
 
 TextureCoordinate& TextureCoordinate1263 =  TextureCoordinate();
+TextureCoordinate1263.setContainerField("texCoord");
 TextureCoordinate1263.setPoint(new float[]{0.8204,0.1649,0.8238,0.1612,0.8199,0.1584,0.8044,0.1596,0.8014,0.1628,0.8049,0.166,0.807,0.1802,0.8204,0.1792,0.8232,0.1783,0.8982,0.1238,0.9018,0.1387,0.9123,0.1202,0.9163,0.135,0.8038,0.18,0.8141,0.1881,0.8169,0.1876,0.8192,0.1861,0.8213,0.1861,0.8983,0.1142,0.9079,0.1117,0.9004,0.112,0.9052,0.1108,0.8067,0.1872,0.8088,0.1869,0.8179,0.1883,0.8142,0.1891,0.8114,0.188,0.8106,0.1889,0.9027,0.111,0.8192,0.1563,0.8048,0.1573,0.8192,0.156,0.8048,0.1571,0.8978,0.139,0.9196,0.1336,0.8956,0.1239,0.9147,0.119,0.8959,0.1141,0.9101,0.1105,0.8989,0.1113,0.9025,0.1098,0.906,0.1094,0.9033,0.1433,0.9173,0.1398}, 88);
 IndexedFaceSet1261.setTexCoord(&TextureCoordinate1263);
 
@@ -5464,11 +6012,14 @@ HAnimSegment1265.X3DNode::setName(std::string("r_hamate"));
 HAnimSegment1265.setDEF(std::string("hanim_r_hamate"));
 Shape& Shape1266 =  Shape();
 Appearance& Appearance1267 =  Appearance();
+Appearance1267.setContainerField("appearance");
 Material& Material1268 =  Material();
+Material1268.setContainerField("material");
 Material1268.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1267.addChild(&Material1268);
 
 ImageTexture& ImageTexture1269 =  ImageTexture();
+ImageTexture1269.setContainerField("texture");
 ImageTexture1269.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1267.addChild(&ImageTexture1269);
 
@@ -5483,6 +6034,7 @@ Coordinate1271.setPoint(new float[]{-0.19775926,0.68704206,-0.027623253,-0.17045
 IndexedFaceSet1270.setCoord(&Coordinate1271);
 
 TextureCoordinate& TextureCoordinate1272 =  TextureCoordinate();
+TextureCoordinate1272.setContainerField("texCoord");
 TextureCoordinate1272.setPoint(new float[]{0.7624,0.0345,0.7525,0.0502,0.7571,0.0508,0.7729,0.0334,0.7734,0.0512,0.7924,0.0508,0.791,0.0281,0.9531,0.2644,0.9665,0.2386,0.9827,0.2362,0.9706,0.2558,0.9479,0.2423,0.7736,0.0553,0.7595,0.0549,0.7559,0.0544,0.7596,0.0549,0.7736,0.0553,0.7721,0.0268,0.7644,0.0276,0.7723,0.0268,0.7938,0.0298,0.795,0.0487,0.9457,0.2448,0.9501,0.2632,0.7926,0.0543,0.7926,0.0544,0.7903,0.0215,0.7903,0.0215,0.9803,0.2531,0.9874,0.236,0.9479,0.2423,0.9532,0.2644,0.9832,0.2324,0.9795,0.2325,0.9656,0.2346,0.9721,0.2624,0.9795,0.2602,0.9719,0.2625,0.9502,0.2632,0.9457,0.2447,0.9471,0.2389,0.9471,0.2388,0.9551,0.2707,0.955,0.2707}, 88);
 IndexedFaceSet1270.setTexCoord(&TextureCoordinate1272);
 
@@ -5501,11 +6053,14 @@ HAnimSegment1274.X3DNode::setName(std::string("r_metacarpal_4"));
 HAnimSegment1274.setDEF(std::string("hanim_r_metacarpal_4"));
 Shape& Shape1275 =  Shape();
 Appearance& Appearance1276 =  Appearance();
+Appearance1276.setContainerField("appearance");
 Material& Material1277 =  Material();
+Material1277.setContainerField("material");
 Material1277.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1276.addChild(&Material1277);
 
 ImageTexture& ImageTexture1278 =  ImageTexture();
+ImageTexture1278.setContainerField("texture");
 ImageTexture1278.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1276.addChild(&ImageTexture1278);
 
@@ -5520,6 +6075,7 @@ Coordinate1280.setPoint(new float[]{-0.19579725,0.6612975,-0.02849175,-0.1694655
 IndexedFaceSet1279.setCoord(&Coordinate1280);
 
 TextureCoordinate& TextureCoordinate1281 =  TextureCoordinate();
+TextureCoordinate1281.setContainerField("texCoord");
 TextureCoordinate1281.setPoint(new float[]{0.7939,0.1016,0.7938,0.0824,0.7694,0.0827,0.766,0.1014,0.7924,0.0508,0.7734,0.0512,0.7938,0.0824,0.7939,0.1016,0.766,0.1015,0.965,0.2069,0.7734,0.0512,0.7924,0.0507,0.7909,0.1057,0.7677,0.1056,0.7677,0.1057,0.7909,0.1057,0.9517,0.2441,0.7765,0.0488,0.7765,0.0488,0.789,0.0484,0.7643,0.0825,0.7643,0.0824,0.7614,0.1009,0.7614,0.1009,0.7991,0.0823,0.7971,0.0505,0.7971,0.0505,0.7991,0.0824,0.7688,0.0511,0.7688,0.0511,0.7994,0.1003,0.7994,0.1003,0.7625,0.1038,0.7625,0.1038,0.7972,0.1034,0.7972,0.1034,0.9479,0.2423,0.9665,0.2385,0.941,0.2114,0.9376,0.1925,0.9651,0.1878,0.9665,0.2386,0.9479,0.2423,0.9639,0.2415,0.9639,0.2415,0.9517,0.244,0.9701,0.2063,0.9698,0.1875,0.9358,0.2124,0.9433,0.2434,0.9433,0.2434,0.9358,0.2123,0.9711,0.2379,0.9711,0.2379}, 108);
 IndexedFaceSet1279.setTexCoord(&TextureCoordinate1281);
 
@@ -5538,11 +6094,14 @@ HAnimSegment1283.X3DNode::setName(std::string("r_carpal_proximal_phalanx_4"));
 HAnimSegment1283.setDEF(std::string("hanim_r_carpal_proximal_phalanx_4"));
 Shape& Shape1284 =  Shape();
 Appearance& Appearance1285 =  Appearance();
+Appearance1285.setContainerField("appearance");
 Material& Material1286 =  Material();
+Material1286.setContainerField("material");
 Material1286.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1285.addChild(&Material1286);
 
 ImageTexture& ImageTexture1287 =  ImageTexture();
+ImageTexture1287.setContainerField("texture");
 ImageTexture1287.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1285.addChild(&ImageTexture1287);
 
@@ -5557,6 +6116,7 @@ Coordinate1289.setPoint(new float[]{-0.17174701,0.60705,-0.0258795,-0.19077976,0
 IndexedFaceSet1288.setCoord(&Coordinate1289);
 
 TextureCoordinate& TextureCoordinate1290 =  TextureCoordinate();
+TextureCoordinate1290.setContainerField("texCoord");
 TextureCoordinate1290.setPoint(new float[]{0.7878,0.1071,0.7939,0.1016,0.766,0.1014,0.7709,0.1068,0.9594,0.1833,0.766,0.1015,0.7939,0.1016,0.9426,0.186,0.7648,0.1066,0.9545,0.1568,0.9398,0.1599,0.771,0.1315,0.7861,0.131,0.767,0.1345,0.7667,0.1094,0.7644,0.1092,0.7648,0.1066,0.7904,0.1338,0.786,0.139,0.7863,0.1397,0.9402,0.1559,0.9531,0.1532,0.7709,0.1396,0.7709,0.1403,0.794,0.107,0.7917,0.1102,0.794,0.107,0.7939,0.1101,0.7675,0.0958,0.7934,0.0956,0.7934,0.0956,0.7675,0.0958,0.7967,0.1011,0.7964,0.1056,0.7964,0.1088,0.7964,0.1057,0.7967,0.1011,0.7958,0.0955,0.7958,0.0955,0.7633,0.1008,0.7625,0.1056,0.7622,0.1084,0.7625,0.1055,0.7633,0.1008,0.765,0.0957,0.765,0.0957,0.9651,0.1878,0.9376,0.1925,0.9583,0.1554,0.963,0.1801,0.9654,0.1799,0.9654,0.1826,0.9354,0.1602,0.9385,0.1536,0.9536,0.1504,0.9383,0.1837,0.9366,0.1872,0.9361,0.1842}, 116);
 IndexedFaceSet1288.setTexCoord(&TextureCoordinate1290);
 
@@ -5575,11 +6135,14 @@ HAnimSegment1292.X3DNode::setName(std::string("r_carpal_middle_phalanx_4"));
 HAnimSegment1292.setDEF(std::string("hanim_r_carpal_middle_phalanx_4"));
 Shape& Shape1293 =  Shape();
 Appearance& Appearance1294 =  Appearance();
+Appearance1294.setContainerField("appearance");
 Material& Material1295 =  Material();
+Material1295.setContainerField("material");
 Material1295.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1294.addChild(&Material1295);
 
 ImageTexture& ImageTexture1296 =  ImageTexture();
+ImageTexture1296.setContainerField("texture");
 ImageTexture1296.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1294.addChild(&ImageTexture1296);
 
@@ -5594,6 +6157,7 @@ Coordinate1298.setPoint(new float[]{-0.17947575,0.5802075,-0.027360002,-0.171801
 IndexedFaceSet1297.setCoord(&Coordinate1298);
 
 TextureCoordinate& TextureCoordinate1299 =  TextureCoordinate();
+TextureCoordinate1299.setContainerField("texCoord");
 TextureCoordinate1299.setPoint(new float[]{0.9398,0.1599,0.7904,0.1338,0.7888,0.1598,0.9363,0.1341,0.7861,0.131,0.7859,0.138,0.9502,0.1313,0.9545,0.1568,0.7712,0.1385,0.7707,0.1575,0.7854,0.1571,0.771,0.1315,0.767,0.1345,0.7676,0.1604,0.786,0.1292,0.7713,0.1297,0.786,0.129,0.7713,0.1294,0.7847,0.165,0.7849,0.1652,0.9369,0.1301,0.9483,0.1278,0.7712,0.1654,0.7712,0.1661,0.9354,0.1602,0.9325,0.1343,0.9583,0.1554,0.9533,0.1301,0.9406,0.1642,0.9551,0.1612,0.9355,0.1283,0.9488,0.1251}, 64);
 IndexedFaceSet1297.setTexCoord(&TextureCoordinate1299);
 
@@ -5612,11 +6176,14 @@ HAnimSegment1301.X3DNode::setName(std::string("r_carpal_distal_phalanx_4"));
 HAnimSegment1301.setDEF(std::string("hanim_r_carpal_distal_phalanx_4"));
 Shape& Shape1302 =  Shape();
 Appearance& Appearance1303 =  Appearance();
+Appearance1303.setContainerField("appearance");
 Material& Material1304 =  Material();
+Material1304.setContainerField("material");
 Material1304.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1303.addChild(&Material1304);
 
 ImageTexture& ImageTexture1305 =  ImageTexture();
+ImageTexture1305.setContainerField("texture");
 ImageTexture1305.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1303.addChild(&ImageTexture1305);
 
@@ -5631,6 +6198,7 @@ Coordinate1307.setPoint(new float[]{-0.187416,0.57750076,-0.015099751,-0.1874227
 IndexedFaceSet1306.setCoord(&Coordinate1307);
 
 TextureCoordinate& TextureCoordinate1308 =  TextureCoordinate();
+TextureCoordinate1308.setContainerField("texCoord");
 TextureCoordinate1308.setPoint(new float[]{0.7853,0.163,0.7888,0.1598,0.7854,0.1571,0.7707,0.1575,0.7676,0.1604,0.7706,0.1634,0.7714,0.1739,0.7841,0.1736,0.787,0.1731,0.9344,0.121,0.9363,0.1341,0.9479,0.1182,0.9502,0.1313,0.7684,0.1736,0.7774,0.1846,0.7801,0.1842,0.7824,0.1828,0.7844,0.1829,0.9351,0.111,0.9443,0.1091,0.9372,0.109,0.9418,0.1081,0.7705,0.1833,0.7725,0.1831,0.781,0.1849,0.7774,0.1856,0.7748,0.1843,0.774,0.1852,0.9395,0.1081,0.7849,0.1552,0.7712,0.1555,0.7849,0.1549,0.7712,0.1553,0.9325,0.1343,0.9533,0.1301,0.9319,0.1209,0.9502,0.1172,0.9329,0.1108,0.9464,0.108,0.9358,0.1082,0.9393,0.1069,0.9427,0.1067,0.9372,0.1384,0.9506,0.1357}, 88);
 IndexedFaceSet1306.setTexCoord(&TextureCoordinate1308);
 
@@ -5659,11 +6227,14 @@ HAnimSegment1310.X3DNode::setName(std::string("r_metacarpal_5"));
 HAnimSegment1310.setDEF(std::string("hanim_r_metacarpal_5"));
 Shape& Shape1311 =  Shape();
 Appearance& Appearance1312 =  Appearance();
+Appearance1312.setContainerField("appearance");
 Material& Material1313 =  Material();
+Material1313.setContainerField("material");
 Material1313.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1312.addChild(&Material1313);
 
 ImageTexture& ImageTexture1314 =  ImageTexture();
+ImageTexture1314.setContainerField("texture");
 ImageTexture1314.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1312.addChild(&ImageTexture1314);
 
@@ -5678,6 +6249,7 @@ Coordinate1316.setPoint(new float[]{-0.19349325,0.6631875,-0.041503504,-0.170968
 IndexedFaceSet1315.setCoord(&Coordinate1316);
 
 TextureCoordinate& TextureCoordinate1317 =  TextureCoordinate();
+TextureCoordinate1317.setContainerField("texCoord");
 TextureCoordinate1317.setPoint(new float[]{0.766,0.1014,0.7694,0.0827,0.748,0.0813,0.7455,0.0995,0.7415,0.0989,0.7435,0.0798,0.9864,0.2045,0.7455,0.0995,0.7734,0.0512,0.7571,0.0508,0.7525,0.0502,0.9827,0.2362,0.9665,0.2386,0.7694,0.0827,0.766,0.1015,0.774,0.0829,0.9619,0.2395,0.7782,0.0512,0.774,0.083,0.7619,0.1052,0.7474,0.1039,0.7446,0.1034,0.7473,0.1038,0.7619,0.1052,0.9712,0.2404,0.9799,0.239,0.7566,0.0479,0.7602,0.0485,0.7691,0.0486,0.771,0.1015,0.771,0.1014,0.768,0.1042,0.768,0.1042,0.9897,0.1861,0.991,0.2053,0.9856,0.1862,0.9665,0.2385,0.9874,0.236,0.965,0.2069,0.9651,0.1878,0.9604,0.2075,0.9619,0.2395,0.9604,0.2074,0.9836,0.239,0.98,0.239,0.9712,0.2404}, 92);
 IndexedFaceSet1315.setTexCoord(&TextureCoordinate1317);
 
@@ -5696,11 +6268,14 @@ HAnimSegment1319.X3DNode::setName(std::string("r_carpal_proximal_phalanx_5"));
 HAnimSegment1319.setDEF(std::string("hanim_r_carpal_proximal_phalanx_5"));
 Shape& Shape1320 =  Shape();
 Appearance& Appearance1321 =  Appearance();
+Appearance1321.setContainerField("appearance");
 Material& Material1322 =  Material();
+Material1322.setContainerField("material");
 Material1322.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1321.addChild(&Material1322);
 
 ImageTexture& ImageTexture1323 =  ImageTexture();
+ImageTexture1323.setContainerField("texture");
 ImageTexture1323.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1321.addChild(&ImageTexture1323);
 
@@ -5715,6 +6290,7 @@ Coordinate1325.setPoint(new float[]{-0.17252551,0.62123626,-0.0415125,-0.1902870
 IndexedFaceSet1324.setCoord(&Coordinate1325);
 
 TextureCoordinate& TextureCoordinate1326 =  TextureCoordinate();
+TextureCoordinate1326.setContainerField("texCoord");
 TextureCoordinate1326.setPoint(new float[]{0.7578,0.1276,0.7543,0.1247,0.753,0.131,0.7531,0.1316,0.9854,0.1598,0.9725,0.1615,0.9734,0.1584,0.9844,0.1569,0.7413,0.123,0.7403,0.1293,0.7378,0.1249,0.7401,0.1299,0.7405,0.104,0.7443,0.1047,0.9859,0.1809,0.7455,0.0995,0.766,0.1015,0.9713,0.1822,0.7589,0.1059,0.7648,0.1066,0.766,0.1014,0.7622,0.1091,0.7648,0.1066,0.7644,0.1092,0.7455,0.0995,0.7415,0.0989,0.7664,0.0954,0.7667,0.0954,0.7485,0.0932,0.7449,0.0928,0.7484,0.0932,0.7683,0.1016,0.7686,0.0957,0.7683,0.0956,0.7679,0.1015,0.7671,0.1055,0.7666,0.1084,0.7674,0.1056,0.9687,0.1615,0.9723,0.1564,0.9888,0.1589,0.9852,0.1547,0.9898,0.1809,0.9856,0.1862,0.9651,0.1878,0.9675,0.1796,0.9654,0.1826,0.9654,0.1799,0.9897,0.1861}, 98);
 IndexedFaceSet1324.setTexCoord(&TextureCoordinate1326);
 
@@ -5733,11 +6309,14 @@ HAnimSegment1328.X3DNode::setName(std::string("r_carpal_middle_phalanx_5"));
 HAnimSegment1328.setDEF(std::string("hanim_r_carpal_middle_phalanx_5"));
 Shape& Shape1329 =  Shape();
 Appearance& Appearance1330 =  Appearance();
+Appearance1330.setContainerField("appearance");
 Material& Material1331 =  Material();
+Material1331.setContainerField("material");
 Material1331.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1330.addChild(&Material1331);
 
 ImageTexture& ImageTexture1332 =  ImageTexture();
+ImageTexture1332.setContainerField("texture");
 ImageTexture1332.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1330.addChild(&ImageTexture1332);
 
@@ -5752,6 +6331,7 @@ Coordinate1334.setPoint(new float[]{-0.17963775,0.60232055,-0.043692753,-0.17215
 IndexedFaceSet1333.setCoord(&Coordinate1334);
 
 TextureCoordinate& TextureCoordinate1335 =  TextureCoordinate();
+TextureCoordinate1335.setContainerField("texCoord");
 TextureCoordinate1335.setPoint(new float[]{0.9725,0.1615,0.7578,0.1276,0.7541,0.1444,0.9727,0.1441,0.7543,0.1247,0.7533,0.1302,0.9851,0.1424,0.9854,0.1598,0.7404,0.1285,0.7384,0.1404,0.7513,0.1418,0.7413,0.123,0.7378,0.1249,0.7355,0.1424,0.7545,0.1231,0.7416,0.1216,0.7546,0.1229,0.7417,0.1214,0.7496,0.1479,0.7498,0.1481,0.9738,0.1409,0.9839,0.1396,0.738,0.1467,0.7381,0.1469,0.9687,0.1616,0.9694,0.1441,0.9888,0.1589,0.988,0.1416,0.9725,0.165,0.9854,0.1633,0.9728,0.1395,0.9846,0.1375}, 64);
 IndexedFaceSet1333.setTexCoord(&TextureCoordinate1335);
 
@@ -5770,11 +6350,14 @@ HAnimSegment1337.X3DNode::setName(std::string("r_carpal_distal_phalanx_5"));
 HAnimSegment1337.setDEF(std::string("hanim_r_carpal_distal_phalanx_5"));
 Shape& Shape1338 =  Shape();
 Appearance& Appearance1339 =  Appearance();
+Appearance1339.setContainerField("appearance");
 Material& Material1340 =  Material();
+Material1340.setContainerField("material");
 Material1340.setDiffuseColor(new float[]{0.588,0.588,0.588});
 Appearance1339.addChild(&Material1340);
 
 ImageTexture& ImageTexture1341 =  ImageTexture();
+ImageTexture1341.setContainerField("texture");
 ImageTexture1341.setUSE(std::string("JinLOA4TextureAtlas"));
 Appearance1339.addChild(&ImageTexture1341);
 
@@ -5789,6 +6372,7 @@ Coordinate1343.setPoint(new float[]{-0.18756452,0.600165,-0.032132253,-0.1875892
 IndexedFaceSet1342.setCoord(&Coordinate1343);
 
 TextureCoordinate& TextureCoordinate1344 =  TextureCoordinate();
+TextureCoordinate1344.setContainerField("texCoord");
 TextureCoordinate1344.setPoint(new float[]{0.7505,0.1465,0.7541,0.1444,0.7513,0.1418,0.7384,0.1404,0.7355,0.1424,0.7377,0.1451,0.7372,0.1554,0.7483,0.1563,0.7507,0.1564,0.9726,0.1318,0.9727,0.1441,0.9847,0.1302,0.9851,0.1424,0.7347,0.1548,0.7409,0.1641,0.7434,0.1641,0.7455,0.1632,0.7469,0.164,0.9746,0.124,0.9828,0.1229,0.9766,0.1225,0.9807,0.1219,0.7351,0.1625,0.7369,0.1626,0.7443,0.165,0.7408,0.1649,0.7387,0.1637,0.7379,0.1643,0.9788,0.1219,0.7512,0.1402,0.7392,0.1389,0.7512,0.14,0.7393,0.1388,0.9694,0.1441,0.988,0.1416,0.9705,0.1317,0.9868,0.1295,0.9727,0.1237,0.9848,0.1221,0.9756,0.1218,0.9787,0.1209,0.9817,0.1209,0.973,0.1475,0.9849,0.146}, 88);
 IndexedFaceSet1342.setTexCoord(&TextureCoordinate1344);
 
@@ -5855,586 +6439,732 @@ HAnimJoint31.addChildren(&HAnimJoint40);
 HAnimHumanoid23.setSkeleton(&HAnimJoint31);
 
 HAnimJoint& HAnimJoint1345 =  HAnimJoint();
+HAnimJoint1345.setContainerField("joints");
 HAnimJoint1345.setUSE(std::string("hanim_humanoid_root"));
 HAnimHumanoid23.setJoints(&HAnimJoint1345);
 
 HAnimJoint& HAnimJoint1346 =  HAnimJoint();
+HAnimJoint1346.setContainerField("joints");
 HAnimJoint1346.setUSE(std::string("hanim_sacroiliac"));
 HAnimHumanoid23.setJoints(&HAnimJoint1346);
 
 HAnimJoint& HAnimJoint1347 =  HAnimJoint();
+HAnimJoint1347.setContainerField("joints");
 HAnimJoint1347.setUSE(std::string("hanim_vl5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1347);
 
 HAnimJoint& HAnimJoint1348 =  HAnimJoint();
+HAnimJoint1348.setContainerField("joints");
 HAnimJoint1348.setUSE(std::string("hanim_vl4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1348);
 
 HAnimJoint& HAnimJoint1349 =  HAnimJoint();
+HAnimJoint1349.setContainerField("joints");
 HAnimJoint1349.setUSE(std::string("hanim_vl3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1349);
 
 HAnimJoint& HAnimJoint1350 =  HAnimJoint();
+HAnimJoint1350.setContainerField("joints");
 HAnimJoint1350.setUSE(std::string("hanim_vl2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1350);
 
 HAnimJoint& HAnimJoint1351 =  HAnimJoint();
+HAnimJoint1351.setContainerField("joints");
 HAnimJoint1351.setUSE(std::string("hanim_vl1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1351);
 
 HAnimJoint& HAnimJoint1352 =  HAnimJoint();
+HAnimJoint1352.setContainerField("joints");
 HAnimJoint1352.setUSE(std::string("hanim_vt12"));
 HAnimHumanoid23.setJoints(&HAnimJoint1352);
 
 HAnimJoint& HAnimJoint1353 =  HAnimJoint();
+HAnimJoint1353.setContainerField("joints");
 HAnimJoint1353.setUSE(std::string("hanim_vt11"));
 HAnimHumanoid23.setJoints(&HAnimJoint1353);
 
 HAnimJoint& HAnimJoint1354 =  HAnimJoint();
+HAnimJoint1354.setContainerField("joints");
 HAnimJoint1354.setUSE(std::string("hanim_vt10"));
 HAnimHumanoid23.setJoints(&HAnimJoint1354);
 
 HAnimJoint& HAnimJoint1355 =  HAnimJoint();
+HAnimJoint1355.setContainerField("joints");
 HAnimJoint1355.setUSE(std::string("hanim_vt9"));
 HAnimHumanoid23.setJoints(&HAnimJoint1355);
 
 HAnimJoint& HAnimJoint1356 =  HAnimJoint();
+HAnimJoint1356.setContainerField("joints");
 HAnimJoint1356.setUSE(std::string("hanim_vt8"));
 HAnimHumanoid23.setJoints(&HAnimJoint1356);
 
 HAnimJoint& HAnimJoint1357 =  HAnimJoint();
+HAnimJoint1357.setContainerField("joints");
 HAnimJoint1357.setUSE(std::string("hanim_vt7"));
 HAnimHumanoid23.setJoints(&HAnimJoint1357);
 
 HAnimJoint& HAnimJoint1358 =  HAnimJoint();
+HAnimJoint1358.setContainerField("joints");
 HAnimJoint1358.setUSE(std::string("hanim_vt6"));
 HAnimHumanoid23.setJoints(&HAnimJoint1358);
 
 HAnimJoint& HAnimJoint1359 =  HAnimJoint();
+HAnimJoint1359.setContainerField("joints");
 HAnimJoint1359.setUSE(std::string("hanim_vt5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1359);
 
 HAnimJoint& HAnimJoint1360 =  HAnimJoint();
+HAnimJoint1360.setContainerField("joints");
 HAnimJoint1360.setUSE(std::string("hanim_vt4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1360);
 
 HAnimJoint& HAnimJoint1361 =  HAnimJoint();
+HAnimJoint1361.setContainerField("joints");
 HAnimJoint1361.setUSE(std::string("hanim_vt3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1361);
 
 HAnimJoint& HAnimJoint1362 =  HAnimJoint();
+HAnimJoint1362.setContainerField("joints");
 HAnimJoint1362.setUSE(std::string("hanim_vt2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1362);
 
 HAnimJoint& HAnimJoint1363 =  HAnimJoint();
+HAnimJoint1363.setContainerField("joints");
 HAnimJoint1363.setUSE(std::string("hanim_vt1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1363);
 
 HAnimJoint& HAnimJoint1364 =  HAnimJoint();
+HAnimJoint1364.setContainerField("joints");
 HAnimJoint1364.setUSE(std::string("hanim_vc7"));
 HAnimHumanoid23.setJoints(&HAnimJoint1364);
 
 HAnimJoint& HAnimJoint1365 =  HAnimJoint();
+HAnimJoint1365.setContainerField("joints");
 HAnimJoint1365.setUSE(std::string("hanim_vc6"));
 HAnimHumanoid23.setJoints(&HAnimJoint1365);
 
 HAnimJoint& HAnimJoint1366 =  HAnimJoint();
+HAnimJoint1366.setContainerField("joints");
 HAnimJoint1366.setUSE(std::string("hanim_vc5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1366);
 
 HAnimJoint& HAnimJoint1367 =  HAnimJoint();
+HAnimJoint1367.setContainerField("joints");
 HAnimJoint1367.setUSE(std::string("hanim_vc4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1367);
 
 HAnimJoint& HAnimJoint1368 =  HAnimJoint();
+HAnimJoint1368.setContainerField("joints");
 HAnimJoint1368.setUSE(std::string("hanim_vc3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1368);
 
 HAnimJoint& HAnimJoint1369 =  HAnimJoint();
+HAnimJoint1369.setContainerField("joints");
 HAnimJoint1369.setUSE(std::string("hanim_vc2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1369);
 
 HAnimJoint& HAnimJoint1370 =  HAnimJoint();
+HAnimJoint1370.setContainerField("joints");
 HAnimJoint1370.setUSE(std::string("hanim_vc1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1370);
 
 HAnimJoint& HAnimJoint1371 =  HAnimJoint();
+HAnimJoint1371.setContainerField("joints");
 HAnimJoint1371.setUSE(std::string("hanim_skullbase"));
 HAnimHumanoid23.setJoints(&HAnimJoint1371);
 
 HAnimJoint& HAnimJoint1372 =  HAnimJoint();
+HAnimJoint1372.setContainerField("joints");
 HAnimJoint1372.setUSE(std::string("hanim_temporomandibular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1372);
 
 HAnimJoint& HAnimJoint1373 =  HAnimJoint();
+HAnimJoint1373.setContainerField("joints");
 HAnimJoint1373.setUSE(std::string("hanim_l_acromioclavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1373);
 
 HAnimJoint& HAnimJoint1374 =  HAnimJoint();
+HAnimJoint1374.setContainerField("joints");
 HAnimJoint1374.setUSE(std::string("hanim_r_acromioclavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1374);
 
 HAnimJoint& HAnimJoint1375 =  HAnimJoint();
+HAnimJoint1375.setContainerField("joints");
 HAnimJoint1375.setUSE(std::string("hanim_l_calcaneocuboid"));
 HAnimHumanoid23.setJoints(&HAnimJoint1375);
 
 HAnimJoint& HAnimJoint1376 =  HAnimJoint();
+HAnimJoint1376.setContainerField("joints");
 HAnimJoint1376.setUSE(std::string("hanim_r_calcaneocuboid"));
 HAnimHumanoid23.setJoints(&HAnimJoint1376);
 
 HAnimJoint& HAnimJoint1377 =  HAnimJoint();
+HAnimJoint1377.setContainerField("joints");
 HAnimJoint1377.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1377);
 
 HAnimJoint& HAnimJoint1378 =  HAnimJoint();
+HAnimJoint1378.setContainerField("joints");
 HAnimJoint1378.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1378);
 
 HAnimJoint& HAnimJoint1379 =  HAnimJoint();
+HAnimJoint1379.setContainerField("joints");
 HAnimJoint1379.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1379);
 
 HAnimJoint& HAnimJoint1380 =  HAnimJoint();
+HAnimJoint1380.setContainerField("joints");
 HAnimJoint1380.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1380);
 
 HAnimJoint& HAnimJoint1381 =  HAnimJoint();
+HAnimJoint1381.setContainerField("joints");
 HAnimJoint1381.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1381);
 
 HAnimJoint& HAnimJoint1382 =  HAnimJoint();
+HAnimJoint1382.setContainerField("joints");
 HAnimJoint1382.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1382);
 
 HAnimJoint& HAnimJoint1383 =  HAnimJoint();
+HAnimJoint1383.setContainerField("joints");
 HAnimJoint1383.setUSE(std::string("hanim_l_carpal_distal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1383);
 
 HAnimJoint& HAnimJoint1384 =  HAnimJoint();
+HAnimJoint1384.setContainerField("joints");
 HAnimJoint1384.setUSE(std::string("hanim_r_carpal_distal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1384);
 
 HAnimJoint& HAnimJoint1385 =  HAnimJoint();
+HAnimJoint1385.setContainerField("joints");
 HAnimJoint1385.setUSE(std::string("hanim_l_carpal_interphalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1385);
 
 HAnimJoint& HAnimJoint1386 =  HAnimJoint();
+HAnimJoint1386.setContainerField("joints");
 HAnimJoint1386.setUSE(std::string("hanim_r_carpal_interphalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1386);
 
 HAnimJoint& HAnimJoint1387 =  HAnimJoint();
+HAnimJoint1387.setContainerField("joints");
 HAnimJoint1387.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1387);
 
 HAnimJoint& HAnimJoint1388 =  HAnimJoint();
+HAnimJoint1388.setContainerField("joints");
 HAnimJoint1388.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1388);
 
 HAnimJoint& HAnimJoint1389 =  HAnimJoint();
+HAnimJoint1389.setContainerField("joints");
 HAnimJoint1389.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1389);
 
 HAnimJoint& HAnimJoint1390 =  HAnimJoint();
+HAnimJoint1390.setContainerField("joints");
 HAnimJoint1390.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1390);
 
 HAnimJoint& HAnimJoint1391 =  HAnimJoint();
+HAnimJoint1391.setContainerField("joints");
 HAnimJoint1391.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1391);
 
 HAnimJoint& HAnimJoint1392 =  HAnimJoint();
+HAnimJoint1392.setContainerField("joints");
 HAnimJoint1392.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1392);
 
 HAnimJoint& HAnimJoint1393 =  HAnimJoint();
+HAnimJoint1393.setContainerField("joints");
 HAnimJoint1393.setUSE(std::string("hanim_l_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1393);
 
 HAnimJoint& HAnimJoint1394 =  HAnimJoint();
+HAnimJoint1394.setContainerField("joints");
 HAnimJoint1394.setUSE(std::string("hanim_r_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1394);
 
 HAnimJoint& HAnimJoint1395 =  HAnimJoint();
+HAnimJoint1395.setContainerField("joints");
 HAnimJoint1395.setUSE(std::string("hanim_l_carpometacarpal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1395);
 
 HAnimJoint& HAnimJoint1396 =  HAnimJoint();
+HAnimJoint1396.setContainerField("joints");
 HAnimJoint1396.setUSE(std::string("hanim_r_carpometacarpal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1396);
 
 HAnimJoint& HAnimJoint1397 =  HAnimJoint();
+HAnimJoint1397.setContainerField("joints");
 HAnimJoint1397.setUSE(std::string("hanim_l_carpometacarpal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1397);
 
 HAnimJoint& HAnimJoint1398 =  HAnimJoint();
+HAnimJoint1398.setContainerField("joints");
 HAnimJoint1398.setUSE(std::string("hanim_r_carpometacarpal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1398);
 
 HAnimJoint& HAnimJoint1399 =  HAnimJoint();
+HAnimJoint1399.setContainerField("joints");
 HAnimJoint1399.setUSE(std::string("hanim_l_carpometacarpal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1399);
 
 HAnimJoint& HAnimJoint1400 =  HAnimJoint();
+HAnimJoint1400.setContainerField("joints");
 HAnimJoint1400.setUSE(std::string("hanim_r_carpometacarpal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1400);
 
 HAnimJoint& HAnimJoint1401 =  HAnimJoint();
+HAnimJoint1401.setContainerField("joints");
 HAnimJoint1401.setUSE(std::string("hanim_l_carpometacarpal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1401);
 
 HAnimJoint& HAnimJoint1402 =  HAnimJoint();
+HAnimJoint1402.setContainerField("joints");
 HAnimJoint1402.setUSE(std::string("hanim_r_carpometacarpal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1402);
 
 HAnimJoint& HAnimJoint1403 =  HAnimJoint();
+HAnimJoint1403.setContainerField("joints");
 HAnimJoint1403.setUSE(std::string("hanim_l_carpometacarpal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1403);
 
 HAnimJoint& HAnimJoint1404 =  HAnimJoint();
+HAnimJoint1404.setContainerField("joints");
 HAnimJoint1404.setUSE(std::string("hanim_r_carpometacarpal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1404);
 
 HAnimJoint& HAnimJoint1405 =  HAnimJoint();
+HAnimJoint1405.setContainerField("joints");
 HAnimJoint1405.setUSE(std::string("hanim_l_cuneonavicular_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1405);
 
 HAnimJoint& HAnimJoint1406 =  HAnimJoint();
+HAnimJoint1406.setContainerField("joints");
 HAnimJoint1406.setUSE(std::string("hanim_r_cuneonavicular_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1406);
 
 HAnimJoint& HAnimJoint1407 =  HAnimJoint();
+HAnimJoint1407.setContainerField("joints");
 HAnimJoint1407.setUSE(std::string("hanim_l_cuneonavicular_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1407);
 
 HAnimJoint& HAnimJoint1408 =  HAnimJoint();
+HAnimJoint1408.setContainerField("joints");
 HAnimJoint1408.setUSE(std::string("hanim_r_cuneonavicular_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1408);
 
 HAnimJoint& HAnimJoint1409 =  HAnimJoint();
+HAnimJoint1409.setContainerField("joints");
 HAnimJoint1409.setUSE(std::string("hanim_l_cuneonavicular_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1409);
 
 HAnimJoint& HAnimJoint1410 =  HAnimJoint();
+HAnimJoint1410.setContainerField("joints");
 HAnimJoint1410.setUSE(std::string("hanim_r_cuneonavicular_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1410);
 
 HAnimJoint& HAnimJoint1411 =  HAnimJoint();
+HAnimJoint1411.setContainerField("joints");
 HAnimJoint1411.setUSE(std::string("hanim_l_elbow"));
 HAnimHumanoid23.setJoints(&HAnimJoint1411);
 
 HAnimJoint& HAnimJoint1412 =  HAnimJoint();
+HAnimJoint1412.setContainerField("joints");
 HAnimJoint1412.setUSE(std::string("hanim_r_elbow"));
 HAnimHumanoid23.setJoints(&HAnimJoint1412);
 
 HAnimJoint& HAnimJoint1413 =  HAnimJoint();
+HAnimJoint1413.setContainerField("joints");
 HAnimJoint1413.setUSE(std::string("hanim_l_eyeball_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1413);
 
 HAnimJoint& HAnimJoint1414 =  HAnimJoint();
+HAnimJoint1414.setContainerField("joints");
 HAnimJoint1414.setUSE(std::string("hanim_r_eyeball_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1414);
 
 HAnimJoint& HAnimJoint1415 =  HAnimJoint();
+HAnimJoint1415.setContainerField("joints");
 HAnimJoint1415.setUSE(std::string("hanim_l_eyebrow_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1415);
 
 HAnimJoint& HAnimJoint1416 =  HAnimJoint();
+HAnimJoint1416.setContainerField("joints");
 HAnimJoint1416.setUSE(std::string("hanim_r_eyebrow_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1416);
 
 HAnimJoint& HAnimJoint1417 =  HAnimJoint();
+HAnimJoint1417.setContainerField("joints");
 HAnimJoint1417.setUSE(std::string("hanim_l_eyelid_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1417);
 
 HAnimJoint& HAnimJoint1418 =  HAnimJoint();
+HAnimJoint1418.setContainerField("joints");
 HAnimJoint1418.setUSE(std::string("hanim_r_eyelid_joint"));
 HAnimHumanoid23.setJoints(&HAnimJoint1418);
 
 HAnimJoint& HAnimJoint1419 =  HAnimJoint();
+HAnimJoint1419.setContainerField("joints");
 HAnimJoint1419.setUSE(std::string("hanim_l_hip"));
 HAnimHumanoid23.setJoints(&HAnimJoint1419);
 
 HAnimJoint& HAnimJoint1420 =  HAnimJoint();
+HAnimJoint1420.setContainerField("joints");
 HAnimJoint1420.setUSE(std::string("hanim_r_hip"));
 HAnimHumanoid23.setJoints(&HAnimJoint1420);
 
 HAnimJoint& HAnimJoint1421 =  HAnimJoint();
+HAnimJoint1421.setContainerField("joints");
 HAnimJoint1421.setUSE(std::string("hanim_l_knee"));
 HAnimHumanoid23.setJoints(&HAnimJoint1421);
 
 HAnimJoint& HAnimJoint1422 =  HAnimJoint();
+HAnimJoint1422.setContainerField("joints");
 HAnimJoint1422.setUSE(std::string("hanim_r_knee"));
 HAnimHumanoid23.setJoints(&HAnimJoint1422);
 
 HAnimJoint& HAnimJoint1423 =  HAnimJoint();
+HAnimJoint1423.setContainerField("joints");
 HAnimJoint1423.setUSE(std::string("hanim_l_metacarpophalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1423);
 
 HAnimJoint& HAnimJoint1424 =  HAnimJoint();
+HAnimJoint1424.setContainerField("joints");
 HAnimJoint1424.setUSE(std::string("hanim_r_metacarpophalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1424);
 
 HAnimJoint& HAnimJoint1425 =  HAnimJoint();
+HAnimJoint1425.setContainerField("joints");
 HAnimJoint1425.setUSE(std::string("hanim_l_metacarpophalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1425);
 
 HAnimJoint& HAnimJoint1426 =  HAnimJoint();
+HAnimJoint1426.setContainerField("joints");
 HAnimJoint1426.setUSE(std::string("hanim_r_metacarpophalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1426);
 
 HAnimJoint& HAnimJoint1427 =  HAnimJoint();
+HAnimJoint1427.setContainerField("joints");
 HAnimJoint1427.setUSE(std::string("hanim_l_metacarpophalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1427);
 
 HAnimJoint& HAnimJoint1428 =  HAnimJoint();
+HAnimJoint1428.setContainerField("joints");
 HAnimJoint1428.setUSE(std::string("hanim_r_metacarpophalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1428);
 
 HAnimJoint& HAnimJoint1429 =  HAnimJoint();
+HAnimJoint1429.setContainerField("joints");
 HAnimJoint1429.setUSE(std::string("hanim_l_metacarpophalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1429);
 
 HAnimJoint& HAnimJoint1430 =  HAnimJoint();
+HAnimJoint1430.setContainerField("joints");
 HAnimJoint1430.setUSE(std::string("hanim_r_metacarpophalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1430);
 
 HAnimJoint& HAnimJoint1431 =  HAnimJoint();
+HAnimJoint1431.setContainerField("joints");
 HAnimJoint1431.setUSE(std::string("hanim_l_metacarpophalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1431);
 
 HAnimJoint& HAnimJoint1432 =  HAnimJoint();
+HAnimJoint1432.setContainerField("joints");
 HAnimJoint1432.setUSE(std::string("hanim_r_metacarpophalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1432);
 
 HAnimJoint& HAnimJoint1433 =  HAnimJoint();
+HAnimJoint1433.setContainerField("joints");
 HAnimJoint1433.setUSE(std::string("hanim_l_metatarsophalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1433);
 
 HAnimJoint& HAnimJoint1434 =  HAnimJoint();
+HAnimJoint1434.setContainerField("joints");
 HAnimJoint1434.setUSE(std::string("hanim_r_metatarsophalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1434);
 
 HAnimJoint& HAnimJoint1435 =  HAnimJoint();
+HAnimJoint1435.setContainerField("joints");
 HAnimJoint1435.setUSE(std::string("hanim_l_metatarsophalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1435);
 
 HAnimJoint& HAnimJoint1436 =  HAnimJoint();
+HAnimJoint1436.setContainerField("joints");
 HAnimJoint1436.setUSE(std::string("hanim_r_metatarsophalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1436);
 
 HAnimJoint& HAnimJoint1437 =  HAnimJoint();
+HAnimJoint1437.setContainerField("joints");
 HAnimJoint1437.setUSE(std::string("hanim_l_metatarsophalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1437);
 
 HAnimJoint& HAnimJoint1438 =  HAnimJoint();
+HAnimJoint1438.setContainerField("joints");
 HAnimJoint1438.setUSE(std::string("hanim_r_metatarsophalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1438);
 
 HAnimJoint& HAnimJoint1439 =  HAnimJoint();
+HAnimJoint1439.setContainerField("joints");
 HAnimJoint1439.setUSE(std::string("hanim_l_metatarsophalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1439);
 
 HAnimJoint& HAnimJoint1440 =  HAnimJoint();
+HAnimJoint1440.setContainerField("joints");
 HAnimJoint1440.setUSE(std::string("hanim_r_metatarsophalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1440);
 
 HAnimJoint& HAnimJoint1441 =  HAnimJoint();
+HAnimJoint1441.setContainerField("joints");
 HAnimJoint1441.setUSE(std::string("hanim_l_metatarsophalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1441);
 
 HAnimJoint& HAnimJoint1442 =  HAnimJoint();
+HAnimJoint1442.setContainerField("joints");
 HAnimJoint1442.setUSE(std::string("hanim_r_metatarsophalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1442);
 
 HAnimJoint& HAnimJoint1443 =  HAnimJoint();
+HAnimJoint1443.setContainerField("joints");
 HAnimJoint1443.setUSE(std::string("hanim_l_midcarpal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1443);
 
 HAnimJoint& HAnimJoint1444 =  HAnimJoint();
+HAnimJoint1444.setContainerField("joints");
 HAnimJoint1444.setUSE(std::string("hanim_r_midcarpal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1444);
 
 HAnimJoint& HAnimJoint1445 =  HAnimJoint();
+HAnimJoint1445.setContainerField("joints");
 HAnimJoint1445.setUSE(std::string("hanim_l_midcarpal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1445);
 
 HAnimJoint& HAnimJoint1446 =  HAnimJoint();
+HAnimJoint1446.setContainerField("joints");
 HAnimJoint1446.setUSE(std::string("hanim_r_midcarpal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1446);
 
 HAnimJoint& HAnimJoint1447 =  HAnimJoint();
+HAnimJoint1447.setContainerField("joints");
 HAnimJoint1447.setUSE(std::string("hanim_l_midcarpal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1447);
 
 HAnimJoint& HAnimJoint1448 =  HAnimJoint();
+HAnimJoint1448.setContainerField("joints");
 HAnimJoint1448.setUSE(std::string("hanim_r_midcarpal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1448);
 
 HAnimJoint& HAnimJoint1449 =  HAnimJoint();
+HAnimJoint1449.setContainerField("joints");
 HAnimJoint1449.setUSE(std::string("hanim_l_midcarpal_4_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1449);
 
 HAnimJoint& HAnimJoint1450 =  HAnimJoint();
+HAnimJoint1450.setContainerField("joints");
 HAnimJoint1450.setUSE(std::string("hanim_r_midcarpal_4_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1450);
 
 HAnimJoint& HAnimJoint1451 =  HAnimJoint();
+HAnimJoint1451.setContainerField("joints");
 HAnimJoint1451.setUSE(std::string("hanim_l_radiocarpal"));
 HAnimHumanoid23.setJoints(&HAnimJoint1451);
 
 HAnimJoint& HAnimJoint1452 =  HAnimJoint();
+HAnimJoint1452.setContainerField("joints");
 HAnimJoint1452.setUSE(std::string("hanim_r_radiocarpal"));
 HAnimHumanoid23.setJoints(&HAnimJoint1452);
 
 HAnimJoint& HAnimJoint1453 =  HAnimJoint();
+HAnimJoint1453.setContainerField("joints");
 HAnimJoint1453.setUSE(std::string("hanim_l_shoulder"));
 HAnimHumanoid23.setJoints(&HAnimJoint1453);
 
 HAnimJoint& HAnimJoint1454 =  HAnimJoint();
+HAnimJoint1454.setContainerField("joints");
 HAnimJoint1454.setUSE(std::string("hanim_r_shoulder"));
 HAnimHumanoid23.setJoints(&HAnimJoint1454);
 
 HAnimJoint& HAnimJoint1455 =  HAnimJoint();
+HAnimJoint1455.setContainerField("joints");
 HAnimJoint1455.setUSE(std::string("hanim_l_sternoclavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1455);
 
 HAnimJoint& HAnimJoint1456 =  HAnimJoint();
+HAnimJoint1456.setContainerField("joints");
 HAnimJoint1456.setUSE(std::string("hanim_r_sternoclavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1456);
 
 HAnimJoint& HAnimJoint1457 =  HAnimJoint();
+HAnimJoint1457.setContainerField("joints");
 HAnimJoint1457.setUSE(std::string("hanim_l_talocalcaneonavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1457);
 
 HAnimJoint& HAnimJoint1458 =  HAnimJoint();
+HAnimJoint1458.setContainerField("joints");
 HAnimJoint1458.setUSE(std::string("hanim_r_talocalcaneonavicular"));
 HAnimHumanoid23.setJoints(&HAnimJoint1458);
 
 HAnimJoint& HAnimJoint1459 =  HAnimJoint();
+HAnimJoint1459.setContainerField("joints");
 HAnimJoint1459.setUSE(std::string("hanim_l_talocrural"));
 HAnimHumanoid23.setJoints(&HAnimJoint1459);
 
 HAnimJoint& HAnimJoint1460 =  HAnimJoint();
+HAnimJoint1460.setContainerField("joints");
 HAnimJoint1460.setUSE(std::string("hanim_r_talocrural"));
 HAnimHumanoid23.setJoints(&HAnimJoint1460);
 
 HAnimJoint& HAnimJoint1461 =  HAnimJoint();
+HAnimJoint1461.setContainerField("joints");
 HAnimJoint1461.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1461);
 
 HAnimJoint& HAnimJoint1462 =  HAnimJoint();
+HAnimJoint1462.setContainerField("joints");
 HAnimJoint1462.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1462);
 
 HAnimJoint& HAnimJoint1463 =  HAnimJoint();
+HAnimJoint1463.setContainerField("joints");
 HAnimJoint1463.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1463);
 
 HAnimJoint& HAnimJoint1464 =  HAnimJoint();
+HAnimJoint1464.setContainerField("joints");
 HAnimJoint1464.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1464);
 
 HAnimJoint& HAnimJoint1465 =  HAnimJoint();
+HAnimJoint1465.setContainerField("joints");
 HAnimJoint1465.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1465);
 
 HAnimJoint& HAnimJoint1466 =  HAnimJoint();
+HAnimJoint1466.setContainerField("joints");
 HAnimJoint1466.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1466);
 
 HAnimJoint& HAnimJoint1467 =  HAnimJoint();
+HAnimJoint1467.setContainerField("joints");
 HAnimJoint1467.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1467);
 
 HAnimJoint& HAnimJoint1468 =  HAnimJoint();
+HAnimJoint1468.setContainerField("joints");
 HAnimJoint1468.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1468);
 
 HAnimJoint& HAnimJoint1469 =  HAnimJoint();
+HAnimJoint1469.setContainerField("joints");
 HAnimJoint1469.setUSE(std::string("hanim_l_tarsal_distal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1469);
 
 HAnimJoint& HAnimJoint1470 =  HAnimJoint();
+HAnimJoint1470.setContainerField("joints");
 HAnimJoint1470.setUSE(std::string("hanim_r_tarsal_distal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1470);
 
 HAnimJoint& HAnimJoint1471 =  HAnimJoint();
+HAnimJoint1471.setContainerField("joints");
 HAnimJoint1471.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1471);
 
 HAnimJoint& HAnimJoint1472 =  HAnimJoint();
+HAnimJoint1472.setContainerField("joints");
 HAnimJoint1472.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1472);
 
 HAnimJoint& HAnimJoint1473 =  HAnimJoint();
+HAnimJoint1473.setContainerField("joints");
 HAnimJoint1473.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1473);
 
 HAnimJoint& HAnimJoint1474 =  HAnimJoint();
+HAnimJoint1474.setContainerField("joints");
 HAnimJoint1474.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1474);
 
 HAnimJoint& HAnimJoint1475 =  HAnimJoint();
+HAnimJoint1475.setContainerField("joints");
 HAnimJoint1475.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1475);
 
 HAnimJoint& HAnimJoint1476 =  HAnimJoint();
+HAnimJoint1476.setContainerField("joints");
 HAnimJoint1476.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1476);
 
 HAnimJoint& HAnimJoint1477 =  HAnimJoint();
+HAnimJoint1477.setContainerField("joints");
 HAnimJoint1477.setUSE(std::string("hanim_l_tarsal_proximal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1477);
 
 HAnimJoint& HAnimJoint1478 =  HAnimJoint();
+HAnimJoint1478.setContainerField("joints");
 HAnimJoint1478.setUSE(std::string("hanim_r_tarsal_proximal_interphalangeal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1478);
 
 HAnimJoint& HAnimJoint1479 =  HAnimJoint();
+HAnimJoint1479.setContainerField("joints");
 HAnimJoint1479.setUSE(std::string("hanim_l_tarsometatarsal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1479);
 
 HAnimJoint& HAnimJoint1480 =  HAnimJoint();
+HAnimJoint1480.setContainerField("joints");
 HAnimJoint1480.setUSE(std::string("hanim_r_tarsometatarsal_1"));
 HAnimHumanoid23.setJoints(&HAnimJoint1480);
 
 HAnimJoint& HAnimJoint1481 =  HAnimJoint();
+HAnimJoint1481.setContainerField("joints");
 HAnimJoint1481.setUSE(std::string("hanim_l_tarsometatarsal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1481);
 
 HAnimJoint& HAnimJoint1482 =  HAnimJoint();
+HAnimJoint1482.setContainerField("joints");
 HAnimJoint1482.setUSE(std::string("hanim_r_tarsometatarsal_2"));
 HAnimHumanoid23.setJoints(&HAnimJoint1482);
 
 HAnimJoint& HAnimJoint1483 =  HAnimJoint();
+HAnimJoint1483.setContainerField("joints");
 HAnimJoint1483.setUSE(std::string("hanim_l_tarsometatarsal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1483);
 
 HAnimJoint& HAnimJoint1484 =  HAnimJoint();
+HAnimJoint1484.setContainerField("joints");
 HAnimJoint1484.setUSE(std::string("hanim_r_tarsometatarsal_3"));
 HAnimHumanoid23.setJoints(&HAnimJoint1484);
 
 HAnimJoint& HAnimJoint1485 =  HAnimJoint();
+HAnimJoint1485.setContainerField("joints");
 HAnimJoint1485.setUSE(std::string("hanim_l_tarsometatarsal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1485);
 
 HAnimJoint& HAnimJoint1486 =  HAnimJoint();
+HAnimJoint1486.setContainerField("joints");
 HAnimJoint1486.setUSE(std::string("hanim_r_tarsometatarsal_4"));
 HAnimHumanoid23.setJoints(&HAnimJoint1486);
 
 HAnimJoint& HAnimJoint1487 =  HAnimJoint();
+HAnimJoint1487.setContainerField("joints");
 HAnimJoint1487.setUSE(std::string("hanim_l_tarsometatarsal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1487);
 
 HAnimJoint& HAnimJoint1488 =  HAnimJoint();
+HAnimJoint1488.setContainerField("joints");
 HAnimJoint1488.setUSE(std::string("hanim_r_tarsometatarsal_5"));
 HAnimHumanoid23.setJoints(&HAnimJoint1488);
 
 HAnimJoint& HAnimJoint1489 =  HAnimJoint();
+HAnimJoint1489.setContainerField("joints");
 HAnimJoint1489.setUSE(std::string("hanim_l_transversetarsal"));
 HAnimHumanoid23.setJoints(&HAnimJoint1489);
 
 HAnimJoint& HAnimJoint1490 =  HAnimJoint();
+HAnimJoint1490.setContainerField("joints");
 HAnimJoint1490.setUSE(std::string("hanim_r_transversetarsal"));
 HAnimHumanoid23.setJoints(&HAnimJoint1490);
 

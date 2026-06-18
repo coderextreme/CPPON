@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int rgb_alpha(int argc, char ** argv) {
+void rgb_alpha(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -111,7 +103,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene20 =  Scene();
 NavigationInfo& NavigationInfo21 =  NavigationInfo();
-NavigationInfo21.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo21.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene20.addChild(&NavigationInfo21);
 
 Group& Group22 =  Group();
@@ -119,10 +111,13 @@ Transform& Transform23 =  Transform();
 Transform23.setTranslation(new float[]{6.14221,0.0694613,-0.000999451});
 Shape& Shape24 =  Shape();
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Appearance25.addChild(&Material26);
 
 PixelTexture& PixelTexture27 =  PixelTexture();
+PixelTexture27.setContainerField("texture");
 PixelTexture27.setDEF(std::string("RgbOpacityCheckerboard"));
 PixelTexture27.setImage(std::string("2 2 4 4278190335 4294901760 4294901760 4278190335"));
 Appearance25.addChild(&PixelTexture27);
@@ -140,10 +135,13 @@ Transform& Transform29 =  Transform();
 Transform29.setTranslation(new float[]{-4.85443,0.0694381,-0.00149918});
 Shape& Shape30 =  Shape();
 Appearance& Appearance31 =  Appearance();
+Appearance31.setContainerField("appearance");
 Material& Material32 =  Material();
+Material32.setContainerField("material");
 Appearance31.addChild(&Material32);
 
 PixelTexture& PixelTexture33 =  PixelTexture();
+PixelTexture33.setContainerField("texture");
 PixelTexture33.setUSE(std::string("RgbOpacityCheckerboard"));
 Appearance31.addChild(&PixelTexture33);
 
@@ -160,10 +158,13 @@ Transform& Transform35 =  Transform();
 Transform35.setTranslation(new float[]{-1.47341,0.036672,-0.00175095});
 Shape& Shape36 =  Shape();
 Appearance& Appearance37 =  Appearance();
+Appearance37.setContainerField("appearance");
 Material& Material38 =  Material();
+Material38.setContainerField("material");
 Appearance37.addChild(&Material38);
 
 PixelTexture& PixelTexture39 =  PixelTexture();
+PixelTexture39.setContainerField("texture");
 PixelTexture39.setUSE(std::string("RgbOpacityCheckerboard"));
 Appearance37.addChild(&PixelTexture39);
 
@@ -180,10 +181,13 @@ Transform& Transform41 =  Transform();
 Transform41.setTranslation(new float[]{2.31094,0.0694206,-0.00187683});
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Appearance43.addChild(&Material44);
 
 PixelTexture& PixelTexture45 =  PixelTexture();
+PixelTexture45.setContainerField("texture");
 PixelTexture45.setUSE(std::string("RgbOpacityCheckerboard"));
 Appearance43.addChild(&PixelTexture45);
 

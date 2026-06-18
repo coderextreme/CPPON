@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int MaskAndSnorkel(int argc, char ** argv) {
+void MaskAndSnorkel(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -74,7 +66,9 @@ Transform& Transform14 =  Transform();
 Shape& Shape15 =  Shape();
 Shape15.setDEF(std::string("maskFrame"));
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setDEF(std::string("frameColor"));
 Material17.setDiffuseColor(new float[]{0.0,0.0,0.0});
 Appearance16.addChild(&Material17);
@@ -100,7 +94,9 @@ Transform20.setDEF(std::string("snorkelHoldRing"));
 Transform20.setTranslation(new float[]{0.075,0.075,-0.02});
 Shape& Shape21 =  Shape();
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setUSE(std::string("frameColor"));
 Appearance22.addChild(&Material23);
 
@@ -124,7 +120,9 @@ Transform27.setScale(new float[]{0.9,0.9,0.9});
 Transform27.setTranslation(new float[]{0.035,-0.07,-0.02});
 Shape& Shape28 =  Shape();
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDEF(std::string("snorkelTube"));
 Material30.setDiffuseColor(new float[]{0.678,1.0,0.184});
 Material30.setTransparency(0.4);
@@ -147,7 +145,9 @@ Transform32.setScale(new float[]{0.9,0.9,0.9});
 Transform32.setTranslation(new float[]{0.01,-0.04,-0.02});
 Shape& Shape33 =  Shape();
 Appearance& Appearance34 =  Appearance();
+Appearance34.setContainerField("appearance");
 Material& Material35 =  Material();
+Material35.setContainerField("material");
 Material35.setDEF(std::string("Mouthpiece"));
 Material35.setDiffuseColor(new float[]{0.678,1.0,0.8});
 Material35.setTransparency(0.4);
@@ -170,7 +170,9 @@ Transform37.setScale(new float[]{0.9,0.9,0.9});
 Transform37.setTranslation(new float[]{0.005,-0.01,-0.02});
 Shape& Shape38 =  Shape();
 Appearance& Appearance39 =  Appearance();
+Appearance39.setContainerField("appearance");
 Material& Material40 =  Material();
+Material40.setContainerField("material");
 Material40.setUSE(std::string("Mouthpiece"));
 Appearance39.addChild(&Material40);
 
@@ -193,7 +195,9 @@ Transform& Transform42 =  Transform();
 Shape& Shape43 =  Shape();
 Shape43.setDEF(std::string("maskLensR"));
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Material& Material45 =  Material();
+Material45.setContainerField("material");
 Material45.setDEF(std::string("plastic"));
 Material45.setDiffuseColor(new float[]{0.941,0.973,1.0});
 Material45.setTransparency(0.8);
@@ -219,7 +223,9 @@ Transform& Transform48 =  Transform();
 Shape& Shape49 =  Shape();
 Shape49.setDEF(std::string("maskLensL"));
 Appearance& Appearance50 =  Appearance();
+Appearance50.setContainerField("appearance");
 Material& Material51 =  Material();
+Material51.setContainerField("material");
 Material51.setUSE(std::string("plastic"));
 Appearance50.addChild(&Material51);
 
@@ -243,7 +249,9 @@ Transform& Transform54 =  Transform();
 Shape& Shape55 =  Shape();
 Shape55.setDEF(std::string("nose"));
 Appearance& Appearance56 =  Appearance();
+Appearance56.setContainerField("appearance");
 Material& Material57 =  Material();
+Material57.setContainerField("material");
 Material57.setDEF(std::string("plasticFit"));
 Material57.setDiffuseColor(new float[]{0.678,1.0,0.184});
 Material57.setTransparency(0.7);
@@ -269,7 +277,9 @@ Transform& Transform60 =  Transform();
 Shape& Shape61 =  Shape();
 Shape61.setDEF(std::string("faceFit"));
 Appearance& Appearance62 =  Appearance();
+Appearance62.setContainerField("appearance");
 Material& Material63 =  Material();
+Material63.setContainerField("material");
 Material63.setUSE(std::string("plasticFit"));
 Appearance62.addChild(&Material63);
 
@@ -293,7 +303,9 @@ Transform& Transform66 =  Transform();
 Shape& Shape67 =  Shape();
 Shape67.setDEF(std::string("belt"));
 Appearance& Appearance68 =  Appearance();
+Appearance68.setContainerField("appearance");
 Material& Material69 =  Material();
+Material69.setContainerField("material");
 Material69.setUSE(std::string("plastic"));
 Appearance68.addChild(&Material69);
 

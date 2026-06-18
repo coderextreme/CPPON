@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int particleballs(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -114,6 +106,7 @@ BoundedPhysicsModel21.setGeometry(&Sphere22);
 ParticleSystem20.addPhysics(BoundedPhysicsModel21);
 
 ExplosionEmitter& ExplosionEmitter23 =  ExplosionEmitter();
+ExplosionEmitter23.setContainerField("emitter");
 ExplosionEmitter23.setSpeed(2);
 ExplosionEmitter23.setVariation(0.75);
 ParticleSystem20.setEmitter(ExplosionEmitter23);
@@ -123,34 +116,43 @@ Sphere& Sphere24 =  Sphere();
 ParticleSystem20.setGeometry(&Sphere24);
 
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Material26.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material26.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance25.addChild(&Material26);
 
 ComposedCubeMapTexture& ComposedCubeMapTexture27 =  ComposedCubeMapTexture();
+ComposedCubeMapTexture27.setContainerField("texture");
 ComposedCubeMapTexture27.setDEF(std::string("texture"));
 ImageTexture& ImageTexture28 =  ImageTexture();
+ImageTexture28.setContainerField("backTexture");
 ImageTexture28.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 1);
 ComposedCubeMapTexture27.setBack(ImageTexture28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
+ImageTexture29.setContainerField("bottomTexture");
 ImageTexture29.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 1);
 ComposedCubeMapTexture27.setBottom(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
+ImageTexture30.setContainerField("frontTexture");
 ImageTexture30.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 1);
 ComposedCubeMapTexture27.setFront(ImageTexture30);
 
 ImageTexture& ImageTexture31 =  ImageTexture();
+ImageTexture31.setContainerField("leftTexture");
 ImageTexture31.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 1);
 ComposedCubeMapTexture27.setLeft(ImageTexture31);
 
 ImageTexture& ImageTexture32 =  ImageTexture();
+ImageTexture32.setContainerField("rightTexture");
 ImageTexture32.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 1);
 ComposedCubeMapTexture27.setRight(ImageTexture32);
 
 ImageTexture& ImageTexture33 =  ImageTexture();
+ImageTexture33.setContainerField("topTexture");
 ImageTexture33.setUrl((std::string[]){"https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 1);
 ComposedCubeMapTexture27.setTop(ImageTexture33);
 
@@ -238,4 +240,4 @@ Scene14.addChild(&Transform19);
 
 X3D0.setScene(&Scene14);
 
-//}
+}

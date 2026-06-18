@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int HAnimPoseExample(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.1"));
@@ -146,12 +138,13 @@ HAnimPose& HAnimPose27 =  HAnimPose();
 HAnimPose27.X3DNode::setName(std::string("T"));
 HAnimPose27.setDEF(std::string("T_Pose"));
 HAnimPose27.setDescription(std::string("arms stretched outward and level similar to letter T"));
-HAnimPose27.setLoa(std::string("1"));
-HAnimPose27.setTransitionDuration(std::string("1.3"));
+HAnimPose27.setLoa(1);
+HAnimPose27.setTransitionDuration(1.3);
 MetadataString& MetadataString28 =  MetadataString();
+MetadataString28.setContainerField("metadata");
 MetadataString28.X3DNode::setName(std::string("metadataTest"));
 MetadataString28.setValue((std::string[]){"hello HAnimPose metadata"}, 1);
-HAnimPose27.setMetadataString(MetadataString28);
+HAnimPose27.setMetadata(&MetadataString28);
 
 //test case for illegal child triggers validation reports without problem: HAnimSegment DEF='TestCase' description='confirm type checking' name='specialTestCase'/
 HAnimJoint& HAnimJoint29 =  HAnimJoint();
@@ -159,173 +152,173 @@ HAnimJoint29.X3DNode::setName(std::string("l_shoulder"));
 HAnimJoint29.setDEF(std::string("PoseJoint_l_shoulder_1"));
 HAnimJoint29.setDescription(std::string("left shoulder"));
 HAnimJoint29.setRotation(new float[]{0.0,0.0,1.0,1.57});
-HAnimPose27.addHAnimJoint(HAnimJoint29);
+HAnimPose27.addChildren(&HAnimJoint29);
 
 HAnimJoint& HAnimJoint30 =  HAnimJoint();
 HAnimJoint30.X3DNode::setName(std::string("r_shoulder"));
 HAnimJoint30.setDEF(std::string("PoseJoint_r_shoulder_1"));
 HAnimJoint30.setDescription(std::string("right shoulder"));
 HAnimJoint30.setRotation(new float[]{0.0,0.0,-1.0,1.57});
-HAnimPose27.addHAnimJoint(HAnimJoint30);
+HAnimPose27.addChildren(&HAnimJoint30);
 
-Scene17.addHAnimPose(HAnimPose27);
+Scene17.addChild(&HAnimPose27);
 
 HAnimPose& HAnimPose31 =  HAnimPose();
 HAnimPose31.X3DNode::setName(std::string("A"));
 HAnimPose31.setDEF(std::string("A_Pose"));
 HAnimPose31.setDescription(std::string("arms stretched outward and downward similar to letter A"));
-HAnimPose31.setLoa(std::string("1"));
-HAnimPose31.setTransitionDuration(std::string("1.2"));
+HAnimPose31.setLoa(1);
+HAnimPose31.setTransitionDuration(1.2);
 HAnimJoint& HAnimJoint32 =  HAnimJoint();
 HAnimJoint32.X3DNode::setName(std::string("l_shoulder"));
 HAnimJoint32.setDEF(std::string("PoseJoint_l_shoulder"));
 HAnimJoint32.setDescription(std::string("left shoulder"));
 HAnimJoint32.setRotation(new float[]{0.0,0.0,1.0,0.5});
-HAnimPose31.setHAnimJoint(HAnimJoint32);
+HAnimPose31.addChildren(&HAnimJoint32);
 
 HAnimJoint& HAnimJoint33 =  HAnimJoint();
 HAnimJoint33.X3DNode::setName(std::string("r_shoulder"));
 HAnimJoint33.setDEF(std::string("PoseJoint_r_shoulder"));
 HAnimJoint33.setDescription(std::string("right shoulder"));
 HAnimJoint33.setRotation(new float[]{0.0,0.0,-1.0,0.5});
-HAnimPose31.addHAnimJoint(HAnimJoint33);
+HAnimPose31.addChildren(&HAnimJoint33);
 
-Scene17.addHAnimPose(HAnimPose31);
+Scene17.addChild(&HAnimPose31);
 
 HAnimPose& HAnimPose34 =  HAnimPose();
 HAnimPose34.X3DNode::setName(std::string("TouchDown"));
 HAnimPose34.setDEF(std::string("TouchDown_Pose"));
 HAnimPose34.setDescription(std::string("arms and legs stretched outward providing a TouchDown gesture"));
-HAnimPose34.setLoa(std::string("1"));
-HAnimPose34.setTransitionDuration(std::string("1.2"));
+HAnimPose34.setLoa(1);
+HAnimPose34.setTransitionDuration(1.2);
 HAnimJoint& HAnimJoint35 =  HAnimJoint();
 HAnimJoint35.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint35.setRotation(new float[]{0.0,1.0,0.0,-0.698132});
-HAnimPose34.setHAnimJoint(HAnimJoint35);
+HAnimPose34.addChildren(&HAnimJoint35);
 
 HAnimJoint& HAnimJoint36 =  HAnimJoint();
 HAnimJoint36.X3DNode::setName(std::string("l_hip"));
 HAnimJoint36.setRotation(new float[]{-1.0,1.0,1.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint36);
+HAnimPose34.addChildren(&HAnimJoint36);
 
 HAnimJoint& HAnimJoint37 =  HAnimJoint();
 HAnimJoint37.X3DNode::setName(std::string("l_knee"));
 HAnimJoint37.setRotation(new float[]{1.0,0.0,0.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint37);
+HAnimPose34.addChildren(&HAnimJoint37);
 
 HAnimJoint& HAnimJoint38 =  HAnimJoint();
 HAnimJoint38.X3DNode::setName(std::string("l_talocrural"));
 HAnimJoint38.setRotation(new float[]{-0.2,0.0,0.1,0.225});
-HAnimPose34.addHAnimJoint(HAnimJoint38);
+HAnimPose34.addChildren(&HAnimJoint38);
 
 HAnimJoint& HAnimJoint39 =  HAnimJoint();
 HAnimJoint39.X3DNode::setName(std::string("r_hip"));
 HAnimJoint39.setRotation(new float[]{-1.0,-1.0,-1.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint39);
+HAnimPose34.addChildren(&HAnimJoint39);
 
 HAnimJoint& HAnimJoint40 =  HAnimJoint();
 HAnimJoint40.X3DNode::setName(std::string("r_knee"));
 HAnimJoint40.setRotation(new float[]{1.0,0.0,0.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint40);
+HAnimPose34.addChildren(&HAnimJoint40);
 
 HAnimJoint& HAnimJoint41 =  HAnimJoint();
 HAnimJoint41.X3DNode::setName(std::string("r_talocrural"));
 HAnimJoint41.setRotation(new float[]{-0.2,0.0,0.1,0.25});
-HAnimPose34.addHAnimJoint(HAnimJoint41);
+HAnimPose34.addChildren(&HAnimJoint41);
 
 HAnimJoint& HAnimJoint42 =  HAnimJoint();
 HAnimJoint42.X3DNode::setName(std::string("vl5"));
 HAnimJoint42.setRotation(new float[]{0.0,0.0,0.01,0.2});
-HAnimPose34.addHAnimJoint(HAnimJoint42);
+HAnimPose34.addChildren(&HAnimJoint42);
 
 HAnimJoint& HAnimJoint43 =  HAnimJoint();
 HAnimJoint43.X3DNode::setName(std::string("vt10"));
 HAnimJoint43.setRotation(new float[]{0.0,0.0,0.01,0.1});
-HAnimPose34.addHAnimJoint(HAnimJoint43);
+HAnimPose34.addChildren(&HAnimJoint43);
 
 HAnimJoint& HAnimJoint44 =  HAnimJoint();
 HAnimJoint44.X3DNode::setName(std::string("vc4"));
 HAnimJoint44.setRotation(new float[]{0.0,0.0,-0.01,0.15});
-HAnimPose34.addHAnimJoint(HAnimJoint44);
+HAnimPose34.addChildren(&HAnimJoint44);
 
 HAnimJoint& HAnimJoint45 =  HAnimJoint();
 HAnimJoint45.X3DNode::setName(std::string("l_shoulder"));
 HAnimJoint45.setRotation(new float[]{-1.0,0.5,1.0,2.0});
-HAnimPose34.addHAnimJoint(HAnimJoint45);
+HAnimPose34.addChildren(&HAnimJoint45);
 
 HAnimJoint& HAnimJoint46 =  HAnimJoint();
 HAnimJoint46.X3DNode::setName(std::string("l_elbow"));
 HAnimJoint46.setRotation(new float[]{-1.0,0.0,0.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint46);
+HAnimPose34.addChildren(&HAnimJoint46);
 
 HAnimJoint& HAnimJoint47 =  HAnimJoint();
 HAnimJoint47.X3DNode::setName(std::string("l_radiocarpal"));
-HAnimPose34.addHAnimJoint(HAnimJoint47);
+HAnimPose34.addChildren(&HAnimJoint47);
 
 HAnimJoint& HAnimJoint48 =  HAnimJoint();
 HAnimJoint48.X3DNode::setName(std::string("r_shoulder"));
 HAnimJoint48.setRotation(new float[]{-1.0,-0.5,-1.0,2.6});
-HAnimPose34.addHAnimJoint(HAnimJoint48);
+HAnimPose34.addChildren(&HAnimJoint48);
 
 HAnimJoint& HAnimJoint49 =  HAnimJoint();
 HAnimJoint49.X3DNode::setName(std::string("r_elbow"));
 HAnimJoint49.setRotation(new float[]{-1.0,0.0,0.0,1.0});
-HAnimPose34.addHAnimJoint(HAnimJoint49);
+HAnimPose34.addChildren(&HAnimJoint49);
 
 HAnimJoint& HAnimJoint50 =  HAnimJoint();
 HAnimJoint50.X3DNode::setName(std::string("r_radiocarpal"));
-HAnimPose34.addHAnimJoint(HAnimJoint50);
+HAnimPose34.addChildren(&HAnimJoint50);
 
-Scene17.addHAnimPose(HAnimPose34);
+Scene17.addChild(&HAnimPose34);
 
 HAnimPose& HAnimPose51 =  HAnimPose();
 HAnimPose51.X3DNode::setName(std::string("I"));
 HAnimPose51.setDEF(std::string("I_Pose"));
 HAnimPose51.setDescription(std::string("arms and legs straight down default binding pose for baseline Humanoid"));
-HAnimPose51.setLoa(std::string("1"));
-HAnimPose51.setTransitionDuration(std::string("1.5"));
+HAnimPose51.setLoa(1);
+HAnimPose51.setTransitionDuration(1.5);
 //not defining any poseJoint HAnimJoint nodes equals the default \"I\" pose
-Scene17.addHAnimPose(HAnimPose51);
+Scene17.addChild(&HAnimPose51);
 
 HAnimPose& HAnimPose52 =  HAnimPose();
 HAnimPose52.X3DNode::setName(std::string("H"));
 HAnimPose52.setDEF(std::string("H_Pose"));
 HAnimPose52.setDescription(std::string("TODO experimental pose not yet implemented"));
-HAnimPose52.setEnabled(std::string("false"));
-HAnimPose52.setTransitionDuration(std::string("1.4"));
-HAnimPose52.setLoa(std::string("-1"));
+HAnimPose52.setEnabled(false);
+HAnimPose52.setTransitionDuration(1.4);
+HAnimPose52.setLoa(-1);
 //TODO define poseJoint HAnimJoint nodes
-Scene17.addHAnimPose(HAnimPose52);
+Scene17.addChild(&HAnimPose52);
 
 HAnimPose& HAnimPose53 =  HAnimPose();
 HAnimPose53.X3DNode::setName(std::string("FaceLeft"));
 HAnimPose53.setDEF(std::string("FaceLeft_Pose"));
 HAnimPose53.setDescription(std::string("Only modify humanoid_root Joint node to face left"));
-HAnimPose53.setLoa(std::string("0"));
-HAnimPose53.setTransitionDuration(std::string("1.1"));
+HAnimPose53.setLoa(0);
+HAnimPose53.setTransitionDuration(1.1);
 HAnimJoint& HAnimJoint54 =  HAnimJoint();
 HAnimJoint54.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint54.setDEF(std::string("FaceLeft_humanoid_root"));
 HAnimJoint54.setDescription(std::string("Only rotate the model"));
 HAnimJoint54.setRotation(new float[]{0.0,1.0,0.0,1.570796});
-HAnimPose53.setHAnimJoint(HAnimJoint54);
+HAnimPose53.addChildren(&HAnimJoint54);
 
-Scene17.addHAnimPose(HAnimPose53);
+Scene17.addChild(&HAnimPose53);
 
 HAnimPose& HAnimPose55 =  HAnimPose();
 HAnimPose55.X3DNode::setName(std::string("FaceRight"));
 HAnimPose55.setDEF(std::string("FaceRight_Pose"));
 HAnimPose55.setDescription(std::string("Only modify humanoid_root Joint node to face right"));
-HAnimPose55.setLoa(std::string("0"));
-HAnimPose55.setTransitionDuration(std::string("1.1"));
+HAnimPose55.setLoa(0);
+HAnimPose55.setTransitionDuration(1.1);
 HAnimJoint& HAnimJoint56 =  HAnimJoint();
 HAnimJoint56.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint56.setDEF(std::string("FaceRight_humanoid_root"));
 HAnimJoint56.setDescription(std::string("Only rotate the model"));
 HAnimJoint56.setRotation(new float[]{0.0,1.0,0.0,-1.570796});
-HAnimPose55.setHAnimJoint(HAnimJoint56);
+HAnimPose55.addChildren(&HAnimJoint56);
 
-Scene17.addHAnimPose(HAnimPose55);
+Scene17.addChild(&HAnimPose55);
 
 Group& Group57 =  Group();
 Group57.setDEF(std::string("InterfaceButtonsGroup"));
@@ -336,6 +329,7 @@ Shape& Shape59 =  Shape();
 Text& Text60 =  Text();
 Text60.setString((std::string[]){"HAnimPosePrototype example implementation"}, 1);
 CFontStyle& FontStyle61 =  CFontStyle();
+FontStyle61.setContainerField("fontStyle");
 FontStyle61.setDEF(std::string("HeaderFont"));
 FontStyle61.setFamily((std::string[]){"SANS"}, 1);
 FontStyle61.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -346,8 +340,10 @@ Text60.setFontStyle(&FontStyle61);
 Shape59.setGeometry(&Text60);
 
 Appearance& Appearance62 =  Appearance();
+Appearance62.setContainerField("appearance");
 Appearance62.setDEF(std::string("PoseTextAppearance"));
 Material& Material63 =  Material();
+Material63.setContainerField("material");
 Material63.setDiffuseColor(new float[]{0.1,0.5,0.3});
 Appearance62.addChild(&Material63);
 
@@ -364,6 +360,7 @@ Shape& Shape65 =  Shape();
 Text& Text66 =  Text();
 Text66.setString((std::string[]){"\"T\" Pose"}, 1);
 CFontStyle& FontStyle67 =  CFontStyle();
+FontStyle67.setContainerField("fontStyle");
 FontStyle67.setDEF(std::string("SharedFont"));
 FontStyle67.setFamily((std::string[]){"SANS"}, 1);
 FontStyle67.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -374,6 +371,7 @@ Text66.setFontStyle(&FontStyle67);
 Shape65.setGeometry(&Text66);
 
 Appearance& Appearance68 =  Appearance();
+Appearance68.setContainerField("appearance");
 Appearance68.setUSE(std::string("PoseTextAppearance"));
 Shape65.addChild(&Appearance68);
 
@@ -381,8 +379,10 @@ Transform64.addChild(&Shape65);
 
 Shape& Shape69 =  Shape();
 Appearance& Appearance70 =  Appearance();
+Appearance70.setContainerField("appearance");
 Appearance70.setDEF(std::string("TransparentAppearance"));
 Material& Material71 =  Material();
+Material71.setContainerField("material");
 Material71.setTransparency(0.8);
 Appearance70.addChild(&Material71);
 
@@ -415,12 +415,14 @@ Shape& Shape76 =  Shape();
 Text& Text77 =  Text();
 Text77.setString((std::string[]){"\"A\" Pose"}, 1);
 CFontStyle& FontStyle78 =  CFontStyle();
+FontStyle78.setContainerField("fontStyle");
 FontStyle78.setUSE(std::string("SharedFont"));
 Text77.setFontStyle(&FontStyle78);
 
 Shape76.setGeometry(&Text77);
 
 Appearance& Appearance79 =  Appearance();
+Appearance79.setContainerField("appearance");
 Appearance79.setUSE(std::string("PoseTextAppearance"));
 Shape76.addChild(&Appearance79);
 
@@ -429,6 +431,7 @@ Transform75.addChild(&Shape76);
 Shape& Shape80 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance81 =  Appearance();
+Appearance81.setContainerField("appearance");
 Appearance81.setUSE(std::string("TransparentAppearance"));
 Shape80.addChild(&Appearance81);
 
@@ -459,12 +462,14 @@ Shape& Shape86 =  Shape();
 Text& Text87 =  Text();
 Text87.setString((std::string[]){"TouchDown Pose"}, 1);
 CFontStyle& FontStyle88 =  CFontStyle();
+FontStyle88.setContainerField("fontStyle");
 FontStyle88.setUSE(std::string("SharedFont"));
 Text87.setFontStyle(&FontStyle88);
 
 Shape86.setGeometry(&Text87);
 
 Appearance& Appearance89 =  Appearance();
+Appearance89.setContainerField("appearance");
 Appearance89.setUSE(std::string("PoseTextAppearance"));
 Shape86.addChild(&Appearance89);
 
@@ -473,6 +478,7 @@ Transform85.addChild(&Shape86);
 Shape& Shape90 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance91 =  Appearance();
+Appearance91.setContainerField("appearance");
 Appearance91.setUSE(std::string("TransparentAppearance"));
 Shape90.addChild(&Appearance91);
 
@@ -503,12 +509,14 @@ Shape& Shape96 =  Shape();
 Text& Text97 =  Text();
 Text97.setString((std::string[]){"\"I\" Pose"}, 1);
 CFontStyle& FontStyle98 =  CFontStyle();
+FontStyle98.setContainerField("fontStyle");
 FontStyle98.setUSE(std::string("SharedFont"));
 Text97.setFontStyle(&FontStyle98);
 
 Shape96.setGeometry(&Text97);
 
 Appearance& Appearance99 =  Appearance();
+Appearance99.setContainerField("appearance");
 Appearance99.setUSE(std::string("PoseTextAppearance"));
 Shape96.addChild(&Appearance99);
 
@@ -517,6 +525,7 @@ Transform95.addChild(&Shape96);
 Shape& Shape100 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance101 =  Appearance();
+Appearance101.setContainerField("appearance");
 Appearance101.setUSE(std::string("TransparentAppearance"));
 Shape100.addChild(&Appearance101);
 
@@ -547,12 +556,14 @@ Shape& Shape106 =  Shape();
 Text& Text107 =  Text();
 Text107.setString((std::string[]){"Face Left Pose"}, 1);
 CFontStyle& FontStyle108 =  CFontStyle();
+FontStyle108.setContainerField("fontStyle");
 FontStyle108.setUSE(std::string("SharedFont"));
 Text107.setFontStyle(&FontStyle108);
 
 Shape106.setGeometry(&Text107);
 
 Appearance& Appearance109 =  Appearance();
+Appearance109.setContainerField("appearance");
 Appearance109.setUSE(std::string("PoseTextAppearance"));
 Shape106.addChild(&Appearance109);
 
@@ -560,6 +571,7 @@ Transform105.addChild(&Shape106);
 
 Shape& Shape110 =  Shape();
 Appearance& Appearance111 =  Appearance();
+Appearance111.setContainerField("appearance");
 Appearance111.setUSE(std::string("TransparentAppearance"));
 Shape110.addChild(&Appearance111);
 
@@ -590,12 +602,14 @@ Shape& Shape116 =  Shape();
 Text& Text117 =  Text();
 Text117.setString((std::string[]){"Face Right Pose"}, 1);
 CFontStyle& FontStyle118 =  CFontStyle();
+FontStyle118.setContainerField("fontStyle");
 FontStyle118.setUSE(std::string("SharedFont"));
 Text117.setFontStyle(&FontStyle118);
 
 Shape116.setGeometry(&Text117);
 
 Appearance& Appearance119 =  Appearance();
+Appearance119.setContainerField("appearance");
 Appearance119.setUSE(std::string("PoseTextAppearance"));
 Shape116.addChild(&Appearance119);
 
@@ -604,6 +618,7 @@ Transform115.addChild(&Shape116);
 Shape& Shape120 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance121 =  Appearance();
+Appearance121.setContainerField("appearance");
 Appearance121.setUSE(std::string("TransparentAppearance"));
 Shape120.addChild(&Appearance121);
 
@@ -634,14 +649,17 @@ Shape& Shape126 =  Shape();
 Text& Text127 =  Text();
 Text127.setString((std::string[]){"Direct animation", "to, from \"I\" Pose"}, 2);
 CFontStyle& FontStyle128 =  CFontStyle();
+FontStyle128.setContainerField("fontStyle");
 FontStyle128.setUSE(std::string("SharedFont"));
 Text127.setFontStyle(&FontStyle128);
 
 Shape126.setGeometry(&Text127);
 
 Appearance& Appearance129 =  Appearance();
+Appearance129.setContainerField("appearance");
 Appearance129.setDEF(std::string("AnimationTextAppearance"));
 Material& Material130 =  Material();
+Material130.setContainerField("material");
 Material130.setDiffuseColor(new float[]{0.1,0.2,0.3});
 Appearance129.addChild(&Material130);
 
@@ -652,6 +670,7 @@ Transform125.addChild(&Shape126);
 Shape& Shape131 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance132 =  Appearance();
+Appearance132.setContainerField("appearance");
 Appearance132.setUSE(std::string("TransparentAppearance"));
 Shape131.addChild(&Appearance132);
 
@@ -675,8 +694,8 @@ Transform125.addChild(&TimeSensor135);
 
 ScalarInterpolator& ScalarInterpolator136 =  ScalarInterpolator();
 ScalarInterpolator136.setDEF(std::string("AnimatePosesLoopInterpolator"));
-ScalarInterpolator136.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0}, 6);
-ScalarInterpolator136.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0}, 6);
+ScalarInterpolator136.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0});
+ScalarInterpolator136.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0});
 Transform125.addChild(&ScalarInterpolator136);
 
 ROUTE& ROUTE137 =  ROUTE();
@@ -709,12 +728,14 @@ Shape& Shape141 =  Shape();
 Text& Text142 =  Text();
 Text142.setString((std::string[]){"Reset All Joints", "to Default \"I\" Pose"}, 2);
 CFontStyle& FontStyle143 =  CFontStyle();
+FontStyle143.setContainerField("fontStyle");
 FontStyle143.setUSE(std::string("SharedFont"));
 Text142.setFontStyle(&FontStyle143);
 
 Shape141.setGeometry(&Text142);
 
 Appearance& Appearance144 =  Appearance();
+Appearance144.setContainerField("appearance");
 Appearance144.setUSE(std::string("AnimationTextAppearance"));
 Shape141.addChild(&Appearance144);
 
@@ -723,6 +744,7 @@ Transform140.addChild(&Shape141);
 Shape& Shape145 =  Shape();
 //Selectable Text transparent Box for easy user selection
 Appearance& Appearance146 =  Appearance();
+Appearance146.setContainerField("appearance");
 Appearance146.setUSE(std::string("TransparentAppearance"));
 Shape145.addChild(&Appearance146);
 
@@ -807,34 +829,41 @@ HAnimHumanoid158.setInfo((std::string[]){"humanoidVersion=2.0"}, 1);
 HAnimHumanoid158.setVersion(std::string("2.0"));
 HAnimPose& HAnimPose159 =  HAnimPose();
 HAnimPose159.setUSE(std::string("A_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose159);
+HAnimPose159.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose159);
 
 HAnimPose& HAnimPose160 =  HAnimPose();
 HAnimPose160.setUSE(std::string("T_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose160);
+HAnimPose160.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose160);
 
 HAnimPose& HAnimPose161 =  HAnimPose();
 HAnimPose161.setUSE(std::string("I_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose161);
+HAnimPose161.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose161);
 
 HAnimPose& HAnimPose162 =  HAnimPose();
 HAnimPose162.setUSE(std::string("H_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose162);
+HAnimPose162.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose162);
 
 HAnimPose& HAnimPose163 =  HAnimPose();
 HAnimPose163.setUSE(std::string("FaceLeft_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose163);
+HAnimPose163.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose163);
 
 HAnimPose& HAnimPose164 =  HAnimPose();
 HAnimPose164.setUSE(std::string("FaceRight_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose164);
+HAnimPose164.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose164);
 
 HAnimPose& HAnimPose165 =  HAnimPose();
 HAnimPose165.setUSE(std::string("TouchDown_Pose"));
-HAnimHumanoid158.setHAnimPose(HAnimPose165);
+HAnimPose165.setContainerField("children");
+HAnimHumanoid158.setChildren(HAnimPose165);
 
 Scene17.addChild(&HAnimHumanoid158);
 
 X3D0.setScene(&Scene17);
 
-//}
+}

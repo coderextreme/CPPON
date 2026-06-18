@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int SplitChannels(int argc, char ** argv) {
+void SplitChannels(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -85,7 +77,7 @@ WorldInfo15.setTitle(std::string("SplitChannels.x3d"));
 Scene14.addChild(&WorldInfo15);
 
 NavigationInfo& NavigationInfo16 =  NavigationInfo();
-NavigationInfo16.setType((std::string[]){"NONE"}, 1);
+NavigationInfo16.setType(new std::string[]{"NONE"}, 1);
 Scene14.addChild(&NavigationInfo16);
 
 Background& Background17 =  Background();
@@ -106,8 +98,10 @@ Transform20.setRotation(new float[]{1.0,0.0,0.0,-0.5});
 Transform20.setTranslation(new float[]{0.0,40.0,0.0});
 Shape& Shape21 =  Shape();
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Appearance22.setDEF(std::string("audio_emit"));
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material23.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material23.setSpecularColor(new float[]{0.01,0.01,0.01});
@@ -128,15 +122,18 @@ Transform25.setRotation(new float[]{1.0,0.0,0.0,-0.5});
 Transform25.setTranslation(new float[]{-2.7,37.0,0.0});
 Shape& Shape26 =  Shape();
 Appearance& Appearance27 =  Appearance();
+Appearance27.setContainerField("appearance");
 Appearance27.setDEF(std::string("audio_emit2"));
 Material& Material28 =  Material();
+Material28.setContainerField("material");
 Material28.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material28.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material28.setSpecularColor(new float[]{0.01,0.01,0.01});
 Appearance27.addChild(&Material28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
-ImageTexture29.setUrl((std::string[]){"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
+ImageTexture29.setContainerField("texture");
+ImageTexture29.setUrl(new std::string[]{"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
 Appearance27.addChild(&ImageTexture29);
 
 Shape26.addChild(&Appearance27);
@@ -156,7 +153,9 @@ Transform31.setScale(new float[]{10.0,10.0,10.0});
 Transform31.setTranslation(new float[]{0.0,-10.0,0.0});
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setAmbientIntensity(0.0933);
 Material34.setDiffuseColor(new float[]{0.345,0.345,0.882});
 Material34.setShininess(0.51);
@@ -166,10 +165,11 @@ Appearance33.addChild(&Material34);
 Shape32.addChild(&Appearance33);
 
 Text& Text35 =  Text();
-Text35.setString((std::string[]){"Right Channel Volume"}, 1);
+Text35.setString(new std::string[]{"Right Channel Volume"}, 1);
 CFontStyle& FontStyle36 =  CFontStyle();
+FontStyle36.setContainerField("fontStyle");
 FontStyle36.setDEF(std::string("VolumeFontStyle"));
-FontStyle36.setFamily((std::string[]){"Times", "SERIF"}, 2);
+FontStyle36.setFamily(new std::string[]{"Times", "SERIF"}, 2);
 FontStyle36.setStyle(std::string("BOLD"));
 Text35.setFontStyle(&FontStyle36);
 
@@ -189,8 +189,10 @@ Transform38.setRotation(new float[]{1.0,0.0,0.0,-0.5});
 Transform38.setTranslation(new float[]{0.0,40.0,0.0});
 Shape& Shape39 =  Shape();
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Appearance40.setDEF(std::string("audio_emit3"));
 Material& Material41 =  Material();
+Material41.setContainerField("material");
 Material41.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material41.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material41.setSpecularColor(new float[]{0.01,0.01,0.01});
@@ -211,15 +213,18 @@ Transform43.setRotation(new float[]{1.0,0.0,0.0,-0.5});
 Transform43.setTranslation(new float[]{13.2,37.0,0.0});
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
+Appearance45.setContainerField("appearance");
 Appearance45.setDEF(std::string("audio_emit4"));
 Material& Material46 =  Material();
+Material46.setContainerField("material");
 Material46.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material46.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material46.setSpecularColor(new float[]{0.01,0.01,0.01});
 Appearance45.addChild(&Material46);
 
 ImageTexture& ImageTexture47 =  ImageTexture();
-ImageTexture47.setUrl((std::string[]){"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
+ImageTexture47.setContainerField("texture");
+ImageTexture47.setUrl(new std::string[]{"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
 Appearance45.addChild(&ImageTexture47);
 
 Shape44.addChild(&Appearance45);
@@ -239,7 +244,9 @@ Transform49.setScale(new float[]{10.0,10.0,10.0});
 Transform49.setTranslation(new float[]{0.0,-10.0,0.0});
 Shape& Shape50 =  Shape();
 Appearance& Appearance51 =  Appearance();
+Appearance51.setContainerField("appearance");
 Material& Material52 =  Material();
+Material52.setContainerField("material");
 Material52.setAmbientIntensity(0.0933);
 Material52.setDiffuseColor(new float[]{0.345,0.345,0.882});
 Material52.setShininess(0.51);
@@ -249,8 +256,9 @@ Appearance51.addChild(&Material52);
 Shape50.addChild(&Appearance51);
 
 Text& Text53 =  Text();
-Text53.setString((std::string[]){"Left Channel Volume"}, 1);
+Text53.setString(new std::string[]{"Left Channel Volume"}, 1);
 CFontStyle& FontStyle54 =  CFontStyle();
+FontStyle54.setContainerField("fontStyle");
 FontStyle54.setUSE(std::string("VolumeFontStyle"));
 Text53.setFontStyle(&FontStyle54);
 
@@ -265,8 +273,10 @@ Scene14.addChild(&Transform37);
 Transform& Transform55 =  Transform();
 Shape& Shape56 =  Shape();
 Appearance& Appearance57 =  Appearance();
+Appearance57.setContainerField("appearance");
 Appearance57.setDEF(std::string("floor"));
 Material& Material58 =  Material();
+Material58.setContainerField("material");
 Material58.setDiffuseColor(new float[]{0.1,0.1,0.1});
 Material58.setShininess(0.8);
 Material58.setSpecularColor(new float[]{0.5,0.6,0.7});
@@ -315,7 +325,7 @@ ChannelSplitter68.setDEF(std::string("ChannelSplitter"));
 ChannelSplitter68.setChannelCountMode(std::string("EXPLICIT"));
 AudioClip& AudioClip69 =  AudioClip();
 AudioClip69.setDescription(std::string("Violin"));
-AudioClip69.setUrl((std::string[]){"sound/violin.mp3", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
+AudioClip69.setUrl(new std::string[]{"sound/violin.mp3", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
 ChannelSplitter68.addOutputs(AudioClip69);
 
 Scene14.addChild(&ChannelSplitter68);
@@ -326,15 +336,18 @@ Transform70.setRotation(new float[]{1.0,0.0,0.0,-0.5});
 Transform70.setTranslation(new float[]{0.0,100.0,0.0});
 Shape& Shape71 =  Shape();
 Appearance& Appearance72 =  Appearance();
+Appearance72.setContainerField("appearance");
 Appearance72.setDEF(std::string("audio_emit5"));
 Material& Material73 =  Material();
+Material73.setContainerField("material");
 Material73.setDiffuseColor(new float[]{0.3,1.0,0.3});
 Material73.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material73.setSpecularColor(new float[]{0.01,0.01,0.01});
 Appearance72.addChild(&Material73);
 
 ImageTexture& ImageTexture74 =  ImageTexture();
-ImageTexture74.setUrl((std::string[]){"images/loudspeaker.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/loudspeaker.png"}, 2);
+ImageTexture74.setContainerField("texture");
+ImageTexture74.setUrl(new std::string[]{"images/loudspeaker.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/loudspeaker.png"}, 2);
 Appearance72.addChild(&ImageTexture74);
 
 Shape71.addChild(&Appearance72);

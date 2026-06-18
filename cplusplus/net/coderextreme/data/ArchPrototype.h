@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ArchPrototype(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -216,7 +208,9 @@ IndexedFaceSet33.setCoord(&Coordinate34);
 Shape32.setGeometry(&IndexedFaceSet33);
 
 Appearance& Appearance35 =  Appearance();
+Appearance35.setContainerField("appearance");
 Material& Material36 =  Material();
+Material36.setContainerField("material");
 Material36.setDEF(std::string("MaterialNode"));
 IS& IS37 =  IS();
 Connect& connect38 =  Connect();
@@ -496,4 +490,4 @@ Scene13.addChild(&Inline81);
 
 X3D0.setScene(&Scene13);
 
-//}
+}

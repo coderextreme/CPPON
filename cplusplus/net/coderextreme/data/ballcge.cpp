@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ballcge(int argc, char ** argv) {
+void ballcge(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -86,7 +78,7 @@ Scene14.addChild(&WorldInfo15);
 
 NavigationInfo& NavigationInfo16 =  NavigationInfo();
 NavigationInfo16.setAvatarSize(new float[]{0.25,1.60000002384186,0.75}, 3);
-NavigationInfo16.setType((std::string[]){"ANY", "EXAMINE", "FLY", "LOOKAT"}, 4);
+NavigationInfo16.setType(new std::string[]{"ANY", "EXAMINE", "FLY", "LOOKAT"}, 4);
 Scene14.addChild(&NavigationInfo16);
 
 Viewpoint& Viewpoint17 =  Viewpoint();
@@ -95,12 +87,12 @@ Viewpoint17.setDescription(std::string("Tour Views"));
 Scene14.addChild(&Viewpoint17);
 
 Background& Background18 =  Background();
-Background18.setTopUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 1);
-Background18.setBackUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 1);
-Background18.setLeftUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 1);
-Background18.setFrontUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 1);
-Background18.setRightUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 1);
-Background18.setBottomUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 1);
+Background18.setTopUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 1);
+Background18.setBackUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 1);
+Background18.setLeftUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 1);
+Background18.setFrontUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 1);
+Background18.setRightUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 1);
+Background18.setBottomUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 1);
 Scene14.addChild(&Background18);
 
 Transform& Transform19 =  Transform();
@@ -109,7 +101,9 @@ Sphere& Sphere21 =  Sphere();
 Shape20.setGeometry(&Sphere21);
 
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDiffuseColor(new float[]{0.699999988079071,0.699999988079071,0.699999988079071});
 Material23.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance22.addChild(&Material23);
@@ -129,27 +123,33 @@ field26.setAccessType(std::string("initializeOnly"));
 field26.setType(std::string("SFNode"));
 ComposedCubeMapTexture& ComposedCubeMapTexture27 =  ComposedCubeMapTexture();
 ImageTexture& ImageTexture28 =  ImageTexture();
-ImageTexture28.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 1);
+ImageTexture28.setContainerField("backTexture");
+ImageTexture28.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 1);
 ComposedCubeMapTexture27.setBack(ImageTexture28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
-ImageTexture29.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 1);
+ImageTexture29.setContainerField("bottomTexture");
+ImageTexture29.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 1);
 ComposedCubeMapTexture27.setBottom(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
-ImageTexture30.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 1);
+ImageTexture30.setContainerField("frontTexture");
+ImageTexture30.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 1);
 ComposedCubeMapTexture27.setFront(ImageTexture30);
 
 ImageTexture& ImageTexture31 =  ImageTexture();
-ImageTexture31.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 1);
+ImageTexture31.setContainerField("leftTexture");
+ImageTexture31.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 1);
 ComposedCubeMapTexture27.setLeft(ImageTexture31);
 
 ImageTexture& ImageTexture32 =  ImageTexture();
-ImageTexture32.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 1);
+ImageTexture32.setContainerField("rightTexture");
+ImageTexture32.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 1);
 ComposedCubeMapTexture27.setRight(ImageTexture32);
 
 ImageTexture& ImageTexture33 =  ImageTexture();
-ImageTexture33.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 1);
+ImageTexture33.setContainerField("topTexture");
+ImageTexture33.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 1);
 ComposedCubeMapTexture27.setTop(ImageTexture33);
 
 field26.addChild(&ComposedCubeMapTexture27);
@@ -178,13 +178,13 @@ field36.setValue(std::string("2"));
 ComposedShader24.addChild(&field36);
 
 ShaderPart& ShaderPart37 =  ShaderPart();
-ShaderPart37.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/shaders/castle.vs"}, 1);
+ShaderPart37.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/shaders/castle.vs"}, 1);
 ShaderPart37.setType(std::string("VERTEX"));
 ComposedShader24.setParts(&ShaderPart37);
 
 ShaderPart& ShaderPart38 =  ShaderPart();
 ShaderPart38.setDEF(std::string("commonfs"));
-ShaderPart38.setUrl((std::string[]){"file:/C:/Users/jcarl/X3DJSONLD/src/main/shaders/castle.fs"}, 1);
+ShaderPart38.setUrl(new std::string[]{"file:/C:/Users/jcarl/X3DJSONLD/src/main/shaders/castle.fs"}, 1);
 ShaderPart38.setType(std::string("FRAGMENT"));
 ComposedShader24.setParts(&ShaderPart38);
 

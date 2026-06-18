@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int RotationTests(int argc, char ** argv) {
+void RotationTests(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -113,7 +105,9 @@ Box21.setSize(new float[]{0.5,0.5,0.5});
 Shape20.setGeometry(&Box21);
 
 Appearance& Appearance22 =  Appearance();
+Appearance22.setContainerField("appearance");
 Material& Material23 =  Material();
+Material23.setContainerField("material");
 Material23.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance22.addChild(&Material23);
 
@@ -132,7 +126,8 @@ Coordinate& Coordinate26 =  Coordinate();
 Coordinate26.setPoint(new float[]{0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0}, 12);
 IndexedLineSet25.setCoord(&Coordinate26);
 
-CColor& Color27 =  CColor();
+Color& Color27 =  Color();
+Color27.setContainerField("color");
 Color27.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet25.setColor(&Color27);
 

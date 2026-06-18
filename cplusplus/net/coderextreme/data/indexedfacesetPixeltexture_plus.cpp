@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int indexedfacesetPixeltexture_plus(int argc, char ** argv) {
+void indexedfacesetPixeltexture_plus(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -155,18 +147,22 @@ Viewpoint28.setPosition(new float[]{-10.0,0.0,0.0});
 Scene22.addChild(&Viewpoint28);
 
 NavigationInfo& NavigationInfo29 =  NavigationInfo();
-NavigationInfo29.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo29.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene22.addChild(&NavigationInfo29);
 
 //<Environment id=\"gamma\" gammaCorrectionDefault=\"none\"></Environment>
 Shape& Shape30 =  Shape();
 Appearance& Appearance31 =  Appearance();
+Appearance31.setContainerField("appearance");
 Material& Material32 =  Material();
+Material32.setContainerField("material");
 Appearance31.addChild(&Material32);
 
 PixelTexture& PixelTexture33 =  PixelTexture();
+PixelTexture33.setContainerField("texture");
 PixelTexture33.setImage(std::string("2 2 4 4278190335 16711935 4294967295 4294902015"));
 TextureProperties& TextureProperties34 =  TextureProperties();
+TextureProperties34.setContainerField("textureProperties");
 TextureProperties34.setMagnificationFilter(std::string("NEAREST_PIXEL"));
 PixelTexture33.setTextureProperties(TextureProperties34);
 
@@ -179,15 +175,17 @@ IndexedFaceSet35.setColorPerVertex(false);
 IndexedFaceSet35.setCoordIndex(new int32_t[]{0,1,3,2,-1,4,5,7,6,-1,6,7,1,0,-1,2,3,5,4,-1,6,0,2,4,-1,1,7,5,3,-1}, 30);
 IndexedFaceSet35.setCreaseAngle(0.5);
 IndexedFaceSet35.setTexCoordIndex(new int32_t[]{0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1}, 30);
-CColor& Color36 =  CColor();
+Color& Color36 =  Color();
+Color36.setContainerField("color");
 Color36.setColor(new float[]{0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0}, 18);
-IndexedFaceSet35.setColor(&Color36);
+IndexedFaceSet35.setColor(Color36);
 
 Coordinate& Coordinate37 =  Coordinate();
 Coordinate37.setPoint(new float[]{-2.0,1.0,1.0,-2.0,-1.0,1.0,2.0,1.0,1.0,2.0,-1.0,1.0,2.0,1.0,-1.0,2.0,-1.0,-1.0,-2.0,1.0,-1.0,-2.0,-1.0,-1.0}, 24);
 IndexedFaceSet35.setCoord(&Coordinate37);
 
 TextureCoordinate& TextureCoordinate38 =  TextureCoordinate();
+TextureCoordinate38.setContainerField("texCoord");
 TextureCoordinate38.setPoint(new float[]{-1.0,2.0,-1.0,-1.0,2.0,2.0,2.0,-1.0}, 8);
 IndexedFaceSet35.setTexCoord(&TextureCoordinate38);
 

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int bobblespheres(int argc, char ** argv) {
+void bobblespheres(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -69,7 +61,9 @@ Transform& Transform12 =  Transform();
 Transform12.setTranslation(new float[]{0.0,-1000.0,-1.0});
 Shape& Shape13 =  Shape();
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial15 =  PhysicalMaterial();
+PhysicalMaterial15.setContainerField("material");
 PhysicalMaterial15.setBaseColor(new float[]{0.5,0.5,0.5});
 Appearance14.addChild(&PhysicalMaterial15);
 
@@ -87,7 +81,9 @@ Transform& Transform17 =  Transform();
 Transform17.setTranslation(new float[]{0.0,1.0,0.0});
 Shape& Shape18 =  Shape();
 Appearance& Appearance19 =  Appearance();
+Appearance19.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial20 =  PhysicalMaterial();
+PhysicalMaterial20.setContainerField("material");
 PhysicalMaterial20.setBaseColor(new float[]{0.9,0.9,0.9});
 PhysicalMaterial20.setTransmissionFactor("0.9");
 PhysicalMaterial20.setRoughness(0);
@@ -107,7 +103,9 @@ Transform& Transform22 =  Transform();
 Transform22.setTranslation(new float[]{-4.0,1.0,0.0});
 Shape& Shape23 =  Shape();
 Appearance& Appearance24 =  Appearance();
+Appearance24.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial25 =  PhysicalMaterial();
+PhysicalMaterial25.setContainerField("material");
 PhysicalMaterial25.setBaseColor(new float[]{1.0,0.95,0.9});
 PhysicalMaterial25.setTransmissionFactor("0.8");
 PhysicalMaterial25.setRoughness(0.05);
@@ -127,7 +125,9 @@ Transform& Transform27 =  Transform();
 Transform27.setTranslation(new float[]{4.0,1.0,0.0});
 Shape& Shape28 =  Shape();
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial30 =  PhysicalMaterial();
+PhysicalMaterial30.setContainerField("material");
 PhysicalMaterial30.setBaseColor(new float[]{0.7,0.6,0.5});
 PhysicalMaterial30.setRoughness(0.1);
 Appearance29.addChild(&PhysicalMaterial30);
@@ -148,7 +148,9 @@ Transform32.setDEF(std::string("T_0"));
 Transform32.setTranslation(new float[]{-10.871,0.2,-10.453});
 Shape& Shape33 =  Shape();
 Appearance& Appearance34 =  Appearance();
+Appearance34.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial35 =  PhysicalMaterial();
+PhysicalMaterial35.setContainerField("material");
 PhysicalMaterial35.setDEF(std::string("M_0"));
 PhysicalMaterial35.setBaseColor(new float[]{0.627,0.003,0.165});
 Appearance34.addChild(&PhysicalMaterial35);
@@ -279,7 +281,9 @@ Transform52.setDEF(std::string("T_1"));
 Transform52.setTranslation(new float[]{-10.411,0.2,-9.16});
 Shape& Shape53 =  Shape();
 Appearance& Appearance54 =  Appearance();
+Appearance54.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial55 =  PhysicalMaterial();
+PhysicalMaterial55.setContainerField("material");
 PhysicalMaterial55.setDEF(std::string("M_1"));
 PhysicalMaterial55.setBaseColor(new float[]{0.707,0.888,0.536});
 PhysicalMaterial55.setRoughness(0.2);
@@ -378,13 +382,15 @@ Transform68.setDEF(std::string("T_2"));
 Transform68.setTranslation(new float[]{-10.155,0.2,-8.324});
 Shape& Shape69 =  Shape();
 Appearance& Appearance70 =  Appearance();
+Appearance70.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial71 =  PhysicalMaterial();
+PhysicalMaterial71.setContainerField("material");
 PhysicalMaterial71.setTransmissionFactor("0.95");
 PhysicalMaterial71.setRoughness(0.05);
 IORMaterialExtension& IORMaterialExtension72 =  IORMaterialExtension();
-IORMaterialExtension72.setDEF(std::string("IOR_2"));
-IORMaterialExtension72.setIndexOfRefraction(std::string("1.5"));
-PhysicalMaterial71.setIORMaterialExtension(IORMaterialExtension72);
+IORMaterialExtension72.setDEF("IOR_2");
+IORMaterialExtension72.setIndexOfRefraction(1.5);
+PhysicalMaterial71.addExtensions(IORMaterialExtension72);
 
 Appearance70.addChild(&PhysicalMaterial71);
 
@@ -449,16 +455,18 @@ Transform81.setDEF(std::string("T_3"));
 Transform81.setTranslation(new float[]{-10.518,0.2,-7.283});
 Shape& Shape82 =  Shape();
 Appearance& Appearance83 =  Appearance();
+Appearance83.setContainerField("appearance");
 PhysicalMaterial& PhysicalMaterial84 =  PhysicalMaterial();
+PhysicalMaterial84.setContainerField("material");
 PhysicalMaterial84.setTransmissionFactor("0.95");
 PhysicalMaterial84.setRoughness(0.05);
 PhysicalMaterial84.setIndexOfRefraction("1.33");
 IridescenceMaterialExtension& IridescenceMaterialExtension85 =  IridescenceMaterialExtension();
-IridescenceMaterialExtension85.setDEF(std::string("IRI_3"));
-IridescenceMaterialExtension85.setIridescence(std::string("1"));
-IridescenceMaterialExtension85.setIridescenceIndexOfRefraction(std::string("1.3"));
-IridescenceMaterialExtension85.setIridescenceThicknessMinimum(std::string("100"));
-PhysicalMaterial84.setIridescenceMaterialExtension(IridescenceMaterialExtension85);
+IridescenceMaterialExtension85.setDEF("IRI_3");
+IridescenceMaterialExtension85.setIridescence(1);
+IridescenceMaterialExtension85.setIridescenceIndexOfRefraction(1.3);
+IridescenceMaterialExtension85.setIridescenceThicknessMinimum(100);
+PhysicalMaterial84.addExtensions(IridescenceMaterialExtension85);
 
 Appearance83.addChild(&PhysicalMaterial84);
 

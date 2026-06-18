@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int StringArrayEncodingExamples(int argc, char ** argv) {
+void StringArrayEncodingExamples(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -106,18 +98,21 @@ Scene17.addChild(&Background19);
 
 Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
-Text21.setString((std::string[]){"One, Two, Three", "He said, \"Immel did it!\""}, 2);
+Text21.setString(new std::string[]{"One, Two, Three", "He said, \"Immel did it!\""}, 2);
 //alternative XML encoding: Text string='\"One, Two, Three\" \"\" \"He said, \\&quot;Immel did it!\\&quot;\"'
 //alternative Java source: .setString(new String [] {\"One, Two, Three\", \"\", \"He said, \\\"\"Immel did it!\\\"\"\"})
 CFontStyle& FontStyle22 =  CFontStyle();
-FontStyle22.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle22.setContainerField("fontStyle");
+FontStyle22.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle22.setStyle(std::string("BOLD"));
 Text21.setFontStyle(&FontStyle22);
 
 Shape20.setGeometry(&Text21);
 
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Material& Material24 =  Material();
+Material24.setContainerField("material");
 Material24.setDiffuseColor(new float[]{0.6,0.4,0.2});
 Appearance23.addChild(&Material24);
 

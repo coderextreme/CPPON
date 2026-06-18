@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int mirror2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -104,38 +96,47 @@ Scene15.addChild(&Background17);
 Transform& Transform18 =  Transform();
 Shape& Shape19 =  Shape();
 Appearance& Appearance20 =  Appearance();
+Appearance20.setContainerField("appearance");
 Material& Material21 =  Material();
+Material21.setContainerField("material");
 Material21.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material21.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance20.addChild(&Material21);
 
 ComposedCubeMapTexture& ComposedCubeMapTexture22 =  ComposedCubeMapTexture();
+ComposedCubeMapTexture22.setContainerField("texture");
 ImageTexture& ImageTexture23 =  ImageTexture();
+ImageTexture23.setContainerField("backTexture");
 ImageTexture23.setDEF(std::string("backShader"));
 ImageTexture23.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png"}, 2);
 ComposedCubeMapTexture22.setBack(ImageTexture23);
 
 ImageTexture& ImageTexture24 =  ImageTexture();
+ImageTexture24.setContainerField("bottomTexture");
 ImageTexture24.setDEF(std::string("bottomShader"));
 ImageTexture24.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_bottom.png"}, 2);
 ComposedCubeMapTexture22.setBottom(ImageTexture24);
 
 ImageTexture& ImageTexture25 =  ImageTexture();
+ImageTexture25.setContainerField("frontTexture");
 ImageTexture25.setDEF(std::string("frontShader"));
 ImageTexture25.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_front.png"}, 2);
 ComposedCubeMapTexture22.setFront(ImageTexture25);
 
 ImageTexture& ImageTexture26 =  ImageTexture();
+ImageTexture26.setContainerField("leftTexture");
 ImageTexture26.setDEF(std::string("leftShader"));
 ImageTexture26.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_left.png"}, 2);
 ComposedCubeMapTexture22.setLeft(ImageTexture26);
 
 ImageTexture& ImageTexture27 =  ImageTexture();
+ImageTexture27.setContainerField("rightTexture");
 ImageTexture27.setDEF(std::string("rightShader"));
 ImageTexture27.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png"}, 2);
 ComposedCubeMapTexture22.setRight(ImageTexture27);
 
 ImageTexture& ImageTexture28 =  ImageTexture();
+ImageTexture28.setContainerField("topTexture");
 ImageTexture28.setDEF(std::string("topShader"));
 ImageTexture28.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_top.png"}, 2);
 ComposedCubeMapTexture22.setTop(ImageTexture28);
@@ -466,4 +467,4 @@ Scene15.addChild(&Transform18);
 
 X3D0.setScene(&Scene15);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int indexedfacesetPixeltexture_entire(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -131,14 +123,18 @@ Scene16.addChild(&NavigationInfo23);
 //<Environment id=\"gamma\" gammaCorrectionDefault=\"none\"></Environment>
 Shape& Shape24 =  Shape();
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Appearance25.addChild(&Material26);
 
 PixelTexture& PixelTexture27 =  PixelTexture();
+PixelTexture27.setContainerField("texture");
 PixelTexture27.setImage(std::string("2 2 4 4278190335 16711935 4294967295 4294902015"));
 PixelTexture27.setRepeatS(false);
 PixelTexture27.setRepeatT(false);
 TextureProperties& TextureProperties28 =  TextureProperties();
+TextureProperties28.setContainerField("textureProperties");
 TextureProperties28.setMagnificationFilter(std::string("NEAREST_PIXEL"));
 PixelTexture27.setTextureProperties(TextureProperties28);
 
@@ -158,4 +154,4 @@ Scene16.addChild(&Shape24);
 
 X3D0.setScene(&Scene16);
 
-//}
+}

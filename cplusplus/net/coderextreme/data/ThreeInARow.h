@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ThreeInARow(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -63,7 +55,9 @@ Sphere& Sphere12 =  Sphere();
 Shape11.setGeometry(&Sphere12);
 
 Appearance& Appearance13 =  Appearance();
+Appearance13.setContainerField("appearance");
 Material& Material14 =  Material();
+Material14.setContainerField("material");
 Material14.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance13.addChild(&Material14);
 
@@ -90,4 +84,4 @@ Scene7.addChild(&Transform17);
 
 X3D0.setScene(&Scene7);
 
-//}
+}

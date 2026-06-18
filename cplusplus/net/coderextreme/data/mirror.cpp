@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int mirror(int argc, char ** argv) {
+void mirror(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -93,33 +85,39 @@ Scene15.addChild(&Viewpoint16);
 
 TextureBackground& TextureBackground17 =  TextureBackground();
 ImageTexture& ImageTexture18 =  ImageTexture();
+ImageTexture18.setContainerField("leftTexture");
 ImageTexture18.setDEF(std::string("leftBackgroundTexture"));
-ImageTexture18.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_left.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_left.png"}, 2);
+ImageTexture18.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_left.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_left.png"}, 2);
 TextureBackground17.setLeftTexture(ImageTexture18);
 
 ImageTexture& ImageTexture19 =  ImageTexture();
+ImageTexture19.setContainerField("rightTexture");
 ImageTexture19.setDEF(std::string("rightBackgroundTexture"));
-ImageTexture19.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_right.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png"}, 2);
+ImageTexture19.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_right.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png"}, 2);
 TextureBackground17.setRightTexture(ImageTexture19);
 
 ImageTexture& ImageTexture20 =  ImageTexture();
+ImageTexture20.setContainerField("frontTexture");
 ImageTexture20.setDEF(std::string("frontBackgroundTexture"));
-ImageTexture20.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_front.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_front.png"}, 2);
+ImageTexture20.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_front.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_front.png"}, 2);
 TextureBackground17.setFrontTexture(ImageTexture20);
 
 ImageTexture& ImageTexture21 =  ImageTexture();
+ImageTexture21.setContainerField("backTexture");
 ImageTexture21.setDEF(std::string("backBackgroundTexture"));
-ImageTexture21.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_back.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png"}, 2);
+ImageTexture21.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_back.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png"}, 2);
 TextureBackground17.setBackTexture(ImageTexture21);
 
 ImageTexture& ImageTexture22 =  ImageTexture();
+ImageTexture22.setContainerField("topTexture");
 ImageTexture22.setDEF(std::string("topBackgroundTexture"));
-ImageTexture22.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_top.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_top.png"}, 2);
+ImageTexture22.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_top.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_top.png"}, 2);
 TextureBackground17.setTopTexture(ImageTexture22);
 
 ImageTexture& ImageTexture23 =  ImageTexture();
+ImageTexture23.setContainerField("bottomTexture");
 ImageTexture23.setDEF(std::string("bottomBackgroundTexture"));
-ImageTexture23.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_bottom.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_bottom.png"}, 2);
+ImageTexture23.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_bottom.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_bottom.png"}, 2);
 TextureBackground17.setBottomTexture(ImageTexture23);
 
 Scene15.addChild(&TextureBackground17);
@@ -127,40 +125,49 @@ Scene15.addChild(&TextureBackground17);
 Transform& Transform24 =  Transform();
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Material& Material27 =  Material();
+Material27.setContainerField("material");
 Material27.setDiffuseColor(new float[]{0.7,0.7,0.7});
 Material27.setSpecularColor(new float[]{0.5,0.5,0.5});
 Appearance26.addChild(&Material27);
 
 ComposedCubeMapTexture& ComposedCubeMapTexture28 =  ComposedCubeMapTexture();
+ComposedCubeMapTexture28.setContainerField("texture");
 ImageTexture& ImageTexture29 =  ImageTexture();
+ImageTexture29.setContainerField("backTexture");
 ImageTexture29.setDEF(std::string("backShader"));
-ImageTexture29.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_back.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png"}, 2);
+ImageTexture29.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_back.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png"}, 2);
 ComposedCubeMapTexture28.setBack(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
+ImageTexture30.setContainerField("bottomTexture");
 ImageTexture30.setDEF(std::string("bottomShader"));
-ImageTexture30.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_bottom.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_bottom.png"}, 2);
+ImageTexture30.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_bottom.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_bottom.png"}, 2);
 ComposedCubeMapTexture28.setBottom(ImageTexture30);
 
 ImageTexture& ImageTexture31 =  ImageTexture();
+ImageTexture31.setContainerField("frontTexture");
 ImageTexture31.setDEF(std::string("frontShader"));
-ImageTexture31.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_front.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_front.png"}, 2);
+ImageTexture31.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_front.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_front.png"}, 2);
 ComposedCubeMapTexture28.setFront(ImageTexture31);
 
 ImageTexture& ImageTexture32 =  ImageTexture();
+ImageTexture32.setContainerField("leftTexture");
 ImageTexture32.setDEF(std::string("leftShader"));
-ImageTexture32.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_left.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_left.png"}, 2);
+ImageTexture32.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_left.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_left.png"}, 2);
 ComposedCubeMapTexture28.setLeft(ImageTexture32);
 
 ImageTexture& ImageTexture33 =  ImageTexture();
+ImageTexture33.setContainerField("rightTexture");
 ImageTexture33.setDEF(std::string("rightShader"));
-ImageTexture33.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_right.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png"}, 2);
+ImageTexture33.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_right.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png"}, 2);
 ComposedCubeMapTexture28.setRight(ImageTexture33);
 
 ImageTexture& ImageTexture34 =  ImageTexture();
+ImageTexture34.setContainerField("topTexture");
 ImageTexture34.setDEF(std::string("topShader"));
-ImageTexture34.setUrl((std::string[]){"../resources/images/all_probes/beach_cross/beach_top.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_top.png"}, 2);
+ImageTexture34.setUrl(new std::string[]{"../resources/images/all_probes/beach_cross/beach_top.png", "https://coderextrme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_top.png"}, 2);
 ComposedCubeMapTexture28.setTop(ImageTexture34);
 
 Appearance26.addChild(&ComposedCubeMapTexture28);
@@ -204,12 +211,12 @@ field40.setValue(std::string("2"));
 ComposedShader35.addChild(&field40);
 
 ShaderPart& ShaderPart41 =  ShaderPart();
-ShaderPart41.setUrl((std::string[]){"../shaders/x3dom.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs"}, 2);
+ShaderPart41.setUrl(new std::string[]{"../shaders/x3dom.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs"}, 2);
 ShaderPart41.setType(std::string("VERTEX"));
 ComposedShader35.setParts(&ShaderPart41);
 
 ShaderPart& ShaderPart42 =  ShaderPart();
-ShaderPart42.setUrl((std::string[]){"../shaders/mix.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/mix.fs"}, 2);
+ShaderPart42.setUrl(new std::string[]{"../shaders/mix.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/mix.fs"}, 2);
 ShaderPart42.setType(std::string("FRAGMENT"));
 ComposedShader35.setParts(&ShaderPart42);
 
@@ -255,12 +262,12 @@ field48.setValue(std::string("2"));
 ComposedShader43.addChild(&field48);
 
 ShaderPart& ShaderPart49 =  ShaderPart();
-ShaderPart49.setUrl((std::string[]){"../shaders/x_ite.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs"}, 2);
+ShaderPart49.setUrl(new std::string[]{"../shaders/x_ite.vs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs"}, 2);
 ShaderPart49.setType(std::string("VERTEX"));
 ComposedShader43.setParts(&ShaderPart49);
 
 ShaderPart& ShaderPart50 =  ShaderPart();
-ShaderPart50.setUrl((std::string[]){"../shaders/x_itemix.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itemix.fs"}, 2);
+ShaderPart50.setUrl(new std::string[]{"../shaders/x_itemix.fs", "https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itemix.fs"}, 2);
 ShaderPart50.setType(std::string("FRAGMENT"));
 ComposedShader43.setParts(&ShaderPart50);
 

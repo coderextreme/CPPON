@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int bubs3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -72,7 +64,9 @@ Sphere13.setRadius(0.25);
 Shape12.setGeometry(&Sphere13);
 
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material15.setTransparency(0.2);
 Appearance14.addChild(&Material15);
@@ -194,7 +188,9 @@ Sphere28.setRadius(0.25);
 Shape27.setGeometry(&Sphere28);
 
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material30.setTransparency(0.2);
 Appearance29.addChild(&Material30);
@@ -316,7 +312,9 @@ Sphere43.setRadius(0.25);
 Shape42.setGeometry(&Sphere43);
 
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Material& Material45 =  Material();
+Material45.setContainerField("material");
 Material45.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material45.setTransparency(0.2);
 Appearance44.addChild(&Material45);
@@ -438,7 +436,9 @@ Sphere58.setRadius(0.25);
 Shape57.setGeometry(&Sphere58);
 
 Appearance& Appearance59 =  Appearance();
+Appearance59.setContainerField("appearance");
 Material& Material60 =  Material();
+Material60.setContainerField("material");
 Material60.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material60.setTransparency(0.2);
 Appearance59.addChild(&Material60);
@@ -554,4 +554,4 @@ Scene7.addChild(&Transform56);
 
 X3D0.setScene(&Scene7);
 
-//}
+}

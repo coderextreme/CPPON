@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Menu(int argc, char ** argv) {
+void Menu(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -58,7 +50,9 @@ Transform11.addChild(&TouchSensor12);
 
 Shape& Shape13 =  Shape();
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance14.addChild(&Material15);
 
@@ -75,9 +69,10 @@ IS17.addChild(&connect18);
 Text16.addChild(&IS17);
 
 CFontStyle& FontStyle19 =  CFontStyle();
+FontStyle19.setContainerField("fontStyle");
 FontStyle19.setSize(2.4);
 FontStyle19.setSpacing(1.2);
-FontStyle19.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle19.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text16.setFontStyle(&FontStyle19);
 
 Shape13.setGeometry(&Text16);
@@ -86,7 +81,9 @@ Transform11.addChild(&Shape13);
 
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance21.addChild(&Material22);
 
@@ -110,152 +107,152 @@ Switch25.setDEF(std::string("SceneSwitcher"));
 Switch25.setWhichChoice(0);
 Inline& Inline26 =  Inline();
 Inline26.setDEF(std::string("OPTION1"));
-Inline26.setUrl((std::string[]){"../resources/JinInnerBrowRaiser.x3d", "JinInnerBrowRaiser.x3d"}, 2);
+Inline26.setUrl(new std::string[]{"../resources/JinInnerBrowRaiser.x3d", "JinInnerBrowRaiser.x3d"}, 2);
 Switch25.addChild(&Inline26);
 
 Inline& Inline27 =  Inline();
 Inline27.setDEF(std::string("OPTION2"));
-Inline27.setUrl((std::string[]){"../resources/JinOuterBrowRaiser.x3d", "JinOuterBrowRaiser.x3d"}, 2);
+Inline27.setUrl(new std::string[]{"../resources/JinOuterBrowRaiser.x3d", "JinOuterBrowRaiser.x3d"}, 2);
 Switch25.addChild(&Inline27);
 
 Inline& Inline28 =  Inline();
 Inline28.setDEF(std::string("OPTION3"));
-Inline28.setUrl((std::string[]){"../resources/JinBrowLowerer.x3d", "JinBrowLowerer.x3d"}, 2);
+Inline28.setUrl(new std::string[]{"../resources/JinBrowLowerer.x3d", "JinBrowLowerer.x3d"}, 2);
 Switch25.addChild(&Inline28);
 
 Inline& Inline29 =  Inline();
 Inline29.setDEF(std::string("OPTION4"));
-Inline29.setUrl((std::string[]){"../resources/JinUpperLidRaiser.x3d", "JinUpperLidRaiser.x3d"}, 2);
+Inline29.setUrl(new std::string[]{"../resources/JinUpperLidRaiser.x3d", "JinUpperLidRaiser.x3d"}, 2);
 Switch25.addChild(&Inline29);
 
 Inline& Inline30 =  Inline();
 Inline30.setDEF(std::string("OPTION5"));
-Inline30.setUrl((std::string[]){"../resources/JinCheekRaiser.x3d", "JinCheekRaiser.x3d"}, 2);
+Inline30.setUrl(new std::string[]{"../resources/JinCheekRaiser.x3d", "JinCheekRaiser.x3d"}, 2);
 Switch25.addChild(&Inline30);
 
 Inline& Inline31 =  Inline();
 Inline31.setDEF(std::string("OPTION6"));
-Inline31.setUrl((std::string[]){"../resources/JinLidTightener.x3d", "JinLidTightener.x3d"}, 2);
+Inline31.setUrl(new std::string[]{"../resources/JinLidTightener.x3d", "JinLidTightener.x3d"}, 2);
 Switch25.addChild(&Inline31);
 
 Inline& Inline32 =  Inline();
 Inline32.setDEF(std::string("OPTION7"));
-Inline32.setUrl((std::string[]){"../resources/JinNoseWrinkler.x3d", "JinNoseWrinkler.x3d"}, 2);
+Inline32.setUrl(new std::string[]{"../resources/JinNoseWrinkler.x3d", "JinNoseWrinkler.x3d"}, 2);
 Switch25.addChild(&Inline32);
 
 Inline& Inline33 =  Inline();
 Inline33.setDEF(std::string("OPTION8"));
-Inline33.setUrl((std::string[]){"../resources/JinUpperLipRaiser.x3d", "JinUpperLipRaiser.x3d"}, 2);
+Inline33.setUrl(new std::string[]{"../resources/JinUpperLipRaiser.x3d", "JinUpperLipRaiser.x3d"}, 2);
 Switch25.addChild(&Inline33);
 
 Inline& Inline34 =  Inline();
 Inline34.setDEF(std::string("OPTION9"));
-Inline34.setUrl((std::string[]){"../resources/JinNasolabialDeepener.x3d", "JinNasolabialDeepener.x3d"}, 2);
+Inline34.setUrl(new std::string[]{"../resources/JinNasolabialDeepener.x3d", "JinNasolabialDeepener.x3d"}, 2);
 Switch25.addChild(&Inline34);
 
 Inline& Inline35 =  Inline();
 Inline35.setDEF(std::string("OPTION10"));
-Inline35.setUrl((std::string[]){"../resources/JinLipCornerPuller.x3d", "JinLipCornerPuller.x3d"}, 2);
+Inline35.setUrl(new std::string[]{"../resources/JinLipCornerPuller.x3d", "JinLipCornerPuller.x3d"}, 2);
 Switch25.addChild(&Inline35);
 
 Inline& Inline36 =  Inline();
 Inline36.setDEF(std::string("OPTION11"));
-Inline36.setUrl((std::string[]){"../resources/JinCheekPuffer.x3d", "JinCheekPuffer.x3d"}, 2);
+Inline36.setUrl(new std::string[]{"../resources/JinCheekPuffer.x3d", "JinCheekPuffer.x3d"}, 2);
 Switch25.addChild(&Inline36);
 
 Inline& Inline37 =  Inline();
 Inline37.setDEF(std::string("OPTION12"));
-Inline37.setUrl((std::string[]){"../resources/JinDimpler.x3d", "JinDimpler.x3d"}, 2);
+Inline37.setUrl(new std::string[]{"../resources/JinDimpler.x3d", "JinDimpler.x3d"}, 2);
 Switch25.addChild(&Inline37);
 
 Inline& Inline38 =  Inline();
 Inline38.setDEF(std::string("OPTION13"));
-Inline38.setUrl((std::string[]){"../resources/JinLipCornerDepressor.x3d", "JinLipCornerDepressor.x3d"}, 2);
+Inline38.setUrl(new std::string[]{"../resources/JinLipCornerDepressor.x3d", "JinLipCornerDepressor.x3d"}, 2);
 Switch25.addChild(&Inline38);
 
 Inline& Inline39 =  Inline();
 Inline39.setDEF(std::string("OPTION14"));
-Inline39.setUrl((std::string[]){"../resources/JinLowerLipDepressor.x3d", "JinLowerLipDepressor.x3d"}, 2);
+Inline39.setUrl(new std::string[]{"../resources/JinLowerLipDepressor.x3d", "JinLowerLipDepressor.x3d"}, 2);
 Switch25.addChild(&Inline39);
 
 Inline& Inline40 =  Inline();
 Inline40.setDEF(std::string("OPTION15"));
-Inline40.setUrl((std::string[]){"../resources/JinChinRaiser.x3d", "JinChinRaiser.x3d"}, 2);
+Inline40.setUrl(new std::string[]{"../resources/JinChinRaiser.x3d", "JinChinRaiser.x3d"}, 2);
 Switch25.addChild(&Inline40);
 
 Inline& Inline41 =  Inline();
 Inline41.setDEF(std::string("OPTION16"));
-Inline41.setUrl((std::string[]){"../resources/JinLipPuckerer.x3d", "JinLipPuckerer.x3d"}, 2);
+Inline41.setUrl(new std::string[]{"../resources/JinLipPuckerer.x3d", "JinLipPuckerer.x3d"}, 2);
 Switch25.addChild(&Inline41);
 
 Inline& Inline42 =  Inline();
 Inline42.setDEF(std::string("OPTION17"));
-Inline42.setUrl((std::string[]){"../resources/JinLipStretcher.x3d", "JinLipStretcher.x3d"}, 2);
+Inline42.setUrl(new std::string[]{"../resources/JinLipStretcher.x3d", "JinLipStretcher.x3d"}, 2);
 Switch25.addChild(&Inline42);
 
 Inline& Inline43 =  Inline();
 Inline43.setDEF(std::string("OPTION18"));
-Inline43.setUrl((std::string[]){"../resources/JinLipFunneler.x3d", "JinLipFunneler.x3d"}, 2);
+Inline43.setUrl(new std::string[]{"../resources/JinLipFunneler.x3d", "JinLipFunneler.x3d"}, 2);
 Switch25.addChild(&Inline43);
 
 Inline& Inline44 =  Inline();
 Inline44.setDEF(std::string("OPTION19"));
-Inline44.setUrl((std::string[]){"../resources/JinLipTightener.x3d", "JinLipTightener.x3d"}, 2);
+Inline44.setUrl(new std::string[]{"../resources/JinLipTightener.x3d", "JinLipTightener.x3d"}, 2);
 Switch25.addChild(&Inline44);
 
 Inline& Inline45 =  Inline();
 Inline45.setDEF(std::string("OPTION20"));
-Inline45.setUrl((std::string[]){"../resources/JinLipPressor.x3d", "JinLipPressor.x3d"}, 2);
+Inline45.setUrl(new std::string[]{"../resources/JinLipPressor.x3d", "JinLipPressor.x3d"}, 2);
 Switch25.addChild(&Inline45);
 
 Inline& Inline46 =  Inline();
 Inline46.setDEF(std::string("OPTION21"));
-Inline46.setUrl((std::string[]){"../resources/JinLipsPart.x3d", "JinLipsPart.x3d"}, 2);
+Inline46.setUrl(new std::string[]{"../resources/JinLipsPart.x3d", "JinLipsPart.x3d"}, 2);
 Switch25.addChild(&Inline46);
 
 Inline& Inline47 =  Inline();
 Inline47.setDEF(std::string("OPTION22"));
-Inline47.setUrl((std::string[]){"../resources/JinJawDrop.x3d", "JinJawDrop.x3d"}, 2);
+Inline47.setUrl(new std::string[]{"../resources/JinJawDrop.x3d", "JinJawDrop.x3d"}, 2);
 Switch25.addChild(&Inline47);
 
 Inline& Inline48 =  Inline();
 Inline48.setDEF(std::string("OPTION23"));
-Inline48.setUrl((std::string[]){"../resources/JinMouthStretch.x3d", "JinMouthStretch.x3d"}, 2);
+Inline48.setUrl(new std::string[]{"../resources/JinMouthStretch.x3d", "JinMouthStretch.x3d"}, 2);
 Switch25.addChild(&Inline48);
 
 Inline& Inline49 =  Inline();
 Inline49.setDEF(std::string("OPTION24"));
-Inline49.setUrl((std::string[]){"../resources/JinLipSuck.x3d", "JinLipSuck.x3d"}, 2);
+Inline49.setUrl(new std::string[]{"../resources/JinLipSuck.x3d", "JinLipSuck.x3d"}, 2);
 Switch25.addChild(&Inline49);
 
 Inline& Inline50 =  Inline();
 Inline50.setDEF(std::string("OPTION25"));
-Inline50.setUrl((std::string[]){"../resources/JinLidDroop.x3d", "JinLidDroop.x3d"}, 2);
+Inline50.setUrl(new std::string[]{"../resources/JinLidDroop.x3d", "JinLidDroop.x3d"}, 2);
 Switch25.addChild(&Inline50);
 
 Inline& Inline51 =  Inline();
 Inline51.setDEF(std::string("OPTION26"));
-Inline51.setUrl((std::string[]){"../resources/JinSlit.x3d", "JinSlit.x3d"}, 2);
+Inline51.setUrl(new std::string[]{"../resources/JinSlit.x3d", "JinSlit.x3d"}, 2);
 Switch25.addChild(&Inline51);
 
 Inline& Inline52 =  Inline();
 Inline52.setDEF(std::string("OPTION27"));
-Inline52.setUrl((std::string[]){"../resources/JinEyesClosed.x3d", "JinEyesClosed.x3d"}, 2);
+Inline52.setUrl(new std::string[]{"../resources/JinEyesClosed.x3d", "JinEyesClosed.x3d"}, 2);
 Switch25.addChild(&Inline52);
 
 Inline& Inline53 =  Inline();
 Inline53.setDEF(std::string("OPTION28"));
-Inline53.setUrl((std::string[]){"../resources/JinSquint.x3d", "JinSquint.x3d"}, 2);
+Inline53.setUrl(new std::string[]{"../resources/JinSquint.x3d", "JinSquint.x3d"}, 2);
 Switch25.addChild(&Inline53);
 
 Inline& Inline54 =  Inline();
 Inline54.setDEF(std::string("OPTION29"));
-Inline54.setUrl((std::string[]){"../resources/JinBlink.x3d", "JinBlink.x3d"}, 2);
+Inline54.setUrl(new std::string[]{"../resources/JinBlink.x3d", "JinBlink.x3d"}, 2);
 Switch25.addChild(&Inline54);
 
 Inline& Inline55 =  Inline();
 Inline55.setDEF(std::string("OPTION30"));
-Inline55.setUrl((std::string[]){"../resources/JinWink.x3d", "JinWink.x3d"}, 2);
+Inline55.setUrl(new std::string[]{"../resources/JinWink.x3d", "JinWink.x3d"}, 2);
 Switch25.addChild(&Inline55);
 
 Group10.addChild(&Switch25);

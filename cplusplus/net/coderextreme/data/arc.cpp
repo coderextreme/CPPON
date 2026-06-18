@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int arc(int argc, char ** argv) {
+void arc(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -83,7 +75,9 @@ Sphere18.setRadius(0.1);
 Shape17.setGeometry(&Sphere18);
 
 Appearance& Appearance19 =  Appearance();
+Appearance19.setContainerField("appearance");
 Material& Material20 =  Material();
+Material20.setContainerField("material");
 Material20.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance19.addChild(&Material20);
 
@@ -213,7 +207,9 @@ Transform& Transform41 =  Transform();
 Transform41.setDEF(std::string("rotscale"));
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Material44.setTransparency(0.5);
 Appearance43.addChild(&Material44);

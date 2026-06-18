@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Bubbles(int argc, char ** argv) {
+void Bubbles(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -139,7 +131,9 @@ Transform& Transform26 =  Transform();
 Transform26.setDEF(std::string("bubble1"));
 Shape& Shape27 =  Shape();
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Material29.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material29.setTransparency(0.8);
 Appearance28.addChild(&Material29);
@@ -158,7 +152,9 @@ Transform& Transform31 =  Transform();
 Transform31.setDEF(std::string("bubble2"));
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material34.setTransparency(0.8);
 Appearance33.addChild(&Material34);
@@ -177,7 +173,9 @@ Transform& Transform36 =  Transform();
 Transform36.setDEF(std::string("bubble3"));
 Shape& Shape37 =  Shape();
 Appearance& Appearance38 =  Appearance();
+Appearance38.setContainerField("appearance");
 Material& Material39 =  Material();
+Material39.setContainerField("material");
 Material39.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material39.setTransparency(0.8);
 Appearance38.addChild(&Material39);
@@ -196,7 +194,9 @@ Transform& Transform41 =  Transform();
 Transform41.setDEF(std::string("bubble4"));
 Shape& Shape42 =  Shape();
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material44.setTransparency(0.8);
 Appearance43.addChild(&Material44);
@@ -215,7 +215,9 @@ Transform& Transform46 =  Transform();
 Transform46.setDEF(std::string("bubble5"));
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material49.setTransparency(0.8);
 Appearance48.addChild(&Material49);
@@ -234,7 +236,9 @@ Transform& Transform51 =  Transform();
 Transform51.setDEF(std::string("bubble6"));
 Shape& Shape52 =  Shape();
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Material& Material54 =  Material();
+Material54.setContainerField("material");
 Material54.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material54.setTransparency(0.8);
 Appearance53.addChild(&Material54);
@@ -253,7 +257,9 @@ Transform& Transform56 =  Transform();
 Transform56.setDEF(std::string("bubble7"));
 Shape& Shape57 =  Shape();
 Appearance& Appearance58 =  Appearance();
+Appearance58.setContainerField("appearance");
 Material& Material59 =  Material();
+Material59.setContainerField("material");
 Material59.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material59.setTransparency(0.8);
 Appearance58.addChild(&Material59);
@@ -272,7 +278,9 @@ Transform& Transform61 =  Transform();
 Transform61.setDEF(std::string("bubble8"));
 Shape& Shape62 =  Shape();
 Appearance& Appearance63 =  Appearance();
+Appearance63.setContainerField("appearance");
 Material& Material64 =  Material();
+Material64.setContainerField("material");
 Material64.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material64.setTransparency(0.8);
 Appearance63.addChild(&Material64);
@@ -291,7 +299,9 @@ Transform& Transform66 =  Transform();
 Transform66.setDEF(std::string("bubble9"));
 Shape& Shape67 =  Shape();
 Appearance& Appearance68 =  Appearance();
+Appearance68.setContainerField("appearance");
 Material& Material69 =  Material();
+Material69.setContainerField("material");
 Material69.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material69.setTransparency(0.8);
 Appearance68.addChild(&Material69);
@@ -310,7 +320,9 @@ Transform& Transform71 =  Transform();
 Transform71.setDEF(std::string("bubble10"));
 Shape& Shape72 =  Shape();
 Appearance& Appearance73 =  Appearance();
+Appearance73.setContainerField("appearance");
 Material& Material74 =  Material();
+Material74.setContainerField("material");
 Material74.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Material74.setTransparency(0.8);
 Appearance73.addChild(&Material74);

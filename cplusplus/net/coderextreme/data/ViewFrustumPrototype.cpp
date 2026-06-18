@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ViewFrustumPrototype(int argc, char ** argv) {
+void ViewFrustumPrototype(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -180,7 +172,9 @@ IndexedLineSet32.setCoord(&Coordinate33);
 Shape31.setGeometry(&IndexedLineSet32);
 
 Appearance& Appearance34 =  Appearance();
+Appearance34.setContainerField("appearance");
 Material& Material35 =  Material();
+Material35.setContainerField("material");
 IS& IS36 =  IS();
 Connect& connect37 =  Connect();
 connect37.setNodeField(std::string("emissiveColor"));
@@ -201,8 +195,10 @@ Extrusion39.setDEF(std::string("FrustumExtrusion"));
 Shape38.setGeometry(&Extrusion39);
 
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Appearance40.setDEF(std::string("FrustumAppearance"));
 Material& Material41 =  Material();
+Material41.setContainerField("material");
 IS& IS42 =  IS();
 Connect& connect43 =  Connect();
 connect43.setNodeField(std::string("diffuseColor"));
@@ -228,6 +224,7 @@ Sphere46.setRadius(0.08);
 Shape45.setGeometry(&Sphere46);
 
 Appearance& Appearance47 =  Appearance();
+Appearance47.setContainerField("appearance");
 Appearance47.setUSE(std::string("FrustumAppearance"));
 Shape45.addChild(&Appearance47);
 
@@ -242,7 +239,7 @@ ProtoBody27.addChild(&Switch28);
 Script& Script48 =  Script();
 Script48.setDEF(std::string("GeometryComputationScript"));
 Script48.setDirectOutput(true);
-Script48.setUrl((std::string[]){"ViewFrustumPrototypeScript.js"}, 1);
+Script48.setUrl(new std::string[]{"ViewFrustumPrototypeScript.js"}, 1);
 field& field49 =  field();
 field49.setName(std::string("visible"));
 field49.setAccessType(std::string("inputOutput"));
@@ -277,7 +274,7 @@ field53.setAccessType(std::string("initializeOnly"));
 field53.setType(std::string("SFNode"));
 Coordinate& Coordinate54 =  Coordinate();
 Coordinate54.setUSE(std::string("FrustumCoordinate"));
-field53.addChild(&Coordinate54);
+field53.addChild(Coordinate54);
 
 Script48.addChild(&field53);
 
@@ -419,19 +416,22 @@ Scene15.addChild(&ProtoDeclare17);
 //Example use is in separate scene
 Anchor& Anchor77 =  Anchor();
 Anchor77.setDescription(std::string("ViewFrustum Example"));
-Anchor77.setUrl((std::string[]){"ViewFrustumExample.x3d"}, 1);
+Anchor77.setUrl(new std::string[]{"ViewFrustumExample.x3d"}, 1);
 Shape& Shape78 =  Shape();
 Appearance& Appearance79 =  Appearance();
+Appearance79.setContainerField("appearance");
 Material& Material80 =  Material();
+Material80.setContainerField("material");
 Material80.setDiffuseColor(new float[]{0.8,0.4,0.0});
 Appearance79.addChild(&Material80);
 
 Shape78.addChild(&Appearance79);
 
 Text& Text81 =  Text();
-Text81.setString((std::string[]){"ViewFrustumPrototype.x3d", "is a Prototype declaration file.", "For an example scene using the prototype,", "click this text and view", "ViewFrustumExample.x3d"}, 5);
+Text81.setString(new std::string[]{"ViewFrustumPrototype.x3d", "is a Prototype declaration file.", "For an example scene using the prototype,", "click this text and view", "ViewFrustumExample.x3d"}, 5);
 CFontStyle& FontStyle82 =  CFontStyle();
-FontStyle82.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle82.setContainerField("fontStyle");
+FontStyle82.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle82.setSize(0.8);
 Text81.setFontStyle(&FontStyle82);
 

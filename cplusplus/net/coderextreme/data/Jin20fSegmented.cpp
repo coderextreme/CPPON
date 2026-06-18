@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Jin20fSegmented(int argc, char ** argv) {
+void Jin20fSegmented(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -45,7 +37,8 @@ IndexedLineSet& IndexedLineSet8 =  IndexedLineSet();
 IndexedLineSet8.setColorIndex(new int[]{0,1,2}, 3);
 IndexedLineSet8.setColorPerVertex(false);
 IndexedLineSet8.setCoordIndex(new int32_t[]{0,1,-1,0,2,-1,0,3,-1}, 9);
-CColor& Color9 =  CColor();
+Color& Color9 =  Color();
+Color9.setContainerField("color");
 Color9.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet8.setColor(&Color9);
 
@@ -68,6 +61,7 @@ HAnimJoint& HAnimJoint12 =  HAnimJoint();
 HAnimJoint12.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint12.setDEF(std::string("hanim_humanoid_root"));
 HAnimJoint12.setCenter(new float[]{0.0,0.77,0.0});
+HAnimJoint12.setContainerField("skeleton");
 HAnimSegment& HAnimSegment13 =  HAnimSegment();
 HAnimSegment13.X3DNode::setName(std::string("sacrum"));
 HAnimSegment13.setDEF(std::string("hanim_sacrum"));
@@ -98,7 +92,9 @@ HAnimSite18.addChild(&TouchSensor19);
 
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance21.addChild(&Material22);
 
@@ -109,6 +105,7 @@ IndexedFaceSet23.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet23.setCreaseAngle(0.5);
 IndexedFaceSet23.setSolid(false);
 ColorRGBA& ColorRGBA24 =  ColorRGBA();
+ColorRGBA24.setContainerField("color");
 ColorRGBA24.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet23.addChild(&ColorRGBA24);
 
@@ -124,8 +121,9 @@ Billboard& Billboard26 =  Billboard();
 Billboard26.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape27 =  Shape();
 Text& Text28 =  Text();
-Text28.setString((std::string[]){"33"}, 1);
+Text28.setString(new std::string[]{"33"}, 1);
 CFontStyle& FontStyle29 =  CFontStyle();
+FontStyle29.setContainerField("fontStyle");
 FontStyle29.setSize(0.035);
 Text28.setFontStyle(&FontStyle29);
 
@@ -133,7 +131,7 @@ Shape27.setGeometry(&Text28);
 
 Billboard26.addChild(&Shape27);
 
-HAnimSite18.addChild(Billboard26);
+HAnimSite18.addChild(&Billboard26);
 
 HAnimSegment17.addChild(&HAnimSite18);
 
@@ -147,7 +145,9 @@ HAnimSite30.addChild(&TouchSensor31);
 
 Shape& Shape32 =  Shape();
 Appearance& Appearance33 =  Appearance();
+Appearance33.setContainerField("appearance");
 Material& Material34 =  Material();
+Material34.setContainerField("material");
 Material34.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance33.addChild(&Material34);
 
@@ -158,6 +158,7 @@ IndexedFaceSet35.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet35.setCreaseAngle(0.5);
 IndexedFaceSet35.setSolid(false);
 ColorRGBA& ColorRGBA36 =  ColorRGBA();
+ColorRGBA36.setContainerField("color");
 ColorRGBA36.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet35.addChild(&ColorRGBA36);
 
@@ -173,8 +174,9 @@ Billboard& Billboard38 =  Billboard();
 Billboard38.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape39 =  Shape();
 Text& Text40 =  Text();
-Text40.setString((std::string[]){"36"}, 1);
+Text40.setString(new std::string[]{"36"}, 1);
 CFontStyle& FontStyle41 =  CFontStyle();
+FontStyle41.setContainerField("fontStyle");
 FontStyle41.setSize(0.035);
 Text40.setFontStyle(&FontStyle41);
 
@@ -182,7 +184,7 @@ Shape39.setGeometry(&Text40);
 
 Billboard38.addChild(&Shape39);
 
-HAnimSite30.addChild(Billboard38);
+HAnimSite30.addChild(&Billboard38);
 
 HAnimSegment17.addChild(&HAnimSite30);
 
@@ -196,7 +198,9 @@ HAnimSite42.addChild(&TouchSensor43);
 
 Shape& Shape44 =  Shape();
 Appearance& Appearance45 =  Appearance();
+Appearance45.setContainerField("appearance");
 Material& Material46 =  Material();
+Material46.setContainerField("material");
 Material46.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance45.addChild(&Material46);
 
@@ -207,6 +211,7 @@ IndexedFaceSet47.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet47.setCreaseAngle(0.5);
 IndexedFaceSet47.setSolid(false);
 ColorRGBA& ColorRGBA48 =  ColorRGBA();
+ColorRGBA48.setContainerField("color");
 ColorRGBA48.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet47.addChild(&ColorRGBA48);
 
@@ -222,8 +227,9 @@ Billboard& Billboard50 =  Billboard();
 Billboard50.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape51 =  Shape();
 Text& Text52 =  Text();
-Text52.setString((std::string[]){"42"}, 1);
+Text52.setString(new std::string[]{"42"}, 1);
 CFontStyle& FontStyle53 =  CFontStyle();
+FontStyle53.setContainerField("fontStyle");
 FontStyle53.setSize(0.035);
 Text52.setFontStyle(&FontStyle53);
 
@@ -231,7 +237,7 @@ Shape51.setGeometry(&Text52);
 
 Billboard50.addChild(&Shape51);
 
-HAnimSite42.addChild(Billboard50);
+HAnimSite42.addChild(&Billboard50);
 
 HAnimSegment17.addChild(&HAnimSite42);
 
@@ -245,7 +251,9 @@ HAnimSite54.addChild(&TouchSensor55);
 
 Shape& Shape56 =  Shape();
 Appearance& Appearance57 =  Appearance();
+Appearance57.setContainerField("appearance");
 Material& Material58 =  Material();
+Material58.setContainerField("material");
 Material58.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance57.addChild(&Material58);
 
@@ -256,6 +264,7 @@ IndexedFaceSet59.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet59.setCreaseAngle(0.5);
 IndexedFaceSet59.setSolid(false);
 ColorRGBA& ColorRGBA60 =  ColorRGBA();
+ColorRGBA60.setContainerField("color");
 ColorRGBA60.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet59.addChild(&ColorRGBA60);
 
@@ -271,8 +280,9 @@ Billboard& Billboard62 =  Billboard();
 Billboard62.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape63 =  Shape();
 Text& Text64 =  Text();
-Text64.setString((std::string[]){"46"}, 1);
+Text64.setString(new std::string[]{"46"}, 1);
 CFontStyle& FontStyle65 =  CFontStyle();
+FontStyle65.setContainerField("fontStyle");
 FontStyle65.setSize(0.035);
 Text64.setFontStyle(&FontStyle65);
 
@@ -280,7 +290,7 @@ Shape63.setGeometry(&Text64);
 
 Billboard62.addChild(&Shape63);
 
-HAnimSite54.addChild(Billboard62);
+HAnimSite54.addChild(&Billboard62);
 
 HAnimSegment17.addChild(&HAnimSite54);
 
@@ -294,7 +304,9 @@ HAnimSite66.addChild(&TouchSensor67);
 
 Shape& Shape68 =  Shape();
 Appearance& Appearance69 =  Appearance();
+Appearance69.setContainerField("appearance");
 Material& Material70 =  Material();
+Material70.setContainerField("material");
 Material70.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance69.addChild(&Material70);
 
@@ -305,6 +317,7 @@ IndexedFaceSet71.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet71.setCreaseAngle(0.5);
 IndexedFaceSet71.setSolid(false);
 ColorRGBA& ColorRGBA72 =  ColorRGBA();
+ColorRGBA72.setContainerField("color");
 ColorRGBA72.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet71.addChild(&ColorRGBA72);
 
@@ -320,8 +333,9 @@ Billboard& Billboard74 =  Billboard();
 Billboard74.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape75 =  Shape();
 Text& Text76 =  Text();
-Text76.setString((std::string[]){"32"}, 1);
+Text76.setString(new std::string[]{"32"}, 1);
 CFontStyle& FontStyle77 =  CFontStyle();
+FontStyle77.setContainerField("fontStyle");
 FontStyle77.setSize(0.035);
 Text76.setFontStyle(&FontStyle77);
 
@@ -329,7 +343,7 @@ Shape75.setGeometry(&Text76);
 
 Billboard74.addChild(&Shape75);
 
-HAnimSite66.addChild(Billboard74);
+HAnimSite66.addChild(&Billboard74);
 
 HAnimSegment17.addChild(&HAnimSite66);
 
@@ -343,7 +357,9 @@ HAnimSite78.addChild(&TouchSensor79);
 
 Shape& Shape80 =  Shape();
 Appearance& Appearance81 =  Appearance();
+Appearance81.setContainerField("appearance");
 Material& Material82 =  Material();
+Material82.setContainerField("material");
 Material82.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance81.addChild(&Material82);
 
@@ -354,6 +370,7 @@ IndexedFaceSet83.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet83.setCreaseAngle(0.5);
 IndexedFaceSet83.setSolid(false);
 ColorRGBA& ColorRGBA84 =  ColorRGBA();
+ColorRGBA84.setContainerField("color");
 ColorRGBA84.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet83.addChild(&ColorRGBA84);
 
@@ -369,8 +386,9 @@ Billboard& Billboard86 =  Billboard();
 Billboard86.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape87 =  Shape();
 Text& Text88 =  Text();
-Text88.setString((std::string[]){"35"}, 1);
+Text88.setString(new std::string[]{"35"}, 1);
 CFontStyle& FontStyle89 =  CFontStyle();
+FontStyle89.setContainerField("fontStyle");
 FontStyle89.setSize(0.035);
 Text88.setFontStyle(&FontStyle89);
 
@@ -378,7 +396,7 @@ Shape87.setGeometry(&Text88);
 
 Billboard86.addChild(&Shape87);
 
-HAnimSite78.addChild(Billboard86);
+HAnimSite78.addChild(&Billboard86);
 
 HAnimSegment17.addChild(&HAnimSite78);
 
@@ -392,7 +410,9 @@ HAnimSite90.addChild(&TouchSensor91);
 
 Shape& Shape92 =  Shape();
 Appearance& Appearance93 =  Appearance();
+Appearance93.setContainerField("appearance");
 Material& Material94 =  Material();
+Material94.setContainerField("material");
 Material94.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance93.addChild(&Material94);
 
@@ -403,6 +423,7 @@ IndexedFaceSet95.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1
 IndexedFaceSet95.setCreaseAngle(0.5);
 IndexedFaceSet95.setSolid(false);
 ColorRGBA& ColorRGBA96 =  ColorRGBA();
+ColorRGBA96.setContainerField("color");
 ColorRGBA96.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet95.addChild(&ColorRGBA96);
 
@@ -418,8 +439,9 @@ Billboard& Billboard98 =  Billboard();
 Billboard98.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape99 =  Shape();
 Text& Text100 =  Text();
-Text100.setString((std::string[]){"34"}, 1);
+Text100.setString(new std::string[]{"34"}, 1);
 CFontStyle& FontStyle101 =  CFontStyle();
+FontStyle101.setContainerField("fontStyle");
 FontStyle101.setSize(0.035);
 Text100.setFontStyle(&FontStyle101);
 
@@ -427,7 +449,7 @@ Shape99.setGeometry(&Text100);
 
 Billboard98.addChild(&Shape99);
 
-HAnimSite90.addChild(Billboard98);
+HAnimSite90.addChild(&Billboard98);
 
 HAnimSegment17.addChild(&HAnimSite90);
 
@@ -441,7 +463,9 @@ HAnimSite102.addChild(&TouchSensor103);
 
 Shape& Shape104 =  Shape();
 Appearance& Appearance105 =  Appearance();
+Appearance105.setContainerField("appearance");
 Material& Material106 =  Material();
+Material106.setContainerField("material");
 Material106.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance105.addChild(&Material106);
 
@@ -452,6 +476,7 @@ IndexedFaceSet107.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet107.setCreaseAngle(0.5);
 IndexedFaceSet107.setSolid(false);
 ColorRGBA& ColorRGBA108 =  ColorRGBA();
+ColorRGBA108.setContainerField("color");
 ColorRGBA108.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet107.addChild(&ColorRGBA108);
 
@@ -467,8 +492,9 @@ Billboard& Billboard110 =  Billboard();
 Billboard110.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape111 =  Shape();
 Text& Text112 =  Text();
-Text112.setString((std::string[]){"37"}, 1);
+Text112.setString(new std::string[]{"37"}, 1);
 CFontStyle& FontStyle113 =  CFontStyle();
+FontStyle113.setContainerField("fontStyle");
 FontStyle113.setSize(0.035);
 Text112.setFontStyle(&FontStyle113);
 
@@ -476,7 +502,7 @@ Shape111.setGeometry(&Text112);
 
 Billboard110.addChild(&Shape111);
 
-HAnimSite102.addChild(Billboard110);
+HAnimSite102.addChild(&Billboard110);
 
 HAnimSegment17.addChild(&HAnimSite102);
 
@@ -490,7 +516,9 @@ HAnimSite114.addChild(&TouchSensor115);
 
 Shape& Shape116 =  Shape();
 Appearance& Appearance117 =  Appearance();
+Appearance117.setContainerField("appearance");
 Material& Material118 =  Material();
+Material118.setContainerField("material");
 Material118.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance117.addChild(&Material118);
 
@@ -501,6 +529,7 @@ IndexedFaceSet119.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet119.setCreaseAngle(0.5);
 IndexedFaceSet119.setSolid(false);
 ColorRGBA& ColorRGBA120 =  ColorRGBA();
+ColorRGBA120.setContainerField("color");
 ColorRGBA120.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet119.addChild(&ColorRGBA120);
 
@@ -516,8 +545,9 @@ Billboard& Billboard122 =  Billboard();
 Billboard122.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape123 =  Shape();
 Text& Text124 =  Text();
-Text124.setString((std::string[]){"38"}, 1);
+Text124.setString(new std::string[]{"38"}, 1);
 CFontStyle& FontStyle125 =  CFontStyle();
+FontStyle125.setContainerField("fontStyle");
 FontStyle125.setSize(0.035);
 Text124.setFontStyle(&FontStyle125);
 
@@ -525,7 +555,7 @@ Shape123.setGeometry(&Text124);
 
 Billboard122.addChild(&Shape123);
 
-HAnimSite114.addChild(Billboard122);
+HAnimSite114.addChild(&Billboard122);
 
 HAnimSegment17.addChild(&HAnimSite114);
 
@@ -539,7 +569,9 @@ HAnimSite126.addChild(&TouchSensor127);
 
 Shape& Shape128 =  Shape();
 Appearance& Appearance129 =  Appearance();
+Appearance129.setContainerField("appearance");
 Material& Material130 =  Material();
+Material130.setContainerField("material");
 Material130.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance129.addChild(&Material130);
 
@@ -550,6 +582,7 @@ IndexedFaceSet131.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet131.setCreaseAngle(0.5);
 IndexedFaceSet131.setSolid(false);
 ColorRGBA& ColorRGBA132 =  ColorRGBA();
+ColorRGBA132.setContainerField("color");
 ColorRGBA132.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet131.addChild(&ColorRGBA132);
 
@@ -565,8 +598,9 @@ Billboard& Billboard134 =  Billboard();
 Billboard134.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape135 =  Shape();
 Text& Text136 =  Text();
-Text136.setString((std::string[]){"93"}, 1);
+Text136.setString(new std::string[]{"93"}, 1);
 CFontStyle& FontStyle137 =  CFontStyle();
+FontStyle137.setContainerField("fontStyle");
 FontStyle137.setSize(0.035);
 Text136.setFontStyle(&FontStyle137);
 
@@ -574,7 +608,7 @@ Shape135.setGeometry(&Text136);
 
 Billboard134.addChild(&Shape135);
 
-HAnimSite126.addChild(Billboard134);
+HAnimSite126.addChild(&Billboard134);
 
 HAnimSegment17.addChild(&HAnimSite126);
 
@@ -582,6 +616,7 @@ Shape& Shape138 =  Shape();
 LineSet& LineSet139 =  LineSet();
 LineSet139.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA140 =  ColorRGBA();
+ColorRGBA140.setContainerField("color");
 ColorRGBA140.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet139.addChild(&ColorRGBA140);
 
@@ -612,7 +647,9 @@ HAnimSite144.addChild(&TouchSensor145);
 
 Shape& Shape146 =  Shape();
 Appearance& Appearance147 =  Appearance();
+Appearance147.setContainerField("appearance");
 Material& Material148 =  Material();
+Material148.setContainerField("material");
 Material148.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance147.addChild(&Material148);
 
@@ -623,6 +660,7 @@ IndexedFaceSet149.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet149.setCreaseAngle(0.5);
 IndexedFaceSet149.setSolid(false);
 ColorRGBA& ColorRGBA150 =  ColorRGBA();
+ColorRGBA150.setContainerField("color");
 ColorRGBA150.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet149.addChild(&ColorRGBA150);
 
@@ -638,8 +676,9 @@ Billboard& Billboard152 =  Billboard();
 Billboard152.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape153 =  Shape();
 Text& Text154 =  Text();
-Text154.setString((std::string[]){"90"}, 1);
+Text154.setString(new std::string[]{"90"}, 1);
 CFontStyle& FontStyle155 =  CFontStyle();
+FontStyle155.setContainerField("fontStyle");
 FontStyle155.setSize(0.035);
 Text154.setFontStyle(&FontStyle155);
 
@@ -647,7 +686,7 @@ Shape153.setGeometry(&Text154);
 
 Billboard152.addChild(&Shape153);
 
-HAnimSite144.addChild(Billboard152);
+HAnimSite144.addChild(&Billboard152);
 
 HAnimSegment143.addChild(&HAnimSite144);
 
@@ -661,7 +700,9 @@ HAnimSite156.addChild(&TouchSensor157);
 
 Shape& Shape158 =  Shape();
 Appearance& Appearance159 =  Appearance();
+Appearance159.setContainerField("appearance");
 Material& Material160 =  Material();
+Material160.setContainerField("material");
 Material160.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance159.addChild(&Material160);
 
@@ -672,6 +713,7 @@ IndexedFaceSet161.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet161.setCreaseAngle(0.5);
 IndexedFaceSet161.setSolid(false);
 ColorRGBA& ColorRGBA162 =  ColorRGBA();
+ColorRGBA162.setContainerField("color");
 ColorRGBA162.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet161.addChild(&ColorRGBA162);
 
@@ -687,8 +729,9 @@ Billboard& Billboard164 =  Billboard();
 Billboard164.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape165 =  Shape();
 Text& Text166 =  Text();
-Text166.setString((std::string[]){"40"}, 1);
+Text166.setString(new std::string[]{"40"}, 1);
 CFontStyle& FontStyle167 =  CFontStyle();
+FontStyle167.setContainerField("fontStyle");
 FontStyle167.setSize(0.035);
 Text166.setFontStyle(&FontStyle167);
 
@@ -696,7 +739,7 @@ Shape165.setGeometry(&Text166);
 
 Billboard164.addChild(&Shape165);
 
-HAnimSite156.addChild(Billboard164);
+HAnimSite156.addChild(&Billboard164);
 
 HAnimSegment143.addChild(&HAnimSite156);
 
@@ -710,7 +753,9 @@ HAnimSite168.addChild(&TouchSensor169);
 
 Shape& Shape170 =  Shape();
 Appearance& Appearance171 =  Appearance();
+Appearance171.setContainerField("appearance");
 Material& Material172 =  Material();
+Material172.setContainerField("material");
 Material172.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance171.addChild(&Material172);
 
@@ -721,6 +766,7 @@ IndexedFaceSet173.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet173.setCreaseAngle(0.5);
 IndexedFaceSet173.setSolid(false);
 ColorRGBA& ColorRGBA174 =  ColorRGBA();
+ColorRGBA174.setContainerField("color");
 ColorRGBA174.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet173.addChild(&ColorRGBA174);
 
@@ -736,8 +782,9 @@ Billboard& Billboard176 =  Billboard();
 Billboard176.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape177 =  Shape();
 Text& Text178 =  Text();
-Text178.setString((std::string[]){"39"}, 1);
+Text178.setString(new std::string[]{"39"}, 1);
 CFontStyle& FontStyle179 =  CFontStyle();
+FontStyle179.setContainerField("fontStyle");
 FontStyle179.setSize(0.035);
 Text178.setFontStyle(&FontStyle179);
 
@@ -745,7 +792,7 @@ Shape177.setGeometry(&Text178);
 
 Billboard176.addChild(&Shape177);
 
-HAnimSite168.addChild(Billboard176);
+HAnimSite168.addChild(&Billboard176);
 
 HAnimSegment143.addChild(&HAnimSite168);
 
@@ -759,7 +806,9 @@ HAnimSite180.addChild(&TouchSensor181);
 
 Shape& Shape182 =  Shape();
 Appearance& Appearance183 =  Appearance();
+Appearance183.setContainerField("appearance");
 Material& Material184 =  Material();
+Material184.setContainerField("material");
 Material184.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance183.addChild(&Material184);
 
@@ -770,6 +819,7 @@ IndexedFaceSet185.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet185.setCreaseAngle(0.5);
 IndexedFaceSet185.setSolid(false);
 ColorRGBA& ColorRGBA186 =  ColorRGBA();
+ColorRGBA186.setContainerField("color");
 ColorRGBA186.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet185.addChild(&ColorRGBA186);
 
@@ -785,8 +835,9 @@ Billboard& Billboard188 =  Billboard();
 Billboard188.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape189 =  Shape();
 Text& Text190 =  Text();
-Text190.setString((std::string[]){"41"}, 1);
+Text190.setString(new std::string[]{"41"}, 1);
 CFontStyle& FontStyle191 =  CFontStyle();
+FontStyle191.setContainerField("fontStyle");
 FontStyle191.setSize(0.035);
 Text190.setFontStyle(&FontStyle191);
 
@@ -794,7 +845,7 @@ Shape189.setGeometry(&Text190);
 
 Billboard188.addChild(&Shape189);
 
-HAnimSite180.addChild(Billboard188);
+HAnimSite180.addChild(&Billboard188);
 
 HAnimSegment143.addChild(&HAnimSite180);
 
@@ -802,6 +853,7 @@ Shape& Shape192 =  Shape();
 LineSet& LineSet193 =  LineSet();
 LineSet193.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA194 =  ColorRGBA();
+ColorRGBA194.setContainerField("color");
 ColorRGBA194.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet193.addChild(&ColorRGBA194);
 
@@ -832,7 +884,9 @@ HAnimSite198.addChild(&TouchSensor199);
 
 Shape& Shape200 =  Shape();
 Appearance& Appearance201 =  Appearance();
+Appearance201.setContainerField("appearance");
 Material& Material202 =  Material();
+Material202.setContainerField("material");
 Material202.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance201.addChild(&Material202);
 
@@ -843,6 +897,7 @@ IndexedFaceSet203.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet203.setCreaseAngle(0.5);
 IndexedFaceSet203.setSolid(false);
 ColorRGBA& ColorRGBA204 =  ColorRGBA();
+ColorRGBA204.setContainerField("color");
 ColorRGBA204.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet203.addChild(&ColorRGBA204);
 
@@ -858,8 +913,9 @@ Billboard& Billboard206 =  Billboard();
 Billboard206.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape207 =  Shape();
 Text& Text208 =  Text();
-Text208.setString((std::string[]){"47"}, 1);
+Text208.setString(new std::string[]{"47"}, 1);
 CFontStyle& FontStyle209 =  CFontStyle();
+FontStyle209.setContainerField("fontStyle");
 FontStyle209.setSize(0.035);
 Text208.setFontStyle(&FontStyle209);
 
@@ -867,7 +923,7 @@ Shape207.setGeometry(&Text208);
 
 Billboard206.addChild(&Shape207);
 
-HAnimSite198.addChild(Billboard206);
+HAnimSite198.addChild(&Billboard206);
 
 HAnimSegment197.addChild(&HAnimSite198);
 
@@ -881,7 +937,9 @@ HAnimSite210.addChild(&TouchSensor211);
 
 Shape& Shape212 =  Shape();
 Appearance& Appearance213 =  Appearance();
+Appearance213.setContainerField("appearance");
 Material& Material214 =  Material();
+Material214.setContainerField("material");
 Material214.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance213.addChild(&Material214);
 
@@ -892,6 +950,7 @@ IndexedFaceSet215.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet215.setCreaseAngle(0.5);
 IndexedFaceSet215.setSolid(false);
 ColorRGBA& ColorRGBA216 =  ColorRGBA();
+ColorRGBA216.setContainerField("color");
 ColorRGBA216.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet215.addChild(&ColorRGBA216);
 
@@ -907,8 +966,9 @@ Billboard& Billboard218 =  Billboard();
 Billboard218.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape219 =  Shape();
 Text& Text220 =  Text();
-Text220.setString((std::string[]){"48"}, 1);
+Text220.setString(new std::string[]{"48"}, 1);
 CFontStyle& FontStyle221 =  CFontStyle();
+FontStyle221.setContainerField("fontStyle");
 FontStyle221.setSize(0.035);
 Text220.setFontStyle(&FontStyle221);
 
@@ -916,7 +976,7 @@ Shape219.setGeometry(&Text220);
 
 Billboard218.addChild(&Shape219);
 
-HAnimSite210.addChild(Billboard218);
+HAnimSite210.addChild(&Billboard218);
 
 HAnimSegment197.addChild(&HAnimSite210);
 
@@ -930,7 +990,9 @@ HAnimSite222.addChild(&TouchSensor223);
 
 Shape& Shape224 =  Shape();
 Appearance& Appearance225 =  Appearance();
+Appearance225.setContainerField("appearance");
 Material& Material226 =  Material();
+Material226.setContainerField("material");
 Material226.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance225.addChild(&Material226);
 
@@ -941,6 +1003,7 @@ IndexedFaceSet227.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet227.setCreaseAngle(0.5);
 IndexedFaceSet227.setSolid(false);
 ColorRGBA& ColorRGBA228 =  ColorRGBA();
+ColorRGBA228.setContainerField("color");
 ColorRGBA228.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet227.addChild(&ColorRGBA228);
 
@@ -956,8 +1019,9 @@ Billboard& Billboard230 =  Billboard();
 Billboard230.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape231 =  Shape();
 Text& Text232 =  Text();
-Text232.setString((std::string[]){"49"}, 1);
+Text232.setString(new std::string[]{"49"}, 1);
 CFontStyle& FontStyle233 =  CFontStyle();
+FontStyle233.setContainerField("fontStyle");
 FontStyle233.setSize(0.035);
 Text232.setFontStyle(&FontStyle233);
 
@@ -965,7 +1029,7 @@ Shape231.setGeometry(&Text232);
 
 Billboard230.addChild(&Shape231);
 
-HAnimSite222.addChild(Billboard230);
+HAnimSite222.addChild(&Billboard230);
 
 HAnimSegment197.addChild(&HAnimSite222);
 
@@ -973,6 +1037,7 @@ Shape& Shape234 =  Shape();
 LineSet& LineSet235 =  LineSet();
 LineSet235.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA236 =  ColorRGBA();
+ColorRGBA236.setContainerField("color");
 ColorRGBA236.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet235.addChild(&ColorRGBA236);
 
@@ -1003,7 +1068,9 @@ HAnimSite240.addChild(&TouchSensor241);
 
 Shape& Shape242 =  Shape();
 Appearance& Appearance243 =  Appearance();
+Appearance243.setContainerField("appearance");
 Material& Material244 =  Material();
+Material244.setContainerField("material");
 Material244.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance243.addChild(&Material244);
 
@@ -1014,6 +1081,7 @@ IndexedFaceSet245.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet245.setCreaseAngle(0.5);
 IndexedFaceSet245.setSolid(false);
 ColorRGBA& ColorRGBA246 =  ColorRGBA();
+ColorRGBA246.setContainerField("color");
 ColorRGBA246.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet245.addChild(&ColorRGBA246);
 
@@ -1029,8 +1097,9 @@ Billboard& Billboard248 =  Billboard();
 Billboard248.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape249 =  Shape();
 Text& Text250 =  Text();
-Text250.setString((std::string[]){"50"}, 1);
+Text250.setString(new std::string[]{"50"}, 1);
 CFontStyle& FontStyle251 =  CFontStyle();
+FontStyle251.setContainerField("fontStyle");
 FontStyle251.setSize(0.035);
 Text250.setFontStyle(&FontStyle251);
 
@@ -1038,7 +1107,7 @@ Shape249.setGeometry(&Text250);
 
 Billboard248.addChild(&Shape249);
 
-HAnimSite240.addChild(Billboard248);
+HAnimSite240.addChild(&Billboard248);
 
 HAnimSegment239.addChild(&HAnimSite240);
 
@@ -1052,7 +1121,9 @@ HAnimSite252.addChild(&TouchSensor253);
 
 Shape& Shape254 =  Shape();
 Appearance& Appearance255 =  Appearance();
+Appearance255.setContainerField("appearance");
 Material& Material256 =  Material();
+Material256.setContainerField("material");
 Material256.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance255.addChild(&Material256);
 
@@ -1063,6 +1134,7 @@ IndexedFaceSet257.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet257.setCreaseAngle(0.5);
 IndexedFaceSet257.setSolid(false);
 ColorRGBA& ColorRGBA258 =  ColorRGBA();
+ColorRGBA258.setContainerField("color");
 ColorRGBA258.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet257.addChild(&ColorRGBA258);
 
@@ -1078,8 +1150,9 @@ Billboard& Billboard260 =  Billboard();
 Billboard260.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape261 =  Shape();
 Text& Text262 =  Text();
-Text262.setString((std::string[]){"58"}, 1);
+Text262.setString(new std::string[]{"58"}, 1);
 CFontStyle& FontStyle263 =  CFontStyle();
+FontStyle263.setContainerField("fontStyle");
 FontStyle263.setSize(0.035);
 Text262.setFontStyle(&FontStyle263);
 
@@ -1087,7 +1160,7 @@ Shape261.setGeometry(&Text262);
 
 Billboard260.addChild(&Shape261);
 
-HAnimSite252.addChild(Billboard260);
+HAnimSite252.addChild(&Billboard260);
 
 HAnimSegment239.addChild(&HAnimSite252);
 
@@ -1095,6 +1168,7 @@ Shape& Shape264 =  Shape();
 LineSet& LineSet265 =  LineSet();
 LineSet265.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA266 =  ColorRGBA();
+ColorRGBA266.setContainerField("color");
 ColorRGBA266.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet265.addChild(&ColorRGBA266);
 
@@ -1119,6 +1193,7 @@ Shape& Shape270 =  Shape();
 LineSet& LineSet271 =  LineSet();
 LineSet271.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA272 =  ColorRGBA();
+ColorRGBA272.setContainerField("color");
 ColorRGBA272.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet271.addChild(&ColorRGBA272);
 
@@ -1143,6 +1218,7 @@ Shape& Shape276 =  Shape();
 LineSet& LineSet277 =  LineSet();
 LineSet277.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA278 =  ColorRGBA();
+ColorRGBA278.setContainerField("color");
 ColorRGBA278.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet277.addChild(&ColorRGBA278);
 
@@ -1167,6 +1243,7 @@ Shape& Shape282 =  Shape();
 LineSet& LineSet283 =  LineSet();
 LineSet283.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA284 =  ColorRGBA();
+ColorRGBA284.setContainerField("color");
 ColorRGBA284.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet283.addChild(&ColorRGBA284);
 
@@ -1197,7 +1274,9 @@ HAnimSite288.addChild(&TouchSensor289);
 
 Shape& Shape290 =  Shape();
 Appearance& Appearance291 =  Appearance();
+Appearance291.setContainerField("appearance");
 Material& Material292 =  Material();
+Material292.setContainerField("material");
 Material292.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance291.addChild(&Material292);
 
@@ -1208,6 +1287,7 @@ IndexedFaceSet293.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet293.setCreaseAngle(0.5);
 IndexedFaceSet293.setSolid(false);
 ColorRGBA& ColorRGBA294 =  ColorRGBA();
+ColorRGBA294.setContainerField("color");
 ColorRGBA294.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet293.addChild(&ColorRGBA294);
 
@@ -1223,8 +1303,9 @@ Billboard& Billboard296 =  Billboard();
 Billboard296.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape297 =  Shape();
 Text& Text298 =  Text();
-Text298.setString((std::string[]){"55"}, 1);
+Text298.setString(new std::string[]{"55"}, 1);
 CFontStyle& FontStyle299 =  CFontStyle();
+FontStyle299.setContainerField("fontStyle");
 FontStyle299.setSize(0.035);
 Text298.setFontStyle(&FontStyle299);
 
@@ -1232,7 +1313,7 @@ Shape297.setGeometry(&Text298);
 
 Billboard296.addChild(&Shape297);
 
-HAnimSite288.addChild(Billboard296);
+HAnimSite288.addChild(&Billboard296);
 
 HAnimSegment287.addChild(&HAnimSite288);
 
@@ -1240,6 +1321,7 @@ Shape& Shape300 =  Shape();
 LineSet& LineSet301 =  LineSet();
 LineSet301.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA302 =  ColorRGBA();
+ColorRGBA302.setContainerField("color");
 ColorRGBA302.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet301.addChild(&ColorRGBA302);
 
@@ -1270,7 +1352,9 @@ HAnimSite306.addChild(&TouchSensor307);
 
 Shape& Shape308 =  Shape();
 Appearance& Appearance309 =  Appearance();
+Appearance309.setContainerField("appearance");
 Material& Material310 =  Material();
+Material310.setContainerField("material");
 Material310.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance309.addChild(&Material310);
 
@@ -1281,6 +1365,7 @@ IndexedFaceSet311.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet311.setCreaseAngle(0.5);
 IndexedFaceSet311.setSolid(false);
 ColorRGBA& ColorRGBA312 =  ColorRGBA();
+ColorRGBA312.setContainerField("color");
 ColorRGBA312.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet311.addChild(&ColorRGBA312);
 
@@ -1296,8 +1381,9 @@ Billboard& Billboard314 =  Billboard();
 Billboard314.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape315 =  Shape();
 Text& Text316 =  Text();
-Text316.setString((std::string[]){"111"}, 1);
+Text316.setString(new std::string[]{"111"}, 1);
 CFontStyle& FontStyle317 =  CFontStyle();
+FontStyle317.setContainerField("fontStyle");
 FontStyle317.setSize(0.035);
 Text316.setFontStyle(&FontStyle317);
 
@@ -1305,7 +1391,7 @@ Shape315.setGeometry(&Text316);
 
 Billboard314.addChild(&Shape315);
 
-HAnimSite306.addChild(Billboard314);
+HAnimSite306.addChild(&Billboard314);
 
 HAnimSegment305.addChild(&HAnimSite306);
 
@@ -1313,6 +1399,7 @@ Shape& Shape318 =  Shape();
 LineSet& LineSet319 =  LineSet();
 LineSet319.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA320 =  ColorRGBA();
+ColorRGBA320.setContainerField("color");
 ColorRGBA320.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet319.addChild(&ColorRGBA320);
 
@@ -1345,6 +1432,7 @@ Shape& Shape324 =  Shape();
 LineSet& LineSet325 =  LineSet();
 LineSet325.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA326 =  ColorRGBA();
+ColorRGBA326.setContainerField("color");
 ColorRGBA326.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet325.addChild(&ColorRGBA326);
 
@@ -1369,6 +1457,7 @@ Shape& Shape330 =  Shape();
 LineSet& LineSet331 =  LineSet();
 LineSet331.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA332 =  ColorRGBA();
+ColorRGBA332.setContainerField("color");
 ColorRGBA332.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet331.addChild(&ColorRGBA332);
 
@@ -1393,6 +1482,7 @@ Shape& Shape336 =  Shape();
 LineSet& LineSet337 =  LineSet();
 LineSet337.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA338 =  ColorRGBA();
+ColorRGBA338.setContainerField("color");
 ColorRGBA338.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet337.addChild(&ColorRGBA338);
 
@@ -1417,6 +1507,7 @@ Shape& Shape342 =  Shape();
 LineSet& LineSet343 =  LineSet();
 LineSet343.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA344 =  ColorRGBA();
+ColorRGBA344.setContainerField("color");
 ColorRGBA344.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet343.addChild(&ColorRGBA344);
 
@@ -1447,7 +1538,9 @@ HAnimSite348.addChild(&TouchSensor349);
 
 Shape& Shape350 =  Shape();
 Appearance& Appearance351 =  Appearance();
+Appearance351.setContainerField("appearance");
 Material& Material352 =  Material();
+Material352.setContainerField("material");
 Material352.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance351.addChild(&Material352);
 
@@ -1458,6 +1551,7 @@ IndexedFaceSet353.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet353.setCreaseAngle(0.5);
 IndexedFaceSet353.setSolid(false);
 ColorRGBA& ColorRGBA354 =  ColorRGBA();
+ColorRGBA354.setContainerField("color");
 ColorRGBA354.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet353.addChild(&ColorRGBA354);
 
@@ -1473,8 +1567,9 @@ Billboard& Billboard356 =  Billboard();
 Billboard356.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape357 =  Shape();
 Text& Text358 =  Text();
-Text358.setString((std::string[]){"112"}, 1);
+Text358.setString(new std::string[]{"112"}, 1);
 CFontStyle& FontStyle359 =  CFontStyle();
+FontStyle359.setContainerField("fontStyle");
 FontStyle359.setSize(0.035);
 Text358.setFontStyle(&FontStyle359);
 
@@ -1482,7 +1577,7 @@ Shape357.setGeometry(&Text358);
 
 Billboard356.addChild(&Shape357);
 
-HAnimSite348.addChild(Billboard356);
+HAnimSite348.addChild(&Billboard356);
 
 HAnimSegment347.addChild(&HAnimSite348);
 
@@ -1490,6 +1585,7 @@ Shape& Shape360 =  Shape();
 LineSet& LineSet361 =  LineSet();
 LineSet361.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA362 =  ColorRGBA();
+ColorRGBA362.setContainerField("color");
 ColorRGBA362.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet361.addChild(&ColorRGBA362);
 
@@ -1524,6 +1620,7 @@ Shape& Shape366 =  Shape();
 LineSet& LineSet367 =  LineSet();
 LineSet367.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA368 =  ColorRGBA();
+ColorRGBA368.setContainerField("color");
 ColorRGBA368.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet367.addChild(&ColorRGBA368);
 
@@ -1548,6 +1645,7 @@ Shape& Shape372 =  Shape();
 LineSet& LineSet373 =  LineSet();
 LineSet373.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA374 =  ColorRGBA();
+ColorRGBA374.setContainerField("color");
 ColorRGBA374.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet373.addChild(&ColorRGBA374);
 
@@ -1572,6 +1670,7 @@ Shape& Shape378 =  Shape();
 LineSet& LineSet379 =  LineSet();
 LineSet379.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA380 =  ColorRGBA();
+ColorRGBA380.setContainerField("color");
 ColorRGBA380.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet379.addChild(&ColorRGBA380);
 
@@ -1596,6 +1695,7 @@ Shape& Shape384 =  Shape();
 LineSet& LineSet385 =  LineSet();
 LineSet385.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA386 =  ColorRGBA();
+ColorRGBA386.setContainerField("color");
 ColorRGBA386.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet385.addChild(&ColorRGBA386);
 
@@ -1626,7 +1726,9 @@ HAnimSite390.addChild(&TouchSensor391);
 
 Shape& Shape392 =  Shape();
 Appearance& Appearance393 =  Appearance();
+Appearance393.setContainerField("appearance");
 Material& Material394 =  Material();
+Material394.setContainerField("material");
 Material394.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance393.addChild(&Material394);
 
@@ -1637,6 +1739,7 @@ IndexedFaceSet395.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet395.setCreaseAngle(0.5);
 IndexedFaceSet395.setSolid(false);
 ColorRGBA& ColorRGBA396 =  ColorRGBA();
+ColorRGBA396.setContainerField("color");
 ColorRGBA396.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet395.addChild(&ColorRGBA396);
 
@@ -1652,8 +1755,9 @@ Billboard& Billboard398 =  Billboard();
 Billboard398.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape399 =  Shape();
 Text& Text400 =  Text();
-Text400.setString((std::string[]){"113"}, 1);
+Text400.setString(new std::string[]{"113"}, 1);
 CFontStyle& FontStyle401 =  CFontStyle();
+FontStyle401.setContainerField("fontStyle");
 FontStyle401.setSize(0.035);
 Text400.setFontStyle(&FontStyle401);
 
@@ -1661,7 +1765,7 @@ Shape399.setGeometry(&Text400);
 
 Billboard398.addChild(&Shape399);
 
-HAnimSite390.addChild(Billboard398);
+HAnimSite390.addChild(&Billboard398);
 
 HAnimSegment389.addChild(&HAnimSite390);
 
@@ -1669,6 +1773,7 @@ Shape& Shape402 =  Shape();
 LineSet& LineSet403 =  LineSet();
 LineSet403.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA404 =  ColorRGBA();
+ColorRGBA404.setContainerField("color");
 ColorRGBA404.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet403.addChild(&ColorRGBA404);
 
@@ -1705,6 +1810,7 @@ Shape& Shape408 =  Shape();
 LineSet& LineSet409 =  LineSet();
 LineSet409.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA410 =  ColorRGBA();
+ColorRGBA410.setContainerField("color");
 ColorRGBA410.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet409.addChild(&ColorRGBA410);
 
@@ -1729,6 +1835,7 @@ Shape& Shape414 =  Shape();
 LineSet& LineSet415 =  LineSet();
 LineSet415.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA416 =  ColorRGBA();
+ColorRGBA416.setContainerField("color");
 ColorRGBA416.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet415.addChild(&ColorRGBA416);
 
@@ -1753,6 +1860,7 @@ Shape& Shape420 =  Shape();
 LineSet& LineSet421 =  LineSet();
 LineSet421.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA422 =  ColorRGBA();
+ColorRGBA422.setContainerField("color");
 ColorRGBA422.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet421.addChild(&ColorRGBA422);
 
@@ -1777,6 +1885,7 @@ Shape& Shape426 =  Shape();
 LineSet& LineSet427 =  LineSet();
 LineSet427.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA428 =  ColorRGBA();
+ColorRGBA428.setContainerField("color");
 ColorRGBA428.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet427.addChild(&ColorRGBA428);
 
@@ -1801,6 +1910,7 @@ Shape& Shape432 =  Shape();
 LineSet& LineSet433 =  LineSet();
 LineSet433.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA434 =  ColorRGBA();
+ColorRGBA434.setContainerField("color");
 ColorRGBA434.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet433.addChild(&ColorRGBA434);
 
@@ -1831,7 +1941,9 @@ HAnimSite438.addChild(&TouchSensor439);
 
 Shape& Shape440 =  Shape();
 Appearance& Appearance441 =  Appearance();
+Appearance441.setContainerField("appearance");
 Material& Material442 =  Material();
+Material442.setContainerField("material");
 Material442.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance441.addChild(&Material442);
 
@@ -1842,6 +1954,7 @@ IndexedFaceSet443.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet443.setCreaseAngle(0.5);
 IndexedFaceSet443.setSolid(false);
 ColorRGBA& ColorRGBA444 =  ColorRGBA();
+ColorRGBA444.setContainerField("color");
 ColorRGBA444.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet443.addChild(&ColorRGBA444);
 
@@ -1857,8 +1970,9 @@ Billboard& Billboard446 =  Billboard();
 Billboard446.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape447 =  Shape();
 Text& Text448 =  Text();
-Text448.setString((std::string[]){"114"}, 1);
+Text448.setString(new std::string[]{"114"}, 1);
 CFontStyle& FontStyle449 =  CFontStyle();
+FontStyle449.setContainerField("fontStyle");
 FontStyle449.setSize(0.035);
 Text448.setFontStyle(&FontStyle449);
 
@@ -1866,7 +1980,7 @@ Shape447.setGeometry(&Text448);
 
 Billboard446.addChild(&Shape447);
 
-HAnimSite438.addChild(Billboard446);
+HAnimSite438.addChild(&Billboard446);
 
 HAnimSegment437.addChild(&HAnimSite438);
 
@@ -1874,6 +1988,7 @@ Shape& Shape450 =  Shape();
 LineSet& LineSet451 =  LineSet();
 LineSet451.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA452 =  ColorRGBA();
+ColorRGBA452.setContainerField("color");
 ColorRGBA452.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet451.addChild(&ColorRGBA452);
 
@@ -1906,6 +2021,7 @@ Shape& Shape456 =  Shape();
 LineSet& LineSet457 =  LineSet();
 LineSet457.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA458 =  ColorRGBA();
+ColorRGBA458.setContainerField("color");
 ColorRGBA458.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet457.addChild(&ColorRGBA458);
 
@@ -1930,6 +2046,7 @@ Shape& Shape462 =  Shape();
 LineSet& LineSet463 =  LineSet();
 LineSet463.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA464 =  ColorRGBA();
+ColorRGBA464.setContainerField("color");
 ColorRGBA464.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet463.addChild(&ColorRGBA464);
 
@@ -1960,7 +2077,9 @@ HAnimSite468.addChild(&TouchSensor469);
 
 Shape& Shape470 =  Shape();
 Appearance& Appearance471 =  Appearance();
+Appearance471.setContainerField("appearance");
 Material& Material472 =  Material();
+Material472.setContainerField("material");
 Material472.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance471.addChild(&Material472);
 
@@ -1971,6 +2090,7 @@ IndexedFaceSet473.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet473.setCreaseAngle(0.5);
 IndexedFaceSet473.setSolid(false);
 ColorRGBA& ColorRGBA474 =  ColorRGBA();
+ColorRGBA474.setContainerField("color");
 ColorRGBA474.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet473.addChild(&ColorRGBA474);
 
@@ -1986,8 +2106,9 @@ Billboard& Billboard476 =  Billboard();
 Billboard476.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape477 =  Shape();
 Text& Text478 =  Text();
-Text478.setString((std::string[]){"56"}, 1);
+Text478.setString(new std::string[]{"56"}, 1);
 CFontStyle& FontStyle479 =  CFontStyle();
+FontStyle479.setContainerField("fontStyle");
 FontStyle479.setSize(0.035);
 Text478.setFontStyle(&FontStyle479);
 
@@ -1995,7 +2116,7 @@ Shape477.setGeometry(&Text478);
 
 Billboard476.addChild(&Shape477);
 
-HAnimSite468.addChild(Billboard476);
+HAnimSite468.addChild(&Billboard476);
 
 HAnimSegment467.addChild(&HAnimSite468);
 
@@ -2003,6 +2124,7 @@ Shape& Shape480 =  Shape();
 LineSet& LineSet481 =  LineSet();
 LineSet481.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA482 =  ColorRGBA();
+ColorRGBA482.setContainerField("color");
 ColorRGBA482.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet481.addChild(&ColorRGBA482);
 
@@ -2033,7 +2155,9 @@ HAnimSite486.addChild(&TouchSensor487);
 
 Shape& Shape488 =  Shape();
 Appearance& Appearance489 =  Appearance();
+Appearance489.setContainerField("appearance");
 Material& Material490 =  Material();
+Material490.setContainerField("material");
 Material490.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance489.addChild(&Material490);
 
@@ -2044,6 +2168,7 @@ IndexedFaceSet491.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet491.setCreaseAngle(0.5);
 IndexedFaceSet491.setSolid(false);
 ColorRGBA& ColorRGBA492 =  ColorRGBA();
+ColorRGBA492.setContainerField("color");
 ColorRGBA492.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet491.addChild(&ColorRGBA492);
 
@@ -2059,8 +2184,9 @@ Billboard& Billboard494 =  Billboard();
 Billboard494.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape495 =  Shape();
 Text& Text496 =  Text();
-Text496.setString((std::string[]){"115"}, 1);
+Text496.setString(new std::string[]{"115"}, 1);
 CFontStyle& FontStyle497 =  CFontStyle();
+FontStyle497.setContainerField("fontStyle");
 FontStyle497.setSize(0.035);
 Text496.setFontStyle(&FontStyle497);
 
@@ -2068,7 +2194,7 @@ Shape495.setGeometry(&Text496);
 
 Billboard494.addChild(&Shape495);
 
-HAnimSite486.addChild(Billboard494);
+HAnimSite486.addChild(&Billboard494);
 
 HAnimSegment485.addChild(&HAnimSite486);
 
@@ -2076,6 +2202,7 @@ Shape& Shape498 =  Shape();
 LineSet& LineSet499 =  LineSet();
 LineSet499.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA500 =  ColorRGBA();
+ColorRGBA500.setContainerField("color");
 ColorRGBA500.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet499.addChild(&ColorRGBA500);
 
@@ -2124,7 +2251,9 @@ HAnimSite504.addChild(&TouchSensor505);
 
 Shape& Shape506 =  Shape();
 Appearance& Appearance507 =  Appearance();
+Appearance507.setContainerField("appearance");
 Material& Material508 =  Material();
+Material508.setContainerField("material");
 Material508.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance507.addChild(&Material508);
 
@@ -2135,6 +2264,7 @@ IndexedFaceSet509.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet509.setCreaseAngle(0.5);
 IndexedFaceSet509.setSolid(false);
 ColorRGBA& ColorRGBA510 =  ColorRGBA();
+ColorRGBA510.setContainerField("color");
 ColorRGBA510.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet509.addChild(&ColorRGBA510);
 
@@ -2150,8 +2280,9 @@ Billboard& Billboard512 =  Billboard();
 Billboard512.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape513 =  Shape();
 Text& Text514 =  Text();
-Text514.setString((std::string[]){"91"}, 1);
+Text514.setString(new std::string[]{"91"}, 1);
 CFontStyle& FontStyle515 =  CFontStyle();
+FontStyle515.setContainerField("fontStyle");
 FontStyle515.setSize(0.035);
 Text514.setFontStyle(&FontStyle515);
 
@@ -2159,7 +2290,7 @@ Shape513.setGeometry(&Text514);
 
 Billboard512.addChild(&Shape513);
 
-HAnimSite504.addChild(Billboard512);
+HAnimSite504.addChild(&Billboard512);
 
 HAnimSegment503.addChild(&HAnimSite504);
 
@@ -2173,7 +2304,9 @@ HAnimSite516.addChild(&TouchSensor517);
 
 Shape& Shape518 =  Shape();
 Appearance& Appearance519 =  Appearance();
+Appearance519.setContainerField("appearance");
 Material& Material520 =  Material();
+Material520.setContainerField("material");
 Material520.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance519.addChild(&Material520);
 
@@ -2184,6 +2317,7 @@ IndexedFaceSet521.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet521.setCreaseAngle(0.5);
 IndexedFaceSet521.setSolid(false);
 ColorRGBA& ColorRGBA522 =  ColorRGBA();
+ColorRGBA522.setContainerField("color");
 ColorRGBA522.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet521.addChild(&ColorRGBA522);
 
@@ -2199,8 +2333,9 @@ Billboard& Billboard524 =  Billboard();
 Billboard524.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape525 =  Shape();
 Text& Text526 =  Text();
-Text526.setString((std::string[]){"44"}, 1);
+Text526.setString(new std::string[]{"44"}, 1);
 CFontStyle& FontStyle527 =  CFontStyle();
+FontStyle527.setContainerField("fontStyle");
 FontStyle527.setSize(0.035);
 Text526.setFontStyle(&FontStyle527);
 
@@ -2208,7 +2343,7 @@ Shape525.setGeometry(&Text526);
 
 Billboard524.addChild(&Shape525);
 
-HAnimSite516.addChild(Billboard524);
+HAnimSite516.addChild(&Billboard524);
 
 HAnimSegment503.addChild(&HAnimSite516);
 
@@ -2222,7 +2357,9 @@ HAnimSite528.addChild(&TouchSensor529);
 
 Shape& Shape530 =  Shape();
 Appearance& Appearance531 =  Appearance();
+Appearance531.setContainerField("appearance");
 Material& Material532 =  Material();
+Material532.setContainerField("material");
 Material532.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance531.addChild(&Material532);
 
@@ -2233,6 +2370,7 @@ IndexedFaceSet533.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet533.setCreaseAngle(0.5);
 IndexedFaceSet533.setSolid(false);
 ColorRGBA& ColorRGBA534 =  ColorRGBA();
+ColorRGBA534.setContainerField("color");
 ColorRGBA534.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet533.addChild(&ColorRGBA534);
 
@@ -2248,8 +2386,9 @@ Billboard& Billboard536 =  Billboard();
 Billboard536.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape537 =  Shape();
 Text& Text538 =  Text();
-Text538.setString((std::string[]){"43"}, 1);
+Text538.setString(new std::string[]{"43"}, 1);
 CFontStyle& FontStyle539 =  CFontStyle();
+FontStyle539.setContainerField("fontStyle");
 FontStyle539.setSize(0.035);
 Text538.setFontStyle(&FontStyle539);
 
@@ -2257,7 +2396,7 @@ Shape537.setGeometry(&Text538);
 
 Billboard536.addChild(&Shape537);
 
-HAnimSite528.addChild(Billboard536);
+HAnimSite528.addChild(&Billboard536);
 
 HAnimSegment503.addChild(&HAnimSite528);
 
@@ -2271,7 +2410,9 @@ HAnimSite540.addChild(&TouchSensor541);
 
 Shape& Shape542 =  Shape();
 Appearance& Appearance543 =  Appearance();
+Appearance543.setContainerField("appearance");
 Material& Material544 =  Material();
+Material544.setContainerField("material");
 Material544.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance543.addChild(&Material544);
 
@@ -2282,6 +2423,7 @@ IndexedFaceSet545.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet545.setCreaseAngle(0.5);
 IndexedFaceSet545.setSolid(false);
 ColorRGBA& ColorRGBA546 =  ColorRGBA();
+ColorRGBA546.setContainerField("color");
 ColorRGBA546.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet545.addChild(&ColorRGBA546);
 
@@ -2297,8 +2439,9 @@ Billboard& Billboard548 =  Billboard();
 Billboard548.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape549 =  Shape();
 Text& Text550 =  Text();
-Text550.setString((std::string[]){"45"}, 1);
+Text550.setString(new std::string[]{"45"}, 1);
 CFontStyle& FontStyle551 =  CFontStyle();
+FontStyle551.setContainerField("fontStyle");
 FontStyle551.setSize(0.035);
 Text550.setFontStyle(&FontStyle551);
 
@@ -2306,7 +2449,7 @@ Shape549.setGeometry(&Text550);
 
 Billboard548.addChild(&Shape549);
 
-HAnimSite540.addChild(Billboard548);
+HAnimSite540.addChild(&Billboard548);
 
 HAnimSegment503.addChild(&HAnimSite540);
 
@@ -2314,6 +2457,7 @@ Shape& Shape552 =  Shape();
 LineSet& LineSet553 =  LineSet();
 LineSet553.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA554 =  ColorRGBA();
+ColorRGBA554.setContainerField("color");
 ColorRGBA554.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet553.addChild(&ColorRGBA554);
 
@@ -2344,7 +2488,9 @@ HAnimSite558.addChild(&TouchSensor559);
 
 Shape& Shape560 =  Shape();
 Appearance& Appearance561 =  Appearance();
+Appearance561.setContainerField("appearance");
 Material& Material562 =  Material();
+Material562.setContainerField("material");
 Material562.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance561.addChild(&Material562);
 
@@ -2355,6 +2501,7 @@ IndexedFaceSet563.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet563.setCreaseAngle(0.5);
 IndexedFaceSet563.setSolid(false);
 ColorRGBA& ColorRGBA564 =  ColorRGBA();
+ColorRGBA564.setContainerField("color");
 ColorRGBA564.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet563.addChild(&ColorRGBA564);
 
@@ -2370,8 +2517,9 @@ Billboard& Billboard566 =  Billboard();
 Billboard566.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape567 =  Shape();
 Text& Text568 =  Text();
-Text568.setString((std::string[]){"51"}, 1);
+Text568.setString(new std::string[]{"51"}, 1);
 CFontStyle& FontStyle569 =  CFontStyle();
+FontStyle569.setContainerField("fontStyle");
 FontStyle569.setSize(0.035);
 Text568.setFontStyle(&FontStyle569);
 
@@ -2379,7 +2527,7 @@ Shape567.setGeometry(&Text568);
 
 Billboard566.addChild(&Shape567);
 
-HAnimSite558.addChild(Billboard566);
+HAnimSite558.addChild(&Billboard566);
 
 HAnimSegment557.addChild(&HAnimSite558);
 
@@ -2393,7 +2541,9 @@ HAnimSite570.addChild(&TouchSensor571);
 
 Shape& Shape572 =  Shape();
 Appearance& Appearance573 =  Appearance();
+Appearance573.setContainerField("appearance");
 Material& Material574 =  Material();
+Material574.setContainerField("material");
 Material574.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance573.addChild(&Material574);
 
@@ -2404,6 +2554,7 @@ IndexedFaceSet575.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet575.setCreaseAngle(0.5);
 IndexedFaceSet575.setSolid(false);
 ColorRGBA& ColorRGBA576 =  ColorRGBA();
+ColorRGBA576.setContainerField("color");
 ColorRGBA576.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet575.addChild(&ColorRGBA576);
 
@@ -2419,8 +2570,9 @@ Billboard& Billboard578 =  Billboard();
 Billboard578.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape579 =  Shape();
 Text& Text580 =  Text();
-Text580.setString((std::string[]){"52"}, 1);
+Text580.setString(new std::string[]{"52"}, 1);
 CFontStyle& FontStyle581 =  CFontStyle();
+FontStyle581.setContainerField("fontStyle");
 FontStyle581.setSize(0.035);
 Text580.setFontStyle(&FontStyle581);
 
@@ -2428,7 +2580,7 @@ Shape579.setGeometry(&Text580);
 
 Billboard578.addChild(&Shape579);
 
-HAnimSite570.addChild(Billboard578);
+HAnimSite570.addChild(&Billboard578);
 
 HAnimSegment557.addChild(&HAnimSite570);
 
@@ -2442,7 +2594,9 @@ HAnimSite582.addChild(&TouchSensor583);
 
 Shape& Shape584 =  Shape();
 Appearance& Appearance585 =  Appearance();
+Appearance585.setContainerField("appearance");
 Material& Material586 =  Material();
+Material586.setContainerField("material");
 Material586.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance585.addChild(&Material586);
 
@@ -2453,6 +2607,7 @@ IndexedFaceSet587.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet587.setCreaseAngle(0.5);
 IndexedFaceSet587.setSolid(false);
 ColorRGBA& ColorRGBA588 =  ColorRGBA();
+ColorRGBA588.setContainerField("color");
 ColorRGBA588.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet587.addChild(&ColorRGBA588);
 
@@ -2468,8 +2623,9 @@ Billboard& Billboard590 =  Billboard();
 Billboard590.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape591 =  Shape();
 Text& Text592 =  Text();
-Text592.setString((std::string[]){"53"}, 1);
+Text592.setString(new std::string[]{"53"}, 1);
 CFontStyle& FontStyle593 =  CFontStyle();
+FontStyle593.setContainerField("fontStyle");
 FontStyle593.setSize(0.035);
 Text592.setFontStyle(&FontStyle593);
 
@@ -2477,7 +2633,7 @@ Shape591.setGeometry(&Text592);
 
 Billboard590.addChild(&Shape591);
 
-HAnimSite582.addChild(Billboard590);
+HAnimSite582.addChild(&Billboard590);
 
 HAnimSegment557.addChild(&HAnimSite582);
 
@@ -2485,6 +2641,7 @@ Shape& Shape594 =  Shape();
 LineSet& LineSet595 =  LineSet();
 LineSet595.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA596 =  ColorRGBA();
+ColorRGBA596.setContainerField("color");
 ColorRGBA596.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet595.addChild(&ColorRGBA596);
 
@@ -2515,7 +2672,9 @@ HAnimSite600.addChild(&TouchSensor601);
 
 Shape& Shape602 =  Shape();
 Appearance& Appearance603 =  Appearance();
+Appearance603.setContainerField("appearance");
 Material& Material604 =  Material();
+Material604.setContainerField("material");
 Material604.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance603.addChild(&Material604);
 
@@ -2526,6 +2685,7 @@ IndexedFaceSet605.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet605.setCreaseAngle(0.5);
 IndexedFaceSet605.setSolid(false);
 ColorRGBA& ColorRGBA606 =  ColorRGBA();
+ColorRGBA606.setContainerField("color");
 ColorRGBA606.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet605.addChild(&ColorRGBA606);
 
@@ -2541,8 +2701,9 @@ Billboard& Billboard608 =  Billboard();
 Billboard608.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape609 =  Shape();
 Text& Text610 =  Text();
-Text610.setString((std::string[]){"54"}, 1);
+Text610.setString(new std::string[]{"54"}, 1);
 CFontStyle& FontStyle611 =  CFontStyle();
+FontStyle611.setContainerField("fontStyle");
 FontStyle611.setSize(0.035);
 Text610.setFontStyle(&FontStyle611);
 
@@ -2550,7 +2711,7 @@ Shape609.setGeometry(&Text610);
 
 Billboard608.addChild(&Shape609);
 
-HAnimSite600.addChild(Billboard608);
+HAnimSite600.addChild(&Billboard608);
 
 HAnimSegment599.addChild(&HAnimSite600);
 
@@ -2564,7 +2725,9 @@ HAnimSite612.addChild(&TouchSensor613);
 
 Shape& Shape614 =  Shape();
 Appearance& Appearance615 =  Appearance();
+Appearance615.setContainerField("appearance");
 Material& Material616 =  Material();
+Material616.setContainerField("material");
 Material616.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance615.addChild(&Material616);
 
@@ -2575,6 +2738,7 @@ IndexedFaceSet617.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet617.setCreaseAngle(0.5);
 IndexedFaceSet617.setSolid(false);
 ColorRGBA& ColorRGBA618 =  ColorRGBA();
+ColorRGBA618.setContainerField("color");
 ColorRGBA618.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet617.addChild(&ColorRGBA618);
 
@@ -2590,8 +2754,9 @@ Billboard& Billboard620 =  Billboard();
 Billboard620.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape621 =  Shape();
 Text& Text622 =  Text();
-Text622.setString((std::string[]){"62"}, 1);
+Text622.setString(new std::string[]{"62"}, 1);
 CFontStyle& FontStyle623 =  CFontStyle();
+FontStyle623.setContainerField("fontStyle");
 FontStyle623.setSize(0.035);
 Text622.setFontStyle(&FontStyle623);
 
@@ -2599,7 +2764,7 @@ Shape621.setGeometry(&Text622);
 
 Billboard620.addChild(&Shape621);
 
-HAnimSite612.addChild(Billboard620);
+HAnimSite612.addChild(&Billboard620);
 
 HAnimSegment599.addChild(&HAnimSite612);
 
@@ -2607,6 +2772,7 @@ Shape& Shape624 =  Shape();
 LineSet& LineSet625 =  LineSet();
 LineSet625.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA626 =  ColorRGBA();
+ColorRGBA626.setContainerField("color");
 ColorRGBA626.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet625.addChild(&ColorRGBA626);
 
@@ -2631,6 +2797,7 @@ Shape& Shape630 =  Shape();
 LineSet& LineSet631 =  LineSet();
 LineSet631.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA632 =  ColorRGBA();
+ColorRGBA632.setContainerField("color");
 ColorRGBA632.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet631.addChild(&ColorRGBA632);
 
@@ -2655,6 +2822,7 @@ Shape& Shape636 =  Shape();
 LineSet& LineSet637 =  LineSet();
 LineSet637.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA638 =  ColorRGBA();
+ColorRGBA638.setContainerField("color");
 ColorRGBA638.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet637.addChild(&ColorRGBA638);
 
@@ -2679,6 +2847,7 @@ Shape& Shape642 =  Shape();
 LineSet& LineSet643 =  LineSet();
 LineSet643.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA644 =  ColorRGBA();
+ColorRGBA644.setContainerField("color");
 ColorRGBA644.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet643.addChild(&ColorRGBA644);
 
@@ -2709,7 +2878,9 @@ HAnimSite648.addChild(&TouchSensor649);
 
 Shape& Shape650 =  Shape();
 Appearance& Appearance651 =  Appearance();
+Appearance651.setContainerField("appearance");
 Material& Material652 =  Material();
+Material652.setContainerField("material");
 Material652.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance651.addChild(&Material652);
 
@@ -2720,6 +2891,7 @@ IndexedFaceSet653.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet653.setCreaseAngle(0.5);
 IndexedFaceSet653.setSolid(false);
 ColorRGBA& ColorRGBA654 =  ColorRGBA();
+ColorRGBA654.setContainerField("color");
 ColorRGBA654.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet653.addChild(&ColorRGBA654);
 
@@ -2735,8 +2907,9 @@ Billboard& Billboard656 =  Billboard();
 Billboard656.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape657 =  Shape();
 Text& Text658 =  Text();
-Text658.setString((std::string[]){"59"}, 1);
+Text658.setString(new std::string[]{"59"}, 1);
 CFontStyle& FontStyle659 =  CFontStyle();
+FontStyle659.setContainerField("fontStyle");
 FontStyle659.setSize(0.035);
 Text658.setFontStyle(&FontStyle659);
 
@@ -2744,7 +2917,7 @@ Shape657.setGeometry(&Text658);
 
 Billboard656.addChild(&Shape657);
 
-HAnimSite648.addChild(Billboard656);
+HAnimSite648.addChild(&Billboard656);
 
 HAnimSegment647.addChild(&HAnimSite648);
 
@@ -2752,6 +2925,7 @@ Shape& Shape660 =  Shape();
 LineSet& LineSet661 =  LineSet();
 LineSet661.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA662 =  ColorRGBA();
+ColorRGBA662.setContainerField("color");
 ColorRGBA662.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet661.addChild(&ColorRGBA662);
 
@@ -2782,7 +2956,9 @@ HAnimSite666.addChild(&TouchSensor667);
 
 Shape& Shape668 =  Shape();
 Appearance& Appearance669 =  Appearance();
+Appearance669.setContainerField("appearance");
 Material& Material670 =  Material();
+Material670.setContainerField("material");
 Material670.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance669.addChild(&Material670);
 
@@ -2793,6 +2969,7 @@ IndexedFaceSet671.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet671.setCreaseAngle(0.5);
 IndexedFaceSet671.setSolid(false);
 ColorRGBA& ColorRGBA672 =  ColorRGBA();
+ColorRGBA672.setContainerField("color");
 ColorRGBA672.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet671.addChild(&ColorRGBA672);
 
@@ -2808,8 +2985,9 @@ Billboard& Billboard674 =  Billboard();
 Billboard674.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape675 =  Shape();
 Text& Text676 =  Text();
-Text676.setString((std::string[]){"116"}, 1);
+Text676.setString(new std::string[]{"116"}, 1);
 CFontStyle& FontStyle677 =  CFontStyle();
+FontStyle677.setContainerField("fontStyle");
 FontStyle677.setSize(0.035);
 Text676.setFontStyle(&FontStyle677);
 
@@ -2817,7 +2995,7 @@ Shape675.setGeometry(&Text676);
 
 Billboard674.addChild(&Shape675);
 
-HAnimSite666.addChild(Billboard674);
+HAnimSite666.addChild(&Billboard674);
 
 HAnimSegment665.addChild(&HAnimSite666);
 
@@ -2825,6 +3003,7 @@ Shape& Shape678 =  Shape();
 LineSet& LineSet679 =  LineSet();
 LineSet679.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA680 =  ColorRGBA();
+ColorRGBA680.setContainerField("color");
 ColorRGBA680.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet679.addChild(&ColorRGBA680);
 
@@ -2857,6 +3036,7 @@ Shape& Shape684 =  Shape();
 LineSet& LineSet685 =  LineSet();
 LineSet685.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA686 =  ColorRGBA();
+ColorRGBA686.setContainerField("color");
 ColorRGBA686.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet685.addChild(&ColorRGBA686);
 
@@ -2881,6 +3061,7 @@ Shape& Shape690 =  Shape();
 LineSet& LineSet691 =  LineSet();
 LineSet691.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA692 =  ColorRGBA();
+ColorRGBA692.setContainerField("color");
 ColorRGBA692.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet691.addChild(&ColorRGBA692);
 
@@ -2905,6 +3086,7 @@ Shape& Shape696 =  Shape();
 LineSet& LineSet697 =  LineSet();
 LineSet697.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA698 =  ColorRGBA();
+ColorRGBA698.setContainerField("color");
 ColorRGBA698.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet697.addChild(&ColorRGBA698);
 
@@ -2929,6 +3111,7 @@ Shape& Shape702 =  Shape();
 LineSet& LineSet703 =  LineSet();
 LineSet703.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA704 =  ColorRGBA();
+ColorRGBA704.setContainerField("color");
 ColorRGBA704.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet703.addChild(&ColorRGBA704);
 
@@ -2959,7 +3142,9 @@ HAnimSite708.addChild(&TouchSensor709);
 
 Shape& Shape710 =  Shape();
 Appearance& Appearance711 =  Appearance();
+Appearance711.setContainerField("appearance");
 Material& Material712 =  Material();
+Material712.setContainerField("material");
 Material712.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance711.addChild(&Material712);
 
@@ -2970,6 +3155,7 @@ IndexedFaceSet713.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet713.setCreaseAngle(0.5);
 IndexedFaceSet713.setSolid(false);
 ColorRGBA& ColorRGBA714 =  ColorRGBA();
+ColorRGBA714.setContainerField("color");
 ColorRGBA714.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet713.addChild(&ColorRGBA714);
 
@@ -2985,8 +3171,9 @@ Billboard& Billboard716 =  Billboard();
 Billboard716.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape717 =  Shape();
 Text& Text718 =  Text();
-Text718.setString((std::string[]){"117"}, 1);
+Text718.setString(new std::string[]{"117"}, 1);
 CFontStyle& FontStyle719 =  CFontStyle();
+FontStyle719.setContainerField("fontStyle");
 FontStyle719.setSize(0.035);
 Text718.setFontStyle(&FontStyle719);
 
@@ -2994,7 +3181,7 @@ Shape717.setGeometry(&Text718);
 
 Billboard716.addChild(&Shape717);
 
-HAnimSite708.addChild(Billboard716);
+HAnimSite708.addChild(&Billboard716);
 
 HAnimSegment707.addChild(&HAnimSite708);
 
@@ -3002,6 +3189,7 @@ Shape& Shape720 =  Shape();
 LineSet& LineSet721 =  LineSet();
 LineSet721.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA722 =  ColorRGBA();
+ColorRGBA722.setContainerField("color");
 ColorRGBA722.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet721.addChild(&ColorRGBA722);
 
@@ -3036,6 +3224,7 @@ Shape& Shape726 =  Shape();
 LineSet& LineSet727 =  LineSet();
 LineSet727.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA728 =  ColorRGBA();
+ColorRGBA728.setContainerField("color");
 ColorRGBA728.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet727.addChild(&ColorRGBA728);
 
@@ -3060,6 +3249,7 @@ Shape& Shape732 =  Shape();
 LineSet& LineSet733 =  LineSet();
 LineSet733.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA734 =  ColorRGBA();
+ColorRGBA734.setContainerField("color");
 ColorRGBA734.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet733.addChild(&ColorRGBA734);
 
@@ -3084,6 +3274,7 @@ Shape& Shape738 =  Shape();
 LineSet& LineSet739 =  LineSet();
 LineSet739.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA740 =  ColorRGBA();
+ColorRGBA740.setContainerField("color");
 ColorRGBA740.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet739.addChild(&ColorRGBA740);
 
@@ -3108,6 +3299,7 @@ Shape& Shape744 =  Shape();
 LineSet& LineSet745 =  LineSet();
 LineSet745.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA746 =  ColorRGBA();
+ColorRGBA746.setContainerField("color");
 ColorRGBA746.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet745.addChild(&ColorRGBA746);
 
@@ -3138,7 +3330,9 @@ HAnimSite750.addChild(&TouchSensor751);
 
 Shape& Shape752 =  Shape();
 Appearance& Appearance753 =  Appearance();
+Appearance753.setContainerField("appearance");
 Material& Material754 =  Material();
+Material754.setContainerField("material");
 Material754.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance753.addChild(&Material754);
 
@@ -3149,6 +3343,7 @@ IndexedFaceSet755.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet755.setCreaseAngle(0.5);
 IndexedFaceSet755.setSolid(false);
 ColorRGBA& ColorRGBA756 =  ColorRGBA();
+ColorRGBA756.setContainerField("color");
 ColorRGBA756.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet755.addChild(&ColorRGBA756);
 
@@ -3164,8 +3359,9 @@ Billboard& Billboard758 =  Billboard();
 Billboard758.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape759 =  Shape();
 Text& Text760 =  Text();
-Text760.setString((std::string[]){"118"}, 1);
+Text760.setString(new std::string[]{"118"}, 1);
 CFontStyle& FontStyle761 =  CFontStyle();
+FontStyle761.setContainerField("fontStyle");
 FontStyle761.setSize(0.035);
 Text760.setFontStyle(&FontStyle761);
 
@@ -3173,7 +3369,7 @@ Shape759.setGeometry(&Text760);
 
 Billboard758.addChild(&Shape759);
 
-HAnimSite750.addChild(Billboard758);
+HAnimSite750.addChild(&Billboard758);
 
 HAnimSegment749.addChild(&HAnimSite750);
 
@@ -3181,6 +3377,7 @@ Shape& Shape762 =  Shape();
 LineSet& LineSet763 =  LineSet();
 LineSet763.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA764 =  ColorRGBA();
+ColorRGBA764.setContainerField("color");
 ColorRGBA764.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet763.addChild(&ColorRGBA764);
 
@@ -3217,6 +3414,7 @@ Shape& Shape768 =  Shape();
 LineSet& LineSet769 =  LineSet();
 LineSet769.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA770 =  ColorRGBA();
+ColorRGBA770.setContainerField("color");
 ColorRGBA770.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet769.addChild(&ColorRGBA770);
 
@@ -3241,6 +3439,7 @@ Shape& Shape774 =  Shape();
 LineSet& LineSet775 =  LineSet();
 LineSet775.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA776 =  ColorRGBA();
+ColorRGBA776.setContainerField("color");
 ColorRGBA776.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet775.addChild(&ColorRGBA776);
 
@@ -3265,6 +3464,7 @@ Shape& Shape780 =  Shape();
 LineSet& LineSet781 =  LineSet();
 LineSet781.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA782 =  ColorRGBA();
+ColorRGBA782.setContainerField("color");
 ColorRGBA782.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet781.addChild(&ColorRGBA782);
 
@@ -3289,6 +3489,7 @@ Shape& Shape786 =  Shape();
 LineSet& LineSet787 =  LineSet();
 LineSet787.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA788 =  ColorRGBA();
+ColorRGBA788.setContainerField("color");
 ColorRGBA788.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet787.addChild(&ColorRGBA788);
 
@@ -3313,6 +3514,7 @@ Shape& Shape792 =  Shape();
 LineSet& LineSet793 =  LineSet();
 LineSet793.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA794 =  ColorRGBA();
+ColorRGBA794.setContainerField("color");
 ColorRGBA794.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet793.addChild(&ColorRGBA794);
 
@@ -3343,7 +3545,9 @@ HAnimSite798.addChild(&TouchSensor799);
 
 Shape& Shape800 =  Shape();
 Appearance& Appearance801 =  Appearance();
+Appearance801.setContainerField("appearance");
 Material& Material802 =  Material();
+Material802.setContainerField("material");
 Material802.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance801.addChild(&Material802);
 
@@ -3354,6 +3558,7 @@ IndexedFaceSet803.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet803.setCreaseAngle(0.5);
 IndexedFaceSet803.setSolid(false);
 ColorRGBA& ColorRGBA804 =  ColorRGBA();
+ColorRGBA804.setContainerField("color");
 ColorRGBA804.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet803.addChild(&ColorRGBA804);
 
@@ -3369,8 +3574,9 @@ Billboard& Billboard806 =  Billboard();
 Billboard806.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape807 =  Shape();
 Text& Text808 =  Text();
-Text808.setString((std::string[]){"119"}, 1);
+Text808.setString(new std::string[]{"119"}, 1);
 CFontStyle& FontStyle809 =  CFontStyle();
+FontStyle809.setContainerField("fontStyle");
 FontStyle809.setSize(0.035);
 Text808.setFontStyle(&FontStyle809);
 
@@ -3378,7 +3584,7 @@ Shape807.setGeometry(&Text808);
 
 Billboard806.addChild(&Shape807);
 
-HAnimSite798.addChild(Billboard806);
+HAnimSite798.addChild(&Billboard806);
 
 HAnimSegment797.addChild(&HAnimSite798);
 
@@ -3386,6 +3592,7 @@ Shape& Shape810 =  Shape();
 LineSet& LineSet811 =  LineSet();
 LineSet811.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA812 =  ColorRGBA();
+ColorRGBA812.setContainerField("color");
 ColorRGBA812.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet811.addChild(&ColorRGBA812);
 
@@ -3418,6 +3625,7 @@ Shape& Shape816 =  Shape();
 LineSet& LineSet817 =  LineSet();
 LineSet817.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA818 =  ColorRGBA();
+ColorRGBA818.setContainerField("color");
 ColorRGBA818.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet817.addChild(&ColorRGBA818);
 
@@ -3442,6 +3650,7 @@ Shape& Shape822 =  Shape();
 LineSet& LineSet823 =  LineSet();
 LineSet823.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA824 =  ColorRGBA();
+ColorRGBA824.setContainerField("color");
 ColorRGBA824.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet823.addChild(&ColorRGBA824);
 
@@ -3472,7 +3681,9 @@ HAnimSite828.addChild(&TouchSensor829);
 
 Shape& Shape830 =  Shape();
 Appearance& Appearance831 =  Appearance();
+Appearance831.setContainerField("appearance");
 Material& Material832 =  Material();
+Material832.setContainerField("material");
 Material832.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance831.addChild(&Material832);
 
@@ -3483,6 +3694,7 @@ IndexedFaceSet833.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet833.setCreaseAngle(0.5);
 IndexedFaceSet833.setSolid(false);
 ColorRGBA& ColorRGBA834 =  ColorRGBA();
+ColorRGBA834.setContainerField("color");
 ColorRGBA834.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet833.addChild(&ColorRGBA834);
 
@@ -3498,8 +3710,9 @@ Billboard& Billboard836 =  Billboard();
 Billboard836.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape837 =  Shape();
 Text& Text838 =  Text();
-Text838.setString((std::string[]){"60"}, 1);
+Text838.setString(new std::string[]{"60"}, 1);
 CFontStyle& FontStyle839 =  CFontStyle();
+FontStyle839.setContainerField("fontStyle");
 FontStyle839.setSize(0.035);
 Text838.setFontStyle(&FontStyle839);
 
@@ -3507,7 +3720,7 @@ Shape837.setGeometry(&Text838);
 
 Billboard836.addChild(&Shape837);
 
-HAnimSite828.addChild(Billboard836);
+HAnimSite828.addChild(&Billboard836);
 
 HAnimSegment827.addChild(&HAnimSite828);
 
@@ -3515,6 +3728,7 @@ Shape& Shape840 =  Shape();
 LineSet& LineSet841 =  LineSet();
 LineSet841.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA842 =  ColorRGBA();
+ColorRGBA842.setContainerField("color");
 ColorRGBA842.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet841.addChild(&ColorRGBA842);
 
@@ -3545,7 +3759,9 @@ HAnimSite846.addChild(&TouchSensor847);
 
 Shape& Shape848 =  Shape();
 Appearance& Appearance849 =  Appearance();
+Appearance849.setContainerField("appearance");
 Material& Material850 =  Material();
+Material850.setContainerField("material");
 Material850.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance849.addChild(&Material850);
 
@@ -3556,6 +3772,7 @@ IndexedFaceSet851.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet851.setCreaseAngle(0.5);
 IndexedFaceSet851.setSolid(false);
 ColorRGBA& ColorRGBA852 =  ColorRGBA();
+ColorRGBA852.setContainerField("color");
 ColorRGBA852.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet851.addChild(&ColorRGBA852);
 
@@ -3571,8 +3788,9 @@ Billboard& Billboard854 =  Billboard();
 Billboard854.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape855 =  Shape();
 Text& Text856 =  Text();
-Text856.setString((std::string[]){"120"}, 1);
+Text856.setString(new std::string[]{"120"}, 1);
 CFontStyle& FontStyle857 =  CFontStyle();
+FontStyle857.setContainerField("fontStyle");
 FontStyle857.setSize(0.035);
 Text856.setFontStyle(&FontStyle857);
 
@@ -3580,7 +3798,7 @@ Shape855.setGeometry(&Text856);
 
 Billboard854.addChild(&Shape855);
 
-HAnimSite846.addChild(Billboard854);
+HAnimSite846.addChild(&Billboard854);
 
 HAnimSegment845.addChild(&HAnimSite846);
 
@@ -3588,6 +3806,7 @@ Shape& Shape858 =  Shape();
 LineSet& LineSet859 =  LineSet();
 LineSet859.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA860 =  ColorRGBA();
+ColorRGBA860.setContainerField("color");
 ColorRGBA860.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet859.addChild(&ColorRGBA860);
 
@@ -3638,7 +3857,9 @@ HAnimSite864.addChild(&TouchSensor865);
 
 Shape& Shape866 =  Shape();
 Appearance& Appearance867 =  Appearance();
+Appearance867.setContainerField("appearance");
 Material& Material868 =  Material();
+Material868.setContainerField("material");
 Material868.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance867.addChild(&Material868);
 
@@ -3649,6 +3870,7 @@ IndexedFaceSet869.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet869.setCreaseAngle(0.5);
 IndexedFaceSet869.setSolid(false);
 ColorRGBA& ColorRGBA870 =  ColorRGBA();
+ColorRGBA870.setContainerField("color");
 ColorRGBA870.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet869.addChild(&ColorRGBA870);
 
@@ -3664,8 +3886,9 @@ Billboard& Billboard872 =  Billboard();
 Billboard872.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape873 =  Shape();
 Text& Text874 =  Text();
-Text874.setString((std::string[]){"24"}, 1);
+Text874.setString(new std::string[]{"24"}, 1);
 CFontStyle& FontStyle875 =  CFontStyle();
+FontStyle875.setContainerField("fontStyle");
 FontStyle875.setSize(0.035);
 Text874.setFontStyle(&FontStyle875);
 
@@ -3673,7 +3896,7 @@ Shape873.setGeometry(&Text874);
 
 Billboard872.addChild(&Shape873);
 
-HAnimSite864.addChild(Billboard872);
+HAnimSite864.addChild(&Billboard872);
 
 HAnimSegment863.addChild(&HAnimSite864);
 
@@ -3687,7 +3910,9 @@ HAnimSite876.addChild(&TouchSensor877);
 
 Shape& Shape878 =  Shape();
 Appearance& Appearance879 =  Appearance();
+Appearance879.setContainerField("appearance");
 Material& Material880 =  Material();
+Material880.setContainerField("material");
 Material880.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance879.addChild(&Material880);
 
@@ -3698,6 +3923,7 @@ IndexedFaceSet881.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet881.setCreaseAngle(0.5);
 IndexedFaceSet881.setSolid(false);
 ColorRGBA& ColorRGBA882 =  ColorRGBA();
+ColorRGBA882.setContainerField("color");
 ColorRGBA882.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet881.addChild(&ColorRGBA882);
 
@@ -3713,8 +3939,9 @@ Billboard& Billboard884 =  Billboard();
 Billboard884.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape885 =  Shape();
 Text& Text886 =  Text();
-Text886.setString((std::string[]){"25"}, 1);
+Text886.setString(new std::string[]{"25"}, 1);
 CFontStyle& FontStyle887 =  CFontStyle();
+FontStyle887.setContainerField("fontStyle");
 FontStyle887.setSize(0.035);
 Text886.setFontStyle(&FontStyle887);
 
@@ -3722,7 +3949,7 @@ Shape885.setGeometry(&Text886);
 
 Billboard884.addChild(&Shape885);
 
-HAnimSite876.addChild(Billboard884);
+HAnimSite876.addChild(&Billboard884);
 
 HAnimSegment863.addChild(&HAnimSite876);
 
@@ -3736,7 +3963,9 @@ HAnimSite888.addChild(&TouchSensor889);
 
 Shape& Shape890 =  Shape();
 Appearance& Appearance891 =  Appearance();
+Appearance891.setContainerField("appearance");
 Material& Material892 =  Material();
+Material892.setContainerField("material");
 Material892.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance891.addChild(&Material892);
 
@@ -3747,6 +3976,7 @@ IndexedFaceSet893.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet893.setCreaseAngle(0.5);
 IndexedFaceSet893.setSolid(false);
 ColorRGBA& ColorRGBA894 =  ColorRGBA();
+ColorRGBA894.setContainerField("color");
 ColorRGBA894.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet893.addChild(&ColorRGBA894);
 
@@ -3762,8 +3992,9 @@ Billboard& Billboard896 =  Billboard();
 Billboard896.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape897 =  Shape();
 Text& Text898 =  Text();
-Text898.setString((std::string[]){"26"}, 1);
+Text898.setString(new std::string[]{"26"}, 1);
 CFontStyle& FontStyle899 =  CFontStyle();
+FontStyle899.setContainerField("fontStyle");
 FontStyle899.setSize(0.035);
 Text898.setFontStyle(&FontStyle899);
 
@@ -3771,7 +4002,7 @@ Shape897.setGeometry(&Text898);
 
 Billboard896.addChild(&Shape897);
 
-HAnimSite888.addChild(Billboard896);
+HAnimSite888.addChild(&Billboard896);
 
 HAnimSegment863.addChild(&HAnimSite888);
 
@@ -3785,7 +4016,9 @@ HAnimSite900.addChild(&TouchSensor901);
 
 Shape& Shape902 =  Shape();
 Appearance& Appearance903 =  Appearance();
+Appearance903.setContainerField("appearance");
 Material& Material904 =  Material();
+Material904.setContainerField("material");
 Material904.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance903.addChild(&Material904);
 
@@ -3796,6 +4029,7 @@ IndexedFaceSet905.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet905.setCreaseAngle(0.5);
 IndexedFaceSet905.setSolid(false);
 ColorRGBA& ColorRGBA906 =  ColorRGBA();
+ColorRGBA906.setContainerField("color");
 ColorRGBA906.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet905.addChild(&ColorRGBA906);
 
@@ -3811,8 +4045,9 @@ Billboard& Billboard908 =  Billboard();
 Billboard908.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape909 =  Shape();
 Text& Text910 =  Text();
-Text910.setString((std::string[]){"27"}, 1);
+Text910.setString(new std::string[]{"27"}, 1);
 CFontStyle& FontStyle911 =  CFontStyle();
+FontStyle911.setContainerField("fontStyle");
 FontStyle911.setSize(0.035);
 Text910.setFontStyle(&FontStyle911);
 
@@ -3820,7 +4055,7 @@ Shape909.setGeometry(&Text910);
 
 Billboard908.addChild(&Shape909);
 
-HAnimSite900.addChild(Billboard908);
+HAnimSite900.addChild(&Billboard908);
 
 HAnimSegment863.addChild(&HAnimSite900);
 
@@ -3834,7 +4069,9 @@ HAnimSite912.addChild(&TouchSensor913);
 
 Shape& Shape914 =  Shape();
 Appearance& Appearance915 =  Appearance();
+Appearance915.setContainerField("appearance");
 Material& Material916 =  Material();
+Material916.setContainerField("material");
 Material916.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance915.addChild(&Material916);
 
@@ -3845,6 +4082,7 @@ IndexedFaceSet917.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet917.setCreaseAngle(0.5);
 IndexedFaceSet917.setSolid(false);
 ColorRGBA& ColorRGBA918 =  ColorRGBA();
+ColorRGBA918.setContainerField("color");
 ColorRGBA918.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet917.addChild(&ColorRGBA918);
 
@@ -3860,8 +4098,9 @@ Billboard& Billboard920 =  Billboard();
 Billboard920.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape921 =  Shape();
 Text& Text922 =  Text();
-Text922.setString((std::string[]){"84"}, 1);
+Text922.setString(new std::string[]{"84"}, 1);
 CFontStyle& FontStyle923 =  CFontStyle();
+FontStyle923.setContainerField("fontStyle");
 FontStyle923.setSize(0.035);
 Text922.setFontStyle(&FontStyle923);
 
@@ -3869,7 +4108,7 @@ Shape921.setGeometry(&Text922);
 
 Billboard920.addChild(&Shape921);
 
-HAnimSite912.addChild(Billboard920);
+HAnimSite912.addChild(&Billboard920);
 
 HAnimSegment863.addChild(&HAnimSite912);
 
@@ -3877,6 +4116,7 @@ Shape& Shape924 =  Shape();
 LineSet& LineSet925 =  LineSet();
 LineSet925.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA926 =  ColorRGBA();
+ColorRGBA926.setContainerField("color");
 ColorRGBA926.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet925.addChild(&ColorRGBA926);
 
@@ -3901,6 +4141,7 @@ Shape& Shape930 =  Shape();
 LineSet& LineSet931 =  LineSet();
 LineSet931.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA932 =  ColorRGBA();
+ColorRGBA932.setContainerField("color");
 ColorRGBA932.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet931.addChild(&ColorRGBA932);
 
@@ -3925,6 +4166,7 @@ Shape& Shape936 =  Shape();
 LineSet& LineSet937 =  LineSet();
 LineSet937.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA938 =  ColorRGBA();
+ColorRGBA938.setContainerField("color");
 ColorRGBA938.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet937.addChild(&ColorRGBA938);
 
@@ -3955,7 +4197,9 @@ HAnimSite942.addChild(&TouchSensor943);
 
 Shape& Shape944 =  Shape();
 Appearance& Appearance945 =  Appearance();
+Appearance945.setContainerField("appearance");
 Material& Material946 =  Material();
+Material946.setContainerField("material");
 Material946.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance945.addChild(&Material946);
 
@@ -3966,6 +4210,7 @@ IndexedFaceSet947.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet947.setCreaseAngle(0.5);
 IndexedFaceSet947.setSolid(false);
 ColorRGBA& ColorRGBA948 =  ColorRGBA();
+ColorRGBA948.setContainerField("color");
 ColorRGBA948.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet947.addChild(&ColorRGBA948);
 
@@ -3981,8 +4226,9 @@ Billboard& Billboard950 =  Billboard();
 Billboard950.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape951 =  Shape();
 Text& Text952 =  Text();
-Text952.setString((std::string[]){"28"}, 1);
+Text952.setString(new std::string[]{"28"}, 1);
 CFontStyle& FontStyle953 =  CFontStyle();
+FontStyle953.setContainerField("fontStyle");
 FontStyle953.setSize(0.035);
 Text952.setFontStyle(&FontStyle953);
 
@@ -3990,7 +4236,7 @@ Shape951.setGeometry(&Text952);
 
 Billboard950.addChild(&Shape951);
 
-HAnimSite942.addChild(Billboard950);
+HAnimSite942.addChild(&Billboard950);
 
 HAnimSegment941.addChild(&HAnimSite942);
 
@@ -4004,7 +4250,9 @@ HAnimSite954.addChild(&TouchSensor955);
 
 Shape& Shape956 =  Shape();
 Appearance& Appearance957 =  Appearance();
+Appearance957.setContainerField("appearance");
 Material& Material958 =  Material();
+Material958.setContainerField("material");
 Material958.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance957.addChild(&Material958);
 
@@ -4015,6 +4263,7 @@ IndexedFaceSet959.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet959.setCreaseAngle(0.5);
 IndexedFaceSet959.setSolid(false);
 ColorRGBA& ColorRGBA960 =  ColorRGBA();
+ColorRGBA960.setContainerField("color");
 ColorRGBA960.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet959.addChild(&ColorRGBA960);
 
@@ -4030,8 +4279,9 @@ Billboard& Billboard962 =  Billboard();
 Billboard962.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape963 =  Shape();
 Text& Text964 =  Text();
-Text964.setString((std::string[]){"30"}, 1);
+Text964.setString(new std::string[]{"30"}, 1);
 CFontStyle& FontStyle965 =  CFontStyle();
+FontStyle965.setContainerField("fontStyle");
 FontStyle965.setSize(0.035);
 Text964.setFontStyle(&FontStyle965);
 
@@ -4039,7 +4289,7 @@ Shape963.setGeometry(&Text964);
 
 Billboard962.addChild(&Shape963);
 
-HAnimSite954.addChild(Billboard962);
+HAnimSite954.addChild(&Billboard962);
 
 HAnimSegment941.addChild(&HAnimSite954);
 
@@ -4047,6 +4297,7 @@ Shape& Shape966 =  Shape();
 LineSet& LineSet967 =  LineSet();
 LineSet967.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA968 =  ColorRGBA();
+ColorRGBA968.setContainerField("color");
 ColorRGBA968.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet967.addChild(&ColorRGBA968);
 
@@ -4071,6 +4322,7 @@ Shape& Shape972 =  Shape();
 LineSet& LineSet973 =  LineSet();
 LineSet973.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA974 =  ColorRGBA();
+ColorRGBA974.setContainerField("color");
 ColorRGBA974.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet973.addChild(&ColorRGBA974);
 
@@ -4095,6 +4347,7 @@ Shape& Shape978 =  Shape();
 LineSet& LineSet979 =  LineSet();
 LineSet979.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA980 =  ColorRGBA();
+ColorRGBA980.setContainerField("color");
 ColorRGBA980.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet979.addChild(&ColorRGBA980);
 
@@ -4119,6 +4372,7 @@ Shape& Shape984 =  Shape();
 LineSet& LineSet985 =  LineSet();
 LineSet985.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA986 =  ColorRGBA();
+ColorRGBA986.setContainerField("color");
 ColorRGBA986.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet985.addChild(&ColorRGBA986);
 
@@ -4149,7 +4403,9 @@ HAnimSite990.addChild(&TouchSensor991);
 
 Shape& Shape992 =  Shape();
 Appearance& Appearance993 =  Appearance();
+Appearance993.setContainerField("appearance");
 Material& Material994 =  Material();
+Material994.setContainerField("material");
 Material994.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance993.addChild(&Material994);
 
@@ -4160,6 +4416,7 @@ IndexedFaceSet995.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-
 IndexedFaceSet995.setCreaseAngle(0.5);
 IndexedFaceSet995.setSolid(false);
 ColorRGBA& ColorRGBA996 =  ColorRGBA();
+ColorRGBA996.setContainerField("color");
 ColorRGBA996.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet995.addChild(&ColorRGBA996);
 
@@ -4175,8 +4432,9 @@ Billboard& Billboard998 =  Billboard();
 Billboard998.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape999 =  Shape();
 Text& Text1000 =  Text();
-Text1000.setString((std::string[]){"13"}, 1);
+Text1000.setString(new std::string[]{"13"}, 1);
 CFontStyle& FontStyle1001 =  CFontStyle();
+FontStyle1001.setContainerField("fontStyle");
 FontStyle1001.setSize(0.035);
 Text1000.setFontStyle(&FontStyle1001);
 
@@ -4184,7 +4442,7 @@ Shape999.setGeometry(&Text1000);
 
 Billboard998.addChild(&Shape999);
 
-HAnimSite990.addChild(Billboard998);
+HAnimSite990.addChild(&Billboard998);
 
 HAnimSegment989.addChild(&HAnimSite990);
 
@@ -4198,7 +4456,9 @@ HAnimSite1002.addChild(&TouchSensor1003);
 
 Shape& Shape1004 =  Shape();
 Appearance& Appearance1005 =  Appearance();
+Appearance1005.setContainerField("appearance");
 Material& Material1006 =  Material();
+Material1006.setContainerField("material");
 Material1006.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1005.addChild(&Material1006);
 
@@ -4209,6 +4469,7 @@ IndexedFaceSet1007.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1007.setCreaseAngle(0.5);
 IndexedFaceSet1007.setSolid(false);
 ColorRGBA& ColorRGBA1008 =  ColorRGBA();
+ColorRGBA1008.setContainerField("color");
 ColorRGBA1008.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1007.addChild(&ColorRGBA1008);
 
@@ -4224,8 +4485,9 @@ Billboard& Billboard1010 =  Billboard();
 Billboard1010.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1011 =  Shape();
 Text& Text1012 =  Text();
-Text1012.setString((std::string[]){"88"}, 1);
+Text1012.setString(new std::string[]{"88"}, 1);
 CFontStyle& FontStyle1013 =  CFontStyle();
+FontStyle1013.setContainerField("fontStyle");
 FontStyle1013.setSize(0.035);
 Text1012.setFontStyle(&FontStyle1013);
 
@@ -4233,7 +4495,7 @@ Shape1011.setGeometry(&Text1012);
 
 Billboard1010.addChild(&Shape1011);
 
-HAnimSite1002.addChild(Billboard1010);
+HAnimSite1002.addChild(&Billboard1010);
 
 HAnimSegment989.addChild(&HAnimSite1002);
 
@@ -4241,6 +4503,7 @@ Shape& Shape1014 =  Shape();
 LineSet& LineSet1015 =  LineSet();
 LineSet1015.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1016 =  ColorRGBA();
+ColorRGBA1016.setContainerField("color");
 ColorRGBA1016.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1015.addChild(&ColorRGBA1016);
 
@@ -4271,7 +4534,9 @@ HAnimSite1020.addChild(&TouchSensor1021);
 
 Shape& Shape1022 =  Shape();
 Appearance& Appearance1023 =  Appearance();
+Appearance1023.setContainerField("appearance");
 Material& Material1024 =  Material();
+Material1024.setContainerField("material");
 Material1024.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1023.addChild(&Material1024);
 
@@ -4282,6 +4547,7 @@ IndexedFaceSet1025.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1025.setCreaseAngle(0.5);
 IndexedFaceSet1025.setSolid(false);
 ColorRGBA& ColorRGBA1026 =  ColorRGBA();
+ColorRGBA1026.setContainerField("color");
 ColorRGBA1026.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1025.addChild(&ColorRGBA1026);
 
@@ -4297,8 +4563,9 @@ Billboard& Billboard1028 =  Billboard();
 Billboard1028.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1029 =  Shape();
 Text& Text1030 =  Text();
-Text1030.setString((std::string[]){"29"}, 1);
+Text1030.setString(new std::string[]{"29"}, 1);
 CFontStyle& FontStyle1031 =  CFontStyle();
+FontStyle1031.setContainerField("fontStyle");
 FontStyle1031.setSize(0.035);
 Text1030.setFontStyle(&FontStyle1031);
 
@@ -4306,7 +4573,7 @@ Shape1029.setGeometry(&Text1030);
 
 Billboard1028.addChild(&Shape1029);
 
-HAnimSite1020.addChild(Billboard1028);
+HAnimSite1020.addChild(&Billboard1028);
 
 HAnimSegment1019.addChild(&HAnimSite1020);
 
@@ -4320,7 +4587,9 @@ HAnimSite1032.addChild(&TouchSensor1033);
 
 Shape& Shape1034 =  Shape();
 Appearance& Appearance1035 =  Appearance();
+Appearance1035.setContainerField("appearance");
 Material& Material1036 =  Material();
+Material1036.setContainerField("material");
 Material1036.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1035.addChild(&Material1036);
 
@@ -4331,6 +4600,7 @@ IndexedFaceSet1037.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1037.setCreaseAngle(0.5);
 IndexedFaceSet1037.setSolid(false);
 ColorRGBA& ColorRGBA1038 =  ColorRGBA();
+ColorRGBA1038.setContainerField("color");
 ColorRGBA1038.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1037.addChild(&ColorRGBA1038);
 
@@ -4346,8 +4616,9 @@ Billboard& Billboard1040 =  Billboard();
 Billboard1040.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1041 =  Shape();
 Text& Text1042 =  Text();
-Text1042.setString((std::string[]){"31"}, 1);
+Text1042.setString(new std::string[]{"31"}, 1);
 CFontStyle& FontStyle1043 =  CFontStyle();
+FontStyle1043.setContainerField("fontStyle");
 FontStyle1043.setSize(0.035);
 Text1042.setFontStyle(&FontStyle1043);
 
@@ -4355,7 +4626,7 @@ Shape1041.setGeometry(&Text1042);
 
 Billboard1040.addChild(&Shape1041);
 
-HAnimSite1032.addChild(Billboard1040);
+HAnimSite1032.addChild(&Billboard1040);
 
 HAnimSegment1019.addChild(&HAnimSite1032);
 
@@ -4369,7 +4640,9 @@ HAnimSite1044.addChild(&TouchSensor1045);
 
 Shape& Shape1046 =  Shape();
 Appearance& Appearance1047 =  Appearance();
+Appearance1047.setContainerField("appearance");
 Material& Material1048 =  Material();
+Material1048.setContainerField("material");
 Material1048.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1047.addChild(&Material1048);
 
@@ -4380,6 +4653,7 @@ IndexedFaceSet1049.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1049.setCreaseAngle(0.5);
 IndexedFaceSet1049.setSolid(false);
 ColorRGBA& ColorRGBA1050 =  ColorRGBA();
+ColorRGBA1050.setContainerField("color");
 ColorRGBA1050.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1049.addChild(&ColorRGBA1050);
 
@@ -4395,8 +4669,9 @@ Billboard& Billboard1052 =  Billboard();
 Billboard1052.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1053 =  Shape();
 Text& Text1054 =  Text();
-Text1054.setString((std::string[]){"92"}, 1);
+Text1054.setString(new std::string[]{"92"}, 1);
 CFontStyle& FontStyle1055 =  CFontStyle();
+FontStyle1055.setContainerField("fontStyle");
 FontStyle1055.setSize(0.035);
 Text1054.setFontStyle(&FontStyle1055);
 
@@ -4404,7 +4679,7 @@ Shape1053.setGeometry(&Text1054);
 
 Billboard1052.addChild(&Shape1053);
 
-HAnimSite1044.addChild(Billboard1052);
+HAnimSite1044.addChild(&Billboard1052);
 
 HAnimSegment1019.addChild(&HAnimSite1044);
 
@@ -4418,7 +4693,9 @@ HAnimSite1056.addChild(&TouchSensor1057);
 
 Shape& Shape1058 =  Shape();
 Appearance& Appearance1059 =  Appearance();
+Appearance1059.setContainerField("appearance");
 Material& Material1060 =  Material();
+Material1060.setContainerField("material");
 Material1060.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1059.addChild(&Material1060);
 
@@ -4429,6 +4706,7 @@ IndexedFaceSet1061.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1061.setCreaseAngle(0.5);
 IndexedFaceSet1061.setSolid(false);
 ColorRGBA& ColorRGBA1062 =  ColorRGBA();
+ColorRGBA1062.setContainerField("color");
 ColorRGBA1062.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1061.addChild(&ColorRGBA1062);
 
@@ -4444,8 +4722,9 @@ Billboard& Billboard1064 =  Billboard();
 Billboard1064.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1065 =  Shape();
 Text& Text1066 =  Text();
-Text1066.setString((std::string[]){"94"}, 1);
+Text1066.setString(new std::string[]{"94"}, 1);
 CFontStyle& FontStyle1067 =  CFontStyle();
+FontStyle1067.setContainerField("fontStyle");
 FontStyle1067.setSize(0.035);
 Text1066.setFontStyle(&FontStyle1067);
 
@@ -4453,7 +4732,7 @@ Shape1065.setGeometry(&Text1066);
 
 Billboard1064.addChild(&Shape1065);
 
-HAnimSite1056.addChild(Billboard1064);
+HAnimSite1056.addChild(&Billboard1064);
 
 HAnimSegment1019.addChild(&HAnimSite1056);
 
@@ -4467,7 +4746,9 @@ HAnimSite1068.addChild(&TouchSensor1069);
 
 Shape& Shape1070 =  Shape();
 Appearance& Appearance1071 =  Appearance();
+Appearance1071.setContainerField("appearance");
 Material& Material1072 =  Material();
+Material1072.setContainerField("material");
 Material1072.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1071.addChild(&Material1072);
 
@@ -4478,6 +4759,7 @@ IndexedFaceSet1073.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1073.setCreaseAngle(0.5);
 IndexedFaceSet1073.setSolid(false);
 ColorRGBA& ColorRGBA1074 =  ColorRGBA();
+ColorRGBA1074.setContainerField("color");
 ColorRGBA1074.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1073.addChild(&ColorRGBA1074);
 
@@ -4493,8 +4775,9 @@ Billboard& Billboard1076 =  Billboard();
 Billboard1076.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1077 =  Shape();
 Text& Text1078 =  Text();
-Text1078.setString((std::string[]){"95"}, 1);
+Text1078.setString(new std::string[]{"95"}, 1);
 CFontStyle& FontStyle1079 =  CFontStyle();
+FontStyle1079.setContainerField("fontStyle");
 FontStyle1079.setSize(0.035);
 Text1078.setFontStyle(&FontStyle1079);
 
@@ -4502,7 +4785,7 @@ Shape1077.setGeometry(&Text1078);
 
 Billboard1076.addChild(&Shape1077);
 
-HAnimSite1068.addChild(Billboard1076);
+HAnimSite1068.addChild(&Billboard1076);
 
 HAnimSegment1019.addChild(&HAnimSite1068);
 
@@ -4510,6 +4793,7 @@ Shape& Shape1080 =  Shape();
 LineSet& LineSet1081 =  LineSet();
 LineSet1081.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1082 =  ColorRGBA();
+ColorRGBA1082.setContainerField("color");
 ColorRGBA1082.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1081.addChild(&ColorRGBA1082);
 
@@ -4534,6 +4818,7 @@ Shape& Shape1086 =  Shape();
 LineSet& LineSet1087 =  LineSet();
 LineSet1087.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1088 =  ColorRGBA();
+ColorRGBA1088.setContainerField("color");
 ColorRGBA1088.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1087.addChild(&ColorRGBA1088);
 
@@ -4558,6 +4843,7 @@ Shape& Shape1092 =  Shape();
 LineSet& LineSet1093 =  LineSet();
 LineSet1093.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1094 =  ColorRGBA();
+ColorRGBA1094.setContainerField("color");
 ColorRGBA1094.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1093.addChild(&ColorRGBA1094);
 
@@ -4582,6 +4868,7 @@ Shape& Shape1098 =  Shape();
 LineSet& LineSet1099 =  LineSet();
 LineSet1099.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1100 =  ColorRGBA();
+ColorRGBA1100.setContainerField("color");
 ColorRGBA1100.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1099.addChild(&ColorRGBA1100);
 
@@ -4606,6 +4893,7 @@ Shape& Shape1104 =  Shape();
 LineSet& LineSet1105 =  LineSet();
 LineSet1105.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1106 =  ColorRGBA();
+ColorRGBA1106.setContainerField("color");
 ColorRGBA1106.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1105.addChild(&ColorRGBA1106);
 
@@ -4630,6 +4918,7 @@ Shape& Shape1110 =  Shape();
 LineSet& LineSet1111 =  LineSet();
 LineSet1111.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1112 =  ColorRGBA();
+ColorRGBA1112.setContainerField("color");
 ColorRGBA1112.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1111.addChild(&ColorRGBA1112);
 
@@ -4654,6 +4943,7 @@ Shape& Shape1116 =  Shape();
 LineSet& LineSet1117 =  LineSet();
 LineSet1117.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1118 =  ColorRGBA();
+ColorRGBA1118.setContainerField("color");
 ColorRGBA1118.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1117.addChild(&ColorRGBA1118);
 
@@ -4678,6 +4968,7 @@ Shape& Shape1122 =  Shape();
 LineSet& LineSet1123 =  LineSet();
 LineSet1123.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1124 =  ColorRGBA();
+ColorRGBA1124.setContainerField("color");
 ColorRGBA1124.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1123.addChild(&ColorRGBA1124);
 
@@ -4708,7 +4999,9 @@ HAnimSite1128.addChild(&TouchSensor1129);
 
 Shape& Shape1130 =  Shape();
 Appearance& Appearance1131 =  Appearance();
+Appearance1131.setContainerField("appearance");
 Material& Material1132 =  Material();
+Material1132.setContainerField("material");
 Material1132.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1131.addChild(&Material1132);
 
@@ -4719,6 +5012,7 @@ IndexedFaceSet1133.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1133.setCreaseAngle(0.5);
 IndexedFaceSet1133.setSolid(false);
 ColorRGBA& ColorRGBA1134 =  ColorRGBA();
+ColorRGBA1134.setContainerField("color");
 ColorRGBA1134.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1133.addChild(&ColorRGBA1134);
 
@@ -4734,8 +5028,9 @@ Billboard& Billboard1136 =  Billboard();
 Billboard1136.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1137 =  Shape();
 Text& Text1138 =  Text();
-Text1138.setString((std::string[]){"12"}, 1);
+Text1138.setString(new std::string[]{"12"}, 1);
 CFontStyle& FontStyle1139 =  CFontStyle();
+FontStyle1139.setContainerField("fontStyle");
 FontStyle1139.setSize(0.035);
 Text1138.setFontStyle(&FontStyle1139);
 
@@ -4743,7 +5038,7 @@ Shape1137.setGeometry(&Text1138);
 
 Billboard1136.addChild(&Shape1137);
 
-HAnimSite1128.addChild(Billboard1136);
+HAnimSite1128.addChild(&Billboard1136);
 
 HAnimSegment1127.addChild(&HAnimSite1128);
 
@@ -4757,7 +5052,9 @@ HAnimSite1140.addChild(&TouchSensor1141);
 
 Shape& Shape1142 =  Shape();
 Appearance& Appearance1143 =  Appearance();
+Appearance1143.setContainerField("appearance");
 Material& Material1144 =  Material();
+Material1144.setContainerField("material");
 Material1144.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1143.addChild(&Material1144);
 
@@ -4768,6 +5065,7 @@ IndexedFaceSet1145.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1145.setCreaseAngle(0.5);
 IndexedFaceSet1145.setSolid(false);
 ColorRGBA& ColorRGBA1146 =  ColorRGBA();
+ColorRGBA1146.setContainerField("color");
 ColorRGBA1146.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1145.addChild(&ColorRGBA1146);
 
@@ -4783,8 +5081,9 @@ Billboard& Billboard1148 =  Billboard();
 Billboard1148.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1149 =  Shape();
 Text& Text1150 =  Text();
-Text1150.setString((std::string[]){"10"}, 1);
+Text1150.setString(new std::string[]{"10"}, 1);
 CFontStyle& FontStyle1151 =  CFontStyle();
+FontStyle1151.setContainerField("fontStyle");
 FontStyle1151.setSize(0.035);
 Text1150.setFontStyle(&FontStyle1151);
 
@@ -4792,7 +5091,7 @@ Shape1149.setGeometry(&Text1150);
 
 Billboard1148.addChild(&Shape1149);
 
-HAnimSite1140.addChild(Billboard1148);
+HAnimSite1140.addChild(&Billboard1148);
 
 HAnimSegment1127.addChild(&HAnimSite1140);
 
@@ -4800,6 +5099,7 @@ Shape& Shape1152 =  Shape();
 LineSet& LineSet1153 =  LineSet();
 LineSet1153.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1154 =  ColorRGBA();
+ColorRGBA1154.setContainerField("color");
 ColorRGBA1154.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1153.addChild(&ColorRGBA1154);
 
@@ -4830,7 +5130,9 @@ HAnimSite1158.addChild(&TouchSensor1159);
 
 Shape& Shape1160 =  Shape();
 Appearance& Appearance1161 =  Appearance();
+Appearance1161.setContainerField("appearance");
 Material& Material1162 =  Material();
+Material1162.setContainerField("material");
 Material1162.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1161.addChild(&Material1162);
 
@@ -4841,6 +5143,7 @@ IndexedFaceSet1163.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1163.setCreaseAngle(0.5);
 IndexedFaceSet1163.setSolid(false);
 ColorRGBA& ColorRGBA1164 =  ColorRGBA();
+ColorRGBA1164.setContainerField("color");
 ColorRGBA1164.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1163.addChild(&ColorRGBA1164);
 
@@ -4856,8 +5159,9 @@ Billboard& Billboard1166 =  Billboard();
 Billboard1166.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1167 =  Shape();
 Text& Text1168 =  Text();
-Text1168.setString((std::string[]){"82"}, 1);
+Text1168.setString(new std::string[]{"82"}, 1);
 CFontStyle& FontStyle1169 =  CFontStyle();
+FontStyle1169.setContainerField("fontStyle");
 FontStyle1169.setSize(0.035);
 Text1168.setFontStyle(&FontStyle1169);
 
@@ -4865,7 +5169,7 @@ Shape1167.setGeometry(&Text1168);
 
 Billboard1166.addChild(&Shape1167);
 
-HAnimSite1158.addChild(Billboard1166);
+HAnimSite1158.addChild(&Billboard1166);
 
 HAnimSegment1157.addChild(&HAnimSite1158);
 
@@ -4879,7 +5183,9 @@ HAnimSite1170.addChild(&TouchSensor1171);
 
 Shape& Shape1172 =  Shape();
 Appearance& Appearance1173 =  Appearance();
+Appearance1173.setContainerField("appearance");
 Material& Material1174 =  Material();
+Material1174.setContainerField("material");
 Material1174.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1173.addChild(&Material1174);
 
@@ -4890,6 +5196,7 @@ IndexedFaceSet1175.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1175.setCreaseAngle(0.5);
 IndexedFaceSet1175.setSolid(false);
 ColorRGBA& ColorRGBA1176 =  ColorRGBA();
+ColorRGBA1176.setContainerField("color");
 ColorRGBA1176.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1175.addChild(&ColorRGBA1176);
 
@@ -4905,8 +5212,9 @@ Billboard& Billboard1178 =  Billboard();
 Billboard1178.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1179 =  Shape();
 Text& Text1180 =  Text();
-Text1180.setString((std::string[]){"83"}, 1);
+Text1180.setString(new std::string[]{"83"}, 1);
 CFontStyle& FontStyle1181 =  CFontStyle();
+FontStyle1181.setContainerField("fontStyle");
 FontStyle1181.setSize(0.035);
 Text1180.setFontStyle(&FontStyle1181);
 
@@ -4914,7 +5222,7 @@ Shape1179.setGeometry(&Text1180);
 
 Billboard1178.addChild(&Shape1179);
 
-HAnimSite1170.addChild(Billboard1178);
+HAnimSite1170.addChild(&Billboard1178);
 
 HAnimSegment1157.addChild(&HAnimSite1170);
 
@@ -4922,6 +5230,7 @@ Shape& Shape1182 =  Shape();
 LineSet& LineSet1183 =  LineSet();
 LineSet1183.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1184 =  ColorRGBA();
+ColorRGBA1184.setContainerField("color");
 ColorRGBA1184.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1183.addChild(&ColorRGBA1184);
 
@@ -4946,6 +5255,7 @@ Shape& Shape1188 =  Shape();
 LineSet& LineSet1189 =  LineSet();
 LineSet1189.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1190 =  ColorRGBA();
+ColorRGBA1190.setContainerField("color");
 ColorRGBA1190.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1189.addChild(&ColorRGBA1190);
 
@@ -4970,6 +5280,7 @@ Shape& Shape1194 =  Shape();
 LineSet& LineSet1195 =  LineSet();
 LineSet1195.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1196 =  ColorRGBA();
+ColorRGBA1196.setContainerField("color");
 ColorRGBA1196.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1195.addChild(&ColorRGBA1196);
 
@@ -4994,6 +5305,7 @@ Shape& Shape1200 =  Shape();
 LineSet& LineSet1201 =  LineSet();
 LineSet1201.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1202 =  ColorRGBA();
+ColorRGBA1202.setContainerField("color");
 ColorRGBA1202.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1201.addChild(&ColorRGBA1202);
 
@@ -5018,6 +5330,7 @@ Shape& Shape1206 =  Shape();
 LineSet& LineSet1207 =  LineSet();
 LineSet1207.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1208 =  ColorRGBA();
+ColorRGBA1208.setContainerField("color");
 ColorRGBA1208.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1207.addChild(&ColorRGBA1208);
 
@@ -5048,7 +5361,9 @@ HAnimSite1212.addChild(&TouchSensor1213);
 
 Shape& Shape1214 =  Shape();
 Appearance& Appearance1215 =  Appearance();
+Appearance1215.setContainerField("appearance");
 Material& Material1216 =  Material();
+Material1216.setContainerField("material");
 Material1216.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1215.addChild(&Material1216);
 
@@ -5059,6 +5374,7 @@ IndexedFaceSet1217.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1217.setCreaseAngle(0.5);
 IndexedFaceSet1217.setSolid(false);
 ColorRGBA& ColorRGBA1218 =  ColorRGBA();
+ColorRGBA1218.setContainerField("color");
 ColorRGBA1218.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1217.addChild(&ColorRGBA1218);
 
@@ -5074,8 +5390,9 @@ Billboard& Billboard1220 =  Billboard();
 Billboard1220.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1221 =  Shape();
 Text& Text1222 =  Text();
-Text1222.setString((std::string[]){"11"}, 1);
+Text1222.setString(new std::string[]{"11"}, 1);
 CFontStyle& FontStyle1223 =  CFontStyle();
+FontStyle1223.setContainerField("fontStyle");
 FontStyle1223.setSize(0.035);
 Text1222.setFontStyle(&FontStyle1223);
 
@@ -5083,7 +5400,7 @@ Shape1221.setGeometry(&Text1222);
 
 Billboard1220.addChild(&Shape1221);
 
-HAnimSite1212.addChild(Billboard1220);
+HAnimSite1212.addChild(&Billboard1220);
 
 HAnimSegment1211.addChild(&HAnimSite1212);
 
@@ -5091,6 +5408,7 @@ Shape& Shape1224 =  Shape();
 LineSet& LineSet1225 =  LineSet();
 LineSet1225.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1226 =  ColorRGBA();
+ColorRGBA1226.setContainerField("color");
 ColorRGBA1226.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1225.addChild(&ColorRGBA1226);
 
@@ -5115,6 +5433,7 @@ Shape& Shape1230 =  Shape();
 LineSet& LineSet1231 =  LineSet();
 LineSet1231.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1232 =  ColorRGBA();
+ColorRGBA1232.setContainerField("color");
 ColorRGBA1232.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1231.addChild(&ColorRGBA1232);
 
@@ -5145,7 +5464,9 @@ HAnimSite1236.addChild(&TouchSensor1237);
 
 Shape& Shape1238 =  Shape();
 Appearance& Appearance1239 =  Appearance();
+Appearance1239.setContainerField("appearance");
 Material& Material1240 =  Material();
+Material1240.setContainerField("material");
 Material1240.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1239.addChild(&Material1240);
 
@@ -5156,6 +5477,7 @@ IndexedFaceSet1241.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1241.setCreaseAngle(0.5);
 IndexedFaceSet1241.setSolid(false);
 ColorRGBA& ColorRGBA1242 =  ColorRGBA();
+ColorRGBA1242.setContainerField("color");
 ColorRGBA1242.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1241.addChild(&ColorRGBA1242);
 
@@ -5171,8 +5493,9 @@ Billboard& Billboard1244 =  Billboard();
 Billboard1244.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1245 =  Shape();
 Text& Text1246 =  Text();
-Text1246.setString((std::string[]){"0"}, 1);
+Text1246.setString(new std::string[]{"0"}, 1);
 CFontStyle& FontStyle1247 =  CFontStyle();
+FontStyle1247.setContainerField("fontStyle");
 FontStyle1247.setSize(0.035);
 Text1246.setFontStyle(&FontStyle1247);
 
@@ -5180,7 +5503,7 @@ Shape1245.setGeometry(&Text1246);
 
 Billboard1244.addChild(&Shape1245);
 
-HAnimSite1236.addChild(Billboard1244);
+HAnimSite1236.addChild(&Billboard1244);
 
 HAnimSegment1235.addChild(&HAnimSite1236);
 
@@ -5194,7 +5517,9 @@ HAnimSite1248.addChild(&TouchSensor1249);
 
 Shape& Shape1250 =  Shape();
 Appearance& Appearance1251 =  Appearance();
+Appearance1251.setContainerField("appearance");
 Material& Material1252 =  Material();
+Material1252.setContainerField("material");
 Material1252.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1251.addChild(&Material1252);
 
@@ -5205,6 +5530,7 @@ IndexedFaceSet1253.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1253.setCreaseAngle(0.5);
 IndexedFaceSet1253.setSolid(false);
 ColorRGBA& ColorRGBA1254 =  ColorRGBA();
+ColorRGBA1254.setContainerField("color");
 ColorRGBA1254.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1253.addChild(&ColorRGBA1254);
 
@@ -5220,8 +5546,9 @@ Billboard& Billboard1256 =  Billboard();
 Billboard1256.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1257 =  Shape();
 Text& Text1258 =  Text();
-Text1258.setString((std::string[]){"1"}, 1);
+Text1258.setString(new std::string[]{"1"}, 1);
 CFontStyle& FontStyle1259 =  CFontStyle();
+FontStyle1259.setContainerField("fontStyle");
 FontStyle1259.setSize(0.035);
 Text1258.setFontStyle(&FontStyle1259);
 
@@ -5229,7 +5556,7 @@ Shape1257.setGeometry(&Text1258);
 
 Billboard1256.addChild(&Shape1257);
 
-HAnimSite1248.addChild(Billboard1256);
+HAnimSite1248.addChild(&Billboard1256);
 
 HAnimSegment1235.addChild(&HAnimSite1248);
 
@@ -5243,7 +5570,9 @@ HAnimSite1260.addChild(&TouchSensor1261);
 
 Shape& Shape1262 =  Shape();
 Appearance& Appearance1263 =  Appearance();
+Appearance1263.setContainerField("appearance");
 Material& Material1264 =  Material();
+Material1264.setContainerField("material");
 Material1264.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1263.addChild(&Material1264);
 
@@ -5254,6 +5583,7 @@ IndexedFaceSet1265.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1265.setCreaseAngle(0.5);
 IndexedFaceSet1265.setSolid(false);
 ColorRGBA& ColorRGBA1266 =  ColorRGBA();
+ColorRGBA1266.setContainerField("color");
 ColorRGBA1266.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1265.addChild(&ColorRGBA1266);
 
@@ -5269,8 +5599,9 @@ Billboard& Billboard1268 =  Billboard();
 Billboard1268.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1269 =  Shape();
 Text& Text1270 =  Text();
-Text1270.setString((std::string[]){"2"}, 1);
+Text1270.setString(new std::string[]{"2"}, 1);
 CFontStyle& FontStyle1271 =  CFontStyle();
+FontStyle1271.setContainerField("fontStyle");
 FontStyle1271.setSize(0.035);
 Text1270.setFontStyle(&FontStyle1271);
 
@@ -5278,7 +5609,7 @@ Shape1269.setGeometry(&Text1270);
 
 Billboard1268.addChild(&Shape1269);
 
-HAnimSite1260.addChild(Billboard1268);
+HAnimSite1260.addChild(&Billboard1268);
 
 HAnimSegment1235.addChild(&HAnimSite1260);
 
@@ -5292,7 +5623,9 @@ HAnimSite1272.addChild(&TouchSensor1273);
 
 Shape& Shape1274 =  Shape();
 Appearance& Appearance1275 =  Appearance();
+Appearance1275.setContainerField("appearance");
 Material& Material1276 =  Material();
+Material1276.setContainerField("material");
 Material1276.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1275.addChild(&Material1276);
 
@@ -5303,6 +5636,7 @@ IndexedFaceSet1277.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1277.setCreaseAngle(0.5);
 IndexedFaceSet1277.setSolid(false);
 ColorRGBA& ColorRGBA1278 =  ColorRGBA();
+ColorRGBA1278.setContainerField("color");
 ColorRGBA1278.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1277.addChild(&ColorRGBA1278);
 
@@ -5318,8 +5652,9 @@ Billboard& Billboard1280 =  Billboard();
 Billboard1280.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1281 =  Shape();
 Text& Text1282 =  Text();
-Text1282.setString((std::string[]){"3"}, 1);
+Text1282.setString(new std::string[]{"3"}, 1);
 CFontStyle& FontStyle1283 =  CFontStyle();
+FontStyle1283.setContainerField("fontStyle");
 FontStyle1283.setSize(0.035);
 Text1282.setFontStyle(&FontStyle1283);
 
@@ -5327,7 +5662,7 @@ Shape1281.setGeometry(&Text1282);
 
 Billboard1280.addChild(&Shape1281);
 
-HAnimSite1272.addChild(Billboard1280);
+HAnimSite1272.addChild(&Billboard1280);
 
 HAnimSegment1235.addChild(&HAnimSite1272);
 
@@ -5341,7 +5676,9 @@ HAnimSite1284.addChild(&TouchSensor1285);
 
 Shape& Shape1286 =  Shape();
 Appearance& Appearance1287 =  Appearance();
+Appearance1287.setContainerField("appearance");
 Material& Material1288 =  Material();
+Material1288.setContainerField("material");
 Material1288.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1287.addChild(&Material1288);
 
@@ -5352,6 +5689,7 @@ IndexedFaceSet1289.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1289.setCreaseAngle(0.5);
 IndexedFaceSet1289.setSolid(false);
 ColorRGBA& ColorRGBA1290 =  ColorRGBA();
+ColorRGBA1290.setContainerField("color");
 ColorRGBA1290.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1289.addChild(&ColorRGBA1290);
 
@@ -5367,8 +5705,9 @@ Billboard& Billboard1292 =  Billboard();
 Billboard1292.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1293 =  Shape();
 Text& Text1294 =  Text();
-Text1294.setString((std::string[]){"4"}, 1);
+Text1294.setString(new std::string[]{"4"}, 1);
 CFontStyle& FontStyle1295 =  CFontStyle();
+FontStyle1295.setContainerField("fontStyle");
 FontStyle1295.setSize(0.035);
 Text1294.setFontStyle(&FontStyle1295);
 
@@ -5376,7 +5715,7 @@ Shape1293.setGeometry(&Text1294);
 
 Billboard1292.addChild(&Shape1293);
 
-HAnimSite1284.addChild(Billboard1292);
+HAnimSite1284.addChild(&Billboard1292);
 
 HAnimSegment1235.addChild(&HAnimSite1284);
 
@@ -5390,7 +5729,9 @@ HAnimSite1296.addChild(&TouchSensor1297);
 
 Shape& Shape1298 =  Shape();
 Appearance& Appearance1299 =  Appearance();
+Appearance1299.setContainerField("appearance");
 Material& Material1300 =  Material();
+Material1300.setContainerField("material");
 Material1300.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1299.addChild(&Material1300);
 
@@ -5401,6 +5742,7 @@ IndexedFaceSet1301.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1301.setCreaseAngle(0.5);
 IndexedFaceSet1301.setSolid(false);
 ColorRGBA& ColorRGBA1302 =  ColorRGBA();
+ColorRGBA1302.setContainerField("color");
 ColorRGBA1302.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1301.addChild(&ColorRGBA1302);
 
@@ -5416,8 +5758,9 @@ Billboard& Billboard1304 =  Billboard();
 Billboard1304.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1305 =  Shape();
 Text& Text1306 =  Text();
-Text1306.setString((std::string[]){"6"}, 1);
+Text1306.setString(new std::string[]{"6"}, 1);
 CFontStyle& FontStyle1307 =  CFontStyle();
+FontStyle1307.setContainerField("fontStyle");
 FontStyle1307.setSize(0.035);
 Text1306.setFontStyle(&FontStyle1307);
 
@@ -5425,7 +5768,7 @@ Shape1305.setGeometry(&Text1306);
 
 Billboard1304.addChild(&Shape1305);
 
-HAnimSite1296.addChild(Billboard1304);
+HAnimSite1296.addChild(&Billboard1304);
 
 HAnimSegment1235.addChild(&HAnimSite1296);
 
@@ -5439,7 +5782,9 @@ HAnimSite1308.addChild(&TouchSensor1309);
 
 Shape& Shape1310 =  Shape();
 Appearance& Appearance1311 =  Appearance();
+Appearance1311.setContainerField("appearance");
 Material& Material1312 =  Material();
+Material1312.setContainerField("material");
 Material1312.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1311.addChild(&Material1312);
 
@@ -5450,6 +5795,7 @@ IndexedFaceSet1313.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1313.setCreaseAngle(0.5);
 IndexedFaceSet1313.setSolid(false);
 ColorRGBA& ColorRGBA1314 =  ColorRGBA();
+ColorRGBA1314.setContainerField("color");
 ColorRGBA1314.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1313.addChild(&ColorRGBA1314);
 
@@ -5465,8 +5811,9 @@ Billboard& Billboard1316 =  Billboard();
 Billboard1316.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1317 =  Shape();
 Text& Text1318 =  Text();
-Text1318.setString((std::string[]){"7"}, 1);
+Text1318.setString(new std::string[]{"7"}, 1);
 CFontStyle& FontStyle1319 =  CFontStyle();
+FontStyle1319.setContainerField("fontStyle");
 FontStyle1319.setSize(0.035);
 Text1318.setFontStyle(&FontStyle1319);
 
@@ -5474,7 +5821,7 @@ Shape1317.setGeometry(&Text1318);
 
 Billboard1316.addChild(&Shape1317);
 
-HAnimSite1308.addChild(Billboard1316);
+HAnimSite1308.addChild(&Billboard1316);
 
 HAnimSegment1235.addChild(&HAnimSite1308);
 
@@ -5488,7 +5835,9 @@ HAnimSite1320.addChild(&TouchSensor1321);
 
 Shape& Shape1322 =  Shape();
 Appearance& Appearance1323 =  Appearance();
+Appearance1323.setContainerField("appearance");
 Material& Material1324 =  Material();
+Material1324.setContainerField("material");
 Material1324.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1323.addChild(&Material1324);
 
@@ -5499,6 +5848,7 @@ IndexedFaceSet1325.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1325.setCreaseAngle(0.5);
 IndexedFaceSet1325.setSolid(false);
 ColorRGBA& ColorRGBA1326 =  ColorRGBA();
+ColorRGBA1326.setContainerField("color");
 ColorRGBA1326.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1325.addChild(&ColorRGBA1326);
 
@@ -5514,8 +5864,9 @@ Billboard& Billboard1328 =  Billboard();
 Billboard1328.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1329 =  Shape();
 Text& Text1330 =  Text();
-Text1330.setString((std::string[]){"81"}, 1);
+Text1330.setString(new std::string[]{"81"}, 1);
 CFontStyle& FontStyle1331 =  CFontStyle();
+FontStyle1331.setContainerField("fontStyle");
 FontStyle1331.setSize(0.035);
 Text1330.setFontStyle(&FontStyle1331);
 
@@ -5523,7 +5874,7 @@ Shape1329.setGeometry(&Text1330);
 
 Billboard1328.addChild(&Shape1329);
 
-HAnimSite1320.addChild(Billboard1328);
+HAnimSite1320.addChild(&Billboard1328);
 
 HAnimSegment1235.addChild(&HAnimSite1320);
 
@@ -5537,7 +5888,9 @@ HAnimSite1332.addChild(&TouchSensor1333);
 
 Shape& Shape1334 =  Shape();
 Appearance& Appearance1335 =  Appearance();
+Appearance1335.setContainerField("appearance");
 Material& Material1336 =  Material();
+Material1336.setContainerField("material");
 Material1336.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1335.addChild(&Material1336);
 
@@ -5548,6 +5901,7 @@ IndexedFaceSet1337.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1337.setCreaseAngle(0.5);
 IndexedFaceSet1337.setSolid(false);
 ColorRGBA& ColorRGBA1338 =  ColorRGBA();
+ColorRGBA1338.setContainerField("color");
 ColorRGBA1338.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1337.addChild(&ColorRGBA1338);
 
@@ -5563,8 +5917,9 @@ Billboard& Billboard1340 =  Billboard();
 Billboard1340.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1341 =  Shape();
 Text& Text1342 =  Text();
-Text1342.setString((std::string[]){"89"}, 1);
+Text1342.setString(new std::string[]{"89"}, 1);
 CFontStyle& FontStyle1343 =  CFontStyle();
+FontStyle1343.setContainerField("fontStyle");
 FontStyle1343.setSize(0.035);
 Text1342.setFontStyle(&FontStyle1343);
 
@@ -5572,7 +5927,7 @@ Shape1341.setGeometry(&Text1342);
 
 Billboard1340.addChild(&Shape1341);
 
-HAnimSite1332.addChild(Billboard1340);
+HAnimSite1332.addChild(&Billboard1340);
 
 HAnimSegment1235.addChild(&HAnimSite1332);
 
@@ -5586,7 +5941,9 @@ HAnimSite1344.addChild(&TouchSensor1345);
 
 Shape& Shape1346 =  Shape();
 Appearance& Appearance1347 =  Appearance();
+Appearance1347.setContainerField("appearance");
 Material& Material1348 =  Material();
+Material1348.setContainerField("material");
 Material1348.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1347.addChild(&Material1348);
 
@@ -5597,6 +5954,7 @@ IndexedFaceSet1349.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1349.setCreaseAngle(0.5);
 IndexedFaceSet1349.setSolid(false);
 ColorRGBA& ColorRGBA1350 =  ColorRGBA();
+ColorRGBA1350.setContainerField("color");
 ColorRGBA1350.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1349.addChild(&ColorRGBA1350);
 
@@ -5612,8 +5970,9 @@ Billboard& Billboard1352 =  Billboard();
 Billboard1352.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1353 =  Shape();
 Text& Text1354 =  Text();
-Text1354.setString((std::string[]){"85"}, 1);
+Text1354.setString(new std::string[]{"85"}, 1);
 CFontStyle& FontStyle1355 =  CFontStyle();
+FontStyle1355.setContainerField("fontStyle");
 FontStyle1355.setSize(0.035);
 Text1354.setFontStyle(&FontStyle1355);
 
@@ -5621,7 +5980,7 @@ Shape1353.setGeometry(&Text1354);
 
 Billboard1352.addChild(&Shape1353);
 
-HAnimSite1344.addChild(Billboard1352);
+HAnimSite1344.addChild(&Billboard1352);
 
 HAnimSegment1235.addChild(&HAnimSite1344);
 
@@ -5635,7 +5994,9 @@ HAnimSite1356.addChild(&TouchSensor1357);
 
 Shape& Shape1358 =  Shape();
 Appearance& Appearance1359 =  Appearance();
+Appearance1359.setContainerField("appearance");
 Material& Material1360 =  Material();
+Material1360.setContainerField("material");
 Material1360.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1359.addChild(&Material1360);
 
@@ -5646,6 +6007,7 @@ IndexedFaceSet1361.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1361.setCreaseAngle(0.5);
 IndexedFaceSet1361.setSolid(false);
 ColorRGBA& ColorRGBA1362 =  ColorRGBA();
+ColorRGBA1362.setContainerField("color");
 ColorRGBA1362.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1361.addChild(&ColorRGBA1362);
 
@@ -5661,8 +6023,9 @@ Billboard& Billboard1364 =  Billboard();
 Billboard1364.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1365 =  Shape();
 Text& Text1366 =  Text();
-Text1366.setString((std::string[]){"86"}, 1);
+Text1366.setString(new std::string[]{"86"}, 1);
 CFontStyle& FontStyle1367 =  CFontStyle();
+FontStyle1367.setContainerField("fontStyle");
 FontStyle1367.setSize(0.035);
 Text1366.setFontStyle(&FontStyle1367);
 
@@ -5670,7 +6033,7 @@ Shape1365.setGeometry(&Text1366);
 
 Billboard1364.addChild(&Shape1365);
 
-HAnimSite1356.addChild(Billboard1364);
+HAnimSite1356.addChild(&Billboard1364);
 
 HAnimSegment1235.addChild(&HAnimSite1356);
 
@@ -5678,6 +6041,7 @@ Shape& Shape1368 =  Shape();
 LineSet& LineSet1369 =  LineSet();
 LineSet1369.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1370 =  ColorRGBA();
+ColorRGBA1370.setContainerField("color");
 ColorRGBA1370.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1369.addChild(&ColorRGBA1370);
 
@@ -5708,7 +6072,9 @@ HAnimSite1374.addChild(&TouchSensor1375);
 
 Shape& Shape1376 =  Shape();
 Appearance& Appearance1377 =  Appearance();
+Appearance1377.setContainerField("appearance");
 Material& Material1378 =  Material();
+Material1378.setContainerField("material");
 Material1378.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1377.addChild(&Material1378);
 
@@ -5719,6 +6085,7 @@ IndexedFaceSet1379.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1379.setCreaseAngle(0.5);
 IndexedFaceSet1379.setSolid(false);
 ColorRGBA& ColorRGBA1380 =  ColorRGBA();
+ColorRGBA1380.setContainerField("color");
 ColorRGBA1380.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1379.addChild(&ColorRGBA1380);
 
@@ -5734,8 +6101,9 @@ Billboard& Billboard1382 =  Billboard();
 Billboard1382.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1383 =  Shape();
 Text& Text1384 =  Text();
-Text1384.setString((std::string[]){"l_eyelid_tip"}, 1);
+Text1384.setString(new std::string[]{"l_eyelid_tip"}, 1);
 CFontStyle& FontStyle1385 =  CFontStyle();
+FontStyle1385.setContainerField("fontStyle");
 FontStyle1385.setSize(0.035);
 Text1384.setFontStyle(&FontStyle1385);
 
@@ -5743,7 +6111,7 @@ Shape1383.setGeometry(&Text1384);
 
 Billboard1382.addChild(&Shape1383);
 
-HAnimSite1374.addChild(Billboard1382);
+HAnimSite1374.addChild(&Billboard1382);
 
 HAnimSegment1373.addChild(&HAnimSite1374);
 
@@ -5751,6 +6119,7 @@ Shape& Shape1386 =  Shape();
 LineSet& LineSet1387 =  LineSet();
 LineSet1387.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1388 =  ColorRGBA();
+ColorRGBA1388.setContainerField("color");
 ColorRGBA1388.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1387.addChild(&ColorRGBA1388);
 
@@ -5783,7 +6152,9 @@ HAnimSite1392.addChild(&TouchSensor1393);
 
 Shape& Shape1394 =  Shape();
 Appearance& Appearance1395 =  Appearance();
+Appearance1395.setContainerField("appearance");
 Material& Material1396 =  Material();
+Material1396.setContainerField("material");
 Material1396.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1395.addChild(&Material1396);
 
@@ -5794,6 +6165,7 @@ IndexedFaceSet1397.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1397.setCreaseAngle(0.5);
 IndexedFaceSet1397.setSolid(false);
 ColorRGBA& ColorRGBA1398 =  ColorRGBA();
+ColorRGBA1398.setContainerField("color");
 ColorRGBA1398.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1397.addChild(&ColorRGBA1398);
 
@@ -5809,8 +6181,9 @@ Billboard& Billboard1400 =  Billboard();
 Billboard1400.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1401 =  Shape();
 Text& Text1402 =  Text();
-Text1402.setString((std::string[]){"r_eyelid_tip"}, 1);
+Text1402.setString(new std::string[]{"r_eyelid_tip"}, 1);
 CFontStyle& FontStyle1403 =  CFontStyle();
+FontStyle1403.setContainerField("fontStyle");
 FontStyle1403.setSize(0.035);
 Text1402.setFontStyle(&FontStyle1403);
 
@@ -5818,7 +6191,7 @@ Shape1401.setGeometry(&Text1402);
 
 Billboard1400.addChild(&Shape1401);
 
-HAnimSite1392.addChild(Billboard1400);
+HAnimSite1392.addChild(&Billboard1400);
 
 HAnimSegment1391.addChild(&HAnimSite1392);
 
@@ -5826,6 +6199,7 @@ Shape& Shape1404 =  Shape();
 LineSet& LineSet1405 =  LineSet();
 LineSet1405.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1406 =  ColorRGBA();
+ColorRGBA1406.setContainerField("color");
 ColorRGBA1406.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1405.addChild(&ColorRGBA1406);
 
@@ -5858,7 +6232,9 @@ HAnimSite1410.addChild(&TouchSensor1411);
 
 Shape& Shape1412 =  Shape();
 Appearance& Appearance1413 =  Appearance();
+Appearance1413.setContainerField("appearance");
 Material& Material1414 =  Material();
+Material1414.setContainerField("material");
 Material1414.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1413.addChild(&Material1414);
 
@@ -5869,6 +6245,7 @@ IndexedFaceSet1415.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1415.setCreaseAngle(0.5);
 IndexedFaceSet1415.setSolid(false);
 ColorRGBA& ColorRGBA1416 =  ColorRGBA();
+ColorRGBA1416.setContainerField("color");
 ColorRGBA1416.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1415.addChild(&ColorRGBA1416);
 
@@ -5884,8 +6261,9 @@ Billboard& Billboard1418 =  Billboard();
 Billboard1418.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1419 =  Shape();
 Text& Text1420 =  Text();
-Text1420.setString((std::string[]){"l_eyeball_tip"}, 1);
+Text1420.setString(new std::string[]{"l_eyeball_tip"}, 1);
 CFontStyle& FontStyle1421 =  CFontStyle();
+FontStyle1421.setContainerField("fontStyle");
 FontStyle1421.setSize(0.035);
 Text1420.setFontStyle(&FontStyle1421);
 
@@ -5893,7 +6271,7 @@ Shape1419.setGeometry(&Text1420);
 
 Billboard1418.addChild(&Shape1419);
 
-HAnimSite1410.addChild(Billboard1418);
+HAnimSite1410.addChild(&Billboard1418);
 
 HAnimSegment1409.addChild(&HAnimSite1410);
 
@@ -5901,6 +6279,7 @@ Shape& Shape1422 =  Shape();
 LineSet& LineSet1423 =  LineSet();
 LineSet1423.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1424 =  ColorRGBA();
+ColorRGBA1424.setContainerField("color");
 ColorRGBA1424.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1423.addChild(&ColorRGBA1424);
 
@@ -5933,7 +6312,9 @@ HAnimSite1428.addChild(&TouchSensor1429);
 
 Shape& Shape1430 =  Shape();
 Appearance& Appearance1431 =  Appearance();
+Appearance1431.setContainerField("appearance");
 Material& Material1432 =  Material();
+Material1432.setContainerField("material");
 Material1432.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1431.addChild(&Material1432);
 
@@ -5944,6 +6325,7 @@ IndexedFaceSet1433.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1433.setCreaseAngle(0.5);
 IndexedFaceSet1433.setSolid(false);
 ColorRGBA& ColorRGBA1434 =  ColorRGBA();
+ColorRGBA1434.setContainerField("color");
 ColorRGBA1434.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1433.addChild(&ColorRGBA1434);
 
@@ -5959,8 +6341,9 @@ Billboard& Billboard1436 =  Billboard();
 Billboard1436.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1437 =  Shape();
 Text& Text1438 =  Text();
-Text1438.setString((std::string[]){"r_eyeball_tip"}, 1);
+Text1438.setString(new std::string[]{"r_eyeball_tip"}, 1);
 CFontStyle& FontStyle1439 =  CFontStyle();
+FontStyle1439.setContainerField("fontStyle");
 FontStyle1439.setSize(0.035);
 Text1438.setFontStyle(&FontStyle1439);
 
@@ -5968,7 +6351,7 @@ Shape1437.setGeometry(&Text1438);
 
 Billboard1436.addChild(&Shape1437);
 
-HAnimSite1428.addChild(Billboard1436);
+HAnimSite1428.addChild(&Billboard1436);
 
 HAnimSegment1427.addChild(&HAnimSite1428);
 
@@ -5976,6 +6359,7 @@ Shape& Shape1440 =  Shape();
 LineSet& LineSet1441 =  LineSet();
 LineSet1441.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1442 =  ColorRGBA();
+ColorRGBA1442.setContainerField("color");
 ColorRGBA1442.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1441.addChild(&ColorRGBA1442);
 
@@ -6008,7 +6392,9 @@ HAnimSite1446.addChild(&TouchSensor1447);
 
 Shape& Shape1448 =  Shape();
 Appearance& Appearance1449 =  Appearance();
+Appearance1449.setContainerField("appearance");
 Material& Material1450 =  Material();
+Material1450.setContainerField("material");
 Material1450.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1449.addChild(&Material1450);
 
@@ -6019,6 +6405,7 @@ IndexedFaceSet1451.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1451.setCreaseAngle(0.5);
 IndexedFaceSet1451.setSolid(false);
 ColorRGBA& ColorRGBA1452 =  ColorRGBA();
+ColorRGBA1452.setContainerField("color");
 ColorRGBA1452.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1451.addChild(&ColorRGBA1452);
 
@@ -6034,8 +6421,9 @@ Billboard& Billboard1454 =  Billboard();
 Billboard1454.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1455 =  Shape();
 Text& Text1456 =  Text();
-Text1456.setString((std::string[]){"l_eyebrow_tip"}, 1);
+Text1456.setString(new std::string[]{"l_eyebrow_tip"}, 1);
 CFontStyle& FontStyle1457 =  CFontStyle();
+FontStyle1457.setContainerField("fontStyle");
 FontStyle1457.setSize(0.035);
 Text1456.setFontStyle(&FontStyle1457);
 
@@ -6043,7 +6431,7 @@ Shape1455.setGeometry(&Text1456);
 
 Billboard1454.addChild(&Shape1455);
 
-HAnimSite1446.addChild(Billboard1454);
+HAnimSite1446.addChild(&Billboard1454);
 
 HAnimSegment1445.addChild(&HAnimSite1446);
 
@@ -6051,6 +6439,7 @@ Shape& Shape1458 =  Shape();
 LineSet& LineSet1459 =  LineSet();
 LineSet1459.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1460 =  ColorRGBA();
+ColorRGBA1460.setContainerField("color");
 ColorRGBA1460.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1459.addChild(&ColorRGBA1460);
 
@@ -6083,7 +6472,9 @@ HAnimSite1464.addChild(&TouchSensor1465);
 
 Shape& Shape1466 =  Shape();
 Appearance& Appearance1467 =  Appearance();
+Appearance1467.setContainerField("appearance");
 Material& Material1468 =  Material();
+Material1468.setContainerField("material");
 Material1468.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1467.addChild(&Material1468);
 
@@ -6094,6 +6485,7 @@ IndexedFaceSet1469.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1469.setCreaseAngle(0.5);
 IndexedFaceSet1469.setSolid(false);
 ColorRGBA& ColorRGBA1470 =  ColorRGBA();
+ColorRGBA1470.setContainerField("color");
 ColorRGBA1470.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1469.addChild(&ColorRGBA1470);
 
@@ -6109,8 +6501,9 @@ Billboard& Billboard1472 =  Billboard();
 Billboard1472.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1473 =  Shape();
 Text& Text1474 =  Text();
-Text1474.setString((std::string[]){"r_eyebrow_tip"}, 1);
+Text1474.setString(new std::string[]{"r_eyebrow_tip"}, 1);
 CFontStyle& FontStyle1475 =  CFontStyle();
+FontStyle1475.setContainerField("fontStyle");
 FontStyle1475.setSize(0.035);
 Text1474.setFontStyle(&FontStyle1475);
 
@@ -6118,7 +6511,7 @@ Shape1473.setGeometry(&Text1474);
 
 Billboard1472.addChild(&Shape1473);
 
-HAnimSite1464.addChild(Billboard1472);
+HAnimSite1464.addChild(&Billboard1472);
 
 HAnimSegment1463.addChild(&HAnimSite1464);
 
@@ -6126,6 +6519,7 @@ Shape& Shape1476 =  Shape();
 LineSet& LineSet1477 =  LineSet();
 LineSet1477.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1478 =  ColorRGBA();
+ColorRGBA1478.setContainerField("color");
 ColorRGBA1478.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1477.addChild(&ColorRGBA1478);
 
@@ -6158,7 +6552,9 @@ HAnimSite1482.addChild(&TouchSensor1483);
 
 Shape& Shape1484 =  Shape();
 Appearance& Appearance1485 =  Appearance();
+Appearance1485.setContainerField("appearance");
 Material& Material1486 =  Material();
+Material1486.setContainerField("material");
 Material1486.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1485.addChild(&Material1486);
 
@@ -6169,6 +6565,7 @@ IndexedFaceSet1487.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1487.setCreaseAngle(0.5);
 IndexedFaceSet1487.setSolid(false);
 ColorRGBA& ColorRGBA1488 =  ColorRGBA();
+ColorRGBA1488.setContainerField("color");
 ColorRGBA1488.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1487.addChild(&ColorRGBA1488);
 
@@ -6184,8 +6581,9 @@ Billboard& Billboard1490 =  Billboard();
 Billboard1490.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1491 =  Shape();
 Text& Text1492 =  Text();
-Text1492.setString((std::string[]){"5"}, 1);
+Text1492.setString(new std::string[]{"5"}, 1);
 CFontStyle& FontStyle1493 =  CFontStyle();
+FontStyle1493.setContainerField("fontStyle");
 FontStyle1493.setSize(0.035);
 Text1492.setFontStyle(&FontStyle1493);
 
@@ -6193,7 +6591,7 @@ Shape1491.setGeometry(&Text1492);
 
 Billboard1490.addChild(&Shape1491);
 
-HAnimSite1482.addChild(Billboard1490);
+HAnimSite1482.addChild(&Billboard1490);
 
 HAnimSegment1481.addChild(&HAnimSite1482);
 
@@ -6207,7 +6605,9 @@ HAnimSite1494.addChild(&TouchSensor1495);
 
 Shape& Shape1496 =  Shape();
 Appearance& Appearance1497 =  Appearance();
+Appearance1497.setContainerField("appearance");
 Material& Material1498 =  Material();
+Material1498.setContainerField("material");
 Material1498.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1497.addChild(&Material1498);
 
@@ -6218,6 +6618,7 @@ IndexedFaceSet1499.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1499.setCreaseAngle(0.5);
 IndexedFaceSet1499.setSolid(false);
 ColorRGBA& ColorRGBA1500 =  ColorRGBA();
+ColorRGBA1500.setContainerField("color");
 ColorRGBA1500.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1499.addChild(&ColorRGBA1500);
 
@@ -6233,8 +6634,9 @@ Billboard& Billboard1502 =  Billboard();
 Billboard1502.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1503 =  Shape();
 Text& Text1504 =  Text();
-Text1504.setString((std::string[]){"8"}, 1);
+Text1504.setString(new std::string[]{"8"}, 1);
 CFontStyle& FontStyle1505 =  CFontStyle();
+FontStyle1505.setContainerField("fontStyle");
 FontStyle1505.setSize(0.035);
 Text1504.setFontStyle(&FontStyle1505);
 
@@ -6242,7 +6644,7 @@ Shape1503.setGeometry(&Text1504);
 
 Billboard1502.addChild(&Shape1503);
 
-HAnimSite1494.addChild(Billboard1502);
+HAnimSite1494.addChild(&Billboard1502);
 
 HAnimSegment1481.addChild(&HAnimSite1494);
 
@@ -6256,7 +6658,9 @@ HAnimSite1506.addChild(&TouchSensor1507);
 
 Shape& Shape1508 =  Shape();
 Appearance& Appearance1509 =  Appearance();
+Appearance1509.setContainerField("appearance");
 Material& Material1510 =  Material();
+Material1510.setContainerField("material");
 Material1510.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1509.addChild(&Material1510);
 
@@ -6267,6 +6671,7 @@ IndexedFaceSet1511.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1511.setCreaseAngle(0.5);
 IndexedFaceSet1511.setSolid(false);
 ColorRGBA& ColorRGBA1512 =  ColorRGBA();
+ColorRGBA1512.setContainerField("color");
 ColorRGBA1512.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1511.addChild(&ColorRGBA1512);
 
@@ -6282,8 +6687,9 @@ Billboard& Billboard1514 =  Billboard();
 Billboard1514.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1515 =  Shape();
 Text& Text1516 =  Text();
-Text1516.setString((std::string[]){"9"}, 1);
+Text1516.setString(new std::string[]{"9"}, 1);
 CFontStyle& FontStyle1517 =  CFontStyle();
+FontStyle1517.setContainerField("fontStyle");
 FontStyle1517.setSize(0.035);
 Text1516.setFontStyle(&FontStyle1517);
 
@@ -6291,7 +6697,7 @@ Shape1515.setGeometry(&Text1516);
 
 Billboard1514.addChild(&Shape1515);
 
-HAnimSite1506.addChild(Billboard1514);
+HAnimSite1506.addChild(&Billboard1514);
 
 HAnimSegment1481.addChild(&HAnimSite1506);
 
@@ -6305,7 +6711,9 @@ HAnimSite1518.addChild(&TouchSensor1519);
 
 Shape& Shape1520 =  Shape();
 Appearance& Appearance1521 =  Appearance();
+Appearance1521.setContainerField("appearance");
 Material& Material1522 =  Material();
+Material1522.setContainerField("material");
 Material1522.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1521.addChild(&Material1522);
 
@@ -6316,6 +6724,7 @@ IndexedFaceSet1523.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1523.setCreaseAngle(0.5);
 IndexedFaceSet1523.setSolid(false);
 ColorRGBA& ColorRGBA1524 =  ColorRGBA();
+ColorRGBA1524.setContainerField("color");
 ColorRGBA1524.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1523.addChild(&ColorRGBA1524);
 
@@ -6331,8 +6740,9 @@ Billboard& Billboard1526 =  Billboard();
 Billboard1526.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1527 =  Shape();
 Text& Text1528 =  Text();
-Text1528.setString((std::string[]){"87"}, 1);
+Text1528.setString(new std::string[]{"87"}, 1);
 CFontStyle& FontStyle1529 =  CFontStyle();
+FontStyle1529.setContainerField("fontStyle");
 FontStyle1529.setSize(0.035);
 Text1528.setFontStyle(&FontStyle1529);
 
@@ -6340,7 +6750,7 @@ Shape1527.setGeometry(&Text1528);
 
 Billboard1526.addChild(&Shape1527);
 
-HAnimSite1518.addChild(Billboard1526);
+HAnimSite1518.addChild(&Billboard1526);
 
 HAnimSegment1481.addChild(&HAnimSite1518);
 
@@ -6348,6 +6758,7 @@ Shape& Shape1530 =  Shape();
 LineSet& LineSet1531 =  LineSet();
 LineSet1531.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1532 =  ColorRGBA();
+ColorRGBA1532.setContainerField("color");
 ColorRGBA1532.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1531.addChild(&ColorRGBA1532);
 
@@ -6396,7 +6807,9 @@ HAnimSite1536.addChild(&TouchSensor1537);
 
 Shape& Shape1538 =  Shape();
 Appearance& Appearance1539 =  Appearance();
+Appearance1539.setContainerField("appearance");
 Material& Material1540 =  Material();
+Material1540.setContainerField("material");
 Material1540.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1539.addChild(&Material1540);
 
@@ -6407,6 +6820,7 @@ IndexedFaceSet1541.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1541.setCreaseAngle(0.5);
 IndexedFaceSet1541.setSolid(false);
 ColorRGBA& ColorRGBA1542 =  ColorRGBA();
+ColorRGBA1542.setContainerField("color");
 ColorRGBA1542.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1541.addChild(&ColorRGBA1542);
 
@@ -6422,8 +6836,9 @@ Billboard& Billboard1544 =  Billboard();
 Billboard1544.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1545 =  Shape();
 Text& Text1546 =  Text();
-Text1546.setString((std::string[]){"l_clavicale"}, 1);
+Text1546.setString(new std::string[]{"l_clavicale"}, 1);
 CFontStyle& FontStyle1547 =  CFontStyle();
+FontStyle1547.setContainerField("fontStyle");
 FontStyle1547.setSize(0.035);
 Text1546.setFontStyle(&FontStyle1547);
 
@@ -6431,7 +6846,7 @@ Shape1545.setGeometry(&Text1546);
 
 Billboard1544.addChild(&Shape1545);
 
-HAnimSite1536.addChild(Billboard1544);
+HAnimSite1536.addChild(&Billboard1544);
 
 HAnimSegment1535.addChild(&HAnimSite1536);
 
@@ -6439,6 +6854,7 @@ Shape& Shape1548 =  Shape();
 LineSet& LineSet1549 =  LineSet();
 LineSet1549.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1550 =  ColorRGBA();
+ColorRGBA1550.setContainerField("color");
 ColorRGBA1550.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1549.addChild(&ColorRGBA1550);
 
@@ -6469,7 +6885,9 @@ HAnimSite1554.addChild(&TouchSensor1555);
 
 Shape& Shape1556 =  Shape();
 Appearance& Appearance1557 =  Appearance();
+Appearance1557.setContainerField("appearance");
 Material& Material1558 =  Material();
+Material1558.setContainerField("material");
 Material1558.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1557.addChild(&Material1558);
 
@@ -6480,6 +6898,7 @@ IndexedFaceSet1559.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1559.setCreaseAngle(0.5);
 IndexedFaceSet1559.setSolid(false);
 ColorRGBA& ColorRGBA1560 =  ColorRGBA();
+ColorRGBA1560.setContainerField("color");
 ColorRGBA1560.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1559.addChild(&ColorRGBA1560);
 
@@ -6495,8 +6914,9 @@ Billboard& Billboard1562 =  Billboard();
 Billboard1562.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1563 =  Shape();
 Text& Text1564 =  Text();
-Text1564.setString((std::string[]){"15"}, 1);
+Text1564.setString(new std::string[]{"15"}, 1);
 CFontStyle& FontStyle1565 =  CFontStyle();
+FontStyle1565.setContainerField("fontStyle");
 FontStyle1565.setSize(0.035);
 Text1564.setFontStyle(&FontStyle1565);
 
@@ -6504,7 +6924,7 @@ Shape1563.setGeometry(&Text1564);
 
 Billboard1562.addChild(&Shape1563);
 
-HAnimSite1554.addChild(Billboard1562);
+HAnimSite1554.addChild(&Billboard1562);
 
 HAnimSegment1553.addChild(&HAnimSite1554);
 
@@ -6518,7 +6938,9 @@ HAnimSite1566.addChild(&TouchSensor1567);
 
 Shape& Shape1568 =  Shape();
 Appearance& Appearance1569 =  Appearance();
+Appearance1569.setContainerField("appearance");
 Material& Material1570 =  Material();
+Material1570.setContainerField("material");
 Material1570.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1569.addChild(&Material1570);
 
@@ -6529,6 +6951,7 @@ IndexedFaceSet1571.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1571.setCreaseAngle(0.5);
 IndexedFaceSet1571.setSolid(false);
 ColorRGBA& ColorRGBA1572 =  ColorRGBA();
+ColorRGBA1572.setContainerField("color");
 ColorRGBA1572.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1571.addChild(&ColorRGBA1572);
 
@@ -6544,8 +6967,9 @@ Billboard& Billboard1574 =  Billboard();
 Billboard1574.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1575 =  Shape();
 Text& Text1576 =  Text();
-Text1576.setString((std::string[]){"16"}, 1);
+Text1576.setString(new std::string[]{"16"}, 1);
 CFontStyle& FontStyle1577 =  CFontStyle();
+FontStyle1577.setContainerField("fontStyle");
 FontStyle1577.setSize(0.035);
 Text1576.setFontStyle(&FontStyle1577);
 
@@ -6553,7 +6977,7 @@ Shape1575.setGeometry(&Text1576);
 
 Billboard1574.addChild(&Shape1575);
 
-HAnimSite1566.addChild(Billboard1574);
+HAnimSite1566.addChild(&Billboard1574);
 
 HAnimSegment1553.addChild(&HAnimSite1566);
 
@@ -6567,7 +6991,9 @@ HAnimSite1578.addChild(&TouchSensor1579);
 
 Shape& Shape1580 =  Shape();
 Appearance& Appearance1581 =  Appearance();
+Appearance1581.setContainerField("appearance");
 Material& Material1582 =  Material();
+Material1582.setContainerField("material");
 Material1582.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1581.addChild(&Material1582);
 
@@ -6578,6 +7004,7 @@ IndexedFaceSet1583.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1583.setCreaseAngle(0.5);
 IndexedFaceSet1583.setSolid(false);
 ColorRGBA& ColorRGBA1584 =  ColorRGBA();
+ColorRGBA1584.setContainerField("color");
 ColorRGBA1584.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1583.addChild(&ColorRGBA1584);
 
@@ -6593,8 +7020,9 @@ Billboard& Billboard1586 =  Billboard();
 Billboard1586.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1587 =  Shape();
 Text& Text1588 =  Text();
-Text1588.setString((std::string[]){"17"}, 1);
+Text1588.setString(new std::string[]{"17"}, 1);
 CFontStyle& FontStyle1589 =  CFontStyle();
+FontStyle1589.setContainerField("fontStyle");
 FontStyle1589.setSize(0.035);
 Text1588.setFontStyle(&FontStyle1589);
 
@@ -6602,7 +7030,7 @@ Shape1587.setGeometry(&Text1588);
 
 Billboard1586.addChild(&Shape1587);
 
-HAnimSite1578.addChild(Billboard1586);
+HAnimSite1578.addChild(&Billboard1586);
 
 HAnimSegment1553.addChild(&HAnimSite1578);
 
@@ -6616,7 +7044,9 @@ HAnimSite1590.addChild(&TouchSensor1591);
 
 Shape& Shape1592 =  Shape();
 Appearance& Appearance1593 =  Appearance();
+Appearance1593.setContainerField("appearance");
 Material& Material1594 =  Material();
+Material1594.setContainerField("material");
 Material1594.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1593.addChild(&Material1594);
 
@@ -6627,6 +7057,7 @@ IndexedFaceSet1595.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1595.setCreaseAngle(0.5);
 IndexedFaceSet1595.setSolid(false);
 ColorRGBA& ColorRGBA1596 =  ColorRGBA();
+ColorRGBA1596.setContainerField("color");
 ColorRGBA1596.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1595.addChild(&ColorRGBA1596);
 
@@ -6642,8 +7073,9 @@ Billboard& Billboard1598 =  Billboard();
 Billboard1598.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1599 =  Shape();
 Text& Text1600 =  Text();
-Text1600.setString((std::string[]){"18"}, 1);
+Text1600.setString(new std::string[]{"18"}, 1);
 CFontStyle& FontStyle1601 =  CFontStyle();
+FontStyle1601.setContainerField("fontStyle");
 FontStyle1601.setSize(0.035);
 Text1600.setFontStyle(&FontStyle1601);
 
@@ -6651,7 +7083,7 @@ Shape1599.setGeometry(&Text1600);
 
 Billboard1598.addChild(&Shape1599);
 
-HAnimSite1590.addChild(Billboard1598);
+HAnimSite1590.addChild(&Billboard1598);
 
 HAnimSegment1553.addChild(&HAnimSite1590);
 
@@ -6659,6 +7091,7 @@ Shape& Shape1602 =  Shape();
 LineSet& LineSet1603 =  LineSet();
 LineSet1603.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1604 =  ColorRGBA();
+ColorRGBA1604.setContainerField("color");
 ColorRGBA1604.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1603.addChild(&ColorRGBA1604);
 
@@ -6689,7 +7122,9 @@ HAnimSite1608.addChild(&TouchSensor1609);
 
 Shape& Shape1610 =  Shape();
 Appearance& Appearance1611 =  Appearance();
+Appearance1611.setContainerField("appearance");
 Material& Material1612 =  Material();
+Material1612.setContainerField("material");
 Material1612.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1611.addChild(&Material1612);
 
@@ -6700,6 +7135,7 @@ IndexedFaceSet1613.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1613.setCreaseAngle(0.5);
 IndexedFaceSet1613.setSolid(false);
 ColorRGBA& ColorRGBA1614 =  ColorRGBA();
+ColorRGBA1614.setContainerField("color");
 ColorRGBA1614.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1613.addChild(&ColorRGBA1614);
 
@@ -6715,8 +7151,9 @@ Billboard& Billboard1616 =  Billboard();
 Billboard1616.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1617 =  Shape();
 Text& Text1618 =  Text();
-Text1618.setString((std::string[]){"63"}, 1);
+Text1618.setString(new std::string[]{"63"}, 1);
 CFontStyle& FontStyle1619 =  CFontStyle();
+FontStyle1619.setContainerField("fontStyle");
 FontStyle1619.setSize(0.035);
 Text1618.setFontStyle(&FontStyle1619);
 
@@ -6724,7 +7161,7 @@ Shape1617.setGeometry(&Text1618);
 
 Billboard1616.addChild(&Shape1617);
 
-HAnimSite1608.addChild(Billboard1616);
+HAnimSite1608.addChild(&Billboard1616);
 
 HAnimSegment1607.addChild(&HAnimSite1608);
 
@@ -6738,7 +7175,9 @@ HAnimSite1620.addChild(&TouchSensor1621);
 
 Shape& Shape1622 =  Shape();
 Appearance& Appearance1623 =  Appearance();
+Appearance1623.setContainerField("appearance");
 Material& Material1624 =  Material();
+Material1624.setContainerField("material");
 Material1624.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1623.addChild(&Material1624);
 
@@ -6749,6 +7188,7 @@ IndexedFaceSet1625.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1625.setCreaseAngle(0.5);
 IndexedFaceSet1625.setSolid(false);
 ColorRGBA& ColorRGBA1626 =  ColorRGBA();
+ColorRGBA1626.setContainerField("color");
 ColorRGBA1626.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1625.addChild(&ColorRGBA1626);
 
@@ -6764,8 +7204,9 @@ Billboard& Billboard1628 =  Billboard();
 Billboard1628.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1629 =  Shape();
 Text& Text1630 =  Text();
-Text1630.setString((std::string[]){"64"}, 1);
+Text1630.setString(new std::string[]{"64"}, 1);
 CFontStyle& FontStyle1631 =  CFontStyle();
+FontStyle1631.setContainerField("fontStyle");
 FontStyle1631.setSize(0.035);
 Text1630.setFontStyle(&FontStyle1631);
 
@@ -6773,7 +7214,7 @@ Shape1629.setGeometry(&Text1630);
 
 Billboard1628.addChild(&Shape1629);
 
-HAnimSite1620.addChild(Billboard1628);
+HAnimSite1620.addChild(&Billboard1628);
 
 HAnimSegment1607.addChild(&HAnimSite1620);
 
@@ -6787,7 +7228,9 @@ HAnimSite1632.addChild(&TouchSensor1633);
 
 Shape& Shape1634 =  Shape();
 Appearance& Appearance1635 =  Appearance();
+Appearance1635.setContainerField("appearance");
 Material& Material1636 =  Material();
+Material1636.setContainerField("material");
 Material1636.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1635.addChild(&Material1636);
 
@@ -6798,6 +7241,7 @@ IndexedFaceSet1637.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1637.setCreaseAngle(0.5);
 IndexedFaceSet1637.setSolid(false);
 ColorRGBA& ColorRGBA1638 =  ColorRGBA();
+ColorRGBA1638.setContainerField("color");
 ColorRGBA1638.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1637.addChild(&ColorRGBA1638);
 
@@ -6813,8 +7257,9 @@ Billboard& Billboard1640 =  Billboard();
 Billboard1640.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1641 =  Shape();
 Text& Text1642 =  Text();
-Text1642.setString((std::string[]){"69"}, 1);
+Text1642.setString(new std::string[]{"69"}, 1);
 CFontStyle& FontStyle1643 =  CFontStyle();
+FontStyle1643.setContainerField("fontStyle");
 FontStyle1643.setSize(0.035);
 Text1642.setFontStyle(&FontStyle1643);
 
@@ -6822,7 +7267,7 @@ Shape1641.setGeometry(&Text1642);
 
 Billboard1640.addChild(&Shape1641);
 
-HAnimSite1632.addChild(Billboard1640);
+HAnimSite1632.addChild(&Billboard1640);
 
 HAnimSegment1607.addChild(&HAnimSite1632);
 
@@ -6836,7 +7281,9 @@ HAnimSite1644.addChild(&TouchSensor1645);
 
 Shape& Shape1646 =  Shape();
 Appearance& Appearance1647 =  Appearance();
+Appearance1647.setContainerField("appearance");
 Material& Material1648 =  Material();
+Material1648.setContainerField("material");
 Material1648.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1647.addChild(&Material1648);
 
@@ -6847,6 +7294,7 @@ IndexedFaceSet1649.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1649.setCreaseAngle(0.5);
 IndexedFaceSet1649.setSolid(false);
 ColorRGBA& ColorRGBA1650 =  ColorRGBA();
+ColorRGBA1650.setContainerField("color");
 ColorRGBA1650.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1649.addChild(&ColorRGBA1650);
 
@@ -6862,8 +7310,9 @@ Billboard& Billboard1652 =  Billboard();
 Billboard1652.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1653 =  Shape();
 Text& Text1654 =  Text();
-Text1654.setString((std::string[]){"96"}, 1);
+Text1654.setString(new std::string[]{"96"}, 1);
 CFontStyle& FontStyle1655 =  CFontStyle();
+FontStyle1655.setContainerField("fontStyle");
 FontStyle1655.setSize(0.035);
 Text1654.setFontStyle(&FontStyle1655);
 
@@ -6871,7 +7320,7 @@ Shape1653.setGeometry(&Text1654);
 
 Billboard1652.addChild(&Shape1653);
 
-HAnimSite1644.addChild(Billboard1652);
+HAnimSite1644.addChild(&Billboard1652);
 
 HAnimSegment1607.addChild(&HAnimSite1644);
 
@@ -6879,6 +7328,7 @@ Shape& Shape1656 =  Shape();
 LineSet& LineSet1657 =  LineSet();
 LineSet1657.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1658 =  ColorRGBA();
+ColorRGBA1658.setContainerField("color");
 ColorRGBA1658.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1657.addChild(&ColorRGBA1658);
 
@@ -6909,7 +7359,9 @@ HAnimSite1662.addChild(&TouchSensor1663);
 
 Shape& Shape1664 =  Shape();
 Appearance& Appearance1665 =  Appearance();
+Appearance1665.setContainerField("appearance");
 Material& Material1666 =  Material();
+Material1666.setContainerField("material");
 Material1666.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1665.addChild(&Material1666);
 
@@ -6920,6 +7372,7 @@ IndexedFaceSet1667.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1667.setCreaseAngle(0.5);
 IndexedFaceSet1667.setSolid(false);
 ColorRGBA& ColorRGBA1668 =  ColorRGBA();
+ColorRGBA1668.setContainerField("color");
 ColorRGBA1668.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1667.addChild(&ColorRGBA1668);
 
@@ -6935,8 +7388,9 @@ Billboard& Billboard1670 =  Billboard();
 Billboard1670.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1671 =  Shape();
 Text& Text1672 =  Text();
-Text1672.setString((std::string[]){"71"}, 1);
+Text1672.setString(new std::string[]{"71"}, 1);
 CFontStyle& FontStyle1673 =  CFontStyle();
+FontStyle1673.setContainerField("fontStyle");
 FontStyle1673.setSize(0.035);
 Text1672.setFontStyle(&FontStyle1673);
 
@@ -6944,7 +7398,7 @@ Shape1671.setGeometry(&Text1672);
 
 Billboard1670.addChild(&Shape1671);
 
-HAnimSite1662.addChild(Billboard1670);
+HAnimSite1662.addChild(&Billboard1670);
 
 HAnimSegment1661.addChild(&HAnimSite1662);
 
@@ -6958,7 +7412,9 @@ HAnimSite1674.addChild(&TouchSensor1675);
 
 Shape& Shape1676 =  Shape();
 Appearance& Appearance1677 =  Appearance();
+Appearance1677.setContainerField("appearance");
 Material& Material1678 =  Material();
+Material1678.setContainerField("material");
 Material1678.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1677.addChild(&Material1678);
 
@@ -6969,6 +7425,7 @@ IndexedFaceSet1679.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1679.setCreaseAngle(0.5);
 IndexedFaceSet1679.setSolid(false);
 ColorRGBA& ColorRGBA1680 =  ColorRGBA();
+ColorRGBA1680.setContainerField("color");
 ColorRGBA1680.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1679.addChild(&ColorRGBA1680);
 
@@ -6984,8 +7441,9 @@ Billboard& Billboard1682 =  Billboard();
 Billboard1682.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1683 =  Shape();
 Text& Text1684 =  Text();
-Text1684.setString((std::string[]){"65"}, 1);
+Text1684.setString(new std::string[]{"65"}, 1);
 CFontStyle& FontStyle1685 =  CFontStyle();
+FontStyle1685.setContainerField("fontStyle");
 FontStyle1685.setSize(0.035);
 Text1684.setFontStyle(&FontStyle1685);
 
@@ -6993,7 +7451,7 @@ Shape1683.setGeometry(&Text1684);
 
 Billboard1682.addChild(&Shape1683);
 
-HAnimSite1674.addChild(Billboard1682);
+HAnimSite1674.addChild(&Billboard1682);
 
 HAnimSegment1661.addChild(&HAnimSite1674);
 
@@ -7001,6 +7459,7 @@ Shape& Shape1686 =  Shape();
 LineSet& LineSet1687 =  LineSet();
 LineSet1687.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1688 =  ColorRGBA();
+ColorRGBA1688.setContainerField("color");
 ColorRGBA1688.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1687.addChild(&ColorRGBA1688);
 
@@ -7031,7 +7490,9 @@ HAnimSite1692.addChild(&TouchSensor1693);
 
 Shape& Shape1694 =  Shape();
 Appearance& Appearance1695 =  Appearance();
+Appearance1695.setContainerField("appearance");
 Material& Material1696 =  Material();
+Material1696.setContainerField("material");
 Material1696.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1695.addChild(&Material1696);
 
@@ -7042,6 +7503,7 @@ IndexedFaceSet1697.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1697.setCreaseAngle(0.5);
 IndexedFaceSet1697.setSolid(false);
 ColorRGBA& ColorRGBA1698 =  ColorRGBA();
+ColorRGBA1698.setContainerField("color");
 ColorRGBA1698.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1697.addChild(&ColorRGBA1698);
 
@@ -7057,8 +7519,9 @@ Billboard& Billboard1700 =  Billboard();
 Billboard1700.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1701 =  Shape();
 Text& Text1702 =  Text();
-Text1702.setString((std::string[]){"70"}, 1);
+Text1702.setString(new std::string[]{"70"}, 1);
 CFontStyle& FontStyle1703 =  CFontStyle();
+FontStyle1703.setContainerField("fontStyle");
 FontStyle1703.setSize(0.035);
 Text1702.setFontStyle(&FontStyle1703);
 
@@ -7066,7 +7529,7 @@ Shape1701.setGeometry(&Text1702);
 
 Billboard1700.addChild(&Shape1701);
 
-HAnimSite1692.addChild(Billboard1700);
+HAnimSite1692.addChild(&Billboard1700);
 
 HAnimSegment1691.addChild(&HAnimSite1692);
 
@@ -7074,6 +7537,7 @@ Shape& Shape1704 =  Shape();
 LineSet& LineSet1705 =  LineSet();
 LineSet1705.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1706 =  ColorRGBA();
+ColorRGBA1706.setContainerField("color");
 ColorRGBA1706.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1705.addChild(&ColorRGBA1706);
 
@@ -7098,6 +7562,7 @@ Shape& Shape1710 =  Shape();
 LineSet& LineSet1711 =  LineSet();
 LineSet1711.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1712 =  ColorRGBA();
+ColorRGBA1712.setContainerField("color");
 ColorRGBA1712.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1711.addChild(&ColorRGBA1712);
 
@@ -7128,7 +7593,9 @@ HAnimSite1716.addChild(&TouchSensor1717);
 
 Shape& Shape1718 =  Shape();
 Appearance& Appearance1719 =  Appearance();
+Appearance1719.setContainerField("appearance");
 Material& Material1720 =  Material();
+Material1720.setContainerField("material");
 Material1720.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1719.addChild(&Material1720);
 
@@ -7139,6 +7606,7 @@ IndexedFaceSet1721.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1721.setCreaseAngle(0.5);
 IndexedFaceSet1721.setSolid(false);
 ColorRGBA& ColorRGBA1722 =  ColorRGBA();
+ColorRGBA1722.setContainerField("color");
 ColorRGBA1722.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1721.addChild(&ColorRGBA1722);
 
@@ -7154,8 +7622,9 @@ Billboard& Billboard1724 =  Billboard();
 Billboard1724.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1725 =  Shape();
 Text& Text1726 =  Text();
-Text1726.setString((std::string[]){"75"}, 1);
+Text1726.setString(new std::string[]{"75"}, 1);
 CFontStyle& FontStyle1727 =  CFontStyle();
+FontStyle1727.setContainerField("fontStyle");
 FontStyle1727.setSize(0.035);
 Text1726.setFontStyle(&FontStyle1727);
 
@@ -7163,7 +7632,7 @@ Shape1725.setGeometry(&Text1726);
 
 Billboard1724.addChild(&Shape1725);
 
-HAnimSite1716.addChild(Billboard1724);
+HAnimSite1716.addChild(&Billboard1724);
 
 HAnimSegment1715.addChild(&HAnimSite1716);
 
@@ -7171,6 +7640,7 @@ Shape& Shape1728 =  Shape();
 LineSet& LineSet1729 =  LineSet();
 LineSet1729.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1730 =  ColorRGBA();
+ColorRGBA1730.setContainerField("color");
 ColorRGBA1730.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1729.addChild(&ColorRGBA1730);
 
@@ -7195,6 +7665,7 @@ Shape& Shape1734 =  Shape();
 LineSet& LineSet1735 =  LineSet();
 LineSet1735.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1736 =  ColorRGBA();
+ColorRGBA1736.setContainerField("color");
 ColorRGBA1736.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1735.addChild(&ColorRGBA1736);
 
@@ -7225,7 +7696,9 @@ HAnimSite1740.addChild(&TouchSensor1741);
 
 Shape& Shape1742 =  Shape();
 Appearance& Appearance1743 =  Appearance();
+Appearance1743.setContainerField("appearance");
 Material& Material1744 =  Material();
+Material1744.setContainerField("material");
 Material1744.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1743.addChild(&Material1744);
 
@@ -7236,6 +7709,7 @@ IndexedFaceSet1745.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1745.setCreaseAngle(0.5);
 IndexedFaceSet1745.setSolid(false);
 ColorRGBA& ColorRGBA1746 =  ColorRGBA();
+ColorRGBA1746.setContainerField("color");
 ColorRGBA1746.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1745.addChild(&ColorRGBA1746);
 
@@ -7251,8 +7725,9 @@ Billboard& Billboard1748 =  Billboard();
 Billboard1748.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1749 =  Shape();
 Text& Text1750 =  Text();
-Text1750.setString((std::string[]){"101"}, 1);
+Text1750.setString(new std::string[]{"101"}, 1);
 CFontStyle& FontStyle1751 =  CFontStyle();
+FontStyle1751.setContainerField("fontStyle");
 FontStyle1751.setSize(0.035);
 Text1750.setFontStyle(&FontStyle1751);
 
@@ -7260,7 +7735,7 @@ Shape1749.setGeometry(&Text1750);
 
 Billboard1748.addChild(&Shape1749);
 
-HAnimSite1740.addChild(Billboard1748);
+HAnimSite1740.addChild(&Billboard1748);
 
 HAnimSegment1739.addChild(&HAnimSite1740);
 
@@ -7268,6 +7743,7 @@ Shape& Shape1752 =  Shape();
 LineSet& LineSet1753 =  LineSet();
 LineSet1753.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1754 =  ColorRGBA();
+ColorRGBA1754.setContainerField("color");
 ColorRGBA1754.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1753.addChild(&ColorRGBA1754);
 
@@ -7300,6 +7776,7 @@ Shape& Shape1758 =  Shape();
 LineSet& LineSet1759 =  LineSet();
 LineSet1759.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1760 =  ColorRGBA();
+ColorRGBA1760.setContainerField("color");
 ColorRGBA1760.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1759.addChild(&ColorRGBA1760);
 
@@ -7324,6 +7801,7 @@ Shape& Shape1764 =  Shape();
 LineSet& LineSet1765 =  LineSet();
 LineSet1765.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1766 =  ColorRGBA();
+ColorRGBA1766.setContainerField("color");
 ColorRGBA1766.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1765.addChild(&ColorRGBA1766);
 
@@ -7348,6 +7826,7 @@ Shape& Shape1770 =  Shape();
 LineSet& LineSet1771 =  LineSet();
 LineSet1771.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1772 =  ColorRGBA();
+ColorRGBA1772.setContainerField("color");
 ColorRGBA1772.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1771.addChild(&ColorRGBA1772);
 
@@ -7372,6 +7851,7 @@ Shape& Shape1776 =  Shape();
 LineSet& LineSet1777 =  LineSet();
 LineSet1777.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1778 =  ColorRGBA();
+ColorRGBA1778.setContainerField("color");
 ColorRGBA1778.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1777.addChild(&ColorRGBA1778);
 
@@ -7402,7 +7882,9 @@ HAnimSite1782.addChild(&TouchSensor1783);
 
 Shape& Shape1784 =  Shape();
 Appearance& Appearance1785 =  Appearance();
+Appearance1785.setContainerField("appearance");
 Material& Material1786 =  Material();
+Material1786.setContainerField("material");
 Material1786.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1785.addChild(&Material1786);
 
@@ -7413,6 +7895,7 @@ IndexedFaceSet1787.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1787.setCreaseAngle(0.5);
 IndexedFaceSet1787.setSolid(false);
 ColorRGBA& ColorRGBA1788 =  ColorRGBA();
+ColorRGBA1788.setContainerField("color");
 ColorRGBA1788.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1787.addChild(&ColorRGBA1788);
 
@@ -7428,8 +7911,9 @@ Billboard& Billboard1790 =  Billboard();
 Billboard1790.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1791 =  Shape();
 Text& Text1792 =  Text();
-Text1792.setString((std::string[]){"57"}, 1);
+Text1792.setString(new std::string[]{"57"}, 1);
 CFontStyle& FontStyle1793 =  CFontStyle();
+FontStyle1793.setContainerField("fontStyle");
 FontStyle1793.setSize(0.035);
 Text1792.setFontStyle(&FontStyle1793);
 
@@ -7437,7 +7921,7 @@ Shape1791.setGeometry(&Text1792);
 
 Billboard1790.addChild(&Shape1791);
 
-HAnimSite1782.addChild(Billboard1790);
+HAnimSite1782.addChild(&Billboard1790);
 
 HAnimSegment1781.addChild(&HAnimSite1782);
 
@@ -7451,7 +7935,9 @@ HAnimSite1794.addChild(&TouchSensor1795);
 
 Shape& Shape1796 =  Shape();
 Appearance& Appearance1797 =  Appearance();
+Appearance1797.setContainerField("appearance");
 Material& Material1798 =  Material();
+Material1798.setContainerField("material");
 Material1798.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1797.addChild(&Material1798);
 
@@ -7462,6 +7948,7 @@ IndexedFaceSet1799.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1799.setCreaseAngle(0.5);
 IndexedFaceSet1799.setSolid(false);
 ColorRGBA& ColorRGBA1800 =  ColorRGBA();
+ColorRGBA1800.setContainerField("color");
 ColorRGBA1800.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1799.addChild(&ColorRGBA1800);
 
@@ -7477,8 +7964,9 @@ Billboard& Billboard1802 =  Billboard();
 Billboard1802.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1803 =  Shape();
 Text& Text1804 =  Text();
-Text1804.setString((std::string[]){"102"}, 1);
+Text1804.setString(new std::string[]{"102"}, 1);
 CFontStyle& FontStyle1805 =  CFontStyle();
+FontStyle1805.setContainerField("fontStyle");
 FontStyle1805.setSize(0.035);
 Text1804.setFontStyle(&FontStyle1805);
 
@@ -7486,7 +7974,7 @@ Shape1803.setGeometry(&Text1804);
 
 Billboard1802.addChild(&Shape1803);
 
-HAnimSite1794.addChild(Billboard1802);
+HAnimSite1794.addChild(&Billboard1802);
 
 HAnimSegment1781.addChild(&HAnimSite1794);
 
@@ -7494,6 +7982,7 @@ Shape& Shape1806 =  Shape();
 LineSet& LineSet1807 =  LineSet();
 LineSet1807.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1808 =  ColorRGBA();
+ColorRGBA1808.setContainerField("color");
 ColorRGBA1808.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1807.addChild(&ColorRGBA1808);
 
@@ -7528,6 +8017,7 @@ Shape& Shape1812 =  Shape();
 LineSet& LineSet1813 =  LineSet();
 LineSet1813.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1814 =  ColorRGBA();
+ColorRGBA1814.setContainerField("color");
 ColorRGBA1814.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1813.addChild(&ColorRGBA1814);
 
@@ -7558,7 +8048,9 @@ HAnimSite1818.addChild(&TouchSensor1819);
 
 Shape& Shape1820 =  Shape();
 Appearance& Appearance1821 =  Appearance();
+Appearance1821.setContainerField("appearance");
 Material& Material1822 =  Material();
+Material1822.setContainerField("material");
 Material1822.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1821.addChild(&Material1822);
 
@@ -7569,6 +8061,7 @@ IndexedFaceSet1823.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1823.setCreaseAngle(0.5);
 IndexedFaceSet1823.setSolid(false);
 ColorRGBA& ColorRGBA1824 =  ColorRGBA();
+ColorRGBA1824.setContainerField("color");
 ColorRGBA1824.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1823.addChild(&ColorRGBA1824);
 
@@ -7584,8 +8077,9 @@ Billboard& Billboard1826 =  Billboard();
 Billboard1826.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1827 =  Shape();
 Text& Text1828 =  Text();
-Text1828.setString((std::string[]){"76"}, 1);
+Text1828.setString(new std::string[]{"76"}, 1);
 CFontStyle& FontStyle1829 =  CFontStyle();
+FontStyle1829.setContainerField("fontStyle");
 FontStyle1829.setSize(0.035);
 Text1828.setFontStyle(&FontStyle1829);
 
@@ -7593,7 +8087,7 @@ Shape1827.setGeometry(&Text1828);
 
 Billboard1826.addChild(&Shape1827);
 
-HAnimSite1818.addChild(Billboard1826);
+HAnimSite1818.addChild(&Billboard1826);
 
 HAnimSegment1817.addChild(&HAnimSite1818);
 
@@ -7601,6 +8095,7 @@ Shape& Shape1830 =  Shape();
 LineSet& LineSet1831 =  LineSet();
 LineSet1831.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1832 =  ColorRGBA();
+ColorRGBA1832.setContainerField("color");
 ColorRGBA1832.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1831.addChild(&ColorRGBA1832);
 
@@ -7625,6 +8120,7 @@ Shape& Shape1836 =  Shape();
 LineSet& LineSet1837 =  LineSet();
 LineSet1837.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1838 =  ColorRGBA();
+ColorRGBA1838.setContainerField("color");
 ColorRGBA1838.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1837.addChild(&ColorRGBA1838);
 
@@ -7649,6 +8145,7 @@ Shape& Shape1842 =  Shape();
 LineSet& LineSet1843 =  LineSet();
 LineSet1843.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1844 =  ColorRGBA();
+ColorRGBA1844.setContainerField("color");
 ColorRGBA1844.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1843.addChild(&ColorRGBA1844);
 
@@ -7679,7 +8176,9 @@ HAnimSite1848.addChild(&TouchSensor1849);
 
 Shape& Shape1850 =  Shape();
 Appearance& Appearance1851 =  Appearance();
+Appearance1851.setContainerField("appearance");
 Material& Material1852 =  Material();
+Material1852.setContainerField("material");
 Material1852.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1851.addChild(&Material1852);
 
@@ -7690,6 +8189,7 @@ IndexedFaceSet1853.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1853.setCreaseAngle(0.5);
 IndexedFaceSet1853.setSolid(false);
 ColorRGBA& ColorRGBA1854 =  ColorRGBA();
+ColorRGBA1854.setContainerField("color");
 ColorRGBA1854.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1853.addChild(&ColorRGBA1854);
 
@@ -7705,8 +8205,9 @@ Billboard& Billboard1856 =  Billboard();
 Billboard1856.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1857 =  Shape();
 Text& Text1858 =  Text();
-Text1858.setString((std::string[]){"103"}, 1);
+Text1858.setString(new std::string[]{"103"}, 1);
 CFontStyle& FontStyle1859 =  CFontStyle();
+FontStyle1859.setContainerField("fontStyle");
 FontStyle1859.setSize(0.035);
 Text1858.setFontStyle(&FontStyle1859);
 
@@ -7714,7 +8215,7 @@ Shape1857.setGeometry(&Text1858);
 
 Billboard1856.addChild(&Shape1857);
 
-HAnimSite1848.addChild(Billboard1856);
+HAnimSite1848.addChild(&Billboard1856);
 
 HAnimSegment1847.addChild(&HAnimSite1848);
 
@@ -7722,6 +8223,7 @@ Shape& Shape1860 =  Shape();
 LineSet& LineSet1861 =  LineSet();
 LineSet1861.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1862 =  ColorRGBA();
+ColorRGBA1862.setContainerField("color");
 ColorRGBA1862.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1861.addChild(&ColorRGBA1862);
 
@@ -7756,6 +8258,7 @@ Shape& Shape1866 =  Shape();
 LineSet& LineSet1867 =  LineSet();
 LineSet1867.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1868 =  ColorRGBA();
+ColorRGBA1868.setContainerField("color");
 ColorRGBA1868.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1867.addChild(&ColorRGBA1868);
 
@@ -7780,6 +8283,7 @@ Shape& Shape1872 =  Shape();
 LineSet& LineSet1873 =  LineSet();
 LineSet1873.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1874 =  ColorRGBA();
+ColorRGBA1874.setContainerField("color");
 ColorRGBA1874.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1873.addChild(&ColorRGBA1874);
 
@@ -7804,6 +8308,7 @@ Shape& Shape1878 =  Shape();
 LineSet& LineSet1879 =  LineSet();
 LineSet1879.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1880 =  ColorRGBA();
+ColorRGBA1880.setContainerField("color");
 ColorRGBA1880.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1879.addChild(&ColorRGBA1880);
 
@@ -7828,6 +8333,7 @@ Shape& Shape1884 =  Shape();
 LineSet& LineSet1885 =  LineSet();
 LineSet1885.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1886 =  ColorRGBA();
+ColorRGBA1886.setContainerField("color");
 ColorRGBA1886.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1885.addChild(&ColorRGBA1886);
 
@@ -7858,7 +8364,9 @@ HAnimSite1890.addChild(&TouchSensor1891);
 
 Shape& Shape1892 =  Shape();
 Appearance& Appearance1893 =  Appearance();
+Appearance1893.setContainerField("appearance");
 Material& Material1894 =  Material();
+Material1894.setContainerField("material");
 Material1894.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1893.addChild(&Material1894);
 
@@ -7869,6 +8377,7 @@ IndexedFaceSet1895.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1895.setCreaseAngle(0.5);
 IndexedFaceSet1895.setSolid(false);
 ColorRGBA& ColorRGBA1896 =  ColorRGBA();
+ColorRGBA1896.setContainerField("color");
 ColorRGBA1896.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1895.addChild(&ColorRGBA1896);
 
@@ -7884,8 +8393,9 @@ Billboard& Billboard1898 =  Billboard();
 Billboard1898.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1899 =  Shape();
 Text& Text1900 =  Text();
-Text1900.setString((std::string[]){"104"}, 1);
+Text1900.setString(new std::string[]{"104"}, 1);
 CFontStyle& FontStyle1901 =  CFontStyle();
+FontStyle1901.setContainerField("fontStyle");
 FontStyle1901.setSize(0.035);
 Text1900.setFontStyle(&FontStyle1901);
 
@@ -7893,7 +8403,7 @@ Shape1899.setGeometry(&Text1900);
 
 Billboard1898.addChild(&Shape1899);
 
-HAnimSite1890.addChild(Billboard1898);
+HAnimSite1890.addChild(&Billboard1898);
 
 HAnimSegment1889.addChild(&HAnimSite1890);
 
@@ -7901,6 +8411,7 @@ Shape& Shape1902 =  Shape();
 LineSet& LineSet1903 =  LineSet();
 LineSet1903.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1904 =  ColorRGBA();
+ColorRGBA1904.setContainerField("color");
 ColorRGBA1904.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1903.addChild(&ColorRGBA1904);
 
@@ -7941,7 +8452,9 @@ HAnimSite1908.addChild(&TouchSensor1909);
 
 Shape& Shape1910 =  Shape();
 Appearance& Appearance1911 =  Appearance();
+Appearance1911.setContainerField("appearance");
 Material& Material1912 =  Material();
+Material1912.setContainerField("material");
 Material1912.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1911.addChild(&Material1912);
 
@@ -7952,6 +8465,7 @@ IndexedFaceSet1913.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1913.setCreaseAngle(0.5);
 IndexedFaceSet1913.setSolid(false);
 ColorRGBA& ColorRGBA1914 =  ColorRGBA();
+ColorRGBA1914.setContainerField("color");
 ColorRGBA1914.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1913.addChild(&ColorRGBA1914);
 
@@ -7967,8 +8481,9 @@ Billboard& Billboard1916 =  Billboard();
 Billboard1916.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1917 =  Shape();
 Text& Text1918 =  Text();
-Text1918.setString((std::string[]){"77"}, 1);
+Text1918.setString(new std::string[]{"77"}, 1);
 CFontStyle& FontStyle1919 =  CFontStyle();
+FontStyle1919.setContainerField("fontStyle");
 FontStyle1919.setSize(0.035);
 Text1918.setFontStyle(&FontStyle1919);
 
@@ -7976,7 +8491,7 @@ Shape1917.setGeometry(&Text1918);
 
 Billboard1916.addChild(&Shape1917);
 
-HAnimSite1908.addChild(Billboard1916);
+HAnimSite1908.addChild(&Billboard1916);
 
 HAnimSegment1907.addChild(&HAnimSite1908);
 
@@ -7984,6 +8499,7 @@ Shape& Shape1920 =  Shape();
 LineSet& LineSet1921 =  LineSet();
 LineSet1921.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1922 =  ColorRGBA();
+ColorRGBA1922.setContainerField("color");
 ColorRGBA1922.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1921.addChild(&ColorRGBA1922);
 
@@ -8008,6 +8524,7 @@ Shape& Shape1926 =  Shape();
 LineSet& LineSet1927 =  LineSet();
 LineSet1927.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1928 =  ColorRGBA();
+ColorRGBA1928.setContainerField("color");
 ColorRGBA1928.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1927.addChild(&ColorRGBA1928);
 
@@ -8032,6 +8549,7 @@ Shape& Shape1932 =  Shape();
 LineSet& LineSet1933 =  LineSet();
 LineSet1933.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1934 =  ColorRGBA();
+ColorRGBA1934.setContainerField("color");
 ColorRGBA1934.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1933.addChild(&ColorRGBA1934);
 
@@ -8062,7 +8580,9 @@ HAnimSite1938.addChild(&TouchSensor1939);
 
 Shape& Shape1940 =  Shape();
 Appearance& Appearance1941 =  Appearance();
+Appearance1941.setContainerField("appearance");
 Material& Material1942 =  Material();
+Material1942.setContainerField("material");
 Material1942.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1941.addChild(&Material1942);
 
@@ -8073,6 +8593,7 @@ IndexedFaceSet1943.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1943.setCreaseAngle(0.5);
 IndexedFaceSet1943.setSolid(false);
 ColorRGBA& ColorRGBA1944 =  ColorRGBA();
+ColorRGBA1944.setContainerField("color");
 ColorRGBA1944.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1943.addChild(&ColorRGBA1944);
 
@@ -8088,8 +8609,9 @@ Billboard& Billboard1946 =  Billboard();
 Billboard1946.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1947 =  Shape();
 Text& Text1948 =  Text();
-Text1948.setString((std::string[]){"105"}, 1);
+Text1948.setString(new std::string[]{"105"}, 1);
 CFontStyle& FontStyle1949 =  CFontStyle();
+FontStyle1949.setContainerField("fontStyle");
 FontStyle1949.setSize(0.035);
 Text1948.setFontStyle(&FontStyle1949);
 
@@ -8097,7 +8619,7 @@ Shape1947.setGeometry(&Text1948);
 
 Billboard1946.addChild(&Shape1947);
 
-HAnimSite1938.addChild(Billboard1946);
+HAnimSite1938.addChild(&Billboard1946);
 
 HAnimSegment1937.addChild(&HAnimSite1938);
 
@@ -8105,6 +8627,7 @@ Shape& Shape1950 =  Shape();
 LineSet& LineSet1951 =  LineSet();
 LineSet1951.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1952 =  ColorRGBA();
+ColorRGBA1952.setContainerField("color");
 ColorRGBA1952.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1951.addChild(&ColorRGBA1952);
 
@@ -8153,7 +8676,9 @@ HAnimSite1956.addChild(&TouchSensor1957);
 
 Shape& Shape1958 =  Shape();
 Appearance& Appearance1959 =  Appearance();
+Appearance1959.setContainerField("appearance");
 Material& Material1960 =  Material();
+Material1960.setContainerField("material");
 Material1960.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1959.addChild(&Material1960);
 
@@ -8164,6 +8689,7 @@ IndexedFaceSet1961.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1961.setCreaseAngle(0.5);
 IndexedFaceSet1961.setSolid(false);
 ColorRGBA& ColorRGBA1962 =  ColorRGBA();
+ColorRGBA1962.setContainerField("color");
 ColorRGBA1962.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1961.addChild(&ColorRGBA1962);
 
@@ -8179,8 +8705,9 @@ Billboard& Billboard1964 =  Billboard();
 Billboard1964.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1965 =  Shape();
 Text& Text1966 =  Text();
-Text1966.setString((std::string[]){"r_clavicale"}, 1);
+Text1966.setString(new std::string[]{"r_clavicale"}, 1);
 CFontStyle& FontStyle1967 =  CFontStyle();
+FontStyle1967.setContainerField("fontStyle");
 FontStyle1967.setSize(0.035);
 Text1966.setFontStyle(&FontStyle1967);
 
@@ -8188,7 +8715,7 @@ Shape1965.setGeometry(&Text1966);
 
 Billboard1964.addChild(&Shape1965);
 
-HAnimSite1956.addChild(Billboard1964);
+HAnimSite1956.addChild(&Billboard1964);
 
 HAnimSegment1955.addChild(&HAnimSite1956);
 
@@ -8196,6 +8723,7 @@ Shape& Shape1968 =  Shape();
 LineSet& LineSet1969 =  LineSet();
 LineSet1969.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA1970 =  ColorRGBA();
+ColorRGBA1970.setContainerField("color");
 ColorRGBA1970.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet1969.addChild(&ColorRGBA1970);
 
@@ -8226,7 +8754,9 @@ HAnimSite1974.addChild(&TouchSensor1975);
 
 Shape& Shape1976 =  Shape();
 Appearance& Appearance1977 =  Appearance();
+Appearance1977.setContainerField("appearance");
 Material& Material1978 =  Material();
+Material1978.setContainerField("material");
 Material1978.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1977.addChild(&Material1978);
 
@@ -8237,6 +8767,7 @@ IndexedFaceSet1979.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1979.setCreaseAngle(0.5);
 IndexedFaceSet1979.setSolid(false);
 ColorRGBA& ColorRGBA1980 =  ColorRGBA();
+ColorRGBA1980.setContainerField("color");
 ColorRGBA1980.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1979.addChild(&ColorRGBA1980);
 
@@ -8252,8 +8783,9 @@ Billboard& Billboard1982 =  Billboard();
 Billboard1982.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1983 =  Shape();
 Text& Text1984 =  Text();
-Text1984.setString((std::string[]){"20"}, 1);
+Text1984.setString(new std::string[]{"20"}, 1);
 CFontStyle& FontStyle1985 =  CFontStyle();
+FontStyle1985.setContainerField("fontStyle");
 FontStyle1985.setSize(0.035);
 Text1984.setFontStyle(&FontStyle1985);
 
@@ -8261,7 +8793,7 @@ Shape1983.setGeometry(&Text1984);
 
 Billboard1982.addChild(&Shape1983);
 
-HAnimSite1974.addChild(Billboard1982);
+HAnimSite1974.addChild(&Billboard1982);
 
 HAnimSegment1973.addChild(&HAnimSite1974);
 
@@ -8275,7 +8807,9 @@ HAnimSite1986.addChild(&TouchSensor1987);
 
 Shape& Shape1988 =  Shape();
 Appearance& Appearance1989 =  Appearance();
+Appearance1989.setContainerField("appearance");
 Material& Material1990 =  Material();
+Material1990.setContainerField("material");
 Material1990.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance1989.addChild(&Material1990);
 
@@ -8286,6 +8820,7 @@ IndexedFaceSet1991.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet1991.setCreaseAngle(0.5);
 IndexedFaceSet1991.setSolid(false);
 ColorRGBA& ColorRGBA1992 =  ColorRGBA();
+ColorRGBA1992.setContainerField("color");
 ColorRGBA1992.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet1991.addChild(&ColorRGBA1992);
 
@@ -8301,8 +8836,9 @@ Billboard& Billboard1994 =  Billboard();
 Billboard1994.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape1995 =  Shape();
 Text& Text1996 =  Text();
-Text1996.setString((std::string[]){"21"}, 1);
+Text1996.setString(new std::string[]{"21"}, 1);
 CFontStyle& FontStyle1997 =  CFontStyle();
+FontStyle1997.setContainerField("fontStyle");
 FontStyle1997.setSize(0.035);
 Text1996.setFontStyle(&FontStyle1997);
 
@@ -8310,7 +8846,7 @@ Shape1995.setGeometry(&Text1996);
 
 Billboard1994.addChild(&Shape1995);
 
-HAnimSite1986.addChild(Billboard1994);
+HAnimSite1986.addChild(&Billboard1994);
 
 HAnimSegment1973.addChild(&HAnimSite1986);
 
@@ -8324,7 +8860,9 @@ HAnimSite1998.addChild(&TouchSensor1999);
 
 Shape& Shape2000 =  Shape();
 Appearance& Appearance2001 =  Appearance();
+Appearance2001.setContainerField("appearance");
 Material& Material2002 =  Material();
+Material2002.setContainerField("material");
 Material2002.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2001.addChild(&Material2002);
 
@@ -8335,6 +8873,7 @@ IndexedFaceSet2003.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2003.setCreaseAngle(0.5);
 IndexedFaceSet2003.setSolid(false);
 ColorRGBA& ColorRGBA2004 =  ColorRGBA();
+ColorRGBA2004.setContainerField("color");
 ColorRGBA2004.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2003.addChild(&ColorRGBA2004);
 
@@ -8350,8 +8889,9 @@ Billboard& Billboard2006 =  Billboard();
 Billboard2006.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2007 =  Shape();
 Text& Text2008 =  Text();
-Text2008.setString((std::string[]){"22"}, 1);
+Text2008.setString(new std::string[]{"22"}, 1);
 CFontStyle& FontStyle2009 =  CFontStyle();
+FontStyle2009.setContainerField("fontStyle");
 FontStyle2009.setSize(0.035);
 Text2008.setFontStyle(&FontStyle2009);
 
@@ -8359,7 +8899,7 @@ Shape2007.setGeometry(&Text2008);
 
 Billboard2006.addChild(&Shape2007);
 
-HAnimSite1998.addChild(Billboard2006);
+HAnimSite1998.addChild(&Billboard2006);
 
 HAnimSegment1973.addChild(&HAnimSite1998);
 
@@ -8373,7 +8913,9 @@ HAnimSite2010.addChild(&TouchSensor2011);
 
 Shape& Shape2012 =  Shape();
 Appearance& Appearance2013 =  Appearance();
+Appearance2013.setContainerField("appearance");
 Material& Material2014 =  Material();
+Material2014.setContainerField("material");
 Material2014.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2013.addChild(&Material2014);
 
@@ -8384,6 +8926,7 @@ IndexedFaceSet2015.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2015.setCreaseAngle(0.5);
 IndexedFaceSet2015.setSolid(false);
 ColorRGBA& ColorRGBA2016 =  ColorRGBA();
+ColorRGBA2016.setContainerField("color");
 ColorRGBA2016.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2015.addChild(&ColorRGBA2016);
 
@@ -8399,8 +8942,9 @@ Billboard& Billboard2018 =  Billboard();
 Billboard2018.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2019 =  Shape();
 Text& Text2020 =  Text();
-Text2020.setString((std::string[]){"23"}, 1);
+Text2020.setString(new std::string[]{"23"}, 1);
 CFontStyle& FontStyle2021 =  CFontStyle();
+FontStyle2021.setContainerField("fontStyle");
 FontStyle2021.setSize(0.035);
 Text2020.setFontStyle(&FontStyle2021);
 
@@ -8408,7 +8952,7 @@ Shape2019.setGeometry(&Text2020);
 
 Billboard2018.addChild(&Shape2019);
 
-HAnimSite2010.addChild(Billboard2018);
+HAnimSite2010.addChild(&Billboard2018);
 
 HAnimSegment1973.addChild(&HAnimSite2010);
 
@@ -8416,6 +8960,7 @@ Shape& Shape2022 =  Shape();
 LineSet& LineSet2023 =  LineSet();
 LineSet2023.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2024 =  ColorRGBA();
+ColorRGBA2024.setContainerField("color");
 ColorRGBA2024.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2023.addChild(&ColorRGBA2024);
 
@@ -8446,7 +8991,9 @@ HAnimSite2028.addChild(&TouchSensor2029);
 
 Shape& Shape2030 =  Shape();
 Appearance& Appearance2031 =  Appearance();
+Appearance2031.setContainerField("appearance");
 Material& Material2032 =  Material();
+Material2032.setContainerField("material");
 Material2032.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2031.addChild(&Material2032);
 
@@ -8457,6 +9004,7 @@ IndexedFaceSet2033.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2033.setCreaseAngle(0.5);
 IndexedFaceSet2033.setSolid(false);
 ColorRGBA& ColorRGBA2034 =  ColorRGBA();
+ColorRGBA2034.setContainerField("color");
 ColorRGBA2034.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2033.addChild(&ColorRGBA2034);
 
@@ -8472,8 +9020,9 @@ Billboard& Billboard2036 =  Billboard();
 Billboard2036.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2037 =  Shape();
 Text& Text2038 =  Text();
-Text2038.setString((std::string[]){"66"}, 1);
+Text2038.setString(new std::string[]{"66"}, 1);
 CFontStyle& FontStyle2039 =  CFontStyle();
+FontStyle2039.setContainerField("fontStyle");
 FontStyle2039.setSize(0.035);
 Text2038.setFontStyle(&FontStyle2039);
 
@@ -8481,7 +9030,7 @@ Shape2037.setGeometry(&Text2038);
 
 Billboard2036.addChild(&Shape2037);
 
-HAnimSite2028.addChild(Billboard2036);
+HAnimSite2028.addChild(&Billboard2036);
 
 HAnimSegment2027.addChild(&HAnimSite2028);
 
@@ -8495,7 +9044,9 @@ HAnimSite2040.addChild(&TouchSensor2041);
 
 Shape& Shape2042 =  Shape();
 Appearance& Appearance2043 =  Appearance();
+Appearance2043.setContainerField("appearance");
 Material& Material2044 =  Material();
+Material2044.setContainerField("material");
 Material2044.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2043.addChild(&Material2044);
 
@@ -8506,6 +9057,7 @@ IndexedFaceSet2045.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2045.setCreaseAngle(0.5);
 IndexedFaceSet2045.setSolid(false);
 ColorRGBA& ColorRGBA2046 =  ColorRGBA();
+ColorRGBA2046.setContainerField("color");
 ColorRGBA2046.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2045.addChild(&ColorRGBA2046);
 
@@ -8521,8 +9073,9 @@ Billboard& Billboard2048 =  Billboard();
 Billboard2048.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2049 =  Shape();
 Text& Text2050 =  Text();
-Text2050.setString((std::string[]){"67"}, 1);
+Text2050.setString(new std::string[]{"67"}, 1);
 CFontStyle& FontStyle2051 =  CFontStyle();
+FontStyle2051.setContainerField("fontStyle");
 FontStyle2051.setSize(0.035);
 Text2050.setFontStyle(&FontStyle2051);
 
@@ -8530,7 +9083,7 @@ Shape2049.setGeometry(&Text2050);
 
 Billboard2048.addChild(&Shape2049);
 
-HAnimSite2040.addChild(Billboard2048);
+HAnimSite2040.addChild(&Billboard2048);
 
 HAnimSegment2027.addChild(&HAnimSite2040);
 
@@ -8544,7 +9097,9 @@ HAnimSite2052.addChild(&TouchSensor2053);
 
 Shape& Shape2054 =  Shape();
 Appearance& Appearance2055 =  Appearance();
+Appearance2055.setContainerField("appearance");
 Material& Material2056 =  Material();
+Material2056.setContainerField("material");
 Material2056.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2055.addChild(&Material2056);
 
@@ -8555,6 +9110,7 @@ IndexedFaceSet2057.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2057.setCreaseAngle(0.5);
 IndexedFaceSet2057.setSolid(false);
 ColorRGBA& ColorRGBA2058 =  ColorRGBA();
+ColorRGBA2058.setContainerField("color");
 ColorRGBA2058.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2057.addChild(&ColorRGBA2058);
 
@@ -8570,8 +9126,9 @@ Billboard& Billboard2060 =  Billboard();
 Billboard2060.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2061 =  Shape();
 Text& Text2062 =  Text();
-Text2062.setString((std::string[]){"72"}, 1);
+Text2062.setString(new std::string[]{"72"}, 1);
 CFontStyle& FontStyle2063 =  CFontStyle();
+FontStyle2063.setContainerField("fontStyle");
 FontStyle2063.setSize(0.035);
 Text2062.setFontStyle(&FontStyle2063);
 
@@ -8579,7 +9136,7 @@ Shape2061.setGeometry(&Text2062);
 
 Billboard2060.addChild(&Shape2061);
 
-HAnimSite2052.addChild(Billboard2060);
+HAnimSite2052.addChild(&Billboard2060);
 
 HAnimSegment2027.addChild(&HAnimSite2052);
 
@@ -8593,7 +9150,9 @@ HAnimSite2064.addChild(&TouchSensor2065);
 
 Shape& Shape2066 =  Shape();
 Appearance& Appearance2067 =  Appearance();
+Appearance2067.setContainerField("appearance");
 Material& Material2068 =  Material();
+Material2068.setContainerField("material");
 Material2068.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2067.addChild(&Material2068);
 
@@ -8604,6 +9163,7 @@ IndexedFaceSet2069.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2069.setCreaseAngle(0.5);
 IndexedFaceSet2069.setSolid(false);
 ColorRGBA& ColorRGBA2070 =  ColorRGBA();
+ColorRGBA2070.setContainerField("color");
 ColorRGBA2070.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2069.addChild(&ColorRGBA2070);
 
@@ -8619,8 +9179,9 @@ Billboard& Billboard2072 =  Billboard();
 Billboard2072.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2073 =  Shape();
 Text& Text2074 =  Text();
-Text2074.setString((std::string[]){"97"}, 1);
+Text2074.setString(new std::string[]{"97"}, 1);
 CFontStyle& FontStyle2075 =  CFontStyle();
+FontStyle2075.setContainerField("fontStyle");
 FontStyle2075.setSize(0.035);
 Text2074.setFontStyle(&FontStyle2075);
 
@@ -8628,7 +9189,7 @@ Shape2073.setGeometry(&Text2074);
 
 Billboard2072.addChild(&Shape2073);
 
-HAnimSite2064.addChild(Billboard2072);
+HAnimSite2064.addChild(&Billboard2072);
 
 HAnimSegment2027.addChild(&HAnimSite2064);
 
@@ -8636,6 +9197,7 @@ Shape& Shape2076 =  Shape();
 LineSet& LineSet2077 =  LineSet();
 LineSet2077.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2078 =  ColorRGBA();
+ColorRGBA2078.setContainerField("color");
 ColorRGBA2078.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2077.addChild(&ColorRGBA2078);
 
@@ -8666,7 +9228,9 @@ HAnimSite2082.addChild(&TouchSensor2083);
 
 Shape& Shape2084 =  Shape();
 Appearance& Appearance2085 =  Appearance();
+Appearance2085.setContainerField("appearance");
 Material& Material2086 =  Material();
+Material2086.setContainerField("material");
 Material2086.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2085.addChild(&Material2086);
 
@@ -8677,6 +9241,7 @@ IndexedFaceSet2087.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2087.setCreaseAngle(0.5);
 IndexedFaceSet2087.setSolid(false);
 ColorRGBA& ColorRGBA2088 =  ColorRGBA();
+ColorRGBA2088.setContainerField("color");
 ColorRGBA2088.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2087.addChild(&ColorRGBA2088);
 
@@ -8692,8 +9257,9 @@ Billboard& Billboard2090 =  Billboard();
 Billboard2090.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2091 =  Shape();
 Text& Text2092 =  Text();
-Text2092.setString((std::string[]){"74"}, 1);
+Text2092.setString(new std::string[]{"74"}, 1);
 CFontStyle& FontStyle2093 =  CFontStyle();
+FontStyle2093.setContainerField("fontStyle");
 FontStyle2093.setSize(0.035);
 Text2092.setFontStyle(&FontStyle2093);
 
@@ -8701,7 +9267,7 @@ Shape2091.setGeometry(&Text2092);
 
 Billboard2090.addChild(&Shape2091);
 
-HAnimSite2082.addChild(Billboard2090);
+HAnimSite2082.addChild(&Billboard2090);
 
 HAnimSegment2081.addChild(&HAnimSite2082);
 
@@ -8715,7 +9281,9 @@ HAnimSite2094.addChild(&TouchSensor2095);
 
 Shape& Shape2096 =  Shape();
 Appearance& Appearance2097 =  Appearance();
+Appearance2097.setContainerField("appearance");
 Material& Material2098 =  Material();
+Material2098.setContainerField("material");
 Material2098.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2097.addChild(&Material2098);
 
@@ -8726,6 +9294,7 @@ IndexedFaceSet2099.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2099.setCreaseAngle(0.5);
 IndexedFaceSet2099.setSolid(false);
 ColorRGBA& ColorRGBA2100 =  ColorRGBA();
+ColorRGBA2100.setContainerField("color");
 ColorRGBA2100.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2099.addChild(&ColorRGBA2100);
 
@@ -8741,8 +9310,9 @@ Billboard& Billboard2102 =  Billboard();
 Billboard2102.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2103 =  Shape();
 Text& Text2104 =  Text();
-Text2104.setString((std::string[]){"68"}, 1);
+Text2104.setString(new std::string[]{"68"}, 1);
 CFontStyle& FontStyle2105 =  CFontStyle();
+FontStyle2105.setContainerField("fontStyle");
 FontStyle2105.setSize(0.035);
 Text2104.setFontStyle(&FontStyle2105);
 
@@ -8750,7 +9320,7 @@ Shape2103.setGeometry(&Text2104);
 
 Billboard2102.addChild(&Shape2103);
 
-HAnimSite2094.addChild(Billboard2102);
+HAnimSite2094.addChild(&Billboard2102);
 
 HAnimSegment2081.addChild(&HAnimSite2094);
 
@@ -8758,6 +9328,7 @@ Shape& Shape2106 =  Shape();
 LineSet& LineSet2107 =  LineSet();
 LineSet2107.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2108 =  ColorRGBA();
+ColorRGBA2108.setContainerField("color");
 ColorRGBA2108.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2107.addChild(&ColorRGBA2108);
 
@@ -8788,7 +9359,9 @@ HAnimSite2112.addChild(&TouchSensor2113);
 
 Shape& Shape2114 =  Shape();
 Appearance& Appearance2115 =  Appearance();
+Appearance2115.setContainerField("appearance");
 Material& Material2116 =  Material();
+Material2116.setContainerField("material");
 Material2116.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2115.addChild(&Material2116);
 
@@ -8799,6 +9372,7 @@ IndexedFaceSet2117.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2117.setCreaseAngle(0.5);
 IndexedFaceSet2117.setSolid(false);
 ColorRGBA& ColorRGBA2118 =  ColorRGBA();
+ColorRGBA2118.setContainerField("color");
 ColorRGBA2118.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2117.addChild(&ColorRGBA2118);
 
@@ -8814,8 +9388,9 @@ Billboard& Billboard2120 =  Billboard();
 Billboard2120.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2121 =  Shape();
 Text& Text2122 =  Text();
-Text2122.setString((std::string[]){"73"}, 1);
+Text2122.setString(new std::string[]{"73"}, 1);
 CFontStyle& FontStyle2123 =  CFontStyle();
+FontStyle2123.setContainerField("fontStyle");
 FontStyle2123.setSize(0.035);
 Text2122.setFontStyle(&FontStyle2123);
 
@@ -8823,7 +9398,7 @@ Shape2121.setGeometry(&Text2122);
 
 Billboard2120.addChild(&Shape2121);
 
-HAnimSite2112.addChild(Billboard2120);
+HAnimSite2112.addChild(&Billboard2120);
 
 HAnimSegment2111.addChild(&HAnimSite2112);
 
@@ -8831,6 +9406,7 @@ Shape& Shape2124 =  Shape();
 LineSet& LineSet2125 =  LineSet();
 LineSet2125.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2126 =  ColorRGBA();
+ColorRGBA2126.setContainerField("color");
 ColorRGBA2126.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2125.addChild(&ColorRGBA2126);
 
@@ -8855,6 +9431,7 @@ Shape& Shape2130 =  Shape();
 LineSet& LineSet2131 =  LineSet();
 LineSet2131.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2132 =  ColorRGBA();
+ColorRGBA2132.setContainerField("color");
 ColorRGBA2132.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2131.addChild(&ColorRGBA2132);
 
@@ -8885,7 +9462,9 @@ HAnimSite2136.addChild(&TouchSensor2137);
 
 Shape& Shape2138 =  Shape();
 Appearance& Appearance2139 =  Appearance();
+Appearance2139.setContainerField("appearance");
 Material& Material2140 =  Material();
+Material2140.setContainerField("material");
 Material2140.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2139.addChild(&Material2140);
 
@@ -8896,6 +9475,7 @@ IndexedFaceSet2141.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2141.setCreaseAngle(0.5);
 IndexedFaceSet2141.setSolid(false);
 ColorRGBA& ColorRGBA2142 =  ColorRGBA();
+ColorRGBA2142.setContainerField("color");
 ColorRGBA2142.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2141.addChild(&ColorRGBA2142);
 
@@ -8911,8 +9491,9 @@ Billboard& Billboard2144 =  Billboard();
 Billboard2144.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2145 =  Shape();
 Text& Text2146 =  Text();
-Text2146.setString((std::string[]){"78"}, 1);
+Text2146.setString(new std::string[]{"78"}, 1);
 CFontStyle& FontStyle2147 =  CFontStyle();
+FontStyle2147.setContainerField("fontStyle");
 FontStyle2147.setSize(0.035);
 Text2146.setFontStyle(&FontStyle2147);
 
@@ -8920,7 +9501,7 @@ Shape2145.setGeometry(&Text2146);
 
 Billboard2144.addChild(&Shape2145);
 
-HAnimSite2136.addChild(Billboard2144);
+HAnimSite2136.addChild(&Billboard2144);
 
 HAnimSegment2135.addChild(&HAnimSite2136);
 
@@ -8928,6 +9509,7 @@ Shape& Shape2148 =  Shape();
 LineSet& LineSet2149 =  LineSet();
 LineSet2149.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2150 =  ColorRGBA();
+ColorRGBA2150.setContainerField("color");
 ColorRGBA2150.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2149.addChild(&ColorRGBA2150);
 
@@ -8952,6 +9534,7 @@ Shape& Shape2154 =  Shape();
 LineSet& LineSet2155 =  LineSet();
 LineSet2155.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2156 =  ColorRGBA();
+ColorRGBA2156.setContainerField("color");
 ColorRGBA2156.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2155.addChild(&ColorRGBA2156);
 
@@ -8982,7 +9565,9 @@ HAnimSite2160.addChild(&TouchSensor2161);
 
 Shape& Shape2162 =  Shape();
 Appearance& Appearance2163 =  Appearance();
+Appearance2163.setContainerField("appearance");
 Material& Material2164 =  Material();
+Material2164.setContainerField("material");
 Material2164.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2163.addChild(&Material2164);
 
@@ -8993,6 +9578,7 @@ IndexedFaceSet2165.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2165.setCreaseAngle(0.5);
 IndexedFaceSet2165.setSolid(false);
 ColorRGBA& ColorRGBA2166 =  ColorRGBA();
+ColorRGBA2166.setContainerField("color");
 ColorRGBA2166.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2165.addChild(&ColorRGBA2166);
 
@@ -9008,8 +9594,9 @@ Billboard& Billboard2168 =  Billboard();
 Billboard2168.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2169 =  Shape();
 Text& Text2170 =  Text();
-Text2170.setString((std::string[]){"106"}, 1);
+Text2170.setString(new std::string[]{"106"}, 1);
 CFontStyle& FontStyle2171 =  CFontStyle();
+FontStyle2171.setContainerField("fontStyle");
 FontStyle2171.setSize(0.035);
 Text2170.setFontStyle(&FontStyle2171);
 
@@ -9017,7 +9604,7 @@ Shape2169.setGeometry(&Text2170);
 
 Billboard2168.addChild(&Shape2169);
 
-HAnimSite2160.addChild(Billboard2168);
+HAnimSite2160.addChild(&Billboard2168);
 
 HAnimSegment2159.addChild(&HAnimSite2160);
 
@@ -9025,6 +9612,7 @@ Shape& Shape2172 =  Shape();
 LineSet& LineSet2173 =  LineSet();
 LineSet2173.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2174 =  ColorRGBA();
+ColorRGBA2174.setContainerField("color");
 ColorRGBA2174.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2173.addChild(&ColorRGBA2174);
 
@@ -9057,6 +9645,7 @@ Shape& Shape2178 =  Shape();
 LineSet& LineSet2179 =  LineSet();
 LineSet2179.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2180 =  ColorRGBA();
+ColorRGBA2180.setContainerField("color");
 ColorRGBA2180.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2179.addChild(&ColorRGBA2180);
 
@@ -9081,6 +9670,7 @@ Shape& Shape2184 =  Shape();
 LineSet& LineSet2185 =  LineSet();
 LineSet2185.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2186 =  ColorRGBA();
+ColorRGBA2186.setContainerField("color");
 ColorRGBA2186.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2185.addChild(&ColorRGBA2186);
 
@@ -9105,6 +9695,7 @@ Shape& Shape2190 =  Shape();
 LineSet& LineSet2191 =  LineSet();
 LineSet2191.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2192 =  ColorRGBA();
+ColorRGBA2192.setContainerField("color");
 ColorRGBA2192.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2191.addChild(&ColorRGBA2192);
 
@@ -9129,6 +9720,7 @@ Shape& Shape2196 =  Shape();
 LineSet& LineSet2197 =  LineSet();
 LineSet2197.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2198 =  ColorRGBA();
+ColorRGBA2198.setContainerField("color");
 ColorRGBA2198.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2197.addChild(&ColorRGBA2198);
 
@@ -9159,7 +9751,9 @@ HAnimSite2202.addChild(&TouchSensor2203);
 
 Shape& Shape2204 =  Shape();
 Appearance& Appearance2205 =  Appearance();
+Appearance2205.setContainerField("appearance");
 Material& Material2206 =  Material();
+Material2206.setContainerField("material");
 Material2206.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2205.addChild(&Material2206);
 
@@ -9170,6 +9764,7 @@ IndexedFaceSet2207.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2207.setCreaseAngle(0.5);
 IndexedFaceSet2207.setSolid(false);
 ColorRGBA& ColorRGBA2208 =  ColorRGBA();
+ColorRGBA2208.setContainerField("color");
 ColorRGBA2208.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2207.addChild(&ColorRGBA2208);
 
@@ -9185,8 +9780,9 @@ Billboard& Billboard2210 =  Billboard();
 Billboard2210.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2211 =  Shape();
 Text& Text2212 =  Text();
-Text2212.setString((std::string[]){"61"}, 1);
+Text2212.setString(new std::string[]{"61"}, 1);
 CFontStyle& FontStyle2213 =  CFontStyle();
+FontStyle2213.setContainerField("fontStyle");
 FontStyle2213.setSize(0.035);
 Text2212.setFontStyle(&FontStyle2213);
 
@@ -9194,7 +9790,7 @@ Shape2211.setGeometry(&Text2212);
 
 Billboard2210.addChild(&Shape2211);
 
-HAnimSite2202.addChild(Billboard2210);
+HAnimSite2202.addChild(&Billboard2210);
 
 HAnimSegment2201.addChild(&HAnimSite2202);
 
@@ -9208,7 +9804,9 @@ HAnimSite2214.addChild(&TouchSensor2215);
 
 Shape& Shape2216 =  Shape();
 Appearance& Appearance2217 =  Appearance();
+Appearance2217.setContainerField("appearance");
 Material& Material2218 =  Material();
+Material2218.setContainerField("material");
 Material2218.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2217.addChild(&Material2218);
 
@@ -9219,6 +9817,7 @@ IndexedFaceSet2219.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2219.setCreaseAngle(0.5);
 IndexedFaceSet2219.setSolid(false);
 ColorRGBA& ColorRGBA2220 =  ColorRGBA();
+ColorRGBA2220.setContainerField("color");
 ColorRGBA2220.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2219.addChild(&ColorRGBA2220);
 
@@ -9234,8 +9833,9 @@ Billboard& Billboard2222 =  Billboard();
 Billboard2222.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2223 =  Shape();
 Text& Text2224 =  Text();
-Text2224.setString((std::string[]){"107"}, 1);
+Text2224.setString(new std::string[]{"107"}, 1);
 CFontStyle& FontStyle2225 =  CFontStyle();
+FontStyle2225.setContainerField("fontStyle");
 FontStyle2225.setSize(0.035);
 Text2224.setFontStyle(&FontStyle2225);
 
@@ -9243,7 +9843,7 @@ Shape2223.setGeometry(&Text2224);
 
 Billboard2222.addChild(&Shape2223);
 
-HAnimSite2214.addChild(Billboard2222);
+HAnimSite2214.addChild(&Billboard2222);
 
 HAnimSegment2201.addChild(&HAnimSite2214);
 
@@ -9251,6 +9851,7 @@ Shape& Shape2226 =  Shape();
 LineSet& LineSet2227 =  LineSet();
 LineSet2227.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2228 =  ColorRGBA();
+ColorRGBA2228.setContainerField("color");
 ColorRGBA2228.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2227.addChild(&ColorRGBA2228);
 
@@ -9285,6 +9886,7 @@ Shape& Shape2232 =  Shape();
 LineSet& LineSet2233 =  LineSet();
 LineSet2233.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2234 =  ColorRGBA();
+ColorRGBA2234.setContainerField("color");
 ColorRGBA2234.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2233.addChild(&ColorRGBA2234);
 
@@ -9315,7 +9917,9 @@ HAnimSite2238.addChild(&TouchSensor2239);
 
 Shape& Shape2240 =  Shape();
 Appearance& Appearance2241 =  Appearance();
+Appearance2241.setContainerField("appearance");
 Material& Material2242 =  Material();
+Material2242.setContainerField("material");
 Material2242.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2241.addChild(&Material2242);
 
@@ -9326,6 +9930,7 @@ IndexedFaceSet2243.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2243.setCreaseAngle(0.5);
 IndexedFaceSet2243.setSolid(false);
 ColorRGBA& ColorRGBA2244 =  ColorRGBA();
+ColorRGBA2244.setContainerField("color");
 ColorRGBA2244.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2243.addChild(&ColorRGBA2244);
 
@@ -9341,8 +9946,9 @@ Billboard& Billboard2246 =  Billboard();
 Billboard2246.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2247 =  Shape();
 Text& Text2248 =  Text();
-Text2248.setString((std::string[]){"79"}, 1);
+Text2248.setString(new std::string[]{"79"}, 1);
 CFontStyle& FontStyle2249 =  CFontStyle();
+FontStyle2249.setContainerField("fontStyle");
 FontStyle2249.setSize(0.035);
 Text2248.setFontStyle(&FontStyle2249);
 
@@ -9350,7 +9956,7 @@ Shape2247.setGeometry(&Text2248);
 
 Billboard2246.addChild(&Shape2247);
 
-HAnimSite2238.addChild(Billboard2246);
+HAnimSite2238.addChild(&Billboard2246);
 
 HAnimSegment2237.addChild(&HAnimSite2238);
 
@@ -9358,6 +9964,7 @@ Shape& Shape2250 =  Shape();
 LineSet& LineSet2251 =  LineSet();
 LineSet2251.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2252 =  ColorRGBA();
+ColorRGBA2252.setContainerField("color");
 ColorRGBA2252.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2251.addChild(&ColorRGBA2252);
 
@@ -9382,6 +9989,7 @@ Shape& Shape2256 =  Shape();
 LineSet& LineSet2257 =  LineSet();
 LineSet2257.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2258 =  ColorRGBA();
+ColorRGBA2258.setContainerField("color");
 ColorRGBA2258.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2257.addChild(&ColorRGBA2258);
 
@@ -9406,6 +10014,7 @@ Shape& Shape2262 =  Shape();
 LineSet& LineSet2263 =  LineSet();
 LineSet2263.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2264 =  ColorRGBA();
+ColorRGBA2264.setContainerField("color");
 ColorRGBA2264.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2263.addChild(&ColorRGBA2264);
 
@@ -9436,7 +10045,9 @@ HAnimSite2268.addChild(&TouchSensor2269);
 
 Shape& Shape2270 =  Shape();
 Appearance& Appearance2271 =  Appearance();
+Appearance2271.setContainerField("appearance");
 Material& Material2272 =  Material();
+Material2272.setContainerField("material");
 Material2272.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2271.addChild(&Material2272);
 
@@ -9447,6 +10058,7 @@ IndexedFaceSet2273.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2273.setCreaseAngle(0.5);
 IndexedFaceSet2273.setSolid(false);
 ColorRGBA& ColorRGBA2274 =  ColorRGBA();
+ColorRGBA2274.setContainerField("color");
 ColorRGBA2274.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2273.addChild(&ColorRGBA2274);
 
@@ -9462,8 +10074,9 @@ Billboard& Billboard2276 =  Billboard();
 Billboard2276.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2277 =  Shape();
 Text& Text2278 =  Text();
-Text2278.setString((std::string[]){"108"}, 1);
+Text2278.setString(new std::string[]{"108"}, 1);
 CFontStyle& FontStyle2279 =  CFontStyle();
+FontStyle2279.setContainerField("fontStyle");
 FontStyle2279.setSize(0.035);
 Text2278.setFontStyle(&FontStyle2279);
 
@@ -9471,7 +10084,7 @@ Shape2277.setGeometry(&Text2278);
 
 Billboard2276.addChild(&Shape2277);
 
-HAnimSite2268.addChild(Billboard2276);
+HAnimSite2268.addChild(&Billboard2276);
 
 HAnimSegment2267.addChild(&HAnimSite2268);
 
@@ -9479,6 +10092,7 @@ Shape& Shape2280 =  Shape();
 LineSet& LineSet2281 =  LineSet();
 LineSet2281.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2282 =  ColorRGBA();
+ColorRGBA2282.setContainerField("color");
 ColorRGBA2282.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2281.addChild(&ColorRGBA2282);
 
@@ -9513,6 +10127,7 @@ Shape& Shape2286 =  Shape();
 LineSet& LineSet2287 =  LineSet();
 LineSet2287.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2288 =  ColorRGBA();
+ColorRGBA2288.setContainerField("color");
 ColorRGBA2288.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2287.addChild(&ColorRGBA2288);
 
@@ -9537,6 +10152,7 @@ Shape& Shape2292 =  Shape();
 LineSet& LineSet2293 =  LineSet();
 LineSet2293.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2294 =  ColorRGBA();
+ColorRGBA2294.setContainerField("color");
 ColorRGBA2294.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2293.addChild(&ColorRGBA2294);
 
@@ -9561,6 +10177,7 @@ Shape& Shape2298 =  Shape();
 LineSet& LineSet2299 =  LineSet();
 LineSet2299.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2300 =  ColorRGBA();
+ColorRGBA2300.setContainerField("color");
 ColorRGBA2300.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2299.addChild(&ColorRGBA2300);
 
@@ -9585,6 +10202,7 @@ Shape& Shape2304 =  Shape();
 LineSet& LineSet2305 =  LineSet();
 LineSet2305.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2306 =  ColorRGBA();
+ColorRGBA2306.setContainerField("color");
 ColorRGBA2306.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2305.addChild(&ColorRGBA2306);
 
@@ -9615,7 +10233,9 @@ HAnimSite2310.addChild(&TouchSensor2311);
 
 Shape& Shape2312 =  Shape();
 Appearance& Appearance2313 =  Appearance();
+Appearance2313.setContainerField("appearance");
 Material& Material2314 =  Material();
+Material2314.setContainerField("material");
 Material2314.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2313.addChild(&Material2314);
 
@@ -9626,6 +10246,7 @@ IndexedFaceSet2315.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2315.setCreaseAngle(0.5);
 IndexedFaceSet2315.setSolid(false);
 ColorRGBA& ColorRGBA2316 =  ColorRGBA();
+ColorRGBA2316.setContainerField("color");
 ColorRGBA2316.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2315.addChild(&ColorRGBA2316);
 
@@ -9641,8 +10262,9 @@ Billboard& Billboard2318 =  Billboard();
 Billboard2318.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2319 =  Shape();
 Text& Text2320 =  Text();
-Text2320.setString((std::string[]){"109"}, 1);
+Text2320.setString(new std::string[]{"109"}, 1);
 CFontStyle& FontStyle2321 =  CFontStyle();
+FontStyle2321.setContainerField("fontStyle");
 FontStyle2321.setSize(0.035);
 Text2320.setFontStyle(&FontStyle2321);
 
@@ -9650,7 +10272,7 @@ Shape2319.setGeometry(&Text2320);
 
 Billboard2318.addChild(&Shape2319);
 
-HAnimSite2310.addChild(Billboard2318);
+HAnimSite2310.addChild(&Billboard2318);
 
 HAnimSegment2309.addChild(&HAnimSite2310);
 
@@ -9658,6 +10280,7 @@ Shape& Shape2322 =  Shape();
 LineSet& LineSet2323 =  LineSet();
 LineSet2323.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2324 =  ColorRGBA();
+ColorRGBA2324.setContainerField("color");
 ColorRGBA2324.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2323.addChild(&ColorRGBA2324);
 
@@ -9698,7 +10321,9 @@ HAnimSite2328.addChild(&TouchSensor2329);
 
 Shape& Shape2330 =  Shape();
 Appearance& Appearance2331 =  Appearance();
+Appearance2331.setContainerField("appearance");
 Material& Material2332 =  Material();
+Material2332.setContainerField("material");
 Material2332.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2331.addChild(&Material2332);
 
@@ -9709,6 +10334,7 @@ IndexedFaceSet2333.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2333.setCreaseAngle(0.5);
 IndexedFaceSet2333.setSolid(false);
 ColorRGBA& ColorRGBA2334 =  ColorRGBA();
+ColorRGBA2334.setContainerField("color");
 ColorRGBA2334.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2333.addChild(&ColorRGBA2334);
 
@@ -9724,8 +10350,9 @@ Billboard& Billboard2336 =  Billboard();
 Billboard2336.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2337 =  Shape();
 Text& Text2338 =  Text();
-Text2338.setString((std::string[]){"80"}, 1);
+Text2338.setString(new std::string[]{"80"}, 1);
 CFontStyle& FontStyle2339 =  CFontStyle();
+FontStyle2339.setContainerField("fontStyle");
 FontStyle2339.setSize(0.035);
 Text2338.setFontStyle(&FontStyle2339);
 
@@ -9733,7 +10360,7 @@ Shape2337.setGeometry(&Text2338);
 
 Billboard2336.addChild(&Shape2337);
 
-HAnimSite2328.addChild(Billboard2336);
+HAnimSite2328.addChild(&Billboard2336);
 
 HAnimSegment2327.addChild(&HAnimSite2328);
 
@@ -9741,6 +10368,7 @@ Shape& Shape2340 =  Shape();
 LineSet& LineSet2341 =  LineSet();
 LineSet2341.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2342 =  ColorRGBA();
+ColorRGBA2342.setContainerField("color");
 ColorRGBA2342.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2341.addChild(&ColorRGBA2342);
 
@@ -9765,6 +10393,7 @@ Shape& Shape2346 =  Shape();
 LineSet& LineSet2347 =  LineSet();
 LineSet2347.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2348 =  ColorRGBA();
+ColorRGBA2348.setContainerField("color");
 ColorRGBA2348.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2347.addChild(&ColorRGBA2348);
 
@@ -9789,6 +10418,7 @@ Shape& Shape2352 =  Shape();
 LineSet& LineSet2353 =  LineSet();
 LineSet2353.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2354 =  ColorRGBA();
+ColorRGBA2354.setContainerField("color");
 ColorRGBA2354.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2353.addChild(&ColorRGBA2354);
 
@@ -9819,7 +10449,9 @@ HAnimSite2358.addChild(&TouchSensor2359);
 
 Shape& Shape2360 =  Shape();
 Appearance& Appearance2361 =  Appearance();
+Appearance2361.setContainerField("appearance");
 Material& Material2362 =  Material();
+Material2362.setContainerField("material");
 Material2362.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance2361.addChild(&Material2362);
 
@@ -9830,6 +10462,7 @@ IndexedFaceSet2363.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,
 IndexedFaceSet2363.setCreaseAngle(0.5);
 IndexedFaceSet2363.setSolid(false);
 ColorRGBA& ColorRGBA2364 =  ColorRGBA();
+ColorRGBA2364.setContainerField("color");
 ColorRGBA2364.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1,1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 24);
 IndexedFaceSet2363.addChild(&ColorRGBA2364);
 
@@ -9845,8 +10478,9 @@ Billboard& Billboard2366 =  Billboard();
 Billboard2366.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape2367 =  Shape();
 Text& Text2368 =  Text();
-Text2368.setString((std::string[]){"110"}, 1);
+Text2368.setString(new std::string[]{"110"}, 1);
 CFontStyle& FontStyle2369 =  CFontStyle();
+FontStyle2369.setContainerField("fontStyle");
 FontStyle2369.setSize(0.035);
 Text2368.setFontStyle(&FontStyle2369);
 
@@ -9854,7 +10488,7 @@ Shape2367.setGeometry(&Text2368);
 
 Billboard2366.addChild(&Shape2367);
 
-HAnimSite2358.addChild(Billboard2366);
+HAnimSite2358.addChild(&Billboard2366);
 
 HAnimSegment2357.addChild(&HAnimSite2358);
 
@@ -9862,6 +10496,7 @@ Shape& Shape2370 =  Shape();
 LineSet& LineSet2371 =  LineSet();
 LineSet2371.setVertexCount(new int32_t[]{2}, 1);
 ColorRGBA& ColorRGBA2372 =  ColorRGBA();
+ColorRGBA2372.setContainerField("color");
 ColorRGBA2372.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0}, 8);
 LineSet2371.addChild(&ColorRGBA2372);
 
@@ -9957,7 +10592,9 @@ Transform2378.setDEF(std::string("Landmark000"));
 Shape& Shape2379 =  Shape();
 Shape2379.setDEF(std::string("HAnim000Landmark"));
 Appearance& Appearance2380 =  Appearance();
+Appearance2380.setContainerField("appearance");
 Material& Material2381 =  Material();
+Material2381.setContainerField("material");
 Material2381.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material2381.setEmissiveColor(new float[]{0.0,1.0,0.0});
 Appearance2380.addChild(&Material2381);

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int flipp(int argc, char ** argv) {
+void flipp(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -93,7 +85,9 @@ Transform16.setDEF(std::string("trans"));
 Transform16.setRotation(new float[]{1.0,0.0,0.0,0.78});
 Shape& Shape17 =  Shape();
 Appearance& Appearance18 =  Appearance();
+Appearance18.setContainerField("appearance");
 Material& Material19 =  Material();
+Material19.setContainerField("material");
 Material19.setDEF(std::string("mat"));
 Material19.setAmbientIntensity(0.508497);
 Material19.setDiffuseColor(new float[]{0.337255,0.4,0.788235});

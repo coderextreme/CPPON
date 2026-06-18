@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int bubs2(int argc, char ** argv) {
+void bubs2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -61,7 +53,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene10 =  Scene();
 NavigationInfo& NavigationInfo11 =  NavigationInfo();
-NavigationInfo11.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo11.setType(new std::string[]{"EXAMINE"}, 1);
 Scene10.addChild(&NavigationInfo11);
 
 Viewpoint& Viewpoint12 =  Viewpoint();
@@ -71,12 +63,12 @@ Viewpoint12.setDescription(std::string("Bubbles in action"));
 Scene10.addChild(&Viewpoint12);
 
 Background& Background13 =  Background();
-Background13.setBackUrl((std::string[]){"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
-Background13.setBottomUrl((std::string[]){"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
-Background13.setFrontUrl((std::string[]){"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
-Background13.setLeftUrl((std::string[]){"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
-Background13.setRightUrl((std::string[]){"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
-Background13.setTopUrl((std::string[]){"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
+Background13.setBackUrl(new std::string[]{"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
+Background13.setBottomUrl(new std::string[]{"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
+Background13.setFrontUrl(new std::string[]{"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
+Background13.setLeftUrl(new std::string[]{"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
+Background13.setRightUrl(new std::string[]{"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
+Background13.setTopUrl(new std::string[]{"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
 Scene10.addChild(&Background13);
 
 ProtoDeclare& ProtoDeclare14 =  ProtoDeclare();
@@ -90,7 +82,9 @@ Sphere18.setRadius(0.25);
 Shape17.setGeometry(&Sphere18);
 
 Appearance& Appearance19 =  Appearance();
+Appearance19.setContainerField("appearance");
 Material& Material20 =  Material();
+Material20.setContainerField("material");
 Material20.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Material20.setTransparency(0.2);
 Appearance19.addChild(&Material20);

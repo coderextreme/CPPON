@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int JointCoordinateAxes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -39,8 +31,10 @@ Group& Group7 =  Group();
 Group7.setDEF(std::string("ARROW"));
 Shape& Shape8 =  Shape();
 Appearance& Appearance9 =  Appearance();
+Appearance9.setContainerField("appearance");
 Appearance9.setDEF(std::string("ARROW_APPEARANCE"));
 Material& Material10 =  Material();
+Material10.setContainerField("material");
 Material10.setDiffuseColor(new float[]{0.3,0.3,1.0});
 Material10.setEmissiveColor(new float[]{0.3,0.3,0.33});
 Appearance9.addChild(&Material10);
@@ -60,6 +54,7 @@ Transform12.setTranslation(new float[]{0.0,1.0,0.0});
 Shape& Shape13 =  Shape();
 Shape13.setDEF(std::string("ARROW_POINTER"));
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Appearance14.setUSE(std::string("ARROW_APPEARANCE"));
 Shape13.addChild(&Appearance14);
 
@@ -88,8 +83,10 @@ Transform18.setTranslation(new float[]{0.0,1.08,0.0});
 Billboard& Billboard19 =  Billboard();
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Appearance21.setDEF(std::string("LABEL_APPEARANCE"));
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{1.0,1.0,0.3});
 Material22.setEmissiveColor(new float[]{0.33,0.33,0.1});
 Appearance21.addChild(&Material22);
@@ -99,6 +96,7 @@ Shape20.addChild(&Appearance21);
 Text& Text23 =  Text();
 Text23.setString((std::string[]){"Y"}, 1);
 CFontStyle& FontStyle24 =  CFontStyle();
+FontStyle24.setContainerField("fontStyle");
 FontStyle24.setDEF(std::string("LABEL_FONT"));
 FontStyle24.setFamily((std::string[]){"SANS"}, 1);
 FontStyle24.setSize(0.2);
@@ -128,12 +126,14 @@ Transform28.setRotation(new float[]{0.0,0.0,1.0,1.5708});
 Billboard& Billboard29 =  Billboard();
 Shape& Shape30 =  Shape();
 Appearance& Appearance31 =  Appearance();
+Appearance31.setContainerField("appearance");
 Appearance31.setUSE(std::string("LABEL_APPEARANCE"));
 Shape30.addChild(&Appearance31);
 
 Text& Text32 =  Text();
 Text32.setString((std::string[]){"X"}, 1);
 CFontStyle& FontStyle33 =  CFontStyle();
+FontStyle33.setContainerField("fontStyle");
 FontStyle33.setUSE(std::string("LABEL_FONT"));
 Text32.setFontStyle(&FontStyle33);
 
@@ -162,12 +162,14 @@ Transform37.setRotation(new float[]{1.0,0.0,0.0,-1.5708});
 Billboard& Billboard38 =  Billboard();
 Shape& Shape39 =  Shape();
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Appearance40.setUSE(std::string("LABEL_APPEARANCE"));
 Shape39.addChild(&Appearance40);
 
 Text& Text41 =  Text();
 Text41.setString((std::string[]){"Z"}, 1);
 CFontStyle& FontStyle42 =  CFontStyle();
+FontStyle42.setContainerField("fontStyle");
 FontStyle42.setUSE(std::string("LABEL_FONT"));
 Text41.setFontStyle(&FontStyle42);
 
@@ -185,4 +187,4 @@ Scene4.addChild(&Transform34);
 
 X3D0.setScene(&Scene4);
 
-//}
+}

@@ -190,15 +190,14 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 	}
 
 	public Element elementSetAttribute(Element element, String attributeName, String value, boolean isArray) {
-		if (!attributeName.equals("DEF") && !attributeName.equals("USE")) {
+		if (!attributeName.equals("DEF") && !attributeName.equals("USE") && !attributeName.equals("AS")) {
 			attributeName = attributeName.substring(0,1).toLowerCase()+attributeName.substring(1);
 		}
 		if (attributeName.equals("containerField")) {
 			value = value.substring(0,1).toLowerCase()+value.substring(1);
 		}
-		if (isArray) {
-			value = value.replaceAll(",", " ");
-		}
+		// Array comma replacement was safely moved inside extractTextFromParameter to avoid stripping
+		// commas nested within quotes in string literals.
 		// VITAL FIX: Use setAttributeNS with null namespace to populate localName for standard attributes
 		element.setAttributeNS(null, attributeName, value);
 		return element;
@@ -245,16 +244,19 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 		} else if (param.construct_array() != null) {
 			CPPONGrammarParser.ListContext list = param.construct_array().list();
 			if (list == null) return "";
-			if (list.float_list() != null) return getOriginalText(list.float_list());
-			if (list.integer_list() != null) return getOriginalText(list.integer_list());
-			if (list.boolean_list() != null) return getOriginalText(list.boolean_list());
+			// Extract and replace commas with spaces specifically for numeric/boolean arrays
+			if (list.float_list() != null) return getOriginalText(list.float_list()).replaceAll(",", " ");
+			if (list.integer_list() != null) return getOriginalText(list.integer_list()).replaceAll(",", " ");
+			if (list.boolean_list() != null) return getOriginalText(list.boolean_list()).replaceAll(",", " ");
+
+			// Properly encapsulate each string parameter into an X3D MFString compatible format ("String1" "String2")
 			if (list.string_list() != null) {
 				StringBuilder sb = new StringBuilder();
 				boolean first = true;
 				for (CPPONGrammarParser.StringContext sc : list.string_list().string()) {
 					if (!first) sb.append(" ");
 					first = false;
-					sb.append(cleanString(sc));
+					sb.append("\"").append(cleanString(sc)).append("\"");
 				}
 				return sb.toString();
 			}

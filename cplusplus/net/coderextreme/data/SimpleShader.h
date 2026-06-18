@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int SimpleShader(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -138,7 +130,9 @@ Transform& Transform27 =  Transform();
 Transform27.setDEF(std::string("TR"));
 Shape& Shape28 =  Shape();
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{0.5,0.5,0.9});
 Appearance29.addChild(&Material30);
 
@@ -206,6 +200,7 @@ Scene22.addChild(&ProtoDeclare23);
 WorldInfo& WorldInfo42 =  WorldInfo();
 WorldInfo42.setTitle(std::string("SimpleShader"));
 MetadataSet& MetadataSet43 =  MetadataSet();
+MetadataSet43.setContainerField("metadata");
 MetadataSet43.X3DNode::setName(std::string("Titania"));
 MetadataSet43.setDEF(std::string("Titania"));
 MetadataSet43.X3DNode::setReference(std::string("http://titania.create3000.de"));
@@ -213,10 +208,12 @@ MetadataSet& MetadataSet44 =  MetadataSet();
 MetadataSet44.X3DNode::setName(std::string("Selection"));
 MetadataSet44.setDEF(std::string("Selection"));
 MetadataSet44.X3DNode::setReference(std::string("http://titania.create3000.de"));
+MetadataSet44.setContainerField("value");
 MetadataSet& MetadataSet45 =  MetadataSet();
 MetadataSet45.X3DNode::setName(std::string("nodes"));
 MetadataSet45.setDEF(std::string("nodes"));
 MetadataSet45.X3DNode::setReference(std::string("http://titania.create3000.de"));
+MetadataSet45.setContainerField("value");
 //NULL
 MetadataSet44.setValue((X3DNode *)&MetadataSet45);
 
@@ -226,11 +223,13 @@ MetadataSet& MetadataSet46 =  MetadataSet();
 MetadataSet46.X3DNode::setName(std::string("NavigationInfo"));
 MetadataSet46.setDEF(std::string("NavigationInfo"));
 MetadataSet46.X3DNode::setReference(std::string("http://titania.create3000.de"));
+MetadataSet46.setContainerField("value");
 MetadataString& MetadataString47 =  MetadataString();
 MetadataString47.X3DNode::setName(std::string("type"));
 MetadataString47.setDEF(std::string("type"));
 MetadataString47.X3DNode::setReference(std::string("http://titania.create3000.de"));
 MetadataString47.setValue((std::string[]){"EXAMINE"}, 1);
+MetadataString47.setContainerField("value");
 MetadataSet46.setValue((X3DNode *)&MetadataString47);
 
 MetadataSet43.setValue((X3DNode *)&MetadataSet46);
@@ -239,11 +238,13 @@ MetadataSet& MetadataSet48 =  MetadataSet();
 MetadataSet48.X3DNode::setName(std::string("Viewpoint"));
 MetadataSet48.setDEF(std::string("Viewpoint"));
 MetadataSet48.X3DNode::setReference(std::string("http://titania.create3000.de"));
+MetadataSet48.setContainerField("value");
 MetadataDouble& MetadataDouble49 =  MetadataDouble();
 MetadataDouble49.X3DNode::setName(std::string("position"));
 MetadataDouble49.setDEF(std::string("position"));
 MetadataDouble49.X3DNode::setReference(std::string("http://titania.create3000.de"));
 MetadataDouble49.setValue(new double[]{6.24067728185014,0.00250837343276661,2.92117542307615}, 3);
+MetadataDouble49.setContainerField("value");
 MetadataSet48.setValue((X3DNode *)&MetadataDouble49);
 
 MetadataDouble& MetadataDouble50 =  MetadataDouble();
@@ -251,6 +252,7 @@ MetadataDouble50.X3DNode::setName(std::string("orientation"));
 MetadataDouble50.setDEF(std::string("orientation"));
 MetadataDouble50.X3DNode::setReference(std::string("http://titania.create3000.de"));
 MetadataDouble50.setValue(new double[]{-0.110173424710488,0.990158061907379,-0.0863065984000336,1.21146676119191}, 4);
+MetadataDouble50.setContainerField("value");
 MetadataSet48.setValue((X3DNode *)&MetadataDouble50);
 
 MetadataDouble& MetadataDouble51 =  MetadataDouble();
@@ -258,6 +260,7 @@ MetadataDouble51.X3DNode::setName(std::string("centerOfRotation"));
 MetadataDouble51.setDEF(std::string("centerOfRotation"));
 MetadataDouble51.X3DNode::setReference(std::string("http://titania.create3000.de"));
 MetadataDouble51.setValue(new double[]{-0.808320198626341,-0.358072370409949,0.22817191560906}, 3);
+MetadataDouble51.setContainerField("value");
 MetadataSet48.setValue((X3DNode *)&MetadataDouble51);
 
 MetadataSet43.setValue((X3DNode *)&MetadataSet48);
@@ -272,4 +275,4 @@ Scene22.addChild(&ProtoInstance52);
 
 X3D0.setScene(&Scene22);
 
-//}
+}

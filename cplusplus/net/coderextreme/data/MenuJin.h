@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int MenuJin(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -1010,7 +1002,9 @@ Transform158.addChild(&TouchSensor159);
 
 Shape& Shape160 =  Shape();
 Appearance& Appearance161 =  Appearance();
+Appearance161.setContainerField("appearance");
 Material& Material162 =  Material();
+Material162.setContainerField("material");
 Material162.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance161.addChild(&Material162);
 
@@ -1019,6 +1013,7 @@ Shape160.addChild(&Appearance161);
 Text& Text163 =  Text();
 Text163.setString((std::string[]){"JinBlink"}, 1);
 CFontStyle& FontStyle164 =  CFontStyle();
+FontStyle164.setContainerField("fontStyle");
 FontStyle164.setSize(2.4);
 FontStyle164.setSpacing(1.2);
 FontStyle164.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1030,7 +1025,9 @@ Transform158.addChild(&Shape160);
 
 Shape& Shape165 =  Shape();
 Appearance& Appearance166 =  Appearance();
+Appearance166.setContainerField("appearance");
 Material& Material167 =  Material();
+Material167.setContainerField("material");
 Material167.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance166.addChild(&Material167);
 
@@ -1071,7 +1068,9 @@ Transform172.addChild(&TouchSensor173);
 
 Shape& Shape174 =  Shape();
 Appearance& Appearance175 =  Appearance();
+Appearance175.setContainerField("appearance");
 Material& Material176 =  Material();
+Material176.setContainerField("material");
 Material176.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance175.addChild(&Material176);
 
@@ -1080,6 +1079,7 @@ Shape174.addChild(&Appearance175);
 Text& Text177 =  Text();
 Text177.setString((std::string[]){"JinBrowLowerer"}, 1);
 CFontStyle& FontStyle178 =  CFontStyle();
+FontStyle178.setContainerField("fontStyle");
 FontStyle178.setSize(2.4);
 FontStyle178.setSpacing(1.2);
 FontStyle178.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1091,7 +1091,9 @@ Transform172.addChild(&Shape174);
 
 Shape& Shape179 =  Shape();
 Appearance& Appearance180 =  Appearance();
+Appearance180.setContainerField("appearance");
 Material& Material181 =  Material();
+Material181.setContainerField("material");
 Material181.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance180.addChild(&Material181);
 
@@ -1132,7 +1134,9 @@ Transform186.addChild(&TouchSensor187);
 
 Shape& Shape188 =  Shape();
 Appearance& Appearance189 =  Appearance();
+Appearance189.setContainerField("appearance");
 Material& Material190 =  Material();
+Material190.setContainerField("material");
 Material190.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance189.addChild(&Material190);
 
@@ -1141,6 +1145,7 @@ Shape188.addChild(&Appearance189);
 Text& Text191 =  Text();
 Text191.setString((std::string[]){"JinCheekPuffer"}, 1);
 CFontStyle& FontStyle192 =  CFontStyle();
+FontStyle192.setContainerField("fontStyle");
 FontStyle192.setSize(2.4);
 FontStyle192.setSpacing(1.2);
 FontStyle192.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1152,7 +1157,9 @@ Transform186.addChild(&Shape188);
 
 Shape& Shape193 =  Shape();
 Appearance& Appearance194 =  Appearance();
+Appearance194.setContainerField("appearance");
 Material& Material195 =  Material();
+Material195.setContainerField("material");
 Material195.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance194.addChild(&Material195);
 
@@ -1193,7 +1200,9 @@ Transform200.addChild(&TouchSensor201);
 
 Shape& Shape202 =  Shape();
 Appearance& Appearance203 =  Appearance();
+Appearance203.setContainerField("appearance");
 Material& Material204 =  Material();
+Material204.setContainerField("material");
 Material204.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance203.addChild(&Material204);
 
@@ -1202,6 +1211,7 @@ Shape202.addChild(&Appearance203);
 Text& Text205 =  Text();
 Text205.setString((std::string[]){"JinCheekRaiser"}, 1);
 CFontStyle& FontStyle206 =  CFontStyle();
+FontStyle206.setContainerField("fontStyle");
 FontStyle206.setSize(2.4);
 FontStyle206.setSpacing(1.2);
 FontStyle206.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1213,7 +1223,9 @@ Transform200.addChild(&Shape202);
 
 Shape& Shape207 =  Shape();
 Appearance& Appearance208 =  Appearance();
+Appearance208.setContainerField("appearance");
 Material& Material209 =  Material();
+Material209.setContainerField("material");
 Material209.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance208.addChild(&Material209);
 
@@ -1254,7 +1266,9 @@ Transform214.addChild(&TouchSensor215);
 
 Shape& Shape216 =  Shape();
 Appearance& Appearance217 =  Appearance();
+Appearance217.setContainerField("appearance");
 Material& Material218 =  Material();
+Material218.setContainerField("material");
 Material218.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance217.addChild(&Material218);
 
@@ -1263,6 +1277,7 @@ Shape216.addChild(&Appearance217);
 Text& Text219 =  Text();
 Text219.setString((std::string[]){"JinChinRaiser"}, 1);
 CFontStyle& FontStyle220 =  CFontStyle();
+FontStyle220.setContainerField("fontStyle");
 FontStyle220.setSize(2.4);
 FontStyle220.setSpacing(1.2);
 FontStyle220.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1274,7 +1289,9 @@ Transform214.addChild(&Shape216);
 
 Shape& Shape221 =  Shape();
 Appearance& Appearance222 =  Appearance();
+Appearance222.setContainerField("appearance");
 Material& Material223 =  Material();
+Material223.setContainerField("material");
 Material223.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance222.addChild(&Material223);
 
@@ -1315,7 +1332,9 @@ Transform228.addChild(&TouchSensor229);
 
 Shape& Shape230 =  Shape();
 Appearance& Appearance231 =  Appearance();
+Appearance231.setContainerField("appearance");
 Material& Material232 =  Material();
+Material232.setContainerField("material");
 Material232.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance231.addChild(&Material232);
 
@@ -1324,6 +1343,7 @@ Shape230.addChild(&Appearance231);
 Text& Text233 =  Text();
 Text233.setString((std::string[]){"JinDimpler"}, 1);
 CFontStyle& FontStyle234 =  CFontStyle();
+FontStyle234.setContainerField("fontStyle");
 FontStyle234.setSize(2.4);
 FontStyle234.setSpacing(1.2);
 FontStyle234.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1335,7 +1355,9 @@ Transform228.addChild(&Shape230);
 
 Shape& Shape235 =  Shape();
 Appearance& Appearance236 =  Appearance();
+Appearance236.setContainerField("appearance");
 Material& Material237 =  Material();
+Material237.setContainerField("material");
 Material237.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance236.addChild(&Material237);
 
@@ -1376,7 +1398,9 @@ Transform242.addChild(&TouchSensor243);
 
 Shape& Shape244 =  Shape();
 Appearance& Appearance245 =  Appearance();
+Appearance245.setContainerField("appearance");
 Material& Material246 =  Material();
+Material246.setContainerField("material");
 Material246.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance245.addChild(&Material246);
 
@@ -1385,6 +1409,7 @@ Shape244.addChild(&Appearance245);
 Text& Text247 =  Text();
 Text247.setString((std::string[]){"JinEyesClosed"}, 1);
 CFontStyle& FontStyle248 =  CFontStyle();
+FontStyle248.setContainerField("fontStyle");
 FontStyle248.setSize(2.4);
 FontStyle248.setSpacing(1.2);
 FontStyle248.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1396,7 +1421,9 @@ Transform242.addChild(&Shape244);
 
 Shape& Shape249 =  Shape();
 Appearance& Appearance250 =  Appearance();
+Appearance250.setContainerField("appearance");
 Material& Material251 =  Material();
+Material251.setContainerField("material");
 Material251.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance250.addChild(&Material251);
 
@@ -1437,7 +1464,9 @@ Transform256.addChild(&TouchSensor257);
 
 Shape& Shape258 =  Shape();
 Appearance& Appearance259 =  Appearance();
+Appearance259.setContainerField("appearance");
 Material& Material260 =  Material();
+Material260.setContainerField("material");
 Material260.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance259.addChild(&Material260);
 
@@ -1446,6 +1475,7 @@ Shape258.addChild(&Appearance259);
 Text& Text261 =  Text();
 Text261.setString((std::string[]){"JinInnerBrowRaiser"}, 1);
 CFontStyle& FontStyle262 =  CFontStyle();
+FontStyle262.setContainerField("fontStyle");
 FontStyle262.setSize(2.4);
 FontStyle262.setSpacing(1.2);
 FontStyle262.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1457,7 +1487,9 @@ Transform256.addChild(&Shape258);
 
 Shape& Shape263 =  Shape();
 Appearance& Appearance264 =  Appearance();
+Appearance264.setContainerField("appearance");
 Material& Material265 =  Material();
+Material265.setContainerField("material");
 Material265.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance264.addChild(&Material265);
 
@@ -1498,7 +1530,9 @@ Transform270.addChild(&TouchSensor271);
 
 Shape& Shape272 =  Shape();
 Appearance& Appearance273 =  Appearance();
+Appearance273.setContainerField("appearance");
 Material& Material274 =  Material();
+Material274.setContainerField("material");
 Material274.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance273.addChild(&Material274);
 
@@ -1507,6 +1541,7 @@ Shape272.addChild(&Appearance273);
 Text& Text275 =  Text();
 Text275.setString((std::string[]){"JinJawDrop"}, 1);
 CFontStyle& FontStyle276 =  CFontStyle();
+FontStyle276.setContainerField("fontStyle");
 FontStyle276.setSize(2.4);
 FontStyle276.setSpacing(1.2);
 FontStyle276.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1518,7 +1553,9 @@ Transform270.addChild(&Shape272);
 
 Shape& Shape277 =  Shape();
 Appearance& Appearance278 =  Appearance();
+Appearance278.setContainerField("appearance");
 Material& Material279 =  Material();
+Material279.setContainerField("material");
 Material279.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance278.addChild(&Material279);
 
@@ -1559,7 +1596,9 @@ Transform284.addChild(&TouchSensor285);
 
 Shape& Shape286 =  Shape();
 Appearance& Appearance287 =  Appearance();
+Appearance287.setContainerField("appearance");
 Material& Material288 =  Material();
+Material288.setContainerField("material");
 Material288.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance287.addChild(&Material288);
 
@@ -1568,6 +1607,7 @@ Shape286.addChild(&Appearance287);
 Text& Text289 =  Text();
 Text289.setString((std::string[]){"JinLidDroop"}, 1);
 CFontStyle& FontStyle290 =  CFontStyle();
+FontStyle290.setContainerField("fontStyle");
 FontStyle290.setSize(2.4);
 FontStyle290.setSpacing(1.2);
 FontStyle290.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1579,7 +1619,9 @@ Transform284.addChild(&Shape286);
 
 Shape& Shape291 =  Shape();
 Appearance& Appearance292 =  Appearance();
+Appearance292.setContainerField("appearance");
 Material& Material293 =  Material();
+Material293.setContainerField("material");
 Material293.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance292.addChild(&Material293);
 
@@ -1620,7 +1662,9 @@ Transform298.addChild(&TouchSensor299);
 
 Shape& Shape300 =  Shape();
 Appearance& Appearance301 =  Appearance();
+Appearance301.setContainerField("appearance");
 Material& Material302 =  Material();
+Material302.setContainerField("material");
 Material302.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance301.addChild(&Material302);
 
@@ -1629,6 +1673,7 @@ Shape300.addChild(&Appearance301);
 Text& Text303 =  Text();
 Text303.setString((std::string[]){"JinLidTightener"}, 1);
 CFontStyle& FontStyle304 =  CFontStyle();
+FontStyle304.setContainerField("fontStyle");
 FontStyle304.setSize(2.4);
 FontStyle304.setSpacing(1.2);
 FontStyle304.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1640,7 +1685,9 @@ Transform298.addChild(&Shape300);
 
 Shape& Shape305 =  Shape();
 Appearance& Appearance306 =  Appearance();
+Appearance306.setContainerField("appearance");
 Material& Material307 =  Material();
+Material307.setContainerField("material");
 Material307.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance306.addChild(&Material307);
 
@@ -1681,7 +1728,9 @@ Transform312.addChild(&TouchSensor313);
 
 Shape& Shape314 =  Shape();
 Appearance& Appearance315 =  Appearance();
+Appearance315.setContainerField("appearance");
 Material& Material316 =  Material();
+Material316.setContainerField("material");
 Material316.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance315.addChild(&Material316);
 
@@ -1690,6 +1739,7 @@ Shape314.addChild(&Appearance315);
 Text& Text317 =  Text();
 Text317.setString((std::string[]){"JinLipCornerDepressor"}, 1);
 CFontStyle& FontStyle318 =  CFontStyle();
+FontStyle318.setContainerField("fontStyle");
 FontStyle318.setSize(2.4);
 FontStyle318.setSpacing(1.2);
 FontStyle318.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1701,7 +1751,9 @@ Transform312.addChild(&Shape314);
 
 Shape& Shape319 =  Shape();
 Appearance& Appearance320 =  Appearance();
+Appearance320.setContainerField("appearance");
 Material& Material321 =  Material();
+Material321.setContainerField("material");
 Material321.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance320.addChild(&Material321);
 
@@ -1742,7 +1794,9 @@ Transform326.addChild(&TouchSensor327);
 
 Shape& Shape328 =  Shape();
 Appearance& Appearance329 =  Appearance();
+Appearance329.setContainerField("appearance");
 Material& Material330 =  Material();
+Material330.setContainerField("material");
 Material330.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance329.addChild(&Material330);
 
@@ -1751,6 +1805,7 @@ Shape328.addChild(&Appearance329);
 Text& Text331 =  Text();
 Text331.setString((std::string[]){"JinLipCornerPuller"}, 1);
 CFontStyle& FontStyle332 =  CFontStyle();
+FontStyle332.setContainerField("fontStyle");
 FontStyle332.setSize(2.4);
 FontStyle332.setSpacing(1.2);
 FontStyle332.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1762,7 +1817,9 @@ Transform326.addChild(&Shape328);
 
 Shape& Shape333 =  Shape();
 Appearance& Appearance334 =  Appearance();
+Appearance334.setContainerField("appearance");
 Material& Material335 =  Material();
+Material335.setContainerField("material");
 Material335.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance334.addChild(&Material335);
 
@@ -1803,7 +1860,9 @@ Transform340.addChild(&TouchSensor341);
 
 Shape& Shape342 =  Shape();
 Appearance& Appearance343 =  Appearance();
+Appearance343.setContainerField("appearance");
 Material& Material344 =  Material();
+Material344.setContainerField("material");
 Material344.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance343.addChild(&Material344);
 
@@ -1812,6 +1871,7 @@ Shape342.addChild(&Appearance343);
 Text& Text345 =  Text();
 Text345.setString((std::string[]){"JinLipFunneler"}, 1);
 CFontStyle& FontStyle346 =  CFontStyle();
+FontStyle346.setContainerField("fontStyle");
 FontStyle346.setSize(2.4);
 FontStyle346.setSpacing(1.2);
 FontStyle346.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1823,7 +1883,9 @@ Transform340.addChild(&Shape342);
 
 Shape& Shape347 =  Shape();
 Appearance& Appearance348 =  Appearance();
+Appearance348.setContainerField("appearance");
 Material& Material349 =  Material();
+Material349.setContainerField("material");
 Material349.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance348.addChild(&Material349);
 
@@ -1864,7 +1926,9 @@ Transform354.addChild(&TouchSensor355);
 
 Shape& Shape356 =  Shape();
 Appearance& Appearance357 =  Appearance();
+Appearance357.setContainerField("appearance");
 Material& Material358 =  Material();
+Material358.setContainerField("material");
 Material358.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance357.addChild(&Material358);
 
@@ -1873,6 +1937,7 @@ Shape356.addChild(&Appearance357);
 Text& Text359 =  Text();
 Text359.setString((std::string[]){"JinLipPressor"}, 1);
 CFontStyle& FontStyle360 =  CFontStyle();
+FontStyle360.setContainerField("fontStyle");
 FontStyle360.setSize(2.4);
 FontStyle360.setSpacing(1.2);
 FontStyle360.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1884,7 +1949,9 @@ Transform354.addChild(&Shape356);
 
 Shape& Shape361 =  Shape();
 Appearance& Appearance362 =  Appearance();
+Appearance362.setContainerField("appearance");
 Material& Material363 =  Material();
+Material363.setContainerField("material");
 Material363.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance362.addChild(&Material363);
 
@@ -1925,7 +1992,9 @@ Transform368.addChild(&TouchSensor369);
 
 Shape& Shape370 =  Shape();
 Appearance& Appearance371 =  Appearance();
+Appearance371.setContainerField("appearance");
 Material& Material372 =  Material();
+Material372.setContainerField("material");
 Material372.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance371.addChild(&Material372);
 
@@ -1934,6 +2003,7 @@ Shape370.addChild(&Appearance371);
 Text& Text373 =  Text();
 Text373.setString((std::string[]){"JinLipPuckerer"}, 1);
 CFontStyle& FontStyle374 =  CFontStyle();
+FontStyle374.setContainerField("fontStyle");
 FontStyle374.setSize(2.4);
 FontStyle374.setSpacing(1.2);
 FontStyle374.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -1945,7 +2015,9 @@ Transform368.addChild(&Shape370);
 
 Shape& Shape375 =  Shape();
 Appearance& Appearance376 =  Appearance();
+Appearance376.setContainerField("appearance");
 Material& Material377 =  Material();
+Material377.setContainerField("material");
 Material377.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance376.addChild(&Material377);
 
@@ -1986,7 +2058,9 @@ Transform382.addChild(&TouchSensor383);
 
 Shape& Shape384 =  Shape();
 Appearance& Appearance385 =  Appearance();
+Appearance385.setContainerField("appearance");
 Material& Material386 =  Material();
+Material386.setContainerField("material");
 Material386.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance385.addChild(&Material386);
 
@@ -1995,6 +2069,7 @@ Shape384.addChild(&Appearance385);
 Text& Text387 =  Text();
 Text387.setString((std::string[]){"JinLipsPart"}, 1);
 CFontStyle& FontStyle388 =  CFontStyle();
+FontStyle388.setContainerField("fontStyle");
 FontStyle388.setSize(2.4);
 FontStyle388.setSpacing(1.2);
 FontStyle388.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2006,7 +2081,9 @@ Transform382.addChild(&Shape384);
 
 Shape& Shape389 =  Shape();
 Appearance& Appearance390 =  Appearance();
+Appearance390.setContainerField("appearance");
 Material& Material391 =  Material();
+Material391.setContainerField("material");
 Material391.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance390.addChild(&Material391);
 
@@ -2047,7 +2124,9 @@ Transform396.addChild(&TouchSensor397);
 
 Shape& Shape398 =  Shape();
 Appearance& Appearance399 =  Appearance();
+Appearance399.setContainerField("appearance");
 Material& Material400 =  Material();
+Material400.setContainerField("material");
 Material400.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance399.addChild(&Material400);
 
@@ -2056,6 +2135,7 @@ Shape398.addChild(&Appearance399);
 Text& Text401 =  Text();
 Text401.setString((std::string[]){"JinLipStretcher"}, 1);
 CFontStyle& FontStyle402 =  CFontStyle();
+FontStyle402.setContainerField("fontStyle");
 FontStyle402.setSize(2.4);
 FontStyle402.setSpacing(1.2);
 FontStyle402.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2067,7 +2147,9 @@ Transform396.addChild(&Shape398);
 
 Shape& Shape403 =  Shape();
 Appearance& Appearance404 =  Appearance();
+Appearance404.setContainerField("appearance");
 Material& Material405 =  Material();
+Material405.setContainerField("material");
 Material405.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance404.addChild(&Material405);
 
@@ -2108,7 +2190,9 @@ Transform410.addChild(&TouchSensor411);
 
 Shape& Shape412 =  Shape();
 Appearance& Appearance413 =  Appearance();
+Appearance413.setContainerField("appearance");
 Material& Material414 =  Material();
+Material414.setContainerField("material");
 Material414.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance413.addChild(&Material414);
 
@@ -2117,6 +2201,7 @@ Shape412.addChild(&Appearance413);
 Text& Text415 =  Text();
 Text415.setString((std::string[]){"JinLipSuck"}, 1);
 CFontStyle& FontStyle416 =  CFontStyle();
+FontStyle416.setContainerField("fontStyle");
 FontStyle416.setSize(2.4);
 FontStyle416.setSpacing(1.2);
 FontStyle416.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2128,7 +2213,9 @@ Transform410.addChild(&Shape412);
 
 Shape& Shape417 =  Shape();
 Appearance& Appearance418 =  Appearance();
+Appearance418.setContainerField("appearance");
 Material& Material419 =  Material();
+Material419.setContainerField("material");
 Material419.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance418.addChild(&Material419);
 
@@ -2169,7 +2256,9 @@ Transform424.addChild(&TouchSensor425);
 
 Shape& Shape426 =  Shape();
 Appearance& Appearance427 =  Appearance();
+Appearance427.setContainerField("appearance");
 Material& Material428 =  Material();
+Material428.setContainerField("material");
 Material428.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance427.addChild(&Material428);
 
@@ -2178,6 +2267,7 @@ Shape426.addChild(&Appearance427);
 Text& Text429 =  Text();
 Text429.setString((std::string[]){"JinLipTightener"}, 1);
 CFontStyle& FontStyle430 =  CFontStyle();
+FontStyle430.setContainerField("fontStyle");
 FontStyle430.setSize(2.4);
 FontStyle430.setSpacing(1.2);
 FontStyle430.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2189,7 +2279,9 @@ Transform424.addChild(&Shape426);
 
 Shape& Shape431 =  Shape();
 Appearance& Appearance432 =  Appearance();
+Appearance432.setContainerField("appearance");
 Material& Material433 =  Material();
+Material433.setContainerField("material");
 Material433.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance432.addChild(&Material433);
 
@@ -2230,7 +2322,9 @@ Transform438.addChild(&TouchSensor439);
 
 Shape& Shape440 =  Shape();
 Appearance& Appearance441 =  Appearance();
+Appearance441.setContainerField("appearance");
 Material& Material442 =  Material();
+Material442.setContainerField("material");
 Material442.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance441.addChild(&Material442);
 
@@ -2239,6 +2333,7 @@ Shape440.addChild(&Appearance441);
 Text& Text443 =  Text();
 Text443.setString((std::string[]){"JinLowerLipDepressor"}, 1);
 CFontStyle& FontStyle444 =  CFontStyle();
+FontStyle444.setContainerField("fontStyle");
 FontStyle444.setSize(2.4);
 FontStyle444.setSpacing(1.2);
 FontStyle444.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2250,7 +2345,9 @@ Transform438.addChild(&Shape440);
 
 Shape& Shape445 =  Shape();
 Appearance& Appearance446 =  Appearance();
+Appearance446.setContainerField("appearance");
 Material& Material447 =  Material();
+Material447.setContainerField("material");
 Material447.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance446.addChild(&Material447);
 
@@ -2291,7 +2388,9 @@ Transform452.addChild(&TouchSensor453);
 
 Shape& Shape454 =  Shape();
 Appearance& Appearance455 =  Appearance();
+Appearance455.setContainerField("appearance");
 Material& Material456 =  Material();
+Material456.setContainerField("material");
 Material456.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance455.addChild(&Material456);
 
@@ -2300,6 +2399,7 @@ Shape454.addChild(&Appearance455);
 Text& Text457 =  Text();
 Text457.setString((std::string[]){"JinMouthStretch"}, 1);
 CFontStyle& FontStyle458 =  CFontStyle();
+FontStyle458.setContainerField("fontStyle");
 FontStyle458.setSize(2.4);
 FontStyle458.setSpacing(1.2);
 FontStyle458.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2311,7 +2411,9 @@ Transform452.addChild(&Shape454);
 
 Shape& Shape459 =  Shape();
 Appearance& Appearance460 =  Appearance();
+Appearance460.setContainerField("appearance");
 Material& Material461 =  Material();
+Material461.setContainerField("material");
 Material461.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance460.addChild(&Material461);
 
@@ -2352,7 +2454,9 @@ Transform466.addChild(&TouchSensor467);
 
 Shape& Shape468 =  Shape();
 Appearance& Appearance469 =  Appearance();
+Appearance469.setContainerField("appearance");
 Material& Material470 =  Material();
+Material470.setContainerField("material");
 Material470.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance469.addChild(&Material470);
 
@@ -2361,6 +2465,7 @@ Shape468.addChild(&Appearance469);
 Text& Text471 =  Text();
 Text471.setString((std::string[]){"JinNasolabialDeepener"}, 1);
 CFontStyle& FontStyle472 =  CFontStyle();
+FontStyle472.setContainerField("fontStyle");
 FontStyle472.setSize(2.4);
 FontStyle472.setSpacing(1.2);
 FontStyle472.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2372,7 +2477,9 @@ Transform466.addChild(&Shape468);
 
 Shape& Shape473 =  Shape();
 Appearance& Appearance474 =  Appearance();
+Appearance474.setContainerField("appearance");
 Material& Material475 =  Material();
+Material475.setContainerField("material");
 Material475.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance474.addChild(&Material475);
 
@@ -2413,7 +2520,9 @@ Transform480.addChild(&TouchSensor481);
 
 Shape& Shape482 =  Shape();
 Appearance& Appearance483 =  Appearance();
+Appearance483.setContainerField("appearance");
 Material& Material484 =  Material();
+Material484.setContainerField("material");
 Material484.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance483.addChild(&Material484);
 
@@ -2422,6 +2531,7 @@ Shape482.addChild(&Appearance483);
 Text& Text485 =  Text();
 Text485.setString((std::string[]){"JinNoseWrinkler"}, 1);
 CFontStyle& FontStyle486 =  CFontStyle();
+FontStyle486.setContainerField("fontStyle");
 FontStyle486.setSize(2.4);
 FontStyle486.setSpacing(1.2);
 FontStyle486.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2433,7 +2543,9 @@ Transform480.addChild(&Shape482);
 
 Shape& Shape487 =  Shape();
 Appearance& Appearance488 =  Appearance();
+Appearance488.setContainerField("appearance");
 Material& Material489 =  Material();
+Material489.setContainerField("material");
 Material489.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance488.addChild(&Material489);
 
@@ -2474,7 +2586,9 @@ Transform494.addChild(&TouchSensor495);
 
 Shape& Shape496 =  Shape();
 Appearance& Appearance497 =  Appearance();
+Appearance497.setContainerField("appearance");
 Material& Material498 =  Material();
+Material498.setContainerField("material");
 Material498.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance497.addChild(&Material498);
 
@@ -2483,6 +2597,7 @@ Shape496.addChild(&Appearance497);
 Text& Text499 =  Text();
 Text499.setString((std::string[]){"JinOuterBrowRaiser"}, 1);
 CFontStyle& FontStyle500 =  CFontStyle();
+FontStyle500.setContainerField("fontStyle");
 FontStyle500.setSize(2.4);
 FontStyle500.setSpacing(1.2);
 FontStyle500.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2494,7 +2609,9 @@ Transform494.addChild(&Shape496);
 
 Shape& Shape501 =  Shape();
 Appearance& Appearance502 =  Appearance();
+Appearance502.setContainerField("appearance");
 Material& Material503 =  Material();
+Material503.setContainerField("material");
 Material503.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance502.addChild(&Material503);
 
@@ -2535,7 +2652,9 @@ Transform508.addChild(&TouchSensor509);
 
 Shape& Shape510 =  Shape();
 Appearance& Appearance511 =  Appearance();
+Appearance511.setContainerField("appearance");
 Material& Material512 =  Material();
+Material512.setContainerField("material");
 Material512.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance511.addChild(&Material512);
 
@@ -2544,6 +2663,7 @@ Shape510.addChild(&Appearance511);
 Text& Text513 =  Text();
 Text513.setString((std::string[]){"JinSlit"}, 1);
 CFontStyle& FontStyle514 =  CFontStyle();
+FontStyle514.setContainerField("fontStyle");
 FontStyle514.setSize(2.4);
 FontStyle514.setSpacing(1.2);
 FontStyle514.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2555,7 +2675,9 @@ Transform508.addChild(&Shape510);
 
 Shape& Shape515 =  Shape();
 Appearance& Appearance516 =  Appearance();
+Appearance516.setContainerField("appearance");
 Material& Material517 =  Material();
+Material517.setContainerField("material");
 Material517.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance516.addChild(&Material517);
 
@@ -2596,7 +2718,9 @@ Transform522.addChild(&TouchSensor523);
 
 Shape& Shape524 =  Shape();
 Appearance& Appearance525 =  Appearance();
+Appearance525.setContainerField("appearance");
 Material& Material526 =  Material();
+Material526.setContainerField("material");
 Material526.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance525.addChild(&Material526);
 
@@ -2605,6 +2729,7 @@ Shape524.addChild(&Appearance525);
 Text& Text527 =  Text();
 Text527.setString((std::string[]){"JinSquint"}, 1);
 CFontStyle& FontStyle528 =  CFontStyle();
+FontStyle528.setContainerField("fontStyle");
 FontStyle528.setSize(2.4);
 FontStyle528.setSpacing(1.2);
 FontStyle528.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2616,7 +2741,9 @@ Transform522.addChild(&Shape524);
 
 Shape& Shape529 =  Shape();
 Appearance& Appearance530 =  Appearance();
+Appearance530.setContainerField("appearance");
 Material& Material531 =  Material();
+Material531.setContainerField("material");
 Material531.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance530.addChild(&Material531);
 
@@ -2657,7 +2784,9 @@ Transform536.addChild(&TouchSensor537);
 
 Shape& Shape538 =  Shape();
 Appearance& Appearance539 =  Appearance();
+Appearance539.setContainerField("appearance");
 Material& Material540 =  Material();
+Material540.setContainerField("material");
 Material540.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance539.addChild(&Material540);
 
@@ -2666,6 +2795,7 @@ Shape538.addChild(&Appearance539);
 Text& Text541 =  Text();
 Text541.setString((std::string[]){"JinUpperLidRaiser"}, 1);
 CFontStyle& FontStyle542 =  CFontStyle();
+FontStyle542.setContainerField("fontStyle");
 FontStyle542.setSize(2.4);
 FontStyle542.setSpacing(1.2);
 FontStyle542.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2677,7 +2807,9 @@ Transform536.addChild(&Shape538);
 
 Shape& Shape543 =  Shape();
 Appearance& Appearance544 =  Appearance();
+Appearance544.setContainerField("appearance");
 Material& Material545 =  Material();
+Material545.setContainerField("material");
 Material545.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance544.addChild(&Material545);
 
@@ -2718,7 +2850,9 @@ Transform550.addChild(&TouchSensor551);
 
 Shape& Shape552 =  Shape();
 Appearance& Appearance553 =  Appearance();
+Appearance553.setContainerField("appearance");
 Material& Material554 =  Material();
+Material554.setContainerField("material");
 Material554.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance553.addChild(&Material554);
 
@@ -2727,6 +2861,7 @@ Shape552.addChild(&Appearance553);
 Text& Text555 =  Text();
 Text555.setString((std::string[]){"JinUpperLipRaiser"}, 1);
 CFontStyle& FontStyle556 =  CFontStyle();
+FontStyle556.setContainerField("fontStyle");
 FontStyle556.setSize(2.4);
 FontStyle556.setSpacing(1.2);
 FontStyle556.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2738,7 +2873,9 @@ Transform550.addChild(&Shape552);
 
 Shape& Shape557 =  Shape();
 Appearance& Appearance558 =  Appearance();
+Appearance558.setContainerField("appearance");
 Material& Material559 =  Material();
+Material559.setContainerField("material");
 Material559.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance558.addChild(&Material559);
 
@@ -2779,7 +2916,9 @@ Transform564.addChild(&TouchSensor565);
 
 Shape& Shape566 =  Shape();
 Appearance& Appearance567 =  Appearance();
+Appearance567.setContainerField("appearance");
 Material& Material568 =  Material();
+Material568.setContainerField("material");
 Material568.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance567.addChild(&Material568);
 
@@ -2788,6 +2927,7 @@ Shape566.addChild(&Appearance567);
 Text& Text569 =  Text();
 Text569.setString((std::string[]){"JinWink"}, 1);
 CFontStyle& FontStyle570 =  CFontStyle();
+FontStyle570.setContainerField("fontStyle");
 FontStyle570.setSize(2.4);
 FontStyle570.setSpacing(1.2);
 FontStyle570.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
@@ -2799,7 +2939,9 @@ Transform564.addChild(&Shape566);
 
 Shape& Shape571 =  Shape();
 Appearance& Appearance572 =  Appearance();
+Appearance572.setContainerField("appearance");
 Material& Material573 =  Material();
+Material573.setContainerField("material");
 Material573.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance572.addChild(&Material573);
 
@@ -2835,4 +2977,4 @@ Scene4.addChild(&Group6);
 
 X3D0.setScene(&Scene4);
 
-//}
+}

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Nodes(int argc, char ** argv) {
+void Nodes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.1"));
@@ -170,9 +162,9 @@ DirectionalLight& DirectionalLight48 =  DirectionalLight();
 Scene7.addChild(&DirectionalLight48);
 
 EnvironmentLight& EnvironmentLight49 =  EnvironmentLight();
-EnvironmentLight49.setOrigin(std::string("0 0 0"));
-EnvironmentLight49.setRotation(std::string("0 0 1 0"));
-Scene7.addEnvironmentLight(EnvironmentLight49);
+EnvironmentLight49.setOrigin(new float[]{0.0,0.0,0.0});
+EnvironmentLight49.setRotation(new float[]{0.0,0.0,1.0,0.0});
+Scene7.addChild(&EnvironmentLight49);
 
 PointLight& PointLight50 =  PointLight();
 Scene7.addChild(&PointLight50);
@@ -360,7 +352,7 @@ TextureProjectorParallel& TextureProjectorParallel108 =  TextureProjectorParalle
 TextureProjectorParallel108.setAmbientIntensity(0);
 TextureProjectorParallel108.setColor(new float[]{1.0,1.0,1.0});
 TextureProjectorParallel108.setIntensity(0.7854);
-TextureProjectorParallel108.setUpVector("0 1 0");
+TextureProjectorParallel108.setUpVector(new float[]{0.0,1.0,0.0});
 Scene7.addChild(&TextureProjectorParallel108);
 
 HAnimHumanoid& HAnimHumanoid109 =  HAnimHumanoid();
@@ -371,9 +363,9 @@ HAnimJoint& HAnimJoint110 =  HAnimJoint();
 Scene7.addChild(&HAnimJoint110);
 
 HAnimPose& HAnimPose111 =  HAnimPose();
-HAnimPose111.setLoa(std::string("-1"));
-HAnimPose111.setTransitionDuration(std::string("0"));
-Scene7.addHAnimPose(HAnimPose111);
+HAnimPose111.setLoa(-1);
+HAnimPose111.setTransitionDuration(0);
+Scene7.addChild(&HAnimPose111);
 
 HAnimSegment& HAnimSegment112 =  HAnimSegment();
 Scene7.addChild(&HAnimSegment112);
@@ -388,7 +380,7 @@ Script& Script115 =  Script();
 Scene7.addChild(&Script115);
 
 FontLibrary& FontLibrary116 =  FontLibrary();
-Scene7.addFontLibrary(FontLibrary116);
+Scene7.addChild(&FontLibrary116);
 
 CollidableOffset& CollidableOffset117 =  CollidableOffset();
 Scene7.addChild(&CollidableOffset117);

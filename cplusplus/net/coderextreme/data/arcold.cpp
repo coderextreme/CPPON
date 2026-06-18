@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int arcold(int argc, char ** argv) {
+void arcold(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -60,7 +52,9 @@ Transform& Transform11 =  Transform();
 Transform11.setDEF(std::string("rotscale1"));
 Shape& Shape12 =  Shape();
 Appearance& Appearance13 =  Appearance();
+Appearance13.setContainerField("appearance");
 Material& Material14 =  Material();
+Material14.setContainerField("material");
 Material14.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Appearance13.addChild(&Material14);
 
@@ -82,7 +76,9 @@ Transform& Transform17 =  Transform();
 Transform17.setDEF(std::string("rotscale2"));
 Shape& Shape18 =  Shape();
 Appearance& Appearance19 =  Appearance();
+Appearance19.setContainerField("appearance");
 Material& Material20 =  Material();
+Material20.setContainerField("material");
 Material20.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Appearance19.addChild(&Material20);
 
@@ -104,7 +100,9 @@ Transform& Transform23 =  Transform();
 Transform23.setDEF(std::string("rotscale3"));
 Shape& Shape24 =  Shape();
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Material26.setDiffuseColor(new float[]{0.2,0.7,0.7});
 Appearance25.addChild(&Material26);
 
@@ -149,7 +147,9 @@ Sphere36.setRadius(0.1);
 Shape35.setGeometry(&Sphere36);
 
 Appearance& Appearance37 =  Appearance();
+Appearance37.setContainerField("appearance");
 Material& Material38 =  Material();
+Material38.setContainerField("material");
 Material38.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance37.addChild(&Material38);
 

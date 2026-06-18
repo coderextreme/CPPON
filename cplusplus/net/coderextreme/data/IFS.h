@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int IFS(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -77,6 +69,7 @@ IndexedFaceSet15.setCreaseAngle(0.5);
 IndexedFaceSet15.setSolid(false);
 IndexedFaceSet15.setCoordIndex(new int32_t[]{0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1,5,2,1,-1,5,3,2,-1,5,4,3,-1,5,1,4,-1}, 32);
 ColorRGBA& ColorRGBA16 =  ColorRGBA();
+ColorRGBA16.setContainerField("color");
 ColorRGBA16.setDEF(std::string("HAnimSiteColorRGBA"));
 ColorRGBA16.setColor(new float[]{1.0,1.0,0.0,1.0,1.0,1.0,0.0,0.1}, 8);
 IndexedFaceSet15.addChild(&ColorRGBA16);
@@ -88,7 +81,9 @@ IndexedFaceSet15.setCoord(&Coordinate17);
 Shape14.setGeometry(&IndexedFaceSet15);
 
 Appearance& Appearance18 =  Appearance();
+Appearance18.setContainerField("appearance");
 Material& Material19 =  Material();
+Material19.setContainerField("material");
 Material19.setDiffuseColor(new float[]{1.0,1.0,0.0});
 Material19.setTransparency(0.3);
 Appearance18.addChild(&Material19);
@@ -111,4 +106,4 @@ Scene11.addChild(&Viewpoint21);
 
 X3D0.setScene(&Scene11);
 
-//}
+}

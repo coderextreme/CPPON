@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int HelloWorldCommented(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -108,15 +100,18 @@ Sphere& Sphere20 =  Sphere();
 Shape19.setGeometry(&Sphere20);
 
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 //Material begin
 //Material complete, ImageTexture begin
 //ImageTexture complete
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDEF(std::string("MaterialLightBlue"));
 Material22.setDiffuseColor(new float[]{0.1,0.5,1.0});
 Appearance21.addChild(&Material22);
 
 ImageTexture& ImageTexture23 =  ImageTexture();
+ImageTexture23.setContainerField("texture");
 ImageTexture23.setDEF(std::string("ImageCloudlessEarth"));
 ImageTexture23.setUrl((std::string[]){"earth-topo.png", "earth-topo.jpg", "earth-topo-small.gif", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"}, 6);
 Appearance21.addChild(&ImageTexture23);
@@ -142,15 +137,18 @@ Text26.setString((std::string[]){"Hello", "world!"}, 2);
 //FontStyle begin
 //FontStyle complete
 CFontStyle& FontStyle27 =  CFontStyle();
+FontStyle27.setContainerField("fontStyle");
 FontStyle27.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 Text26.setFontStyle(&FontStyle27);
 
 Shape25.setGeometry(&Text26);
 
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 //Material begin
 //Material complete
 Material& Material29 =  Material();
+Material29.setContainerField("material");
 Material29.setUSE(std::string("MaterialLightBlue"));
 Appearance28.addChild(&Material29);
 
@@ -167,4 +165,4 @@ Scene14.addChild(&Group16);
 //Group complete
 X3D0.setScene(&Scene14);
 
-//}
+}

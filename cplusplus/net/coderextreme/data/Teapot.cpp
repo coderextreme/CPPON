@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Teapot(int argc, char ** argv) {
+void Teapot(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -130,7 +122,9 @@ IndexedFaceSet23.setCoord(&Coordinate24);
 Shape22.setGeometry(&IndexedFaceSet23);
 
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Material26.setTransparency(0.5);
 Appearance25.addChild(&Material26);
 
@@ -149,7 +143,8 @@ Coordinate& Coordinate29 =  Coordinate();
 Coordinate29.setPoint(new float[]{0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0}, 12);
 IndexedLineSet28.setCoord(&Coordinate29);
 
-CColor& Color30 =  CColor();
+Color& Color30 =  Color();
+Color30.setContainerField("color");
 Color30.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet28.setColor(&Color30);
 

@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int DesignPatternsApparelMedicalSkinLayers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -111,6 +103,7 @@ Scene18.addChild(&Background20);
 Group& Group21 =  Group();
 Group21.setDEF(std::string("MultipleHumanoids"));
 MetadataString& MetadataString22 =  MetadataString();
+MetadataString22.setContainerField("metadata");
 MetadataString22.X3DNode::setName(std::string("HAnimArchitecture"));
 MetadataString22.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/Guidelines.html#MultipleHumanoidsPerFile"));
 MetadataString22.setValue((std::string[]){"E.4 Multiple humanoids per file"}, 1);
@@ -123,6 +116,7 @@ HAnimHumanoid23.setDEF(std::string("a_SimpleSkeleton"));
 HAnimHumanoid23.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint24 =  HAnimJoint();
 HAnimJoint24.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint24.setContainerField("skeleton");
 HAnimSegment& HAnimSegment25 =  HAnimSegment();
 HAnimSegment25.X3DNode::setName(std::string("sacrum"));
 Shape& Shape26 =  Shape();
@@ -155,6 +149,7 @@ HAnimHumanoid30.setDEF(std::string("b_SimpleSkeletonMesh"));
 HAnimHumanoid30.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint31 =  HAnimJoint();
 HAnimJoint31.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint31.setContainerField("skeleton");
 HAnimSegment& HAnimSegment32 =  HAnimSegment();
 HAnimSegment32.X3DNode::setName(std::string("sacrum"));
 Shape& Shape33 =  Shape();
@@ -177,6 +172,7 @@ HAnimHumanoid35.setDEF(std::string("c_SkinIndexedGeometry"));
 HAnimHumanoid35.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint36 =  HAnimJoint();
 HAnimJoint36.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint36.setContainerField("skeleton");
 HAnimSegment& HAnimSegment37 =  HAnimSegment();
 HAnimSegment37.X3DNode::setName(std::string("sacrum"));
 HAnimJoint36.addChildren(&HAnimSegment37);
@@ -185,6 +181,7 @@ HAnimHumanoid35.setSkeleton(&HAnimJoint36);
 
 IndexedFaceSet& IndexedFaceSet38 =  IndexedFaceSet();
 IndexedFaceSet38.setDEF(std::string("SkinMeshIFS"));
+IndexedFaceSet38.setContainerField("skin");
 HAnimHumanoid35.setSkin(&IndexedFaceSet38);
 
 Group21.addChild(&HAnimHumanoid35);
@@ -196,6 +193,7 @@ HAnimHumanoid39.setDEF(std::string("d_SkinShapeIndexedGeometry"));
 HAnimHumanoid39.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint40 =  HAnimJoint();
 HAnimJoint40.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint40.setContainerField("skeleton");
 HAnimSegment& HAnimSegment41 =  HAnimSegment();
 HAnimSegment41.X3DNode::setName(std::string("sacrum"));
 HAnimJoint40.addChildren(&HAnimSegment41);
@@ -203,6 +201,7 @@ HAnimJoint40.addChildren(&HAnimSegment41);
 HAnimHumanoid39.setSkeleton(&HAnimJoint40);
 
 Shape& Shape42 =  Shape();
+Shape42.setContainerField("skin");
 IndexedFaceSet& IndexedFaceSet43 =  IndexedFaceSet();
 IndexedFaceSet43.setUSE(std::string("SkinMeshIFS"));
 Shape42.setGeometry(&IndexedFaceSet43);
@@ -218,6 +217,7 @@ HAnimHumanoid44.setDEF(std::string("e_SkinSwitchShapeIndexedGeometry"));
 HAnimHumanoid44.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint45 =  HAnimJoint();
 HAnimJoint45.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint45.setContainerField("skeleton");
 HAnimSegment& HAnimSegment46 =  HAnimSegment();
 HAnimSegment46.X3DNode::setName(std::string("sacrum"));
 HAnimJoint45.addChildren(&HAnimSegment46);
@@ -226,6 +226,7 @@ HAnimHumanoid44.setSkeleton(&HAnimJoint45);
 
 //TODO show X3D4.0 addition of <Switch DEF='AlternativeSkins' containerField='skin'>
 Shape& Shape47 =  Shape();
+Shape47.setContainerField("skin");
 IndexedFaceSet& IndexedFaceSet48 =  IndexedFaceSet();
 IndexedFaceSet48.setDEF(std::string("IndexedSkinMeshIFS"));
 Coordinate& Coordinate49 =  Coordinate();
@@ -246,6 +247,7 @@ HAnimHumanoid50.setDEF(std::string("f_SynthesizedSkinShapeIndexedTwoPartGeometry
 HAnimHumanoid50.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint51 =  HAnimJoint();
 HAnimJoint51.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint51.setContainerField("skeleton");
 HAnimSegment& HAnimSegment52 =  HAnimSegment();
 HAnimSegment52.X3DNode::setName(std::string("sacrum"));
 HAnimJoint51.addChildren(&HAnimSegment52);
@@ -253,6 +255,7 @@ HAnimJoint51.addChildren(&HAnimSegment52);
 HAnimHumanoid50.setSkeleton(&HAnimJoint51);
 
 Shape& Shape53 =  Shape();
+Shape53.setContainerField("skin");
 IndexedFaceSet& IndexedFaceSet54 =  IndexedFaceSet();
 IndexedFaceSet54.setDEF(std::string("TwoPartIndexedSkinMesh"));
 Coordinate& Coordinate55 =  Coordinate();
@@ -272,6 +275,7 @@ HAnimHumanoid56.setDEF(std::string("g_ApparelSkinIndexedGeometryMultipleShapes")
 HAnimHumanoid56.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint57 =  HAnimJoint();
 HAnimJoint57.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint57.setContainerField("skeleton");
 HAnimSegment& HAnimSegment58 =  HAnimSegment();
 HAnimSegment58.X3DNode::setName(std::string("sacrum"));
 HAnimJoint57.addChildren(&HAnimSegment58);
@@ -279,6 +283,7 @@ HAnimJoint57.addChildren(&HAnimSegment58);
 HAnimHumanoid56.setSkeleton(&HAnimJoint57);
 
 Shape& Shape59 =  Shape();
+Shape59.setContainerField("skin");
 HAnimHumanoid56.setSkin(&Shape59);
 
 //allow multiple Shape nodes with containerField='apparel', one for each layer of clothing
@@ -292,6 +297,7 @@ HAnimHumanoid60.setDEF(std::string("h_AnatomySkinIndexedGeometryMultipleShapes")
 HAnimHumanoid60.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint61 =  HAnimJoint();
 HAnimJoint61.X3DNode::setName(std::string("humanoid_root"));
+HAnimJoint61.setContainerField("skeleton");
 HAnimSegment& HAnimSegment62 =  HAnimSegment();
 HAnimSegment62.X3DNode::setName(std::string("sacrum"));
 HAnimJoint61.addChildren(&HAnimSegment62);
@@ -300,6 +306,7 @@ HAnimHumanoid60.setSkeleton(&HAnimJoint61);
 
 //allow multiple Shape nodes with containerField='skin', one for each layer of skin
 Shape& Shape63 =  Shape();
+Shape63.setContainerField("skin");
 HAnimHumanoid60.setSkin(&Shape63);
 
 Group21.addChild(&HAnimHumanoid60);
@@ -323,6 +330,7 @@ Shape& Shape66 =  Shape();
 Text& Text67 =  Text();
 Text67.setString((std::string[]){"DesignPatternsApparelMedicalSkinLayers.x3d", "explores potential apparel approaches"}, 2);
 CFontStyle& FontStyle68 =  CFontStyle();
+FontStyle68.setContainerField("fontStyle");
 FontStyle68.setFamily((std::string[]){"SANS"}, 1);
 FontStyle68.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle68.setSize(0.6);
@@ -332,7 +340,9 @@ Text67.setFontStyle(&FontStyle68);
 Shape66.setGeometry(&Text67);
 
 Appearance& Appearance69 =  Appearance();
+Appearance69.setContainerField("appearance");
 Material& Material70 =  Material();
+Material70.setContainerField("material");
 Material70.setDiffuseColor(new float[]{0.9,0.9,0.9});
 Appearance69.addChild(&Material70);
 
@@ -347,7 +357,9 @@ Box72.setSize(new float[]{11.0,2.0,0.001});
 Shape71.setGeometry(&Box72);
 
 Appearance& Appearance73 =  Appearance();
+Appearance73.setContainerField("appearance");
 Material& Material74 =  Material();
+Material74.setContainerField("material");
 Material74.setTransparency(1);
 Appearance73.addChild(&Material74);
 
@@ -359,4 +371,4 @@ Scene18.addChild(&Anchor65);
 
 X3D0.setScene(&Scene18);
 
-//}
+}

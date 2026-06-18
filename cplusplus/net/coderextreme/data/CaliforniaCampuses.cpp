@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CaliforniaCampuses(int argc, char ** argv) {
+void CaliforniaCampuses(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -119,7 +111,7 @@ Switch22.setDEF(std::string("SwitchGlobes"));
 Switch22.setWhichChoice(0);
 //Select globe of interest. Warning: may need to keep alternate globes commented out to prevent browser caching.
 Inline& Inline23 =  Inline();
-Inline23.setUrl((std::string[]){"http://x3d-earth.nps.edu/osmdemo.x3d"}, 1);
+Inline23.setUrl(new std::string[]{"http://x3d-earth.nps.edu/osmdemo.x3d"}, 1);
 Switch22.addChild(&Inline23);
 
 //<Inline load='false' url='\"http://mmog.ern.nps.edu/California/California.x3d\"'/>
@@ -129,7 +121,7 @@ Switch22.addChild(&Inline23);
 Scene20.addChild(&Switch22);
 
 NavigationInfo& NavigationInfo24 =  NavigationInfo();
-NavigationInfo24.setTransitionType((std::string[]){"ANIMATE"}, 1);
+NavigationInfo24.setTransitionType(new std::string[]{"ANIMATE"}, 1);
 Scene20.addChild(&NavigationInfo24);
 
 Group& Group25 =  Group();
@@ -385,7 +377,7 @@ Scene20.addChild(&Group25);
 ExternProtoDeclare& ExternProtoDeclare61 =  ExternProtoDeclare();
 ExternProtoDeclare61.setName(std::string("CrossHair"));
 ExternProtoDeclare61.setAppinfo(std::string("CrossHair prototype provides a heads-up display (HUD) crosshair at the view center, which is useful for assessing NavigationInfo lookAt point"));
-ExternProtoDeclare61.setUrl((std::string[]){"../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair", "https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair", "../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair", "https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair"}, 4);
+ExternProtoDeclare61.setUrl(new std::string[]{"../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair", "https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair", "../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair", "https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair"}, 4);
 field& field62 =  field();
 field62.setName(std::string("enabled"));
 field62.setAccessType(std::string("initializeOnly"));
@@ -452,7 +444,7 @@ Scene20.addChild(&ProtoInstance67);
 ExternProtoDeclare& ExternProtoDeclare72 =  ExternProtoDeclare();
 ExternProtoDeclare72.setName(std::string("HeadsUpDisplay"));
 ExternProtoDeclare72.setAppinfo(std::string("Heads-up display (HUD) keeps child geometry aligned on screen in a consistent location"));
-ExternProtoDeclare72.setUrl((std::string[]){"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay", "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay", "../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay", "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay"}, 4);
+ExternProtoDeclare72.setUrl(new std::string[]{"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay", "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay", "../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay", "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay"}, 4);
 field& field73 =  field();
 field73.setName(std::string("children"));
 field73.setAccessType(std::string("inputOutput"));
@@ -487,7 +479,7 @@ Scene20.addChild(&ExternProtoDeclare72);
 ExternProtoDeclare& ExternProtoDeclare77 =  ExternProtoDeclare();
 ExternProtoDeclare77.setName(std::string("ViewpointSequencer"));
 ExternProtoDeclare77.setAppinfo(std::string("Sequentially binds each Viewpoint in a set of Viewpoint USE nodes, creating an automatic tour for a scene"));
-ExternProtoDeclare77.setUrl((std::string[]){"../../Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer", "https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer", "../../Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer", "https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer"}, 4);
+ExternProtoDeclare77.setUrl(new std::string[]{"../../Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer", "https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer", "../../Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer", "https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer"}, 4);
 field& field78 =  field();
 field78.setName(std::string("viewpoints"));
 field78.setAccessType(std::string("initializeOnly"));
@@ -582,143 +574,143 @@ fieldValue& fieldValue92 =  fieldValue();
 fieldValue92.setName(std::string("viewpoints"));
 GeoViewpoint& GeoViewpoint93 =  GeoViewpoint();
 GeoViewpoint93.setUSE(std::string("View01"));
-fieldValue92.addChild(GeoViewpoint93);
+fieldValue92.addChild(&GeoViewpoint93);
 
 GeoViewpoint& GeoViewpoint94 =  GeoViewpoint();
 GeoViewpoint94.setUSE(std::string("View02"));
-fieldValue92.addChild(GeoViewpoint94);
+fieldValue92.addChild(&GeoViewpoint94);
 
 GeoViewpoint& GeoViewpoint95 =  GeoViewpoint();
 GeoViewpoint95.setUSE(std::string("View03"));
-fieldValue92.addChild(GeoViewpoint95);
+fieldValue92.addChild(&GeoViewpoint95);
 
 GeoViewpoint& GeoViewpoint96 =  GeoViewpoint();
 GeoViewpoint96.setUSE(std::string("View04"));
-fieldValue92.addChild(GeoViewpoint96);
+fieldValue92.addChild(&GeoViewpoint96);
 
 GeoViewpoint& GeoViewpoint97 =  GeoViewpoint();
 GeoViewpoint97.setUSE(std::string("View05"));
-fieldValue92.addChild(GeoViewpoint97);
+fieldValue92.addChild(&GeoViewpoint97);
 
 GeoViewpoint& GeoViewpoint98 =  GeoViewpoint();
 GeoViewpoint98.setUSE(std::string("View06"));
-fieldValue92.addChild(GeoViewpoint98);
+fieldValue92.addChild(&GeoViewpoint98);
 
 GeoViewpoint& GeoViewpoint99 =  GeoViewpoint();
 GeoViewpoint99.setUSE(std::string("View07"));
-fieldValue92.addChild(GeoViewpoint99);
+fieldValue92.addChild(&GeoViewpoint99);
 
 GeoViewpoint& GeoViewpoint100 =  GeoViewpoint();
 GeoViewpoint100.setUSE(std::string("View08"));
-fieldValue92.addChild(GeoViewpoint100);
+fieldValue92.addChild(&GeoViewpoint100);
 
 GeoViewpoint& GeoViewpoint101 =  GeoViewpoint();
 GeoViewpoint101.setUSE(std::string("View09"));
-fieldValue92.addChild(GeoViewpoint101);
+fieldValue92.addChild(&GeoViewpoint101);
 
 GeoViewpoint& GeoViewpoint102 =  GeoViewpoint();
 GeoViewpoint102.setUSE(std::string("View10"));
-fieldValue92.addChild(GeoViewpoint102);
+fieldValue92.addChild(&GeoViewpoint102);
 
 GeoViewpoint& GeoViewpoint103 =  GeoViewpoint();
 GeoViewpoint103.setUSE(std::string("View11"));
-fieldValue92.addChild(GeoViewpoint103);
+fieldValue92.addChild(&GeoViewpoint103);
 
 GeoViewpoint& GeoViewpoint104 =  GeoViewpoint();
 GeoViewpoint104.setUSE(std::string("View12"));
-fieldValue92.addChild(GeoViewpoint104);
+fieldValue92.addChild(&GeoViewpoint104);
 
 GeoViewpoint& GeoViewpoint105 =  GeoViewpoint();
 GeoViewpoint105.setUSE(std::string("View13"));
-fieldValue92.addChild(GeoViewpoint105);
+fieldValue92.addChild(&GeoViewpoint105);
 
 GeoViewpoint& GeoViewpoint106 =  GeoViewpoint();
 GeoViewpoint106.setUSE(std::string("View14"));
-fieldValue92.addChild(GeoViewpoint106);
+fieldValue92.addChild(&GeoViewpoint106);
 
 GeoViewpoint& GeoViewpoint107 =  GeoViewpoint();
 GeoViewpoint107.setUSE(std::string("View15"));
-fieldValue92.addChild(GeoViewpoint107);
+fieldValue92.addChild(&GeoViewpoint107);
 
 GeoViewpoint& GeoViewpoint108 =  GeoViewpoint();
 GeoViewpoint108.setUSE(std::string("View16"));
-fieldValue92.addChild(GeoViewpoint108);
+fieldValue92.addChild(&GeoViewpoint108);
 
 GeoViewpoint& GeoViewpoint109 =  GeoViewpoint();
 GeoViewpoint109.setUSE(std::string("View17"));
-fieldValue92.addChild(GeoViewpoint109);
+fieldValue92.addChild(&GeoViewpoint109);
 
 GeoViewpoint& GeoViewpoint110 =  GeoViewpoint();
 GeoViewpoint110.setUSE(std::string("View18"));
-fieldValue92.addChild(GeoViewpoint110);
+fieldValue92.addChild(&GeoViewpoint110);
 
 GeoViewpoint& GeoViewpoint111 =  GeoViewpoint();
 GeoViewpoint111.setUSE(std::string("View19"));
-fieldValue92.addChild(GeoViewpoint111);
+fieldValue92.addChild(&GeoViewpoint111);
 
 GeoViewpoint& GeoViewpoint112 =  GeoViewpoint();
 GeoViewpoint112.setUSE(std::string("View20"));
-fieldValue92.addChild(GeoViewpoint112);
+fieldValue92.addChild(&GeoViewpoint112);
 
 GeoViewpoint& GeoViewpoint113 =  GeoViewpoint();
 GeoViewpoint113.setUSE(std::string("View21"));
-fieldValue92.addChild(GeoViewpoint113);
+fieldValue92.addChild(&GeoViewpoint113);
 
 GeoViewpoint& GeoViewpoint114 =  GeoViewpoint();
 GeoViewpoint114.setUSE(std::string("View22"));
-fieldValue92.addChild(GeoViewpoint114);
+fieldValue92.addChild(&GeoViewpoint114);
 
 GeoViewpoint& GeoViewpoint115 =  GeoViewpoint();
 GeoViewpoint115.setUSE(std::string("View23"));
-fieldValue92.addChild(GeoViewpoint115);
+fieldValue92.addChild(&GeoViewpoint115);
 
 GeoViewpoint& GeoViewpoint116 =  GeoViewpoint();
 GeoViewpoint116.setUSE(std::string("View24"));
-fieldValue92.addChild(GeoViewpoint116);
+fieldValue92.addChild(&GeoViewpoint116);
 
 GeoViewpoint& GeoViewpoint117 =  GeoViewpoint();
 GeoViewpoint117.setUSE(std::string("View25"));
-fieldValue92.addChild(GeoViewpoint117);
+fieldValue92.addChild(&GeoViewpoint117);
 
 GeoViewpoint& GeoViewpoint118 =  GeoViewpoint();
 GeoViewpoint118.setUSE(std::string("View26"));
-fieldValue92.addChild(GeoViewpoint118);
+fieldValue92.addChild(&GeoViewpoint118);
 
 GeoViewpoint& GeoViewpoint119 =  GeoViewpoint();
 GeoViewpoint119.setUSE(std::string("View27"));
-fieldValue92.addChild(GeoViewpoint119);
+fieldValue92.addChild(&GeoViewpoint119);
 
 GeoViewpoint& GeoViewpoint120 =  GeoViewpoint();
 GeoViewpoint120.setUSE(std::string("View28"));
-fieldValue92.addChild(GeoViewpoint120);
+fieldValue92.addChild(&GeoViewpoint120);
 
 GeoViewpoint& GeoViewpoint121 =  GeoViewpoint();
 GeoViewpoint121.setUSE(std::string("View29"));
-fieldValue92.addChild(GeoViewpoint121);
+fieldValue92.addChild(&GeoViewpoint121);
 
 GeoViewpoint& GeoViewpoint122 =  GeoViewpoint();
 GeoViewpoint122.setUSE(std::string("View30"));
-fieldValue92.addChild(GeoViewpoint122);
+fieldValue92.addChild(&GeoViewpoint122);
 
 GeoViewpoint& GeoViewpoint123 =  GeoViewpoint();
 GeoViewpoint123.setUSE(std::string("View31"));
-fieldValue92.addChild(GeoViewpoint123);
+fieldValue92.addChild(&GeoViewpoint123);
 
 GeoViewpoint& GeoViewpoint124 =  GeoViewpoint();
 GeoViewpoint124.setUSE(std::string("View32"));
-fieldValue92.addChild(GeoViewpoint124);
+fieldValue92.addChild(&GeoViewpoint124);
 
 GeoViewpoint& GeoViewpoint125 =  GeoViewpoint();
 GeoViewpoint125.setUSE(std::string("View33"));
-fieldValue92.addChild(GeoViewpoint125);
+fieldValue92.addChild(&GeoViewpoint125);
 
 GeoViewpoint& GeoViewpoint126 =  GeoViewpoint();
 GeoViewpoint126.setUSE(std::string("View34"));
-fieldValue92.addChild(GeoViewpoint126);
+fieldValue92.addChild(&GeoViewpoint126);
 
 GeoViewpoint& GeoViewpoint127 =  GeoViewpoint();
 GeoViewpoint127.setUSE(std::string("View35"));
-fieldValue92.addChild(GeoViewpoint127);
+fieldValue92.addChild(&GeoViewpoint127);
 
 Viewpoint& Viewpoint128 =  Viewpoint();
 Viewpoint128.setDEF(std::string("View4"));
@@ -739,15 +731,18 @@ Billboard& Billboard130 =  Billboard();
 Billboard130.setAxisOfRotation(new float[]{0.0,0.0,0.0});
 Shape& Shape131 =  Shape();
 Text& Text132 =  Text();
-Text132.setString((std::string[]){"ViewpointSequencer tour"}, 1);
+Text132.setString(new std::string[]{"ViewpointSequencer tour"}, 1);
 CFontStyle& FontStyle133 =  CFontStyle();
-FontStyle133.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle133.setContainerField("fontStyle");
+FontStyle133.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text132.setFontStyle(&FontStyle133);
 
 Shape131.setGeometry(&Text132);
 
 Appearance& Appearance134 =  Appearance();
+Appearance134.setContainerField("appearance");
 Material& Material135 =  Material();
+Material135.setContainerField("material");
 Material135.setAmbientIntensity(0.25);
 Material135.setDiffuseColor(new float[]{0.795918,0.505869,0.093315});
 Material135.setShininess(0.39);
@@ -774,14 +769,14 @@ ROUTE138.setFromField(std::string("isActive"));
 ROUTE138.setFromNode(std::string("TourTouch"));
 ROUTE138.setToField(std::string("set_boolean"));
 ROUTE138.setToNode(std::string("TourToggle"));
-GeoLocation129.addChildren(&ROUTE138);
+GeoLocation129.addChild(&ROUTE138);
 
 ROUTE& ROUTE139 =  ROUTE();
 ROUTE139.setFromField(std::string("toggle"));
 ROUTE139.setFromNode(std::string("TourToggle"));
 ROUTE139.setToField(std::string("set_enabled"));
 ROUTE139.setToNode(std::string("ViewpointTour"));
-GeoLocation129.addChildren(&ROUTE139);
+GeoLocation129.addChild(&ROUTE139);
 
 Scene20.addChild(&GeoLocation129);
 
@@ -789,7 +784,7 @@ Scene20.addChild(&GeoLocation129);
 ExternProtoDeclare& ExternProtoDeclare140 =  ExternProtoDeclare();
 ExternProtoDeclare140.setName(std::string("ViewPositionOrientation"));
 ExternProtoDeclare140.setAppinfo(std::string("ViewPositionOrientation provides provides console output of local position and orientation as user navigates"));
-ExternProtoDeclare140.setUrl((std::string[]){"../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation", "https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation", "../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation", "https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation"}, 4);
+ExternProtoDeclare140.setUrl(new std::string[]{"../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation", "https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation", "../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation", "https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation"}, 4);
 field& field141 =  field();
 field141.setName(std::string("enabled"));
 field141.setAccessType(std::string("inputOutput"));

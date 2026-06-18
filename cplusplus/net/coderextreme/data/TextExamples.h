@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int TextExamples(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -76,6 +68,7 @@ Shape& Shape14 =  Shape();
 Text& Text15 =  Text();
 Text15.setString((std::string[]){"Compare special character escaping"}, 1);
 CFontStyle& FontStyle16 =  CFontStyle();
+FontStyle16.setContainerField("fontStyle");
 FontStyle16.setDEF(std::string("testFontStyle"));
 FontStyle16.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle16.setSize(0.8);
@@ -84,8 +77,10 @@ Text15.setFontStyle(&FontStyle16);
 Shape14.setGeometry(&Text15);
 
 Appearance& Appearance17 =  Appearance();
+Appearance17.setContainerField("appearance");
 Appearance17.setDEF(std::string("LightBlueAppearance"));
 Material& Material18 =  Material();
+Material18.setContainerField("material");
 Material18.setDiffuseColor(new float[]{0.1,0.7,0.7});
 Appearance17.addChild(&Material18);
 
@@ -101,12 +96,14 @@ Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
 Text21.setString((std::string[]){"I don't think so", "he said \"Hi\""}, 2);
 CFontStyle& FontStyle22 =  CFontStyle();
+FontStyle22.setContainerField("fontStyle");
 FontStyle22.setUSE(std::string("testFontStyle"));
 Text21.setFontStyle(&FontStyle22);
 
 Shape20.setGeometry(&Text21);
 
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Appearance23.setUSE(std::string("LightBlueAppearance"));
 Shape20.addChild(&Appearance23);
 
@@ -120,12 +117,14 @@ Shape& Shape25 =  Shape();
 Text& Text26 =  Text();
 Text26.setString((std::string[]){"I don't think so", "he said \"Hi\""}, 2);
 CFontStyle& FontStyle27 =  CFontStyle();
+FontStyle27.setContainerField("fontStyle");
 FontStyle27.setUSE(std::string("testFontStyle"));
 Text26.setFontStyle(&FontStyle27);
 
 Shape25.setGeometry(&Text26);
 
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Appearance28.setUSE(std::string("LightBlueAppearance"));
 Shape25.addChild(&Appearance28);
 
@@ -135,4 +134,4 @@ Scene12.addChild(&Transform24);
 
 X3D0.setScene(&Scene12);
 
-//}
+}

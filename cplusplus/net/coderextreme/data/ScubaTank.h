@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ScubaTank(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -69,7 +61,9 @@ Transform12.setDEF(std::string("ScubaTank"));
 Transform& Transform13 =  Transform();
 Shape& Shape14 =  Shape();
 Appearance& Appearance15 =  Appearance();
+Appearance15.setContainerField("appearance");
 Material& Material16 =  Material();
+Material16.setContainerField("material");
 Material16.setDEF(std::string("tank"));
 Material16.setAmbientIntensity(0.3);
 Material16.setDiffuseColor(new float[]{0.3,0.3,0.5});
@@ -92,7 +86,9 @@ Transform& Transform18 =  Transform();
 Transform18.setTranslation(new float[]{0.0,0.35,0.0});
 Shape& Shape19 =  Shape();
 Appearance& Appearance20 =  Appearance();
+Appearance20.setContainerField("appearance");
 Material& Material21 =  Material();
+Material21.setContainerField("material");
 Material21.setUSE(std::string("tank"));
 Appearance20.addChild(&Material21);
 
@@ -111,7 +107,9 @@ Transform23.setTranslation(new float[]{0.0,-0.35,0.0});
 Shape& Shape24 =  Shape();
 Shape24.setDEF(std::string("tankBottom"));
 Appearance& Appearance25 =  Appearance();
+Appearance25.setContainerField("appearance");
 Material& Material26 =  Material();
+Material26.setContainerField("material");
 Material26.setDEF(std::string("black"));
 Material26.setAmbientIntensity(0.3);
 Material26.setDiffuseColor(new float[]{0.0,0.0,0.0});
@@ -136,7 +134,9 @@ Transform30.setTranslation(new float[]{0.0,0.45,0.0});
 Shape& Shape31 =  Shape();
 Shape31.setDEF(std::string("pressure"));
 Appearance& Appearance32 =  Appearance();
+Appearance32.setContainerField("appearance");
 Material& Material33 =  Material();
+Material33.setContainerField("material");
 Material33.setDEF(std::string("pressureColor"));
 Material33.setAmbientIntensity(0.4);
 Material33.setDiffuseColor(new float[]{0.91,0.91,0.91});
@@ -160,7 +160,9 @@ Transform35.setTranslation(new float[]{0.0,0.5,0.0});
 Shape& Shape36 =  Shape();
 Shape36.setDEF(std::string("pressureTop"));
 Appearance& Appearance37 =  Appearance();
+Appearance37.setContainerField("appearance");
 Material& Material38 =  Material();
+Material38.setContainerField("material");
 Material38.setUSE(std::string("black"));
 Appearance37.addChild(&Material38);
 
@@ -182,7 +184,9 @@ Transform& Transform41 =  Transform();
 Shape& Shape42 =  Shape();
 Shape42.setDEF(std::string("connectorToRegulator"));
 Appearance& Appearance43 =  Appearance();
+Appearance43.setContainerField("appearance");
 Material& Material44 =  Material();
+Material44.setContainerField("material");
 Material44.setUSE(std::string("pressureColor"));
 Appearance43.addChild(&Material44);
 
@@ -202,7 +206,9 @@ Transform46.setTranslation(new float[]{0.0,0.02,0.0});
 Shape& Shape47 =  Shape();
 Shape47.setDEF(std::string("connectorToRegulatorTop"));
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setUSE(std::string("black"));
 Appearance48.addChild(&Material49);
 
@@ -228,7 +234,9 @@ Transform51.setTranslation(new float[]{0.0,0.2,0.0});
 Shape& Shape52 =  Shape();
 Shape52.setDEF(std::string("tankHoldBelt"));
 Appearance& Appearance53 =  Appearance();
+Appearance53.setContainerField("appearance");
 Material& Material54 =  Material();
+Material54.setContainerField("material");
 Material54.setUSE(std::string("black"));
 Appearance53.addChild(&Material54);
 
@@ -251,4 +259,4 @@ Scene10.addChild(&Background56);
 
 X3D0.setScene(&Scene10);
 
-//}
+}

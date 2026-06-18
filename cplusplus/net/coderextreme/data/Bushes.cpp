@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Bushes(int argc, char ** argv) {
+void Bushes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -81,7 +73,9 @@ Scene13.addChild(&WorldInfo14);
 
 Shape& Shape15 =  Shape();
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setAmbientIntensity(0);
 Material17.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material17.setShininess(1);
@@ -104,7 +98,9 @@ Scene13.addChild(&Shape15);
 
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setAmbientIntensity(0);
 Material22.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material22.setShininess(1);
@@ -127,7 +123,9 @@ Scene13.addChild(&Shape20);
 
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Material& Material27 =  Material();
+Material27.setContainerField("material");
 Material27.setAmbientIntensity(0);
 Material27.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material27.setShininess(1);
@@ -150,7 +148,9 @@ Scene13.addChild(&Shape25);
 
 Shape& Shape30 =  Shape();
 Appearance& Appearance31 =  Appearance();
+Appearance31.setContainerField("appearance");
 Material& Material32 =  Material();
+Material32.setContainerField("material");
 Material32.setAmbientIntensity(0);
 Material32.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Material32.setShininess(1);

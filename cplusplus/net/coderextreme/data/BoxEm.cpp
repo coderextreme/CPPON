@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int BoxEm(int argc, char ** argv) {
+void BoxEm(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -46,7 +38,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo8.setType(new std::string[]{"EXAMINE"}, 1);
 Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
@@ -73,7 +65,9 @@ Sphere& Sphere15 =  Sphere();
 Shape14.setGeometry(&Sphere15);
 
 Appearance& Appearance16 =  Appearance();
+Appearance16.setContainerField("appearance");
 Material& Material17 =  Material();
+Material17.setContainerField("material");
 Material17.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance16.addChild(&Material17);
 
@@ -125,7 +119,9 @@ Cylinder& Cylinder28 =  Cylinder();
 Shape27.setGeometry(&Cylinder28);
 
 Appearance& Appearance29 =  Appearance();
+Appearance29.setContainerField("appearance");
 Material& Material30 =  Material();
+Material30.setContainerField("material");
 Material30.setDiffuseColor(new float[]{1.0,1.0,1.0});
 Appearance29.addChild(&Material30);
 
@@ -221,7 +217,9 @@ Box51.setSize(new float[]{1.0,1.0,1.0});
 Shape50.setGeometry(&Box51);
 
 Appearance& Appearance52 =  Appearance();
+Appearance52.setContainerField("appearance");
 Material& Material53 =  Material();
+Material53.setContainerField("material");
 Material53.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance52.addChild(&Material53);
 

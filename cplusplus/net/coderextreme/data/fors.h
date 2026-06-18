@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int fors(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -89,7 +81,9 @@ Sphere& Sphere20 =  Sphere();
 Shape19.setGeometry(&Sphere20);
 
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{1.0,0.0,0.0});
 Appearance21.addChild(&Material22);
 
@@ -103,6 +97,7 @@ Shape& Shape24 =  Shape();
 Text& Text25 =  Text();
 Text25.setString((std::string[]){"Node"}, 1);
 CFontStyle& FontStyle26 =  CFontStyle();
+FontStyle26.setContainerField("fontStyle");
 FontStyle26.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 FontStyle26.setSize(5);
 Text25.setFontStyle(&FontStyle26);
@@ -110,7 +105,9 @@ Text25.setFontStyle(&FontStyle26);
 Shape24.setGeometry(&Text25);
 
 Appearance& Appearance27 =  Appearance();
+Appearance27.setContainerField("appearance");
 Material& Material28 =  Material();
+Material28.setContainerField("material");
 Material28.setDiffuseColor(new float[]{0.0,0.0,1.0});
 Appearance27.addChild(&Material28);
 
@@ -124,7 +121,7 @@ Group15.addChild(&Transform16);
 
 PositionInterpolator& PositionInterpolator29 =  PositionInterpolator();
 PositionInterpolator29.setDEF(std::string("NodePosition"));
-PositionInterpolator29.setKey(new float[]{0.0,1.0}, 2);
+PositionInterpolator29.setKey(new float[]{0.0,1.0});
 PositionInterpolator29.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Group15.addChild(&PositionInterpolator29);
 
@@ -235,7 +232,9 @@ Extrusion47.setSpine(new float[]{0.0,-50.0,0.0,0.0,0.0,0.0,0.0,50.0,0.0}, 9);
 Shape46.setGeometry(&Extrusion47);
 
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Material& Material49 =  Material();
+Material49.setContainerField("material");
 Material49.setDiffuseColor(new float[]{0.0,1.0,0.0});
 Appearance48.addChild(&Material49);
 
@@ -402,4 +401,4 @@ Scene10.addChild(&ROUTE70);
 
 X3D0.setScene(&Scene10);
 
-//}
+}

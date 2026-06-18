@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int CameraShape(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interactive"));
 X3D0.setVersion(std::string("4.0"));
@@ -116,8 +108,10 @@ Switch& Switch21 =  Switch();
 Switch21.setWhichChoice(-1);
 Shape& Shape22 =  Shape();
 Appearance& Appearance23 =  Appearance();
+Appearance23.setContainerField("appearance");
 Appearance23.setDEF(std::string("CameraAppearance"));
 Material& Material24 =  Material();
+Material24.setContainerField("material");
 Material24.setDEF(std::string("lambert1_0"));
 Material24.setAmbientIntensity(0.25);
 Material24.setDiffuseColor(new float[]{0.372322,0.371574,0.373173});
@@ -144,6 +138,7 @@ IndexedFaceSet26.setCoord(&Coordinate27);
 Shape25.setGeometry(&IndexedFaceSet26);
 
 Appearance& Appearance28 =  Appearance();
+Appearance28.setContainerField("appearance");
 Appearance28.setUSE(std::string("CameraAppearance"));
 Shape25.addChild(&Appearance28);
 
@@ -163,6 +158,7 @@ IndexedFaceSet30.setCoord(&Coordinate31);
 Shape29.setGeometry(&IndexedFaceSet30);
 
 Appearance& Appearance32 =  Appearance();
+Appearance32.setContainerField("appearance");
 Appearance32.setUSE(std::string("CameraAppearance"));
 Shape29.addChild(&Appearance32);
 
@@ -182,6 +178,7 @@ IndexedFaceSet34.setCoord(&Coordinate35);
 Shape33.setGeometry(&IndexedFaceSet34);
 
 Appearance& Appearance36 =  Appearance();
+Appearance36.setContainerField("appearance");
 Appearance36.setUSE(std::string("CameraAppearance"));
 Shape33.addChild(&Appearance36);
 
@@ -201,6 +198,7 @@ IndexedFaceSet38.setCoord(&Coordinate39);
 Shape37.setGeometry(&IndexedFaceSet38);
 
 Appearance& Appearance40 =  Appearance();
+Appearance40.setContainerField("appearance");
 Appearance40.setUSE(std::string("CameraAppearance"));
 Shape37.addChild(&Appearance40);
 
@@ -215,6 +213,7 @@ Transform42.setRotation(new float[]{-1.0,0.0,0.0,0.373518});
 Transform42.setTranslation(new float[]{-0.038462,3.596312,3.297562});
 Shape& Shape43 =  Shape();
 Appearance& Appearance44 =  Appearance();
+Appearance44.setContainerField("appearance");
 Appearance44.setUSE(std::string("CameraAppearance"));
 Shape43.addChild(&Appearance44);
 
@@ -232,6 +231,7 @@ Transform46.setScale(new float[]{1.0,0.727134,0.801457});
 Transform46.setTranslation(new float[]{-0.030769,1.738461,1.4436});
 Shape& Shape47 =  Shape();
 Appearance& Appearance48 =  Appearance();
+Appearance48.setContainerField("appearance");
 Appearance48.setUSE(std::string("CameraAppearance"));
 Shape47.addChild(&Appearance48);
 
@@ -249,6 +249,7 @@ Transform50.setScale(new float[]{1.0,1.0,0.569444});
 Transform50.setTranslation(new float[]{0.015385,1.630769,-1.973274});
 Shape& Shape51 =  Shape();
 Appearance& Appearance52 =  Appearance();
+Appearance52.setContainerField("appearance");
 Appearance52.setUSE(std::string("CameraAppearance"));
 Shape51.addChild(&Appearance52);
 
@@ -266,6 +267,7 @@ Transform54.setScale(new float[]{1.1,1.1,0.1});
 Transform54.setTranslation(new float[]{-0.015385,1.628515,-2.569231});
 Shape& Shape55 =  Shape();
 Appearance& Appearance56 =  Appearance();
+Appearance56.setContainerField("appearance");
 Appearance56.setUSE(std::string("CameraAppearance"));
 Shape55.addChild(&Appearance56);
 
@@ -283,4 +285,4 @@ Scene13.addChild(&Transform20);
 
 X3D0.setScene(&Scene13);
 
-//}
+}

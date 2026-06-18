@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int ExtrusionHeart(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -78,7 +70,9 @@ Extrusion14.setSpine(new float[]{0.0,0.0,0.0,0.0,0.1,0.0,0.0,0.5,0.0,0.0,0.9,0.0
 Shape13.setGeometry(&Extrusion14);
 
 Appearance& Appearance15 =  Appearance();
+Appearance15.setContainerField("appearance");
 Material& Material16 =  Material();
+Material16.setContainerField("material");
 Material16.setDiffuseColor(new float[]{0.8,0.3,0.3});
 Appearance15.addChild(&Material16);
 
@@ -90,4 +84,4 @@ Scene10.addChild(&Transform12);
 
 X3D0.setScene(&Scene10);
 
-//}
+}

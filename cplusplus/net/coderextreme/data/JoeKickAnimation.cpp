@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JoeKickAnimation(int argc, char ** argv) {
+void JoeKickAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -101,7 +93,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene18 =  Scene();
 WorldInfo& WorldInfo19 =  WorldInfo();
-WorldInfo19.setInfo((std::string[]){"X3D Humanoid LOA3 skeleton", "skin from hanim sites, surface features, and some added points", "390 points"}, 3);
+WorldInfo19.setInfo(new std::string[]{"X3D Humanoid LOA3 skeleton", "skin from hanim sites, surface features, and some added points", "390 points"}, 3);
 WorldInfo19.setTitle(std::string("X3D HANIM LOA3 Skeleton, 390 point Skin, texcoords, Displacer, teTrans for Joe_ by Joe"));
 Scene18.addChild(&WorldInfo19);
 
@@ -180,20 +172,23 @@ HAnimHumanoid30.setDEF(std::string("Joe_JoeKick"));
 HAnimHumanoid30.setLoa(3);
 HAnimHumanoid30.setVersion(std::string("2.0"));
 MetadataSet& MetadataSet31 =  MetadataSet();
+MetadataSet31.setContainerField("metadata");
 MetadataSet31.X3DNode::setName(std::string("warnings"));
 MetadataSet31.X3DNode::setReference(std::string("HAnim"));
 MetadataString& MetadataString32 =  MetadataString();
 MetadataString32.X3DNode::setName(std::string("SymmetricalLeftRight"));
 MetadataString32.X3DNode::setReference(std::string("correction options: ignore, warn, average, left, right, largest, smallest"));
-MetadataString32.setValue((std::string[]){"ignore"}, 1);
+MetadataString32.setValue(new std::string[]{"ignore"}, 1);
+MetadataString32.setContainerField("value");
 MetadataSet31.setValue((X3DNode *)&MetadataString32);
 
-HAnimHumanoid30.setMetadata(&MetadataSet31);
+HAnimHumanoid30.setMetadata(MetadataSet31);
 
 HAnimJoint& HAnimJoint33 =  HAnimJoint();
 HAnimJoint33.X3DNode::setName(std::string("humanoid_root"));
 HAnimJoint33.setDEF(std::string("Joe_humanoid_root"));
 HAnimJoint33.setCenter(new float[]{0.0,0.875,0.0});
+HAnimJoint33.setContainerField("skeleton");
 HAnimSegment& HAnimSegment34 =  HAnimSegment();
 HAnimSegment34.X3DNode::setName(std::string("sacrum"));
 HAnimSegment34.setDEF(std::string("Joe_sacrum"));
@@ -219,7 +214,8 @@ Coordinate& Coordinate40 =  Coordinate();
 Coordinate40.setPoint(new float[]{0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0}, 12);
 IndexedLineSet39.setCoord(&Coordinate40);
 
-CColor& Color41 =  CColor();
+Color& Color41 =  Color();
+Color41.setContainerField("color");
 Color41.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet39.setColor(&Color41);
 
@@ -940,20 +936,25 @@ HAnimHumanoid30.setSkeleton(&HAnimJoint33);
 
 Shape& Shape136 =  Shape();
 Shape136.setDEF(std::string("Joe_Shape"));
+Shape136.setContainerField("skin");
 Appearance& Appearance137 =  Appearance();
+Appearance137.setContainerField("appearance");
 Appearance137.setDEF(std::string("Joe_skin_Appearance"));
 Material& Material138 =  Material();
+Material138.setContainerField("material");
 Material138.setDEF(std::string("Joe_skin_Material"));
 Material138.setDiffuseColor(new float[]{0.3,0.3,0.6});
 Material138.setEmissiveColor(new float[]{0.3,0.3,0.6});
 Appearance137.addChild(&Material138);
 
 ImageTexture& ImageTexture139 =  ImageTexture();
+ImageTexture139.setContainerField("texture");
 ImageTexture139.setDEF(std::string("JoeSkinImageTexture"));
-ImageTexture139.setUrl((std::string[]){"JoeBodyTexture29.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/JoeBodyTexture29.png"}, 2);
+ImageTexture139.setUrl(new std::string[]{"JoeBodyTexture29.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/JoeBodyTexture29.png"}, 2);
 Appearance137.addChild(&ImageTexture139);
 
 TextureTransform& TextureTransform140 =  TextureTransform();
+TextureTransform140.setContainerField("textureTransform");
 TextureTransform140.setDEF(std::string("KickTextureTransform"));
 Appearance137.setTextureTransform(TextureTransform140);
 
@@ -969,6 +970,7 @@ Coordinate142.setPoint(new float[]{0.0,1.77,0.0,0.0,1.665,0.09,-0.033,1.62,0.087
 IndexedFaceSet141.setCoord(&Coordinate142);
 
 TextureCoordinate& TextureCoordinate143 =  TextureCoordinate();
+TextureCoordinate143.setContainerField("texCoord");
 TextureCoordinate143.setPoint(new float[]{0.0,0.0,0.5,0.5,0.5,0.0,0.0,0.5}, 8);
 IndexedFaceSet141.setTexCoord(&TextureCoordinate143);
 
@@ -977,390 +979,487 @@ Shape136.setGeometry(&IndexedFaceSet141);
 HAnimHumanoid30.setSkin(&Shape136);
 
 Coordinate& Coordinate144 =  Coordinate();
+Coordinate144.setContainerField("skinCoord");
 Coordinate144.setUSE(std::string("Joe_SkinCoord"));
 HAnimHumanoid30.setSkinCoord(&Coordinate144);
 
 HAnimJoint& HAnimJoint145 =  HAnimJoint();
+HAnimJoint145.setContainerField("joints");
 HAnimJoint145.setUSE(std::string("Joe_humanoid_root"));
 HAnimHumanoid30.setJoints(&HAnimJoint145);
 
 HAnimJoint& HAnimJoint146 =  HAnimJoint();
+HAnimJoint146.setContainerField("joints");
 HAnimJoint146.setUSE(std::string("Joe_sacroiliac"));
 HAnimHumanoid30.setJoints(&HAnimJoint146);
 
 HAnimJoint& HAnimJoint147 =  HAnimJoint();
+HAnimJoint147.setContainerField("joints");
 HAnimJoint147.setUSE(std::string("Joe_skullbase"));
 HAnimHumanoid30.setJoints(&HAnimJoint147);
 
 HAnimJoint& HAnimJoint148 =  HAnimJoint();
+HAnimJoint148.setContainerField("joints");
 HAnimJoint148.setUSE(std::string("Joe_temporomandibular"));
 HAnimHumanoid30.setJoints(&HAnimJoint148);
 
 HAnimJoint& HAnimJoint149 =  HAnimJoint();
+HAnimJoint149.setContainerField("joints");
 HAnimJoint149.setUSE(std::string("Joe_vc1"));
 HAnimHumanoid30.setJoints(&HAnimJoint149);
 
 HAnimJoint& HAnimJoint150 =  HAnimJoint();
+HAnimJoint150.setContainerField("joints");
 HAnimJoint150.setUSE(std::string("Joe_vc2"));
 HAnimHumanoid30.setJoints(&HAnimJoint150);
 
 HAnimJoint& HAnimJoint151 =  HAnimJoint();
+HAnimJoint151.setContainerField("joints");
 HAnimJoint151.setUSE(std::string("Joe_vc3"));
 HAnimHumanoid30.setJoints(&HAnimJoint151);
 
 HAnimJoint& HAnimJoint152 =  HAnimJoint();
+HAnimJoint152.setContainerField("joints");
 HAnimJoint152.setUSE(std::string("Joe_vc4"));
 HAnimHumanoid30.setJoints(&HAnimJoint152);
 
 HAnimJoint& HAnimJoint153 =  HAnimJoint();
+HAnimJoint153.setContainerField("joints");
 HAnimJoint153.setUSE(std::string("Joe_vc5"));
 HAnimHumanoid30.setJoints(&HAnimJoint153);
 
 HAnimJoint& HAnimJoint154 =  HAnimJoint();
+HAnimJoint154.setContainerField("joints");
 HAnimJoint154.setUSE(std::string("Joe_vc6"));
 HAnimHumanoid30.setJoints(&HAnimJoint154);
 
 HAnimJoint& HAnimJoint155 =  HAnimJoint();
+HAnimJoint155.setContainerField("joints");
 HAnimJoint155.setUSE(std::string("Joe_vc7"));
 HAnimHumanoid30.setJoints(&HAnimJoint155);
 
 HAnimJoint& HAnimJoint156 =  HAnimJoint();
+HAnimJoint156.setContainerField("joints");
 HAnimJoint156.setUSE(std::string("Joe_vl1"));
 HAnimHumanoid30.setJoints(&HAnimJoint156);
 
 HAnimJoint& HAnimJoint157 =  HAnimJoint();
+HAnimJoint157.setContainerField("joints");
 HAnimJoint157.setUSE(std::string("Joe_vl2"));
 HAnimHumanoid30.setJoints(&HAnimJoint157);
 
 HAnimJoint& HAnimJoint158 =  HAnimJoint();
+HAnimJoint158.setContainerField("joints");
 HAnimJoint158.setUSE(std::string("Joe_vl3"));
 HAnimHumanoid30.setJoints(&HAnimJoint158);
 
 HAnimJoint& HAnimJoint159 =  HAnimJoint();
+HAnimJoint159.setContainerField("joints");
 HAnimJoint159.setUSE(std::string("Joe_vl4"));
 HAnimHumanoid30.setJoints(&HAnimJoint159);
 
 HAnimJoint& HAnimJoint160 =  HAnimJoint();
+HAnimJoint160.setContainerField("joints");
 HAnimJoint160.setUSE(std::string("Joe_vl5"));
 HAnimHumanoid30.setJoints(&HAnimJoint160);
 
 HAnimJoint& HAnimJoint161 =  HAnimJoint();
+HAnimJoint161.setContainerField("joints");
 HAnimJoint161.setUSE(std::string("Joe_vt1"));
 HAnimHumanoid30.setJoints(&HAnimJoint161);
 
 HAnimJoint& HAnimJoint162 =  HAnimJoint();
+HAnimJoint162.setContainerField("joints");
 HAnimJoint162.setUSE(std::string("Joe_vt10"));
 HAnimHumanoid30.setJoints(&HAnimJoint162);
 
 HAnimJoint& HAnimJoint163 =  HAnimJoint();
+HAnimJoint163.setContainerField("joints");
 HAnimJoint163.setUSE(std::string("Joe_vt11"));
 HAnimHumanoid30.setJoints(&HAnimJoint163);
 
 HAnimJoint& HAnimJoint164 =  HAnimJoint();
+HAnimJoint164.setContainerField("joints");
 HAnimJoint164.setUSE(std::string("Joe_vt12"));
 HAnimHumanoid30.setJoints(&HAnimJoint164);
 
 HAnimJoint& HAnimJoint165 =  HAnimJoint();
+HAnimJoint165.setContainerField("joints");
 HAnimJoint165.setUSE(std::string("Joe_vt2"));
 HAnimHumanoid30.setJoints(&HAnimJoint165);
 
 HAnimJoint& HAnimJoint166 =  HAnimJoint();
+HAnimJoint166.setContainerField("joints");
 HAnimJoint166.setUSE(std::string("Joe_vt3"));
 HAnimHumanoid30.setJoints(&HAnimJoint166);
 
 HAnimJoint& HAnimJoint167 =  HAnimJoint();
+HAnimJoint167.setContainerField("joints");
 HAnimJoint167.setUSE(std::string("Joe_vt4"));
 HAnimHumanoid30.setJoints(&HAnimJoint167);
 
 HAnimJoint& HAnimJoint168 =  HAnimJoint();
+HAnimJoint168.setContainerField("joints");
 HAnimJoint168.setUSE(std::string("Joe_vt5"));
 HAnimHumanoid30.setJoints(&HAnimJoint168);
 
 HAnimJoint& HAnimJoint169 =  HAnimJoint();
+HAnimJoint169.setContainerField("joints");
 HAnimJoint169.setUSE(std::string("Joe_vt6"));
 HAnimHumanoid30.setJoints(&HAnimJoint169);
 
 HAnimJoint& HAnimJoint170 =  HAnimJoint();
+HAnimJoint170.setContainerField("joints");
 HAnimJoint170.setUSE(std::string("Joe_vt7"));
 HAnimHumanoid30.setJoints(&HAnimJoint170);
 
 HAnimJoint& HAnimJoint171 =  HAnimJoint();
+HAnimJoint171.setContainerField("joints");
 HAnimJoint171.setUSE(std::string("Joe_vt8"));
 HAnimHumanoid30.setJoints(&HAnimJoint171);
 
 HAnimJoint& HAnimJoint172 =  HAnimJoint();
+HAnimJoint172.setContainerField("joints");
 HAnimJoint172.setUSE(std::string("Joe_vt9"));
 HAnimHumanoid30.setJoints(&HAnimJoint172);
 
 HAnimJoint& HAnimJoint173 =  HAnimJoint();
+HAnimJoint173.setContainerField("joints");
 HAnimJoint173.setUSE(std::string("Joe_l_acromioclavicular"));
 HAnimHumanoid30.setJoints(&HAnimJoint173);
 
 HAnimJoint& HAnimJoint174 =  HAnimJoint();
+HAnimJoint174.setContainerField("joints");
 HAnimJoint174.setUSE(std::string("Joe_r_acromioclavicular"));
 HAnimHumanoid30.setJoints(&HAnimJoint174);
 
 HAnimJoint& HAnimJoint175 =  HAnimJoint();
+HAnimJoint175.setContainerField("joints");
 HAnimJoint175.setUSE(std::string("Joe_l_carpal_distal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint175);
 
 HAnimJoint& HAnimJoint176 =  HAnimJoint();
+HAnimJoint176.setContainerField("joints");
 HAnimJoint176.setUSE(std::string("Joe_r_carpal_distal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint176);
 
 HAnimJoint& HAnimJoint177 =  HAnimJoint();
+HAnimJoint177.setContainerField("joints");
 HAnimJoint177.setUSE(std::string("Joe_l_carpal_distal_interphalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint177);
 
 HAnimJoint& HAnimJoint178 =  HAnimJoint();
+HAnimJoint178.setContainerField("joints");
 HAnimJoint178.setUSE(std::string("Joe_r_carpal_distal_interphalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint178);
 
 HAnimJoint& HAnimJoint179 =  HAnimJoint();
+HAnimJoint179.setContainerField("joints");
 HAnimJoint179.setUSE(std::string("Joe_l_carpal_distal_interphalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint179);
 
 HAnimJoint& HAnimJoint180 =  HAnimJoint();
+HAnimJoint180.setContainerField("joints");
 HAnimJoint180.setUSE(std::string("Joe_r_carpal_distal_interphalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint180);
 
 HAnimJoint& HAnimJoint181 =  HAnimJoint();
+HAnimJoint181.setContainerField("joints");
 HAnimJoint181.setUSE(std::string("Joe_l_carpal_distal_interphalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint181);
 
 HAnimJoint& HAnimJoint182 =  HAnimJoint();
+HAnimJoint182.setContainerField("joints");
 HAnimJoint182.setUSE(std::string("Joe_r_carpal_distal_interphalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint182);
 
 HAnimJoint& HAnimJoint183 =  HAnimJoint();
+HAnimJoint183.setContainerField("joints");
 HAnimJoint183.setUSE(std::string("Joe_l_carpal_interphalangeal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint183);
 
 HAnimJoint& HAnimJoint184 =  HAnimJoint();
+HAnimJoint184.setContainerField("joints");
 HAnimJoint184.setUSE(std::string("Joe_r_carpal_interphalangeal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint184);
 
 HAnimJoint& HAnimJoint185 =  HAnimJoint();
+HAnimJoint185.setContainerField("joints");
 HAnimJoint185.setUSE(std::string("Joe_l_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint185);
 
 HAnimJoint& HAnimJoint186 =  HAnimJoint();
+HAnimJoint186.setContainerField("joints");
 HAnimJoint186.setUSE(std::string("Joe_r_carpal_proximal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint186);
 
 HAnimJoint& HAnimJoint187 =  HAnimJoint();
+HAnimJoint187.setContainerField("joints");
 HAnimJoint187.setUSE(std::string("Joe_l_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint187);
 
 HAnimJoint& HAnimJoint188 =  HAnimJoint();
+HAnimJoint188.setContainerField("joints");
 HAnimJoint188.setUSE(std::string("Joe_r_carpal_proximal_interphalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint188);
 
 HAnimJoint& HAnimJoint189 =  HAnimJoint();
+HAnimJoint189.setContainerField("joints");
 HAnimJoint189.setUSE(std::string("Joe_l_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint189);
 
 HAnimJoint& HAnimJoint190 =  HAnimJoint();
+HAnimJoint190.setContainerField("joints");
 HAnimJoint190.setUSE(std::string("Joe_r_carpal_proximal_interphalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint190);
 
 HAnimJoint& HAnimJoint191 =  HAnimJoint();
+HAnimJoint191.setContainerField("joints");
 HAnimJoint191.setUSE(std::string("Joe_l_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint191);
 
 HAnimJoint& HAnimJoint192 =  HAnimJoint();
+HAnimJoint192.setContainerField("joints");
 HAnimJoint192.setUSE(std::string("Joe_r_carpal_proximal_interphalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint192);
 
 HAnimJoint& HAnimJoint193 =  HAnimJoint();
+HAnimJoint193.setContainerField("joints");
 HAnimJoint193.setUSE(std::string("Joe_l_carpometacarpal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint193);
 
 HAnimJoint& HAnimJoint194 =  HAnimJoint();
+HAnimJoint194.setContainerField("joints");
 HAnimJoint194.setUSE(std::string("Joe_r_carpometacarpal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint194);
 
 HAnimJoint& HAnimJoint195 =  HAnimJoint();
+HAnimJoint195.setContainerField("joints");
 HAnimJoint195.setUSE(std::string("Joe_l_carpometacarpal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint195);
 
 HAnimJoint& HAnimJoint196 =  HAnimJoint();
+HAnimJoint196.setContainerField("joints");
 HAnimJoint196.setUSE(std::string("Joe_r_carpometacarpal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint196);
 
 HAnimJoint& HAnimJoint197 =  HAnimJoint();
+HAnimJoint197.setContainerField("joints");
 HAnimJoint197.setUSE(std::string("Joe_l_carpometacarpal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint197);
 
 HAnimJoint& HAnimJoint198 =  HAnimJoint();
+HAnimJoint198.setContainerField("joints");
 HAnimJoint198.setUSE(std::string("Joe_r_carpometacarpal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint198);
 
 HAnimJoint& HAnimJoint199 =  HAnimJoint();
+HAnimJoint199.setContainerField("joints");
 HAnimJoint199.setUSE(std::string("Joe_l_carpometacarpal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint199);
 
 HAnimJoint& HAnimJoint200 =  HAnimJoint();
+HAnimJoint200.setContainerField("joints");
 HAnimJoint200.setUSE(std::string("Joe_r_carpometacarpal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint200);
 
 HAnimJoint& HAnimJoint201 =  HAnimJoint();
+HAnimJoint201.setContainerField("joints");
 HAnimJoint201.setUSE(std::string("Joe_l_carpometacarpal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint201);
 
 HAnimJoint& HAnimJoint202 =  HAnimJoint();
+HAnimJoint202.setContainerField("joints");
 HAnimJoint202.setUSE(std::string("Joe_r_carpometacarpal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint202);
 
 HAnimJoint& HAnimJoint203 =  HAnimJoint();
+HAnimJoint203.setContainerField("joints");
 HAnimJoint203.setUSE(std::string("Joe_l_elbow"));
 HAnimHumanoid30.setJoints(&HAnimJoint203);
 
 HAnimJoint& HAnimJoint204 =  HAnimJoint();
+HAnimJoint204.setContainerField("joints");
 HAnimJoint204.setUSE(std::string("Joe_r_elbow"));
 HAnimHumanoid30.setJoints(&HAnimJoint204);
 
 HAnimJoint& HAnimJoint205 =  HAnimJoint();
+HAnimJoint205.setContainerField("joints");
 HAnimJoint205.setUSE(std::string("Joe_l_eyeball_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint205);
 
 HAnimJoint& HAnimJoint206 =  HAnimJoint();
+HAnimJoint206.setContainerField("joints");
 HAnimJoint206.setUSE(std::string("Joe_r_eyeball_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint206);
 
 HAnimJoint& HAnimJoint207 =  HAnimJoint();
+HAnimJoint207.setContainerField("joints");
 HAnimJoint207.setUSE(std::string("Joe_l_eyebrow_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint207);
 
 HAnimJoint& HAnimJoint208 =  HAnimJoint();
+HAnimJoint208.setContainerField("joints");
 HAnimJoint208.setUSE(std::string("Joe_r_eyebrow_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint208);
 
 HAnimJoint& HAnimJoint209 =  HAnimJoint();
+HAnimJoint209.setContainerField("joints");
 HAnimJoint209.setUSE(std::string("Joe_l_eyelid_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint209);
 
 HAnimJoint& HAnimJoint210 =  HAnimJoint();
+HAnimJoint210.setContainerField("joints");
 HAnimJoint210.setUSE(std::string("Joe_r_eyelid_joint"));
 HAnimHumanoid30.setJoints(&HAnimJoint210);
 
 HAnimJoint& HAnimJoint211 =  HAnimJoint();
+HAnimJoint211.setContainerField("joints");
 HAnimJoint211.setUSE(std::string("Joe_l_hip"));
 HAnimHumanoid30.setJoints(&HAnimJoint211);
 
 HAnimJoint& HAnimJoint212 =  HAnimJoint();
+HAnimJoint212.setContainerField("joints");
 HAnimJoint212.setUSE(std::string("Joe_r_hip"));
 HAnimHumanoid30.setJoints(&HAnimJoint212);
 
 HAnimJoint& HAnimJoint213 =  HAnimJoint();
+HAnimJoint213.setContainerField("joints");
 HAnimJoint213.setUSE(std::string("Joe_l_knee"));
 HAnimHumanoid30.setJoints(&HAnimJoint213);
 
 HAnimJoint& HAnimJoint214 =  HAnimJoint();
+HAnimJoint214.setContainerField("joints");
 HAnimJoint214.setUSE(std::string("Joe_r_knee"));
 HAnimHumanoid30.setJoints(&HAnimJoint214);
 
 HAnimJoint& HAnimJoint215 =  HAnimJoint();
+HAnimJoint215.setContainerField("joints");
 HAnimJoint215.setUSE(std::string("Joe_l_metacarpophalangeal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint215);
 
 HAnimJoint& HAnimJoint216 =  HAnimJoint();
+HAnimJoint216.setContainerField("joints");
 HAnimJoint216.setUSE(std::string("Joe_r_metacarpophalangeal_1"));
 HAnimHumanoid30.setJoints(&HAnimJoint216);
 
 HAnimJoint& HAnimJoint217 =  HAnimJoint();
+HAnimJoint217.setContainerField("joints");
 HAnimJoint217.setUSE(std::string("Joe_l_metacarpophalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint217);
 
 HAnimJoint& HAnimJoint218 =  HAnimJoint();
+HAnimJoint218.setContainerField("joints");
 HAnimJoint218.setUSE(std::string("Joe_r_metacarpophalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint218);
 
 HAnimJoint& HAnimJoint219 =  HAnimJoint();
+HAnimJoint219.setContainerField("joints");
 HAnimJoint219.setUSE(std::string("Joe_l_metacarpophalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint219);
 
 HAnimJoint& HAnimJoint220 =  HAnimJoint();
+HAnimJoint220.setContainerField("joints");
 HAnimJoint220.setUSE(std::string("Joe_r_metacarpophalangeal_3"));
 HAnimHumanoid30.setJoints(&HAnimJoint220);
 
 HAnimJoint& HAnimJoint221 =  HAnimJoint();
+HAnimJoint221.setContainerField("joints");
 HAnimJoint221.setUSE(std::string("Joe_l_metacarpophalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint221);
 
 HAnimJoint& HAnimJoint222 =  HAnimJoint();
+HAnimJoint222.setContainerField("joints");
 HAnimJoint222.setUSE(std::string("Joe_r_metacarpophalangeal_4"));
 HAnimHumanoid30.setJoints(&HAnimJoint222);
 
 HAnimJoint& HAnimJoint223 =  HAnimJoint();
+HAnimJoint223.setContainerField("joints");
 HAnimJoint223.setUSE(std::string("Joe_l_metacarpophalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint223);
 
 HAnimJoint& HAnimJoint224 =  HAnimJoint();
+HAnimJoint224.setContainerField("joints");
 HAnimJoint224.setUSE(std::string("Joe_r_metacarpophalangeal_5"));
 HAnimHumanoid30.setJoints(&HAnimJoint224);
 
 HAnimJoint& HAnimJoint225 =  HAnimJoint();
+HAnimJoint225.setContainerField("joints");
 HAnimJoint225.setUSE(std::string("Joe_l_metatarsophalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint225);
 
 HAnimJoint& HAnimJoint226 =  HAnimJoint();
+HAnimJoint226.setContainerField("joints");
 HAnimJoint226.setUSE(std::string("Joe_r_metatarsophalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint226);
 
 HAnimJoint& HAnimJoint227 =  HAnimJoint();
+HAnimJoint227.setContainerField("joints");
 HAnimJoint227.setUSE(std::string("Joe_l_radiocarpal"));
 HAnimHumanoid30.setJoints(&HAnimJoint227);
 
 HAnimJoint& HAnimJoint228 =  HAnimJoint();
+HAnimJoint228.setContainerField("joints");
 HAnimJoint228.setUSE(std::string("Joe_r_radiocarpal"));
 HAnimHumanoid30.setJoints(&HAnimJoint228);
 
 HAnimJoint& HAnimJoint229 =  HAnimJoint();
+HAnimJoint229.setContainerField("joints");
 HAnimJoint229.setUSE(std::string("Joe_l_shoulder"));
 HAnimHumanoid30.setJoints(&HAnimJoint229);
 
 HAnimJoint& HAnimJoint230 =  HAnimJoint();
+HAnimJoint230.setContainerField("joints");
 HAnimJoint230.setUSE(std::string("Joe_r_shoulder"));
 HAnimHumanoid30.setJoints(&HAnimJoint230);
 
 HAnimJoint& HAnimJoint231 =  HAnimJoint();
+HAnimJoint231.setContainerField("joints");
 HAnimJoint231.setUSE(std::string("Joe_l_sternoclavicular"));
 HAnimHumanoid30.setJoints(&HAnimJoint231);
 
 HAnimJoint& HAnimJoint232 =  HAnimJoint();
+HAnimJoint232.setContainerField("joints");
 HAnimJoint232.setUSE(std::string("Joe_r_sternoclavicular"));
 HAnimHumanoid30.setJoints(&HAnimJoint232);
 
 HAnimJoint& HAnimJoint233 =  HAnimJoint();
+HAnimJoint233.setContainerField("joints");
 HAnimJoint233.setUSE(std::string("Joe_l_talocrural"));
 HAnimHumanoid30.setJoints(&HAnimJoint233);
 
 HAnimJoint& HAnimJoint234 =  HAnimJoint();
+HAnimJoint234.setContainerField("joints");
 HAnimJoint234.setUSE(std::string("Joe_r_talocrural"));
 HAnimHumanoid30.setJoints(&HAnimJoint234);
 
 HAnimJoint& HAnimJoint235 =  HAnimJoint();
+HAnimJoint235.setContainerField("joints");
 HAnimJoint235.setUSE(std::string("Joe_l_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint235);
 
 HAnimJoint& HAnimJoint236 =  HAnimJoint();
+HAnimJoint236.setContainerField("joints");
 HAnimJoint236.setUSE(std::string("Joe_r_tarsal_distal_interphalangeal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint236);
 
 HAnimJoint& HAnimJoint237 =  HAnimJoint();
+HAnimJoint237.setContainerField("joints");
 HAnimJoint237.setUSE(std::string("Joe_l_tarsometatarsal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint237);
 
 HAnimJoint& HAnimJoint238 =  HAnimJoint();
+HAnimJoint238.setContainerField("joints");
 HAnimJoint238.setUSE(std::string("Joe_r_tarsometatarsal_2"));
 HAnimHumanoid30.setJoints(&HAnimJoint238);
 
 HAnimSegment& HAnimSegment239 =  HAnimSegment();
+HAnimSegment239.setContainerField("segments");
 HAnimSegment239.setUSE(std::string("Joe_sacrum"));
 HAnimHumanoid30.setSegments(&HAnimSegment239);
 
 HAnimSite& HAnimSite240 =  HAnimSite();
+HAnimSite240.setContainerField("sites");
 HAnimSite240.setUSE(std::string("Joe_RootFront_view"));
 HAnimHumanoid30.setSites(&HAnimSite240);
 
@@ -3337,14 +3436,17 @@ Transform537.setTranslation(new float[]{-0.916,0.37,-0.92});
 Shape& Shape538 =  Shape();
 Shape538.setDEF(std::string("ball_Shape"));
 Appearance& Appearance539 =  Appearance();
+Appearance539.setContainerField("appearance");
 Appearance539.setDEF(std::string("ball_Appearance"));
 Material& Material540 =  Material();
+Material540.setContainerField("material");
 Material540.setDEF(std::string("ball_Material"));
 Material540.setDiffuseColor(new float[]{0.3,0.3,1.0});
 Material540.setEmissiveColor(new float[]{0.3,0.3,0.33});
 Appearance539.addChild(&Material540);
 
 ImageTexture& ImageTexture541 =  ImageTexture();
+ImageTexture541.setContainerField("texture");
 ImageTexture541.setUSE(std::string("JoeSkinImageTexture"));
 Appearance539.addChild(&ImageTexture541);
 
@@ -3428,8 +3530,10 @@ Transform554.setScale(new float[]{1.175,1.0,1.175});
 Shape& Shape555 =  Shape();
 Shape555.setDEF(std::string("circle_Shape"));
 Appearance& Appearance556 =  Appearance();
+Appearance556.setContainerField("appearance");
 Appearance556.setDEF(std::string("circle0_Appearance"));
 Material& Material557 =  Material();
+Material557.setContainerField("material");
 Material557.setDEF(std::string("circle0_Material"));
 Material557.setAmbientIntensity(0.9);
 Material557.setDiffuseColor(new float[]{0.9,0.0,0.7});
@@ -3458,8 +3562,10 @@ Transform560.setScale(new float[]{0.5,1.0,0.5});
 Shape& Shape561 =  Shape();
 Shape561.setDEF(std::string("circle1_Shape"));
 Appearance& Appearance562 =  Appearance();
+Appearance562.setContainerField("appearance");
 Appearance562.setDEF(std::string("circle1_Appearance"));
 Material& Material563 =  Material();
+Material563.setContainerField("material");
 Material563.setDEF(std::string("circle1_Material"));
 Material563.setDiffuseColor(new float[]{0.9,0.0,0.7});
 Material563.setEmissiveColor(new float[]{0.425,0.484,1.0});
@@ -3481,8 +3587,10 @@ Transform565.setScale(new float[]{0.25,1.0,0.25});
 Shape& Shape566 =  Shape();
 Shape566.setDEF(std::string("circle2_Shape"));
 Appearance& Appearance567 =  Appearance();
+Appearance567.setContainerField("appearance");
 Appearance567.setDEF(std::string("circle2_Appearance"));
 Material& Material568 =  Material();
+Material568.setContainerField("material");
 Material568.setDEF(std::string("circle2_Material"));
 Material568.setDiffuseColor(new float[]{0.9,0.0,0.7});
 Material568.setEmissiveColor(new float[]{0.425,0.484,1.0});

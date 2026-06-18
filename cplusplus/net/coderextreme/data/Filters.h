@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int Filters(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -103,8 +95,10 @@ Transform19.setDEF(std::string("TransformAudio1"));
 Transform19.setTranslation(new float[]{-200.0,50.0,0.0});
 Shape& Shape20 =  Shape();
 Appearance& Appearance21 =  Appearance();
+Appearance21.setContainerField("appearance");
 Appearance21.setDEF(std::string("audio_emit"));
 Material& Material22 =  Material();
+Material22.setContainerField("material");
 Material22.setDiffuseColor(new float[]{0.1,0.1,0.1});
 Material22.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material22.setSpecularColor(new float[]{0.01,0.01,0.01});
@@ -125,8 +119,10 @@ Transform24.setDEF(std::string("TransformAudio2"));
 Transform24.setTranslation(new float[]{0.0,50.0,0.0});
 Shape& Shape25 =  Shape();
 Appearance& Appearance26 =  Appearance();
+Appearance26.setContainerField("appearance");
 Appearance26.setDEF(std::string("audio_emit2"));
 Material& Material27 =  Material();
+Material27.setContainerField("material");
 Material27.setDiffuseColor(new float[]{0.1,0.1,0.1});
 Material27.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material27.setSpecularColor(new float[]{0.01,0.01,0.01});
@@ -147,8 +143,10 @@ Transform29.setDEF(std::string("TransformAudio3"));
 Transform29.setTranslation(new float[]{200.0,50.0,0.0});
 Shape& Shape30 =  Shape();
 Appearance& Appearance31 =  Appearance();
+Appearance31.setContainerField("appearance");
 Appearance31.setDEF(std::string("audio_emit3"));
 Material& Material32 =  Material();
+Material32.setContainerField("material");
 Material32.setDiffuseColor(new float[]{0.1,0.1,0.1});
 Material32.setEmissiveColor(new float[]{0.8,0.8,0.8});
 Material32.setSpecularColor(new float[]{0.01,0.01,0.01});
@@ -197,8 +195,10 @@ Scene14.addChild(&Transform39);
 Transform& Transform40 =  Transform();
 Shape& Shape41 =  Shape();
 Appearance& Appearance42 =  Appearance();
+Appearance42.setContainerField("appearance");
 Appearance42.setDEF(std::string("floor"));
 Material& Material43 =  Material();
+Material43.setContainerField("material");
 Material43.setDiffuseColor(new float[]{0.1,0.1,0.1});
 Material43.setShininess(0.8);
 Material43.setSpecularColor(new float[]{0.5,0.6,0.7});
@@ -297,4 +297,4 @@ Scene14.addChild(&StreamAudioDestination46);
 
 X3D0.setScene(&Scene14);
 
-//}
+}

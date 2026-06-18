@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int flower(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -68,7 +60,9 @@ Transform12.setRotation(new float[]{0.0,1.0,0.0,3.1415926});
 Transform12.setScale(new float[]{1.5,1.5,1.5});
 Shape& Shape13 =  Shape();
 Appearance& Appearance14 =  Appearance();
+Appearance14.setContainerField("appearance");
 Material& Material15 =  Material();
+Material15.setContainerField("material");
 Material15.setTransparency(0.1);
 Material15.setDiffuseColor(new float[]{0.9,0.3,0.3});
 Material15.setSpecularColor(new float[]{0.8,0.8,0.8});
@@ -224,4 +218,4 @@ Scene7.addChild(&ROUTE25);
 
 X3D0.setScene(&Scene7);
 
-//}
+}

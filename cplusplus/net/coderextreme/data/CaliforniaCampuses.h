@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int CaliforniaCampuses(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -741,13 +733,16 @@ Shape& Shape131 =  Shape();
 Text& Text132 =  Text();
 Text132.setString((std::string[]){"ViewpointSequencer tour"}, 1);
 CFontStyle& FontStyle133 =  CFontStyle();
+FontStyle133.setContainerField("fontStyle");
 FontStyle133.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
 Text132.setFontStyle(&FontStyle133);
 
 Shape131.setGeometry(&Text132);
 
 Appearance& Appearance134 =  Appearance();
+Appearance134.setContainerField("appearance");
 Material& Material135 =  Material();
+Material135.setContainerField("material");
 Material135.setAmbientIntensity(0.25);
 Material135.setDiffuseColor(new float[]{0.795918,0.505869,0.093315});
 Material135.setShininess(0.39);
@@ -847,4 +842,4 @@ Scene20.addChild(&ProtoInstance147);
 //====================
 X3D0.setScene(&Scene20);
 
-//}
+}

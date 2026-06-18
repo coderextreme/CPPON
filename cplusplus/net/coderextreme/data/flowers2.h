@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
-//#include "X3DLib.h"
-//int main(int argc, char ** argv) 
-//{
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
+#include <string>
+#include "X3DLib.h"
+int flowers2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -121,7 +113,7 @@ Group23.addChild(&TimeSensor24);
 
 OrientationInterpolator& OrientationInterpolator25 =  OrientationInterpolator();
 OrientationInterpolator25.setDEF(std::string("OrbitPath"));
-OrientationInterpolator25.setKey(new float[]{0.0,0.5,1.0}, 3);
+OrientationInterpolator25.setKey(new float[]{0.0,0.5,1.0});
 OrientationInterpolator25.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,3.14,1.0,0.0,0.0,6.28}, 12);
 Group23.addChild(&OrientationInterpolator25);
 
@@ -137,7 +129,9 @@ Transform26.addChild(&IS27);
 
 Shape& Shape29 =  Shape();
 Appearance& Appearance30 =  Appearance();
+Appearance30.setContainerField("appearance");
 Material& Material31 =  Material();
+Material31.setContainerField("material");
 IS& IS32 =  IS();
 Connect& connect33 =  Connect();
 connect33.setNodeField(std::string("diffuseColor"));
@@ -392,4 +386,4 @@ Scene11.addChild(&Group14);
 
 X3D0.setScene(&Scene11);
 
-//}
+}

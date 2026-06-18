@@ -1,18 +1,10 @@
-#ifndef WIN32
-#define WINAPI
-#define AFX_EXT_CLASS
-#define EXPORT32
-#define WINGDIAPI
-#define APIENTRY
-#endif
-#define BOOL bool
-#define XML_PARSER_H
-//#include "pch.h"
-//#include "framework.h"
-//#include "glut.h"
+#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int LOA1_SwimmingFlutterKickAnimation(int argc, char ** argv) {
+void LOA1_SwimmingFlutterKickAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -652,20 +644,23 @@ Scene15.addChild(&Viewpoint120);
 
 Anchor& Anchor121 =  Anchor();
 Anchor121.setDescription(std::string("Nancy Diving"));
-Anchor121.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor121.setUrl((std::string[]){"NancyDiving.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/NancyDiving.x3d", "NancyDiving.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/NancyDiving.wrl"}, 4);
+Anchor121.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor121.setUrl(new std::string[]{"NancyDiving.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/NancyDiving.x3d", "NancyDiving.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/NancyDiving.wrl"}, 4);
 Shape& Shape122 =  Shape();
 Text& Text123 =  Text();
-Text123.setString((std::string[]){"LOA1_SwimmingFlutterKickAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click text to see example."}, 4);
+Text123.setString(new std::string[]{"LOA1_SwimmingFlutterKickAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click text to see example."}, 4);
 CFontStyle& FontStyle124 =  CFontStyle();
-FontStyle124.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle124.setContainerField("fontStyle");
+FontStyle124.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle124.setSize(0.8);
 Text123.setFontStyle(&FontStyle124);
 
 Shape122.setGeometry(&Text123);
 
 Appearance& Appearance125 =  Appearance();
+Appearance125.setContainerField("appearance");
 Material& Material126 =  Material();
+Material126.setContainerField("material");
 Material126.setDiffuseColor(new float[]{1.0,1.0,0.2});
 Appearance125.addChild(&Material126);
 
