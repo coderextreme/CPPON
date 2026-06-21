@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int IcosahedronSubdivisionLevel5(int argc, char ** argv) {
+//void IcosahedronSubdivisionLevel5(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -120,4 +120,4 @@ Scene17.addChild(&Shape20);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

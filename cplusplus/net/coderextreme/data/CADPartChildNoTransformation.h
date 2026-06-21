@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CADPartChildNoTransformation(int argc, char ** argv) {
+//void CADPartChildNoTransformation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("CADInterchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -190,4 +190,4 @@ Scene15.X3DBaseNode::addChild(static_cast<X3DGroupingNode*>(&CADAssembly19));
 
 X3D0.setScene(&Scene15);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Filters(int argc, char ** argv) {
+//void Filters(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -233,7 +233,7 @@ BiquadFilter52.setType(std::string("ALLPASS"));
 AudioClip& AudioClip53 =  AudioClip();
 AudioClip53.setDescription(std::string("Techno beat"));
 AudioClip53.setLoop(true);
-AudioClip53.setUrl((std::string[]){"sound/techno_beat.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/techno_beat.mp3"}, 2);
+AudioClip53.setUrl(new std::string[]{"sound/techno_beat.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/techno_beat.mp3"}, 2);
 BiquadFilter52.addChildren(AudioClip53);
 
 Analyser51.addChildren(BiquadFilter52);
@@ -256,7 +256,7 @@ BiquadFilter57.setType(std::string("ALLPASS"));
 AudioClip& AudioClip58 =  AudioClip();
 AudioClip58.setDescription(std::string("Simple beat"));
 AudioClip58.setLoop(true);
-AudioClip58.setUrl((std::string[]){"sound/beat.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/beat.mp3"}, 2);
+AudioClip58.setUrl(new std::string[]{"sound/beat.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/beat.mp3"}, 2);
 BiquadFilter57.addChildren(AudioClip58);
 
 Analyser56.addChildren(BiquadFilter57);
@@ -278,7 +278,7 @@ BiquadFilter62.setType(std::string("ALLPASS"));
 AudioClip& AudioClip63 =  AudioClip();
 AudioClip63.setDescription(std::string("Wobble loop"));
 AudioClip63.setLoop(true);
-AudioClip63.setUrl((std::string[]){"sound/wobble_loop.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/wobble_loop.mp3"}, 2);
+AudioClip63.setUrl(new std::string[]{"sound/wobble_loop.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/wobble_loop.mp3"}, 2);
 BiquadFilter62.addChildren(AudioClip63);
 
 Analyser61.addChildren(BiquadFilter62);
@@ -297,4 +297,4 @@ Scene14.addChild(&StreamAudioDestination46);
 
 X3D0.setScene(&Scene14);
 
-}
+//}

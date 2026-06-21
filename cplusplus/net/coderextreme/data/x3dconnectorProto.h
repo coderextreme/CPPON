@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int x3dconnectorProto(int argc, char ** argv) {
+//void x3dconnectorProto(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -591,4 +591,4 @@ Scene10.addChild(&ROUTE115);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-void HAnimPosePrototype(int argc, char ** argv) {
+void main(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -237,7 +237,7 @@ Group46.addChild(&Inline47);
 
 //Note that the following importedDEF must match the EXPORT name found in remote file
 IMPORT& IMPORT48 =  IMPORT();
-IMPORT48.setAS(&std::string("HumanoidImported"));
+IMPORT48.setAS(new std::string("HumanoidImported"));
 IMPORT48.setImportedDEF(std::string("BoxMan2"));
 IMPORT48.setInlineDEF(std::string("HumanoidInline"));
 Group46.addChild(&IMPORT48);

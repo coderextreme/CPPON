@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int pp3(int argc, char ** argv) {
+//void pp3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -118,7 +118,7 @@ Shape25.addChild(&Appearance26);
 
 Text& Text28 =  Text();
 Text28.setDEF(std::string("RightString"));
-Text28.setString((std::string[]){"r"}, 1);
+Text28.setString(new std::string[]{"r"}, 1);
 Shape25.setGeometry(&Text28);
 
 Transform24.addChild(&Shape25);
@@ -173,7 +173,7 @@ Shape37.addChild(&Appearance38);
 
 Text& Text40 =  Text();
 Text40.setDEF(std::string("UpString"));
-Text40.setString((std::string[]){"u"}, 1);
+Text40.setString(new std::string[]{"u"}, 1);
 Shape37.setGeometry(&Text40);
 
 Transform36.addChild(&Shape37);
@@ -442,4 +442,4 @@ Scene10.addChild(&Transform84);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

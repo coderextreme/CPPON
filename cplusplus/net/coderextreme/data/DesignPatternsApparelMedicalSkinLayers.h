@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int DesignPatternsApparelMedicalSkinLayers(int argc, char ** argv) {
+//void DesignPatternsApparelMedicalSkinLayers(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -106,8 +106,8 @@ MetadataString& MetadataString22 =  MetadataString();
 MetadataString22.setContainerField("metadata");
 MetadataString22.X3DNode::setName(std::string("HAnimArchitecture"));
 MetadataString22.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/Guidelines.html#MultipleHumanoidsPerFile"));
-MetadataString22.setValue((std::string[]){"E.4 Multiple humanoids per file"}, 1);
-Group21.setMetadata(&MetadataString22);
+MetadataString22.setValue(new std::string[]{"E.4 Multiple humanoids per file"}, 1);
+Group21.setMetadata(MetadataString22);
 
 //==============================
 HAnimHumanoid& HAnimHumanoid23 =  HAnimHumanoid();
@@ -182,7 +182,7 @@ HAnimHumanoid35.setSkeleton(&HAnimJoint36);
 IndexedFaceSet& IndexedFaceSet38 =  IndexedFaceSet();
 IndexedFaceSet38.setDEF(std::string("SkinMeshIFS"));
 IndexedFaceSet38.setContainerField("skin");
-HAnimHumanoid35.setSkin(&IndexedFaceSet38);
+HAnimHumanoid35.setSkin(IndexedFaceSet38);
 
 Group21.addChild(&HAnimHumanoid35);
 
@@ -323,16 +323,16 @@ Scene18.addChild(&Viewpoint64);
 //Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip
 Anchor& Anchor65 =  Anchor();
 Anchor65.setDescription(std::string("DesignPatternsApparelMedicalSkinLayers.x3d explores potential apparel approaches"));
-Anchor65.setParameter((std::string[]){"target=blank"}, 1);
-Anchor65.setUrl((std::string[]){"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/DesignPatternsApparelMedicalSkinLayersIndex.html"}, 1);
+Anchor65.setParameter(new std::string[]{"target=blank"}, 1);
+Anchor65.setUrl(new std::string[]{"https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/DesignPatternsApparelMedicalSkinLayersIndex.html"}, 1);
 Shape& Shape66 =  Shape();
 //TODO adjust Text string and Box size, then set Material transparency='1'
 Text& Text67 =  Text();
-Text67.setString((std::string[]){"DesignPatternsApparelMedicalSkinLayers.x3d", "explores potential apparel approaches"}, 2);
+Text67.setString(new std::string[]{"DesignPatternsApparelMedicalSkinLayers.x3d", "explores potential apparel approaches"}, 2);
 CFontStyle& FontStyle68 =  CFontStyle();
 FontStyle68.setContainerField("fontStyle");
-FontStyle68.setFamily((std::string[]){"SANS"}, 1);
-FontStyle68.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle68.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle68.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle68.setSize(0.6);
 FontStyle68.setStyle(std::string("BOLD"));
 Text67.setFontStyle(&FontStyle68);
@@ -371,4 +371,4 @@ Scene18.addChild(&Anchor65);
 
 X3D0.setScene(&Scene18);
 
-}
+//}

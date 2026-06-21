@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int LOA1_RunAnimation(int argc, char ** argv) {
+//void LOA1_RunAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -303,7 +303,7 @@ Group48.addChild(&TimeSensor49);
 
 PositionInterpolator& PositionInterpolator58 =  PositionInterpolator();
 PositionInterpolator58.setDEF(std::string("HUMANOIDROOT_POSITION_ANIMATOR"));
-PositionInterpolator58.setKey(new float[]{0.0,0.2182,0.2909,0.3091,0.7091,0.8,0.8182,1.0});
+PositionInterpolator58.setKey(new float[]{0.0,0.2182,0.2909,0.3091,0.7091,0.8,0.8182,1.0}, 8);
 PositionInterpolator58.setKeyValue(new float[]{0.0,-0.0351,0.0,0.0,-0.0351,0.0,0.0,-0.04087,0.0,0.0,-0.04886,0.0,0.0,-0.04051,0.0,0.0,-0.03666,0.0,0.0,-0.03666,0.0,0.0,-0.0351,0.0}, 24);
 IS& IS59 =  IS();
 Connect& connect60 =  Connect();
@@ -317,7 +317,7 @@ Group48.addChild(&PositionInterpolator58);
 
 OrientationInterpolator& OrientationInterpolator61 =  OrientationInterpolator();
 OrientationInterpolator61.setDEF(std::string("HUMANOIDROOT_ANIMATOR"));
-OrientationInterpolator61.setKey(new float[]{0.0,1.0});
+OrientationInterpolator61.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator61.setKeyValue(new float[]{0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0}, 8);
 IS& IS62 =  IS();
 Connect& connect63 =  Connect();
@@ -331,7 +331,7 @@ Group48.addChild(&OrientationInterpolator61);
 
 OrientationInterpolator& OrientationInterpolator64 =  OrientationInterpolator();
 OrientationInterpolator64.setDEF(std::string("SACROILIAC_ANIMATOR"));
-OrientationInterpolator64.setKey(new float[]{0.0,1.0});
+OrientationInterpolator64.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator64.setKeyValue(new float[]{0.9969,-0.05444,0.05596,0.07687,0.9969,-0.05444,0.05596,0.07687}, 8);
 IS& IS65 =  IS();
 Connect& connect66 =  Connect();
@@ -345,7 +345,7 @@ Group48.addChild(&OrientationInterpolator64);
 
 OrientationInterpolator& OrientationInterpolator67 =  OrientationInterpolator();
 OrientationInterpolator67.setDEF(std::string("L_HIP_ANIMATOR"));
-OrientationInterpolator67.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator67.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator67.setKeyValue(new float[]{-0.9986,0.03354,0.04001,1.212,-0.9889,0.1328,0.06696,0.4025,0.9894,0.1453,0.009351,0.4114,-0.9963,0.07032,0.05003,0.7035,-0.9986,0.03354,0.04001,1.212}, 20);
 IS& IS68 =  IS();
 Connect& connect69 =  Connect();
@@ -359,7 +359,7 @@ Group48.addChild(&OrientationInterpolator67);
 
 OrientationInterpolator& OrientationInterpolator70 =  OrientationInterpolator();
 OrientationInterpolator70.setDEF(std::string("L_KNEE_ANIMATOR"));
-OrientationInterpolator70.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator70.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator70.setKeyValue(new float[]{1.0,0.0,0.0,1.108,1.0,0.0,0.0,0.4265,1.0,0.0,0.0,0.7052,1.0,0.0,0.0,2.179,1.0,0.0,0.0,1.108}, 20);
 IS& IS71 =  IS();
 Connect& connect72 =  Connect();
@@ -373,7 +373,7 @@ Group48.addChild(&OrientationInterpolator70);
 
 OrientationInterpolator& OrientationInterpolator73 =  OrientationInterpolator();
 OrientationInterpolator73.setDEF(std::string("L_ANKLE_ANIMATOR"));
-OrientationInterpolator73.setKey(new float[]{0.0,0.2182,0.3091,0.4909,1.0});
+OrientationInterpolator73.setKey(new float[]{0.0,0.2182,0.3091,0.4909,1.0}, 5);
 OrientationInterpolator73.setKeyValue(new float[]{1.0,0.0,0.0,0.03543,-1.0,0.0,0.0,0.1037,-1.0,0.0,0.0,0.4328,1.0,0.0,0.0,0.1929,1.0,0.0,0.0,0.03543}, 20);
 IS& IS74 =  IS();
 Connect& connect75 =  Connect();
@@ -387,7 +387,7 @@ Group48.addChild(&OrientationInterpolator73);
 
 OrientationInterpolator& OrientationInterpolator76 =  OrientationInterpolator();
 OrientationInterpolator76.setDEF(std::string("L_MIDTARSAL_ANIMATOR"));
-OrientationInterpolator76.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator76.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator76.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,-0.2,1.0,0.0,0.0,0.0}, 12);
 IS& IS77 =  IS();
 Connect& connect78 =  Connect();
@@ -401,7 +401,7 @@ Group48.addChild(&OrientationInterpolator76);
 
 OrientationInterpolator& OrientationInterpolator79 =  OrientationInterpolator();
 OrientationInterpolator79.setDEF(std::string("R_HIP_ANIMATOR"));
-OrientationInterpolator79.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator79.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator79.setKeyValue(new float[]{0.9999,0.00293,-0.00989,0.402,-1.0,0.004977,-0.00497,0.5943,-1.0,0.003265,-0.001752,1.178,-0.9999,0.00815,-0.01093,0.3031,0.9999,0.00293,-0.00989,0.402}, 20);
 IS& IS80 =  IS();
 Connect& connect81 =  Connect();
@@ -415,7 +415,7 @@ Group48.addChild(&OrientationInterpolator79);
 
 OrientationInterpolator& OrientationInterpolator82 =  OrientationInterpolator();
 OrientationInterpolator82.setDEF(std::string("R_KNEE_ANIMATOR"));
-OrientationInterpolator82.setKey(new float[]{0.0,0.03636,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator82.setKey(new float[]{0.0,0.03636,0.2182,0.4909,0.7455,1.0}, 6);
 OrientationInterpolator82.setKeyValue(new float[]{1.0,0.0,0.0,0.7004,1.0,0.0,0.0,1.011,1.0,0.0,0.0,1.892,1.0,0.0,0.0,1.188,1.0,0.0,0.0,0.3964,1.0,0.0,0.0,0.7004}, 24);
 IS& IS83 =  IS();
 Connect& connect84 =  Connect();
@@ -429,7 +429,7 @@ Group48.addChild(&OrientationInterpolator82);
 
 OrientationInterpolator& OrientationInterpolator85 =  OrientationInterpolator();
 OrientationInterpolator85.setDEF(std::string("R_ANKLE_ANIMATOR"));
-OrientationInterpolator85.setKey(new float[]{0.0,0.4909,0.7091,0.8,0.8182,1.0});
+OrientationInterpolator85.setKey(new float[]{0.0,0.4909,0.7091,0.8,0.8182,1.0}, 6);
 OrientationInterpolator85.setKeyValue(new float[]{1.0,0.0,0.0,0.2323,-1.0,0.0,0.0,0.07843,-1.0,0.0,0.0,0.09676,-1.0,0.0,0.0,0.3274,-1.0,0.0,0.0,0.3278,1.0,0.0,0.0,0.2323}, 24);
 IS& IS86 =  IS();
 Connect& connect87 =  Connect();
@@ -443,7 +443,7 @@ Group48.addChild(&OrientationInterpolator85);
 
 OrientationInterpolator& OrientationInterpolator88 =  OrientationInterpolator();
 OrientationInterpolator88.setDEF(std::string("R_MIDTARSAL_ANIMATOR"));
-OrientationInterpolator88.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator88.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator88.setKeyValue(new float[]{1.0,0.0,0.0,-0.2,1.0,0.0,0.0,0.0,1.0,0.0,0.0,-0.2}, 12);
 IS& IS89 =  IS();
 Connect& connect90 =  Connect();
@@ -457,7 +457,7 @@ Group48.addChild(&OrientationInterpolator88);
 
 OrientationInterpolator& OrientationInterpolator91 =  OrientationInterpolator();
 OrientationInterpolator91.setDEF(std::string("VL5_ANIMATOR"));
-OrientationInterpolator91.setKey(new float[]{0.0,0.2545,0.4909,0.7636,1.0});
+OrientationInterpolator91.setKey(new float[]{0.0,0.2545,0.4909,0.7636,1.0}, 5);
 OrientationInterpolator91.setKeyValue(new float[]{0.7651,0.6382,0.08586,0.2712,0.9999,0.002845,-0.01547,0.3756,0.7459,-0.6505,-0.1432,0.2416,0.9984,0.05536,-0.01154,0.3488,0.7651,0.6382,0.08586,0.2712}, 20);
 IS& IS92 =  IS();
 Connect& connect93 =  Connect();
@@ -471,7 +471,7 @@ Group48.addChild(&OrientationInterpolator91);
 
 OrientationInterpolator& OrientationInterpolator94 =  OrientationInterpolator();
 OrientationInterpolator94.setDEF(std::string("SKULLBASE_ANIMATOR"));
-OrientationInterpolator94.setKey(new float[]{0.0,0.4909,1.0});
+OrientationInterpolator94.setKey(new float[]{0.0,0.4909,1.0}, 3);
 OrientationInterpolator94.setKeyValue(new float[]{0.6517,-0.7559,0.06211,0.2508,0.6467,0.7527,-0.1238,0.2344,0.6517,-0.7559,0.06211,0.2508}, 12);
 IS& IS95 =  IS();
 Connect& connect96 =  Connect();
@@ -485,7 +485,7 @@ Group48.addChild(&OrientationInterpolator94);
 
 OrientationInterpolator& OrientationInterpolator97 =  OrientationInterpolator();
 OrientationInterpolator97.setDEF(std::string("L_SHOULDER_ANIMATOR"));
-OrientationInterpolator97.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator97.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator97.setKeyValue(new float[]{0.9907,-0.07264,0.115,1.135,0.9291,-0.1222,0.349,0.1695,-0.9892,0.1364,-0.05394,0.5112,0.9942,-0.0002052,0.1073,0.4975,0.9907,-0.07264,0.115,1.135}, 20);
 IS& IS98 =  IS();
 Connect& connect99 =  Connect();
@@ -499,7 +499,7 @@ Group48.addChild(&OrientationInterpolator97);
 
 OrientationInterpolator& OrientationInterpolator100 =  OrientationInterpolator();
 OrientationInterpolator100.setDEF(std::string("L_ELBOW_ANIMATOR"));
-OrientationInterpolator100.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator100.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator100.setKeyValue(new float[]{0.9985,0.03887,0.03802,4.689,-0.965,-0.1889,-0.1821,1.415,0.9758,0.1563,0.1529,4.666,-0.9956,-0.0936,0.009826,1.126,0.9985,0.03887,0.03802,4.689}, 20);
 IS& IS101 =  IS();
 Connect& connect102 =  Connect();
@@ -513,7 +513,7 @@ Group48.addChild(&OrientationInterpolator100);
 
 OrientationInterpolator& OrientationInterpolator103 =  OrientationInterpolator();
 OrientationInterpolator103.setDEF(std::string("L_WRIST_ANIMATOR"));
-OrientationInterpolator103.setKey(new float[]{0.0,1.0});
+OrientationInterpolator103.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator103.setKeyValue(new float[]{-0.0240995,-0.999682,0.00741506,0.120409,-0.0240995,-0.999682,0.00741506,0.120409}, 8);
 IS& IS104 =  IS();
 Connect& connect105 =  Connect();
@@ -527,7 +527,7 @@ Group48.addChild(&OrientationInterpolator103);
 
 OrientationInterpolator& OrientationInterpolator106 =  OrientationInterpolator();
 OrientationInterpolator106.setDEF(std::string("R_SHOULDER_ANIMATOR"));
-OrientationInterpolator106.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator106.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator106.setKeyValue(new float[]{-1.0,0.0,0.0,0.6979,0.9094,0.2062,-0.3613,0.4157,0.9637,0.1537,-0.2185,1.353,0.4864,0.08841,-0.8693,0.1716,-1.0,0.0,0.0,0.6979}, 20);
 IS& IS107 =  IS();
 Connect& connect108 =  Connect();
@@ -541,7 +541,7 @@ Group48.addChild(&OrientationInterpolator106);
 
 OrientationInterpolator& OrientationInterpolator109 =  OrientationInterpolator();
 OrientationInterpolator109.setDEF(std::string("R_ELBOW_ANIMATOR"));
-OrientationInterpolator109.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0});
+OrientationInterpolator109.setKey(new float[]{0.0,0.2182,0.4909,0.7455,1.0}, 5);
 OrientationInterpolator109.setKeyValue(new float[]{0.9353,-0.2978,-0.191,4.222,-0.9362,0.2924,-0.1952,1.05,0.9941,-0.09719,-0.04725,4.512,-0.9594,0.2653,0.09579,1.525,0.9353,-0.2978,-0.191,4.222}, 20);
 IS& IS110 =  IS();
 Connect& connect111 =  Connect();
@@ -555,7 +555,7 @@ Group48.addChild(&OrientationInterpolator109);
 
 OrientationInterpolator& OrientationInterpolator112 =  OrientationInterpolator();
 OrientationInterpolator112.setDEF(std::string("R_WRIST_ANIMATOR"));
-OrientationInterpolator112.setKey(new float[]{0.0,1.0});
+OrientationInterpolator112.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator112.setKeyValue(new float[]{-0.917742,-0.237244,-0.318536,0.214273,-0.917742,-0.237244,-0.318536,0.214273}, 8);
 IS& IS113 =  IS();
 Connect& connect114 =  Connect();
@@ -710,14 +710,14 @@ Scene17.addChild(&ProtoDeclare19);
 //Point to example use in case someone inspects this file
 Anchor& Anchor134 =  Anchor();
 Anchor134.setDescription(std::string("InterchangableActorsViaDynamicRouting"));
-Anchor134.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor134.setUrl((std::string[]){"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
+Anchor134.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor134.setUrl(new std::string[]{"InterchangableActorsViaDynamicRouting.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d", "InterchangableActorsViaDynamicRouting.wrl", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl"}, 4);
 Shape& Shape135 =  Shape();
 Text& Text136 =  Text();
-Text136.setString((std::string[]){"LOA1_RunAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
+Text136.setString(new std::string[]{"LOA1_RunAnimation.x3d", "defines a prototype", "for animating a humanoid.", "Click this text to see", "InterchangableActorsViaDynamicRouting example."}, 5);
 CFontStyle& FontStyle137 =  CFontStyle();
 FontStyle137.setContainerField("fontStyle");
-FontStyle137.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle137.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle137.setSize(0.8);
 Text136.setFontStyle(&FontStyle137);
 
@@ -738,4 +738,4 @@ Scene17.addChild(&Anchor134);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

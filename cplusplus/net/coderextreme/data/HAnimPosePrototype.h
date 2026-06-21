@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HAnimPosePrototype(int argc, char ** argv) {
+//void HAnimPosePrototype(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -214,7 +214,7 @@ X3D0.setHead(&head1);
 Scene& Scene42 =  Scene();
 WorldInfo& WorldInfo43 =  WorldInfo();
 WorldInfo43.setDEF(std::string("ModelInfo"));
-WorldInfo43.setInfo((std::string[]){"Design to illustrate a potential HAnimPose node"}, 1);
+WorldInfo43.setInfo(new std::string[]{"Design to illustrate a potential HAnimPose node"}, 1);
 WorldInfo43.setTitle(std::string("HAnimPosePrototype.x3d"));
 Scene42.addChild(&WorldInfo43);
 
@@ -232,12 +232,12 @@ Group46.setDEF(std::string("HandleInlineLoading"));
 Inline& Inline47 =  Inline();
 Inline47.setDEF(std::string("HumanoidInline"));
 Inline47.setDescription(std::string("remote HAnimHumanoid for IMPORT"));
-Inline47.setUrl((std::string[]){"../Skin/BoxMan2.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/BoxMan2.x3d"}, 2);
+Inline47.setUrl(new std::string[]{"../Skin/BoxMan2.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/BoxMan2.x3d"}, 2);
 Group46.addChild(&Inline47);
 
 //Note that the following importedDEF must match the EXPORT name found in remote file
 IMPORT& IMPORT48 =  IMPORT();
-IMPORT48.setAS(std::string("HumanoidImported"));
+IMPORT48.setAS(new std::string("HumanoidImported"));
 IMPORT48.setImportedDEF(std::string("BoxMan2"));
 IMPORT48.setInlineDEF(std::string("HumanoidInline"));
 Group46.addChild(&IMPORT48);
@@ -442,7 +442,7 @@ ProtoBody68.addChild(&Group82);
 Script& Script83 =  Script();
 Script83.setDEF(std::string("HAnimPoseScript"));
 Script83.setDirectOutput(true);
-Script83.setUrl((std::string[]){"HAnimPosePrototypeScript.js", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPosePrototypeScript.js"}, 2);
+Script83.setUrl(new std::string[]{"HAnimPosePrototypeScript.js", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Poses/HAnimPosePrototypeScript.js"}, 2);
 field& field84 =  field();
 field84.setName(std::string("parentHAnimHumanoid"));
 field84.setAccessType(std::string("inputOutput"));
@@ -1085,12 +1085,12 @@ Transform203.setDEF(std::string("DisplayHeader"));
 Transform203.setTranslation(new float[]{0.0,2.0,0.0});
 Shape& Shape204 =  Shape();
 Text& Text205 =  Text();
-Text205.setString((std::string[]){"HAnimPosePrototype example implementation"}, 1);
+Text205.setString(new std::string[]{"HAnimPosePrototype example implementation"}, 1);
 CFontStyle& FontStyle206 =  CFontStyle();
 FontStyle206.setContainerField("fontStyle");
 FontStyle206.setDEF(std::string("HeaderFont"));
-FontStyle206.setFamily((std::string[]){"SANS"}, 1);
-FontStyle206.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle206.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle206.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle206.setSize(0.15);
 FontStyle206.setStyle(std::string("BOLD"));
 Text205.setFontStyle(&FontStyle206);
@@ -1116,12 +1116,12 @@ Transform209.setDEF(std::string("T_PoseInterface"));
 Transform209.setTranslation(new float[]{-1.5,1.5,0.0});
 Shape& Shape210 =  Shape();
 Text& Text211 =  Text();
-Text211.setString((std::string[]){"\"T\" Pose"}, 1);
+Text211.setString(new std::string[]{"\"T\" Pose"}, 1);
 CFontStyle& FontStyle212 =  CFontStyle();
 FontStyle212.setContainerField("fontStyle");
 FontStyle212.setDEF(std::string("SharedFont"));
-FontStyle212.setFamily((std::string[]){"SANS"}, 1);
-FontStyle212.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle212.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle212.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle212.setSize(0.1);
 FontStyle212.setStyle(std::string("BOLD"));
 Text211.setFontStyle(&FontStyle212);
@@ -1171,7 +1171,7 @@ Transform220.setDEF(std::string("A_PoseInterface"));
 Transform220.setTranslation(new float[]{-1.5,1.0,0.0});
 Shape& Shape221 =  Shape();
 Text& Text222 =  Text();
-Text222.setString((std::string[]){"\"A\" Pose"}, 1);
+Text222.setString(new std::string[]{"\"A\" Pose"}, 1);
 CFontStyle& FontStyle223 =  CFontStyle();
 FontStyle223.setContainerField("fontStyle");
 FontStyle223.setUSE(std::string("SharedFont"));
@@ -1218,7 +1218,7 @@ Transform230.setDEF(std::string("TouchDown_PoseInterface"));
 Transform230.setTranslation(new float[]{-1.5,0.5,0.0});
 Shape& Shape231 =  Shape();
 Text& Text232 =  Text();
-Text232.setString((std::string[]){"TouchDown Pose"}, 1);
+Text232.setString(new std::string[]{"TouchDown Pose"}, 1);
 CFontStyle& FontStyle233 =  CFontStyle();
 FontStyle233.setContainerField("fontStyle");
 FontStyle233.setUSE(std::string("SharedFont"));
@@ -1265,7 +1265,7 @@ Transform240.setDEF(std::string("I_PoseInterface"));
 Transform240.setTranslation(new float[]{-1.5,0.0,0.0});
 Shape& Shape241 =  Shape();
 Text& Text242 =  Text();
-Text242.setString((std::string[]){"\"I\" Pose"}, 1);
+Text242.setString(new std::string[]{"\"I\" Pose"}, 1);
 CFontStyle& FontStyle243 =  CFontStyle();
 FontStyle243.setContainerField("fontStyle");
 FontStyle243.setUSE(std::string("SharedFont"));
@@ -1312,7 +1312,7 @@ Transform250.setDEF(std::string("FaceLeftPoseInterface"));
 Transform250.setTranslation(new float[]{1.5,1.5,0.0});
 Shape& Shape251 =  Shape();
 Text& Text252 =  Text();
-Text252.setString((std::string[]){"Face Left Pose"}, 1);
+Text252.setString(new std::string[]{"Face Left Pose"}, 1);
 CFontStyle& FontStyle253 =  CFontStyle();
 FontStyle253.setContainerField("fontStyle");
 FontStyle253.setUSE(std::string("SharedFont"));
@@ -1358,7 +1358,7 @@ Transform260.setDEF(std::string("FaceRightPoseInterface"));
 Transform260.setTranslation(new float[]{1.5,1.0,0.0});
 Shape& Shape261 =  Shape();
 Text& Text262 =  Text();
-Text262.setString((std::string[]){"Face Right Pose"}, 1);
+Text262.setString(new std::string[]{"Face Right Pose"}, 1);
 CFontStyle& FontStyle263 =  CFontStyle();
 FontStyle263.setContainerField("fontStyle");
 FontStyle263.setUSE(std::string("SharedFont"));
@@ -1405,7 +1405,7 @@ Transform270.setDEF(std::string("AnimatePosesInterface"));
 Transform270.setTranslation(new float[]{1.5,0.5,0.0});
 Shape& Shape271 =  Shape();
 Text& Text272 =  Text();
-Text272.setString((std::string[]){"Direct animation", "to, from \"I\" Pose"}, 2);
+Text272.setString(new std::string[]{"Direct animation", "to, from \"I\" Pose"}, 2);
 CFontStyle& FontStyle273 =  CFontStyle();
 FontStyle273.setContainerField("fontStyle");
 FontStyle273.setUSE(std::string("SharedFont"));
@@ -1452,8 +1452,8 @@ Transform270.addChild(&TimeSensor280);
 
 ScalarInterpolator& ScalarInterpolator281 =  ScalarInterpolator();
 ScalarInterpolator281.setDEF(std::string("AnimatePosesLoopInterpolator"));
-ScalarInterpolator281.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0});
-ScalarInterpolator281.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0});
+ScalarInterpolator281.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0}, 6);
+ScalarInterpolator281.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0}, 6);
 Transform270.addChild(&ScalarInterpolator281);
 
 ROUTE& ROUTE282 =  ROUTE();
@@ -1484,7 +1484,7 @@ Transform285.setDEF(std::string("ResetDefaultPoseInterface"));
 Transform285.setTranslation(new float[]{1.5,0.0,0.0});
 Shape& Shape286 =  Shape();
 Text& Text287 =  Text();
-Text287.setString((std::string[]){"Reset All Joints", "to Default \"I\" Pose"}, 2);
+Text287.setString(new std::string[]{"Reset All Joints", "to Default \"I\" Pose"}, 2);
 CFontStyle& FontStyle288 =  CFontStyle();
 FontStyle288.setContainerField("fontStyle");
 FontStyle288.setUSE(std::string("SharedFont"));
@@ -1583,4 +1583,4 @@ Scene42.addChild(&Group295);
 
 X3D0.setScene(&Scene42);
 
-}
+//}

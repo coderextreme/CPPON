@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int OrientationInterpolator(int argc, char ** argv) {
+//void OrientationInterpolator(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interactive"));
 X3D0.setVersion(std::string("4.0"));
@@ -44,4 +44,4 @@ Scene7.addChild(&WorldInfo8);
 //<OrientationInterpolator DEF='Stop_l_midtarsal_RotationInterpolator' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 0 0 0 1 0'/>
 X3D0.setScene(&Scene7);
 
-}
+//}

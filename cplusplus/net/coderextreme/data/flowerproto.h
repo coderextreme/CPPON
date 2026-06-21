@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int flowerproto(int argc, char ** argv) {
+//void flowerproto(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -118,32 +118,32 @@ ComposedCubeMapTexture26.setContainerField("texture");
 ComposedCubeMapTexture26.setDEF(std::string("texture"));
 ImageTexture& ImageTexture27 =  ImageTexture();
 ImageTexture27.setContainerField("backTexture");
-ImageTexture27.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
+ImageTexture27.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_back.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png"}, 2);
 ComposedCubeMapTexture26.setBack(ImageTexture27);
 
 ImageTexture& ImageTexture28 =  ImageTexture();
 ImageTexture28.setContainerField("bottomTexture");
-ImageTexture28.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
+ImageTexture28.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_bottom.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png"}, 2);
 ComposedCubeMapTexture26.setBottom(ImageTexture28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
 ImageTexture29.setContainerField("frontTexture");
-ImageTexture29.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
+ImageTexture29.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_front.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png"}, 2);
 ComposedCubeMapTexture26.setFront(ImageTexture29);
 
 ImageTexture& ImageTexture30 =  ImageTexture();
 ImageTexture30.setContainerField("leftTexture");
-ImageTexture30.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
+ImageTexture30.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_left.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png"}, 2);
 ComposedCubeMapTexture26.setLeft(ImageTexture30);
 
 ImageTexture& ImageTexture31 =  ImageTexture();
 ImageTexture31.setContainerField("rightTexture");
-ImageTexture31.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
+ImageTexture31.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_right.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png"}, 2);
 ComposedCubeMapTexture26.setRight(ImageTexture31);
 
 ImageTexture& ImageTexture32 =  ImageTexture();
 ImageTexture32.setContainerField("topTexture");
-ImageTexture32.setUrl((std::string[]){"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
+ImageTexture32.setUrl(new std::string[]{"../resources/images/all_probes/stpeters_cross/stpeters_top.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png"}, 2);
 ComposedCubeMapTexture26.setTop(ImageTexture32);
 
 Appearance24.addChild(&ComposedCubeMapTexture26);
@@ -240,7 +240,7 @@ connect48.setNodeField(std::string("url"));
 connect48.setProtoField(std::string("vertex"));
 IS47.addChild(&connect48);
 
-ShaderPart46.addChild(&IS47);
+ShaderPart46.X3DBaseNode::addChild(&IS47);
 
 ComposedShader33.setParts(&ShaderPart46);
 
@@ -252,7 +252,7 @@ connect51.setNodeField(std::string("url"));
 connect51.setProtoField(std::string("fragment"));
 IS50.addChild(&connect51);
 
-ShaderPart49.addChild(&IS50);
+ShaderPart49.X3DBaseNode::addChild(&IS50);
 
 ComposedShader33.setParts(&ShaderPart49);
 
@@ -468,4 +468,4 @@ Scene16.addChild(&ProtoDeclare17);
 
 X3D0.setScene(&Scene16);
 
-}
+//}

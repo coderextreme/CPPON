@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Teapot(int argc, char ** argv) {
+//void Teapot(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -143,7 +143,7 @@ Coordinate& Coordinate29 =  Coordinate();
 Coordinate29.setPoint(new float[]{0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0}, 12);
 IndexedLineSet28.setCoord(&Coordinate29);
 
-CColor& Color30 =  CColor();
+Color& Color30 =  Color();
 Color30.setContainerField("color");
 Color30.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet28.setColor(&Color30);
@@ -154,4 +154,4 @@ Scene18.addChild(&Shape27);
 
 X3D0.setScene(&Scene18);
 
-}
+//}

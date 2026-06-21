@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HAnimModelFootRight(int argc, char ** argv) {
+//void HAnimModelFootRight(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -143,11 +143,11 @@ MetadataSet28.X3DNode::setName(std::string("HAnimHumanoid.info"));
 MetadataSet28.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid"));
 MetadataString& MetadataString29 =  MetadataString();
 MetadataString29.X3DNode::setName(std::string("authorName"));
-MetadataString29.setValue((std::string[]){"Kwan-Hee YOO, Don Brutzman and Joe Williams"}, 1);
+MetadataString29.setValue(new std::string[]{"Kwan-Hee YOO, Don Brutzman and Joe Williams"}, 1);
 MetadataString29.setContainerField("value");
 MetadataSet28.setValue((X3DNode *)&MetadataString29);
 
-HAnimHumanoid27.setMetadata(&MetadataSet28);
+HAnimHumanoid27.setMetadata(MetadataSet28);
 
 HAnimJoint& HAnimJoint30 =  HAnimJoint();
 HAnimJoint30.X3DNode::setName(std::string("humanoid_root"));
@@ -1440,4 +1440,4 @@ Scene25.addChild(&HAnimHumanoid27);
 
 X3D0.setScene(&Scene25);
 
-}
+//}

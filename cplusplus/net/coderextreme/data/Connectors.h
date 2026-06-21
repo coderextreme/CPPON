@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Connectors(int argc, char ** argv) {
+//void Connectors(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -602,7 +602,7 @@ ProtoDeclare88.addChild(&ProtoBody94);
 Scene9.addChild(&ProtoDeclare88);
 
 NavigationInfo& NavigationInfo117 =  NavigationInfo();
-NavigationInfo117.setType((std::string[]){"FLY", "ANY"}, 2);
+NavigationInfo117.setType(new std::string[]{"FLY", "ANY"}, 2);
 Scene9.addChild(&NavigationInfo117);
 
 Background& Background118 =  Background();
@@ -613,7 +613,7 @@ OrthoViewpoint& OrthoViewpoint119 =  OrthoViewpoint();
 OrthoViewpoint119.setDescription(std::string("OthoViewpoint"));
 OrthoViewpoint119.setPosition(new float[]{-3.13496,-4.19776,10.0});
 OrthoViewpoint119.setCenterOfRotation(new float[]{-3.13496,-4.19776,0.0});
-OrthoViewpoint119.setFieldOfView(new float[]{0.0,0.0,10.0,10.0});
+OrthoViewpoint119.setFieldOfView(new float[]{0.0,0.0,10.0,10.0}, 4);
 Scene9.addChild(&OrthoViewpoint119);
 
 Viewpoint& Viewpoint120 =  Viewpoint();
@@ -926,4 +926,4 @@ Scene9.addChild(&Transform121);
 
 X3D0.setScene(&Scene9);
 
-}
+//}

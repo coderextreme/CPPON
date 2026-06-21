@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ScubaTank(int argc, char ** argv) {
+//void ScubaTank(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -259,4 +259,4 @@ Scene10.addChild(&Background56);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

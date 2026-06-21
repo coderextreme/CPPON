@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int asphere(int argc, char ** argv) {
+//void asphere(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -62,4 +62,4 @@ Scene8.addChild(&Group9);
 
 X3D0.setScene(&Scene8);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int personal(int argc, char ** argv) {
+//void personal(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -49,7 +49,7 @@ Switch8.setWhichChoice(0);
 //<Inline url='\"../data/flowers4.x3d\" \"https://coderextreme.net/X3DJSONLD/src/main/data/flowers4.x3d\"'/>
 //<Inline url='\"../data/flowers7.x3d\" \"https://coderextreme.net/X3DJSONLD/src/main/data/flowers7.x3d\"'/>
 Inline& Inline9 =  Inline();
-Inline9.setUrl((std::string[]){"../data/force-tidy.x3d", "https://coderextreme.net/X3DJSONLD/src/main/data/force-tidy.x3d"}, 2);
+Inline9.setUrl(new std::string[]{"../data/force-tidy.x3d", "https://coderextreme.net/X3DJSONLD/src/main/data/force-tidy.x3d"}, 2);
 Switch8.addChild(&Inline9);
 
 Scene6.addChild(&Switch8);
@@ -290,4 +290,4 @@ Scene6.addChild(&Switch8);
 //<ROUTE fromNode=\"Choice8\" fromField=\"choice\" toNode=\"SceneSwitcher\" toField=\"whichChoice\"/>
 X3D0.setScene(&Scene6);
 
-}
+//}

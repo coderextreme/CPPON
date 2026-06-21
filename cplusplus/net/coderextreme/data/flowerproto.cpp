@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-void flowerproto(int argc, char ** argv) {
+void main(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -240,7 +240,7 @@ connect48.setNodeField(std::string("url"));
 connect48.setProtoField(std::string("vertex"));
 IS47.addChild(&connect48);
 
-ShaderPart46.X3DBaseNode::addChild(&IS47));
+ShaderPart46.X3DBaseNode::addChild(&IS47);
 
 ComposedShader33.setParts(&ShaderPart46);
 
@@ -252,7 +252,7 @@ connect51.setNodeField(std::string("url"));
 connect51.setProtoField(std::string("fragment"));
 IS50.addChild(&connect51);
 
-ShaderPart49.X3DBaseNode::addChild(&IS50));
+ShaderPart49.X3DBaseNode::addChild(&IS50);
 
 ComposedShader33.setParts(&ShaderPart49);
 

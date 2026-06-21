@@ -84,6 +84,12 @@ export default class CPPONGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
+	// Visit a parse tree produced by CPPONGrammarParser#cpp_cast.
+	visitCpp_cast(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
 	// Visit a parse tree produced by CPPONGrammarParser#parameter.
 	visitParameter(ctx) {
 	  return this.visitChildren(ctx);

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HelloWorld(int argc, char ** argv) {
+//void HelloWorld(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -130,7 +130,7 @@ X3D0.setHead(&head1);
 Scene& Scene25 =  Scene();
 //Example scene to illustrate X3D nodes and fields (XML elements and attributes)
 WorldInfo& WorldInfo26 =  WorldInfo();
-WorldInfo26.setInfo((std::string[]){"Example scene to illustrate a simple X3D model"}, 1);
+WorldInfo26.setInfo(new std::string[]{"Example scene to illustrate a simple X3D model"}, 1);
 WorldInfo26.setTitle(std::string("Hello World!"));
 Scene25.addChild(&WorldInfo26);
 
@@ -159,7 +159,7 @@ Appearance32.addChild(&Material33);
 ImageTexture& ImageTexture34 =  ImageTexture();
 ImageTexture34.setContainerField("texture");
 ImageTexture34.setDEF(std::string("ImageCloudlessEarth"));
-ImageTexture34.setUrl((std::string[]){"earth-topo.png", "earth-topo.jpg", "earth-topo-small.gif", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"}, 6);
+ImageTexture34.setUrl(new std::string[]{"earth-topo.png", "earth-topo.jpg", "earth-topo-small.gif", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg", "https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"}, 6);
 Appearance32.addChild(&ImageTexture34);
 
 Shape30.addChild(&Appearance32);
@@ -173,10 +173,10 @@ Transform35.setTranslation(new float[]{0.0,-2.0,0.0});
 Shape& Shape36 =  Shape();
 Text& Text37 =  Text();
 Text37.setDEF(std::string("TextMessage"));
-Text37.setString((std::string[]){"Hello", "world!"}, 2);
+Text37.setString(new std::string[]{"Hello", "world!"}, 2);
 CFontStyle& FontStyle38 =  CFontStyle();
 FontStyle38.setContainerField("fontStyle");
-FontStyle38.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle38.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text37.setFontStyle(&FontStyle38);
 
 Shape36.setGeometry(&Text37);
@@ -198,4 +198,4 @@ Scene25.addChild(&Group27);
 
 X3D0.setScene(&Scene25);
 
-}
+//}

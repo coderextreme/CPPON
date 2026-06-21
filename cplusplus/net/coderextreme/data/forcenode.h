@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int forcenode(int argc, char ** argv) {
+//void forcenode(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -90,10 +90,10 @@ Transform& Transform22 =  Transform();
 Transform22.setTranslation(new float[]{1.0,0.0,1.0});
 Shape& Shape23 =  Shape();
 Text& Text24 =  Text();
-Text24.setString((std::string[]){"Node"}, 1);
+Text24.setString(new std::string[]{"Node"}, 1);
 CFontStyle& FontStyle25 =  CFontStyle();
 FontStyle25.setContainerField("fontStyle");
-FontStyle25.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle25.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle25.setSize(5);
 Text24.setFontStyle(&FontStyle25);
 
@@ -116,7 +116,7 @@ Group14.addChild(&Transform15);
 
 PositionInterpolator& PositionInterpolator28 =  PositionInterpolator();
 PositionInterpolator28.setDEF(std::string("NodePosition"));
-PositionInterpolator28.setKey(new float[]{0.0,1.0});
+PositionInterpolator28.setKey(new float[]{0.0,1.0}, 2);
 PositionInterpolator28.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Group14.addChild(&PositionInterpolator28);
 
@@ -456,4 +456,4 @@ Scene9.addChild(&ROUTE80);
 
 X3D0.setScene(&Scene9);
 
-}
+//}

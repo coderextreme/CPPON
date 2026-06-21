@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Nodes(int argc, char ** argv) {
+//void Nodes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.1"));
@@ -471,4 +471,4 @@ Scene7.addChild(&VolumePickSensor145);
 
 X3D0.setScene(&Scene7);
 
-}
+//}

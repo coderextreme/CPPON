@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Pathway(int argc, char ** argv) {
+//void Pathway(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -10691,4 +10691,4 @@ Scene15.addChild(&Shape2222);
 
 X3D0.setScene(&Scene15);
 
-}
+//}

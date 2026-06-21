@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ObliqueStrategies(int argc, char ** argv) {
+//void ObliqueStrategies(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -172,7 +172,7 @@ WorldInfo34.setTitle(std::string("ObliqueStrategies.x3d"));
 Scene33.addChild(&WorldInfo34);
 
 NavigationInfo& NavigationInfo35 =  NavigationInfo();
-NavigationInfo35.setType((std::string[]){"NONE"}, 1);
+NavigationInfo35.setType(new std::string[]{"NONE"}, 1);
 Scene33.addChild(&NavigationInfo35);
 
 Background& Background36 =  Background();
@@ -189,12 +189,12 @@ Transform37.addChild(&TouchSensor38);
 
 Shape& Shape39 =  Shape();
 Text& Text40 =  Text();
-Text40.setString((std::string[]){"Oblique Strategies", "(Over One Hundred Worthwhile Dilemmas)", "by Brian Eno and Peter Schmidt"}, 3);
+Text40.setString(new std::string[]{"Oblique Strategies", "(Over One Hundred Worthwhile Dilemmas)", "by Brian Eno and Peter Schmidt"}, 3);
 CFontStyle& FontStyle41 =  CFontStyle();
 FontStyle41.setContainerField("fontStyle");
 FontStyle41.setDEF(std::string("MessageFont"));
-FontStyle41.setFamily((std::string[]){"SANS"}, 1);
-FontStyle41.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle41.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle41.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle41.setStyle(std::string("BOLD"));
 Text40.setFontStyle(&FontStyle41);
 
@@ -245,7 +245,7 @@ Scene33.addChild(&Transform37);
 
 Script& Script50 =  Script();
 Script50.setDEF(std::string("TextScript"));
-Script50.setUrl((std::string[]){"ObliqueStrategiesScript.js", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/Inspiration/ObliqueStrategiesScript.js"}, 2);
+Script50.setUrl(new std::string[]{"ObliqueStrategiesScript.js", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/Inspiration/ObliqueStrategiesScript.js"}, 2);
 //initialize() method includes unit test to printAllStrategies() to console
 //TODO insert field definitions here (index string_changed previous next random) and then animate!
 field& field51 =  field();
@@ -314,8 +314,8 @@ Text& Text61 =  Text();
 Text61.setDEF(std::string("CardText"));
 CFontStyle& FontStyle62 =  CFontStyle();
 FontStyle62.setContainerField("fontStyle");
-FontStyle62.setFamily((std::string[]){"SANS"}, 1);
-FontStyle62.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle62.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle62.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle62.setStyle(std::string("BOLD"));
 Text61.setFontStyle(&FontStyle62);
 
@@ -353,7 +353,7 @@ AudioClip& AudioClip67 =  AudioClip();
 AudioClip67.setContainerField("source");
 AudioClip67.setDEF(std::string("TextToSpeechAudioClip"));
 AudioClip67.setDescription(std::string("sends strategy text google translate"));
-AudioClip67.setUrl((std::string[]){"http://translate.google.com/translate_tts?tl=en&amp;q=Feed%20the%20recording%20back%20out%20of%20the%20medium", "translate_tts_mp3FileFormatNotSupported.wav", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/Inspiration/translate_tts_mp3FileFormatNotSupported.wav"}, 3);
+AudioClip67.setUrl(new std::string[]{"http://translate.google.com/translate_tts?tl=en&amp;q=Feed%20the%20recording%20back%20out%20of%20the%20medium", "translate_tts_mp3FileFormatNotSupported.wav", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/Inspiration/translate_tts_mp3FileFormatNotSupported.wav"}, 3);
 Sound66.setSource(AudioClip67);
 
 Transform59.addChild(&Sound66);
@@ -391,7 +391,7 @@ Transform70.addChild(&ROUTE72);
 
 Shape& Shape73 =  Shape();
 Text& Text74 =  Text();
-Text74.setString((std::string[]){"previous"}, 1);
+Text74.setString(new std::string[]{"previous"}, 1);
 CFontStyle& FontStyle75 =  CFontStyle();
 FontStyle75.setContainerField("fontStyle");
 FontStyle75.setUSE(std::string("MessageFont"));
@@ -457,7 +457,7 @@ Transform84.addChild(&ROUTE86);
 
 Shape& Shape87 =  Shape();
 Text& Text88 =  Text();
-Text88.setString((std::string[]){"next"}, 1);
+Text88.setString(new std::string[]{"next"}, 1);
 CFontStyle& FontStyle89 =  CFontStyle();
 FontStyle89.setContainerField("fontStyle");
 FontStyle89.setUSE(std::string("MessageFont"));
@@ -498,7 +498,7 @@ Transform93.addChild(&ROUTE95);
 
 Shape& Shape96 =  Shape();
 Text& Text97 =  Text();
-Text97.setString((std::string[]){"random"}, 1);
+Text97.setString(new std::string[]{"random"}, 1);
 CFontStyle& FontStyle98 =  CFontStyle();
 FontStyle98.setContainerField("fontStyle");
 FontStyle98.setUSE(std::string("MessageFont"));
@@ -529,8 +529,8 @@ Transform102.setTranslation(new float[]{3.3,-0.5,0.0});
 Anchor& Anchor103 =  Anchor();
 Anchor103.setDEF(std::string("TextToSpeechAnchor"));
 Anchor103.setDescription(std::string("text to speech in browser"));
-Anchor103.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor103.setUrl((std::string[]){"http://translate.google.com/translate_tts?tl=en&amp;q=Overtly%20resist%20change"}, 1);
+Anchor103.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor103.setUrl(new std::string[]{"http://translate.google.com/translate_tts?tl=en&amp;q=Overtly%20resist%20change"}, 1);
 ROUTE& ROUTE104 =  ROUTE();
 ROUTE104.setFromField(std::string("textToSpeechUrl"));
 ROUTE104.setFromNode(std::string("TextScript"));
@@ -540,7 +540,7 @@ Anchor103.addChild(&ROUTE104);
 
 Shape& Shape105 =  Shape();
 Text& Text106 =  Text();
-Text106.setString((std::string[]){"speech"}, 1);
+Text106.setString(new std::string[]{"speech"}, 1);
 CFontStyle& FontStyle107 =  CFontStyle();
 FontStyle107.setContainerField("fontStyle");
 FontStyle107.setUSE(std::string("MessageFont"));
@@ -569,4 +569,4 @@ Scene33.addChild(&Transform102);
 
 X3D0.setScene(&Scene33);
 
-}
+//}

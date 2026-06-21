@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-void KoreanCharacter08Da(int argc, char ** argv) {
+void main(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -1110,7 +1110,7 @@ HAnimHumanoid25.setJoints(&HAnimJoint230);
 Scene21.addChild(&HAnimHumanoid25);
 
 Export& EXPORT231 =  Export();
-EXPORT231.setAS(&std::string("KoreanCharacter08Da"));
+EXPORT231.setAS(new std::string("KoreanCharacter08Da"));
 EXPORT231.setLocalDEF(std::string("hanim_Da"));
 Scene21.addChild(&EXPORT231);
 

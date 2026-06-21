@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int InlineSoundSource(int argc, char ** argv) {
+//void InlineSoundSource(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -81,12 +81,12 @@ NavigationInfo16.setDEF(std::string("NAV"));
 Scene14.addChild(&NavigationInfo16);
 
 Background& Background17 =  Background();
-Background17.setBackUrl((std::string[]){"images/generic/BK1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/BK1.png"}, 2);
-Background17.setBottomUrl((std::string[]){"images/generic/DN1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/DN1.png"}, 2);
-Background17.setFrontUrl((std::string[]){"images/generic/FR1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/FR1.png"}, 2);
-Background17.setLeftUrl((std::string[]){"images/generic/LF1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/LF1.png"}, 2);
-Background17.setRightUrl((std::string[]){"images/generic/RT1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/RT1.png"}, 2);
-Background17.setTopUrl((std::string[]){"images/generic/UP1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/UP1.png"}, 2);
+Background17.setBackUrl(new std::string[]{"images/generic/BK1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/BK1.png"}, 2);
+Background17.setBottomUrl(new std::string[]{"images/generic/DN1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/DN1.png"}, 2);
+Background17.setFrontUrl(new std::string[]{"images/generic/FR1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/FR1.png"}, 2);
+Background17.setLeftUrl(new std::string[]{"images/generic/LF1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/LF1.png"}, 2);
+Background17.setRightUrl(new std::string[]{"images/generic/RT1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/RT1.png"}, 2);
+Background17.setTopUrl(new std::string[]{"images/generic/UP1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/UP1.png"}, 2);
 Scene14.addChild(&Background17);
 
 Viewpoint& Viewpoint18 =  Viewpoint();
@@ -135,11 +135,11 @@ Transform& Transform26 =  Transform();
 Transform26.setDEF(std::string("InlineScene"));
 Inline& Inline27 =  Inline();
 Inline27.setDEF(std::string("inline"));
-Inline27.setUrl((std::string[]){"x3d/example1.x3d", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/x3d/example1.x3d", "x3d/example1.wrl", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/x3d/example1.wrl"}, 4);
+Inline27.setUrl(new std::string[]{"x3d/example1.x3d", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/x3d/example1.x3d", "x3d/example1.wrl", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/x3d/example1.wrl"}, 4);
 Transform26.addChild(&Inline27);
 
 Scene14.addChild(&Transform26);
 
 X3D0.setScene(&Scene14);
 
-}
+//}

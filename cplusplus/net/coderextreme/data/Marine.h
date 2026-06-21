@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Marine(int argc, char ** argv) {
+//void Marine(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -63,7 +63,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene12 =  Scene();
 WorldInfo& WorldInfo13 =  WorldInfo();
-WorldInfo13.setInfo((std::string[]){"This Web3D World was created with Vizx3D, a Web3D authoring tool", "www.vizx3d.com"}, 2);
+WorldInfo13.setInfo(new std::string[]{"This Web3D World was created with Vizx3D, a Web3D authoring tool", "www.vizx3d.com"}, 2);
 WorldInfo13.setTitle(std::string("marine"));
 Scene12.addChild(&WorldInfo13);
 
@@ -77,7 +77,7 @@ Group& Group17 =  Group();
 Group17.setDEF(std::string("Import_Base"));
 NavigationInfo& NavigationInfo18 =  NavigationInfo();
 NavigationInfo18.setDEF(std::string("NavInfo1"));
-NavigationInfo18.setAvatarSize(new float[]{0.25,1.6,0.75});
+NavigationInfo18.setAvatarSize(new float[]{0.25,1.6,0.75}, 3);
 Group17.addChild(&NavigationInfo18);
 
 Transform& Transform19 =  Transform();
@@ -98,7 +98,7 @@ Appearance23.setContainerField("appearance");
 ImageTexture& ImageTexture24 =  ImageTexture();
 ImageTexture24.setContainerField("texture");
 ImageTexture24.setDEF(std::string("marine_camo"));
-ImageTexture24.setUrl((std::string[]){"marine_camo.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Polygonal/marine_camo.jpg"}, 2);
+ImageTexture24.setUrl(new std::string[]{"marine_camo.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Polygonal/marine_camo.jpg"}, 2);
 Appearance23.addChild(&ImageTexture24);
 
 Material& Material25 =  Material();
@@ -247,4 +247,4 @@ Scene12.addChild(&Transform14);
 
 X3D0.setScene(&Scene12);
 
-}
+//}

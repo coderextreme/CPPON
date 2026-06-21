@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ViewFrustumExample(int argc, char ** argv) {
+//void ViewFrustumExample(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -113,13 +113,13 @@ Viewpoint22.setPosition(new float[]{-5.0,5.0,20.0});
 Scene17.addChild(&Viewpoint22);
 
 NavigationInfo& NavigationInfo23 =  NavigationInfo();
-NavigationInfo23.setType((std::string[]){"EXAMINE", "FLY", "ANY"}, 3);
+NavigationInfo23.setType(new std::string[]{"EXAMINE", "FLY", "ANY"}, 3);
 Scene17.addChild(&NavigationInfo23);
 
 ExternProtoDeclare& ExternProtoDeclare24 =  ExternProtoDeclare();
 ExternProtoDeclare24.setName(std::string("ViewFrustum"));
 ExternProtoDeclare24.setAppinfo(std::string("Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes"));
-ExternProtoDeclare24.setUrl((std::string[]){"ViewFrustumPrototype.x3d#ViewFrustum"}, 1);
+ExternProtoDeclare24.setUrl(new std::string[]{"ViewFrustumPrototype.x3d#ViewFrustum"}, 1);
 field& field25 =  field();
 field25.setName(std::string("ViewpointNode"));
 field25.setAccessType(std::string("initializeOnly"));
@@ -228,18 +228,18 @@ Scene17.addChild(&ProtoInstance33);
 //Visualization assists
 Inline& Inline43 =  Inline();
 Inline43.setDEF(std::string("GridXZ"));
-Inline43.setUrl((std::string[]){"GridXZ_20x20Fixed.x3d"}, 1);
+Inline43.setUrl(new std::string[]{"GridXZ_20x20Fixed.x3d"}, 1);
 Scene17.addChild(&Inline43);
 
 Transform& Transform44 =  Transform();
 Transform44.setScale(new float[]{5.0,5.0,5.0});
 Inline& Inline45 =  Inline();
 Inline45.setDEF(std::string("CoordinateAxes"));
-Inline45.setUrl((std::string[]){"CoordinateAxes.x3d"}, 1);
+Inline45.setUrl(new std::string[]{"CoordinateAxes.x3d"}, 1);
 Transform44.addChild(&Inline45);
 
 Scene17.addChild(&Transform44);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

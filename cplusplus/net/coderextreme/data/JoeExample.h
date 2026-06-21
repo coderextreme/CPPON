@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JoeExample(int argc, char ** argv) {
+//void JoeExample(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -79,7 +79,7 @@ AudioClip14.setContainerField("source");
 AudioClip14.setDEF(std::string("Click"));
 AudioClip14.setStopTime(1);
 AudioClip14.setDescription(std::string("clicking sound"));
-AudioClip14.setUrl((std::string[]){"../resources/chandubabamusic1.wav"}, 1);
+AudioClip14.setUrl(new std::string[]{"../resources/chandubabamusic1.wav"}, 1);
 Sound13.setSource(AudioClip14);
 
 Scene3.addChild(&Sound13);
@@ -111,4 +111,4 @@ Scene3.addChild(&ROUTE18);
 
 X3D0.setScene(&Scene3);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int indexedfacesetPixeltexture_entire(int argc, char ** argv) {
+//void indexedfacesetPixeltexture_entire(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -117,7 +117,7 @@ Viewpoint22.setPosition(new float[]{-10.0,0.0,0.0});
 Scene16.addChild(&Viewpoint22);
 
 NavigationInfo& NavigationInfo23 =  NavigationInfo();
-NavigationInfo23.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo23.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene16.addChild(&NavigationInfo23);
 
 //<Environment id=\"gamma\" gammaCorrectionDefault=\"none\"></Environment>
@@ -154,4 +154,4 @@ Scene16.addChild(&Shape24);
 
 X3D0.setScene(&Scene16);
 
-}
+//}

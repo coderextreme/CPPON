@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int rubikOnFire(int argc, char ** argv) {
+//void rubikOnFire(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -38,7 +38,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setType((std::string[]){"ANY", "EXAMINE", "WALK", "FLY", "LOOKAT"}, 5);
+NavigationInfo8.setType(new std::string[]{"ANY", "EXAMINE", "WALK", "FLY", "LOOKAT"}, 5);
 Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
@@ -61,7 +61,7 @@ field13.setName(std::string("myShape"));
 field13.setAccessType(std::string("inputOutput"));
 field13.setType(std::string("SFNode"));
 Sphere& Sphere14 =  Sphere();
-field13.addChild(&Sphere14);
+field13.addChild(Sphere14);
 
 ProtoInterface11.addChild(&field13);
 
@@ -118,7 +118,7 @@ field27.setName(std::string("myShape"));
 field27.setAccessType(std::string("inputOutput"));
 field27.setType(std::string("SFNode"));
 Sphere& Sphere28 =  Sphere();
-field27.addChild(&Sphere28);
+field27.addChild(Sphere28);
 
 ProtoInterface25.addChild(&field27);
 
@@ -206,7 +206,7 @@ field48.setName(std::string("myShape"));
 field48.setAccessType(std::string("inputOutput"));
 field48.setType(std::string("SFNode"));
 Sphere& Sphere49 =  Sphere();
-field48.addChild(&Sphere49);
+field48.addChild(Sphere49);
 
 ProtoInterface46.addChild(&field48);
 
@@ -294,7 +294,7 @@ field69.setName(std::string("myShape"));
 field69.setAccessType(std::string("inputOutput"));
 field69.setType(std::string("SFNode"));
 Sphere& Sphere70 =  Sphere();
-field69.addChild(&Sphere70);
+field69.addChild(Sphere70);
 
 ProtoInterface67.addChild(&field69);
 
@@ -386,4 +386,4 @@ Scene7.addChild(&ProtoInstance87);
 
 X3D0.setScene(&Scene7);
 
-}
+//}

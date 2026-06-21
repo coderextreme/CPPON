@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int rubikPly(int argc, char ** argv) {
+//void rubikPly(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -38,7 +38,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene7 =  Scene();
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setType((std::string[]){"ANY", "EXAMINE", "WALK", "FLY", "LOOKAT"}, 5);
+NavigationInfo8.setType(new std::string[]{"ANY", "EXAMINE", "WALK", "FLY", "LOOKAT"}, 5);
 Scene7.addChild(&NavigationInfo8);
 
 Viewpoint& Viewpoint9 =  Viewpoint();
@@ -419,10 +419,10 @@ Coordinate& Coordinate101 =  Coordinate();
 Coordinate101.setPoint(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0}, 24);
 IndexedFaceSet100.setCoord(&Coordinate101);
 
-CColor& Color102 =  CColor();
+Color& Color102 =  Color();
 Color102.setContainerField("color");
 Color102.setColor(new float[]{1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0}, 24);
-IndexedFaceSet100.setColor(&Color102);
+IndexedFaceSet100.setColor(Color102);
 
 Shape99.setGeometry(&IndexedFaceSet100);
 
@@ -435,7 +435,7 @@ Coordinate& Coordinate105 =  Coordinate();
 Coordinate105.setPoint(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0}, 24);
 IndexedLineSet104.setCoord(&Coordinate105);
 
-CColor& Color106 =  CColor();
+Color& Color106 =  Color();
 Color106.setContainerField("color");
 Color106.setColor(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0}, 15);
 IndexedLineSet104.setColor(&Color106);
@@ -452,4 +452,4 @@ Scene7.addChild(&ProtoInstance95);
 
 X3D0.setScene(&Scene7);
 
-}
+//}

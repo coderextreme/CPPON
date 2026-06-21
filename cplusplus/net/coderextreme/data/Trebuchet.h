@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Trebuchet(int argc, char ** argv) {
+//void Trebuchet(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -92,16 +92,16 @@ WorldInfo18.setTitle(std::string("Trebuchet.x3d"));
 Scene17.addChild(&WorldInfo18);
 
 Background& Background19 =  Background();
-Background19.setBackUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_back.jpg"}, 1);
-Background19.setBottomUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_bottom.jpg"}, 1);
-Background19.setFrontUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_front.jpg"}, 1);
-Background19.setGroundAngle(new float[]{1.309,1.570796});
+Background19.setBackUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_back.jpg"}, 1);
+Background19.setBottomUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_bottom.jpg"}, 1);
+Background19.setFrontUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_front.jpg"}, 1);
+Background19.setGroundAngle(new float[]{1.309,1.570796}, 2);
 Background19.setGroundColor(new float[]{0.1,0.1,0.0,0.4,0.25,0.2,0.6,0.6,0.6}, 9);
-Background19.setLeftUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_left.jpg"}, 1);
-Background19.setRightUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_right.jpg"}, 1);
-Background19.setSkyAngle(new float[]{1.309,1.57079});
+Background19.setLeftUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_left.jpg"}, 1);
+Background19.setRightUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_right.jpg"}, 1);
+Background19.setSkyAngle(new float[]{1.309,1.57079}, 2);
 Background19.setSkyColor(new float[]{0.0,0.2,0.7,0.0,0.5,1.0,1.0,1.0,1.0}, 9);
-Background19.setTopUrl((std::string[]){"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_top.jpg"}, 1);
+Background19.setTopUrl(new std::string[]{"https://www.web3d.org/WorkingGroups/media/textures/panoramas/meadow_2_top.jpg"}, 1);
 Scene17.addChild(&Background19);
 
 Sound& Sound20 =  Sound();
@@ -112,7 +112,7 @@ AudioClip21.setContainerField("source");
 AudioClip21.setDEF(std::string("HolyGrail"));
 AudioClip21.setDescription(std::string("HolyGrail"));
 AudioClip21.setLoop(true);
-AudioClip21.setUrl((std::string[]){"holygral.mp3", "http://www.nps.navy.mil/code32/vrml/holygral.mp3"}, 2);
+AudioClip21.setUrl(new std::string[]{"holygral.mp3", "http://www.nps.navy.mil/code32/vrml/holygral.mp3"}, 2);
 Sound20.setSource(AudioClip21);
 
 Scene17.addChild(&Sound20);
@@ -126,7 +126,7 @@ Appearance& Appearance24 =  Appearance();
 Appearance24.setContainerField("appearance");
 ImageTexture& ImageTexture25 =  ImageTexture();
 ImageTexture25.setContainerField("texture");
-ImageTexture25.setUrl((std::string[]){"grass.jpg", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/grass.jpg"}, 2);
+ImageTexture25.setUrl(new std::string[]{"grass.jpg", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/grass.jpg"}, 2);
 Appearance24.addChild(&ImageTexture25);
 
 Shape22.addChild(&Appearance24);
@@ -150,7 +150,7 @@ Appearance28.addChild(&Material29);
 Shape27.addChild(&Appearance28);
 
 Text& Text30 =  Text();
-Text30.setString((std::string[]){"Click Sling to Select Projectile"}, 1);
+Text30.setString(new std::string[]{"Click Sling to Select Projectile"}, 1);
 CFontStyle& FontStyle31 =  CFontStyle();
 FontStyle31.setContainerField("fontStyle");
 Text30.setFontStyle(&FontStyle31);
@@ -176,7 +176,7 @@ Appearance36.setUSE(std::string("TextAppearance"));
 Shape35.addChild(&Appearance36);
 
 Text& Text37 =  Text();
-Text37.setString((std::string[]){"Click Here to Change Counter Weight (50 lbs)"}, 1);
+Text37.setString(new std::string[]{"Click Here to Change Counter Weight (50 lbs)"}, 1);
 Shape35.setGeometry(&Text37);
 
 Group34.addChild(&Shape35);
@@ -191,7 +191,7 @@ Appearance40.setUSE(std::string("TextAppearance"));
 Shape39.addChild(&Appearance40);
 
 Text& Text41 =  Text();
-Text41.setString((std::string[]){"Click Here to Change Counter Weight (500 lbs)"}, 1);
+Text41.setString(new std::string[]{"Click Here to Change Counter Weight (500 lbs)"}, 1);
 Shape39.setGeometry(&Text41);
 
 Group38.addChild(&Shape39);
@@ -206,7 +206,7 @@ Appearance44.setUSE(std::string("TextAppearance"));
 Shape43.addChild(&Appearance44);
 
 Text& Text45 =  Text();
-Text45.setString((std::string[]){"Click Here to Change Counter Weight (1000 lbs)"}, 1);
+Text45.setString(new std::string[]{"Click Here to Change Counter Weight (1000 lbs)"}, 1);
 Shape43.setGeometry(&Text45);
 
 Group42.addChild(&Shape43);
@@ -221,7 +221,7 @@ Appearance48.setUSE(std::string("TextAppearance"));
 Shape47.addChild(&Appearance48);
 
 Text& Text49 =  Text();
-Text49.setString((std::string[]){"Click Here to Change Counter Weight (10000 lbs)"}, 1);
+Text49.setString(new std::string[]{"Click Here to Change Counter Weight (10000 lbs)"}, 1);
 Shape47.setGeometry(&Text49);
 
 Group46.addChild(&Shape47);
@@ -275,7 +275,7 @@ Appearance60.addChild(&Material61);
 Shape59.addChild(&Appearance60);
 
 Text& Text62 =  Text();
-Text62.setString((std::string[]){"LAUNCH"}, 1);
+Text62.setString(new std::string[]{"LAUNCH"}, 1);
 CFontStyle& FontStyle63 =  CFontStyle();
 FontStyle63.setContainerField("fontStyle");
 Text62.setFontStyle(&FontStyle63);
@@ -315,7 +315,7 @@ AudioClip& AudioClip72 =  AudioClip();
 AudioClip72.setContainerField("source");
 AudioClip72.setDEF(std::string("PigDogSound"));
 AudioClip72.setDescription(std::string("PigDogSound"));
-AudioClip72.setUrl((std::string[]){"pigdog.wav", "http://www.nps.navy.mil/code32/vrml/pigdog.wav"}, 2);
+AudioClip72.setUrl(new std::string[]{"pigdog.wav", "http://www.nps.navy.mil/code32/vrml/pigdog.wav"}, 2);
 Sound71.setSource(AudioClip72);
 
 Group70.addChild(&Sound71);
@@ -330,7 +330,7 @@ AudioClip& AudioClip75 =  AudioClip();
 AudioClip75.setContainerField("source");
 AudioClip75.setDEF(std::string("MonkSound"));
 AudioClip75.setDescription(std::string("MonkSound"));
-AudioClip75.setUrl((std::string[]){"monks.wav", "http://www.nps.navy.mil/code32/vrml/monks.wav"}, 2);
+AudioClip75.setUrl(new std::string[]{"monks.wav", "http://www.nps.navy.mil/code32/vrml/monks.wav"}, 2);
 Sound74.setSource(AudioClip75);
 
 Group73.addChild(&Sound74);
@@ -360,7 +360,7 @@ Appearance81.setUSE(std::string("TextAppearance"));
 Shape80.addChild(&Appearance81);
 
 Text& Text82 =  Text();
-Text82.setString((std::string[]){"Bowling Ball (10 lbs)"}, 1);
+Text82.setString(new std::string[]{"Bowling Ball (10 lbs)"}, 1);
 CFontStyle& FontStyle83 =  CFontStyle();
 FontStyle83.setContainerField("fontStyle");
 FontStyle83.setSize(0.5);
@@ -378,7 +378,7 @@ AudioClip& AudioClip85 =  AudioClip();
 AudioClip85.setContainerField("source");
 AudioClip85.setDEF(std::string("HolyHandGrenadeSound"));
 AudioClip85.setDescription(std::string("HolyHandGrenadeSound"));
-AudioClip85.setUrl((std::string[]){"grenade.wav", "http://www.nps.navy.mil/code32/vrml/grenade.wav"}, 2);
+AudioClip85.setUrl(new std::string[]{"grenade.wav", "http://www.nps.navy.mil/code32/vrml/grenade.wav"}, 2);
 Sound84.setSource(AudioClip85);
 
 Group79.addChild(&Sound84);
@@ -393,7 +393,7 @@ Appearance88.setUSE(std::string("TextAppearance"));
 Shape87.addChild(&Appearance88);
 
 Text& Text89 =  Text();
-Text89.setString((std::string[]){"Cow (1000 lbs)"}, 1);
+Text89.setString(new std::string[]{"Cow (1000 lbs)"}, 1);
 CFontStyle& FontStyle90 =  CFontStyle();
 FontStyle90.setContainerField("fontStyle");
 FontStyle90.setSize(0.5);
@@ -410,7 +410,7 @@ AudioClip& AudioClip92 =  AudioClip();
 AudioClip92.setContainerField("source");
 AudioClip92.setDEF(std::string("CowSound"));
 AudioClip92.setDescription(std::string("CowSound"));
-AudioClip92.setUrl((std::string[]){"lavache.wav", "http://www.nps.navy.mil/code32/vrml/lavache.wav"}, 2);
+AudioClip92.setUrl(new std::string[]{"lavache.wav", "http://www.nps.navy.mil/code32/vrml/lavache.wav"}, 2);
 Sound91.setSource(AudioClip92);
 
 Group86.addChild(&Sound91);
@@ -425,7 +425,7 @@ Appearance95.setUSE(std::string("TextAppearance"));
 Shape94.addChild(&Appearance95);
 
 Text& Text96 =  Text();
-Text96.setString((std::string[]){"Chicken (5 lbs)"}, 1);
+Text96.setString(new std::string[]{"Chicken (5 lbs)"}, 1);
 CFontStyle& FontStyle97 =  CFontStyle();
 FontStyle97.setContainerField("fontStyle");
 FontStyle97.setSize(0.5);
@@ -443,7 +443,7 @@ AudioClip& AudioClip99 =  AudioClip();
 AudioClip99.setContainerField("source");
 AudioClip99.setDEF(std::string("HamsterSound"));
 AudioClip99.setDescription(std::string("HamsterSound"));
-AudioClip99.setUrl((std::string[]){"hamster.wav", "http://www.nps.navy.mil/code32/vrml/hamster.wav"}, 2);
+AudioClip99.setUrl(new std::string[]{"hamster.wav", "http://www.nps.navy.mil/code32/vrml/hamster.wav"}, 2);
 Sound98.setSource(AudioClip99);
 
 Group93.addChild(&Sound98);
@@ -487,7 +487,7 @@ Appearance107.setDEF(std::string("wood"));
 ImageTexture& ImageTexture108 =  ImageTexture();
 ImageTexture108.setContainerField("texture");
 ImageTexture108.setDEF(std::string("woodTexture"));
-ImageTexture108.setUrl((std::string[]){"wood.gif", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/wood.gif"}, 2);
+ImageTexture108.setUrl(new std::string[]{"wood.gif", "https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/wood.gif"}, 2);
 Appearance107.addChild(&ImageTexture108);
 
 Shape105.addChild(&Appearance107);
@@ -986,7 +986,7 @@ Switch209.addChild(&Group210);
 Group& Group216 =  Group();
 Transform& Transform217 =  Transform();
 Inline& Inline218 =  Inline();
-Inline218.setUrl((std::string[]){"cow.wrl", "http://www.uoguelph.ca/~dchiu/cow.wrl"}, 2);
+Inline218.setUrl(new std::string[]{"cow.wrl", "http://www.uoguelph.ca/~dchiu/cow.wrl"}, 2);
 Transform217.addChild(&Inline218);
 
 Group216.addChild(&Transform217);
@@ -999,7 +999,7 @@ Transform220.setRotation(new float[]{0.0,1.0,0.0,1.57});
 Transform220.setScale(new float[]{0.4,0.4,0.4});
 Transform220.setTranslation(new float[]{0.0,0.7,0.0});
 Inline& Inline221 =  Inline();
-Inline221.setUrl((std::string[]){"vrml_ginger.wrl", "http://home.inreach.com/ntamura/vrml/vrml_ginger.wrl"}, 2);
+Inline221.setUrl(new std::string[]{"vrml_ginger.wrl", "http://home.inreach.com/ntamura/vrml/vrml_ginger.wrl"}, 2);
 Transform220.addChild(&Inline221);
 
 Group219.addChild(&Transform220);
@@ -1689,31 +1689,31 @@ Scene17.addChild(&TimeSensor352);
 
 PositionInterpolator& PositionInterpolator353 =  PositionInterpolator();
 PositionInterpolator353.setDEF(std::string("verticalweightpath"));
-PositionInterpolator353.setKey(new float[]{0.0,0.1,0.2,0.2,0.3,0.9});
+PositionInterpolator353.setKey(new float[]{0.0,0.1,0.2,0.2,0.3,0.9}, 6);
 PositionInterpolator353.setKeyValue(new float[]{1.4,1.6,0.0,1.0,-8.0,0.0,-3.5,-12.0,0.0,-3.5,-12.0,0.0,1.2,-8.0,0.0,1.4,1.6,0.0}, 18);
 Scene17.addChild(&PositionInterpolator353);
 
 OrientationInterpolator& OrientationInterpolator354 =  OrientationInterpolator();
 OrientationInterpolator354.setDEF(std::string("flingerangles"));
-OrientationInterpolator354.setKey(new float[]{0.0,0.1,0.2,0.2,0.3,0.9});
+OrientationInterpolator354.setKey(new float[]{0.0,0.1,0.2,0.2,0.3,0.9}, 6);
 OrientationInterpolator354.setKeyValue(new float[]{0.0,0.0,1.0,0.82,0.0,0.0,1.0,-0.77,0.0,0.0,1.0,-1.57,0.0,0.0,1.0,-1.57,0.0,0.0,1.0,-0.77,0.0,0.0,1.0,0.82}, 24);
 Scene17.addChild(&OrientationInterpolator354);
 
 PositionInterpolator& PositionInterpolator355 =  PositionInterpolator();
 PositionInterpolator355.setDEF(std::string("pinpath"));
-PositionInterpolator355.setKey(new float[]{0.0,0.01,0.95,1.0});
+PositionInterpolator355.setKey(new float[]{0.0,0.01,0.95,1.0}, 4);
 PositionInterpolator355.setKeyValue(new float[]{0.0,0.0,-3.0,0.0,0.0,-10.0,0.0,0.0,-10.0,0.0,0.0,-3.0}, 12);
 Scene17.addChild(&PositionInterpolator355);
 
 OrientationInterpolator& OrientationInterpolator356 =  OrientationInterpolator();
 OrientationInterpolator356.setDEF(std::string("RnSAngels"));
-OrientationInterpolator356.setKey(new float[]{0.0,0.7,1.0});
+OrientationInterpolator356.setKey(new float[]{0.0,0.7,1.0}, 3);
 OrientationInterpolator356.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,-3.14,0.0,0.0,1.0,0.0}, 12);
 Scene17.addChild(&OrientationInterpolator356);
 
 PositionInterpolator& PositionInterpolator357 =  PositionInterpolator();
 PositionInterpolator357.setDEF(std::string("invisiable"));
-PositionInterpolator357.setKey(new float[]{0.0,0.2,0.98,0.99});
+PositionInterpolator357.setKey(new float[]{0.0,0.2,0.98,0.99}, 4);
 PositionInterpolator357.setKeyValue(new float[]{1.0,1.0,1.0,0.01,0.01,0.01,0.01,0.01,0.01,1.0,1.0,1.0}, 12);
 Scene17.addChild(&PositionInterpolator357);
 
@@ -1901,4 +1901,4 @@ Scene17.addChild(&ROUTE383);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

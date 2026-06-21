@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HAnimBehaviorPrototypes(int argc, char ** argv) {
+//void HAnimBehaviorPrototypes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -9727,7 +9727,7 @@ ProtoBody1769.addChild(&Switch1781);
 Script& Script1784 =  Script();
 Script1784.setDEF(std::string("BehaviorSelectionScript"));
 Script1784.setDirectOutput(true);
-Script1784.setUrl((std::string[]){"HAnimBehaviorPrototypesScript.js", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/HAnimBehaviorPrototypesScript.js"}, 2);
+Script1784.setUrl(new std::string[]{"HAnimBehaviorPrototypesScript.js", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/HAnimBehaviorPrototypesScript.js"}, 2);
 field& field1785 =  field();
 field1785.setName(std::string("HumanoidArray"));
 field1785.setAccessType(std::string("initializeOnly"));
@@ -9922,4 +9922,4 @@ Scene18.addChild(&ProtoInstance1811);
 
 X3D0.setScene(&Scene18);
 
-}
+//}

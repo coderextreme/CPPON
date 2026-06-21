@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ExtrusionHeart(int argc, char ** argv) {
+//void ExtrusionHeart(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -84,4 +84,4 @@ Scene10.addChild(&Transform12);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Tongue(int argc, char ** argv) {
+//void Tongue(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -114,15 +114,15 @@ TimeSensor22.setCycleInterval(0.99);
 TimeSensor22.setLoop(true);
 Scene20.addChild(&TimeSensor22);
 
-EXPORT& EXPORT23 =  EXPORT();
+Export& EXPORT23 =  Export();
 EXPORT23.setLocalDEF(std::string("JinMouthStretch_Clock"));
-EXPORT23.setAS(std::string("JinMouthStretch_Clock"));
+EXPORT23.setAS(new std::string("JinMouthStretch_Clock"));
 Scene20.addChild(&EXPORT23);
 
 ScalarInterpolator& ScalarInterpolator24 =  ScalarInterpolator();
 ScalarInterpolator24.setDEF(std::string("AnimationAdapter_JinMouthStretch"));
-ScalarInterpolator24.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator24.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator24.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator24.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene20.addChild(&ScalarInterpolator24);
 
 HAnimHumanoid& HAnimHumanoid25 =  HAnimHumanoid();
@@ -145,7 +145,7 @@ Background29.setSkyColor(new float[]{0.8,0.9,1.0}, 3);
 HAnimSegment27.addChild(&Background29);
 
 NavigationInfo& NavigationInfo30 =  NavigationInfo();
-NavigationInfo30.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo30.setType(new std::string[]{"EXAMINE"}, 1);
 HAnimSegment27.addChild(&NavigationInfo30);
 
 HAnimJoint26.addChildren(&HAnimSegment27);
@@ -174,7 +174,7 @@ Appearance35.addChild(&Material36);
 ImageTexture& ImageTexture37 =  ImageTexture();
 ImageTexture37.setContainerField("texture");
 ImageTexture37.setDEF(std::string("JinImageAtlas"));
-ImageTexture37.setUrl((std::string[]){"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
+ImageTexture37.setUrl(new std::string[]{"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
 Appearance35.addChild(&ImageTexture37);
 
 Shape34.addChild(&Appearance35);
@@ -204,7 +204,7 @@ HAnimSegment32.addChild(&Transform33);
 
 Coordinate& Coordinate41 =  Coordinate();
 Coordinate41.setUSE(std::string("Tongue_COORD"));
-HAnimSegment32.setCoord(&Coordinate41);
+HAnimSegment32.setCoord(Coordinate41);
 
 HAnimDisplacer& HAnimDisplacer42 =  HAnimDisplacer();
 HAnimDisplacer42.X3DNode::setName(std::string("tongue_morphinterpolator"));
@@ -247,4 +247,4 @@ Scene20.addChild(&ROUTE46);
 
 X3D0.setScene(&Scene20);
 
-}
+//}

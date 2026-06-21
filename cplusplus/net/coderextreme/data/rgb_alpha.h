@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int rgb_alpha(int argc, char ** argv) {
+//void rgb_alpha(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -103,7 +103,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene20 =  Scene();
 NavigationInfo& NavigationInfo21 =  NavigationInfo();
-NavigationInfo21.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo21.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene20.addChild(&NavigationInfo21);
 
 Group& Group22 =  Group();
@@ -204,4 +204,4 @@ Scene20.addChild(&Group22);
 
 X3D0.setScene(&Scene20);
 
-}
+//}

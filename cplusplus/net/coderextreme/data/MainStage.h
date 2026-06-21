@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int MainStage(int argc, char ** argv) {
+//void MainStage(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -141,7 +141,7 @@ Transform& Transform26 =  Transform();
 Transform26.setDEF(std::string("cordsysfloor"));
 Transform26.setScale(new float[]{0.174999997,0.174999997,0.174999997});
 Inline& Inline27 =  Inline();
-Inline27.setUrl((std::string[]){"JointCoordinateAxes.x3dv"}, 1);
+Inline27.setUrl(new std::string[]{"JointCoordinateAxes.x3dv"}, 1);
 Transform26.addChild(&Inline27);
 
 Group25.addChild(&Transform26);
@@ -270,4 +270,4 @@ Scene13.addChild(&Group25);
 
 X3D0.setScene(&Scene13);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Humanoid3(int argc, char ** argv) {
+//void Humanoid3(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -70,7 +70,7 @@ Coordinate& Coordinate15 =  Coordinate();
 Coordinate15.setPoint(new float[]{0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.1}, 12);
 IndexedLineSet14.setCoord(&Coordinate15);
 
-CColor& Color16 =  CColor();
+Color& Color16 =  Color();
 Color16.setContainerField("color");
 Color16.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet14.setColor(&Color16);
@@ -180,7 +180,7 @@ Scene11.addChild(&Viewpoint37);
 HAnimHumanoid& HAnimHumanoid38 =  HAnimHumanoid();
 HAnimHumanoid38.X3DNode::setName(std::string("HAnim"));
 HAnimHumanoid38.setDEF(std::string("hanim_HAnim"));
-HAnimHumanoid38.setInfo((std::string[]){"humanoidVersion=2.0"}, 1);
+HAnimHumanoid38.setInfo(new std::string[]{"humanoidVersion=2.0"}, 1);
 HAnimHumanoid38.setVersion(std::string("2.0"));
 //<LOD containerField='skin'> (Switch whichChoice='0' and LOD parents each already work in view3dscene)
 //</LOD>
@@ -195,10 +195,10 @@ Coordinate41.setDEF(std::string("TheSkinCoord"));
 Coordinate41.setPoint(new float[]{0.0,1.77,0.0,0.0,1.665,0.09,-0.033,1.62,0.087,0.033,1.62,0.087,0.0,1.55,0.097,-0.077,1.64,-0.01,-0.0527,1.58,0.015,0.077,1.64,-0.01,0.0527,1.58,0.015,0.0,1.625,-0.0925,-0.03,1.46,0.035,0.0,1.44,0.03,0.03,1.46,0.035,-0.1135,1.318,0.095,0.1135,1.318,0.095,0.0,1.25,0.113,-0.087,1.19,0.09,-0.0935,1.03,0.075,0.087,1.19,0.09,0.0935,1.03,0.075,-0.1425,1.065,0.0033,-0.15,0.9,-0.01,0.1425,1.065,0.0033,0.15,0.9,-0.01,0.0,1.53,-0.084,0.0049,1.1908,-0.1113,-0.0773,1.019,-0.12,0.0773,1.019,-0.12,0.005,1.0915,-0.1091,-0.178,1.4825,-0.0625,-0.17,1.38,0.007,-0.1884,0.8676,-0.036,-0.16,1.38,-0.127,-0.2,1.1388,-0.08,-0.244,1.1388,-0.04,-0.165,1.1388,-0.04,-0.23,1.133,-0.055,-0.1977,0.8169,-0.0177,-0.1941,0.6772,-0.0423,-0.2117,0.8562,-0.0584,-0.1929,0.789,-0.1064,0.175,1.4825,-0.06,0.17,1.38,0.007,0.1901,0.8645,-0.0415,0.16,1.38,-0.125,0.2,1.1388,-0.08,0.165,1.1388,-0.04,0.244,1.1388,-0.04,0.23,1.133,-0.055,0.2009,0.8139,-0.0237,0.2056,0.6743,-0.0482,0.2142,0.8529,-0.0648,0.1929,0.786,-0.1122,-0.1,0.4913,-0.03,-0.17,0.466,0.0,-0.05,0.466,0.0,-0.165,0.01,0.12,-0.15,0.07,0.0,-0.085,0.086,0.0125,-0.09,0.056,0.0125,-0.115,0.02,0.122,-0.115,0.04,-0.055,-0.11,0.011,0.19,0.0993,0.4881,-0.0309,0.17,0.466,0.0,0.05,0.4867,0.0,0.165,0.01,0.12,0.15,0.07,0.0,0.085,0.086,0.0125,0.09,0.056,0.0125,0.115,0.02,0.122,0.115,0.04,-0.055,0.11,0.011,0.19,0.0,0.875,0.0,-0.0646,1.5149,-0.038,0.0646,1.5149,-0.038,0.0,1.07225,0.09,-0.11,1.427,-0.1375,-0.235,1.42,-0.0625,0.11,1.427,-0.1375,0.235,1.42,-0.0625,0.0,1.41,-0.145,0.0,0.925,0.08,-0.087,1.19,-0.09,0.087,1.19,-0.09,0.172,1.32,-0.03,-0.172,1.32,-0.03,0.15,1.23,-0.015,-0.15,1.23,-0.015,0.079,0.92,-0.14,0.1,0.9,0.077,-0.079,0.92,-0.14,-0.1,0.9,0.075,0.0,0.87,0.0,0.171,0.65,0.0,0.02,0.65,0.0,0.1,0.65,-0.08,0.1,0.65,0.07,-0.171,0.65,0.0,-0.02,0.65,0.0,-0.1,0.65,-0.08,-0.1,0.65,0.07,0.25,1.27,-0.04,0.17,1.27,-0.04,0.2,1.27,-0.09,0.2,1.27,0.02,0.244,1.1388,-0.04,0.165,1.1388,-0.04,0.2,1.1388,-0.08,0.2,1.1388,-0.013,0.225,1.0,-0.01,0.225,1.0,-0.07,0.185,1.0,-0.01,0.185,1.0,-0.07,0.2,1.1388,-0.04,0.225,0.92,-0.04,0.175,0.92,-0.04,0.2,0.92,-0.065,0.2,0.92,-0.015,0.225,0.89,-0.04,0.175,0.89,-0.04,0.2,0.89,-0.065,0.2,0.89,-0.015,0.218,0.86,-0.04,0.184,0.86,-0.04,0.2,0.87,-0.07,0.2,0.87,0.0,0.21,0.85,0.0,0.1854,0.85,0.0,0.212,0.84,-0.015,0.183,0.84,-0.015,0.213,0.835,-0.04,0.19,0.835,-0.04,0.211,0.835,-0.065,0.192,0.835,-0.065,0.208,0.84,-0.085,0.19,0.84,-0.085,0.2,0.84,-0.095,0.215,0.82,0.0,0.193,0.815,0.005,0.198,0.8,0.012,0.21,0.82,0.03,0.19,0.82,0.03,0.2,0.835,0.039,0.212,0.8,0.05,0.188,0.8,0.05,0.2,0.807,0.057,0.2,0.793,0.035,0.2,0.774,0.076,0.212,0.78,0.07,0.188,0.78,0.07,0.2,0.785,0.075,0.2,0.77,0.062,0.215,0.793,-0.015,0.187,0.793,-0.015,0.2,0.793,-0.005,0.215,0.788,-0.04,0.187,0.788,-0.04,0.215,0.793,-0.065,0.187,0.793,-0.065,0.21,0.79,-0.085,0.19,0.79,-0.085,0.2,0.79,-0.095,0.19,0.77,-0.0275,0.19,0.77,-0.0525,0.19,0.78,-0.0775,0.212,0.745,-0.015,0.188,0.745,-0.02,0.2,0.745,-0.0255,0.2,0.745,-0.0045,0.211,0.72,-0.015,0.189,0.72,-0.015,0.2,0.72,-0.0252,0.2,0.72,-0.0048,0.21,0.695,-0.015,0.19,0.695,-0.015,0.2,0.695,-0.025,0.2,0.695,-0.005,0.2,0.685,-0.015,0.215,0.74,-0.04,0.185,0.74,-0.04,0.2,0.74,-0.055,0.2,0.74,-0.025,0.21,0.7142,-0.04,0.19,0.7142,-0.04,0.2,0.7142,-0.053,0.2,0.7142,-0.027,0.21,0.68,-0.04,0.19,0.68,-0.04,0.2,0.68,-0.05,0.2,0.68,-0.03,0.2,0.67,-0.04,0.212,0.74,-0.065,0.188,0.74,-0.065,0.2,0.74,-0.0756,0.2,0.74,-0.0542,0.21,0.7177,-0.065,0.19,0.7177,-0.065,0.2,0.7177,-0.0751,0.2,0.7177,-0.0549,0.21,0.695,-0.065,0.19,0.695,-0.065,0.2,0.695,-0.075,0.2,0.695,-0.055,0.2,0.685,-0.065,0.211,0.755,-0.085,0.189,0.755,-0.085,0.2,0.755,-0.0952,0.2,0.755,-0.0748,0.21,0.735,-0.085,0.19,0.735,-0.085,0.2,0.735,-0.0951,0.2,0.735,-0.0749,0.21,0.72,-0.085,0.19,0.72,-0.085,0.2,0.72,-0.095,0.2,0.72,-0.075,0.2,0.71,-0.085,-0.23,1.23,-0.04,-0.16,1.23,-0.04,-0.2,1.235,-0.105,-0.2,1.235,0.02,-0.244,1.1388,-0.04,-0.165,1.1388,-0.04,-0.2,1.1388,-0.08,-0.2,1.1388,0.013,-0.225,1.0,-0.01,-0.225,1.0,-0.07,-0.185,1.0,-0.01,-0.185,1.0,-0.07,-0.2,1.1388,-0.04,-0.225,0.92,-0.04,-0.175,0.92,-0.04,-0.2,0.92,-0.065,-0.2,0.92,-0.015,-0.225,0.89,-0.04,-0.175,0.89,-0.04,-0.2,0.89,-0.065,-0.2,0.89,-0.015,-0.218,0.86,-0.04,-0.184,0.86,-0.04,-0.2,0.87,-0.07,-0.2,0.87,0.0,-0.21,0.85,0.0,-0.1854,0.85,0.0,-0.212,0.84,-0.015,-0.183,0.84,-0.015,-0.213,0.835,-0.04,-0.19,0.835,-0.04,-0.211,0.835,-0.065,-0.192,0.835,-0.065,-0.208,0.84,-0.085,-0.19,0.84,-0.085,-0.2,0.84,-0.095,-0.215,0.82,0.0,-0.193,0.815,0.005,-0.198,0.8,0.012,-0.21,0.82,0.03,-0.19,0.82,0.03,-0.2,0.835,0.039,-0.212,0.8,0.05,-0.188,0.8,0.05,-0.2,0.807,0.057,-0.2,0.793,0.035,-0.2,0.774,0.076,-0.212,0.78,0.07,-0.188,0.78,0.07,-0.2,0.785,0.075,-0.2,0.77,0.062,-0.215,0.793,-0.015,-0.187,0.793,-0.015,-0.2,0.793,-0.005,-0.215,0.788,-0.04,-0.187,0.788,-0.04,-0.215,0.793,-0.065,-0.187,0.793,-0.065,-0.21,0.79,-0.085,-0.19,0.79,-0.085,-0.2,0.79,-0.095,-0.19,0.77,-0.0275,-0.19,0.77,-0.0525,-0.19,0.78,-0.0775,-0.212,0.745,-0.015,-0.188,0.745,-0.02,-0.2,0.745,-0.0255,-0.2,0.745,-0.0045,-0.211,0.72,-0.015,-0.189,0.72,-0.015,-0.2,0.72,-0.0252,-0.2,0.72,-0.0048,-0.21,0.695,-0.015,-0.19,0.695,-0.015,-0.2,0.695,-0.025,-0.2,0.695,-0.005,-0.2,0.685,-0.015,-0.215,0.74,-0.04,-0.185,0.74,-0.04,-0.2,0.74,-0.055,-0.2,0.74,-0.025,-0.21,0.7142,-0.04,-0.19,0.7142,-0.04,-0.2,0.7142,-0.053,-0.2,0.7142,-0.027,-0.21,0.68,-0.04,-0.19,0.68,-0.04,-0.2,0.68,-0.05,-0.2,0.68,-0.03,-0.2,0.67,-0.04,-0.212,0.74,-0.065,-0.188,0.74,-0.065,-0.2,0.74,-0.0756,-0.2,0.74,-0.0542,-0.21,0.7177,-0.065,-0.19,0.7177,-0.065,-0.2,0.7177,-0.0751,-0.2,0.7177,-0.0549,-0.21,0.695,-0.065,-0.19,0.695,-0.065,-0.2,0.695,-0.075,-0.2,0.695,-0.055,-0.2,0.685,-0.065,-0.211,0.755,-0.085,-0.189,0.755,-0.085,-0.2,0.755,-0.0952,-0.2,0.755,-0.0748,-0.21,0.735,-0.085,-0.19,0.735,-0.085,-0.2,0.735,-0.0951,-0.2,0.735,-0.0749,-0.21,0.72,-0.085,-0.19,0.72,-0.085,-0.2,0.72,-0.095,-0.2,0.72,-0.075,-0.2,0.71,-0.085,0.115,0.466,0.06,0.115,0.466,-0.055,0.15,0.466,0.0,0.05,0.466,0.0,0.17,0.3,0.0,0.06,0.3,0.0,0.1,0.3,-0.05,0.1,0.3,0.05,0.15,0.07,0.0,0.085,0.086,0.0125,0.115,0.069,-0.045,0.117,0.0975,0.0615,0.1375,0.006,-0.03,0.095,0.006,-0.03,0.115,0.015,-0.045,0.115,0.06,0.1,0.115,0.0,0.07,0.165,0.0,0.07,0.095,0.0,0.07,0.115,0.04,0.13,0.125,0.0,0.12,0.165,0.0,0.12,0.087,0.0,0.122,0.09,0.012,0.188,0.11,0.011,0.19,0.128,0.011,0.185,0.142,0.011,0.178,0.154,0.01,0.168,-0.115,0.466,0.06,-0.115,0.466,-0.055,-0.17,0.466,0.0,-0.05,0.466,0.0,-0.17,0.3,0.0,-0.06,0.3,0.0,-0.1,0.3,-0.05,-0.1,0.3,0.05,-0.15,0.07,0.0,-0.085,0.086,0.0125,-0.115,0.069,-0.045,-0.117,0.0975,0.0615,-0.1375,0.006,-0.03,-0.095,0.006,-0.03,-0.095,0.006,-0.03,-0.115,0.06,0.1,-0.115,0.0,0.07,-0.165,0.0,0.07,-0.095,0.0,0.07,-0.115,0.04,0.13,-0.125,0.0,0.12,-0.165,0.0,0.12,-0.087,0.0,0.122,-0.09,0.012,0.188,-0.11,0.011,0.19,-0.128,0.011,0.185,-0.142,0.011,0.178,-0.154,0.01,0.168}, 1170);
 IndexedFaceSet40.setCoord(&Coordinate41);
 
-CColor& Color42 =  CColor();
+Color& Color42 =  Color();
 Color42.setContainerField("color");
 Color42.setColor(new float[]{1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0}, 2079);
-IndexedFaceSet40.setColor(&Color42);
+IndexedFaceSet40.setColor(Color42);
 
 Shape39.setGeometry(&IndexedFaceSet40);
 
@@ -209,7 +209,7 @@ ImageTexture& ImageTexture44 =  ImageTexture();
 ImageTexture44.setContainerField("texture");
 ImageTexture44.setDEF(std::string("zBlueSpiralBkg2"));
 ImageTexture44.setDescription(std::string("Blue Spiral Pattern"));
-ImageTexture44.setUrl((std::string[]){"../data/zBlueSpiralBkg2.gif", "zBlueSpiralBkg2.gif", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/zBlueSpiralBkg2.gif"}, 3);
+ImageTexture44.setUrl(new std::string[]{"../data/zBlueSpiralBkg2.gif", "zBlueSpiralBkg2.gif", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/zBlueSpiralBkg2.gif"}, 3);
 Appearance43.addChild(&ImageTexture44);
 
 Material& Material45 =  Material();
@@ -336,7 +336,7 @@ HAnimSite69.addChild(&Shape71);
 Billboard& Billboard72 =  Billboard();
 Shape& Shape73 =  Shape();
 Text& Text74 =  Text();
-Text74.setString((std::string[]){"93"}, 1);
+Text74.setString(new std::string[]{"93"}, 1);
 CFontStyle& FontStyle75 =  CFontStyle();
 FontStyle75.setContainerField("fontStyle");
 FontStyle75.setSize(0.035);
@@ -346,7 +346,7 @@ Shape73.setGeometry(&Text74);
 
 Billboard72.addChild(&Shape73);
 
-HAnimSite69.addChild(Billboard72);
+HAnimSite69.addChild(&Billboard72);
 
 HAnimSegment61.addChild(&HAnimSite69);
 
@@ -365,7 +365,7 @@ HAnimSite76.addChild(&Shape78);
 Billboard& Billboard79 =  Billboard();
 Shape& Shape80 =  Shape();
 Text& Text81 =  Text();
-Text81.setString((std::string[]){"38"}, 1);
+Text81.setString(new std::string[]{"38"}, 1);
 CFontStyle& FontStyle82 =  CFontStyle();
 FontStyle82.setContainerField("fontStyle");
 FontStyle82.setSize(0.035);
@@ -375,7 +375,7 @@ Shape80.setGeometry(&Text81);
 
 Billboard79.addChild(&Shape80);
 
-HAnimSite76.addChild(Billboard79);
+HAnimSite76.addChild(&Billboard79);
 
 HAnimSegment61.addChild(&HAnimSite76);
 
@@ -394,7 +394,7 @@ HAnimSite83.addChild(&Shape85);
 Billboard& Billboard86 =  Billboard();
 Shape& Shape87 =  Shape();
 Text& Text88 =  Text();
-Text88.setString((std::string[]){"32"}, 1);
+Text88.setString(new std::string[]{"32"}, 1);
 CFontStyle& FontStyle89 =  CFontStyle();
 FontStyle89.setContainerField("fontStyle");
 FontStyle89.setSize(0.035);
@@ -404,7 +404,7 @@ Shape87.setGeometry(&Text88);
 
 Billboard86.addChild(&Shape87);
 
-HAnimSite83.addChild(Billboard86);
+HAnimSite83.addChild(&Billboard86);
 
 HAnimSegment61.addChild(&HAnimSite83);
 
@@ -423,7 +423,7 @@ HAnimSite90.addChild(&Shape92);
 Billboard& Billboard93 =  Billboard();
 Shape& Shape94 =  Shape();
 Text& Text95 =  Text();
-Text95.setString((std::string[]){"33"}, 1);
+Text95.setString(new std::string[]{"33"}, 1);
 CFontStyle& FontStyle96 =  CFontStyle();
 FontStyle96.setContainerField("fontStyle");
 FontStyle96.setSize(0.035);
@@ -433,7 +433,7 @@ Shape94.setGeometry(&Text95);
 
 Billboard93.addChild(&Shape94);
 
-HAnimSite90.addChild(Billboard93);
+HAnimSite90.addChild(&Billboard93);
 
 HAnimSegment61.addChild(&HAnimSite90);
 
@@ -452,7 +452,7 @@ HAnimSite97.addChild(&Shape99);
 Billboard& Billboard100 =  Billboard();
 Shape& Shape101 =  Shape();
 Text& Text102 =  Text();
-Text102.setString((std::string[]){"34"}, 1);
+Text102.setString(new std::string[]{"34"}, 1);
 CFontStyle& FontStyle103 =  CFontStyle();
 FontStyle103.setContainerField("fontStyle");
 FontStyle103.setSize(0.035);
@@ -462,7 +462,7 @@ Shape101.setGeometry(&Text102);
 
 Billboard100.addChild(&Shape101);
 
-HAnimSite97.addChild(Billboard100);
+HAnimSite97.addChild(&Billboard100);
 
 HAnimSegment61.addChild(&HAnimSite97);
 
@@ -481,7 +481,7 @@ HAnimSite104.addChild(&Shape106);
 Billboard& Billboard107 =  Billboard();
 Shape& Shape108 =  Shape();
 Text& Text109 =  Text();
-Text109.setString((std::string[]){"42"}, 1);
+Text109.setString(new std::string[]{"42"}, 1);
 CFontStyle& FontStyle110 =  CFontStyle();
 FontStyle110.setContainerField("fontStyle");
 FontStyle110.setSize(0.035);
@@ -491,7 +491,7 @@ Shape108.setGeometry(&Text109);
 
 Billboard107.addChild(&Shape108);
 
-HAnimSite104.addChild(Billboard107);
+HAnimSite104.addChild(&Billboard107);
 
 HAnimSegment61.addChild(&HAnimSite104);
 
@@ -510,7 +510,7 @@ HAnimSite111.addChild(&Shape113);
 Billboard& Billboard114 =  Billboard();
 Shape& Shape115 =  Shape();
 Text& Text116 =  Text();
-Text116.setString((std::string[]){"35"}, 1);
+Text116.setString(new std::string[]{"35"}, 1);
 CFontStyle& FontStyle117 =  CFontStyle();
 FontStyle117.setContainerField("fontStyle");
 FontStyle117.setSize(0.035);
@@ -520,7 +520,7 @@ Shape115.setGeometry(&Text116);
 
 Billboard114.addChild(&Shape115);
 
-HAnimSite111.addChild(Billboard114);
+HAnimSite111.addChild(&Billboard114);
 
 HAnimSegment61.addChild(&HAnimSite111);
 
@@ -539,7 +539,7 @@ HAnimSite118.addChild(&Shape120);
 Billboard& Billboard121 =  Billboard();
 Shape& Shape122 =  Shape();
 Text& Text123 =  Text();
-Text123.setString((std::string[]){"36"}, 1);
+Text123.setString(new std::string[]{"36"}, 1);
 CFontStyle& FontStyle124 =  CFontStyle();
 FontStyle124.setContainerField("fontStyle");
 FontStyle124.setSize(0.035);
@@ -549,7 +549,7 @@ Shape122.setGeometry(&Text123);
 
 Billboard121.addChild(&Shape122);
 
-HAnimSite118.addChild(Billboard121);
+HAnimSite118.addChild(&Billboard121);
 
 HAnimSegment61.addChild(&HAnimSite118);
 
@@ -568,7 +568,7 @@ HAnimSite125.addChild(&Shape127);
 Billboard& Billboard128 =  Billboard();
 Shape& Shape129 =  Shape();
 Text& Text130 =  Text();
-Text130.setString((std::string[]){"37"}, 1);
+Text130.setString(new std::string[]{"37"}, 1);
 CFontStyle& FontStyle131 =  CFontStyle();
 FontStyle131.setContainerField("fontStyle");
 FontStyle131.setSize(0.035);
@@ -578,7 +578,7 @@ Shape129.setGeometry(&Text130);
 
 Billboard128.addChild(&Shape129);
 
-HAnimSite125.addChild(Billboard128);
+HAnimSite125.addChild(&Billboard128);
 
 HAnimSegment61.addChild(&HAnimSite125);
 
@@ -597,7 +597,7 @@ HAnimSite132.addChild(&Shape134);
 Billboard& Billboard135 =  Billboard();
 Shape& Shape136 =  Shape();
 Text& Text137 =  Text();
-Text137.setString((std::string[]){"46"}, 1);
+Text137.setString(new std::string[]{"46"}, 1);
 CFontStyle& FontStyle138 =  CFontStyle();
 FontStyle138.setContainerField("fontStyle");
 FontStyle138.setSize(0.035);
@@ -607,7 +607,7 @@ Shape136.setGeometry(&Text137);
 
 Billboard135.addChild(&Shape136);
 
-HAnimSite132.addChild(Billboard135);
+HAnimSite132.addChild(&Billboard135);
 
 HAnimSegment61.addChild(&HAnimSite132);
 
@@ -681,7 +681,7 @@ HAnimSite152.addChild(&Shape154);
 Billboard& Billboard155 =  Billboard();
 Shape& Shape156 =  Shape();
 Text& Text157 =  Text();
-Text157.setString((std::string[]){"40"}, 1);
+Text157.setString(new std::string[]{"40"}, 1);
 CFontStyle& FontStyle158 =  CFontStyle();
 FontStyle158.setContainerField("fontStyle");
 FontStyle158.setSize(0.035);
@@ -691,7 +691,7 @@ Shape156.setGeometry(&Text157);
 
 Billboard155.addChild(&Shape156);
 
-HAnimSite152.addChild(Billboard155);
+HAnimSite152.addChild(&Billboard155);
 
 HAnimSegment144.addChild(&HAnimSite152);
 
@@ -710,7 +710,7 @@ HAnimSite159.addChild(&Shape161);
 Billboard& Billboard162 =  Billboard();
 Shape& Shape163 =  Shape();
 Text& Text164 =  Text();
-Text164.setString((std::string[]){"39"}, 1);
+Text164.setString(new std::string[]{"39"}, 1);
 CFontStyle& FontStyle165 =  CFontStyle();
 FontStyle165.setContainerField("fontStyle");
 FontStyle165.setSize(0.035);
@@ -720,7 +720,7 @@ Shape163.setGeometry(&Text164);
 
 Billboard162.addChild(&Shape163);
 
-HAnimSite159.addChild(Billboard162);
+HAnimSite159.addChild(&Billboard162);
 
 HAnimSegment144.addChild(&HAnimSite159);
 
@@ -739,7 +739,7 @@ HAnimSite166.addChild(&Shape168);
 Billboard& Billboard169 =  Billboard();
 Shape& Shape170 =  Shape();
 Text& Text171 =  Text();
-Text171.setString((std::string[]){"90"}, 1);
+Text171.setString(new std::string[]{"90"}, 1);
 CFontStyle& FontStyle172 =  CFontStyle();
 FontStyle172.setContainerField("fontStyle");
 FontStyle172.setSize(0.035);
@@ -749,7 +749,7 @@ Shape170.setGeometry(&Text171);
 
 Billboard169.addChild(&Shape170);
 
-HAnimSite166.addChild(Billboard169);
+HAnimSite166.addChild(&Billboard169);
 
 HAnimSegment144.addChild(&HAnimSite166);
 
@@ -767,7 +767,7 @@ HAnimSite173.addChild(&Shape175);
 Billboard& Billboard176 =  Billboard();
 Shape& Shape177 =  Shape();
 Text& Text178 =  Text();
-Text178.setString((std::string[]){"41"}, 1);
+Text178.setString(new std::string[]{"41"}, 1);
 CFontStyle& FontStyle179 =  CFontStyle();
 FontStyle179.setContainerField("fontStyle");
 FontStyle179.setSize(0.035);
@@ -777,7 +777,7 @@ Shape177.setGeometry(&Text178);
 
 Billboard176.addChild(&Shape177);
 
-HAnimSite173.addChild(Billboard176);
+HAnimSite173.addChild(&Billboard176);
 
 HAnimSegment144.addChild(&HAnimSite173);
 
@@ -834,7 +834,7 @@ HAnimSite189.addChild(&Shape191);
 Billboard& Billboard192 =  Billboard();
 Shape& Shape193 =  Shape();
 Text& Text194 =  Text();
-Text194.setString((std::string[]){"49"}, 1);
+Text194.setString(new std::string[]{"49"}, 1);
 CFontStyle& FontStyle195 =  CFontStyle();
 FontStyle195.setContainerField("fontStyle");
 FontStyle195.setSize(0.035);
@@ -844,7 +844,7 @@ Shape193.setGeometry(&Text194);
 
 Billboard192.addChild(&Shape193);
 
-HAnimSite189.addChild(Billboard192);
+HAnimSite189.addChild(&Billboard192);
 
 HAnimSegment181.addChild(&HAnimSite189);
 
@@ -863,7 +863,7 @@ HAnimSite196.addChild(&Shape198);
 Billboard& Billboard199 =  Billboard();
 Shape& Shape200 =  Shape();
 Text& Text201 =  Text();
-Text201.setString((std::string[]){"48"}, 1);
+Text201.setString(new std::string[]{"48"}, 1);
 CFontStyle& FontStyle202 =  CFontStyle();
 FontStyle202.setContainerField("fontStyle");
 FontStyle202.setSize(0.035);
@@ -873,7 +873,7 @@ Shape200.setGeometry(&Text201);
 
 Billboard199.addChild(&Shape200);
 
-HAnimSite196.addChild(Billboard199);
+HAnimSite196.addChild(&Billboard199);
 
 HAnimSegment181.addChild(&HAnimSite196);
 
@@ -891,7 +891,7 @@ HAnimSite203.addChild(&Shape205);
 Billboard& Billboard206 =  Billboard();
 Shape& Shape207 =  Shape();
 Text& Text208 =  Text();
-Text208.setString((std::string[]){"47"}, 1);
+Text208.setString(new std::string[]{"47"}, 1);
 CFontStyle& FontStyle209 =  CFontStyle();
 FontStyle209.setContainerField("fontStyle");
 FontStyle209.setSize(0.035);
@@ -901,7 +901,7 @@ Shape207.setGeometry(&Text208);
 
 Billboard206.addChild(&Shape207);
 
-HAnimSite203.addChild(Billboard206);
+HAnimSite203.addChild(&Billboard206);
 
 HAnimSegment181.addChild(&HAnimSite203);
 
@@ -961,7 +961,7 @@ HAnimSite219.addChild(&Shape221);
 Billboard& Billboard222 =  Billboard();
 Shape& Shape223 =  Shape();
 Text& Text224 =  Text();
-Text224.setString((std::string[]){"58"}, 1);
+Text224.setString(new std::string[]{"58"}, 1);
 CFontStyle& FontStyle225 =  CFontStyle();
 FontStyle225.setContainerField("fontStyle");
 FontStyle225.setSize(0.035);
@@ -971,7 +971,7 @@ Shape223.setGeometry(&Text224);
 
 Billboard222.addChild(&Shape223);
 
-HAnimSite219.addChild(Billboard222);
+HAnimSite219.addChild(&Billboard222);
 
 HAnimSegment211.addChild(&HAnimSite219);
 
@@ -990,7 +990,7 @@ HAnimSite226.addChild(&Shape228);
 Billboard& Billboard229 =  Billboard();
 Shape& Shape230 =  Shape();
 Text& Text231 =  Text();
-Text231.setString((std::string[]){"50"}, 1);
+Text231.setString(new std::string[]{"50"}, 1);
 CFontStyle& FontStyle232 =  CFontStyle();
 FontStyle232.setContainerField("fontStyle");
 FontStyle232.setSize(0.035);
@@ -1000,7 +1000,7 @@ Shape230.setGeometry(&Text231);
 
 Billboard229.addChild(&Shape230);
 
-HAnimSite226.addChild(Billboard229);
+HAnimSite226.addChild(&Billboard229);
 
 HAnimSegment211.addChild(&HAnimSite226);
 
@@ -1094,7 +1094,7 @@ HAnimSite251.addChild(&Shape253);
 Billboard& Billboard254 =  Billboard();
 Shape& Shape255 =  Shape();
 Text& Text256 =  Text();
-Text256.setString((std::string[]){"55"}, 1);
+Text256.setString(new std::string[]{"55"}, 1);
 CFontStyle& FontStyle257 =  CFontStyle();
 FontStyle257.setContainerField("fontStyle");
 FontStyle257.setSize(0.035);
@@ -1104,7 +1104,7 @@ Shape255.setGeometry(&Text256);
 
 Billboard254.addChild(&Shape255);
 
-HAnimSite251.addChild(Billboard254);
+HAnimSite251.addChild(&Billboard254);
 
 HAnimSegment243.addChild(&HAnimSite251);
 
@@ -1122,7 +1122,7 @@ HAnimSite258.addChild(&Shape260);
 Billboard& Billboard261 =  Billboard();
 Shape& Shape262 =  Shape();
 Text& Text263 =  Text();
-Text263.setString((std::string[]){"56"}, 1);
+Text263.setString(new std::string[]{"56"}, 1);
 CFontStyle& FontStyle264 =  CFontStyle();
 FontStyle264.setContainerField("fontStyle");
 FontStyle264.setSize(0.035);
@@ -1132,7 +1132,7 @@ Shape262.setGeometry(&Text263);
 
 Billboard261.addChild(&Shape262);
 
-HAnimSite258.addChild(Billboard261);
+HAnimSite258.addChild(&Billboard261);
 
 HAnimSegment243.addChild(&HAnimSite258);
 
@@ -1150,7 +1150,7 @@ HAnimSite265.addChild(&Shape267);
 Billboard& Billboard268 =  Billboard();
 Shape& Shape269 =  Shape();
 Text& Text270 =  Text();
-Text270.setString((std::string[]){""}, 0);
+Text270.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle271 =  CFontStyle();
 FontStyle271.setContainerField("fontStyle");
 FontStyle271.setSize(0.035);
@@ -1160,7 +1160,7 @@ Shape269.setGeometry(&Text270);
 
 Billboard268.addChild(&Shape269);
 
-HAnimSite265.addChild(Billboard268);
+HAnimSite265.addChild(&Billboard268);
 
 HAnimSegment243.addChild(&HAnimSite265);
 
@@ -1179,7 +1179,7 @@ HAnimSite272.addChild(&Shape274);
 Billboard& Billboard275 =  Billboard();
 Shape& Shape276 =  Shape();
 Text& Text277 =  Text();
-Text277.setString((std::string[]){""}, 0);
+Text277.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle278 =  CFontStyle();
 FontStyle278.setContainerField("fontStyle");
 FontStyle278.setSize(0.035);
@@ -1189,7 +1189,7 @@ Shape276.setGeometry(&Text277);
 
 Billboard275.addChild(&Shape276);
 
-HAnimSite272.addChild(Billboard275);
+HAnimSite272.addChild(&Billboard275);
 
 HAnimSegment243.addChild(&HAnimSite272);
 
@@ -1207,7 +1207,7 @@ HAnimSite279.addChild(&Shape281);
 Billboard& Billboard282 =  Billboard();
 Shape& Shape283 =  Shape();
 Text& Text284 =  Text();
-Text284.setString((std::string[]){""}, 0);
+Text284.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle285 =  CFontStyle();
 FontStyle285.setContainerField("fontStyle");
 FontStyle285.setSize(0.035);
@@ -1217,7 +1217,7 @@ Shape283.setGeometry(&Text284);
 
 Billboard282.addChild(&Shape283);
 
-HAnimSite279.addChild(Billboard282);
+HAnimSite279.addChild(&Billboard282);
 
 HAnimSegment243.addChild(&HAnimSite279);
 
@@ -1235,7 +1235,7 @@ HAnimSite286.addChild(&Shape288);
 Billboard& Billboard289 =  Billboard();
 Shape& Shape290 =  Shape();
 Text& Text291 =  Text();
-Text291.setString((std::string[]){""}, 0);
+Text291.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle292 =  CFontStyle();
 FontStyle292.setContainerField("fontStyle");
 FontStyle292.setSize(0.035);
@@ -1245,7 +1245,7 @@ Shape290.setGeometry(&Text291);
 
 Billboard289.addChild(&Shape290);
 
-HAnimSite286.addChild(Billboard289);
+HAnimSite286.addChild(&Billboard289);
 
 HAnimSegment243.addChild(&HAnimSite286);
 
@@ -1263,7 +1263,7 @@ HAnimSite293.addChild(&Shape295);
 Billboard& Billboard296 =  Billboard();
 Shape& Shape297 =  Shape();
 Text& Text298 =  Text();
-Text298.setString((std::string[]){""}, 0);
+Text298.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle299 =  CFontStyle();
 FontStyle299.setContainerField("fontStyle");
 FontStyle299.setSize(0.035);
@@ -1273,7 +1273,7 @@ Shape297.setGeometry(&Text298);
 
 Billboard296.addChild(&Shape297);
 
-HAnimSite293.addChild(Billboard296);
+HAnimSite293.addChild(&Billboard296);
 
 HAnimSegment243.addChild(&HAnimSite293);
 
@@ -1346,7 +1346,7 @@ HAnimSite310.addChild(&Shape312);
 Billboard& Billboard313 =  Billboard();
 Shape& Shape314 =  Shape();
 Text& Text315 =  Text();
-Text315.setString((std::string[]){"44"}, 1);
+Text315.setString(new std::string[]{"44"}, 1);
 CFontStyle& FontStyle316 =  CFontStyle();
 FontStyle316.setContainerField("fontStyle");
 FontStyle316.setSize(0.035);
@@ -1356,7 +1356,7 @@ Shape314.setGeometry(&Text315);
 
 Billboard313.addChild(&Shape314);
 
-HAnimSite310.addChild(Billboard313);
+HAnimSite310.addChild(&Billboard313);
 
 HAnimSegment302.addChild(&HAnimSite310);
 
@@ -1375,7 +1375,7 @@ HAnimSite317.addChild(&Shape319);
 Billboard& Billboard320 =  Billboard();
 Shape& Shape321 =  Shape();
 Text& Text322 =  Text();
-Text322.setString((std::string[]){"43"}, 1);
+Text322.setString(new std::string[]{"43"}, 1);
 CFontStyle& FontStyle323 =  CFontStyle();
 FontStyle323.setContainerField("fontStyle");
 FontStyle323.setSize(0.035);
@@ -1385,7 +1385,7 @@ Shape321.setGeometry(&Text322);
 
 Billboard320.addChild(&Shape321);
 
-HAnimSite317.addChild(Billboard320);
+HAnimSite317.addChild(&Billboard320);
 
 HAnimSegment302.addChild(&HAnimSite317);
 
@@ -1404,7 +1404,7 @@ HAnimSite324.addChild(&Shape326);
 Billboard& Billboard327 =  Billboard();
 Shape& Shape328 =  Shape();
 Text& Text329 =  Text();
-Text329.setString((std::string[]){"91"}, 1);
+Text329.setString(new std::string[]{"91"}, 1);
 CFontStyle& FontStyle330 =  CFontStyle();
 FontStyle330.setContainerField("fontStyle");
 FontStyle330.setSize(0.035);
@@ -1414,7 +1414,7 @@ Shape328.setGeometry(&Text329);
 
 Billboard327.addChild(&Shape328);
 
-HAnimSite324.addChild(Billboard327);
+HAnimSite324.addChild(&Billboard327);
 
 HAnimSegment302.addChild(&HAnimSite324);
 
@@ -1432,7 +1432,7 @@ HAnimSite331.addChild(&Shape333);
 Billboard& Billboard334 =  Billboard();
 Shape& Shape335 =  Shape();
 Text& Text336 =  Text();
-Text336.setString((std::string[]){"45"}, 1);
+Text336.setString(new std::string[]{"45"}, 1);
 CFontStyle& FontStyle337 =  CFontStyle();
 FontStyle337.setContainerField("fontStyle");
 FontStyle337.setSize(0.035);
@@ -1442,7 +1442,7 @@ Shape335.setGeometry(&Text336);
 
 Billboard334.addChild(&Shape335);
 
-HAnimSite331.addChild(Billboard334);
+HAnimSite331.addChild(&Billboard334);
 
 HAnimSegment302.addChild(&HAnimSite331);
 
@@ -1499,7 +1499,7 @@ HAnimSite347.addChild(&Shape349);
 Billboard& Billboard350 =  Billboard();
 Shape& Shape351 =  Shape();
 Text& Text352 =  Text();
-Text352.setString((std::string[]){"53"}, 1);
+Text352.setString(new std::string[]{"53"}, 1);
 CFontStyle& FontStyle353 =  CFontStyle();
 FontStyle353.setContainerField("fontStyle");
 FontStyle353.setSize(0.035);
@@ -1509,7 +1509,7 @@ Shape351.setGeometry(&Text352);
 
 Billboard350.addChild(&Shape351);
 
-HAnimSite347.addChild(Billboard350);
+HAnimSite347.addChild(&Billboard350);
 
 HAnimSegment339.addChild(&HAnimSite347);
 
@@ -1528,7 +1528,7 @@ HAnimSite354.addChild(&Shape356);
 Billboard& Billboard357 =  Billboard();
 Shape& Shape358 =  Shape();
 Text& Text359 =  Text();
-Text359.setString((std::string[]){"52"}, 1);
+Text359.setString(new std::string[]{"52"}, 1);
 CFontStyle& FontStyle360 =  CFontStyle();
 FontStyle360.setContainerField("fontStyle");
 FontStyle360.setSize(0.035);
@@ -1538,7 +1538,7 @@ Shape358.setGeometry(&Text359);
 
 Billboard357.addChild(&Shape358);
 
-HAnimSite354.addChild(Billboard357);
+HAnimSite354.addChild(&Billboard357);
 
 HAnimSegment339.addChild(&HAnimSite354);
 
@@ -1556,7 +1556,7 @@ HAnimSite361.addChild(&Shape363);
 Billboard& Billboard364 =  Billboard();
 Shape& Shape365 =  Shape();
 Text& Text366 =  Text();
-Text366.setString((std::string[]){"51"}, 1);
+Text366.setString(new std::string[]{"51"}, 1);
 CFontStyle& FontStyle367 =  CFontStyle();
 FontStyle367.setContainerField("fontStyle");
 FontStyle367.setSize(0.035);
@@ -1566,7 +1566,7 @@ Shape365.setGeometry(&Text366);
 
 Billboard364.addChild(&Shape365);
 
-HAnimSite361.addChild(Billboard364);
+HAnimSite361.addChild(&Billboard364);
 
 HAnimSegment339.addChild(&HAnimSite361);
 
@@ -1626,7 +1626,7 @@ HAnimSite377.addChild(&Shape379);
 Billboard& Billboard380 =  Billboard();
 Shape& Shape381 =  Shape();
 Text& Text382 =  Text();
-Text382.setString((std::string[]){"62"}, 1);
+Text382.setString(new std::string[]{"62"}, 1);
 CFontStyle& FontStyle383 =  CFontStyle();
 FontStyle383.setContainerField("fontStyle");
 FontStyle383.setSize(0.035);
@@ -1636,7 +1636,7 @@ Shape381.setGeometry(&Text382);
 
 Billboard380.addChild(&Shape381);
 
-HAnimSite377.addChild(Billboard380);
+HAnimSite377.addChild(&Billboard380);
 
 HAnimSegment369.addChild(&HAnimSite377);
 
@@ -1655,7 +1655,7 @@ HAnimSite384.addChild(&Shape386);
 Billboard& Billboard387 =  Billboard();
 Shape& Shape388 =  Shape();
 Text& Text389 =  Text();
-Text389.setString((std::string[]){"54"}, 1);
+Text389.setString(new std::string[]{"54"}, 1);
 CFontStyle& FontStyle390 =  CFontStyle();
 FontStyle390.setContainerField("fontStyle");
 FontStyle390.setSize(0.035);
@@ -1665,7 +1665,7 @@ Shape388.setGeometry(&Text389);
 
 Billboard387.addChild(&Shape388);
 
-HAnimSite384.addChild(Billboard387);
+HAnimSite384.addChild(&Billboard387);
 
 HAnimSegment369.addChild(&HAnimSite384);
 
@@ -1759,7 +1759,7 @@ HAnimSite409.addChild(&Shape411);
 Billboard& Billboard412 =  Billboard();
 Shape& Shape413 =  Shape();
 Text& Text414 =  Text();
-Text414.setString((std::string[]){"59"}, 1);
+Text414.setString(new std::string[]{"59"}, 1);
 CFontStyle& FontStyle415 =  CFontStyle();
 FontStyle415.setContainerField("fontStyle");
 FontStyle415.setSize(0.035);
@@ -1769,7 +1769,7 @@ Shape413.setGeometry(&Text414);
 
 Billboard412.addChild(&Shape413);
 
-HAnimSite409.addChild(Billboard412);
+HAnimSite409.addChild(&Billboard412);
 
 HAnimSegment401.addChild(&HAnimSite409);
 
@@ -1787,7 +1787,7 @@ HAnimSite416.addChild(&Shape418);
 Billboard& Billboard419 =  Billboard();
 Shape& Shape420 =  Shape();
 Text& Text421 =  Text();
-Text421.setString((std::string[]){"60"}, 1);
+Text421.setString(new std::string[]{"60"}, 1);
 CFontStyle& FontStyle422 =  CFontStyle();
 FontStyle422.setContainerField("fontStyle");
 FontStyle422.setSize(0.035);
@@ -1797,7 +1797,7 @@ Shape420.setGeometry(&Text421);
 
 Billboard419.addChild(&Shape420);
 
-HAnimSite416.addChild(Billboard419);
+HAnimSite416.addChild(&Billboard419);
 
 HAnimSegment401.addChild(&HAnimSite416);
 
@@ -1815,7 +1815,7 @@ HAnimSite423.addChild(&Shape425);
 Billboard& Billboard426 =  Billboard();
 Shape& Shape427 =  Shape();
 Text& Text428 =  Text();
-Text428.setString((std::string[]){""}, 0);
+Text428.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle429 =  CFontStyle();
 FontStyle429.setContainerField("fontStyle");
 FontStyle429.setSize(0.035);
@@ -1825,7 +1825,7 @@ Shape427.setGeometry(&Text428);
 
 Billboard426.addChild(&Shape427);
 
-HAnimSite423.addChild(Billboard426);
+HAnimSite423.addChild(&Billboard426);
 
 HAnimSegment401.addChild(&HAnimSite423);
 
@@ -1844,7 +1844,7 @@ HAnimSite430.addChild(&Shape432);
 Billboard& Billboard433 =  Billboard();
 Shape& Shape434 =  Shape();
 Text& Text435 =  Text();
-Text435.setString((std::string[]){""}, 0);
+Text435.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle436 =  CFontStyle();
 FontStyle436.setContainerField("fontStyle");
 FontStyle436.setSize(0.035);
@@ -1854,7 +1854,7 @@ Shape434.setGeometry(&Text435);
 
 Billboard433.addChild(&Shape434);
 
-HAnimSite430.addChild(Billboard433);
+HAnimSite430.addChild(&Billboard433);
 
 HAnimSegment401.addChild(&HAnimSite430);
 
@@ -1872,7 +1872,7 @@ HAnimSite437.addChild(&Shape439);
 Billboard& Billboard440 =  Billboard();
 Shape& Shape441 =  Shape();
 Text& Text442 =  Text();
-Text442.setString((std::string[]){""}, 0);
+Text442.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle443 =  CFontStyle();
 FontStyle443.setContainerField("fontStyle");
 FontStyle443.setSize(0.035);
@@ -1882,7 +1882,7 @@ Shape441.setGeometry(&Text442);
 
 Billboard440.addChild(&Shape441);
 
-HAnimSite437.addChild(Billboard440);
+HAnimSite437.addChild(&Billboard440);
 
 HAnimSegment401.addChild(&HAnimSite437);
 
@@ -1900,7 +1900,7 @@ HAnimSite444.addChild(&Shape446);
 Billboard& Billboard447 =  Billboard();
 Shape& Shape448 =  Shape();
 Text& Text449 =  Text();
-Text449.setString((std::string[]){""}, 0);
+Text449.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle450 =  CFontStyle();
 FontStyle450.setContainerField("fontStyle");
 FontStyle450.setSize(0.035);
@@ -1910,7 +1910,7 @@ Shape448.setGeometry(&Text449);
 
 Billboard447.addChild(&Shape448);
 
-HAnimSite444.addChild(Billboard447);
+HAnimSite444.addChild(&Billboard447);
 
 HAnimSegment401.addChild(&HAnimSite444);
 
@@ -1928,7 +1928,7 @@ HAnimSite451.addChild(&Shape453);
 Billboard& Billboard454 =  Billboard();
 Shape& Shape455 =  Shape();
 Text& Text456 =  Text();
-Text456.setString((std::string[]){""}, 0);
+Text456.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle457 =  CFontStyle();
 FontStyle457.setContainerField("fontStyle");
 FontStyle457.setSize(0.035);
@@ -1938,7 +1938,7 @@ Shape455.setGeometry(&Text456);
 
 Billboard454.addChild(&Shape455);
 
-HAnimSite451.addChild(Billboard454);
+HAnimSite451.addChild(&Billboard454);
 
 HAnimSegment401.addChild(&HAnimSite451);
 
@@ -2013,7 +2013,7 @@ HAnimSite468.addChild(&Shape470);
 Billboard& Billboard471 =  Billboard();
 Shape& Shape472 =  Shape();
 Text& Text473 =  Text();
-Text473.setString((std::string[]){"84"}, 1);
+Text473.setString(new std::string[]{"84"}, 1);
 CFontStyle& FontStyle474 =  CFontStyle();
 FontStyle474.setContainerField("fontStyle");
 FontStyle474.setSize(0.035);
@@ -2023,7 +2023,7 @@ Shape472.setGeometry(&Text473);
 
 Billboard471.addChild(&Shape472);
 
-HAnimSite468.addChild(Billboard471);
+HAnimSite468.addChild(&Billboard471);
 
 HAnimSegment460.addChild(&HAnimSite468);
 
@@ -2041,7 +2041,7 @@ HAnimSite475.addChild(&Shape477);
 Billboard& Billboard478 =  Billboard();
 Shape& Shape479 =  Shape();
 Text& Text480 =  Text();
-Text480.setString((std::string[]){"26"}, 1);
+Text480.setString(new std::string[]{"26"}, 1);
 CFontStyle& FontStyle481 =  CFontStyle();
 FontStyle481.setContainerField("fontStyle");
 FontStyle481.setSize(0.035);
@@ -2051,7 +2051,7 @@ Shape479.setGeometry(&Text480);
 
 Billboard478.addChild(&Shape479);
 
-HAnimSite475.addChild(Billboard478);
+HAnimSite475.addChild(&Billboard478);
 
 HAnimSegment460.addChild(&HAnimSite475);
 
@@ -2070,7 +2070,7 @@ HAnimSite482.addChild(&Shape484);
 Billboard& Billboard485 =  Billboard();
 Shape& Shape486 =  Shape();
 Text& Text487 =  Text();
-Text487.setString((std::string[]){"27"}, 1);
+Text487.setString(new std::string[]{"27"}, 1);
 CFontStyle& FontStyle488 =  CFontStyle();
 FontStyle488.setContainerField("fontStyle");
 FontStyle488.setSize(0.035);
@@ -2080,7 +2080,7 @@ Shape486.setGeometry(&Text487);
 
 Billboard485.addChild(&Shape486);
 
-HAnimSite482.addChild(Billboard485);
+HAnimSite482.addChild(&Billboard485);
 
 HAnimSegment460.addChild(&HAnimSite482);
 
@@ -2213,7 +2213,7 @@ HAnimSite516.addChild(&Shape518);
 Billboard& Billboard519 =  Billboard();
 Shape& Shape520 =  Shape();
 Text& Text521 =  Text();
-Text521.setString((std::string[]){"28"}, 1);
+Text521.setString(new std::string[]{"28"}, 1);
 CFontStyle& FontStyle522 =  CFontStyle();
 FontStyle522.setContainerField("fontStyle");
 FontStyle522.setSize(0.035);
@@ -2223,7 +2223,7 @@ Shape520.setGeometry(&Text521);
 
 Billboard519.addChild(&Shape520);
 
-HAnimSite516.addChild(Billboard519);
+HAnimSite516.addChild(&Billboard519);
 
 HAnimSegment508.addChild(&HAnimSite516);
 
@@ -2242,7 +2242,7 @@ HAnimSite523.addChild(&Shape525);
 Billboard& Billboard526 =  Billboard();
 Shape& Shape527 =  Shape();
 Text& Text528 =  Text();
-Text528.setString((std::string[]){"30"}, 1);
+Text528.setString(new std::string[]{"30"}, 1);
 CFontStyle& FontStyle529 =  CFontStyle();
 FontStyle529.setContainerField("fontStyle");
 FontStyle529.setSize(0.035);
@@ -2252,7 +2252,7 @@ Shape527.setGeometry(&Text528);
 
 Billboard526.addChild(&Shape527);
 
-HAnimSite523.addChild(Billboard526);
+HAnimSite523.addChild(&Billboard526);
 
 HAnimSegment508.addChild(&HAnimSite523);
 
@@ -2270,7 +2270,7 @@ HAnimSite530.addChild(&Shape532);
 Billboard& Billboard533 =  Billboard();
 Shape& Shape534 =  Shape();
 Text& Text535 =  Text();
-Text535.setString((std::string[]){""}, 0);
+Text535.setString(new std::string[]{""}, 0);
 CFontStyle& FontStyle536 =  CFontStyle();
 FontStyle536.setContainerField("fontStyle");
 FontStyle536.setSize(0.035);
@@ -2280,7 +2280,7 @@ Shape534.setGeometry(&Text535);
 
 Billboard533.addChild(&Shape534);
 
-HAnimSite530.addChild(Billboard533);
+HAnimSite530.addChild(&Billboard533);
 
 HAnimSegment508.addChild(&HAnimSite530);
 
@@ -2451,7 +2451,7 @@ HAnimSite573.addChild(&Shape575);
 Billboard& Billboard576 =  Billboard();
 Shape& Shape577 =  Shape();
 Text& Text578 =  Text();
-Text578.setString((std::string[]){"13"}, 1);
+Text578.setString(new std::string[]{"13"}, 1);
 CFontStyle& FontStyle579 =  CFontStyle();
 FontStyle579.setContainerField("fontStyle");
 FontStyle579.setSize(0.035);
@@ -2461,7 +2461,7 @@ Shape577.setGeometry(&Text578);
 
 Billboard576.addChild(&Shape577);
 
-HAnimSite573.addChild(Billboard576);
+HAnimSite573.addChild(&Billboard576);
 
 HAnimSegment565.addChild(&HAnimSite573);
 
@@ -2518,7 +2518,7 @@ HAnimSite589.addChild(&Shape591);
 Billboard& Billboard592 =  Billboard();
 Shape& Shape593 =  Shape();
 Text& Text594 =  Text();
-Text594.setString((std::string[]){"29"}, 1);
+Text594.setString(new std::string[]{"29"}, 1);
 CFontStyle& FontStyle595 =  CFontStyle();
 FontStyle595.setContainerField("fontStyle");
 FontStyle595.setSize(0.035);
@@ -2528,7 +2528,7 @@ Shape593.setGeometry(&Text594);
 
 Billboard592.addChild(&Shape593);
 
-HAnimSite589.addChild(Billboard592);
+HAnimSite589.addChild(&Billboard592);
 
 HAnimSegment581.addChild(&HAnimSite589);
 
@@ -2547,7 +2547,7 @@ HAnimSite596.addChild(&Shape598);
 Billboard& Billboard599 =  Billboard();
 Shape& Shape600 =  Shape();
 Text& Text601 =  Text();
-Text601.setString((std::string[]){"31"}, 1);
+Text601.setString(new std::string[]{"31"}, 1);
 CFontStyle& FontStyle602 =  CFontStyle();
 FontStyle602.setContainerField("fontStyle");
 FontStyle602.setSize(0.035);
@@ -2557,7 +2557,7 @@ Shape600.setGeometry(&Text601);
 
 Billboard599.addChild(&Shape600);
 
-HAnimSite596.addChild(Billboard599);
+HAnimSite596.addChild(&Billboard599);
 
 HAnimSegment581.addChild(&HAnimSite596);
 
@@ -2689,7 +2689,7 @@ HAnimSite630.addChild(&Shape632);
 Billboard& Billboard633 =  Billboard();
 Shape& Shape634 =  Shape();
 Text& Text635 =  Text();
-Text635.setString((std::string[]){"94"}, 1);
+Text635.setString(new std::string[]{"94"}, 1);
 CFontStyle& FontStyle636 =  CFontStyle();
 FontStyle636.setContainerField("fontStyle");
 FontStyle636.setSize(0.035);
@@ -2699,7 +2699,7 @@ Shape634.setGeometry(&Text635);
 
 Billboard633.addChild(&Shape634);
 
-HAnimSite630.addChild(Billboard633);
+HAnimSite630.addChild(&Billboard633);
 
 HAnimSegment622.addChild(&HAnimSite630);
 
@@ -2717,7 +2717,7 @@ HAnimSite637.addChild(&Shape639);
 Billboard& Billboard640 =  Billboard();
 Shape& Shape641 =  Shape();
 Text& Text642 =  Text();
-Text642.setString((std::string[]){"88"}, 1);
+Text642.setString(new std::string[]{"88"}, 1);
 CFontStyle& FontStyle643 =  CFontStyle();
 FontStyle643.setContainerField("fontStyle");
 FontStyle643.setSize(0.035);
@@ -2727,7 +2727,7 @@ Shape641.setGeometry(&Text642);
 
 Billboard640.addChild(&Shape641);
 
-HAnimSite637.addChild(Billboard640);
+HAnimSite637.addChild(&Billboard640);
 
 HAnimSegment622.addChild(&HAnimSite637);
 
@@ -2745,7 +2745,7 @@ HAnimSite644.addChild(&Shape646);
 Billboard& Billboard647 =  Billboard();
 Shape& Shape648 =  Shape();
 Text& Text649 =  Text();
-Text649.setString((std::string[]){"95"}, 1);
+Text649.setString(new std::string[]{"95"}, 1);
 CFontStyle& FontStyle650 =  CFontStyle();
 FontStyle650.setContainerField("fontStyle");
 FontStyle650.setSize(0.035);
@@ -2755,7 +2755,7 @@ Shape648.setGeometry(&Text649);
 
 Billboard647.addChild(&Shape648);
 
-HAnimSite644.addChild(Billboard647);
+HAnimSite644.addChild(&Billboard647);
 
 HAnimSegment622.addChild(&HAnimSite644);
 
@@ -2773,7 +2773,7 @@ HAnimSite651.addChild(&Shape653);
 Billboard& Billboard654 =  Billboard();
 Shape& Shape655 =  Shape();
 Text& Text656 =  Text();
-Text656.setString((std::string[]){"92"}, 1);
+Text656.setString(new std::string[]{"92"}, 1);
 CFontStyle& FontStyle657 =  CFontStyle();
 FontStyle657.setContainerField("fontStyle");
 FontStyle657.setSize(0.035);
@@ -2783,7 +2783,7 @@ Shape655.setGeometry(&Text656);
 
 Billboard654.addChild(&Shape655);
 
-HAnimSite651.addChild(Billboard654);
+HAnimSite651.addChild(&Billboard654);
 
 HAnimSegment622.addChild(&HAnimSite651);
 
@@ -2839,7 +2839,7 @@ HAnimSite667.addChild(&Shape669);
 Billboard& Billboard670 =  Billboard();
 Shape& Shape671 =  Shape();
 Text& Text672 =  Text();
-Text672.setString((std::string[]){"24"}, 1);
+Text672.setString(new std::string[]{"24"}, 1);
 CFontStyle& FontStyle673 =  CFontStyle();
 FontStyle673.setContainerField("fontStyle");
 FontStyle673.setSize(0.035);
@@ -2849,7 +2849,7 @@ Shape671.setGeometry(&Text672);
 
 Billboard670.addChild(&Shape671);
 
-HAnimSite667.addChild(Billboard670);
+HAnimSite667.addChild(&Billboard670);
 
 HAnimSegment659.addChild(&HAnimSite667);
 
@@ -3020,7 +3020,7 @@ HAnimSite710.addChild(&Shape712);
 Billboard& Billboard713 =  Billboard();
 Shape& Shape714 =  Shape();
 Text& Text715 =  Text();
-Text715.setString((std::string[]){"10"}, 1);
+Text715.setString(new std::string[]{"10"}, 1);
 CFontStyle& FontStyle716 =  CFontStyle();
 FontStyle716.setContainerField("fontStyle");
 FontStyle716.setSize(0.035);
@@ -3030,7 +3030,7 @@ Shape714.setGeometry(&Text715);
 
 Billboard713.addChild(&Shape714);
 
-HAnimSite710.addChild(Billboard713);
+HAnimSite710.addChild(&Billboard713);
 
 HAnimSegment702.addChild(&HAnimSite710);
 
@@ -3049,7 +3049,7 @@ HAnimSite717.addChild(&Shape719);
 Billboard& Billboard720 =  Billboard();
 Shape& Shape721 =  Shape();
 Text& Text722 =  Text();
-Text722.setString((std::string[]){"12"}, 1);
+Text722.setString(new std::string[]{"12"}, 1);
 CFontStyle& FontStyle723 =  CFontStyle();
 FontStyle723.setContainerField("fontStyle");
 FontStyle723.setSize(0.035);
@@ -3059,7 +3059,7 @@ Shape721.setGeometry(&Text722);
 
 Billboard720.addChild(&Shape721);
 
-HAnimSite717.addChild(Billboard720);
+HAnimSite717.addChild(&Billboard720);
 
 HAnimSegment702.addChild(&HAnimSite717);
 
@@ -3150,7 +3150,7 @@ HAnimSite741.addChild(&Shape743);
 Billboard& Billboard744 =  Billboard();
 Shape& Shape745 =  Shape();
 Text& Text746 =  Text();
-Text746.setString((std::string[]){"82"}, 1);
+Text746.setString(new std::string[]{"82"}, 1);
 CFontStyle& FontStyle747 =  CFontStyle();
 FontStyle747.setContainerField("fontStyle");
 FontStyle747.setSize(0.035);
@@ -3160,7 +3160,7 @@ Shape745.setGeometry(&Text746);
 
 Billboard744.addChild(&Shape745);
 
-HAnimSite741.addChild(Billboard744);
+HAnimSite741.addChild(&Billboard744);
 
 HAnimSegment733.addChild(&HAnimSite741);
 
@@ -3179,7 +3179,7 @@ HAnimSite748.addChild(&Shape750);
 Billboard& Billboard751 =  Billboard();
 Shape& Shape752 =  Shape();
 Text& Text753 =  Text();
-Text753.setString((std::string[]){"83"}, 1);
+Text753.setString(new std::string[]{"83"}, 1);
 CFontStyle& FontStyle754 =  CFontStyle();
 FontStyle754.setContainerField("fontStyle");
 FontStyle754.setSize(0.035);
@@ -3189,7 +3189,7 @@ Shape752.setGeometry(&Text753);
 
 Billboard751.addChild(&Shape752);
 
-HAnimSite748.addChild(Billboard751);
+HAnimSite748.addChild(&Billboard751);
 
 HAnimSegment733.addChild(&HAnimSite748);
 
@@ -3397,7 +3397,7 @@ HAnimSite800.addChild(&Shape802);
 Billboard& Billboard803 =  Billboard();
 Shape& Shape804 =  Shape();
 Text& Text805 =  Text();
-Text805.setString((std::string[]){"11"}, 1);
+Text805.setString(new std::string[]{"11"}, 1);
 CFontStyle& FontStyle806 =  CFontStyle();
 FontStyle806.setContainerField("fontStyle");
 FontStyle806.setSize(0.035);
@@ -3407,7 +3407,7 @@ Shape804.setGeometry(&Text805);
 
 Billboard803.addChild(&Shape804);
 
-HAnimSite800.addChild(Billboard803);
+HAnimSite800.addChild(&Billboard803);
 
 HAnimSegment792.addChild(&HAnimSite800);
 
@@ -3501,7 +3501,7 @@ HAnimSite825.addChild(&Shape827);
 Billboard& Billboard828 =  Billboard();
 Shape& Shape829 =  Shape();
 Text& Text830 =  Text();
-Text830.setString((std::string[]){"1"}, 1);
+Text830.setString(new std::string[]{"1"}, 1);
 CFontStyle& FontStyle831 =  CFontStyle();
 FontStyle831.setContainerField("fontStyle");
 FontStyle831.setSize(0.035);
@@ -3511,7 +3511,7 @@ Shape829.setGeometry(&Text830);
 
 Billboard828.addChild(&Shape829);
 
-HAnimSite825.addChild(Billboard828);
+HAnimSite825.addChild(&Billboard828);
 
 HAnimSegment817.addChild(&HAnimSite825);
 
@@ -3529,7 +3529,7 @@ HAnimSite832.addChild(&Shape834);
 Billboard& Billboard835 =  Billboard();
 Shape& Shape836 =  Shape();
 Text& Text837 =  Text();
-Text837.setString((std::string[]){"85"}, 1);
+Text837.setString(new std::string[]{"85"}, 1);
 CFontStyle& FontStyle838 =  CFontStyle();
 FontStyle838.setContainerField("fontStyle");
 FontStyle838.setSize(0.035);
@@ -3539,7 +3539,7 @@ Shape836.setGeometry(&Text837);
 
 Billboard835.addChild(&Shape836);
 
-HAnimSite832.addChild(Billboard835);
+HAnimSite832.addChild(&Billboard835);
 
 HAnimSegment817.addChild(&HAnimSite832);
 
@@ -3558,7 +3558,7 @@ HAnimSite839.addChild(&Shape841);
 Billboard& Billboard842 =  Billboard();
 Shape& Shape843 =  Shape();
 Text& Text844 =  Text();
-Text844.setString((std::string[]){"3"}, 1);
+Text844.setString(new std::string[]{"3"}, 1);
 CFontStyle& FontStyle845 =  CFontStyle();
 FontStyle845.setContainerField("fontStyle");
 FontStyle845.setSize(0.035);
@@ -3568,7 +3568,7 @@ Shape843.setGeometry(&Text844);
 
 Billboard842.addChild(&Shape843);
 
-HAnimSite839.addChild(Billboard842);
+HAnimSite839.addChild(&Billboard842);
 
 HAnimSegment817.addChild(&HAnimSite839);
 
@@ -3587,7 +3587,7 @@ HAnimSite846.addChild(&Shape848);
 Billboard& Billboard849 =  Billboard();
 Shape& Shape850 =  Shape();
 Text& Text851 =  Text();
-Text851.setString((std::string[]){"4"}, 1);
+Text851.setString(new std::string[]{"4"}, 1);
 CFontStyle& FontStyle852 =  CFontStyle();
 FontStyle852.setContainerField("fontStyle");
 FontStyle852.setSize(0.035);
@@ -3597,7 +3597,7 @@ Shape850.setGeometry(&Text851);
 
 Billboard849.addChild(&Shape850);
 
-HAnimSite846.addChild(Billboard849);
+HAnimSite846.addChild(&Billboard849);
 
 HAnimSegment817.addChild(&HAnimSite846);
 
@@ -3616,7 +3616,7 @@ HAnimSite853.addChild(&Shape855);
 Billboard& Billboard856 =  Billboard();
 Shape& Shape857 =  Shape();
 Text& Text858 =  Text();
-Text858.setString((std::string[]){"81"}, 1);
+Text858.setString(new std::string[]{"81"}, 1);
 CFontStyle& FontStyle859 =  CFontStyle();
 FontStyle859.setContainerField("fontStyle");
 FontStyle859.setSize(0.035);
@@ -3626,7 +3626,7 @@ Shape857.setGeometry(&Text858);
 
 Billboard856.addChild(&Shape857);
 
-HAnimSite853.addChild(Billboard856);
+HAnimSite853.addChild(&Billboard856);
 
 HAnimSegment817.addChild(&HAnimSite853);
 
@@ -3644,7 +3644,7 @@ HAnimSite860.addChild(&Shape862);
 Billboard& Billboard863 =  Billboard();
 Shape& Shape864 =  Shape();
 Text& Text865 =  Text();
-Text865.setString((std::string[]){"89"}, 1);
+Text865.setString(new std::string[]{"89"}, 1);
 CFontStyle& FontStyle866 =  CFontStyle();
 FontStyle866.setContainerField("fontStyle");
 FontStyle866.setSize(0.035);
@@ -3654,7 +3654,7 @@ Shape864.setGeometry(&Text865);
 
 Billboard863.addChild(&Shape864);
 
-HAnimSite860.addChild(Billboard863);
+HAnimSite860.addChild(&Billboard863);
 
 HAnimSegment817.addChild(&HAnimSite860);
 
@@ -3672,7 +3672,7 @@ HAnimSite867.addChild(&Shape869);
 Billboard& Billboard870 =  Billboard();
 Shape& Shape871 =  Shape();
 Text& Text872 =  Text();
-Text872.setString((std::string[]){"86"}, 1);
+Text872.setString(new std::string[]{"86"}, 1);
 CFontStyle& FontStyle873 =  CFontStyle();
 FontStyle873.setContainerField("fontStyle");
 FontStyle873.setSize(0.035);
@@ -3682,7 +3682,7 @@ Shape871.setGeometry(&Text872);
 
 Billboard870.addChild(&Shape871);
 
-HAnimSite867.addChild(Billboard870);
+HAnimSite867.addChild(&Billboard870);
 
 HAnimSegment817.addChild(&HAnimSite867);
 
@@ -3701,7 +3701,7 @@ HAnimSite874.addChild(&Shape876);
 Billboard& Billboard877 =  Billboard();
 Shape& Shape878 =  Shape();
 Text& Text879 =  Text();
-Text879.setString((std::string[]){"6"}, 1);
+Text879.setString(new std::string[]{"6"}, 1);
 CFontStyle& FontStyle880 =  CFontStyle();
 FontStyle880.setContainerField("fontStyle");
 FontStyle880.setSize(0.035);
@@ -3711,7 +3711,7 @@ Shape878.setGeometry(&Text879);
 
 Billboard877.addChild(&Shape878);
 
-HAnimSite874.addChild(Billboard877);
+HAnimSite874.addChild(&Billboard877);
 
 HAnimSegment817.addChild(&HAnimSite874);
 
@@ -3730,7 +3730,7 @@ HAnimSite881.addChild(&Shape883);
 Billboard& Billboard884 =  Billboard();
 Shape& Shape885 =  Shape();
 Text& Text886 =  Text();
-Text886.setString((std::string[]){"7"}, 1);
+Text886.setString(new std::string[]{"7"}, 1);
 CFontStyle& FontStyle887 =  CFontStyle();
 FontStyle887.setContainerField("fontStyle");
 FontStyle887.setSize(0.035);
@@ -3740,7 +3740,7 @@ Shape885.setGeometry(&Text886);
 
 Billboard884.addChild(&Shape885);
 
-HAnimSite881.addChild(Billboard884);
+HAnimSite881.addChild(&Billboard884);
 
 HAnimSegment817.addChild(&HAnimSite881);
 
@@ -3759,7 +3759,7 @@ HAnimSite888.addChild(&Shape890);
 Billboard& Billboard891 =  Billboard();
 Shape& Shape892 =  Shape();
 Text& Text893 =  Text();
-Text893.setString((std::string[]){"2"}, 1);
+Text893.setString(new std::string[]{"2"}, 1);
 CFontStyle& FontStyle894 =  CFontStyle();
 FontStyle894.setContainerField("fontStyle");
 FontStyle894.setSize(0.035);
@@ -3769,7 +3769,7 @@ Shape892.setGeometry(&Text893);
 
 Billboard891.addChild(&Shape892);
 
-HAnimSite888.addChild(Billboard891);
+HAnimSite888.addChild(&Billboard891);
 
 HAnimSegment817.addChild(&HAnimSite888);
 
@@ -3788,7 +3788,7 @@ HAnimSite895.addChild(&Shape897);
 Billboard& Billboard898 =  Billboard();
 Shape& Shape899 =  Shape();
 Text& Text900 =  Text();
-Text900.setString((std::string[]){"0"}, 1);
+Text900.setString(new std::string[]{"0"}, 1);
 CFontStyle& FontStyle901 =  CFontStyle();
 FontStyle901.setContainerField("fontStyle");
 FontStyle901.setSize(0.035);
@@ -3798,7 +3798,7 @@ Shape899.setGeometry(&Text900);
 
 Billboard898.addChild(&Shape899);
 
-HAnimSite895.addChild(Billboard898);
+HAnimSite895.addChild(&Billboard898);
 
 HAnimSegment817.addChild(&HAnimSite895);
 
@@ -4015,7 +4015,7 @@ HAnimSite942.addChild(&Shape944);
 Billboard& Billboard945 =  Billboard();
 Shape& Shape946 =  Shape();
 Text& Text947 =  Text();
-Text947.setString((std::string[]){"15"}, 1);
+Text947.setString(new std::string[]{"15"}, 1);
 CFontStyle& FontStyle948 =  CFontStyle();
 FontStyle948.setContainerField("fontStyle");
 FontStyle948.setSize(0.035);
@@ -4025,7 +4025,7 @@ Shape946.setGeometry(&Text947);
 
 Billboard945.addChild(&Shape946);
 
-HAnimSite942.addChild(Billboard945);
+HAnimSite942.addChild(&Billboard945);
 
 HAnimSegment934.addChild(&HAnimSite942);
 
@@ -4044,7 +4044,7 @@ HAnimSite949.addChild(&Shape951);
 Billboard& Billboard952 =  Billboard();
 Shape& Shape953 =  Shape();
 Text& Text954 =  Text();
-Text954.setString((std::string[]){"17"}, 1);
+Text954.setString(new std::string[]{"17"}, 1);
 CFontStyle& FontStyle955 =  CFontStyle();
 FontStyle955.setContainerField("fontStyle");
 FontStyle955.setSize(0.035);
@@ -4054,7 +4054,7 @@ Shape953.setGeometry(&Text954);
 
 Billboard952.addChild(&Shape953);
 
-HAnimSite949.addChild(Billboard952);
+HAnimSite949.addChild(&Billboard952);
 
 HAnimSegment934.addChild(&HAnimSite949);
 
@@ -4072,7 +4072,7 @@ HAnimSite956.addChild(&Shape958);
 Billboard& Billboard959 =  Billboard();
 Shape& Shape960 =  Shape();
 Text& Text961 =  Text();
-Text961.setString((std::string[]){"18"}, 1);
+Text961.setString(new std::string[]{"18"}, 1);
 CFontStyle& FontStyle962 =  CFontStyle();
 FontStyle962.setContainerField("fontStyle");
 FontStyle962.setSize(0.035);
@@ -4082,7 +4082,7 @@ Shape960.setGeometry(&Text961);
 
 Billboard959.addChild(&Shape960);
 
-HAnimSite956.addChild(Billboard959);
+HAnimSite956.addChild(&Billboard959);
 
 HAnimSegment934.addChild(&HAnimSite956);
 
@@ -4101,7 +4101,7 @@ HAnimSite963.addChild(&Shape965);
 Billboard& Billboard966 =  Billboard();
 Shape& Shape967 =  Shape();
 Text& Text968 =  Text();
-Text968.setString((std::string[]){"16"}, 1);
+Text968.setString(new std::string[]{"16"}, 1);
 CFontStyle& FontStyle969 =  CFontStyle();
 FontStyle969.setContainerField("fontStyle");
 FontStyle969.setSize(0.035);
@@ -4111,7 +4111,7 @@ Shape967.setGeometry(&Text968);
 
 Billboard966.addChild(&Shape967);
 
-HAnimSite963.addChild(Billboard966);
+HAnimSite963.addChild(&Billboard966);
 
 HAnimSegment934.addChild(&HAnimSite963);
 
@@ -4130,7 +4130,7 @@ HAnimSite970.addChild(&Shape972);
 Billboard& Billboard973 =  Billboard();
 Shape& Shape974 =  Shape();
 Text& Text975 =  Text();
-Text975.setString((std::string[]){"14"}, 1);
+Text975.setString(new std::string[]{"14"}, 1);
 CFontStyle& FontStyle976 =  CFontStyle();
 FontStyle976.setContainerField("fontStyle");
 FontStyle976.setSize(0.035);
@@ -4140,7 +4140,7 @@ Shape974.setGeometry(&Text975);
 
 Billboard973.addChild(&Shape974);
 
-HAnimSite970.addChild(Billboard973);
+HAnimSite970.addChild(&Billboard973);
 
 HAnimSegment934.addChild(&HAnimSite970);
 
@@ -4234,7 +4234,7 @@ HAnimSite995.addChild(&Shape997);
 Billboard& Billboard998 =  Billboard();
 Shape& Shape999 =  Shape();
 Text& Text1000 =  Text();
-Text1000.setString((std::string[]){"96"}, 1);
+Text1000.setString(new std::string[]{"96"}, 1);
 CFontStyle& FontStyle1001 =  CFontStyle();
 FontStyle1001.setContainerField("fontStyle");
 FontStyle1001.setSize(0.035);
@@ -4244,7 +4244,7 @@ Shape999.setGeometry(&Text1000);
 
 Billboard998.addChild(&Shape999);
 
-HAnimSite995.addChild(Billboard998);
+HAnimSite995.addChild(&Billboard998);
 
 HAnimSegment987.addChild(&HAnimSite995);
 
@@ -4263,7 +4263,7 @@ HAnimSite1002.addChild(&Shape1004);
 Billboard& Billboard1005 =  Billboard();
 Shape& Shape1006 =  Shape();
 Text& Text1007 =  Text();
-Text1007.setString((std::string[]){"63"}, 1);
+Text1007.setString(new std::string[]{"63"}, 1);
 CFontStyle& FontStyle1008 =  CFontStyle();
 FontStyle1008.setContainerField("fontStyle");
 FontStyle1008.setSize(0.035);
@@ -4273,7 +4273,7 @@ Shape1006.setGeometry(&Text1007);
 
 Billboard1005.addChild(&Shape1006);
 
-HAnimSite1002.addChild(Billboard1005);
+HAnimSite1002.addChild(&Billboard1005);
 
 HAnimSegment987.addChild(&HAnimSite1002);
 
@@ -4330,7 +4330,7 @@ HAnimSite1018.addChild(&Shape1020);
 Billboard& Billboard1021 =  Billboard();
 Shape& Shape1022 =  Shape();
 Text& Text1023 =  Text();
-Text1023.setString((std::string[]){"64"}, 1);
+Text1023.setString(new std::string[]{"64"}, 1);
 CFontStyle& FontStyle1024 =  CFontStyle();
 FontStyle1024.setContainerField("fontStyle");
 FontStyle1024.setSize(0.035);
@@ -4340,7 +4340,7 @@ Shape1022.setGeometry(&Text1023);
 
 Billboard1021.addChild(&Shape1022);
 
-HAnimSite1018.addChild(Billboard1021);
+HAnimSite1018.addChild(&Billboard1021);
 
 HAnimSegment1010.addChild(&HAnimSite1018);
 
@@ -4359,7 +4359,7 @@ HAnimSite1025.addChild(&Shape1027);
 Billboard& Billboard1028 =  Billboard();
 Shape& Shape1029 =  Shape();
 Text& Text1030 =  Text();
-Text1030.setString((std::string[]){"65"}, 1);
+Text1030.setString(new std::string[]{"65"}, 1);
 CFontStyle& FontStyle1031 =  CFontStyle();
 FontStyle1031.setContainerField("fontStyle");
 FontStyle1031.setSize(0.035);
@@ -4369,7 +4369,7 @@ Shape1029.setGeometry(&Text1030);
 
 Billboard1028.addChild(&Shape1029);
 
-HAnimSite1025.addChild(Billboard1028);
+HAnimSite1025.addChild(&Billboard1028);
 
 HAnimSegment1010.addChild(&HAnimSite1025);
 
@@ -4388,7 +4388,7 @@ HAnimSite1032.addChild(&Shape1034);
 Billboard& Billboard1035 =  Billboard();
 Shape& Shape1036 =  Shape();
 Text& Text1037 =  Text();
-Text1037.setString((std::string[]){"71"}, 1);
+Text1037.setString(new std::string[]{"71"}, 1);
 CFontStyle& FontStyle1038 =  CFontStyle();
 FontStyle1038.setContainerField("fontStyle");
 FontStyle1038.setSize(0.035);
@@ -4398,7 +4398,7 @@ Shape1036.setGeometry(&Text1037);
 
 Billboard1035.addChild(&Shape1036);
 
-HAnimSite1032.addChild(Billboard1035);
+HAnimSite1032.addChild(&Billboard1035);
 
 HAnimSegment1010.addChild(&HAnimSite1032);
 
@@ -4417,7 +4417,7 @@ HAnimSite1039.addChild(&Shape1041);
 Billboard& Billboard1042 =  Billboard();
 Shape& Shape1043 =  Shape();
 Text& Text1044 =  Text();
-Text1044.setString((std::string[]){"69"}, 1);
+Text1044.setString(new std::string[]{"69"}, 1);
 CFontStyle& FontStyle1045 =  CFontStyle();
 FontStyle1045.setContainerField("fontStyle");
 FontStyle1045.setSize(0.035);
@@ -4427,7 +4427,7 @@ Shape1043.setGeometry(&Text1044);
 
 Billboard1042.addChild(&Shape1043);
 
-HAnimSite1039.addChild(Billboard1042);
+HAnimSite1039.addChild(&Billboard1042);
 
 HAnimSegment1010.addChild(&HAnimSite1039);
 
@@ -4488,7 +4488,7 @@ HAnimSite1055.addChild(&Shape1057);
 Billboard& Billboard1058 =  Billboard();
 Shape& Shape1059 =  Shape();
 Text& Text1060 =  Text();
-Text1060.setString((std::string[]){"70"}, 1);
+Text1060.setString(new std::string[]{"70"}, 1);
 CFontStyle& FontStyle1061 =  CFontStyle();
 FontStyle1061.setContainerField("fontStyle");
 FontStyle1061.setSize(0.035);
@@ -4498,7 +4498,7 @@ Shape1059.setGeometry(&Text1060);
 
 Billboard1058.addChild(&Shape1059);
 
-HAnimSite1055.addChild(Billboard1058);
+HAnimSite1055.addChild(&Billboard1058);
 
 HAnimSegment1047.addChild(&HAnimSite1055);
 
@@ -4709,7 +4709,7 @@ HAnimSite1106.addChild(&Shape1108);
 Billboard& Billboard1109 =  Billboard();
 Shape& Shape1110 =  Shape();
 Text& Text1111 =  Text();
-Text1111.setString((std::string[]){"75"}, 1);
+Text1111.setString(new std::string[]{"75"}, 1);
 CFontStyle& FontStyle1112 =  CFontStyle();
 FontStyle1112.setContainerField("fontStyle");
 FontStyle1112.setSize(0.035);
@@ -4719,7 +4719,7 @@ Shape1110.setGeometry(&Text1111);
 
 Billboard1109.addChild(&Shape1110);
 
-HAnimSite1106.addChild(Billboard1109);
+HAnimSite1106.addChild(&Billboard1109);
 
 HAnimSegment1098.addChild(&HAnimSite1106);
 
@@ -4863,7 +4863,7 @@ HAnimSite1141.addChild(&Shape1143);
 Billboard& Billboard1144 =  Billboard();
 Shape& Shape1145 =  Shape();
 Text& Text1146 =  Text();
-Text1146.setString((std::string[]){"76"}, 1);
+Text1146.setString(new std::string[]{"76"}, 1);
 CFontStyle& FontStyle1147 =  CFontStyle();
 FontStyle1147.setContainerField("fontStyle");
 FontStyle1147.setSize(0.035);
@@ -4873,7 +4873,7 @@ Shape1145.setGeometry(&Text1146);
 
 Billboard1144.addChild(&Shape1145);
 
-HAnimSite1141.addChild(Billboard1144);
+HAnimSite1141.addChild(&Billboard1144);
 
 HAnimSegment1133.addChild(&HAnimSite1141);
 
@@ -5144,7 +5144,7 @@ HAnimSite1204.addChild(&Shape1206);
 Billboard& Billboard1207 =  Billboard();
 Shape& Shape1208 =  Shape();
 Text& Text1209 =  Text();
-Text1209.setString((std::string[]){"77"}, 1);
+Text1209.setString(new std::string[]{"77"}, 1);
 CFontStyle& FontStyle1210 =  CFontStyle();
 FontStyle1210.setContainerField("fontStyle");
 FontStyle1210.setSize(0.035);
@@ -5154,7 +5154,7 @@ Shape1208.setGeometry(&Text1209);
 
 Billboard1207.addChild(&Shape1208);
 
-HAnimSite1204.addChild(Billboard1207);
+HAnimSite1204.addChild(&Billboard1207);
 
 HAnimSegment1196.addChild(&HAnimSite1204);
 
@@ -5309,7 +5309,7 @@ HAnimSite1239.addChild(&Shape1241);
 Billboard& Billboard1242 =  Billboard();
 Shape& Shape1243 =  Shape();
 Text& Text1244 =  Text();
-Text1244.setString((std::string[]){"20"}, 1);
+Text1244.setString(new std::string[]{"20"}, 1);
 CFontStyle& FontStyle1245 =  CFontStyle();
 FontStyle1245.setContainerField("fontStyle");
 FontStyle1245.setSize(0.035);
@@ -5319,7 +5319,7 @@ Shape1243.setGeometry(&Text1244);
 
 Billboard1242.addChild(&Shape1243);
 
-HAnimSite1239.addChild(Billboard1242);
+HAnimSite1239.addChild(&Billboard1242);
 
 HAnimSegment1231.addChild(&HAnimSite1239);
 
@@ -5338,7 +5338,7 @@ HAnimSite1246.addChild(&Shape1248);
 Billboard& Billboard1249 =  Billboard();
 Shape& Shape1250 =  Shape();
 Text& Text1251 =  Text();
-Text1251.setString((std::string[]){"22"}, 1);
+Text1251.setString(new std::string[]{"22"}, 1);
 CFontStyle& FontStyle1252 =  CFontStyle();
 FontStyle1252.setContainerField("fontStyle");
 FontStyle1252.setSize(0.035);
@@ -5348,7 +5348,7 @@ Shape1250.setGeometry(&Text1251);
 
 Billboard1249.addChild(&Shape1250);
 
-HAnimSite1246.addChild(Billboard1249);
+HAnimSite1246.addChild(&Billboard1249);
 
 HAnimSegment1231.addChild(&HAnimSite1246);
 
@@ -5366,7 +5366,7 @@ HAnimSite1253.addChild(&Shape1255);
 Billboard& Billboard1256 =  Billboard();
 Shape& Shape1257 =  Shape();
 Text& Text1258 =  Text();
-Text1258.setString((std::string[]){"23"}, 1);
+Text1258.setString(new std::string[]{"23"}, 1);
 CFontStyle& FontStyle1259 =  CFontStyle();
 FontStyle1259.setContainerField("fontStyle");
 FontStyle1259.setSize(0.035);
@@ -5376,7 +5376,7 @@ Shape1257.setGeometry(&Text1258);
 
 Billboard1256.addChild(&Shape1257);
 
-HAnimSite1253.addChild(Billboard1256);
+HAnimSite1253.addChild(&Billboard1256);
 
 HAnimSegment1231.addChild(&HAnimSite1253);
 
@@ -5395,7 +5395,7 @@ HAnimSite1260.addChild(&Shape1262);
 Billboard& Billboard1263 =  Billboard();
 Shape& Shape1264 =  Shape();
 Text& Text1265 =  Text();
-Text1265.setString((std::string[]){"21"}, 1);
+Text1265.setString(new std::string[]{"21"}, 1);
 CFontStyle& FontStyle1266 =  CFontStyle();
 FontStyle1266.setContainerField("fontStyle");
 FontStyle1266.setSize(0.035);
@@ -5405,7 +5405,7 @@ Shape1264.setGeometry(&Text1265);
 
 Billboard1263.addChild(&Shape1264);
 
-HAnimSite1260.addChild(Billboard1263);
+HAnimSite1260.addChild(&Billboard1263);
 
 HAnimSegment1231.addChild(&HAnimSite1260);
 
@@ -5424,7 +5424,7 @@ HAnimSite1267.addChild(&Shape1269);
 Billboard& Billboard1270 =  Billboard();
 Shape& Shape1271 =  Shape();
 Text& Text1272 =  Text();
-Text1272.setString((std::string[]){"19"}, 1);
+Text1272.setString(new std::string[]{"19"}, 1);
 CFontStyle& FontStyle1273 =  CFontStyle();
 FontStyle1273.setContainerField("fontStyle");
 FontStyle1273.setSize(0.035);
@@ -5434,7 +5434,7 @@ Shape1271.setGeometry(&Text1272);
 
 Billboard1270.addChild(&Shape1271);
 
-HAnimSite1267.addChild(Billboard1270);
+HAnimSite1267.addChild(&Billboard1270);
 
 HAnimSegment1231.addChild(&HAnimSite1267);
 
@@ -5528,7 +5528,7 @@ HAnimSite1292.addChild(&Shape1294);
 Billboard& Billboard1295 =  Billboard();
 Shape& Shape1296 =  Shape();
 Text& Text1297 =  Text();
-Text1297.setString((std::string[]){"97"}, 1);
+Text1297.setString(new std::string[]{"97"}, 1);
 CFontStyle& FontStyle1298 =  CFontStyle();
 FontStyle1298.setContainerField("fontStyle");
 FontStyle1298.setSize(0.035);
@@ -5538,7 +5538,7 @@ Shape1296.setGeometry(&Text1297);
 
 Billboard1295.addChild(&Shape1296);
 
-HAnimSite1292.addChild(Billboard1295);
+HAnimSite1292.addChild(&Billboard1295);
 
 HAnimSegment1284.addChild(&HAnimSite1292);
 
@@ -5557,7 +5557,7 @@ HAnimSite1299.addChild(&Shape1301);
 Billboard& Billboard1302 =  Billboard();
 Shape& Shape1303 =  Shape();
 Text& Text1304 =  Text();
-Text1304.setString((std::string[]){"66"}, 1);
+Text1304.setString(new std::string[]{"66"}, 1);
 CFontStyle& FontStyle1305 =  CFontStyle();
 FontStyle1305.setContainerField("fontStyle");
 FontStyle1305.setSize(0.035);
@@ -5567,7 +5567,7 @@ Shape1303.setGeometry(&Text1304);
 
 Billboard1302.addChild(&Shape1303);
 
-HAnimSite1299.addChild(Billboard1302);
+HAnimSite1299.addChild(&Billboard1302);
 
 HAnimSegment1284.addChild(&HAnimSite1299);
 
@@ -5624,7 +5624,7 @@ HAnimSite1315.addChild(&Shape1317);
 Billboard& Billboard1318 =  Billboard();
 Shape& Shape1319 =  Shape();
 Text& Text1320 =  Text();
-Text1320.setString((std::string[]){"67"}, 1);
+Text1320.setString(new std::string[]{"67"}, 1);
 CFontStyle& FontStyle1321 =  CFontStyle();
 FontStyle1321.setContainerField("fontStyle");
 FontStyle1321.setSize(0.035);
@@ -5634,7 +5634,7 @@ Shape1319.setGeometry(&Text1320);
 
 Billboard1318.addChild(&Shape1319);
 
-HAnimSite1315.addChild(Billboard1318);
+HAnimSite1315.addChild(&Billboard1318);
 
 HAnimSegment1307.addChild(&HAnimSite1315);
 
@@ -5653,7 +5653,7 @@ HAnimSite1322.addChild(&Shape1324);
 Billboard& Billboard1325 =  Billboard();
 Shape& Shape1326 =  Shape();
 Text& Text1327 =  Text();
-Text1327.setString((std::string[]){"68"}, 1);
+Text1327.setString(new std::string[]{"68"}, 1);
 CFontStyle& FontStyle1328 =  CFontStyle();
 FontStyle1328.setContainerField("fontStyle");
 FontStyle1328.setSize(0.035);
@@ -5663,7 +5663,7 @@ Shape1326.setGeometry(&Text1327);
 
 Billboard1325.addChild(&Shape1326);
 
-HAnimSite1322.addChild(Billboard1325);
+HAnimSite1322.addChild(&Billboard1325);
 
 HAnimSegment1307.addChild(&HAnimSite1322);
 
@@ -5682,7 +5682,7 @@ HAnimSite1329.addChild(&Shape1331);
 Billboard& Billboard1332 =  Billboard();
 Shape& Shape1333 =  Shape();
 Text& Text1334 =  Text();
-Text1334.setString((std::string[]){"74"}, 1);
+Text1334.setString(new std::string[]{"74"}, 1);
 CFontStyle& FontStyle1335 =  CFontStyle();
 FontStyle1335.setContainerField("fontStyle");
 FontStyle1335.setSize(0.035);
@@ -5692,7 +5692,7 @@ Shape1333.setGeometry(&Text1334);
 
 Billboard1332.addChild(&Shape1333);
 
-HAnimSite1329.addChild(Billboard1332);
+HAnimSite1329.addChild(&Billboard1332);
 
 HAnimSegment1307.addChild(&HAnimSite1329);
 
@@ -5711,7 +5711,7 @@ HAnimSite1336.addChild(&Shape1338);
 Billboard& Billboard1339 =  Billboard();
 Shape& Shape1340 =  Shape();
 Text& Text1341 =  Text();
-Text1341.setString((std::string[]){"72"}, 1);
+Text1341.setString(new std::string[]{"72"}, 1);
 CFontStyle& FontStyle1342 =  CFontStyle();
 FontStyle1342.setContainerField("fontStyle");
 FontStyle1342.setSize(0.035);
@@ -5721,7 +5721,7 @@ Shape1340.setGeometry(&Text1341);
 
 Billboard1339.addChild(&Shape1340);
 
-HAnimSite1336.addChild(Billboard1339);
+HAnimSite1336.addChild(&Billboard1339);
 
 HAnimSegment1307.addChild(&HAnimSite1336);
 
@@ -5782,7 +5782,7 @@ HAnimSite1352.addChild(&Shape1354);
 Billboard& Billboard1355 =  Billboard();
 Shape& Shape1356 =  Shape();
 Text& Text1357 =  Text();
-Text1357.setString((std::string[]){"73"}, 1);
+Text1357.setString(new std::string[]{"73"}, 1);
 CFontStyle& FontStyle1358 =  CFontStyle();
 FontStyle1358.setContainerField("fontStyle");
 FontStyle1358.setSize(0.035);
@@ -5792,7 +5792,7 @@ Shape1356.setGeometry(&Text1357);
 
 Billboard1355.addChild(&Shape1356);
 
-HAnimSite1352.addChild(Billboard1355);
+HAnimSite1352.addChild(&Billboard1355);
 
 HAnimSegment1344.addChild(&HAnimSite1352);
 
@@ -6003,7 +6003,7 @@ HAnimSite1403.addChild(&Shape1405);
 Billboard& Billboard1406 =  Billboard();
 Shape& Shape1407 =  Shape();
 Text& Text1408 =  Text();
-Text1408.setString((std::string[]){"78"}, 1);
+Text1408.setString(new std::string[]{"78"}, 1);
 CFontStyle& FontStyle1409 =  CFontStyle();
 FontStyle1409.setContainerField("fontStyle");
 FontStyle1409.setSize(0.035);
@@ -6013,7 +6013,7 @@ Shape1407.setGeometry(&Text1408);
 
 Billboard1406.addChild(&Shape1407);
 
-HAnimSite1403.addChild(Billboard1406);
+HAnimSite1403.addChild(&Billboard1406);
 
 HAnimSegment1395.addChild(&HAnimSite1403);
 
@@ -6157,7 +6157,7 @@ HAnimSite1438.addChild(&Shape1440);
 Billboard& Billboard1441 =  Billboard();
 Shape& Shape1442 =  Shape();
 Text& Text1443 =  Text();
-Text1443.setString((std::string[]){"79"}, 1);
+Text1443.setString(new std::string[]{"79"}, 1);
 CFontStyle& FontStyle1444 =  CFontStyle();
 FontStyle1444.setContainerField("fontStyle");
 FontStyle1444.setSize(0.035);
@@ -6167,7 +6167,7 @@ Shape1442.setGeometry(&Text1443);
 
 Billboard1441.addChild(&Shape1442);
 
-HAnimSite1438.addChild(Billboard1441);
+HAnimSite1438.addChild(&Billboard1441);
 
 HAnimSegment1430.addChild(&HAnimSite1438);
 
@@ -6438,7 +6438,7 @@ HAnimSite1501.addChild(&Shape1503);
 Billboard& Billboard1504 =  Billboard();
 Shape& Shape1505 =  Shape();
 Text& Text1506 =  Text();
-Text1506.setString((std::string[]){"80"}, 1);
+Text1506.setString(new std::string[]{"80"}, 1);
 CFontStyle& FontStyle1507 =  CFontStyle();
 FontStyle1507.setContainerField("fontStyle");
 FontStyle1507.setSize(0.035);
@@ -6448,7 +6448,7 @@ Shape1505.setGeometry(&Text1506);
 
 Billboard1504.addChild(&Shape1505);
 
-HAnimSite1501.addChild(Billboard1504);
+HAnimSite1501.addChild(&Billboard1504);
 
 HAnimSegment1493.addChild(&HAnimSite1501);
 
@@ -7062,4 +7062,4 @@ Scene11.addChild(&HAnimHumanoid38);
 
 X3D0.setScene(&Scene11);
 
-}
+//}

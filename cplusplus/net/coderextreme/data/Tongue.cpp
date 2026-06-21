@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-void Tongue(int argc, char ** argv) {
+void main(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -116,7 +116,7 @@ Scene20.addChild(&TimeSensor22);
 
 Export& EXPORT23 =  Export();
 EXPORT23.setLocalDEF(std::string("JinMouthStretch_Clock"));
-EXPORT23.setAS(&std::string("JinMouthStretch_Clock"));
+EXPORT23.setAS(new std::string("JinMouthStretch_Clock"));
 Scene20.addChild(&EXPORT23);
 
 ScalarInterpolator& ScalarInterpolator24 =  ScalarInterpolator();

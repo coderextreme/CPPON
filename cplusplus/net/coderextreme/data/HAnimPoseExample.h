@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HAnimPoseExample(int argc, char ** argv) {
+//void HAnimPoseExample(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.1"));
@@ -89,7 +89,7 @@ X3D0.setHead(&head1);
 Scene& Scene17 =  Scene();
 WorldInfo& WorldInfo18 =  WorldInfo();
 WorldInfo18.setDEF(std::string("ModelInfo"));
-WorldInfo18.setInfo((std::string[]){"Example scene for HAnimPose node"}, 1);
+WorldInfo18.setInfo(new std::string[]{"Example scene for HAnimPose node"}, 1);
 WorldInfo18.setTitle(std::string("HAnimPoseExample.x3d"));
 Scene17.addChild(&WorldInfo18);
 
@@ -107,12 +107,12 @@ Group21.setDEF(std::string("HandleInlineLoading"));
 Inline& Inline22 =  Inline();
 Inline22.setDEF(std::string("HumanoidInline"));
 Inline22.setDescription(std::string("remote HAnimHumanoid for IMPORT"));
-Inline22.setUrl((std::string[]){"../Skin/JoeSkeletonSkinSite.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/JoeSkeletonSkinSite.x3d"}, 2);
+Inline22.setUrl(new std::string[]{"../Skin/JoeSkeletonSkinSite.x3d", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/JoeSkeletonSkinSite.x3d"}, 2);
 Group21.addChild(&Inline22);
 
 //Note that the following importedDEF must match the EXPORT name found in remote file
 IMPORT& IMPORT23 =  IMPORT();
-IMPORT23.setAS(std::string("HumanoidImported"));
+IMPORT23.setAS(new std::string("HumanoidImported"));
 IMPORT23.setImportedDEF(std::string("JoeSkeletonSkinSite"));
 IMPORT23.setInlineDEF(std::string("HumanoidInline"));
 Group21.addChild(&IMPORT23);
@@ -143,8 +143,8 @@ HAnimPose27.setTransitionDuration(1.3);
 MetadataString& MetadataString28 =  MetadataString();
 MetadataString28.setContainerField("metadata");
 MetadataString28.X3DNode::setName(std::string("metadataTest"));
-MetadataString28.setValue((std::string[]){"hello HAnimPose metadata"}, 1);
-HAnimPose27.setMetadata(&MetadataString28);
+MetadataString28.setValue(new std::string[]{"hello HAnimPose metadata"}, 1);
+HAnimPose27.setMetadata(MetadataString28);
 
 //test case for illegal child triggers validation reports without problem: HAnimSegment DEF='TestCase' description='confirm type checking' name='specialTestCase'/
 HAnimJoint& HAnimJoint29 =  HAnimJoint();
@@ -327,12 +327,12 @@ Transform58.setDEF(std::string("DisplayHeader"));
 Transform58.setTranslation(new float[]{0.0,2.0,0.0});
 Shape& Shape59 =  Shape();
 Text& Text60 =  Text();
-Text60.setString((std::string[]){"HAnimPosePrototype example implementation"}, 1);
+Text60.setString(new std::string[]{"HAnimPosePrototype example implementation"}, 1);
 CFontStyle& FontStyle61 =  CFontStyle();
 FontStyle61.setContainerField("fontStyle");
 FontStyle61.setDEF(std::string("HeaderFont"));
-FontStyle61.setFamily((std::string[]){"SANS"}, 1);
-FontStyle61.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle61.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle61.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle61.setSize(0.15);
 FontStyle61.setStyle(std::string("BOLD"));
 Text60.setFontStyle(&FontStyle61);
@@ -358,12 +358,12 @@ Transform64.setDEF(std::string("T_PoseInterface"));
 Transform64.setTranslation(new float[]{-1.5,1.5,0.0});
 Shape& Shape65 =  Shape();
 Text& Text66 =  Text();
-Text66.setString((std::string[]){"\"T\" Pose"}, 1);
+Text66.setString(new std::string[]{"\"T\" Pose"}, 1);
 CFontStyle& FontStyle67 =  CFontStyle();
 FontStyle67.setContainerField("fontStyle");
 FontStyle67.setDEF(std::string("SharedFont"));
-FontStyle67.setFamily((std::string[]){"SANS"}, 1);
-FontStyle67.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle67.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle67.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle67.setSize(0.1);
 FontStyle67.setStyle(std::string("BOLD"));
 Text66.setFontStyle(&FontStyle67);
@@ -413,7 +413,7 @@ Transform75.setDEF(std::string("A_PoseInterface"));
 Transform75.setTranslation(new float[]{-1.5,1.0,0.0});
 Shape& Shape76 =  Shape();
 Text& Text77 =  Text();
-Text77.setString((std::string[]){"\"A\" Pose"}, 1);
+Text77.setString(new std::string[]{"\"A\" Pose"}, 1);
 CFontStyle& FontStyle78 =  CFontStyle();
 FontStyle78.setContainerField("fontStyle");
 FontStyle78.setUSE(std::string("SharedFont"));
@@ -460,7 +460,7 @@ Transform85.setDEF(std::string("TouchDown_PoseInterface"));
 Transform85.setTranslation(new float[]{-1.5,0.5,0.0});
 Shape& Shape86 =  Shape();
 Text& Text87 =  Text();
-Text87.setString((std::string[]){"TouchDown Pose"}, 1);
+Text87.setString(new std::string[]{"TouchDown Pose"}, 1);
 CFontStyle& FontStyle88 =  CFontStyle();
 FontStyle88.setContainerField("fontStyle");
 FontStyle88.setUSE(std::string("SharedFont"));
@@ -507,7 +507,7 @@ Transform95.setDEF(std::string("I_PoseInterface"));
 Transform95.setTranslation(new float[]{-1.5,0.0,0.0});
 Shape& Shape96 =  Shape();
 Text& Text97 =  Text();
-Text97.setString((std::string[]){"\"I\" Pose"}, 1);
+Text97.setString(new std::string[]{"\"I\" Pose"}, 1);
 CFontStyle& FontStyle98 =  CFontStyle();
 FontStyle98.setContainerField("fontStyle");
 FontStyle98.setUSE(std::string("SharedFont"));
@@ -554,7 +554,7 @@ Transform105.setDEF(std::string("FaceLeftPoseInterface"));
 Transform105.setTranslation(new float[]{1.5,1.5,0.0});
 Shape& Shape106 =  Shape();
 Text& Text107 =  Text();
-Text107.setString((std::string[]){"Face Left Pose"}, 1);
+Text107.setString(new std::string[]{"Face Left Pose"}, 1);
 CFontStyle& FontStyle108 =  CFontStyle();
 FontStyle108.setContainerField("fontStyle");
 FontStyle108.setUSE(std::string("SharedFont"));
@@ -600,7 +600,7 @@ Transform115.setDEF(std::string("FaceRightPoseInterface"));
 Transform115.setTranslation(new float[]{1.5,1.0,0.0});
 Shape& Shape116 =  Shape();
 Text& Text117 =  Text();
-Text117.setString((std::string[]){"Face Right Pose"}, 1);
+Text117.setString(new std::string[]{"Face Right Pose"}, 1);
 CFontStyle& FontStyle118 =  CFontStyle();
 FontStyle118.setContainerField("fontStyle");
 FontStyle118.setUSE(std::string("SharedFont"));
@@ -647,7 +647,7 @@ Transform125.setDEF(std::string("AnimatePosesInterface"));
 Transform125.setTranslation(new float[]{1.5,0.5,0.0});
 Shape& Shape126 =  Shape();
 Text& Text127 =  Text();
-Text127.setString((std::string[]){"Direct animation", "to, from \"I\" Pose"}, 2);
+Text127.setString(new std::string[]{"Direct animation", "to, from \"I\" Pose"}, 2);
 CFontStyle& FontStyle128 =  CFontStyle();
 FontStyle128.setContainerField("fontStyle");
 FontStyle128.setUSE(std::string("SharedFont"));
@@ -694,8 +694,8 @@ Transform125.addChild(&TimeSensor135);
 
 ScalarInterpolator& ScalarInterpolator136 =  ScalarInterpolator();
 ScalarInterpolator136.setDEF(std::string("AnimatePosesLoopInterpolator"));
-ScalarInterpolator136.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0});
-ScalarInterpolator136.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0});
+ScalarInterpolator136.setKey(new float[]{0.0,0.05,0.45,0.55,0.95,1.0}, 6);
+ScalarInterpolator136.setKeyValue(new float[]{0.0,0.0,1.0,1.0,0.0,0.0}, 6);
 Transform125.addChild(&ScalarInterpolator136);
 
 ROUTE& ROUTE137 =  ROUTE();
@@ -726,7 +726,7 @@ Transform140.setDEF(std::string("ResetDefaultPoseInterface"));
 Transform140.setTranslation(new float[]{1.5,0.0,0.0});
 Shape& Shape141 =  Shape();
 Text& Text142 =  Text();
-Text142.setString((std::string[]){"Reset All Joints", "to Default \"I\" Pose"}, 2);
+Text142.setString(new std::string[]{"Reset All Joints", "to Default \"I\" Pose"}, 2);
 CFontStyle& FontStyle143 =  CFontStyle();
 FontStyle143.setContainerField("fontStyle");
 FontStyle143.setUSE(std::string("SharedFont"));
@@ -825,7 +825,7 @@ Scene17.addChild(&Group150);
 
 HAnimHumanoid& HAnimHumanoid158 =  HAnimHumanoid();
 HAnimHumanoid158.X3DNode::setName(std::string("HumanoidStub"));
-HAnimHumanoid158.setInfo((std::string[]){"humanoidVersion=2.0"}, 1);
+HAnimHumanoid158.setInfo(new std::string[]{"humanoidVersion=2.0"}, 1);
 HAnimHumanoid158.setVersion(std::string("2.0"));
 HAnimPose& HAnimPose159 =  HAnimPose();
 HAnimPose159.setUSE(std::string("A_Pose"));
@@ -866,4 +866,4 @@ Scene17.addChild(&HAnimHumanoid158);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

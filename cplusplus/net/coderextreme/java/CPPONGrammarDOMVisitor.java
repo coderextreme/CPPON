@@ -173,6 +173,7 @@ public class CPPONGrammarDOMVisitor<Node extends org.w3c.dom.Node> extends CPPON
 			case "Connect": typstr = "connect"; break;
 			case "CFontStyle": typstr = "FontStyle"; break;
 			case "CColor": typstr = "Color"; break;
+			case "Export": typstr = "EXPORT"; break;
 		}
 		if (!tystr.toLowerCase().startsWith(typstr.toLowerCase())) {
 			log(tystr+" != "+typstr+"\n");

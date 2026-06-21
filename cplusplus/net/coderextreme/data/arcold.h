@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int arcold(int argc, char ** argv) {
+//void arcold(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -159,7 +159,7 @@ Transform32.addChild(&Shape35);
 
 PositionInterpolator& PositionInterpolator39 =  PositionInterpolator();
 PositionInterpolator39.setDEF(std::string("PI1"));
-PositionInterpolator39.setKey(new float[]{0.0,1.0});
+PositionInterpolator39.setKey(new float[]{0.0,1.0}, 2);
 PositionInterpolator39.setKeyValue(new float[]{0.0,0.0,0.0,0.0,5.0,0.0}, 6);
 Transform32.addChild(&PositionInterpolator39);
 
@@ -586,4 +586,4 @@ Scene7.addChild(&ROUTE109);
 
 X3D0.setScene(&Scene7);
 
-}
+//}

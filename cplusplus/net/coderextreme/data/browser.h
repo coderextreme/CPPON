@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int browser(int argc, char ** argv) {
+//void browser(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -60,4 +60,4 @@ Scene7.addChild(&Script9);
 
 X3D0.setScene(&Scene7);
 
-}
+//}

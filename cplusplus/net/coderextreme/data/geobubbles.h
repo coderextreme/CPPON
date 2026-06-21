@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int geobubbles(int argc, char ** argv) {
+//void geobubbles(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -52,12 +52,12 @@ GeoViewpoint9.setDescription(std::string("Tour Views"));
 Scene8.addChild(&GeoViewpoint9);
 
 Background& Background10 =  Background();
-Background10.setBackUrl((std::string[]){"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
-Background10.setBottomUrl((std::string[]){"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
-Background10.setFrontUrl((std::string[]){"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
-Background10.setLeftUrl((std::string[]){"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
-Background10.setRightUrl((std::string[]){"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
-Background10.setTopUrl((std::string[]){"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
+Background10.setBackUrl(new std::string[]{"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
+Background10.setBottomUrl(new std::string[]{"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
+Background10.setFrontUrl(new std::string[]{"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
+Background10.setLeftUrl(new std::string[]{"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
+Background10.setRightUrl(new std::string[]{"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
+Background10.setTopUrl(new std::string[]{"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
 Scene8.addChild(&Background10);
 
 Transform& Transform11 =  Transform();
@@ -87,7 +87,7 @@ Scene8.addChild(&TimeSensor16);
 
 GeoPositionInterpolator& GeoPositionInterpolator17 =  GeoPositionInterpolator();
 GeoPositionInterpolator17.setDEF(std::string("TourPosition"));
-GeoPositionInterpolator17.setKey(new float[]{0.0,1.0});
+GeoPositionInterpolator17.setKey(new float[]{0.0,1.0}, 2);
 GeoPositionInterpolator17.setKeyValue(new double[]{0.0015708,0.0,4.0,0.0,0.0015708,4.0}, 6);
 Scene8.addChild(&GeoPositionInterpolator17);
 
@@ -169,4 +169,4 @@ Scene8.addChild(&ROUTE26);
 
 X3D0.setScene(&Scene8);
 
-}
+//}

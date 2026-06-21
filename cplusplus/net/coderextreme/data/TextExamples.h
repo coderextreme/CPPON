@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int TextExamples(int argc, char ** argv) {
+//void TextExamples(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -66,11 +66,11 @@ Transform& Transform13 =  Transform();
 Transform13.setTranslation(new float[]{0.0,2.0,0.0});
 Shape& Shape14 =  Shape();
 Text& Text15 =  Text();
-Text15.setString((std::string[]){"Compare special character escaping"}, 1);
+Text15.setString(new std::string[]{"Compare special character escaping"}, 1);
 CFontStyle& FontStyle16 =  CFontStyle();
 FontStyle16.setContainerField("fontStyle");
 FontStyle16.setDEF(std::string("testFontStyle"));
-FontStyle16.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle16.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle16.setSize(0.8);
 Text15.setFontStyle(&FontStyle16);
 
@@ -94,7 +94,7 @@ Transform& Transform19 =  Transform();
 Transform19.setTranslation(new float[]{-3.0,0.0,0.0});
 Shape& Shape20 =  Shape();
 Text& Text21 =  Text();
-Text21.setString((std::string[]){"I don't think so", "he said \"Hi\""}, 2);
+Text21.setString(new std::string[]{"I don't think so", "he said \"Hi\""}, 2);
 CFontStyle& FontStyle22 =  CFontStyle();
 FontStyle22.setContainerField("fontStyle");
 FontStyle22.setUSE(std::string("testFontStyle"));
@@ -115,7 +115,7 @@ Transform& Transform24 =  Transform();
 Transform24.setTranslation(new float[]{3.0,0.0,0.0});
 Shape& Shape25 =  Shape();
 Text& Text26 =  Text();
-Text26.setString((std::string[]){"I don't think so", "he said \"Hi\""}, 2);
+Text26.setString(new std::string[]{"I don't think so", "he said \"Hi\""}, 2);
 CFontStyle& FontStyle27 =  CFontStyle();
 FontStyle27.setContainerField("fontStyle");
 FontStyle27.setUSE(std::string("testFontStyle"));
@@ -134,4 +134,4 @@ Scene12.addChild(&Transform24);
 
 X3D0.setScene(&Scene12);
 
-}
+//}

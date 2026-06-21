@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int indexedfacesetPixeltexture_plus(int argc, char ** argv) {
+//void indexedfacesetPixeltexture_plus(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -147,7 +147,7 @@ Viewpoint28.setPosition(new float[]{-10.0,0.0,0.0});
 Scene22.addChild(&Viewpoint28);
 
 NavigationInfo& NavigationInfo29 =  NavigationInfo();
-NavigationInfo29.setType((std::string[]){"EXAMINE", "WALK", "FLY", "ANY"}, 4);
+NavigationInfo29.setType(new std::string[]{"EXAMINE", "WALK", "FLY", "ANY"}, 4);
 Scene22.addChild(&NavigationInfo29);
 
 //<Environment id=\"gamma\" gammaCorrectionDefault=\"none\"></Environment>
@@ -175,10 +175,10 @@ IndexedFaceSet35.setColorPerVertex(false);
 IndexedFaceSet35.setCoordIndex(new int32_t[]{0,1,3,2,-1,4,5,7,6,-1,6,7,1,0,-1,2,3,5,4,-1,6,0,2,4,-1,1,7,5,3,-1}, 30);
 IndexedFaceSet35.setCreaseAngle(0.5);
 IndexedFaceSet35.setTexCoordIndex(new int32_t[]{0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1}, 30);
-CColor& Color36 =  CColor();
+Color& Color36 =  Color();
 Color36.setContainerField("color");
 Color36.setColor(new float[]{0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0}, 18);
-IndexedFaceSet35.setColor(&Color36);
+IndexedFaceSet35.setColor(Color36);
 
 Coordinate& Coordinate37 =  Coordinate();
 Coordinate37.setPoint(new float[]{-2.0,1.0,1.0,-2.0,-1.0,1.0,2.0,1.0,1.0,2.0,-1.0,1.0,2.0,1.0,-1.0,2.0,-1.0,-1.0,-2.0,1.0,-1.0,-2.0,-1.0,-1.0}, 24);
@@ -195,4 +195,4 @@ Scene22.addChild(&Shape30);
 
 X3D0.setScene(&Scene22);
 
-}
+//}

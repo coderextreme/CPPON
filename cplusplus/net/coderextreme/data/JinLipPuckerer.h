@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JinLipPuckerer(int argc, char ** argv) {
+//void JinLipPuckerer(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -124,15 +124,15 @@ TimeSensor24.setCycleInterval(0.99);
 TimeSensor24.setLoop(true);
 Scene22.addChild(&TimeSensor24);
 
-EXPORT& EXPORT25 =  EXPORT();
+Export& EXPORT25 =  Export();
 EXPORT25.setLocalDEF(std::string("JinLipPuckerer_Clock"));
-EXPORT25.setAS(std::string("JinLipPuckerer_Clock"));
+EXPORT25.setAS(new std::string("JinLipPuckerer_Clock"));
 Scene22.addChild(&EXPORT25);
 
 ScalarInterpolator& ScalarInterpolator26 =  ScalarInterpolator();
 ScalarInterpolator26.setDEF(std::string("AnimationAdapter_JinLipPuckerer"));
-ScalarInterpolator26.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator26.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator26.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator26.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene22.addChild(&ScalarInterpolator26);
 
 HAnimHumanoid& HAnimHumanoid27 =  HAnimHumanoid();
@@ -155,7 +155,7 @@ Background31.setSkyColor(new float[]{0.8,0.9,1.0}, 3);
 HAnimSegment29.addChild(&Background31);
 
 NavigationInfo& NavigationInfo32 =  NavigationInfo();
-NavigationInfo32.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo32.setType(new std::string[]{"EXAMINE"}, 1);
 HAnimSegment29.addChild(&NavigationInfo32);
 
 Group& Group33 =  Group();
@@ -188,7 +188,7 @@ Appearance38.addChild(&Material39);
 ImageTexture& ImageTexture40 =  ImageTexture();
 ImageTexture40.setContainerField("texture");
 ImageTexture40.setDEF(std::string("JinImageAtlas"));
-ImageTexture40.setUrl((std::string[]){"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
+ImageTexture40.setUrl(new std::string[]{"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
 Appearance38.addChild(&ImageTexture40);
 
 Shape37.addChild(&Appearance38);
@@ -218,7 +218,7 @@ HAnimSegment35.addChild(&Transform36);
 
 Coordinate& Coordinate44 =  Coordinate();
 Coordinate44.setUSE(std::string("Lower_teeth_COORD"));
-HAnimSegment35.setCoord(&Coordinate44);
+HAnimSegment35.setCoord(Coordinate44);
 
 HAnimDisplacer& HAnimDisplacer45 =  HAnimDisplacer();
 HAnimDisplacer45.X3DNode::setName(std::string("lower_teeth_morphinterpolator"));
@@ -286,7 +286,7 @@ HAnimSegment50.addChild(&Transform51);
 
 Coordinate& Coordinate57 =  Coordinate();
 Coordinate57.setUSE(std::string("Center_lower_vermillion_lip_COORD"));
-HAnimSegment50.setCoord(&Coordinate57);
+HAnimSegment50.setCoord(Coordinate57);
 
 HAnimDisplacer& HAnimDisplacer58 =  HAnimDisplacer();
 HAnimDisplacer58.X3DNode::setName(std::string("center_lower_vermillion_lip_morphinterpolator"));
@@ -334,7 +334,7 @@ HAnimSegment59.addChild(&Transform60);
 
 Coordinate& Coordinate66 =  Coordinate();
 Coordinate66.setUSE(std::string("Chin_COORD"));
-HAnimSegment59.setCoord(&Coordinate66);
+HAnimSegment59.setCoord(Coordinate66);
 
 HAnimDisplacer& HAnimDisplacer67 =  HAnimDisplacer();
 HAnimDisplacer67.X3DNode::setName(std::string("chin_morphinterpolator"));
@@ -382,7 +382,7 @@ HAnimSegment68.addChild(&Transform69);
 
 Coordinate& Coordinate75 =  Coordinate();
 Coordinate75.setUSE(std::string("Glabella_COORD"));
-HAnimSegment68.setCoord(&Coordinate75);
+HAnimSegment68.setCoord(Coordinate75);
 
 HAnimDisplacer& HAnimDisplacer76 =  HAnimDisplacer();
 HAnimDisplacer76.X3DNode::setName(std::string("glabella_morphinterpolator"));
@@ -428,7 +428,7 @@ HAnimSegment77.addChild(&Transform78);
 
 Coordinate& Coordinate84 =  Coordinate();
 Coordinate84.setUSE(std::string("Left_bulbar_conjunctiva_COORD"));
-HAnimSegment77.setCoord(&Coordinate84);
+HAnimSegment77.setCoord(Coordinate84);
 
 HAnimDisplacer& HAnimDisplacer85 =  HAnimDisplacer();
 HAnimDisplacer85.X3DNode::setName(std::string("left_bulbar_conjunctiva_morphinterpolator"));
@@ -474,7 +474,7 @@ HAnimSegment86.addChild(&Transform87);
 
 Coordinate& Coordinate93 =  Coordinate();
 Coordinate93.setUSE(std::string("Left_cheek_COORD"));
-HAnimSegment86.setCoord(&Coordinate93);
+HAnimSegment86.setCoord(Coordinate93);
 
 HAnimDisplacer& HAnimDisplacer94 =  HAnimDisplacer();
 HAnimDisplacer94.X3DNode::setName(std::string("left_cheek_morphinterpolator"));
@@ -522,7 +522,7 @@ HAnimSegment95.addChild(&Transform96);
 
 Coordinate& Coordinate102 =  Coordinate();
 Coordinate102.setUSE(std::string("Left_dorsum_COORD"));
-HAnimSegment95.setCoord(&Coordinate102);
+HAnimSegment95.setCoord(Coordinate102);
 
 HAnimDisplacer& HAnimDisplacer103 =  HAnimDisplacer();
 HAnimDisplacer103.X3DNode::setName(std::string("left_dorsum_morphinterpolator"));
@@ -568,7 +568,7 @@ HAnimSegment104.addChild(&Transform105);
 
 Coordinate& Coordinate111 =  Coordinate();
 Coordinate111.setUSE(std::string("Left_ear_COORD"));
-HAnimSegment104.setCoord(&Coordinate111);
+HAnimSegment104.setCoord(Coordinate111);
 
 HAnimDisplacer& HAnimDisplacer112 =  HAnimDisplacer();
 HAnimDisplacer112.X3DNode::setName(std::string("left_ear_morphinterpolator"));
@@ -614,7 +614,7 @@ HAnimSegment113.addChild(&Transform114);
 
 Coordinate& Coordinate120 =  Coordinate();
 Coordinate120.setUSE(std::string("Left_eyebrow_COORD"));
-HAnimSegment113.setCoord(&Coordinate120);
+HAnimSegment113.setCoord(Coordinate120);
 
 HAnimDisplacer& HAnimDisplacer121 =  HAnimDisplacer();
 HAnimDisplacer121.X3DNode::setName(std::string("left_eyebrow_morphinterpolator"));
@@ -660,7 +660,7 @@ HAnimSegment122.addChild(&Transform123);
 
 Coordinate& Coordinate129 =  Coordinate();
 Coordinate129.setUSE(std::string("Left_forehead_COORD"));
-HAnimSegment122.setCoord(&Coordinate129);
+HAnimSegment122.setCoord(Coordinate129);
 
 HAnimDisplacer& HAnimDisplacer130 =  HAnimDisplacer();
 HAnimDisplacer130.X3DNode::setName(std::string("left_forehead_morphinterpolator"));
@@ -706,7 +706,7 @@ HAnimSegment131.addChild(&Transform132);
 
 Coordinate& Coordinate138 =  Coordinate();
 Coordinate138.setUSE(std::string("Left_lower_eyelid_COORD"));
-HAnimSegment131.setCoord(&Coordinate138);
+HAnimSegment131.setCoord(Coordinate138);
 
 HAnimDisplacer& HAnimDisplacer139 =  HAnimDisplacer();
 HAnimDisplacer139.X3DNode::setName(std::string("left_lower_eyelid_morphinterpolator"));
@@ -752,7 +752,7 @@ HAnimSegment140.addChild(&Transform141);
 
 Coordinate& Coordinate147 =  Coordinate();
 Coordinate147.setUSE(std::string("Left_lower_vermillion_lip_COORD"));
-HAnimSegment140.setCoord(&Coordinate147);
+HAnimSegment140.setCoord(Coordinate147);
 
 HAnimDisplacer& HAnimDisplacer148 =  HAnimDisplacer();
 HAnimDisplacer148.X3DNode::setName(std::string("left_lower_vermillion_lip_morphinterpolator"));
@@ -800,7 +800,7 @@ HAnimSegment149.addChild(&Transform150);
 
 Coordinate& Coordinate156 =  Coordinate();
 Coordinate156.setUSE(std::string("Left_nasolabial_cheek_COORD"));
-HAnimSegment149.setCoord(&Coordinate156);
+HAnimSegment149.setCoord(Coordinate156);
 
 HAnimDisplacer& HAnimDisplacer157 =  HAnimDisplacer();
 HAnimDisplacer157.X3DNode::setName(std::string("left_nasolabial_cheek_morphinterpolator"));
@@ -848,7 +848,7 @@ HAnimSegment158.addChild(&Transform159);
 
 Coordinate& Coordinate165 =  Coordinate();
 Coordinate165.setUSE(std::string("Left_nostril_COORD"));
-HAnimSegment158.setCoord(&Coordinate165);
+HAnimSegment158.setCoord(Coordinate165);
 
 HAnimDisplacer& HAnimDisplacer166 =  HAnimDisplacer();
 HAnimDisplacer166.X3DNode::setName(std::string("left_nostril_morphinterpolator"));
@@ -894,7 +894,7 @@ HAnimSegment167.addChild(&Transform168);
 
 Coordinate& Coordinate174 =  Coordinate();
 Coordinate174.setUSE(std::string("Left_pupil_COORD"));
-HAnimSegment167.setCoord(&Coordinate174);
+HAnimSegment167.setCoord(Coordinate174);
 
 HAnimDisplacer& HAnimDisplacer175 =  HAnimDisplacer();
 HAnimDisplacer175.X3DNode::setName(std::string("left_pupil_morphinterpolator"));
@@ -940,7 +940,7 @@ HAnimSegment176.addChild(&Transform177);
 
 Coordinate& Coordinate183 =  Coordinate();
 Coordinate183.setUSE(std::string("Left_temple_COORD"));
-HAnimSegment176.setCoord(&Coordinate183);
+HAnimSegment176.setCoord(Coordinate183);
 
 HAnimDisplacer& HAnimDisplacer184 =  HAnimDisplacer();
 HAnimDisplacer184.X3DNode::setName(std::string("left_temple_morphinterpolator"));
@@ -986,7 +986,7 @@ HAnimSegment185.addChild(&Transform186);
 
 Coordinate& Coordinate192 =  Coordinate();
 Coordinate192.setUSE(std::string("Left_upper_cutaneous_lip_COORD"));
-HAnimSegment185.setCoord(&Coordinate192);
+HAnimSegment185.setCoord(Coordinate192);
 
 HAnimDisplacer& HAnimDisplacer193 =  HAnimDisplacer();
 HAnimDisplacer193.X3DNode::setName(std::string("left_upper_cutaneous_lip_morphinterpolator"));
@@ -1034,7 +1034,7 @@ HAnimSegment194.addChild(&Transform195);
 
 Coordinate& Coordinate201 =  Coordinate();
 Coordinate201.setUSE(std::string("Left_upper_eyelid_COORD"));
-HAnimSegment194.setCoord(&Coordinate201);
+HAnimSegment194.setCoord(Coordinate201);
 
 HAnimDisplacer& HAnimDisplacer202 =  HAnimDisplacer();
 HAnimDisplacer202.X3DNode::setName(std::string("left_upper_eyelid_morphinterpolator"));
@@ -1080,7 +1080,7 @@ HAnimSegment203.addChild(&Transform204);
 
 Coordinate& Coordinate210 =  Coordinate();
 Coordinate210.setUSE(std::string("Left_upper_vermillion_lip_COORD"));
-HAnimSegment203.setCoord(&Coordinate210);
+HAnimSegment203.setCoord(Coordinate210);
 
 HAnimDisplacer& HAnimDisplacer211 =  HAnimDisplacer();
 HAnimDisplacer211.X3DNode::setName(std::string("left_upper_vermillion_lip_morphinterpolator"));
@@ -1133,7 +1133,7 @@ HAnimSegment213.addChild(&Transform214);
 
 Coordinate& Coordinate220 =  Coordinate();
 Coordinate220.setUSE(std::string("Mid_forehead_COORD"));
-HAnimSegment213.setCoord(&Coordinate220);
+HAnimSegment213.setCoord(Coordinate220);
 
 HAnimDisplacer& HAnimDisplacer221 =  HAnimDisplacer();
 HAnimDisplacer221.X3DNode::setName(std::string("mid_forehead_morphinterpolator"));
@@ -1179,7 +1179,7 @@ HAnimSegment222.addChild(&Transform223);
 
 Coordinate& Coordinate229 =  Coordinate();
 Coordinate229.setUSE(std::string("Mid_nasal_dorsum_COORD"));
-HAnimSegment222.setCoord(&Coordinate229);
+HAnimSegment222.setCoord(Coordinate229);
 
 HAnimDisplacer& HAnimDisplacer230 =  HAnimDisplacer();
 HAnimDisplacer230.X3DNode::setName(std::string("mid_nasal_dorsum_morphinterpolator"));
@@ -1225,7 +1225,7 @@ HAnimSegment231.addChild(&Transform232);
 
 Coordinate& Coordinate238 =  Coordinate();
 Coordinate238.setUSE(std::string("Mid_upper_vermillion_lip_COORD"));
-HAnimSegment231.setCoord(&Coordinate238);
+HAnimSegment231.setCoord(Coordinate238);
 
 HAnimDisplacer& HAnimDisplacer239 =  HAnimDisplacer();
 HAnimDisplacer239.X3DNode::setName(std::string("mid_upper_vermillion_lip_morphinterpolator"));
@@ -1273,7 +1273,7 @@ HAnimSegment240.addChild(&Transform241);
 
 Coordinate& Coordinate247 =  Coordinate();
 Coordinate247.setUSE(std::string("Nasal_tip_COORD"));
-HAnimSegment240.setCoord(&Coordinate247);
+HAnimSegment240.setCoord(Coordinate247);
 
 HAnimDisplacer& HAnimDisplacer248 =  HAnimDisplacer();
 HAnimDisplacer248.X3DNode::setName(std::string("nasal_tip_morphinterpolator"));
@@ -1319,7 +1319,7 @@ HAnimSegment249.addChild(&Transform250);
 
 Coordinate& Coordinate256 =  Coordinate();
 Coordinate256.setUSE(std::string("Neck_COORD"));
-HAnimSegment249.setCoord(&Coordinate256);
+HAnimSegment249.setCoord(Coordinate256);
 
 HAnimDisplacer& HAnimDisplacer257 =  HAnimDisplacer();
 HAnimDisplacer257.X3DNode::setName(std::string("neck_morphinterpolator"));
@@ -1365,7 +1365,7 @@ HAnimSegment258.addChild(&Transform259);
 
 Coordinate& Coordinate265 =  Coordinate();
 Coordinate265.setUSE(std::string("Occipital_scalp_COORD"));
-HAnimSegment258.setCoord(&Coordinate265);
+HAnimSegment258.setCoord(Coordinate265);
 
 HAnimDisplacer& HAnimDisplacer266 =  HAnimDisplacer();
 HAnimDisplacer266.X3DNode::setName(std::string("occipital_scalp_morphinterpolator"));
@@ -1411,7 +1411,7 @@ HAnimSegment267.addChild(&Transform268);
 
 Coordinate& Coordinate274 =  Coordinate();
 Coordinate274.setUSE(std::string("Philtrum_COORD"));
-HAnimSegment267.setCoord(&Coordinate274);
+HAnimSegment267.setCoord(Coordinate274);
 
 HAnimDisplacer& HAnimDisplacer275 =  HAnimDisplacer();
 HAnimDisplacer275.X3DNode::setName(std::string("philtrum_morphinterpolator"));
@@ -1459,7 +1459,7 @@ HAnimSegment276.addChild(&Transform277);
 
 Coordinate& Coordinate283 =  Coordinate();
 Coordinate283.setUSE(std::string("Right_bulbar_conjunctiva_COORD"));
-HAnimSegment276.setCoord(&Coordinate283);
+HAnimSegment276.setCoord(Coordinate283);
 
 HAnimDisplacer& HAnimDisplacer284 =  HAnimDisplacer();
 HAnimDisplacer284.X3DNode::setName(std::string("right_bulbar_conjunctiva_morphinterpolator"));
@@ -1505,7 +1505,7 @@ HAnimSegment285.addChild(&Transform286);
 
 Coordinate& Coordinate292 =  Coordinate();
 Coordinate292.setUSE(std::string("Right_cheek_COORD"));
-HAnimSegment285.setCoord(&Coordinate292);
+HAnimSegment285.setCoord(Coordinate292);
 
 HAnimDisplacer& HAnimDisplacer293 =  HAnimDisplacer();
 HAnimDisplacer293.X3DNode::setName(std::string("right_cheek_morphinterpolator"));
@@ -1553,7 +1553,7 @@ HAnimSegment294.addChild(&Transform295);
 
 Coordinate& Coordinate301 =  Coordinate();
 Coordinate301.setUSE(std::string("Right_dorsum_COORD"));
-HAnimSegment294.setCoord(&Coordinate301);
+HAnimSegment294.setCoord(Coordinate301);
 
 HAnimDisplacer& HAnimDisplacer302 =  HAnimDisplacer();
 HAnimDisplacer302.X3DNode::setName(std::string("right_dorsum_morphinterpolator"));
@@ -1599,7 +1599,7 @@ HAnimSegment303.addChild(&Transform304);
 
 Coordinate& Coordinate310 =  Coordinate();
 Coordinate310.setUSE(std::string("Right_ear_COORD"));
-HAnimSegment303.setCoord(&Coordinate310);
+HAnimSegment303.setCoord(Coordinate310);
 
 HAnimDisplacer& HAnimDisplacer311 =  HAnimDisplacer();
 HAnimDisplacer311.X3DNode::setName(std::string("right_ear_morphinterpolator"));
@@ -1645,7 +1645,7 @@ HAnimSegment312.addChild(&Transform313);
 
 Coordinate& Coordinate319 =  Coordinate();
 Coordinate319.setUSE(std::string("Right_eyebrow_COORD"));
-HAnimSegment312.setCoord(&Coordinate319);
+HAnimSegment312.setCoord(Coordinate319);
 
 HAnimDisplacer& HAnimDisplacer320 =  HAnimDisplacer();
 HAnimDisplacer320.X3DNode::setName(std::string("right_eyebrow_morphinterpolator"));
@@ -1691,7 +1691,7 @@ HAnimSegment321.addChild(&Transform322);
 
 Coordinate& Coordinate328 =  Coordinate();
 Coordinate328.setUSE(std::string("Right_forehead_COORD"));
-HAnimSegment321.setCoord(&Coordinate328);
+HAnimSegment321.setCoord(Coordinate328);
 
 HAnimDisplacer& HAnimDisplacer329 =  HAnimDisplacer();
 HAnimDisplacer329.X3DNode::setName(std::string("right_forehead_morphinterpolator"));
@@ -1737,7 +1737,7 @@ HAnimSegment330.addChild(&Transform331);
 
 Coordinate& Coordinate337 =  Coordinate();
 Coordinate337.setUSE(std::string("Right_lower_eyelid_COORD"));
-HAnimSegment330.setCoord(&Coordinate337);
+HAnimSegment330.setCoord(Coordinate337);
 
 HAnimDisplacer& HAnimDisplacer338 =  HAnimDisplacer();
 HAnimDisplacer338.X3DNode::setName(std::string("right_lower_eyelid_morphinterpolator"));
@@ -1783,7 +1783,7 @@ HAnimSegment339.addChild(&Transform340);
 
 Coordinate& Coordinate346 =  Coordinate();
 Coordinate346.setUSE(std::string("Right_lower_vermillion_lip_COORD"));
-HAnimSegment339.setCoord(&Coordinate346);
+HAnimSegment339.setCoord(Coordinate346);
 
 HAnimDisplacer& HAnimDisplacer347 =  HAnimDisplacer();
 HAnimDisplacer347.X3DNode::setName(std::string("right_lower_vermillion_lip_morphinterpolator"));
@@ -1831,7 +1831,7 @@ HAnimSegment348.addChild(&Transform349);
 
 Coordinate& Coordinate355 =  Coordinate();
 Coordinate355.setUSE(std::string("Right_nasolabial_cheek_COORD"));
-HAnimSegment348.setCoord(&Coordinate355);
+HAnimSegment348.setCoord(Coordinate355);
 
 HAnimDisplacer& HAnimDisplacer356 =  HAnimDisplacer();
 HAnimDisplacer356.X3DNode::setName(std::string("right_nasolabial_cheek_morphinterpolator"));
@@ -1879,7 +1879,7 @@ HAnimSegment357.addChild(&Transform358);
 
 Coordinate& Coordinate364 =  Coordinate();
 Coordinate364.setUSE(std::string("Right_nostril_COORD"));
-HAnimSegment357.setCoord(&Coordinate364);
+HAnimSegment357.setCoord(Coordinate364);
 
 HAnimDisplacer& HAnimDisplacer365 =  HAnimDisplacer();
 HAnimDisplacer365.X3DNode::setName(std::string("right_nostril_morphinterpolator"));
@@ -1925,7 +1925,7 @@ HAnimSegment366.addChild(&Transform367);
 
 Coordinate& Coordinate373 =  Coordinate();
 Coordinate373.setUSE(std::string("Right_pupil_COORD"));
-HAnimSegment366.setCoord(&Coordinate373);
+HAnimSegment366.setCoord(Coordinate373);
 
 HAnimDisplacer& HAnimDisplacer374 =  HAnimDisplacer();
 HAnimDisplacer374.X3DNode::setName(std::string("right_pupil_morphinterpolator"));
@@ -1971,7 +1971,7 @@ HAnimSegment375.addChild(&Transform376);
 
 Coordinate& Coordinate382 =  Coordinate();
 Coordinate382.setUSE(std::string("Right_temple_COORD"));
-HAnimSegment375.setCoord(&Coordinate382);
+HAnimSegment375.setCoord(Coordinate382);
 
 HAnimDisplacer& HAnimDisplacer383 =  HAnimDisplacer();
 HAnimDisplacer383.X3DNode::setName(std::string("right_temple_morphinterpolator"));
@@ -2017,7 +2017,7 @@ HAnimSegment384.addChild(&Transform385);
 
 Coordinate& Coordinate391 =  Coordinate();
 Coordinate391.setUSE(std::string("Right_upper_cutaneous_lip_COORD"));
-HAnimSegment384.setCoord(&Coordinate391);
+HAnimSegment384.setCoord(Coordinate391);
 
 HAnimDisplacer& HAnimDisplacer392 =  HAnimDisplacer();
 HAnimDisplacer392.X3DNode::setName(std::string("right_upper_cutaneous_lip_morphinterpolator"));
@@ -2065,7 +2065,7 @@ HAnimSegment393.addChild(&Transform394);
 
 Coordinate& Coordinate400 =  Coordinate();
 Coordinate400.setUSE(std::string("Right_upper_eyelid_COORD"));
-HAnimSegment393.setCoord(&Coordinate400);
+HAnimSegment393.setCoord(Coordinate400);
 
 HAnimDisplacer& HAnimDisplacer401 =  HAnimDisplacer();
 HAnimDisplacer401.X3DNode::setName(std::string("right_upper_eyelid_morphinterpolator"));
@@ -2111,7 +2111,7 @@ HAnimSegment402.addChild(&Transform403);
 
 Coordinate& Coordinate409 =  Coordinate();
 Coordinate409.setUSE(std::string("Right_upper_vermillion_lip_COORD"));
-HAnimSegment402.setCoord(&Coordinate409);
+HAnimSegment402.setCoord(Coordinate409);
 
 HAnimDisplacer& HAnimDisplacer410 =  HAnimDisplacer();
 HAnimDisplacer410.X3DNode::setName(std::string("right_upper_vermillion_lip_morphinterpolator"));
@@ -2159,7 +2159,7 @@ HAnimSegment411.addChild(&Transform412);
 
 Coordinate& Coordinate418 =  Coordinate();
 Coordinate418.setUSE(std::string("Tongue_COORD"));
-HAnimSegment411.setCoord(&Coordinate418);
+HAnimSegment411.setCoord(Coordinate418);
 
 HAnimDisplacer& HAnimDisplacer419 =  HAnimDisplacer();
 HAnimDisplacer419.X3DNode::setName(std::string("tongue_morphinterpolator"));
@@ -2207,7 +2207,7 @@ HAnimSegment420.addChild(&Transform421);
 
 Coordinate& Coordinate427 =  Coordinate();
 Coordinate427.setUSE(std::string("Upper_teeth_COORD"));
-HAnimSegment420.setCoord(&Coordinate427);
+HAnimSegment420.setCoord(Coordinate427);
 
 HAnimDisplacer& HAnimDisplacer428 =  HAnimDisplacer();
 HAnimDisplacer428.X3DNode::setName(std::string("upper_teeth_morphinterpolator"));
@@ -2544,4 +2544,4 @@ Scene22.addChild(&ROUTE474);
 
 X3D0.setScene(&Scene22);
 
-}
+//}

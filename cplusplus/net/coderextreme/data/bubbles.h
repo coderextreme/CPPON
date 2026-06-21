@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Bubbles(int argc, char ** argv) {
+//void Bubbles(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -68,61 +68,61 @@ Group13.addChild(&TimeSensor14);
 
 PositionInterpolator& PositionInterpolator15 =  PositionInterpolator();
 PositionInterpolator15.setDEF(std::string("BubblePath1"));
-PositionInterpolator15.setKey(new float[]{0.0,0.5,0.8,0.9,1.0});
+PositionInterpolator15.setKey(new float[]{0.0,0.5,0.8,0.9,1.0}, 5);
 PositionInterpolator15.setKeyValue(new float[]{0.0,0.0,0.0,0.75,0.75,0.75,0.86,0.86,0.86,0.99,0.998,0.9876,1.272,1.9044,0.9509}, 15);
 Group13.addChild(&PositionInterpolator15);
 
 PositionInterpolator& PositionInterpolator16 =  PositionInterpolator();
 PositionInterpolator16.setDEF(std::string("BubblePath2"));
-PositionInterpolator16.setKey(new float[]{0.0,0.3,0.64,0.85,1.0});
+PositionInterpolator16.setKey(new float[]{0.0,0.3,0.64,0.85,1.0}, 5);
 PositionInterpolator16.setKeyValue(new float[]{0.1,0.1,0.1,0.2,0.4,0.25,0.3,0.5,0.46,0.75,0.5,0.575,0.038483478,1.989,1.098373}, 15);
 Group13.addChild(&PositionInterpolator16);
 
 PositionInterpolator& PositionInterpolator17 =  PositionInterpolator();
 PositionInterpolator17.setDEF(std::string("BubblePath3"));
-PositionInterpolator17.setKey(new float[]{0.0,0.1,0.45,0.7,1.0});
+PositionInterpolator17.setKey(new float[]{0.0,0.1,0.45,0.7,1.0}, 5);
 PositionInterpolator17.setKeyValue(new float[]{0.01,0.01,0.01,0.25,0.35,0.0045,0.55,0.6,0.0055,0.66,0.665,0.00655,1.555,1.09043,0.005734}, 15);
 Group13.addChild(&PositionInterpolator17);
 
 PositionInterpolator& PositionInterpolator18 =  PositionInterpolator();
 PositionInterpolator18.setDEF(std::string("BubblePath4"));
-PositionInterpolator18.setKey(new float[]{0.0,0.5,0.6,0.8,1.0});
+PositionInterpolator18.setKey(new float[]{0.0,0.5,0.6,0.8,1.0}, 5);
 PositionInterpolator18.setKeyValue(new float[]{0.0,0.0,0.0,0.5,0.5,0.005,0.6,0.6,0.006,0.75,0.75,0.0075,1.948594,1.3983,0.009009349}, 15);
 Group13.addChild(&PositionInterpolator18);
 
 PositionInterpolator& PositionInterpolator19 =  PositionInterpolator();
 PositionInterpolator19.setDEF(std::string("BubblePath5"));
-PositionInterpolator19.setKey(new float[]{0.0,0.25,0.35,0.65,1.0});
+PositionInterpolator19.setKey(new float[]{0.0,0.25,0.35,0.65,1.0}, 5);
 PositionInterpolator19.setKeyValue(new float[]{0.0,0.0,0.0,0.5,0.5,0.005,0.6,0.6,0.006,0.75,0.75,0.0075,1.84444,1.22222,0.1}, 15);
 Group13.addChild(&PositionInterpolator19);
 
 PositionInterpolator& PositionInterpolator20 =  PositionInterpolator();
 PositionInterpolator20.setDEF(std::string("BubblePath6"));
-PositionInterpolator20.setKey(new float[]{0.0,0.15,0.22235,0.55565,1.0});
+PositionInterpolator20.setKey(new float[]{0.0,0.15,0.22235,0.55565,1.0}, 5);
 PositionInterpolator20.setKeyValue(new float[]{0.0,0.0,0.0,0.235,0.3455,0.0055,0.356,0.676,0.00456,0.5675,0.75,0.0074565,1.098,1.0343,0.14}, 15);
 Group13.addChild(&PositionInterpolator20);
 
 PositionInterpolator& PositionInterpolator21 =  PositionInterpolator();
 PositionInterpolator21.setDEF(std::string("BubblePath7"));
-PositionInterpolator21.setKey(new float[]{0.0,0.2425,0.4535,0.6775,1.0});
+PositionInterpolator21.setKey(new float[]{0.0,0.2425,0.4535,0.6775,1.0}, 5);
 PositionInterpolator21.setKeyValue(new float[]{0.0,0.0,0.0,0.12345,0.2225,0.00335,0.786,0.456,0.00666,0.74555,0.7335,0.00234575,0.08787,1.022,0.12}, 15);
 Group13.addChild(&PositionInterpolator21);
 
 PositionInterpolator& PositionInterpolator22 =  PositionInterpolator();
 PositionInterpolator22.setDEF(std::string("BubblePath8"));
-PositionInterpolator22.setKey(new float[]{0.0,0.1125,0.5535,0.97865,1.0});
+PositionInterpolator22.setKey(new float[]{0.0,0.1125,0.5535,0.97865,1.0}, 5);
 PositionInterpolator22.setKeyValue(new float[]{0.0,0.0,0.0,0.1235,0.05,0.00125,0.5666,0.4346,0.005556,0.8975,0.34575,0.0098775,1.8787,1.686,0.86}, 15);
 Group13.addChild(&PositionInterpolator22);
 
 PositionInterpolator& PositionInterpolator23 =  PositionInterpolator();
 PositionInterpolator23.setDEF(std::string("BubblePath9"));
-PositionInterpolator23.setKey(new float[]{0.0,0.0025,0.035,0.65,1.0});
+PositionInterpolator23.setKey(new float[]{0.0,0.0025,0.035,0.65,1.0}, 5);
 PositionInterpolator23.setKeyValue(new float[]{0.0,0.0,0.0,0.522,0.5445,0.0057,0.6543,0.226,0.0055,0.45575,0.4375,0.0067,1.8787,2.0,0.1545}, 15);
 Group13.addChild(&PositionInterpolator23);
 
 PositionInterpolator& PositionInterpolator24 =  PositionInterpolator();
 PositionInterpolator24.setDEF(std::string("BubblePath10"));
-PositionInterpolator24.setKey(new float[]{0.0,0.00025,0.035,0.6895,1.0});
+PositionInterpolator24.setKey(new float[]{0.0,0.00025,0.035,0.6895,1.0}, 5);
 PositionInterpolator24.setKeyValue(new float[]{0.0,0.0,0.0,0.8765,0.445,0.00335,0.3336,0.4446,0.005556,0.765,0.75,0.0075,1.0,1.0,0.1}, 15);
 Group13.addChild(&PositionInterpolator24);
 
@@ -489,4 +489,4 @@ Scene10.addChild(&Background96);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

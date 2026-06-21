@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int SpatialAudioCameraAnimation(int argc, char ** argv) {
+//void SpatialAudioCameraAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -80,12 +80,12 @@ NavigationInfo& NavigationInfo16 =  NavigationInfo();
 Scene14.addChild(&NavigationInfo16);
 
 Background& Background17 =  Background();
-Background17.setBackUrl((std::string[]){"images/generic/BK1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/BK1.png"}, 2);
-Background17.setBottomUrl((std::string[]){"images/generic/DN1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/DN1.png"}, 2);
-Background17.setFrontUrl((std::string[]){"images/generic/FR1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/FR1.png"}, 2);
-Background17.setLeftUrl((std::string[]){"images/generic/LF1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/LF1.png"}, 2);
-Background17.setRightUrl((std::string[]){"images/generic/RT1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/RT1.png"}, 2);
-Background17.setTopUrl((std::string[]){"images/generic/UP1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/UP1.png"}, 2);
+Background17.setBackUrl(new std::string[]{"images/generic/BK1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/BK1.png"}, 2);
+Background17.setBottomUrl(new std::string[]{"images/generic/DN1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/DN1.png"}, 2);
+Background17.setFrontUrl(new std::string[]{"images/generic/FR1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/FR1.png"}, 2);
+Background17.setLeftUrl(new std::string[]{"images/generic/LF1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/LF1.png"}, 2);
+Background17.setRightUrl(new std::string[]{"images/generic/RT1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/RT1.png"}, 2);
+Background17.setTopUrl(new std::string[]{"images/generic/UP1.png", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/images/generic/UP1.png"}, 2);
 Scene14.addChild(&Background17);
 
 Viewpoint& Viewpoint18 =  Viewpoint();
@@ -103,13 +103,13 @@ Scene14.addChild(&TimeSensor19);
 
 PositionInterpolator& PositionInterpolator20 =  PositionInterpolator();
 PositionInterpolator20.setDEF(std::string("Camera001-POS-INTERP"));
-PositionInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
+PositionInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
 PositionInterpolator20.setKeyValue(new float[]{0.0,2000.0,3500.0,0.0,2000.0,0.0,0.0,2000.0,-3500.0,0.0,2000.0,0.0,0.0,2000.0,3500.0}, 15);
 Scene14.addChild(&PositionInterpolator20);
 
 OrientationInterpolator& OrientationInterpolator21 =  OrientationInterpolator();
 OrientationInterpolator21.setDEF(std::string("Camera001-ROT-INTERP"));
-OrientationInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
+OrientationInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
 OrientationInterpolator21.setKeyValue(new float[]{1.0,0.0,0.0,-0.523599,0.99999,0.003554,0.002727,-1.309007,0.0,-0.965926,-0.258819,-3.141593,0.002282,-0.793351,-0.60876,-3.135645,1.0,-0.000001,0.0,-0.523599}, 20);
 Scene14.addChild(&OrientationInterpolator21);
 
@@ -203,11 +203,11 @@ Appearance39.addChild(&Material40);
 Shape38.addChild(&Appearance39);
 
 Text& Text41 =  Text();
-Text41.setString((std::string[]){"Violin"}, 1);
+Text41.setString(new std::string[]{"Violin"}, 1);
 CFontStyle& FontStyle42 =  CFontStyle();
 FontStyle42.setContainerField("fontStyle");
 FontStyle42.setDEF(std::string("ModelFontStyle"));
-FontStyle42.setFamily((std::string[]){"Times", "SERIF"}, 2);
+FontStyle42.setFamily(new std::string[]{"Times", "SERIF"}, 2);
 FontStyle42.setStyle(std::string("BOLD"));
 Text41.setFontStyle(&FontStyle42);
 
@@ -261,7 +261,7 @@ Appearance51.addChild(&Material52);
 Shape50.addChild(&Appearance51);
 
 Text& Text53 =  Text();
-Text53.setString((std::string[]){"Saxophone"}, 1);
+Text53.setString(new std::string[]{"Saxophone"}, 1);
 CFontStyle& FontStyle54 =  CFontStyle();
 FontStyle54.setContainerField("fontStyle");
 FontStyle54.setUSE(std::string("ModelFontStyle"));
@@ -288,7 +288,7 @@ Gain& Gain58 =  Gain();
 AudioClip& AudioClip59 =  AudioClip();
 AudioClip59.setDescription(std::string("Violin"));
 AudioClip59.setLoop(true);
-AudioClip59.setUrl((std::string[]){"sound/violin.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
+AudioClip59.setUrl(new std::string[]{"sound/violin.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
 Gain58.addChildren(AudioClip59);
 
 SpatialSound57.addChildren(Gain58);
@@ -301,7 +301,7 @@ Gain& Gain61 =  Gain();
 AudioClip& AudioClip62 =  AudioClip();
 AudioClip62.setDescription(std::string("Saxophone"));
 AudioClip62.setLoop(true);
-AudioClip62.setUrl((std::string[]){"sound/saxophone.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/saxophone.mp3"}, 2);
+AudioClip62.setUrl(new std::string[]{"sound/saxophone.mp3", "https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/saxophone.mp3"}, 2);
 Gain61.addChildren(AudioClip62);
 
 SpatialSound60.addChildren(Gain61);
@@ -312,4 +312,4 @@ Scene14.addChild(&StreamAudioDestination56);
 
 X3D0.setScene(&Scene14);
 
-}
+//}

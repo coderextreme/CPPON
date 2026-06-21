@@ -3442,13 +3442,13 @@
                 "enum": [
                   "BOUNCE",
                   "USER_FRICTION",
-                  "FRICTION_COEFFICIENT-2",
+                  "FRICTION_COEFFICIENT_2",
                   "ERROR_REDUCTION",
                   "CONSTANT_FORCE",
-                  "SPEED-1",
-                  "SPEED-2",
-                  "SLIP-1",
-                  "SLIP-2"
+                  "SPEED_1",
+                  "SPEED_2",
+                  "SLIP_1",
+                  "SLIP_2"
                 ],
                 "default": "BOUNCE",
                 "type": "string"
@@ -4801,7 +4801,7 @@
                 "enum": [
                   "BOUNCE",
                   "USER_FRICTION",
-                  "FRICTION_COEFFICIENT-2",
+                  "FRICTION_COEFFICIENT_2",
                   "ERROR_REDUCTION",
                   "CONSTANT_FORCE",
                   "SPEED-1",

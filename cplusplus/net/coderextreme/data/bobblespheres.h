@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int bobblespheres(int argc, char ** argv) {
+//void bobblespheres(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -40,7 +40,7 @@ NavigationInfo& NavigationInfo8 =  NavigationInfo();
 Scene6.addChild(&NavigationInfo8);
 
 Background& Background9 =  Background();
-Background9.setSkyAngle(new float[]{1.57});
+Background9.setSkyAngle(new float[]{1.57}, 1);
 Background9.setSkyColor(new float[]{0.15,0.25,0.8,0.9,0.9,0.9}, 6);
 Scene6.addChild(&Background9);
 
@@ -173,20 +173,20 @@ Scene6.addChild(&TimeSensor37);
 
 PositionInterpolator& PositionInterpolator38 =  PositionInterpolator();
 PositionInterpolator38.setDEF(std::string("PI_0"));
-PositionInterpolator38.setKey(new float[]{0.0,0.5,1.0});
+PositionInterpolator38.setKey(new float[]{0.0,0.5,1.0}, 3);
 PositionInterpolator38.setKeyValue(new float[]{-10.871,0.2,-10.453,-10.871,0.6,-10.453,-10.871,0.2,-10.453}, 9);
 Scene6.addChild(&PositionInterpolator38);
 
 ColorInterpolator& ColorInterpolator39 =  ColorInterpolator();
 ColorInterpolator39.setDEF(std::string("CI_0"));
-ColorInterpolator39.setKey(new float[]{0.0,0.5,1.0});
+ColorInterpolator39.setKey(new float[]{0.0,0.5,1.0}, 3);
 ColorInterpolator39.setKeyValue(new float[]{0.627,0.003,0.165,0.011,0.583,0.443,0.627,0.003,0.165}, 9);
 Scene6.addChild(&ColorInterpolator39);
 
 ScalarInterpolator& ScalarInterpolator40 =  ScalarInterpolator();
 ScalarInterpolator40.setDEF(std::string("SI_0"));
-ScalarInterpolator40.setKey(new float[]{0.0,0.5,1.0});
-ScalarInterpolator40.setKeyValue(new float[]{1.0,0.4,1.0});
+ScalarInterpolator40.setKey(new float[]{0.0,0.5,1.0}, 3);
+ScalarInterpolator40.setKeyValue(new float[]{1.0,0.4,1.0}, 3);
 Scene6.addChild(&ScalarInterpolator40);
 
 Script& Script41 =  Script();
@@ -307,14 +307,14 @@ Scene6.addChild(&TimeSensor57);
 
 PositionInterpolator& PositionInterpolator58 =  PositionInterpolator();
 PositionInterpolator58.setDEF(std::string("PI_1"));
-PositionInterpolator58.setKey(new float[]{0.0,0.5,1.0});
+PositionInterpolator58.setKey(new float[]{0.0,0.5,1.0}, 3);
 PositionInterpolator58.setKeyValue(new float[]{-10.411,0.2,-9.16,-10.411,0.6,-9.16,-10.411,0.2,-9.16}, 9);
 Scene6.addChild(&PositionInterpolator58);
 
 ScalarInterpolator& ScalarInterpolator59 =  ScalarInterpolator();
 ScalarInterpolator59.setDEF(std::string("SI_1"));
-ScalarInterpolator59.setKey(new float[]{0.0,0.5,1.0});
-ScalarInterpolator59.setKeyValue(new float[]{0.5,0.0,0.5});
+ScalarInterpolator59.setKey(new float[]{0.0,0.5,1.0}, 3);
+ScalarInterpolator59.setKeyValue(new float[]{0.5,0.0,0.5}, 3);
 Scene6.addChild(&ScalarInterpolator59);
 
 Script& Script60 =  Script();
@@ -412,14 +412,14 @@ Scene6.addChild(&TimeSensor74);
 
 PositionInterpolator& PositionInterpolator75 =  PositionInterpolator();
 PositionInterpolator75.setDEF(std::string("PI_2"));
-PositionInterpolator75.setKey(new float[]{0.0,0.5,1.0});
+PositionInterpolator75.setKey(new float[]{0.0,0.5,1.0}, 3);
 PositionInterpolator75.setKeyValue(new float[]{-10.155,0.2,-8.324,-10.155,0.6,-8.324,-10.155,0.2,-8.324}, 9);
 Scene6.addChild(&PositionInterpolator75);
 
 ScalarInterpolator& ScalarInterpolator76 =  ScalarInterpolator();
 ScalarInterpolator76.setDEF(std::string("SI_2"));
-ScalarInterpolator76.setKey(new float[]{0.0,0.5,1.0});
-ScalarInterpolator76.setKeyValue(new float[]{1.4,1.7,1.4});
+ScalarInterpolator76.setKey(new float[]{0.0,0.5,1.0}, 3);
+ScalarInterpolator76.setKeyValue(new float[]{1.4,1.7,1.4}, 3);
 Scene6.addChild(&ScalarInterpolator76);
 
 ROUTE& ROUTE77 =  ROUTE();
@@ -488,14 +488,14 @@ Scene6.addChild(&TimeSensor87);
 
 PositionInterpolator& PositionInterpolator88 =  PositionInterpolator();
 PositionInterpolator88.setDEF(std::string("PI_3"));
-PositionInterpolator88.setKey(new float[]{0.0,0.5,1.0});
+PositionInterpolator88.setKey(new float[]{0.0,0.5,1.0}, 3);
 PositionInterpolator88.setKeyValue(new float[]{-10.518,0.2,-7.283,-10.518,0.6,-7.283,-10.518,0.2,-7.283}, 9);
 Scene6.addChild(&PositionInterpolator88);
 
 ScalarInterpolator& ScalarInterpolator89 =  ScalarInterpolator();
 ScalarInterpolator89.setDEF(std::string("SI_3"));
-ScalarInterpolator89.setKey(new float[]{0.0,0.5,1.0});
-ScalarInterpolator89.setKeyValue(new float[]{100.0,700.0,100.0});
+ScalarInterpolator89.setKey(new float[]{0.0,0.5,1.0}, 3);
+ScalarInterpolator89.setKeyValue(new float[]{100.0,700.0,100.0}, 3);
 Scene6.addChild(&ScalarInterpolator89);
 
 ROUTE& ROUTE90 =  ROUTE();
@@ -528,4 +528,4 @@ Scene6.addChild(&ROUTE93);
 
 X3D0.setScene(&Scene6);
 
-}
+//}

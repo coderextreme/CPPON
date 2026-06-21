@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CameraShape(int argc, char ** argv) {
+//void CameraShape(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interactive"));
 X3D0.setVersion(std::string("4.0"));
@@ -68,7 +68,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene13 =  Scene();
 WorldInfo& WorldInfo14 =  WorldInfo();
-WorldInfo14.setInfo((std::string[]){"VRML2.0 created with Version 1.3, from Alias Maya 2008"}, 1);
+WorldInfo14.setInfo(new std::string[]{"VRML2.0 created with Version 1.3, from Alias Maya 2008"}, 1);
 WorldInfo14.setTitle(std::string("SimpleCamera.x3d"));
 Scene13.addChild(&WorldInfo14);
 
@@ -285,4 +285,4 @@ Scene13.addChild(&Transform20);
 
 X3D0.setScene(&Scene13);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Oxytocin(int argc, char ** argv) {
+//void Oxytocin(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -166,7 +166,7 @@ Appearance36.addChild(&Material37);
 Shape35.addChild(&Appearance36);
 
 Text& Text38 =  Text();
-Text38.setString((std::string[]){"C"}, 1);
+Text38.setString(new std::string[]{"C"}, 1);
 CFontStyle& FontStyle39 =  CFontStyle();
 FontStyle39.setContainerField("fontStyle");
 FontStyle39.setSize(0.8);
@@ -254,7 +254,7 @@ Appearance56.addChild(&Material57);
 Shape55.addChild(&Appearance56);
 
 Text& Text58 =  Text();
-Text58.setString((std::string[]){"H"}, 1);
+Text58.setString(new std::string[]{"H"}, 1);
 CFontStyle& FontStyle59 =  CFontStyle();
 FontStyle59.setContainerField("fontStyle");
 FontStyle59.setSize(0.4);
@@ -341,7 +341,7 @@ Appearance76.addChild(&Material77);
 Shape75.addChild(&Appearance76);
 
 Text& Text78 =  Text();
-Text78.setString((std::string[]){"N"}, 1);
+Text78.setString(new std::string[]{"N"}, 1);
 CFontStyle& FontStyle79 =  CFontStyle();
 FontStyle79.setContainerField("fontStyle");
 FontStyle79.setSize(0.8);
@@ -429,7 +429,7 @@ Appearance96.addChild(&Material97);
 Shape95.addChild(&Appearance96);
 
 Text& Text98 =  Text();
-Text98.setString((std::string[]){"O"}, 1);
+Text98.setString(new std::string[]{"O"}, 1);
 CFontStyle& FontStyle99 =  CFontStyle();
 FontStyle99.setContainerField("fontStyle");
 FontStyle99.setSize(0.8);
@@ -515,7 +515,7 @@ Appearance116.addChild(&Material117);
 Shape115.addChild(&Appearance116);
 
 Text& Text118 =  Text();
-Text118.setString((std::string[]){"F"}, 1);
+Text118.setString(new std::string[]{"F"}, 1);
 CFontStyle& FontStyle119 =  CFontStyle();
 FontStyle119.setContainerField("fontStyle");
 FontStyle119.setSize(0.8);
@@ -600,7 +600,7 @@ Appearance136.addChild(&Material137);
 Shape135.addChild(&Appearance136);
 
 Text& Text138 =  Text();
-Text138.setString((std::string[]){"Si"}, 1);
+Text138.setString(new std::string[]{"Si"}, 1);
 CFontStyle& FontStyle139 =  CFontStyle();
 FontStyle139.setContainerField("fontStyle");
 FontStyle139.setSize(0.8);
@@ -689,7 +689,7 @@ Appearance156.addChild(&Material157);
 Shape155.addChild(&Appearance156);
 
 Text& Text158 =  Text();
-Text158.setString((std::string[]){"P"}, 1);
+Text158.setString(new std::string[]{"P"}, 1);
 CFontStyle& FontStyle159 =  CFontStyle();
 FontStyle159.setContainerField("fontStyle");
 FontStyle159.setSize(0.8);
@@ -778,7 +778,7 @@ Appearance176.addChild(&Material177);
 Shape175.addChild(&Appearance176);
 
 Text& Text178 =  Text();
-Text178.setString((std::string[]){"S"}, 1);
+Text178.setString(new std::string[]{"S"}, 1);
 CFontStyle& FontStyle179 =  CFontStyle();
 FontStyle179.setContainerField("fontStyle");
 FontStyle179.setSize(0.8);
@@ -866,7 +866,7 @@ Appearance196.addChild(&Material197);
 Shape195.addChild(&Appearance196);
 
 Text& Text198 =  Text();
-Text198.setString((std::string[]){"Cl"}, 1);
+Text198.setString(new std::string[]{"Cl"}, 1);
 CFontStyle& FontStyle199 =  CFontStyle();
 FontStyle199.setContainerField("fontStyle");
 FontStyle199.setSize(0.8);
@@ -955,7 +955,7 @@ Appearance216.addChild(&Material217);
 Shape215.addChild(&Appearance216);
 
 Text& Text218 =  Text();
-Text218.setString((std::string[]){"Br"}, 1);
+Text218.setString(new std::string[]{"Br"}, 1);
 CFontStyle& FontStyle219 =  CFontStyle();
 FontStyle219.setContainerField("fontStyle");
 FontStyle219.setSize(0.8);
@@ -1043,7 +1043,7 @@ Appearance236.addChild(&Material237);
 Shape235.addChild(&Appearance236);
 
 Text& Text238 =  Text();
-Text238.setString((std::string[]){"I"}, 1);
+Text238.setString(new std::string[]{"I"}, 1);
 CFontStyle& FontStyle239 =  CFontStyle();
 FontStyle239.setContainerField("fontStyle");
 FontStyle239.setSize(0.8);
@@ -1131,7 +1131,7 @@ Appearance256.addChild(&Material257);
 Shape255.addChild(&Appearance256);
 
 Text& Text258 =  Text();
-Text258.setString((std::string[]){"?"}, 1);
+Text258.setString(new std::string[]{"?"}, 1);
 CFontStyle& FontStyle259 =  CFontStyle();
 FontStyle259.setContainerField("fontStyle");
 FontStyle259.setSize(0.8);
@@ -1360,9 +1360,9 @@ ProtoDeclare300.addChild(&ProtoBody303);
 Scene19.addChild(&ProtoDeclare300);
 
 Background& Background314 =  Background();
-Background314.setGroundAngle(new float[]{1.309,1.570796});
+Background314.setGroundAngle(new float[]{1.309,1.570796}, 2);
 Background314.setGroundColor(new float[]{0.0,0.5,0.7,0.0,0.4,0.7,0.6,0.5,0.7}, 9);
-Background314.setSkyAngle(new float[]{1.309,1.570796});
+Background314.setSkyAngle(new float[]{1.309,1.570796}, 2);
 Background314.setSkyColor(new float[]{0.0,0.5,0.8,0.0,0.6,0.7,0.6,0.6,0.7}, 9);
 Scene19.addChild(&Background314);
 
@@ -1373,7 +1373,7 @@ PointLight315.setRadius(30);
 Scene19.addChild(&PointLight315);
 
 NavigationInfo& NavigationInfo316 =  NavigationInfo();
-NavigationInfo316.setType((std::string[]){"EXAMINE", "FLY", "ANY"}, 3);
+NavigationInfo316.setType(new std::string[]{"EXAMINE", "FLY", "ANY"}, 3);
 Scene19.addChild(&NavigationInfo316);
 
 Viewpoint& Viewpoint317 =  Viewpoint();
@@ -3161,4 +3161,4 @@ Scene19.addChild(&Group531);
 
 X3D0.setScene(&Scene19);
 
-}
+//}

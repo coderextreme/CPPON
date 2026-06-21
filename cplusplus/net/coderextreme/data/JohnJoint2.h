@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JohnJoint2(int argc, char ** argv) {
+//void JohnJoint2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -70,7 +70,7 @@ Coordinate& Coordinate15 =  Coordinate();
 Coordinate15.setPoint(new float[]{0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.1,0.0,0.0,0.0,0.1}, 12);
 IndexedLineSet14.setCoord(&Coordinate15);
 
-CColor& Color16 =  CColor();
+Color& Color16 =  Color();
 Color16.setContainerField("color");
 Color16.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet14.setColor(&Color16);
@@ -163,7 +163,7 @@ Scene11.addChild(&Viewpoint30);
 HAnimHumanoid& HAnimHumanoid31 =  HAnimHumanoid();
 HAnimHumanoid31.X3DNode::setName(std::string("HAnim"));
 HAnimHumanoid31.setDEF(std::string("hanim_HAnim"));
-HAnimHumanoid31.setInfo((std::string[]){"humanoidVersion=2.0"}, 1);
+HAnimHumanoid31.setInfo(new std::string[]{"humanoidVersion=2.0"}, 1);
 HAnimHumanoid31.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint32 =  HAnimJoint();
 HAnimJoint32.X3DNode::setName(std::string("humanoid_root"));
@@ -1776,4 +1776,4 @@ Scene11.addChild(&HAnimHumanoid31);
 
 X3D0.setScene(&Scene11);
 
-}
+//}

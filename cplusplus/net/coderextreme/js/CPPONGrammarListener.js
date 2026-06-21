@@ -122,6 +122,15 @@ export default class CPPONGrammarListener extends antlr4.tree.ParseTreeListener 
 	}
 
 
+	// Enter a parse tree produced by CPPONGrammarParser#cpp_cast.
+	enterCpp_cast(ctx) {
+	}
+
+	// Exit a parse tree produced by CPPONGrammarParser#cpp_cast.
+	exitCpp_cast(ctx) {
+	}
+
+
 	// Enter a parse tree produced by CPPONGrammarParser#parameter.
 	enterParameter(ctx) {
 	}

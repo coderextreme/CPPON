@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-void JoeSkeletonSkinSite(int argc, char ** argv) {
+void main(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -6763,7 +6763,7 @@ Scene32.addChild(&Group73);
 
 //expected best practice: EXPORT AS='fileName' for clarity
 Export& EXPORT1452 =  Export();
-EXPORT1452.setAS(&std::string("JoeSkeletonSkinSite"));
+EXPORT1452.setAS(new std::string("JoeSkeletonSkinSite"));
 EXPORT1452.setLocalDEF(std::string("Joe_Human"));
 Scene32.addChild(&EXPORT1452);
 

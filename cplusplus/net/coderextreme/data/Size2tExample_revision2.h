@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int Size2tExample_revision2(int argc, char ** argv) {
+//void Size2tExample_revision2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -802,4 +802,4 @@ Scene15.addChild(&TimeSensor146);
 
 X3D0.setScene(&Scene15);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int CoordinateAxes(int argc, char ** argv) {
+//void CoordinateAxes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -142,12 +142,12 @@ Appearance30.addChild(&Material31);
 Shape29.addChild(&Appearance30);
 
 Text& Text32 =  Text();
-Text32.setString((std::string[]){"Y"}, 1);
+Text32.setString(new std::string[]{"Y"}, 1);
 CFontStyle& FontStyle33 =  CFontStyle();
 FontStyle33.setContainerField("fontStyle");
 FontStyle33.setDEF(std::string("LABEL_FONT"));
-FontStyle33.setFamily((std::string[]){"SANS"}, 1);
-FontStyle33.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle33.setFamily(new std::string[]{"SANS"}, 1);
+FontStyle33.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle33.setSize(0.2);
 Text32.setFontStyle(&FontStyle33);
 
@@ -215,7 +215,7 @@ Appearance48.setUSE(std::string("LABEL_APPEARANCE"));
 Shape47.addChild(&Appearance48);
 
 Text& Text49 =  Text();
-Text49.setString((std::string[]){"X"}, 1);
+Text49.setString(new std::string[]{"X"}, 1);
 CFontStyle& FontStyle50 =  CFontStyle();
 FontStyle50.setContainerField("fontStyle");
 FontStyle50.setUSE(std::string("LABEL_FONT"));
@@ -287,7 +287,7 @@ Appearance65.setUSE(std::string("LABEL_APPEARANCE"));
 Shape64.addChild(&Appearance65);
 
 Text& Text66 =  Text();
-Text66.setString((std::string[]){"Z"}, 1);
+Text66.setString(new std::string[]{"Z"}, 1);
 CFontStyle& FontStyle67 =  CFontStyle();
 FontStyle67.setContainerField("fontStyle");
 FontStyle67.setUSE(std::string("LABEL_FONT"));
@@ -309,4 +309,4 @@ Scene14.addChild(&Collision16);
 
 X3D0.setScene(&Scene14);
 
-}
+//}

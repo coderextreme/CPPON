@@ -84,6 +84,7 @@ cpp_cast : (STATIC_CAST | DYNAMIC_CAST) LT type POINTER? GT OPENPAREN parameter 
 // Generalized to allow ANY valid parameter to be passed into a function
 parameter : cpp_cast
           | cstring
+          | NEW cstring
           | string
           | cast? type? REFERENCE? variable
           | construct_array

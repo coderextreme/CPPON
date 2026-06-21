@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JoeKickAnimation(int argc, char ** argv) {
+//void JoeKickAnimation(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -93,7 +93,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene18 =  Scene();
 WorldInfo& WorldInfo19 =  WorldInfo();
-WorldInfo19.setInfo((std::string[]){"X3D Humanoid LOA3 skeleton", "skin from hanim sites, surface features, and some added points", "390 points"}, 3);
+WorldInfo19.setInfo(new std::string[]{"X3D Humanoid LOA3 skeleton", "skin from hanim sites, surface features, and some added points", "390 points"}, 3);
 WorldInfo19.setTitle(std::string("X3D HANIM LOA3 Skeleton, 390 point Skin, texcoords, Displacer, teTrans for Joe_ by Joe"));
 Scene18.addChild(&WorldInfo19);
 
@@ -178,11 +178,11 @@ MetadataSet31.X3DNode::setReference(std::string("HAnim"));
 MetadataString& MetadataString32 =  MetadataString();
 MetadataString32.X3DNode::setName(std::string("SymmetricalLeftRight"));
 MetadataString32.X3DNode::setReference(std::string("correction options: ignore, warn, average, left, right, largest, smallest"));
-MetadataString32.setValue((std::string[]){"ignore"}, 1);
+MetadataString32.setValue(new std::string[]{"ignore"}, 1);
 MetadataString32.setContainerField("value");
 MetadataSet31.setValue((X3DNode *)&MetadataString32);
 
-HAnimHumanoid30.setMetadata(&MetadataSet31);
+HAnimHumanoid30.setMetadata(MetadataSet31);
 
 HAnimJoint& HAnimJoint33 =  HAnimJoint();
 HAnimJoint33.X3DNode::setName(std::string("humanoid_root"));
@@ -214,7 +214,7 @@ Coordinate& Coordinate40 =  Coordinate();
 Coordinate40.setPoint(new float[]{0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0}, 12);
 IndexedLineSet39.setCoord(&Coordinate40);
 
-CColor& Color41 =  CColor();
+Color& Color41 =  Color();
 Color41.setContainerField("color");
 Color41.setColor(new float[]{1.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,1.0}, 9);
 IndexedLineSet39.setColor(&Color41);
@@ -234,43 +234,43 @@ HAnimJoint42.X3DNode::setName(std::string("sacroiliac"));
 HAnimJoint42.setDEF(std::string("Joe_sacroiliac"));
 HAnimJoint42.setCenter(new float[]{0.0,0.92,0.0});
 HAnimJoint42.setSkinCoordIndex(new int32_t[]{17,19,20,21,22,23,26,27,73,82,89,91,93}, 13);
-HAnimJoint42.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.35,0.35,1.0});
+HAnimJoint42.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.35,0.35,1.0}, 13);
 HAnimJoint& HAnimJoint43 =  HAnimJoint();
 HAnimJoint43.X3DNode::setName(std::string("l_hip"));
 HAnimJoint43.setDEF(std::string("Joe_l_hip"));
 HAnimJoint43.setCenter(new float[]{0.1,0.92,0.0});
 HAnimJoint43.setSkinCoordIndex(new int32_t[]{89,90,94,95,96,97}, 6);
-HAnimJoint43.setSkinCoordWeight(new float[]{0.65,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint43.setSkinCoordWeight(new float[]{0.65,1.0,1.0,1.0,1.0,1.0}, 6);
 HAnimJoint& HAnimJoint44 =  HAnimJoint();
 HAnimJoint44.X3DNode::setName(std::string("l_knee"));
 HAnimJoint44.setDEF(std::string("Joe_l_knee"));
 HAnimJoint44.setCenter(new float[]{0.115,0.466,0.0});
 HAnimJoint44.setSkinCoordIndex(new int32_t[]{334,335,336,337,338,339,340,341}, 8);
-HAnimJoint44.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint44.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 8);
 HAnimJoint& HAnimJoint45 =  HAnimJoint();
 HAnimJoint45.X3DNode::setName(std::string("l_talocrural"));
 HAnimJoint45.setDEF(std::string("Joe_l_talocrural"));
 HAnimJoint45.setCenter(new float[]{0.115,0.069,0.0});
 HAnimJoint45.setSkinCoordIndex(new int32_t[]{342,343,344,345}, 4);
-HAnimJoint45.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint45.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint46 =  HAnimJoint();
 HAnimJoint46.X3DNode::setName(std::string("l_tarsometatarsal_2"));
 HAnimJoint46.setDEF(std::string("Joe_l_tarsometatarsal_2"));
 HAnimJoint46.setCenter(new float[]{0.115,0.031,0.03});
 HAnimJoint46.setSkinCoordIndex(new int32_t[]{346,347,348,71}, 4);
-HAnimJoint46.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint46.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint47 =  HAnimJoint();
 HAnimJoint47.X3DNode::setName(std::string("l_metatarsophalangeal_2"));
 HAnimJoint47.setDEF(std::string("Joe_l_metatarsophalangeal_2"));
 HAnimJoint47.setCenter(new float[]{0.115,0.037,0.09});
 HAnimJoint47.setSkinCoordIndex(new int32_t[]{349,350,351,352}, 4);
-HAnimJoint47.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint47.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint48 =  HAnimJoint();
 HAnimJoint48.X3DNode::setName(std::string("l_tarsal_distal_interphalangeal_2"));
 HAnimJoint48.setDEF(std::string("Joe_l_tarsal_distal_interphalangeal_2"));
 HAnimJoint48.setCenter(new float[]{0.115,0.02,0.122});
 HAnimJoint48.setSkinCoordIndex(new int32_t[]{353,354,355,356,357,358,359,360,361}, 9);
-HAnimJoint48.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint48.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint47.addChildren(&HAnimJoint48);
 
 HAnimJoint46.addChildren(&HAnimJoint47);
@@ -288,37 +288,37 @@ HAnimJoint49.X3DNode::setName(std::string("r_hip"));
 HAnimJoint49.setDEF(std::string("Joe_r_hip"));
 HAnimJoint49.setCenter(new float[]{-0.1,0.92,0.0});
 HAnimJoint49.setSkinCoordIndex(new int32_t[]{91,92,98,99,100,101,362,363}, 8);
-HAnimJoint49.setSkinCoordWeight(new float[]{0.65,1.0,0.8,1.0,1.0,1.0,0.4,0.8});
+HAnimJoint49.setSkinCoordWeight(new float[]{0.65,1.0,0.8,1.0,1.0,1.0,0.4,0.8}, 8);
 HAnimJoint& HAnimJoint50 =  HAnimJoint();
 HAnimJoint50.X3DNode::setName(std::string("r_knee"));
 HAnimJoint50.setDEF(std::string("Joe_r_knee"));
 HAnimJoint50.setCenter(new float[]{-0.05,0.466,0.0});
 HAnimJoint50.setSkinCoordIndex(new int32_t[]{362,363,364,365,366,367,368,369,98}, 9);
-HAnimJoint50.setSkinCoordWeight(new float[]{0.6,0.2,1.0,1.0,1.0,1.0,1.0,1.0,0.2});
+HAnimJoint50.setSkinCoordWeight(new float[]{0.6,0.2,1.0,1.0,1.0,1.0,1.0,1.0,0.2}, 9);
 HAnimJoint& HAnimJoint51 =  HAnimJoint();
 HAnimJoint51.X3DNode::setName(std::string("r_talocrural"));
 HAnimJoint51.setDEF(std::string("Joe_r_talocrural"));
 HAnimJoint51.setCenter(new float[]{-0.115,0.069,0.0});
 HAnimJoint51.setSkinCoordIndex(new int32_t[]{370,371,372,373}, 4);
-HAnimJoint51.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint51.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint52 =  HAnimJoint();
 HAnimJoint52.X3DNode::setName(std::string("r_tarsometatarsal_2"));
 HAnimJoint52.setDEF(std::string("Joe_r_tarsometatarsal_2"));
 HAnimJoint52.setCenter(new float[]{-0.1,0.015,-0.01});
 HAnimJoint52.setSkinCoordIndex(new int32_t[]{374,375,376}, 3);
-HAnimJoint52.setSkinCoordWeight(new float[]{1.0,1.0,1.0});
+HAnimJoint52.setSkinCoordWeight(new float[]{1.0,1.0,1.0}, 3);
 HAnimJoint& HAnimJoint53 =  HAnimJoint();
 HAnimJoint53.X3DNode::setName(std::string("r_metatarsophalangeal_2"));
 HAnimJoint53.setDEF(std::string("Joe_r_metatarsophalangeal_2"));
 HAnimJoint53.setCenter(new float[]{-0.115,0.037,0.09});
 HAnimJoint53.setSkinCoordIndex(new int32_t[]{377,378,379,380}, 4);
-HAnimJoint53.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint53.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint54 =  HAnimJoint();
 HAnimJoint54.X3DNode::setName(std::string("r_tarsal_distal_interphalangeal_2"));
 HAnimJoint54.setDEF(std::string("Joe_r_tarsal_distal_interphalangeal_2"));
 HAnimJoint54.setCenter(new float[]{-0.1,0.01,0.14});
 HAnimJoint54.setSkinCoordIndex(new int32_t[]{381,382,383,384,385,386,387,388,389}, 9);
-HAnimJoint54.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint54.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint53.addChildren(&HAnimJoint54);
 
 HAnimJoint52.addChildren(&HAnimJoint53);
@@ -338,7 +338,7 @@ HAnimJoint55.X3DNode::setName(std::string("vl5"));
 HAnimJoint55.setDEF(std::string("Joe_vl5"));
 HAnimJoint55.setCenter(new float[]{0.0,1.045,-0.095});
 HAnimJoint55.setSkinCoordIndex(new int32_t[]{28,76}, 2);
-HAnimJoint55.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint55.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint56 =  HAnimJoint();
 HAnimJoint56.X3DNode::setName(std::string("vl4"));
 HAnimJoint56.setDEF(std::string("Joe_vl4"));
@@ -352,7 +352,7 @@ HAnimJoint58.X3DNode::setName(std::string("vl2"));
 HAnimJoint58.setDEF(std::string("Joe_vl2"));
 HAnimJoint58.setCenter(new float[]{0.0,1.12,-0.065});
 HAnimJoint58.setSkinCoordIndex(new int32_t[]{16,18,25,83,84,85,86,87,88}, 9);
-HAnimJoint58.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,0.7,1.0,0.8});
+HAnimJoint58.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,0.7,1.0,0.8}, 9);
 HAnimJoint& HAnimJoint59 =  HAnimJoint();
 HAnimJoint59.X3DNode::setName(std::string("vl1"));
 HAnimJoint59.setDEF(std::string("Joe_vl1"));
@@ -370,13 +370,13 @@ HAnimJoint62.X3DNode::setName(std::string("vt10"));
 HAnimJoint62.setDEF(std::string("Joe_vt10"));
 HAnimJoint62.setCenter(new float[]{0.0,1.242,-0.09});
 HAnimJoint62.setSkinCoordIndex(new int32_t[]{15}, 1);
-HAnimJoint62.setSkinCoordWeight(new float[]{1.0});
+HAnimJoint62.setSkinCoordWeight(new float[]{1.0}, 1);
 HAnimJoint& HAnimJoint63 =  HAnimJoint();
 HAnimJoint63.X3DNode::setName(std::string("vt9"));
 HAnimJoint63.setDEF(std::string("Joe_vt9"));
 HAnimJoint63.setCenter(new float[]{0.0,1.268,-0.1});
 HAnimJoint63.setSkinCoordIndex(new int32_t[]{13,14}, 2);
-HAnimJoint63.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint63.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint64 =  HAnimJoint();
 HAnimJoint64.X3DNode::setName(std::string("vt8"));
 HAnimJoint64.setDEF(std::string("Joe_vt8"));
@@ -398,7 +398,7 @@ HAnimJoint68.X3DNode::setName(std::string("vt4"));
 HAnimJoint68.setDEF(std::string("Joe_vt4"));
 HAnimJoint68.setCenter(new float[]{0.0,1.41,-0.1235});
 HAnimJoint68.setSkinCoordIndex(new int32_t[]{81}, 1);
-HAnimJoint68.setSkinCoordWeight(new float[]{1.0});
+HAnimJoint68.setSkinCoordWeight(new float[]{1.0}, 1);
 HAnimJoint& HAnimJoint69 =  HAnimJoint();
 HAnimJoint69.X3DNode::setName(std::string("vt3"));
 HAnimJoint69.setDEF(std::string("Joe_vt3"));
@@ -412,13 +412,13 @@ HAnimJoint71.X3DNode::setName(std::string("vt1"));
 HAnimJoint71.setDEF(std::string("Joe_vt1"));
 HAnimJoint71.setCenter(new float[]{0.0,1.497,-0.09});
 HAnimJoint71.setSkinCoordIndex(new int32_t[]{11,24}, 2);
-HAnimJoint71.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint71.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint72 =  HAnimJoint();
 HAnimJoint72.X3DNode::setName(std::string("vc7"));
 HAnimJoint72.setDEF(std::string("Joe_vc7"));
 HAnimJoint72.setCenter(new float[]{0.0,1.525,-0.072});
 HAnimJoint72.setSkinCoordIndex(new int32_t[]{74,75}, 2);
-HAnimJoint72.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint72.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint73 =  HAnimJoint();
 HAnimJoint73.X3DNode::setName(std::string("vc6"));
 HAnimJoint73.setDEF(std::string("Joe_vc6"));
@@ -448,7 +448,7 @@ HAnimJoint79.X3DNode::setName(std::string("skullbase"));
 HAnimJoint79.setDEF(std::string("Joe_skullbase"));
 HAnimJoint79.setCenter(new float[]{0.0,1.63,-0.01});
 HAnimJoint79.setSkinCoordIndex(new int32_t[]{0,1,2,3,4,5,6,7,8,9}, 10);
-HAnimJoint79.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint79.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 10);
 HAnimDisplacer& HAnimDisplacer80 =  HAnimDisplacer();
 HAnimDisplacer80.X3DNode::setName(std::string("skull_tip_raiser_action"));
 HAnimDisplacer80.setDEF(std::string("Joe_skull_tip_raiser_action"));
@@ -519,49 +519,49 @@ HAnimJoint88.X3DNode::setName(std::string("l_acromioclavicular"));
 HAnimJoint88.setDEF(std::string("Joe_l_acromioclavicular"));
 HAnimJoint88.setCenter(new float[]{0.082,1.4488,-0.0353});
 HAnimJoint88.setSkinCoordIndex(new int32_t[]{12}, 1);
-HAnimJoint88.setSkinCoordWeight(new float[]{1.0});
+HAnimJoint88.setSkinCoordWeight(new float[]{1.0}, 1);
 HAnimJoint& HAnimJoint89 =  HAnimJoint();
 HAnimJoint89.X3DNode::setName(std::string("l_sternoclavicular"));
 HAnimJoint89.setDEF(std::string("Joe_l_sternoclavicular"));
 HAnimJoint89.setCenter(new float[]{0.0962,1.4269,-0.0424});
 HAnimJoint89.setSkinCoordIndex(new int32_t[]{79}, 1);
-HAnimJoint89.setSkinCoordWeight(new float[]{1.0});
+HAnimJoint89.setSkinCoordWeight(new float[]{1.0}, 1);
 HAnimJoint& HAnimJoint90 =  HAnimJoint();
 HAnimJoint90.X3DNode::setName(std::string("l_shoulder"));
 HAnimJoint90.setDEF(std::string("Joe_l_shoulder"));
 HAnimJoint90.setCenter(new float[]{0.2,1.44,-0.04});
 HAnimJoint90.setSkinCoordIndex(new int32_t[]{41,42,44,80,102,103,104,105}, 8);
-HAnimJoint90.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint90.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 8);
 HAnimJoint& HAnimJoint91 =  HAnimJoint();
 HAnimJoint91.X3DNode::setName(std::string("l_elbow"));
 HAnimJoint91.setDEF(std::string("Joe_l_elbow"));
 HAnimJoint91.setCenter(new float[]{0.2,1.1388,-0.04});
 HAnimJoint91.setSkinCoordIndex(new int32_t[]{45,46,47,109,110,111,112,113,115,116,117,118}, 12);
-HAnimJoint91.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint91.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 15);
 HAnimJoint& HAnimJoint92 =  HAnimJoint();
 HAnimJoint92.X3DNode::setName(std::string("l_radiocarpal"));
 HAnimJoint92.setDEF(std::string("Joe_l_radiocarpal"));
 HAnimJoint92.setCenter(new float[]{0.2,0.87,-0.04});
 HAnimJoint92.setSkinCoordIndex(new int32_t[]{119,120,121,122,123,124,125,126}, 8);
-HAnimJoint92.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint92.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 8);
 HAnimJoint& HAnimJoint93 =  HAnimJoint();
 HAnimJoint93.X3DNode::setName(std::string("l_carpometacarpal_1"));
 HAnimJoint93.setDEF(std::string("Joe_l_carpometacarpal_1"));
 HAnimJoint93.setCenter(new float[]{0.1924,0.8472,-0.0534});
 HAnimJoint93.setSkinCoordIndex(new int32_t[]{127,128}, 2);
-HAnimJoint93.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint93.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint94 =  HAnimJoint();
 HAnimJoint94.X3DNode::setName(std::string("l_metacarpophalangeal_1"));
 HAnimJoint94.setDEF(std::string("Joe_l_metacarpophalangeal_1"));
 HAnimJoint94.setCenter(new float[]{0.1951,0.8226,0.0246});
 HAnimJoint94.setSkinCoordIndex(new int32_t[]{138,139,140,141,142,143}, 6);
-HAnimJoint94.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0});
+HAnimJoint94.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0}, 6);
 HAnimJoint& HAnimJoint95 =  HAnimJoint();
 HAnimJoint95.X3DNode::setName(std::string("l_carpal_interphalangeal_1"));
 HAnimJoint95.setDEF(std::string("Joe_l_carpal_interphalangeal_1"));
 HAnimJoint95.setCenter(new float[]{0.1955,0.8159,0.0464});
 HAnimJoint95.setSkinCoordIndex(new int32_t[]{144,145,146,147,148,149,150,151,152}, 9);
-HAnimJoint95.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint95.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint94.addChildren(&HAnimJoint95);
 
 HAnimJoint93.addChildren(&HAnimJoint94);
@@ -573,25 +573,25 @@ HAnimJoint96.X3DNode::setName(std::string("l_carpometacarpal_2"));
 HAnimJoint96.setDEF(std::string("Joe_l_carpometacarpal_2"));
 HAnimJoint96.setCenter(new float[]{0.1983,0.8024,-0.028});
 HAnimJoint96.setSkinCoordIndex(new int32_t[]{129,130}, 2);
-HAnimJoint96.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint96.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint97 =  HAnimJoint();
 HAnimJoint97.X3DNode::setName(std::string("l_metacarpophalangeal_2"));
 HAnimJoint97.setDEF(std::string("Joe_l_metacarpophalangeal_2"));
 HAnimJoint97.setCenter(new float[]{0.1983,0.7815,-0.028});
 HAnimJoint97.setSkinCoordIndex(new int32_t[]{138,139,140,153,154,155,163}, 7);
-HAnimJoint97.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0,0.5});
+HAnimJoint97.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0,0.5}, 7);
 HAnimJoint& HAnimJoint98 =  HAnimJoint();
 HAnimJoint98.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_2"));
 HAnimJoint98.setDEF(std::string("Joe_l_carpal_proximal_interphalangeal_2"));
 HAnimJoint98.setCenter(new float[]{0.2017,0.7363,-0.0248});
 HAnimJoint98.setSkinCoordIndex(new int32_t[]{166,167,168,169}, 4);
-HAnimJoint98.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint98.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint99 =  HAnimJoint();
 HAnimJoint99.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_2"));
 HAnimJoint99.setDEF(std::string("Joe_l_carpal_distal_interphalangeal_2"));
 HAnimJoint99.setCenter(new float[]{0.2028,0.7139,-0.0236});
 HAnimJoint99.setSkinCoordIndex(new int32_t[]{170,171,172,173,174,175,176,177,178}, 9);
-HAnimJoint99.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint99.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint98.addChildren(&HAnimJoint99);
 
 HAnimJoint97.addChildren(&HAnimJoint98);
@@ -605,25 +605,25 @@ HAnimJoint100.X3DNode::setName(std::string("l_carpometacarpal_3"));
 HAnimJoint100.setDEF(std::string("Joe_l_carpometacarpal_3"));
 HAnimJoint100.setCenter(new float[]{0.1987,0.8029,-0.053});
 HAnimJoint100.setSkinCoordIndex(new int32_t[]{131,132}, 2);
-HAnimJoint100.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint100.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint101 =  HAnimJoint();
 HAnimJoint101.X3DNode::setName(std::string("l_metacarpophalangeal_3"));
 HAnimJoint101.setDEF(std::string("Joe_l_metacarpophalangeal_3"));
 HAnimJoint101.setCenter(new float[]{0.1987,0.7818,-0.053});
 HAnimJoint101.setSkinCoordIndex(new int32_t[]{156,157,163,164}, 4);
-HAnimJoint101.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5});
+HAnimJoint101.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5}, 4);
 HAnimJoint& HAnimJoint102 =  HAnimJoint();
 HAnimJoint102.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_3"));
 HAnimJoint102.setDEF(std::string("Joe_l_carpal_proximal_interphalangeal_3"));
 HAnimJoint102.setCenter(new float[]{0.2013,0.7273,-0.0503});
 HAnimJoint102.setSkinCoordIndex(new int32_t[]{179,180,181,182}, 4);
-HAnimJoint102.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint102.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint103 =  HAnimJoint();
 HAnimJoint103.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_3"));
 HAnimJoint103.setDEF(std::string("Joe_l_carpal_distal_interphalangeal_3"));
 HAnimJoint103.setCenter(new float[]{0.2026,0.7011,-0.0494});
 HAnimJoint103.setSkinCoordIndex(new int32_t[]{183,184,185,186,187,188,189,190,191}, 9);
-HAnimJoint103.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint103.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint102.addChildren(&HAnimJoint103);
 
 HAnimJoint101.addChildren(&HAnimJoint102);
@@ -637,25 +637,25 @@ HAnimJoint104.X3DNode::setName(std::string("l_carpometacarpal_4"));
 HAnimJoint104.setDEF(std::string("Joe_l_carpometacarpal_4"));
 HAnimJoint104.setCenter(new float[]{0.1956,0.8019,-0.0794});
 HAnimJoint104.setSkinCoordIndex(new int32_t[]{133,134}, 2);
-HAnimJoint104.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint104.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint105 =  HAnimJoint();
 HAnimJoint105.X3DNode::setName(std::string("l_metacarpophalangeal_4"));
 HAnimJoint105.setDEF(std::string("Joe_l_metacarpophalangeal_4"));
 HAnimJoint105.setCenter(new float[]{0.1956,0.7815,-0.0794});
 HAnimJoint105.setSkinCoordIndex(new int32_t[]{158,159,164,165}, 4);
-HAnimJoint105.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5});
+HAnimJoint105.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5}, 4);
 HAnimJoint& HAnimJoint106 =  HAnimJoint();
 HAnimJoint106.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_4"));
 HAnimJoint106.setDEF(std::string("Joe_l_carpal_proximal_interphalangeal_4"));
 HAnimJoint106.setCenter(new float[]{0.1973,0.7287,-0.0777});
 HAnimJoint106.setSkinCoordIndex(new int32_t[]{192,193,194,195}, 4);
-HAnimJoint106.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint106.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint107 =  HAnimJoint();
 HAnimJoint107.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_4"));
 HAnimJoint107.setDEF(std::string("Joe_l_carpal_distal_interphalangeal_4"));
 HAnimJoint107.setCenter(new float[]{0.1983,0.7045,-0.0767});
 HAnimJoint107.setSkinCoordIndex(new int32_t[]{196,197,198,199,200,201,202,203,204}, 9);
-HAnimJoint107.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint107.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint106.addChildren(&HAnimJoint107);
 
 HAnimJoint105.addChildren(&HAnimJoint106);
@@ -669,25 +669,25 @@ HAnimJoint108.X3DNode::setName(std::string("l_carpometacarpal_5"));
 HAnimJoint108.setDEF(std::string("Joe_l_carpometacarpal_5"));
 HAnimJoint108.setCenter(new float[]{0.1925,0.8066,-0.1036});
 HAnimJoint108.setSkinCoordIndex(new int32_t[]{135,136,137,165}, 4);
-HAnimJoint108.setSkinCoordWeight(new float[]{1.0,1.0,1.0,0.5});
+HAnimJoint108.setSkinCoordWeight(new float[]{1.0,1.0,1.0,0.5}, 4);
 HAnimJoint& HAnimJoint109 =  HAnimJoint();
 HAnimJoint109.X3DNode::setName(std::string("l_metacarpophalangeal_5"));
 HAnimJoint109.setDEF(std::string("Joe_l_metacarpophalangeal_5"));
 HAnimJoint109.setCenter(new float[]{0.1925,0.7866,-0.1036});
 HAnimJoint109.setSkinCoordIndex(new int32_t[]{160,161,162}, 3);
-HAnimJoint109.setSkinCoordWeight(new float[]{1.0,1.0,1.0});
+HAnimJoint109.setSkinCoordWeight(new float[]{1.0,1.0,1.0}, 3);
 HAnimJoint& HAnimJoint110 =  HAnimJoint();
 HAnimJoint110.X3DNode::setName(std::string("l_carpal_proximal_interphalangeal_5"));
 HAnimJoint110.setDEF(std::string("Joe_l_carpal_proximal_interphalangeal_5"));
 HAnimJoint110.setCenter(new float[]{0.1938,0.7452,-0.1024});
 HAnimJoint110.setSkinCoordIndex(new int32_t[]{205,206,207,208}, 4);
-HAnimJoint110.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint110.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint111 =  HAnimJoint();
 HAnimJoint111.X3DNode::setName(std::string("l_carpal_distal_interphalangeal_5"));
 HAnimJoint111.setDEF(std::string("Joe_l_carpal_distal_interphalangeal_5"));
 HAnimJoint111.setCenter(new float[]{0.1948,0.7277,-0.1017});
 HAnimJoint111.setSkinCoordIndex(new int32_t[]{209,210,211,212,213,214,215,216,217}, 9);
-HAnimJoint111.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint111.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint110.addChildren(&HAnimJoint111);
 
 HAnimJoint109.addChildren(&HAnimJoint110);
@@ -711,49 +711,49 @@ HAnimJoint112.X3DNode::setName(std::string("r_sternoclavicular"));
 HAnimJoint112.setDEF(std::string("Joe_r_sternoclavicular"));
 HAnimJoint112.setCenter(new float[]{-0.03,1.46,0.0});
 HAnimJoint112.setSkinCoordIndex(new int32_t[]{10}, 1);
-HAnimJoint112.setSkinCoordWeight(new float[]{1.0});
+HAnimJoint112.setSkinCoordWeight(new float[]{1.0}, 1);
 HAnimJoint& HAnimJoint113 =  HAnimJoint();
 HAnimJoint113.X3DNode::setName(std::string("r_acromioclavicular"));
 HAnimJoint113.setDEF(std::string("Joe_r_acromioclavicular"));
 HAnimJoint113.setCenter(new float[]{-0.09,1.41,-0.11});
 HAnimJoint113.setSkinCoordIndex(new int32_t[]{77,29}, 2);
-HAnimJoint113.setSkinCoordWeight(new float[]{1.0,0.9});
+HAnimJoint113.setSkinCoordWeight(new float[]{1.0,0.9}, 2);
 HAnimJoint& HAnimJoint114 =  HAnimJoint();
 HAnimJoint114.X3DNode::setName(std::string("r_shoulder"));
 HAnimJoint114.setDEF(std::string("Joe_r_shoulder"));
 HAnimJoint114.setCenter(new float[]{-0.2,1.44,-0.04});
 HAnimJoint114.setSkinCoordIndex(new int32_t[]{29,30,32,78,218,219,220,221,86,88}, 10);
-HAnimJoint114.setSkinCoordWeight(new float[]{0.1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.3,0.2});
+HAnimJoint114.setSkinCoordWeight(new float[]{0.1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.3,0.2}, 10);
 HAnimJoint& HAnimJoint115 =  HAnimJoint();
 HAnimJoint115.X3DNode::setName(std::string("r_elbow"));
 HAnimJoint115.setDEF(std::string("Joe_r_elbow"));
 HAnimJoint115.setCenter(new float[]{-0.2,1.1388,-0.04});
 HAnimJoint115.setSkinCoordIndex(new int32_t[]{33,34,35,225,226,227,228,229,231,232,233,234}, 12);
-HAnimJoint115.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint115.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 12);
 HAnimJoint& HAnimJoint116 =  HAnimJoint();
 HAnimJoint116.X3DNode::setName(std::string("r_radiocarpal"));
 HAnimJoint116.setDEF(std::string("Joe_r_radiocarpal"));
 HAnimJoint116.setCenter(new float[]{-0.2,0.89,-0.04});
 HAnimJoint116.setSkinCoordIndex(new int32_t[]{235,236,237,238,239,240,241,242}, 8);
-HAnimJoint116.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint116.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 8);
 HAnimJoint& HAnimJoint117 =  HAnimJoint();
 HAnimJoint117.X3DNode::setName(std::string("r_carpometacarpal_1"));
 HAnimJoint117.setDEF(std::string("Joe_r_carpometacarpal_1"));
 HAnimJoint117.setCenter(new float[]{-0.2,0.85,0.0});
 HAnimJoint117.setSkinCoordIndex(new int32_t[]{243,244}, 2);
-HAnimJoint117.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint117.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint118 =  HAnimJoint();
 HAnimJoint118.X3DNode::setName(std::string("r_metacarpophalangeal_1"));
 HAnimJoint118.setDEF(std::string("Joe_r_metacarpophalangeal_1"));
 HAnimJoint118.setCenter(new float[]{-0.2,0.82,0.03});
 HAnimJoint118.setSkinCoordIndex(new int32_t[]{254,255,256,257,258,259}, 6);
-HAnimJoint118.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0});
+HAnimJoint118.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0}, 6);
 HAnimJoint& HAnimJoint119 =  HAnimJoint();
 HAnimJoint119.X3DNode::setName(std::string("r_carpal_interphalangeal_1"));
 HAnimJoint119.setDEF(std::string("Joe_r_carpal_interphalangeal_1"));
 HAnimJoint119.setCenter(new float[]{-0.2,0.8,0.05});
 HAnimJoint119.setSkinCoordIndex(new int32_t[]{260,261,262,263,264,265,266,267,268}, 9);
-HAnimJoint119.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint119.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint118.addChildren(&HAnimJoint119);
 
 HAnimJoint117.addChildren(&HAnimJoint118);
@@ -765,25 +765,25 @@ HAnimJoint120.X3DNode::setName(std::string("r_carpometacarpal_2"));
 HAnimJoint120.setDEF(std::string("Joe_r_carpometacarpal_2"));
 HAnimJoint120.setCenter(new float[]{-0.2,0.84,-0.015});
 HAnimJoint120.setSkinCoordIndex(new int32_t[]{245,246}, 2);
-HAnimJoint120.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint120.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint121 =  HAnimJoint();
 HAnimJoint121.X3DNode::setName(std::string("r_metacarpophalangeal_2"));
 HAnimJoint121.setDEF(std::string("Joe_r_metacarpophalangeal_2"));
 HAnimJoint121.setCenter(new float[]{-0.2,0.793,-0.015});
 HAnimJoint121.setSkinCoordIndex(new int32_t[]{254,255,256,269,270,271,279}, 7);
-HAnimJoint121.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0,0.5});
+HAnimJoint121.setSkinCoordWeight(new float[]{0.5,0.5,0.5,1.0,1.0,1.0,0.5}, 7);
 HAnimJoint& HAnimJoint122 =  HAnimJoint();
 HAnimJoint122.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_2"));
 HAnimJoint122.setDEF(std::string("Joe_r_carpal_proximal_interphalangeal_2"));
 HAnimJoint122.setCenter(new float[]{-0.2,0.745,-0.015});
 HAnimJoint122.setSkinCoordIndex(new int32_t[]{282,283,284,285}, 4);
-HAnimJoint122.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint122.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint123 =  HAnimJoint();
 HAnimJoint123.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_2"));
 HAnimJoint123.setDEF(std::string("Joe_r_carpal_distal_interphalangeal_2"));
 HAnimJoint123.setCenter(new float[]{-0.2,0.72,-0.015});
 HAnimJoint123.setSkinCoordIndex(new int32_t[]{286,287,288,289,290,291,292,293,294}, 9);
-HAnimJoint123.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint123.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint122.addChildren(&HAnimJoint123);
 
 HAnimJoint121.addChildren(&HAnimJoint122);
@@ -797,25 +797,25 @@ HAnimJoint124.X3DNode::setName(std::string("r_carpometacarpal_3"));
 HAnimJoint124.setDEF(std::string("Joe_r_carpometacarpal_3"));
 HAnimJoint124.setCenter(new float[]{-0.2,0.835,-0.04});
 HAnimJoint124.setSkinCoordIndex(new int32_t[]{247,248}, 2);
-HAnimJoint124.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint124.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint125 =  HAnimJoint();
 HAnimJoint125.X3DNode::setName(std::string("r_metacarpophalangeal_3"));
 HAnimJoint125.setDEF(std::string("Joe_r_metacarpophalangeal_3"));
 HAnimJoint125.setCenter(new float[]{-0.2,0.788,-0.04});
 HAnimJoint125.setSkinCoordIndex(new int32_t[]{272,273,279,280}, 4);
-HAnimJoint125.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5});
+HAnimJoint125.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5}, 4);
 HAnimJoint& HAnimJoint126 =  HAnimJoint();
 HAnimJoint126.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_3"));
 HAnimJoint126.setDEF(std::string("Joe_r_carpal_proximal_interphalangeal_3"));
 HAnimJoint126.setCenter(new float[]{-0.2,0.74,-0.04});
 HAnimJoint126.setSkinCoordIndex(new int32_t[]{295,296,297,298}, 4);
-HAnimJoint126.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint126.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint127 =  HAnimJoint();
 HAnimJoint127.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_3"));
 HAnimJoint127.setDEF(std::string("Joe_r_carpal_distal_interphalangeal_3"));
 HAnimJoint127.setCenter(new float[]{-0.2,0.7142,-0.04});
 HAnimJoint127.setSkinCoordIndex(new int32_t[]{299,300,301,302,303,304,305,306,307}, 9);
-HAnimJoint127.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint127.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint126.addChildren(&HAnimJoint127);
 
 HAnimJoint125.addChildren(&HAnimJoint126);
@@ -829,25 +829,25 @@ HAnimJoint128.X3DNode::setName(std::string("r_carpometacarpal_4"));
 HAnimJoint128.setDEF(std::string("Joe_r_carpometacarpal_4"));
 HAnimJoint128.setCenter(new float[]{-0.2,0.835,-0.065});
 HAnimJoint128.setSkinCoordIndex(new int32_t[]{249,250}, 2);
-HAnimJoint128.setSkinCoordWeight(new float[]{1.0,1.0});
+HAnimJoint128.setSkinCoordWeight(new float[]{1.0,1.0}, 2);
 HAnimJoint& HAnimJoint129 =  HAnimJoint();
 HAnimJoint129.X3DNode::setName(std::string("r_metacarpophalangeal_4"));
 HAnimJoint129.setDEF(std::string("Joe_r_metacarpophalangeal_4"));
 HAnimJoint129.setCenter(new float[]{-0.2,0.793,-0.065});
 HAnimJoint129.setSkinCoordIndex(new int32_t[]{274,275,280,281}, 4);
-HAnimJoint129.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5});
+HAnimJoint129.setSkinCoordWeight(new float[]{1.0,1.0,0.5,0.5}, 4);
 HAnimJoint& HAnimJoint130 =  HAnimJoint();
 HAnimJoint130.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_4"));
 HAnimJoint130.setDEF(std::string("Joe_r_carpal_proximal_interphalangeal_4"));
 HAnimJoint130.setCenter(new float[]{-0.2,0.74,-0.065});
 HAnimJoint130.setSkinCoordIndex(new int32_t[]{308,309,310,311}, 4);
-HAnimJoint130.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint130.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint131 =  HAnimJoint();
 HAnimJoint131.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_4"));
 HAnimJoint131.setDEF(std::string("Joe_r_carpal_distal_interphalangeal_4"));
 HAnimJoint131.setCenter(new float[]{-0.2,0.7177,-0.065});
 HAnimJoint131.setSkinCoordIndex(new int32_t[]{312,313,314,315,316,317,318,319,320}, 9);
-HAnimJoint131.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint131.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint130.addChildren(&HAnimJoint131);
 
 HAnimJoint129.addChildren(&HAnimJoint130);
@@ -861,25 +861,25 @@ HAnimJoint132.X3DNode::setName(std::string("r_carpometacarpal_5"));
 HAnimJoint132.setDEF(std::string("Joe_r_carpometacarpal_5"));
 HAnimJoint132.setCenter(new float[]{-0.2,0.84,-0.085});
 HAnimJoint132.setSkinCoordIndex(new int32_t[]{251,252,253,281}, 4);
-HAnimJoint132.setSkinCoordWeight(new float[]{1.0,1.0,1.0,0.5});
+HAnimJoint132.setSkinCoordWeight(new float[]{1.0,1.0,1.0,0.5}, 4);
 HAnimJoint& HAnimJoint133 =  HAnimJoint();
 HAnimJoint133.X3DNode::setName(std::string("r_metacarpophalangeal_5"));
 HAnimJoint133.setDEF(std::string("Joe_r_metacarpophalangeal_5"));
 HAnimJoint133.setCenter(new float[]{-0.2,0.79,-0.085});
 HAnimJoint133.setSkinCoordIndex(new int32_t[]{276,277,278}, 3);
-HAnimJoint133.setSkinCoordWeight(new float[]{1.0,1.0,1.0});
+HAnimJoint133.setSkinCoordWeight(new float[]{1.0,1.0,1.0}, 3);
 HAnimJoint& HAnimJoint134 =  HAnimJoint();
 HAnimJoint134.X3DNode::setName(std::string("r_carpal_proximal_interphalangeal_5"));
 HAnimJoint134.setDEF(std::string("Joe_r_carpal_proximal_interphalangeal_5"));
 HAnimJoint134.setCenter(new float[]{-0.2,0.755,-0.085});
 HAnimJoint134.setSkinCoordIndex(new int32_t[]{321,322,323,324}, 4);
-HAnimJoint134.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0});
+HAnimJoint134.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0}, 4);
 HAnimJoint& HAnimJoint135 =  HAnimJoint();
 HAnimJoint135.X3DNode::setName(std::string("r_carpal_distal_interphalangeal_5"));
 HAnimJoint135.setDEF(std::string("Joe_r_carpal_distal_interphalangeal_5"));
 HAnimJoint135.setCenter(new float[]{-0.2,0.735,-0.09});
 HAnimJoint135.setSkinCoordIndex(new int32_t[]{325,326,327,328,329,330,331,332,333}, 9);
-HAnimJoint135.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0});
+HAnimJoint135.setSkinCoordWeight(new float[]{1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0}, 9);
 HAnimJoint134.addChildren(&HAnimJoint135);
 
 HAnimJoint133.addChildren(&HAnimJoint134);
@@ -950,7 +950,7 @@ Appearance137.addChild(&Material138);
 ImageTexture& ImageTexture139 =  ImageTexture();
 ImageTexture139.setContainerField("texture");
 ImageTexture139.setDEF(std::string("JoeSkinImageTexture"));
-ImageTexture139.setUrl((std::string[]){"JoeBodyTexture29.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/JoeBodyTexture29.png"}, 2);
+ImageTexture139.setUrl(new std::string[]{"JoeBodyTexture29.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/JoeBodyTexture29.png"}, 2);
 Appearance137.addChild(&ImageTexture139);
 
 TextureTransform& TextureTransform140 =  TextureTransform();
@@ -1477,571 +1477,571 @@ Group241.addChild(&TimeSensor242);
 //Interpolators
 OrientationInterpolator& OrientationInterpolator243 =  OrientationInterpolator();
 OrientationInterpolator243.setDEF(std::string("HumanoidRoot_RotationInterpolator"));
-OrientationInterpolator243.setKey(new float[]{0.0,0.1,0.4,0.6,1.0});
+OrientationInterpolator243.setKey(new float[]{0.0,0.1,0.4,0.6,1.0}, 5);
 OrientationInterpolator243.setKeyValue(new float[]{1.0,0.0,0.0,0.5,1.0,0.0,0.0,0.5,-1.0,0.0,0.0,0.1,-1.0,0.0,0.0,0.5,-1.0,0.0,0.0,0.5}, 20);
 Group241.addChild(&OrientationInterpolator243);
 
 PositionInterpolator& PositionInterpolator244 =  PositionInterpolator();
 PositionInterpolator244.setDEF(std::string("HumanoidRoot_TranslationInterpolator"));
-PositionInterpolator244.setKey(new float[]{0.0,0.2,0.6,1.0});
+PositionInterpolator244.setKey(new float[]{0.0,0.2,0.6,1.0}, 4);
 PositionInterpolator244.setKeyValue(new float[]{1.0,0.3,-1.0,0.4,-0.04,-0.4,-0.18,0.1,0.0,-0.2,0.15,0.15}, 12);
 Group241.addChild(&PositionInterpolator244);
 
 OrientationInterpolator& OrientationInterpolator245 =  OrientationInterpolator();
 OrientationInterpolator245.setDEF(std::string("sacroiliac_RotationInterpolator"));
-OrientationInterpolator245.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator245.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator245.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator245);
 
 OrientationInterpolator& OrientationInterpolator246 =  OrientationInterpolator();
 OrientationInterpolator246.setDEF(std::string("l_hip_RotationInterpolator"));
-OrientationInterpolator246.setKey(new float[]{0.0,0.1,0.3,0.45,1.0});
+OrientationInterpolator246.setKey(new float[]{0.0,0.1,0.3,0.45,1.0}, 5);
 OrientationInterpolator246.setKeyValue(new float[]{-1.0,0.0,0.0,1.5,-1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.5,1.0,0.0,0.0,1.0}, 20);
 Group241.addChild(&OrientationInterpolator246);
 
 OrientationInterpolator& OrientationInterpolator247 =  OrientationInterpolator();
 OrientationInterpolator247.setDEF(std::string("l_knee_RotationInterpolator"));
-OrientationInterpolator247.setKey(new float[]{0.0,0.2,0.35,0.5,1.0});
+OrientationInterpolator247.setKey(new float[]{0.0,0.2,0.35,0.5,1.0}, 5);
 OrientationInterpolator247.setKeyValue(new float[]{1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.2,1.0,0.0,1.0,0.5,1.0,0.0,0.0,1.4}, 20);
 Group241.addChild(&OrientationInterpolator247);
 
 OrientationInterpolator& OrientationInterpolator248 =  OrientationInterpolator();
 OrientationInterpolator248.setDEF(std::string("l_ankle_RotationInterpolator"));
-OrientationInterpolator248.setKey(new float[]{0.0,0.25,1.0});
+OrientationInterpolator248.setKey(new float[]{0.0,0.25,1.0}, 3);
 OrientationInterpolator248.setKeyValue(new float[]{-1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0}, 12);
 Group241.addChild(&OrientationInterpolator248);
 
 OrientationInterpolator& OrientationInterpolator249 =  OrientationInterpolator();
 OrientationInterpolator249.setDEF(std::string("l_subtalar_RotationInterpolator"));
-OrientationInterpolator249.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator249.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator249.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator249);
 
 OrientationInterpolator& OrientationInterpolator250 =  OrientationInterpolator();
 OrientationInterpolator250.setDEF(std::string("l_midtarsal_RotationInterpolator"));
-OrientationInterpolator250.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator250.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator250.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator250);
 
 OrientationInterpolator& OrientationInterpolator251 =  OrientationInterpolator();
 OrientationInterpolator251.setDEF(std::string("l_metatarsal_RotationInterpolator"));
-OrientationInterpolator251.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator251.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator251.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator251);
 
 OrientationInterpolator& OrientationInterpolator252 =  OrientationInterpolator();
 OrientationInterpolator252.setDEF(std::string("r_hip_RotationInterpolator"));
-OrientationInterpolator252.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
+OrientationInterpolator252.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
 OrientationInterpolator252.setKeyValue(new float[]{1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,-1.0,0.0,0.0,1.0,-1.0,0.0,0.0,1.0,-1.0,0.0,0.0,1.0}, 20);
 Group241.addChild(&OrientationInterpolator252);
 
 OrientationInterpolator& OrientationInterpolator253 =  OrientationInterpolator();
 OrientationInterpolator253.setDEF(std::string("r_knee_RotationInterpolator"));
-OrientationInterpolator253.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
+OrientationInterpolator253.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
 OrientationInterpolator253.setKeyValue(new float[]{1.0,0.0,0.0,0.1,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.5}, 20);
 Group241.addChild(&OrientationInterpolator253);
 
 OrientationInterpolator& OrientationInterpolator254 =  OrientationInterpolator();
 OrientationInterpolator254.setDEF(std::string("r_ankle_RotationInterpolator"));
-OrientationInterpolator254.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
+OrientationInterpolator254.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
 OrientationInterpolator254.setKeyValue(new float[]{-1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,0.5}, 20);
 Group241.addChild(&OrientationInterpolator254);
 
 OrientationInterpolator& OrientationInterpolator255 =  OrientationInterpolator();
 OrientationInterpolator255.setDEF(std::string("r_subtalar_RotationInterpolator"));
-OrientationInterpolator255.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator255.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator255.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator255);
 
 OrientationInterpolator& OrientationInterpolator256 =  OrientationInterpolator();
 OrientationInterpolator256.setDEF(std::string("r_midtarsal_RotationInterpolator"));
-OrientationInterpolator256.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator256.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator256.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator256);
 
 OrientationInterpolator& OrientationInterpolator257 =  OrientationInterpolator();
 OrientationInterpolator257.setDEF(std::string("r_metatarsal_RotationInterpolator"));
-OrientationInterpolator257.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator257.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator257.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator257);
 
 OrientationInterpolator& OrientationInterpolator258 =  OrientationInterpolator();
 OrientationInterpolator258.setDEF(std::string("vl5_RotationInterpolator"));
-OrientationInterpolator258.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator258.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator258.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator258);
 
 OrientationInterpolator& OrientationInterpolator259 =  OrientationInterpolator();
 OrientationInterpolator259.setDEF(std::string("vl4_RotationInterpolator"));
-OrientationInterpolator259.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator259.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator259.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator259);
 
 OrientationInterpolator& OrientationInterpolator260 =  OrientationInterpolator();
 OrientationInterpolator260.setDEF(std::string("vl3_RotationInterpolator"));
-OrientationInterpolator260.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator260.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator260.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator260);
 
 OrientationInterpolator& OrientationInterpolator261 =  OrientationInterpolator();
 OrientationInterpolator261.setDEF(std::string("vl2_RotationInterpolator"));
-OrientationInterpolator261.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator261.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator261.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator261);
 
 OrientationInterpolator& OrientationInterpolator262 =  OrientationInterpolator();
 OrientationInterpolator262.setDEF(std::string("vl1_RotationInterpolator"));
-OrientationInterpolator262.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator262.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator262.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator262);
 
 OrientationInterpolator& OrientationInterpolator263 =  OrientationInterpolator();
 OrientationInterpolator263.setDEF(std::string("vt12_RotationInterpolator"));
-OrientationInterpolator263.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator263.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator263.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator263);
 
 OrientationInterpolator& OrientationInterpolator264 =  OrientationInterpolator();
 OrientationInterpolator264.setDEF(std::string("vt11_RotationInterpolator"));
-OrientationInterpolator264.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator264.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator264.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator264);
 
 OrientationInterpolator& OrientationInterpolator265 =  OrientationInterpolator();
 OrientationInterpolator265.setDEF(std::string("vt10_RotationInterpolator"));
-OrientationInterpolator265.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator265.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator265.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator265);
 
 OrientationInterpolator& OrientationInterpolator266 =  OrientationInterpolator();
 OrientationInterpolator266.setDEF(std::string("vt9_RotationInterpolator"));
-OrientationInterpolator266.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator266.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator266.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator266);
 
 OrientationInterpolator& OrientationInterpolator267 =  OrientationInterpolator();
 OrientationInterpolator267.setDEF(std::string("vt8_RotationInterpolator"));
-OrientationInterpolator267.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator267.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator267.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator267);
 
 OrientationInterpolator& OrientationInterpolator268 =  OrientationInterpolator();
 OrientationInterpolator268.setDEF(std::string("vt7_RotationInterpolator"));
-OrientationInterpolator268.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator268.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator268.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator268);
 
 OrientationInterpolator& OrientationInterpolator269 =  OrientationInterpolator();
 OrientationInterpolator269.setDEF(std::string("vt6_RotationInterpolator"));
-OrientationInterpolator269.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator269.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator269.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator269);
 
 OrientationInterpolator& OrientationInterpolator270 =  OrientationInterpolator();
 OrientationInterpolator270.setDEF(std::string("vt5_RotationInterpolator"));
-OrientationInterpolator270.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator270.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator270.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator270);
 
 OrientationInterpolator& OrientationInterpolator271 =  OrientationInterpolator();
 OrientationInterpolator271.setDEF(std::string("vt4_RotationInterpolator"));
-OrientationInterpolator271.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator271.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator271.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator271);
 
 OrientationInterpolator& OrientationInterpolator272 =  OrientationInterpolator();
 OrientationInterpolator272.setDEF(std::string("vt3_RotationInterpolator"));
-OrientationInterpolator272.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator272.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator272.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator272);
 
 OrientationInterpolator& OrientationInterpolator273 =  OrientationInterpolator();
 OrientationInterpolator273.setDEF(std::string("vt2_RotationInterpolator"));
-OrientationInterpolator273.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator273.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator273.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator273);
 
 OrientationInterpolator& OrientationInterpolator274 =  OrientationInterpolator();
 OrientationInterpolator274.setDEF(std::string("vt1_RotationInterpolator"));
-OrientationInterpolator274.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator274.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator274.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator274);
 
 OrientationInterpolator& OrientationInterpolator275 =  OrientationInterpolator();
 OrientationInterpolator275.setDEF(std::string("vc7_RotationInterpolator"));
-OrientationInterpolator275.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator275.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator275.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator275);
 
 OrientationInterpolator& OrientationInterpolator276 =  OrientationInterpolator();
 OrientationInterpolator276.setDEF(std::string("vc6_RotationInterpolator"));
-OrientationInterpolator276.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator276.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator276.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator276);
 
 OrientationInterpolator& OrientationInterpolator277 =  OrientationInterpolator();
 OrientationInterpolator277.setDEF(std::string("vc5_RotationInterpolator"));
-OrientationInterpolator277.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator277.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator277.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator277);
 
 OrientationInterpolator& OrientationInterpolator278 =  OrientationInterpolator();
 OrientationInterpolator278.setDEF(std::string("vc4_RotationInterpolator"));
-OrientationInterpolator278.setKey(new float[]{0.0,0.3,0.4,1.0});
+OrientationInterpolator278.setKey(new float[]{0.0,0.3,0.4,1.0}, 4);
 OrientationInterpolator278.setKeyValue(new float[]{1.0,0.0,1.0,0.25,-1.0,0.0,-1.0,0.35,1.0,0.0,0.0,0.75,1.0,0.0,1.0,0.5}, 16);
 Group241.addChild(&OrientationInterpolator278);
 
 OrientationInterpolator& OrientationInterpolator279 =  OrientationInterpolator();
 OrientationInterpolator279.setDEF(std::string("vc3_RotationInterpolator"));
-OrientationInterpolator279.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator279.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator279.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator279);
 
 OrientationInterpolator& OrientationInterpolator280 =  OrientationInterpolator();
 OrientationInterpolator280.setDEF(std::string("vc2_RotationInterpolator"));
-OrientationInterpolator280.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator280.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator280.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator280);
 
 OrientationInterpolator& OrientationInterpolator281 =  OrientationInterpolator();
 OrientationInterpolator281.setDEF(std::string("vc1_RotationInterpolator"));
-OrientationInterpolator281.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator281.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator281.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator281);
 
 OrientationInterpolator& OrientationInterpolator282 =  OrientationInterpolator();
 OrientationInterpolator282.setDEF(std::string("skullbase_RotationInterpolator"));
-OrientationInterpolator282.setKey(new float[]{0.0,0.2,0.75,1.0});
+OrientationInterpolator282.setKey(new float[]{0.0,0.2,0.75,1.0}, 4);
 OrientationInterpolator282.setKeyValue(new float[]{0.0,-1.0,0.0,0.5,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.35}, 16);
 Group241.addChild(&OrientationInterpolator282);
 
 OrientationInterpolator& OrientationInterpolator283 =  OrientationInterpolator();
 OrientationInterpolator283.setDEF(std::string("l_eyelid_joint_RotationInterpolator"));
-OrientationInterpolator283.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator283.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator283.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator283);
 
 OrientationInterpolator& OrientationInterpolator284 =  OrientationInterpolator();
 OrientationInterpolator284.setDEF(std::string("l_eyeball_joint_RotationInterpolator"));
-OrientationInterpolator284.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator284.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator284.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator284);
 
 OrientationInterpolator& OrientationInterpolator285 =  OrientationInterpolator();
 OrientationInterpolator285.setDEF(std::string("l_eyebrow_joint_RotationInterpolator"));
-OrientationInterpolator285.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator285.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator285.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator285);
 
 OrientationInterpolator& OrientationInterpolator286 =  OrientationInterpolator();
 OrientationInterpolator286.setDEF(std::string("r_eyelid_joint_RotationInterpolator"));
-OrientationInterpolator286.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator286.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator286.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator286);
 
 OrientationInterpolator& OrientationInterpolator287 =  OrientationInterpolator();
 OrientationInterpolator287.setDEF(std::string("r_eyeball_joint_RotationInterpolator"));
-OrientationInterpolator287.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator287.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator287.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator287);
 
 OrientationInterpolator& OrientationInterpolator288 =  OrientationInterpolator();
 OrientationInterpolator288.setDEF(std::string("r_eyebrow_joint_RotationInterpolator"));
-OrientationInterpolator288.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator288.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator288.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator288);
 
 OrientationInterpolator& OrientationInterpolator289 =  OrientationInterpolator();
 OrientationInterpolator289.setDEF(std::string("temporomandibular_RotationInterpolator"));
-OrientationInterpolator289.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator289.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator289.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator289);
 
 OrientationInterpolator& OrientationInterpolator290 =  OrientationInterpolator();
 OrientationInterpolator290.setDEF(std::string("l_sternoclavicular_RotationInterpolator"));
-OrientationInterpolator290.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator290.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator290.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator290);
 
 OrientationInterpolator& OrientationInterpolator291 =  OrientationInterpolator();
 OrientationInterpolator291.setDEF(std::string("l_acromioclavicular_RotationInterpolator"));
-OrientationInterpolator291.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator291.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator291.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator291);
 
 OrientationInterpolator& OrientationInterpolator292 =  OrientationInterpolator();
 OrientationInterpolator292.setDEF(std::string("l_shoulder_RotationInterpolator"));
-OrientationInterpolator292.setKey(new float[]{0.0,0.4,1.0});
+OrientationInterpolator292.setKey(new float[]{0.0,0.4,1.0}, 3);
 OrientationInterpolator292.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,-1.0,0.0,1.0,1.75}, 12);
 Group241.addChild(&OrientationInterpolator292);
 
 OrientationInterpolator& OrientationInterpolator293 =  OrientationInterpolator();
 OrientationInterpolator293.setDEF(std::string("l_elbow_RotationInterpolator"));
-OrientationInterpolator293.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator293.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator293.setKeyValue(new float[]{-1.0,0.0,0.0,3.0,-1.0,0.0,0.0,0.75,-1.0,-1.0,0.0,0.5}, 12);
 Group241.addChild(&OrientationInterpolator293);
 
 OrientationInterpolator& OrientationInterpolator294 =  OrientationInterpolator();
 OrientationInterpolator294.setDEF(std::string("l_wrist_RotationInterpolator"));
-OrientationInterpolator294.setKey(new float[]{0.0,0.4,0.8,1.0});
+OrientationInterpolator294.setKey(new float[]{0.0,0.4,0.8,1.0}, 4);
 OrientationInterpolator294.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.3,0.0,-0.5,1.0,1.3,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator294);
 
 OrientationInterpolator& OrientationInterpolator295 =  OrientationInterpolator();
 OrientationInterpolator295.setDEF(std::string("l_thumb1_RotationInterpolator"));
-OrientationInterpolator295.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator295.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator295.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator295);
 
 OrientationInterpolator& OrientationInterpolator296 =  OrientationInterpolator();
 OrientationInterpolator296.setDEF(std::string("l_thumb2_RotationInterpolator"));
-OrientationInterpolator296.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator296.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator296.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator296);
 
 OrientationInterpolator& OrientationInterpolator297 =  OrientationInterpolator();
 OrientationInterpolator297.setDEF(std::string("l_thumb3_RotationInterpolator"));
-OrientationInterpolator297.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator297.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator297.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator297);
 
 OrientationInterpolator& OrientationInterpolator298 =  OrientationInterpolator();
 OrientationInterpolator298.setDEF(std::string("l_index0_RotationInterpolator"));
-OrientationInterpolator298.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator298.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator298.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator298);
 
 OrientationInterpolator& OrientationInterpolator299 =  OrientationInterpolator();
 OrientationInterpolator299.setDEF(std::string("l_index1_RotationInterpolator"));
-OrientationInterpolator299.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator299.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator299.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator299);
 
 OrientationInterpolator& OrientationInterpolator300 =  OrientationInterpolator();
 OrientationInterpolator300.setDEF(std::string("l_index2_RotationInterpolator"));
-OrientationInterpolator300.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator300.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator300.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator300);
 
 OrientationInterpolator& OrientationInterpolator301 =  OrientationInterpolator();
 OrientationInterpolator301.setDEF(std::string("l_index3_RotationInterpolator"));
-OrientationInterpolator301.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator301.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator301.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator301);
 
 OrientationInterpolator& OrientationInterpolator302 =  OrientationInterpolator();
 OrientationInterpolator302.setDEF(std::string("l_middle0_RotationInterpolator"));
-OrientationInterpolator302.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator302.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator302.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator302);
 
 OrientationInterpolator& OrientationInterpolator303 =  OrientationInterpolator();
 OrientationInterpolator303.setDEF(std::string("l_middle1_RotationInterpolator"));
-OrientationInterpolator303.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator303.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator303.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator303);
 
 OrientationInterpolator& OrientationInterpolator304 =  OrientationInterpolator();
 OrientationInterpolator304.setDEF(std::string("l_middle2_RotationInterpolator"));
-OrientationInterpolator304.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator304.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator304.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator304);
 
 OrientationInterpolator& OrientationInterpolator305 =  OrientationInterpolator();
 OrientationInterpolator305.setDEF(std::string("l_middle3_RotationInterpolator"));
-OrientationInterpolator305.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator305.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator305.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator305);
 
 OrientationInterpolator& OrientationInterpolator306 =  OrientationInterpolator();
 OrientationInterpolator306.setDEF(std::string("l_ring0_RotationInterpolator"));
-OrientationInterpolator306.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator306.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator306.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator306);
 
 OrientationInterpolator& OrientationInterpolator307 =  OrientationInterpolator();
 OrientationInterpolator307.setDEF(std::string("l_ring1_RotationInterpolator"));
-OrientationInterpolator307.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator307.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator307.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator307);
 
 OrientationInterpolator& OrientationInterpolator308 =  OrientationInterpolator();
 OrientationInterpolator308.setDEF(std::string("l_ring2_RotationInterpolator"));
-OrientationInterpolator308.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator308.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator308.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator308);
 
 OrientationInterpolator& OrientationInterpolator309 =  OrientationInterpolator();
 OrientationInterpolator309.setDEF(std::string("l_ring3_RotationInterpolator"));
-OrientationInterpolator309.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator309.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator309.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator309);
 
 OrientationInterpolator& OrientationInterpolator310 =  OrientationInterpolator();
 OrientationInterpolator310.setDEF(std::string("l_pinky0_RotationInterpolator"));
-OrientationInterpolator310.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator310.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator310.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator310);
 
 OrientationInterpolator& OrientationInterpolator311 =  OrientationInterpolator();
 OrientationInterpolator311.setDEF(std::string("l_pinky1_RotationInterpolator"));
-OrientationInterpolator311.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator311.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator311.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator311);
 
 OrientationInterpolator& OrientationInterpolator312 =  OrientationInterpolator();
 OrientationInterpolator312.setDEF(std::string("l_pinky2_RotationInterpolator"));
-OrientationInterpolator312.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator312.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator312.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator312);
 
 OrientationInterpolator& OrientationInterpolator313 =  OrientationInterpolator();
 OrientationInterpolator313.setDEF(std::string("l_pinky3_RotationInterpolator"));
-OrientationInterpolator313.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator313.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator313.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator313);
 
 OrientationInterpolator& OrientationInterpolator314 =  OrientationInterpolator();
 OrientationInterpolator314.setDEF(std::string("r_sternoclavicular_RotationInterpolator"));
-OrientationInterpolator314.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator314.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator314.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator314);
 
 OrientationInterpolator& OrientationInterpolator315 =  OrientationInterpolator();
 OrientationInterpolator315.setDEF(std::string("r_acromioclavicular_RotationInterpolator"));
-OrientationInterpolator315.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator315.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator315.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator315);
 
 OrientationInterpolator& OrientationInterpolator316 =  OrientationInterpolator();
 OrientationInterpolator316.setDEF(std::string("r_shoulder_RotationInterpolator"));
-OrientationInterpolator316.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator316.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator316.setKeyValue(new float[]{0.0,0.0,-1.0,2.5,0.0,0.0,-1.0,1.5,0.0,0.0,-1.0,1.75}, 12);
 Group241.addChild(&OrientationInterpolator316);
 
 OrientationInterpolator& OrientationInterpolator317 =  OrientationInterpolator();
 OrientationInterpolator317.setDEF(std::string("r_elbow_RotationInterpolator"));
-OrientationInterpolator317.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator317.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator317.setKeyValue(new float[]{-1.0,0.0,0.0,3.0,-1.0,0.0,0.0,0.75,-1.0,-1.0,0.0,0.5}, 12);
 Group241.addChild(&OrientationInterpolator317);
 
 OrientationInterpolator& OrientationInterpolator318 =  OrientationInterpolator();
 OrientationInterpolator318.setDEF(std::string("r_wrist_RotationInterpolator"));
-OrientationInterpolator318.setKey(new float[]{0.0,0.5,0.7,1.0});
+OrientationInterpolator318.setKey(new float[]{0.0,0.5,0.7,1.0}, 4);
 OrientationInterpolator318.setKeyValue(new float[]{0.0,1.0,0.0,0.3,0.0,0.0,1.0,0.0,0.0,0.0,-1.0,1.0,0.0,-1.0,0.0,0.3}, 16);
 Group241.addChild(&OrientationInterpolator318);
 
 OrientationInterpolator& OrientationInterpolator319 =  OrientationInterpolator();
 OrientationInterpolator319.setDEF(std::string("r_thumb1_RotationInterpolator"));
-OrientationInterpolator319.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator319.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator319.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator319);
 
 OrientationInterpolator& OrientationInterpolator320 =  OrientationInterpolator();
 OrientationInterpolator320.setDEF(std::string("r_thumb2_RotationInterpolator"));
-OrientationInterpolator320.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator320.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator320.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator320);
 
 OrientationInterpolator& OrientationInterpolator321 =  OrientationInterpolator();
 OrientationInterpolator321.setDEF(std::string("r_thumb3_RotationInterpolator"));
-OrientationInterpolator321.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator321.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator321.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0}, 12);
 Group241.addChild(&OrientationInterpolator321);
 
 OrientationInterpolator& OrientationInterpolator322 =  OrientationInterpolator();
 OrientationInterpolator322.setDEF(std::string("r_index0_RotationInterpolator"));
-OrientationInterpolator322.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator322.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator322.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator322);
 
 OrientationInterpolator& OrientationInterpolator323 =  OrientationInterpolator();
 OrientationInterpolator323.setDEF(std::string("r_index1_RotationInterpolator"));
-OrientationInterpolator323.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator323.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator323.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator323);
 
 OrientationInterpolator& OrientationInterpolator324 =  OrientationInterpolator();
 OrientationInterpolator324.setDEF(std::string("r_index2_RotationInterpolator"));
-OrientationInterpolator324.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator324.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator324.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator324);
 
 OrientationInterpolator& OrientationInterpolator325 =  OrientationInterpolator();
 OrientationInterpolator325.setDEF(std::string("r_index3_RotationInterpolator"));
-OrientationInterpolator325.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator325.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator325.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator325);
 
 OrientationInterpolator& OrientationInterpolator326 =  OrientationInterpolator();
 OrientationInterpolator326.setDEF(std::string("r_middle0_RotationInterpolator"));
-OrientationInterpolator326.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator326.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator326.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator326);
 
 OrientationInterpolator& OrientationInterpolator327 =  OrientationInterpolator();
 OrientationInterpolator327.setDEF(std::string("r_middle1_RotationInterpolator"));
-OrientationInterpolator327.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator327.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator327.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator327);
 
 OrientationInterpolator& OrientationInterpolator328 =  OrientationInterpolator();
 OrientationInterpolator328.setDEF(std::string("r_middle2_RotationInterpolator"));
-OrientationInterpolator328.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator328.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator328.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator328);
 
 OrientationInterpolator& OrientationInterpolator329 =  OrientationInterpolator();
 OrientationInterpolator329.setDEF(std::string("r_middle3_RotationInterpolator"));
-OrientationInterpolator329.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator329.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator329.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator329);
 
 OrientationInterpolator& OrientationInterpolator330 =  OrientationInterpolator();
 OrientationInterpolator330.setDEF(std::string("r_ring0_RotationInterpolator"));
-OrientationInterpolator330.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator330.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator330.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator330);
 
 OrientationInterpolator& OrientationInterpolator331 =  OrientationInterpolator();
 OrientationInterpolator331.setDEF(std::string("r_ring1_RotationInterpolator"));
-OrientationInterpolator331.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator331.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator331.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator331);
 
 OrientationInterpolator& OrientationInterpolator332 =  OrientationInterpolator();
 OrientationInterpolator332.setDEF(std::string("r_ring2_RotationInterpolator"));
-OrientationInterpolator332.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator332.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator332.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator332);
 
 OrientationInterpolator& OrientationInterpolator333 =  OrientationInterpolator();
 OrientationInterpolator333.setDEF(std::string("r_ring3_RotationInterpolator"));
-OrientationInterpolator333.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator333.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator333.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator333);
 
 OrientationInterpolator& OrientationInterpolator334 =  OrientationInterpolator();
 OrientationInterpolator334.setDEF(std::string("r_pinky0_RotationInterpolator"));
-OrientationInterpolator334.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator334.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator334.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator334);
 
 OrientationInterpolator& OrientationInterpolator335 =  OrientationInterpolator();
 OrientationInterpolator335.setDEF(std::string("r_pinky1_RotationInterpolator"));
-OrientationInterpolator335.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator335.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator335.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator335);
 
 OrientationInterpolator& OrientationInterpolator336 =  OrientationInterpolator();
 OrientationInterpolator336.setDEF(std::string("r_pinky2_RotationInterpolator"));
-OrientationInterpolator336.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator336.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator336.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator336);
 
 OrientationInterpolator& OrientationInterpolator337 =  OrientationInterpolator();
 OrientationInterpolator337.setDEF(std::string("r_pinky3_RotationInterpolator"));
-OrientationInterpolator337.setKey(new float[]{0.0,0.5,0.75,1.0});
+OrientationInterpolator337.setKey(new float[]{0.0,0.5,0.75,1.0}, 4);
 OrientationInterpolator337.setKeyValue(new float[]{0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1.5,0.0,0.0,1.0,0.0}, 16);
 Group241.addChild(&OrientationInterpolator337);
 
@@ -3383,8 +3383,8 @@ Group& Group528 =  Group();
 Group528.setDEF(std::string("DisplacersAnimationGroup"));
 ScalarInterpolator& ScalarInterpolator529 =  ScalarInterpolator();
 ScalarInterpolator529.setDEF(std::string("skull_tipInterpolator"));
-ScalarInterpolator529.setKey(new float[]{0.0,0.1,0.2,0.35,0.6,0.7,0.85,0.88,0.94,0.97,1.0});
-ScalarInterpolator529.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.2,0.4,1.0,0.0,1.0,0.4,0.0});
+ScalarInterpolator529.setKey(new float[]{0.0,0.1,0.2,0.35,0.6,0.7,0.85,0.88,0.94,0.97,1.0}, 11);
+ScalarInterpolator529.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.2,0.4,1.0,0.0,1.0,0.4,0.0}, 11);
 Group528.addChild(&ScalarInterpolator529);
 
 ROUTE& ROUTE530 =  ROUTE();
@@ -3407,8 +3407,8 @@ Group& Group532 =  Group();
 Group532.setDEF(std::string("SkinTextureTransformAnimationGroup"));
 ScalarInterpolator& ScalarInterpolator533 =  ScalarInterpolator();
 ScalarInterpolator533.setDEF(std::string("SkinInterpolator"));
-ScalarInterpolator533.setKey(new float[]{0.0,0.2,0.4,0.5,0.6,0.7,0.8,1.0});
-ScalarInterpolator533.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0});
+ScalarInterpolator533.setKey(new float[]{0.0,0.2,0.4,0.5,0.6,0.7,0.8,1.0}, 8);
+ScalarInterpolator533.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0}, 8);
 Group532.addChild(&ScalarInterpolator533);
 
 ROUTE& ROUTE534 =  ROUTE();
@@ -3474,13 +3474,13 @@ Group536.addChild(&Transform537);
 //Ball Animation interpolators
 PositionInterpolator& PositionInterpolator545 =  PositionInterpolator();
 PositionInterpolator545.setDEF(std::string("ball_TranslationInterpolator"));
-PositionInterpolator545.setKey(new float[]{0.0,0.4,0.409,1.0});
+PositionInterpolator545.setKey(new float[]{0.0,0.4,0.409,1.0}, 4);
 PositionInterpolator545.setKeyValue(new float[]{-1.0,0.4,-1.0,0.0,0.07,0.0,0.05,0.06,0.05,2.0,4.0,10.0}, 12);
 Group536.addChild(&PositionInterpolator545);
 
 OrientationInterpolator& OrientationInterpolator546 =  OrientationInterpolator();
 OrientationInterpolator546.setDEF(std::string("ball_RotationInterpolator"));
-OrientationInterpolator546.setKey(new float[]{0.0,0.4,0.41,0.71,1.0});
+OrientationInterpolator546.setKey(new float[]{0.0,0.4,0.41,0.71,1.0}, 5);
 OrientationInterpolator546.setKeyValue(new float[]{1.0,0.0,1.0,0.25,-1.0,0.0,-1.0,1.35,-1.0,1.0,-1.0,3.35,-1.0,0.2,-1.0,3.0,-1.0,0.2,-1.0,3.0}, 20);
 Group536.addChild(&OrientationInterpolator546);
 
@@ -3610,4 +3610,4 @@ Scene18.addChild(&Group551);
 
 X3D0.setScene(&Scene18);
 
-}
+//}

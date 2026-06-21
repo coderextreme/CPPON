@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int AllenBox(int argc, char ** argv) {
+//void AllenBox(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -37,9 +37,9 @@ WorldInfo7.setTitle(std::string("AllenBox.x3d"));
 Scene6.addChild(&WorldInfo7);
 
 NavigationInfo& NavigationInfo8 =  NavigationInfo();
-NavigationInfo8.setAvatarSize(new float[]{0.15,1.53,0.75});
+NavigationInfo8.setAvatarSize(new float[]{0.15,1.53,0.75}, 3);
 NavigationInfo8.setSpeed(0.5);
-NavigationInfo8.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo8.setType(new std::string[]{"EXAMINE"}, 1);
 Scene6.addChild(&NavigationInfo8);
 
 Transform& Transform9 =  Transform();
@@ -64,4 +64,4 @@ Scene6.addChild(&Transform9);
 
 X3D0.setScene(&Scene6);
 
-}
+//}

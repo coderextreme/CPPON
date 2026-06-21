@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int bubs(int argc, char ** argv) {
+//void bubs(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -43,7 +43,7 @@ X3D0.setHead(&head1);
 
 Scene& Scene8 =  Scene();
 NavigationInfo& NavigationInfo9 =  NavigationInfo();
-NavigationInfo9.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo9.setType(new std::string[]{"EXAMINE"}, 1);
 Scene8.addChild(&NavigationInfo9);
 
 Viewpoint& Viewpoint10 =  Viewpoint();
@@ -53,12 +53,12 @@ Viewpoint10.setDescription(std::string("Bubbles in action"));
 Scene8.addChild(&Viewpoint10);
 
 Background& Background11 =  Background();
-Background11.setBackUrl((std::string[]){"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
-Background11.setBottomUrl((std::string[]){"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
-Background11.setFrontUrl((std::string[]){"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
-Background11.setLeftUrl((std::string[]){"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
-Background11.setRightUrl((std::string[]){"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
-Background11.setTopUrl((std::string[]){"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
+Background11.setBackUrl(new std::string[]{"../resources/images/BK.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BK.png"}, 2);
+Background11.setBottomUrl(new std::string[]{"../resources/images/BT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/BT.png"}, 2);
+Background11.setFrontUrl(new std::string[]{"../resources/images/FR.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/FR.png"}, 2);
+Background11.setLeftUrl(new std::string[]{"../resources/images/LF.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/LF.png"}, 2);
+Background11.setRightUrl(new std::string[]{"../resources/images/RT.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/RT.png"}, 2);
+Background11.setTopUrl(new std::string[]{"../resources/images/TP.png", "https://coderextreme.net/X3DJSONLD/src/main/resources/images/TP.png"}, 2);
 Scene8.addChild(&Background11);
 
 ProtoDeclare& ProtoDeclare12 =  ProtoDeclare();
@@ -214,4 +214,4 @@ Scene8.addChild(&ProtoInstance32);
 
 X3D0.setScene(&Scene8);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ArtDecoPrototypes(int argc, char ** argv) {
+//void ArtDecoPrototypes(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -635,8 +635,8 @@ Scene13.addChild(&ProtoDeclare117);
 
 Anchor& Anchor120 =  Anchor();
 Anchor120.setDescription(std::string("ArtDecoPrototypeExample"));
-Anchor120.setParameter((std::string[]){"target=_blank"}, 1);
-Anchor120.setUrl((std::string[]){"../data/ArtDecoExamples.json", "../data/ArtDecoExamples.x3d", "ArtDecoExamples.json", "ArtDecoExamples.x3d"}, 4);
+Anchor120.setParameter(new std::string[]{"target=_blank"}, 1);
+Anchor120.setUrl(new std::string[]{"../data/ArtDecoExamples.json", "../data/ArtDecoExamples.x3d", "ArtDecoExamples.json", "ArtDecoExamples.x3d"}, 4);
 Shape& Shape121 =  Shape();
 Appearance& Appearance122 =  Appearance();
 Appearance122.setContainerField("appearance");
@@ -648,10 +648,10 @@ Appearance122.addChild(&Material123);
 Shape121.addChild(&Appearance122);
 
 Text& Text124 =  Text();
-Text124.setString((std::string[]){"ArtDecoExamples.x3d", "is a Materials Prototype declaration file.", "For an example scene using these node,", "click this text and view", "ArtDecoExamples.x3d"}, 5);
+Text124.setString(new std::string[]{"ArtDecoExamples.x3d", "is a Materials Prototype declaration file.", "For an example scene using these node,", "click this text and view", "ArtDecoExamples.x3d"}, 5);
 CFontStyle& FontStyle125 =  CFontStyle();
 FontStyle125.setContainerField("fontStyle");
-FontStyle125.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle125.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle125.setSize(0.8);
 Text124.setFontStyle(&FontStyle125);
 
@@ -663,4 +663,4 @@ Scene13.addChild(&Anchor120);
 
 X3D0.setScene(&Scene13);
 
-}
+//}

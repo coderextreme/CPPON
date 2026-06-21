@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int mobius(int argc, char ** argv) {
+//void mobius(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Interchange"));
 X3D0.setVersion(std::string("4.0"));
@@ -75,13 +75,13 @@ MetadataSet& MetadataSet15 =  MetadataSet();
 MetadataSet15.setContainerField("metadata");
 MetadataString& MetadataString16 =  MetadataString();
 MetadataString16.X3DNode::setName(std::string("INSTANT_PLAYER_MODE"));
-MetadataString16.setValue((std::string[]){"True"}, 1);
+MetadataString16.setValue(new std::string[]{"True"}, 1);
 MetadataString16.setContainerField("value");
 MetadataSet15.setValue((X3DNode *)&MetadataString16);
 
-NurbsPatchSurface13.setMetadata(&MetadataSet15);
+NurbsPatchSurface13.setMetadata(MetadataSet15);
 
-Shape12.setGeometry(NurbsPatchSurface13);
+Shape12.setGeometry(&NurbsPatchSurface13);
 
 Appearance& Appearance17 =  Appearance();
 Appearance17.setContainerField("appearance");
@@ -113,13 +113,13 @@ MetadataSet& MetadataSet22 =  MetadataSet();
 MetadataSet22.setContainerField("metadata");
 MetadataString& MetadataString23 =  MetadataString();
 MetadataString23.X3DNode::setName(std::string("INSTANT_PLAYER_MODE"));
-MetadataString23.setValue((std::string[]){"True"}, 1);
+MetadataString23.setValue(new std::string[]{"True"}, 1);
 MetadataString23.setContainerField("value");
 MetadataSet22.setValue((X3DNode *)&MetadataString23);
 
-NurbsPatchSurface20.setMetadata(&MetadataSet22);
+NurbsPatchSurface20.setMetadata(MetadataSet22);
 
-Shape19.setGeometry(NurbsPatchSurface20);
+Shape19.setGeometry(&NurbsPatchSurface20);
 
 Appearance& Appearance24 =  Appearance();
 Appearance24.setContainerField("appearance");
@@ -151,13 +151,13 @@ MetadataSet& MetadataSet29 =  MetadataSet();
 MetadataSet29.setContainerField("metadata");
 MetadataString& MetadataString30 =  MetadataString();
 MetadataString30.X3DNode::setName(std::string("INSTANT_PLAYER_MODE"));
-MetadataString30.setValue((std::string[]){"True"}, 1);
+MetadataString30.setValue(new std::string[]{"True"}, 1);
 MetadataString30.setContainerField("value");
 MetadataSet29.setValue((X3DNode *)&MetadataString30);
 
-NurbsPatchSurface27.setMetadata(&MetadataSet29);
+NurbsPatchSurface27.setMetadata(MetadataSet29);
 
-Shape26.setGeometry(NurbsPatchSurface27);
+Shape26.setGeometry(&NurbsPatchSurface27);
 
 Appearance& Appearance31 =  Appearance();
 Appearance31.setContainerField("appearance");
@@ -255,4 +255,4 @@ Scene10.addChild(&Group33);
 
 X3D0.setScene(&Scene10);
 
-}
+//}

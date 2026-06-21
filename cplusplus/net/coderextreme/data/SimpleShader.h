@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int SimpleShader(int argc, char ** argv) {
+//void SimpleShader(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -228,7 +228,7 @@ MetadataString& MetadataString47 =  MetadataString();
 MetadataString47.X3DNode::setName(std::string("type"));
 MetadataString47.setDEF(std::string("type"));
 MetadataString47.X3DNode::setReference(std::string("http://titania.create3000.de"));
-MetadataString47.setValue((std::string[]){"EXAMINE"}, 1);
+MetadataString47.setValue(new std::string[]{"EXAMINE"}, 1);
 MetadataString47.setContainerField("value");
 MetadataSet46.setValue((X3DNode *)&MetadataString47);
 
@@ -265,7 +265,7 @@ MetadataSet48.setValue((X3DNode *)&MetadataDouble51);
 
 MetadataSet43.setValue((X3DNode *)&MetadataSet48);
 
-WorldInfo42.setMetadata(&MetadataSet43);
+WorldInfo42.setMetadata(MetadataSet43);
 
 Scene22.addChild(&WorldInfo42);
 
@@ -275,4 +275,4 @@ Scene22.addChild(&ProtoInstance52);
 
 X3D0.setScene(&Scene22);
 
-}
+//}

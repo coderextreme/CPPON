@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int flowers2(int argc, char ** argv) {
+//void flowers2(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -113,7 +113,7 @@ Group23.addChild(&TimeSensor24);
 
 OrientationInterpolator& OrientationInterpolator25 =  OrientationInterpolator();
 OrientationInterpolator25.setDEF(std::string("OrbitPath"));
-OrientationInterpolator25.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator25.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator25.setKeyValue(new float[]{1.0,0.0,0.0,0.0,1.0,0.0,0.0,3.14,1.0,0.0,0.0,6.28}, 12);
 Group23.addChild(&OrientationInterpolator25);
 
@@ -386,4 +386,4 @@ Scene11.addChild(&Group14);
 
 X3D0.setScene(&Scene11);
 
-}
+//}

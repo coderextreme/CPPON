@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int HelloWorldMinimal(int argc, char ** argv) {
+//void HelloWorldMinimal(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -95,11 +95,11 @@ Scene17.addChild(&WorldInfo18);
 
 Shape& Shape19 =  Shape();
 Text& Text20 =  Text();
-Text20.setString((std::string[]){"hello, world"}, 1);
+Text20.setString(new std::string[]{"hello, world"}, 1);
 Shape19.setGeometry(&Text20);
 
 Scene17.addChild(&Shape19);
 
 X3D0.setScene(&Scene17);
 
-}
+//}

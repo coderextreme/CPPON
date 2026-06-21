@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int KoreanCharacterMotionAnnexB01Jin(int argc, char ** argv) {
+//void KoreanCharacterMotionAnnexB01Jin(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -120,7 +120,7 @@ Scene21.addChild(&Viewpoint23);
 HAnimHumanoid& HAnimHumanoid24 =  HAnimHumanoid();
 HAnimHumanoid24.X3DNode::setName(std::string("AnnexB01Jin"));
 HAnimHumanoid24.setDEF(std::string("hanim_AnnexB01Jin"));
-HAnimHumanoid24.setInfo((std::string[]){"humanoidVersion=2.0"}, 1);
+HAnimHumanoid24.setInfo(new std::string[]{"humanoidVersion=2.0"}, 1);
 HAnimHumanoid24.setScale(new float[]{0.0225,0.0225,0.0225});
 HAnimHumanoid24.setVersion(std::string("2.0"));
 HAnimJoint& HAnimJoint25 =  HAnimJoint();
@@ -144,7 +144,7 @@ Appearance29.addChild(&Material30);
 ImageTexture& ImageTexture31 =  ImageTexture();
 ImageTexture31.setContainerField("texture");
 ImageTexture31.setDEF(std::string("Annex01JinTextureAtlas"));
-ImageTexture31.setUrl((std::string[]){"Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Specifications/Jin.png"}, 2);
+ImageTexture31.setUrl(new std::string[]{"Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Specifications/Jin.png"}, 2);
 Appearance29.addChild(&ImageTexture31);
 
 Shape28.addChild(&Appearance29);
@@ -983,115 +983,115 @@ Group205.addChild(&TimeSensor206);
 
 PositionInterpolator& PositionInterpolator207 =  PositionInterpolator();
 PositionInterpolator207.setDEF(std::string("Keyframe_HumanoidRootTranslation"));
-PositionInterpolator207.setKey(new float[]{0.0,1.0});
+PositionInterpolator207.setKey(new float[]{0.0,1.0}, 2);
 PositionInterpolator207.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0}, 6);
 Group205.addChild(&PositionInterpolator207);
 
 OrientationInterpolator& OrientationInterpolator208 =  OrientationInterpolator();
 OrientationInterpolator208.setDEF(std::string("Keyframe_HumanoidRootOrientation"));
-OrientationInterpolator208.setKey(new float[]{0.0,1.0});
+OrientationInterpolator208.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator208.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator208);
 
 OrientationInterpolator& OrientationInterpolator209 =  OrientationInterpolator();
 OrientationInterpolator209.setDEF(std::string("Keyframe_sacroiliac"));
-OrientationInterpolator209.setKey(new float[]{0.0,1.0});
+OrientationInterpolator209.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator209.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator209);
 
 OrientationInterpolator& OrientationInterpolator210 =  OrientationInterpolator();
 OrientationInterpolator210.setDEF(std::string("Keyframe_l_shoulder"));
-OrientationInterpolator210.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator210.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator210.setKeyValue(new float[]{0.0,0.0,0.0,0.0,-1.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0}, 12);
 Group205.addChild(&OrientationInterpolator210);
 
 OrientationInterpolator& OrientationInterpolator211 =  OrientationInterpolator();
 OrientationInterpolator211.setDEF(std::string("Keyframe_l_elbow"));
-OrientationInterpolator211.setKey(new float[]{0.0,1.0});
+OrientationInterpolator211.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator211.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator211);
 
 OrientationInterpolator& OrientationInterpolator212 =  OrientationInterpolator();
 OrientationInterpolator212.setDEF(std::string("Keyframe_l_radiocarpal"));
-OrientationInterpolator212.setKey(new float[]{0.0,1.0});
+OrientationInterpolator212.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator212.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator212);
 
 OrientationInterpolator& OrientationInterpolator213 =  OrientationInterpolator();
 OrientationInterpolator213.setDEF(std::string("Keyframe_r_shoulder"));
-OrientationInterpolator213.setKey(new float[]{0.0,0.5,1.0});
+OrientationInterpolator213.setKey(new float[]{0.0,0.5,1.0}, 3);
 OrientationInterpolator213.setKeyValue(new float[]{0.0,0.0,0.0,0.0,-1.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0}, 12);
 Group205.addChild(&OrientationInterpolator213);
 
 OrientationInterpolator& OrientationInterpolator214 =  OrientationInterpolator();
 OrientationInterpolator214.setDEF(std::string("Keyframe_r_elbow"));
-OrientationInterpolator214.setKey(new float[]{0.0,1.0});
+OrientationInterpolator214.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator214.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator214);
 
 OrientationInterpolator& OrientationInterpolator215 =  OrientationInterpolator();
 OrientationInterpolator215.setDEF(std::string("Keyframe_r_radiocarpal"));
-OrientationInterpolator215.setKey(new float[]{0.0,1.0});
+OrientationInterpolator215.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator215.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator215);
 
 OrientationInterpolator& OrientationInterpolator216 =  OrientationInterpolator();
 OrientationInterpolator216.setDEF(std::string("Keyframe_vl5"));
-OrientationInterpolator216.setKey(new float[]{0.0,1.0});
+OrientationInterpolator216.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator216.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator216);
 
 OrientationInterpolator& OrientationInterpolator217 =  OrientationInterpolator();
 OrientationInterpolator217.setDEF(std::string("Keyframe_skullbase"));
-OrientationInterpolator217.setKey(new float[]{0.0,1.0});
+OrientationInterpolator217.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator217.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator217);
 
 OrientationInterpolator& OrientationInterpolator218 =  OrientationInterpolator();
 OrientationInterpolator218.setDEF(std::string("Keyframe_l_hip"));
-OrientationInterpolator218.setKey(new float[]{0.0,1.0});
+OrientationInterpolator218.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator218.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator218);
 
 OrientationInterpolator& OrientationInterpolator219 =  OrientationInterpolator();
 OrientationInterpolator219.setDEF(std::string("Keyframe_l_knee"));
-OrientationInterpolator219.setKey(new float[]{0.0,1.0});
+OrientationInterpolator219.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator219.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator219);
 
 OrientationInterpolator& OrientationInterpolator220 =  OrientationInterpolator();
 OrientationInterpolator220.setDEF(std::string("Keyframe_l_talocrural"));
-OrientationInterpolator220.setKey(new float[]{0.0,1.0});
+OrientationInterpolator220.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator220.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator220);
 
 OrientationInterpolator& OrientationInterpolator221 =  OrientationInterpolator();
 OrientationInterpolator221.setDEF(std::string("Keyframe_l_metatarsophalangeal"));
-OrientationInterpolator221.setKey(new float[]{0.0,1.0});
+OrientationInterpolator221.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator221.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator221);
 
 OrientationInterpolator& OrientationInterpolator222 =  OrientationInterpolator();
 OrientationInterpolator222.setDEF(std::string("Keyframe_r_hip"));
-OrientationInterpolator222.setKey(new float[]{0.0,1.0});
+OrientationInterpolator222.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator222.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator222);
 
 OrientationInterpolator& OrientationInterpolator223 =  OrientationInterpolator();
 OrientationInterpolator223.setDEF(std::string("Keyframe_r_knee"));
-OrientationInterpolator223.setKey(new float[]{0.0,1.0});
+OrientationInterpolator223.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator223.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator223);
 
 OrientationInterpolator& OrientationInterpolator224 =  OrientationInterpolator();
 OrientationInterpolator224.setDEF(std::string("Keyframe_r_talocrural"));
-OrientationInterpolator224.setKey(new float[]{0.0,1.0});
+OrientationInterpolator224.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator224.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator224);
 
 OrientationInterpolator& OrientationInterpolator225 =  OrientationInterpolator();
 OrientationInterpolator225.setDEF(std::string("Keyframe_r_metatarsophalangeal"));
-OrientationInterpolator225.setKey(new float[]{0.0,1.0});
+OrientationInterpolator225.setKey(new float[]{0.0,1.0}, 2);
 OrientationInterpolator225.setKeyValue(new float[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}, 8);
 Group205.addChild(&OrientationInterpolator225);
 
@@ -1365,4 +1365,4 @@ Scene21.addChild(&Group205);
 
 X3D0.setScene(&Scene21);
 
-}
+//}

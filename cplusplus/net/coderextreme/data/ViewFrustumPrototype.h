@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int ViewFrustumPrototype(int argc, char ** argv) {
+//void ViewFrustumPrototype(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -239,7 +239,7 @@ ProtoBody27.addChild(&Switch28);
 Script& Script48 =  Script();
 Script48.setDEF(std::string("GeometryComputationScript"));
 Script48.setDirectOutput(true);
-Script48.setUrl((std::string[]){"ViewFrustumPrototypeScript.js"}, 1);
+Script48.setUrl(new std::string[]{"ViewFrustumPrototypeScript.js"}, 1);
 field& field49 =  field();
 field49.setName(std::string("visible"));
 field49.setAccessType(std::string("inputOutput"));
@@ -416,7 +416,7 @@ Scene15.addChild(&ProtoDeclare17);
 //Example use is in separate scene
 Anchor& Anchor77 =  Anchor();
 Anchor77.setDescription(std::string("ViewFrustum Example"));
-Anchor77.setUrl((std::string[]){"ViewFrustumExample.x3d"}, 1);
+Anchor77.setUrl(new std::string[]{"ViewFrustumExample.x3d"}, 1);
 Shape& Shape78 =  Shape();
 Appearance& Appearance79 =  Appearance();
 Appearance79.setContainerField("appearance");
@@ -428,10 +428,10 @@ Appearance79.addChild(&Material80);
 Shape78.addChild(&Appearance79);
 
 Text& Text81 =  Text();
-Text81.setString((std::string[]){"ViewFrustumPrototype.x3d", "is a Prototype declaration file.", "For an example scene using the prototype,", "click this text and view", "ViewFrustumExample.x3d"}, 5);
+Text81.setString(new std::string[]{"ViewFrustumPrototype.x3d", "is a Prototype declaration file.", "For an example scene using the prototype,", "click this text and view", "ViewFrustumExample.x3d"}, 5);
 CFontStyle& FontStyle82 =  CFontStyle();
 FontStyle82.setContainerField("fontStyle");
-FontStyle82.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle82.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 FontStyle82.setSize(0.8);
 Text81.setFontStyle(&FontStyle82);
 
@@ -443,4 +443,4 @@ Scene15.addChild(&Anchor77);
 
 X3D0.setScene(&Scene15);
 
-}
+//}

@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int JinLOA1(int argc, char ** argv) {
+//void JinLOA1(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -128,47 +128,47 @@ MetadataSet25.X3DNode::setName(std::string("HAnimHumanoid.info"));
 MetadataSet25.X3DNode::setReference(std::string("https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid"));
 MetadataString& MetadataString26 =  MetadataString();
 MetadataString26.X3DNode::setName(std::string("authorName"));
-MetadataString26.setValue((std::string[]){"Jin Hoon Lee and Min Joo Lee, Chul Hee Jung and Myeong Won Lee"}, 1);
+MetadataString26.setValue(new std::string[]{"Jin Hoon Lee and Min Joo Lee, Chul Hee Jung and Myeong Won Lee"}, 1);
 MetadataString26.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString26);
 
 MetadataString& MetadataString27 =  MetadataString();
 MetadataString27.X3DNode::setName(std::string("authorEmail"));
-MetadataString27.setValue((std::string[]){"myeongwonlee@gmail.com"}, 1);
+MetadataString27.setValue(new std::string[]{"myeongwonlee@gmail.com"}, 1);
 MetadataString27.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString27);
 
 MetadataString& MetadataString28 =  MetadataString();
 MetadataString28.X3DNode::setName(std::string("creationDate"));
-MetadataString28.setValue((std::string[]){"31 March 2011"}, 1);
+MetadataString28.setValue(new std::string[]{"31 March 2011"}, 1);
 MetadataString28.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString28);
 
 MetadataString& MetadataString29 =  MetadataString();
 MetadataString29.X3DNode::setName(std::string("gender"));
-MetadataString29.setValue((std::string[]){"female"}, 1);
+MetadataString29.setValue(new std::string[]{"female"}, 1);
 MetadataString29.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString29);
 
 MetadataFloat& MetadataFloat30 =  MetadataFloat();
 MetadataFloat30.X3DNode::setName(std::string("height"));
-MetadataFloat30.setValue(new float[]{1.5});
+MetadataFloat30.setValue(new float[]{1.5}, 1);
 MetadataFloat30.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataFloat30);
 
 MetadataFloat& MetadataFloat31 =  MetadataFloat();
 MetadataFloat31.X3DNode::setName(std::string("weight"));
-MetadataFloat31.setValue(new float[]{50.0});
+MetadataFloat31.setValue(new float[]{50.0}, 1);
 MetadataFloat31.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataFloat31);
 
 MetadataString& MetadataString32 =  MetadataString();
 MetadataString32.X3DNode::setName(std::string("humanoidVersion"));
-MetadataString32.setValue((std::string[]){"validation testing"}, 1);
+MetadataString32.setValue(new std::string[]{"validation testing"}, 1);
 MetadataString32.setContainerField("value");
 MetadataSet25.setValue((X3DNode *)&MetadataString32);
 
-HAnimHumanoid24.setMetadata(&MetadataSet25);
+HAnimHumanoid24.setMetadata(MetadataSet25);
 
 HAnimJoint& HAnimJoint33 =  HAnimJoint();
 HAnimJoint33.X3DNode::setName(std::string("humanoid_root"));
@@ -191,7 +191,7 @@ Appearance37.addChild(&Material38);
 ImageTexture& ImageTexture39 =  ImageTexture();
 ImageTexture39.setContainerField("texture");
 ImageTexture39.setDEF(std::string("JinLOA1TextureAtlas"));
-ImageTexture39.setUrl((std::string[]){"images/Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png"}, 2);
+ImageTexture39.setUrl(new std::string[]{"images/Jin.png", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png"}, 2);
 Appearance37.addChild(&ImageTexture39);
 
 Shape36.addChild(&Appearance37);
@@ -1114,4 +1114,4 @@ Scene20.addChild(&HAnimHumanoid24);
 
 X3D0.setScene(&Scene20);
 
-}
+//}

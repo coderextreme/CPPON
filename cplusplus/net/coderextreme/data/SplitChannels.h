@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int SplitChannels(int argc, char ** argv) {
+//void SplitChannels(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Full"));
 X3D0.setVersion(std::string("4.0"));
@@ -77,7 +77,7 @@ WorldInfo15.setTitle(std::string("SplitChannels.x3d"));
 Scene14.addChild(&WorldInfo15);
 
 NavigationInfo& NavigationInfo16 =  NavigationInfo();
-NavigationInfo16.setType((std::string[]){"NONE"}, 1);
+NavigationInfo16.setType(new std::string[]{"NONE"}, 1);
 Scene14.addChild(&NavigationInfo16);
 
 Background& Background17 =  Background();
@@ -133,7 +133,7 @@ Appearance27.addChild(&Material28);
 
 ImageTexture& ImageTexture29 =  ImageTexture();
 ImageTexture29.setContainerField("texture");
-ImageTexture29.setUrl((std::string[]){"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
+ImageTexture29.setUrl(new std::string[]{"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
 Appearance27.addChild(&ImageTexture29);
 
 Shape26.addChild(&Appearance27);
@@ -165,11 +165,11 @@ Appearance33.addChild(&Material34);
 Shape32.addChild(&Appearance33);
 
 Text& Text35 =  Text();
-Text35.setString((std::string[]){"Right Channel Volume"}, 1);
+Text35.setString(new std::string[]{"Right Channel Volume"}, 1);
 CFontStyle& FontStyle36 =  CFontStyle();
 FontStyle36.setContainerField("fontStyle");
 FontStyle36.setDEF(std::string("VolumeFontStyle"));
-FontStyle36.setFamily((std::string[]){"Times", "SERIF"}, 2);
+FontStyle36.setFamily(new std::string[]{"Times", "SERIF"}, 2);
 FontStyle36.setStyle(std::string("BOLD"));
 Text35.setFontStyle(&FontStyle36);
 
@@ -224,7 +224,7 @@ Appearance45.addChild(&Material46);
 
 ImageTexture& ImageTexture47 =  ImageTexture();
 ImageTexture47.setContainerField("texture");
-ImageTexture47.setUrl((std::string[]){"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
+ImageTexture47.setUrl(new std::string[]{"images/line.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png"}, 2);
 Appearance45.addChild(&ImageTexture47);
 
 Shape44.addChild(&Appearance45);
@@ -256,7 +256,7 @@ Appearance51.addChild(&Material52);
 Shape50.addChild(&Appearance51);
 
 Text& Text53 =  Text();
-Text53.setString((std::string[]){"Left Channel Volume"}, 1);
+Text53.setString(new std::string[]{"Left Channel Volume"}, 1);
 CFontStyle& FontStyle54 =  CFontStyle();
 FontStyle54.setContainerField("fontStyle");
 FontStyle54.setUSE(std::string("VolumeFontStyle"));
@@ -325,7 +325,7 @@ ChannelSplitter68.setDEF(std::string("ChannelSplitter"));
 ChannelSplitter68.setChannelCountMode(std::string("EXPLICIT"));
 AudioClip& AudioClip69 =  AudioClip();
 AudioClip69.setDescription(std::string("Violin"));
-AudioClip69.setUrl((std::string[]){"sound/violin.mp3", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
+AudioClip69.setUrl(new std::string[]{"sound/violin.mp3", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/violin.mp3"}, 2);
 ChannelSplitter68.addOutputs(AudioClip69);
 
 Scene14.addChild(&ChannelSplitter68);
@@ -347,7 +347,7 @@ Appearance72.addChild(&Material73);
 
 ImageTexture& ImageTexture74 =  ImageTexture();
 ImageTexture74.setContainerField("texture");
-ImageTexture74.setUrl((std::string[]){"images/loudspeaker.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/loudspeaker.png"}, 2);
+ImageTexture74.setUrl(new std::string[]{"images/loudspeaker.png", "https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/loudspeaker.png"}, 2);
 Appearance72.addChild(&ImageTexture74);
 
 Shape71.addChild(&Appearance72);
@@ -362,4 +362,4 @@ Scene14.addChild(&Transform70);
 
 X3D0.setScene(&Scene14);
 
-}
+//}

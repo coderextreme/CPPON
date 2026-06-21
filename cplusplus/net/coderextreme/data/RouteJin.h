@@ -4,7 +4,7 @@
 #include <wingdi.h>
 #include <string>
 #include "X3DLib.h"
-int RouteJin(int argc, char ** argv) {
+//void RouteJin(int argc, char ** argv) {
 X3D& X3D0 =  X3D();
 X3D0.setProfile(std::string("Immersive"));
 X3D0.setVersion(std::string("4.0"));
@@ -40,182 +40,182 @@ Scene6.addChild(&TimeSensor7);
 
 ScalarInterpolator& ScalarInterpolator8 =  ScalarInterpolator();
 ScalarInterpolator8.setDEF(std::string("AnimationAdapter_JinBlink"));
-ScalarInterpolator8.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator8.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator8.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator8.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator8);
 
 ScalarInterpolator& ScalarInterpolator9 =  ScalarInterpolator();
 ScalarInterpolator9.setDEF(std::string("AnimationAdapter_JinBrowLowerer"));
-ScalarInterpolator9.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator9.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator9.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator9.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator9);
 
 ScalarInterpolator& ScalarInterpolator10 =  ScalarInterpolator();
 ScalarInterpolator10.setDEF(std::string("AnimationAdapter_JinCheekPuffer"));
-ScalarInterpolator10.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator10.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator10.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator10.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator10);
 
 ScalarInterpolator& ScalarInterpolator11 =  ScalarInterpolator();
 ScalarInterpolator11.setDEF(std::string("AnimationAdapter_JinCheekRaiser"));
-ScalarInterpolator11.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator11.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator11.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator11.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator11);
 
 ScalarInterpolator& ScalarInterpolator12 =  ScalarInterpolator();
 ScalarInterpolator12.setDEF(std::string("AnimationAdapter_JinChinRaiser"));
-ScalarInterpolator12.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator12.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator12.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator12.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator12);
 
 ScalarInterpolator& ScalarInterpolator13 =  ScalarInterpolator();
 ScalarInterpolator13.setDEF(std::string("AnimationAdapter_JinDimpler"));
-ScalarInterpolator13.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator13.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator13.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator13.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator13);
 
 ScalarInterpolator& ScalarInterpolator14 =  ScalarInterpolator();
 ScalarInterpolator14.setDEF(std::string("AnimationAdapter_JinEyesClosed"));
-ScalarInterpolator14.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator14.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator14.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator14.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator14);
 
 ScalarInterpolator& ScalarInterpolator15 =  ScalarInterpolator();
 ScalarInterpolator15.setDEF(std::string("AnimationAdapter_JinInnerBrowRaiser"));
-ScalarInterpolator15.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator15.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator15.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator15.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator15);
 
 ScalarInterpolator& ScalarInterpolator16 =  ScalarInterpolator();
 ScalarInterpolator16.setDEF(std::string("AnimationAdapter_JinJawDrop"));
-ScalarInterpolator16.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator16.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator16.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator16.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator16);
 
 ScalarInterpolator& ScalarInterpolator17 =  ScalarInterpolator();
 ScalarInterpolator17.setDEF(std::string("AnimationAdapter_JinLidDroop"));
-ScalarInterpolator17.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator17.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator17.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator17.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator17);
 
 ScalarInterpolator& ScalarInterpolator18 =  ScalarInterpolator();
 ScalarInterpolator18.setDEF(std::string("AnimationAdapter_JinLidTightener"));
-ScalarInterpolator18.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator18.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator18.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator18.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator18);
 
 ScalarInterpolator& ScalarInterpolator19 =  ScalarInterpolator();
 ScalarInterpolator19.setDEF(std::string("AnimationAdapter_JinLipCornerDepressor"));
-ScalarInterpolator19.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator19.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator19.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator19.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator19);
 
 ScalarInterpolator& ScalarInterpolator20 =  ScalarInterpolator();
 ScalarInterpolator20.setDEF(std::string("AnimationAdapter_JinLipCornerPuller"));
-ScalarInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator20.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator20.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator20.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator20);
 
 ScalarInterpolator& ScalarInterpolator21 =  ScalarInterpolator();
 ScalarInterpolator21.setDEF(std::string("AnimationAdapter_JinLipFunneler"));
-ScalarInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator21.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator21.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator21.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator21);
 
 ScalarInterpolator& ScalarInterpolator22 =  ScalarInterpolator();
 ScalarInterpolator22.setDEF(std::string("AnimationAdapter_JinLipPressor"));
-ScalarInterpolator22.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator22.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator22.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator22.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator22);
 
 ScalarInterpolator& ScalarInterpolator23 =  ScalarInterpolator();
 ScalarInterpolator23.setDEF(std::string("AnimationAdapter_JinLipPuckerer"));
-ScalarInterpolator23.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator23.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator23.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator23.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator23);
 
 ScalarInterpolator& ScalarInterpolator24 =  ScalarInterpolator();
 ScalarInterpolator24.setDEF(std::string("AnimationAdapter_JinLipsPart"));
-ScalarInterpolator24.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator24.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator24.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator24.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator24);
 
 ScalarInterpolator& ScalarInterpolator25 =  ScalarInterpolator();
 ScalarInterpolator25.setDEF(std::string("AnimationAdapter_JinLipStretcher"));
-ScalarInterpolator25.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator25.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator25.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator25.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator25);
 
 ScalarInterpolator& ScalarInterpolator26 =  ScalarInterpolator();
 ScalarInterpolator26.setDEF(std::string("AnimationAdapter_JinLipSuck"));
-ScalarInterpolator26.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator26.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator26.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator26.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator26);
 
 ScalarInterpolator& ScalarInterpolator27 =  ScalarInterpolator();
 ScalarInterpolator27.setDEF(std::string("AnimationAdapter_JinLipTightener"));
-ScalarInterpolator27.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator27.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator27.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator27.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator27);
 
 ScalarInterpolator& ScalarInterpolator28 =  ScalarInterpolator();
 ScalarInterpolator28.setDEF(std::string("AnimationAdapter_JinLowerLipDepressor"));
-ScalarInterpolator28.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator28.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator28.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator28.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator28);
 
 ScalarInterpolator& ScalarInterpolator29 =  ScalarInterpolator();
 ScalarInterpolator29.setDEF(std::string("AnimationAdapter_JinMouthStretch"));
-ScalarInterpolator29.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator29.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator29.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator29.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator29);
 
 ScalarInterpolator& ScalarInterpolator30 =  ScalarInterpolator();
 ScalarInterpolator30.setDEF(std::string("AnimationAdapter_JinNasolabialDeepener"));
-ScalarInterpolator30.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator30.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator30.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator30.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator30);
 
 ScalarInterpolator& ScalarInterpolator31 =  ScalarInterpolator();
 ScalarInterpolator31.setDEF(std::string("AnimationAdapter_JinNoseWrinkler"));
-ScalarInterpolator31.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator31.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator31.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator31.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator31);
 
 ScalarInterpolator& ScalarInterpolator32 =  ScalarInterpolator();
 ScalarInterpolator32.setDEF(std::string("AnimationAdapter_JinOuterBrowRaiser"));
-ScalarInterpolator32.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator32.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator32.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator32.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator32);
 
 ScalarInterpolator& ScalarInterpolator33 =  ScalarInterpolator();
 ScalarInterpolator33.setDEF(std::string("AnimationAdapter_JinSlit"));
-ScalarInterpolator33.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator33.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator33.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator33.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator33);
 
 ScalarInterpolator& ScalarInterpolator34 =  ScalarInterpolator();
 ScalarInterpolator34.setDEF(std::string("AnimationAdapter_JinSquint"));
-ScalarInterpolator34.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator34.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator34.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator34.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator34);
 
 ScalarInterpolator& ScalarInterpolator35 =  ScalarInterpolator();
 ScalarInterpolator35.setDEF(std::string("AnimationAdapter_JinUpperLidRaiser"));
-ScalarInterpolator35.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator35.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator35.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator35.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator35);
 
 ScalarInterpolator& ScalarInterpolator36 =  ScalarInterpolator();
 ScalarInterpolator36.setDEF(std::string("AnimationAdapter_JinUpperLipRaiser"));
-ScalarInterpolator36.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator36.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator36.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator36.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator36);
 
 ScalarInterpolator& ScalarInterpolator37 =  ScalarInterpolator();
 ScalarInterpolator37.setDEF(std::string("AnimationAdapter_JinWink"));
-ScalarInterpolator37.setKey(new float[]{0.0,0.25,0.5,0.75,1.0});
-ScalarInterpolator37.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0});
+ScalarInterpolator37.setKey(new float[]{0.0,0.25,0.5,0.75,1.0}, 5);
+ScalarInterpolator37.setKeyValue(new float[]{0.0,0.5,1.0,0.5,0.0}, 5);
 Scene6.addChild(&ScalarInterpolator37);
 
 Group& Group38 =  Group();
@@ -247,7 +247,7 @@ Background45.setSkyColor(new float[]{0.8,0.9,1.0}, 3);
 HAnimSegment43.addChild(&Background45);
 
 NavigationInfo& NavigationInfo46 =  NavigationInfo();
-NavigationInfo46.setType((std::string[]){"EXAMINE"}, 1);
+NavigationInfo46.setType(new std::string[]{"EXAMINE"}, 1);
 HAnimSegment43.addChild(&NavigationInfo46);
 
 HAnimJoint42.addChildren(&HAnimSegment43);
@@ -273,7 +273,7 @@ Appearance50.addChild(&Material51);
 ImageTexture& ImageTexture52 =  ImageTexture();
 ImageTexture52.setContainerField("texture");
 ImageTexture52.setDEF(std::string("JinImageAtlas_JinBlink"));
-ImageTexture52.setUrl((std::string[]){"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
+ImageTexture52.setUrl(new std::string[]{"JinImageAtlas.jpg", "https://www.web3d.org/x3d/content/examples/HumanoidAnimation/FacialAnimation/JinImageAtlas.jpg"}, 2);
 Appearance50.addChild(&ImageTexture52);
 
 Shape49.addChild(&Appearance50);
@@ -303,7 +303,7 @@ HAnimSegment47.addChild(&Transform48);
 
 Coordinate& Coordinate56 =  Coordinate();
 Coordinate56.setUSE(std::string("Lower_teeth_COORD_JinBlink"));
-HAnimSegment47.setCoord(&Coordinate56);
+HAnimSegment47.setCoord(Coordinate56);
 
 HAnimDisplacer& HAnimDisplacer57 =  HAnimDisplacer();
 HAnimDisplacer57.X3DNode::setName(std::string("lower_teeth_morphinterpolator"));
@@ -553,7 +553,7 @@ HAnimSegment96.addChild(&Transform97);
 
 Coordinate& Coordinate103 =  Coordinate();
 Coordinate103.setUSE(std::string("Center_lower_vermillion_lip_COORD_JinBlink"));
-HAnimSegment96.setCoord(&Coordinate103);
+HAnimSegment96.setCoord(Coordinate103);
 
 HAnimDisplacer& HAnimDisplacer104 =  HAnimDisplacer();
 HAnimDisplacer104.X3DNode::setName(std::string("center_lower_vermillion_lip_morphinterpolator"));
@@ -770,7 +770,7 @@ HAnimSegment134.addChild(&Transform135);
 
 Coordinate& Coordinate141 =  Coordinate();
 Coordinate141.setUSE(std::string("Chin_COORD_JinBlink"));
-HAnimSegment134.setCoord(&Coordinate141);
+HAnimSegment134.setCoord(Coordinate141);
 
 HAnimDisplacer& HAnimDisplacer142 =  HAnimDisplacer();
 HAnimDisplacer142.X3DNode::setName(std::string("chin_morphinterpolator"));
@@ -991,7 +991,7 @@ HAnimSegment172.addChild(&Transform173);
 
 Coordinate& Coordinate179 =  Coordinate();
 Coordinate179.setUSE(std::string("Glabella_COORD_JinBlink"));
-HAnimSegment172.setCoord(&Coordinate179);
+HAnimSegment172.setCoord(Coordinate179);
 
 HAnimDisplacer& HAnimDisplacer180 =  HAnimDisplacer();
 HAnimDisplacer180.X3DNode::setName(std::string("glabella_morphinterpolator"));
@@ -1186,7 +1186,7 @@ HAnimSegment210.addChild(&Transform211);
 
 Coordinate& Coordinate217 =  Coordinate();
 Coordinate217.setUSE(std::string("Left_bulbar_conjunctiva_COORD_JinBlink"));
-HAnimSegment210.setCoord(&Coordinate217);
+HAnimSegment210.setCoord(Coordinate217);
 
 HAnimDisplacer& HAnimDisplacer218 =  HAnimDisplacer();
 HAnimDisplacer218.X3DNode::setName(std::string("left_bulbar_conjunctiva_morphinterpolator"));
@@ -1385,7 +1385,7 @@ HAnimSegment248.addChild(&Transform249);
 
 Coordinate& Coordinate255 =  Coordinate();
 Coordinate255.setUSE(std::string("Left_cheek_COORD_JinBlink"));
-HAnimSegment248.setCoord(&Coordinate255);
+HAnimSegment248.setCoord(Coordinate255);
 
 HAnimDisplacer& HAnimDisplacer256 =  HAnimDisplacer();
 HAnimDisplacer256.X3DNode::setName(std::string("left_cheek_morphinterpolator"));
@@ -1608,7 +1608,7 @@ HAnimSegment286.addChild(&Transform287);
 
 Coordinate& Coordinate293 =  Coordinate();
 Coordinate293.setUSE(std::string("Left_dorsum_COORD_JinBlink"));
-HAnimSegment286.setCoord(&Coordinate293);
+HAnimSegment286.setCoord(Coordinate293);
 
 HAnimDisplacer& HAnimDisplacer294 =  HAnimDisplacer();
 HAnimDisplacer294.X3DNode::setName(std::string("left_dorsum_morphinterpolator"));
@@ -1807,7 +1807,7 @@ HAnimSegment324.addChild(&Transform325);
 
 Coordinate& Coordinate331 =  Coordinate();
 Coordinate331.setUSE(std::string("Left_ear_COORD_JinBlink"));
-HAnimSegment324.setCoord(&Coordinate331);
+HAnimSegment324.setCoord(Coordinate331);
 
 HAnimDisplacer& HAnimDisplacer332 =  HAnimDisplacer();
 HAnimDisplacer332.X3DNode::setName(std::string("left_ear_morphinterpolator"));
@@ -1998,7 +1998,7 @@ HAnimSegment362.addChild(&Transform363);
 
 Coordinate& Coordinate369 =  Coordinate();
 Coordinate369.setUSE(std::string("Left_eyebrow_COORD_JinBlink"));
-HAnimSegment362.setCoord(&Coordinate369);
+HAnimSegment362.setCoord(Coordinate369);
 
 HAnimDisplacer& HAnimDisplacer370 =  HAnimDisplacer();
 HAnimDisplacer370.X3DNode::setName(std::string("left_eyebrow_morphinterpolator"));
@@ -2197,7 +2197,7 @@ HAnimSegment400.addChild(&Transform401);
 
 Coordinate& Coordinate407 =  Coordinate();
 Coordinate407.setUSE(std::string("Left_forehead_COORD_JinBlink"));
-HAnimSegment400.setCoord(&Coordinate407);
+HAnimSegment400.setCoord(Coordinate407);
 
 HAnimDisplacer& HAnimDisplacer408 =  HAnimDisplacer();
 HAnimDisplacer408.X3DNode::setName(std::string("left_forehead_morphinterpolator"));
@@ -2392,7 +2392,7 @@ HAnimSegment438.addChild(&Transform439);
 
 Coordinate& Coordinate445 =  Coordinate();
 Coordinate445.setUSE(std::string("Left_lower_eyelid_COORD_JinBlink"));
-HAnimSegment438.setCoord(&Coordinate445);
+HAnimSegment438.setCoord(Coordinate445);
 
 HAnimDisplacer& HAnimDisplacer446 =  HAnimDisplacer();
 HAnimDisplacer446.X3DNode::setName(std::string("left_lower_eyelid_morphinterpolator"));
@@ -2599,7 +2599,7 @@ HAnimSegment476.addChild(&Transform477);
 
 Coordinate& Coordinate483 =  Coordinate();
 Coordinate483.setUSE(std::string("Left_lower_vermillion_lip_COORD_JinBlink"));
-HAnimSegment476.setCoord(&Coordinate483);
+HAnimSegment476.setCoord(Coordinate483);
 
 HAnimDisplacer& HAnimDisplacer484 =  HAnimDisplacer();
 HAnimDisplacer484.X3DNode::setName(std::string("left_lower_vermillion_lip_morphinterpolator"));
@@ -2820,7 +2820,7 @@ HAnimSegment514.addChild(&Transform515);
 
 Coordinate& Coordinate521 =  Coordinate();
 Coordinate521.setUSE(std::string("Left_nasolabial_cheek_COORD_JinBlink"));
-HAnimSegment514.setCoord(&Coordinate521);
+HAnimSegment514.setCoord(Coordinate521);
 
 HAnimDisplacer& HAnimDisplacer522 =  HAnimDisplacer();
 HAnimDisplacer522.X3DNode::setName(std::string("left_nasolabial_cheek_morphinterpolator"));
@@ -3037,7 +3037,7 @@ HAnimSegment552.addChild(&Transform553);
 
 Coordinate& Coordinate559 =  Coordinate();
 Coordinate559.setUSE(std::string("Left_nostril_COORD_JinBlink"));
-HAnimSegment552.setCoord(&Coordinate559);
+HAnimSegment552.setCoord(Coordinate559);
 
 HAnimDisplacer& HAnimDisplacer560 =  HAnimDisplacer();
 HAnimDisplacer560.X3DNode::setName(std::string("left_nostril_morphinterpolator"));
@@ -3236,7 +3236,7 @@ HAnimSegment590.addChild(&Transform591);
 
 Coordinate& Coordinate597 =  Coordinate();
 Coordinate597.setUSE(std::string("Left_pupil_COORD_JinBlink"));
-HAnimSegment590.setCoord(&Coordinate597);
+HAnimSegment590.setCoord(Coordinate597);
 
 HAnimDisplacer& HAnimDisplacer598 =  HAnimDisplacer();
 HAnimDisplacer598.X3DNode::setName(std::string("left_pupil_morphinterpolator"));
@@ -3433,7 +3433,7 @@ HAnimSegment628.addChild(&Transform629);
 
 Coordinate& Coordinate635 =  Coordinate();
 Coordinate635.setUSE(std::string("Left_temple_COORD_JinBlink"));
-HAnimSegment628.setCoord(&Coordinate635);
+HAnimSegment628.setCoord(Coordinate635);
 
 HAnimDisplacer& HAnimDisplacer636 =  HAnimDisplacer();
 HAnimDisplacer636.X3DNode::setName(std::string("left_temple_morphinterpolator"));
@@ -3628,7 +3628,7 @@ HAnimSegment666.addChild(&Transform667);
 
 Coordinate& Coordinate673 =  Coordinate();
 Coordinate673.setUSE(std::string("Left_upper_cutaneous_lip_COORD_JinBlink"));
-HAnimSegment666.setCoord(&Coordinate673);
+HAnimSegment666.setCoord(Coordinate673);
 
 HAnimDisplacer& HAnimDisplacer674 =  HAnimDisplacer();
 HAnimDisplacer674.X3DNode::setName(std::string("left_upper_cutaneous_lip_morphinterpolator"));
@@ -3841,7 +3841,7 @@ HAnimSegment704.addChild(&Transform705);
 
 Coordinate& Coordinate711 =  Coordinate();
 Coordinate711.setUSE(std::string("Left_upper_eyelid_COORD_JinBlink"));
-HAnimSegment704.setCoord(&Coordinate711);
+HAnimSegment704.setCoord(Coordinate711);
 
 HAnimDisplacer& HAnimDisplacer712 =  HAnimDisplacer();
 HAnimDisplacer712.X3DNode::setName(std::string("left_upper_eyelid_morphinterpolator"));
@@ -4058,7 +4058,7 @@ HAnimSegment742.addChild(&Transform743);
 
 Coordinate& Coordinate749 =  Coordinate();
 Coordinate749.setUSE(std::string("Left_upper_vermillion_lip_COORD_JinBlink"));
-HAnimSegment742.setCoord(&Coordinate749);
+HAnimSegment742.setCoord(Coordinate749);
 
 HAnimDisplacer& HAnimDisplacer750 =  HAnimDisplacer();
 HAnimDisplacer750.X3DNode::setName(std::string("left_upper_vermillion_lip_morphinterpolator"));
@@ -4285,7 +4285,7 @@ HAnimSegment782.addChild(&Transform783);
 
 Coordinate& Coordinate789 =  Coordinate();
 Coordinate789.setUSE(std::string("Mid_forehead_COORD_JinBlink"));
-HAnimSegment782.setCoord(&Coordinate789);
+HAnimSegment782.setCoord(Coordinate789);
 
 HAnimDisplacer& HAnimDisplacer790 =  HAnimDisplacer();
 HAnimDisplacer790.X3DNode::setName(std::string("mid_forehead_morphinterpolator"));
@@ -4476,7 +4476,7 @@ HAnimSegment820.addChild(&Transform821);
 
 Coordinate& Coordinate827 =  Coordinate();
 Coordinate827.setUSE(std::string("Mid_nasal_dorsum_COORD_JinBlink"));
-HAnimSegment820.setCoord(&Coordinate827);
+HAnimSegment820.setCoord(Coordinate827);
 
 HAnimDisplacer& HAnimDisplacer828 =  HAnimDisplacer();
 HAnimDisplacer828.X3DNode::setName(std::string("mid_nasal_dorsum_morphinterpolator"));
@@ -4667,7 +4667,7 @@ HAnimSegment858.addChild(&Transform859);
 
 Coordinate& Coordinate865 =  Coordinate();
 Coordinate865.setUSE(std::string("Mid_upper_vermillion_lip_COORD_JinBlink"));
-HAnimSegment858.setCoord(&Coordinate865);
+HAnimSegment858.setCoord(Coordinate865);
 
 HAnimDisplacer& HAnimDisplacer866 =  HAnimDisplacer();
 HAnimDisplacer866.X3DNode::setName(std::string("mid_upper_vermillion_lip_morphinterpolator"));
@@ -4878,7 +4878,7 @@ HAnimSegment896.addChild(&Transform897);
 
 Coordinate& Coordinate903 =  Coordinate();
 Coordinate903.setUSE(std::string("Nasal_tip_COORD_JinBlink"));
-HAnimSegment896.setCoord(&Coordinate903);
+HAnimSegment896.setCoord(Coordinate903);
 
 HAnimDisplacer& HAnimDisplacer904 =  HAnimDisplacer();
 HAnimDisplacer904.X3DNode::setName(std::string("nasal_tip_morphinterpolator"));
@@ -5071,7 +5071,7 @@ HAnimSegment934.addChild(&Transform935);
 
 Coordinate& Coordinate941 =  Coordinate();
 Coordinate941.setUSE(std::string("Neck_COORD_JinBlink"));
-HAnimSegment934.setCoord(&Coordinate941);
+HAnimSegment934.setCoord(Coordinate941);
 
 HAnimDisplacer& HAnimDisplacer942 =  HAnimDisplacer();
 HAnimDisplacer942.X3DNode::setName(std::string("neck_morphinterpolator"));
@@ -5274,7 +5274,7 @@ HAnimSegment972.addChild(&Transform973);
 
 Coordinate& Coordinate979 =  Coordinate();
 Coordinate979.setUSE(std::string("Occipital_scalp_COORD_JinBlink"));
-HAnimSegment972.setCoord(&Coordinate979);
+HAnimSegment972.setCoord(Coordinate979);
 
 HAnimDisplacer& HAnimDisplacer980 =  HAnimDisplacer();
 HAnimDisplacer980.X3DNode::setName(std::string("occipital_scalp_morphinterpolator"));
@@ -5473,7 +5473,7 @@ HAnimSegment1010.addChild(&Transform1011);
 
 Coordinate& Coordinate1017 =  Coordinate();
 Coordinate1017.setUSE(std::string("Philtrum_COORD_JinBlink"));
-HAnimSegment1010.setCoord(&Coordinate1017);
+HAnimSegment1010.setCoord(Coordinate1017);
 
 HAnimDisplacer& HAnimDisplacer1018 =  HAnimDisplacer();
 HAnimDisplacer1018.X3DNode::setName(std::string("philtrum_morphinterpolator"));
@@ -5684,7 +5684,7 @@ HAnimSegment1048.addChild(&Transform1049);
 
 Coordinate& Coordinate1055 =  Coordinate();
 Coordinate1055.setUSE(std::string("Right_bulbar_conjunctiva_COORD_JinBlink"));
-HAnimSegment1048.setCoord(&Coordinate1055);
+HAnimSegment1048.setCoord(Coordinate1055);
 
 HAnimDisplacer& HAnimDisplacer1056 =  HAnimDisplacer();
 HAnimDisplacer1056.X3DNode::setName(std::string("right_bulbar_conjunctiva_morphinterpolator"));
@@ -5885,7 +5885,7 @@ HAnimSegment1086.addChild(&Transform1087);
 
 Coordinate& Coordinate1093 =  Coordinate();
 Coordinate1093.setUSE(std::string("Right_cheek_COORD_JinBlink"));
-HAnimSegment1086.setCoord(&Coordinate1093);
+HAnimSegment1086.setCoord(Coordinate1093);
 
 HAnimDisplacer& HAnimDisplacer1094 =  HAnimDisplacer();
 HAnimDisplacer1094.X3DNode::setName(std::string("right_cheek_morphinterpolator"));
@@ -6108,7 +6108,7 @@ HAnimSegment1124.addChild(&Transform1125);
 
 Coordinate& Coordinate1131 =  Coordinate();
 Coordinate1131.setUSE(std::string("Right_dorsum_COORD_JinBlink"));
-HAnimSegment1124.setCoord(&Coordinate1131);
+HAnimSegment1124.setCoord(Coordinate1131);
 
 HAnimDisplacer& HAnimDisplacer1132 =  HAnimDisplacer();
 HAnimDisplacer1132.X3DNode::setName(std::string("right_dorsum_morphinterpolator"));
@@ -6307,7 +6307,7 @@ HAnimSegment1162.addChild(&Transform1163);
 
 Coordinate& Coordinate1169 =  Coordinate();
 Coordinate1169.setUSE(std::string("Right_ear_COORD_JinBlink"));
-HAnimSegment1162.setCoord(&Coordinate1169);
+HAnimSegment1162.setCoord(Coordinate1169);
 
 HAnimDisplacer& HAnimDisplacer1170 =  HAnimDisplacer();
 HAnimDisplacer1170.X3DNode::setName(std::string("right_ear_morphinterpolator"));
@@ -6498,7 +6498,7 @@ HAnimSegment1200.addChild(&Transform1201);
 
 Coordinate& Coordinate1207 =  Coordinate();
 Coordinate1207.setUSE(std::string("Right_eyebrow_COORD_JinBlink"));
-HAnimSegment1200.setCoord(&Coordinate1207);
+HAnimSegment1200.setCoord(Coordinate1207);
 
 HAnimDisplacer& HAnimDisplacer1208 =  HAnimDisplacer();
 HAnimDisplacer1208.X3DNode::setName(std::string("right_eyebrow_morphinterpolator"));
@@ -6699,7 +6699,7 @@ HAnimSegment1238.addChild(&Transform1239);
 
 Coordinate& Coordinate1245 =  Coordinate();
 Coordinate1245.setUSE(std::string("Right_forehead_COORD_JinBlink"));
-HAnimSegment1238.setCoord(&Coordinate1245);
+HAnimSegment1238.setCoord(Coordinate1245);
 
 HAnimDisplacer& HAnimDisplacer1246 =  HAnimDisplacer();
 HAnimDisplacer1246.X3DNode::setName(std::string("right_forehead_morphinterpolator"));
@@ -6896,7 +6896,7 @@ HAnimSegment1276.addChild(&Transform1277);
 
 Coordinate& Coordinate1283 =  Coordinate();
 Coordinate1283.setUSE(std::string("Right_lower_eyelid_COORD_JinBlink"));
-HAnimSegment1276.setCoord(&Coordinate1283);
+HAnimSegment1276.setCoord(Coordinate1283);
 
 HAnimDisplacer& HAnimDisplacer1284 =  HAnimDisplacer();
 HAnimDisplacer1284.X3DNode::setName(std::string("right_lower_eyelid_morphinterpolator"));
@@ -7101,7 +7101,7 @@ HAnimSegment1314.addChild(&Transform1315);
 
 Coordinate& Coordinate1321 =  Coordinate();
 Coordinate1321.setUSE(std::string("Right_lower_vermillion_lip_COORD_JinBlink"));
-HAnimSegment1314.setCoord(&Coordinate1321);
+HAnimSegment1314.setCoord(Coordinate1321);
 
 HAnimDisplacer& HAnimDisplacer1322 =  HAnimDisplacer();
 HAnimDisplacer1322.X3DNode::setName(std::string("right_lower_vermillion_lip_morphinterpolator"));
@@ -7300,7 +7300,7 @@ HAnimSegment1348.addChild(&Transform1349);
 
 Coordinate& Coordinate1355 =  Coordinate();
 Coordinate1355.setUSE(std::string("Right_nasolabial_cheek_COORD_JinBlink"));
-HAnimSegment1348.setCoord(&Coordinate1355);
+HAnimSegment1348.setCoord(Coordinate1355);
 
 HAnimDisplacer& HAnimDisplacer1356 =  HAnimDisplacer();
 HAnimDisplacer1356.X3DNode::setName(std::string("right_nasolabial_cheek_morphinterpolator"));
@@ -7517,7 +7517,7 @@ HAnimSegment1386.addChild(&Transform1387);
 
 Coordinate& Coordinate1393 =  Coordinate();
 Coordinate1393.setUSE(std::string("Right_nostril_COORD_JinBlink"));
-HAnimSegment1386.setCoord(&Coordinate1393);
+HAnimSegment1386.setCoord(Coordinate1393);
 
 HAnimDisplacer& HAnimDisplacer1394 =  HAnimDisplacer();
 HAnimDisplacer1394.X3DNode::setName(std::string("right_nostril_morphinterpolator"));
@@ -7716,7 +7716,7 @@ HAnimSegment1424.addChild(&Transform1425);
 
 Coordinate& Coordinate1431 =  Coordinate();
 Coordinate1431.setUSE(std::string("Right_pupil_COORD_JinBlink"));
-HAnimSegment1424.setCoord(&Coordinate1431);
+HAnimSegment1424.setCoord(Coordinate1431);
 
 HAnimDisplacer& HAnimDisplacer1432 =  HAnimDisplacer();
 HAnimDisplacer1432.X3DNode::setName(std::string("right_pupil_morphinterpolator"));
@@ -7913,7 +7913,7 @@ HAnimSegment1462.addChild(&Transform1463);
 
 Coordinate& Coordinate1469 =  Coordinate();
 Coordinate1469.setUSE(std::string("Right_temple_COORD_JinBlink"));
-HAnimSegment1462.setCoord(&Coordinate1469);
+HAnimSegment1462.setCoord(Coordinate1469);
 
 HAnimDisplacer& HAnimDisplacer1470 =  HAnimDisplacer();
 HAnimDisplacer1470.X3DNode::setName(std::string("right_temple_morphinterpolator"));
@@ -8110,7 +8110,7 @@ HAnimSegment1500.addChild(&Transform1501);
 
 Coordinate& Coordinate1507 =  Coordinate();
 Coordinate1507.setUSE(std::string("Right_upper_cutaneous_lip_COORD_JinBlink"));
-HAnimSegment1500.setCoord(&Coordinate1507);
+HAnimSegment1500.setCoord(Coordinate1507);
 
 HAnimDisplacer& HAnimDisplacer1508 =  HAnimDisplacer();
 HAnimDisplacer1508.X3DNode::setName(std::string("right_upper_cutaneous_lip_morphinterpolator"));
@@ -8323,7 +8323,7 @@ HAnimSegment1538.addChild(&Transform1539);
 
 Coordinate& Coordinate1545 =  Coordinate();
 Coordinate1545.setUSE(std::string("Right_upper_eyelid_COORD_JinBlink"));
-HAnimSegment1538.setCoord(&Coordinate1545);
+HAnimSegment1538.setCoord(Coordinate1545);
 
 HAnimDisplacer& HAnimDisplacer1546 =  HAnimDisplacer();
 HAnimDisplacer1546.X3DNode::setName(std::string("right_upper_eyelid_morphinterpolator"));
@@ -8536,7 +8536,7 @@ HAnimSegment1576.addChild(&Transform1577);
 
 Coordinate& Coordinate1583 =  Coordinate();
 Coordinate1583.setUSE(std::string("Right_upper_vermillion_lip_COORD_JinBlink"));
-HAnimSegment1576.setCoord(&Coordinate1583);
+HAnimSegment1576.setCoord(Coordinate1583);
 
 HAnimDisplacer& HAnimDisplacer1584 =  HAnimDisplacer();
 HAnimDisplacer1584.X3DNode::setName(std::string("right_upper_vermillion_lip_morphinterpolator"));
@@ -8744,7 +8744,7 @@ HAnimSegment1613.addChild(&Transform1614);
 
 Coordinate& Coordinate1620 =  Coordinate();
 Coordinate1620.setUSE(std::string("Tongue_COORD_JinBlink"));
-HAnimSegment1613.setCoord(&Coordinate1620);
+HAnimSegment1613.setCoord(Coordinate1620);
 
 HAnimDisplacer& HAnimDisplacer1621 =  HAnimDisplacer();
 HAnimDisplacer1621.X3DNode::setName(std::string("tongue_morphinterpolator"));
@@ -8941,7 +8941,7 @@ HAnimSegment1651.addChild(&Transform1652);
 
 Coordinate& Coordinate1658 =  Coordinate();
 Coordinate1658.setUSE(std::string("Upper_teeth_COORD_JinBlink"));
-HAnimSegment1651.setCoord(&Coordinate1658);
+HAnimSegment1651.setCoord(Coordinate1658);
 
 HAnimDisplacer& HAnimDisplacer1659 =  HAnimDisplacer();
 HAnimDisplacer1659.X3DNode::setName(std::string("upper_teeth_morphinterpolator"));
@@ -18199,12 +18199,12 @@ Appearance2987.addChild(&Material2988);
 Shape2986.addChild(&Appearance2987);
 
 Text& Text2989 =  Text();
-Text2989.setString((std::string[]){"JinBlink"}, 1);
+Text2989.setString(new std::string[]{"JinBlink"}, 1);
 CFontStyle& FontStyle2990 =  CFontStyle();
 FontStyle2990.setContainerField("fontStyle");
 FontStyle2990.setSize(2.4);
 FontStyle2990.setSpacing(1.2);
-FontStyle2990.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle2990.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text2989.setFontStyle(&FontStyle2990);
 
 Shape2986.setGeometry(&Text2989);
@@ -18338,12 +18338,12 @@ Appearance3009.addChild(&Material3010);
 Shape3008.addChild(&Appearance3009);
 
 Text& Text3011 =  Text();
-Text3011.setString((std::string[]){"JinBrowLowerer"}, 1);
+Text3011.setString(new std::string[]{"JinBrowLowerer"}, 1);
 CFontStyle& FontStyle3012 =  CFontStyle();
 FontStyle3012.setContainerField("fontStyle");
 FontStyle3012.setSize(2.4);
 FontStyle3012.setSpacing(1.2);
-FontStyle3012.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3012.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3011.setFontStyle(&FontStyle3012);
 
 Shape3008.setGeometry(&Text3011);
@@ -18477,12 +18477,12 @@ Appearance3031.addChild(&Material3032);
 Shape3030.addChild(&Appearance3031);
 
 Text& Text3033 =  Text();
-Text3033.setString((std::string[]){"JinCheekPuffer"}, 1);
+Text3033.setString(new std::string[]{"JinCheekPuffer"}, 1);
 CFontStyle& FontStyle3034 =  CFontStyle();
 FontStyle3034.setContainerField("fontStyle");
 FontStyle3034.setSize(2.4);
 FontStyle3034.setSpacing(1.2);
-FontStyle3034.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3034.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3033.setFontStyle(&FontStyle3034);
 
 Shape3030.setGeometry(&Text3033);
@@ -18616,12 +18616,12 @@ Appearance3053.addChild(&Material3054);
 Shape3052.addChild(&Appearance3053);
 
 Text& Text3055 =  Text();
-Text3055.setString((std::string[]){"JinCheekRaiser"}, 1);
+Text3055.setString(new std::string[]{"JinCheekRaiser"}, 1);
 CFontStyle& FontStyle3056 =  CFontStyle();
 FontStyle3056.setContainerField("fontStyle");
 FontStyle3056.setSize(2.4);
 FontStyle3056.setSpacing(1.2);
-FontStyle3056.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3056.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3055.setFontStyle(&FontStyle3056);
 
 Shape3052.setGeometry(&Text3055);
@@ -18755,12 +18755,12 @@ Appearance3075.addChild(&Material3076);
 Shape3074.addChild(&Appearance3075);
 
 Text& Text3077 =  Text();
-Text3077.setString((std::string[]){"JinChinRaiser"}, 1);
+Text3077.setString(new std::string[]{"JinChinRaiser"}, 1);
 CFontStyle& FontStyle3078 =  CFontStyle();
 FontStyle3078.setContainerField("fontStyle");
 FontStyle3078.setSize(2.4);
 FontStyle3078.setSpacing(1.2);
-FontStyle3078.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3078.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3077.setFontStyle(&FontStyle3078);
 
 Shape3074.setGeometry(&Text3077);
@@ -18894,12 +18894,12 @@ Appearance3097.addChild(&Material3098);
 Shape3096.addChild(&Appearance3097);
 
 Text& Text3099 =  Text();
-Text3099.setString((std::string[]){"JinDimpler"}, 1);
+Text3099.setString(new std::string[]{"JinDimpler"}, 1);
 CFontStyle& FontStyle3100 =  CFontStyle();
 FontStyle3100.setContainerField("fontStyle");
 FontStyle3100.setSize(2.4);
 FontStyle3100.setSpacing(1.2);
-FontStyle3100.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3100.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3099.setFontStyle(&FontStyle3100);
 
 Shape3096.setGeometry(&Text3099);
@@ -19033,12 +19033,12 @@ Appearance3119.addChild(&Material3120);
 Shape3118.addChild(&Appearance3119);
 
 Text& Text3121 =  Text();
-Text3121.setString((std::string[]){"JinEyesClosed"}, 1);
+Text3121.setString(new std::string[]{"JinEyesClosed"}, 1);
 CFontStyle& FontStyle3122 =  CFontStyle();
 FontStyle3122.setContainerField("fontStyle");
 FontStyle3122.setSize(2.4);
 FontStyle3122.setSpacing(1.2);
-FontStyle3122.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3122.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3121.setFontStyle(&FontStyle3122);
 
 Shape3118.setGeometry(&Text3121);
@@ -19172,12 +19172,12 @@ Appearance3141.addChild(&Material3142);
 Shape3140.addChild(&Appearance3141);
 
 Text& Text3143 =  Text();
-Text3143.setString((std::string[]){"JinInnerBrowRaiser"}, 1);
+Text3143.setString(new std::string[]{"JinInnerBrowRaiser"}, 1);
 CFontStyle& FontStyle3144 =  CFontStyle();
 FontStyle3144.setContainerField("fontStyle");
 FontStyle3144.setSize(2.4);
 FontStyle3144.setSpacing(1.2);
-FontStyle3144.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3144.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3143.setFontStyle(&FontStyle3144);
 
 Shape3140.setGeometry(&Text3143);
@@ -19311,12 +19311,12 @@ Appearance3163.addChild(&Material3164);
 Shape3162.addChild(&Appearance3163);
 
 Text& Text3165 =  Text();
-Text3165.setString((std::string[]){"JinJawDrop"}, 1);
+Text3165.setString(new std::string[]{"JinJawDrop"}, 1);
 CFontStyle& FontStyle3166 =  CFontStyle();
 FontStyle3166.setContainerField("fontStyle");
 FontStyle3166.setSize(2.4);
 FontStyle3166.setSpacing(1.2);
-FontStyle3166.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3166.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3165.setFontStyle(&FontStyle3166);
 
 Shape3162.setGeometry(&Text3165);
@@ -19450,12 +19450,12 @@ Appearance3185.addChild(&Material3186);
 Shape3184.addChild(&Appearance3185);
 
 Text& Text3187 =  Text();
-Text3187.setString((std::string[]){"JinLidDroop"}, 1);
+Text3187.setString(new std::string[]{"JinLidDroop"}, 1);
 CFontStyle& FontStyle3188 =  CFontStyle();
 FontStyle3188.setContainerField("fontStyle");
 FontStyle3188.setSize(2.4);
 FontStyle3188.setSpacing(1.2);
-FontStyle3188.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3188.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3187.setFontStyle(&FontStyle3188);
 
 Shape3184.setGeometry(&Text3187);
@@ -19589,12 +19589,12 @@ Appearance3207.addChild(&Material3208);
 Shape3206.addChild(&Appearance3207);
 
 Text& Text3209 =  Text();
-Text3209.setString((std::string[]){"JinLidTightener"}, 1);
+Text3209.setString(new std::string[]{"JinLidTightener"}, 1);
 CFontStyle& FontStyle3210 =  CFontStyle();
 FontStyle3210.setContainerField("fontStyle");
 FontStyle3210.setSize(2.4);
 FontStyle3210.setSpacing(1.2);
-FontStyle3210.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3210.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3209.setFontStyle(&FontStyle3210);
 
 Shape3206.setGeometry(&Text3209);
@@ -19728,12 +19728,12 @@ Appearance3229.addChild(&Material3230);
 Shape3228.addChild(&Appearance3229);
 
 Text& Text3231 =  Text();
-Text3231.setString((std::string[]){"JinLipCornerDepressor"}, 1);
+Text3231.setString(new std::string[]{"JinLipCornerDepressor"}, 1);
 CFontStyle& FontStyle3232 =  CFontStyle();
 FontStyle3232.setContainerField("fontStyle");
 FontStyle3232.setSize(2.4);
 FontStyle3232.setSpacing(1.2);
-FontStyle3232.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3232.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3231.setFontStyle(&FontStyle3232);
 
 Shape3228.setGeometry(&Text3231);
@@ -19867,12 +19867,12 @@ Appearance3251.addChild(&Material3252);
 Shape3250.addChild(&Appearance3251);
 
 Text& Text3253 =  Text();
-Text3253.setString((std::string[]){"JinLipCornerPuller"}, 1);
+Text3253.setString(new std::string[]{"JinLipCornerPuller"}, 1);
 CFontStyle& FontStyle3254 =  CFontStyle();
 FontStyle3254.setContainerField("fontStyle");
 FontStyle3254.setSize(2.4);
 FontStyle3254.setSpacing(1.2);
-FontStyle3254.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3254.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3253.setFontStyle(&FontStyle3254);
 
 Shape3250.setGeometry(&Text3253);
@@ -20006,12 +20006,12 @@ Appearance3273.addChild(&Material3274);
 Shape3272.addChild(&Appearance3273);
 
 Text& Text3275 =  Text();
-Text3275.setString((std::string[]){"JinLipFunneler"}, 1);
+Text3275.setString(new std::string[]{"JinLipFunneler"}, 1);
 CFontStyle& FontStyle3276 =  CFontStyle();
 FontStyle3276.setContainerField("fontStyle");
 FontStyle3276.setSize(2.4);
 FontStyle3276.setSpacing(1.2);
-FontStyle3276.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3276.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3275.setFontStyle(&FontStyle3276);
 
 Shape3272.setGeometry(&Text3275);
@@ -20145,12 +20145,12 @@ Appearance3295.addChild(&Material3296);
 Shape3294.addChild(&Appearance3295);
 
 Text& Text3297 =  Text();
-Text3297.setString((std::string[]){"JinLipPressor"}, 1);
+Text3297.setString(new std::string[]{"JinLipPressor"}, 1);
 CFontStyle& FontStyle3298 =  CFontStyle();
 FontStyle3298.setContainerField("fontStyle");
 FontStyle3298.setSize(2.4);
 FontStyle3298.setSpacing(1.2);
-FontStyle3298.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3298.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3297.setFontStyle(&FontStyle3298);
 
 Shape3294.setGeometry(&Text3297);
@@ -20284,12 +20284,12 @@ Appearance3317.addChild(&Material3318);
 Shape3316.addChild(&Appearance3317);
 
 Text& Text3319 =  Text();
-Text3319.setString((std::string[]){"JinLipPuckerer"}, 1);
+Text3319.setString(new std::string[]{"JinLipPuckerer"}, 1);
 CFontStyle& FontStyle3320 =  CFontStyle();
 FontStyle3320.setContainerField("fontStyle");
 FontStyle3320.setSize(2.4);
 FontStyle3320.setSpacing(1.2);
-FontStyle3320.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3320.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3319.setFontStyle(&FontStyle3320);
 
 Shape3316.setGeometry(&Text3319);
@@ -20423,12 +20423,12 @@ Appearance3339.addChild(&Material3340);
 Shape3338.addChild(&Appearance3339);
 
 Text& Text3341 =  Text();
-Text3341.setString((std::string[]){"JinLipsPart"}, 1);
+Text3341.setString(new std::string[]{"JinLipsPart"}, 1);
 CFontStyle& FontStyle3342 =  CFontStyle();
 FontStyle3342.setContainerField("fontStyle");
 FontStyle3342.setSize(2.4);
 FontStyle3342.setSpacing(1.2);
-FontStyle3342.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3342.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3341.setFontStyle(&FontStyle3342);
 
 Shape3338.setGeometry(&Text3341);
@@ -20562,12 +20562,12 @@ Appearance3361.addChild(&Material3362);
 Shape3360.addChild(&Appearance3361);
 
 Text& Text3363 =  Text();
-Text3363.setString((std::string[]){"JinLipStretcher"}, 1);
+Text3363.setString(new std::string[]{"JinLipStretcher"}, 1);
 CFontStyle& FontStyle3364 =  CFontStyle();
 FontStyle3364.setContainerField("fontStyle");
 FontStyle3364.setSize(2.4);
 FontStyle3364.setSpacing(1.2);
-FontStyle3364.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3364.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3363.setFontStyle(&FontStyle3364);
 
 Shape3360.setGeometry(&Text3363);
@@ -20701,12 +20701,12 @@ Appearance3383.addChild(&Material3384);
 Shape3382.addChild(&Appearance3383);
 
 Text& Text3385 =  Text();
-Text3385.setString((std::string[]){"JinLipSuck"}, 1);
+Text3385.setString(new std::string[]{"JinLipSuck"}, 1);
 CFontStyle& FontStyle3386 =  CFontStyle();
 FontStyle3386.setContainerField("fontStyle");
 FontStyle3386.setSize(2.4);
 FontStyle3386.setSpacing(1.2);
-FontStyle3386.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3386.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3385.setFontStyle(&FontStyle3386);
 
 Shape3382.setGeometry(&Text3385);
@@ -20840,12 +20840,12 @@ Appearance3405.addChild(&Material3406);
 Shape3404.addChild(&Appearance3405);
 
 Text& Text3407 =  Text();
-Text3407.setString((std::string[]){"JinLipTightener"}, 1);
+Text3407.setString(new std::string[]{"JinLipTightener"}, 1);
 CFontStyle& FontStyle3408 =  CFontStyle();
 FontStyle3408.setContainerField("fontStyle");
 FontStyle3408.setSize(2.4);
 FontStyle3408.setSpacing(1.2);
-FontStyle3408.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3408.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3407.setFontStyle(&FontStyle3408);
 
 Shape3404.setGeometry(&Text3407);
@@ -20979,12 +20979,12 @@ Appearance3427.addChild(&Material3428);
 Shape3426.addChild(&Appearance3427);
 
 Text& Text3429 =  Text();
-Text3429.setString((std::string[]){"JinLowerLipDepressor"}, 1);
+Text3429.setString(new std::string[]{"JinLowerLipDepressor"}, 1);
 CFontStyle& FontStyle3430 =  CFontStyle();
 FontStyle3430.setContainerField("fontStyle");
 FontStyle3430.setSize(2.4);
 FontStyle3430.setSpacing(1.2);
-FontStyle3430.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3430.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3429.setFontStyle(&FontStyle3430);
 
 Shape3426.setGeometry(&Text3429);
@@ -21118,12 +21118,12 @@ Appearance3449.addChild(&Material3450);
 Shape3448.addChild(&Appearance3449);
 
 Text& Text3451 =  Text();
-Text3451.setString((std::string[]){"JinMouthStretch"}, 1);
+Text3451.setString(new std::string[]{"JinMouthStretch"}, 1);
 CFontStyle& FontStyle3452 =  CFontStyle();
 FontStyle3452.setContainerField("fontStyle");
 FontStyle3452.setSize(2.4);
 FontStyle3452.setSpacing(1.2);
-FontStyle3452.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3452.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3451.setFontStyle(&FontStyle3452);
 
 Shape3448.setGeometry(&Text3451);
@@ -21257,12 +21257,12 @@ Appearance3471.addChild(&Material3472);
 Shape3470.addChild(&Appearance3471);
 
 Text& Text3473 =  Text();
-Text3473.setString((std::string[]){"JinNasolabialDeepener"}, 1);
+Text3473.setString(new std::string[]{"JinNasolabialDeepener"}, 1);
 CFontStyle& FontStyle3474 =  CFontStyle();
 FontStyle3474.setContainerField("fontStyle");
 FontStyle3474.setSize(2.4);
 FontStyle3474.setSpacing(1.2);
-FontStyle3474.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3474.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3473.setFontStyle(&FontStyle3474);
 
 Shape3470.setGeometry(&Text3473);
@@ -21396,12 +21396,12 @@ Appearance3493.addChild(&Material3494);
 Shape3492.addChild(&Appearance3493);
 
 Text& Text3495 =  Text();
-Text3495.setString((std::string[]){"JinNoseWrinkler"}, 1);
+Text3495.setString(new std::string[]{"JinNoseWrinkler"}, 1);
 CFontStyle& FontStyle3496 =  CFontStyle();
 FontStyle3496.setContainerField("fontStyle");
 FontStyle3496.setSize(2.4);
 FontStyle3496.setSpacing(1.2);
-FontStyle3496.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3496.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3495.setFontStyle(&FontStyle3496);
 
 Shape3492.setGeometry(&Text3495);
@@ -21535,12 +21535,12 @@ Appearance3515.addChild(&Material3516);
 Shape3514.addChild(&Appearance3515);
 
 Text& Text3517 =  Text();
-Text3517.setString((std::string[]){"JinOuterBrowRaiser"}, 1);
+Text3517.setString(new std::string[]{"JinOuterBrowRaiser"}, 1);
 CFontStyle& FontStyle3518 =  CFontStyle();
 FontStyle3518.setContainerField("fontStyle");
 FontStyle3518.setSize(2.4);
 FontStyle3518.setSpacing(1.2);
-FontStyle3518.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3518.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3517.setFontStyle(&FontStyle3518);
 
 Shape3514.setGeometry(&Text3517);
@@ -21674,12 +21674,12 @@ Appearance3537.addChild(&Material3538);
 Shape3536.addChild(&Appearance3537);
 
 Text& Text3539 =  Text();
-Text3539.setString((std::string[]){"JinSlit"}, 1);
+Text3539.setString(new std::string[]{"JinSlit"}, 1);
 CFontStyle& FontStyle3540 =  CFontStyle();
 FontStyle3540.setContainerField("fontStyle");
 FontStyle3540.setSize(2.4);
 FontStyle3540.setSpacing(1.2);
-FontStyle3540.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3540.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3539.setFontStyle(&FontStyle3540);
 
 Shape3536.setGeometry(&Text3539);
@@ -21813,12 +21813,12 @@ Appearance3559.addChild(&Material3560);
 Shape3558.addChild(&Appearance3559);
 
 Text& Text3561 =  Text();
-Text3561.setString((std::string[]){"JinSquint"}, 1);
+Text3561.setString(new std::string[]{"JinSquint"}, 1);
 CFontStyle& FontStyle3562 =  CFontStyle();
 FontStyle3562.setContainerField("fontStyle");
 FontStyle3562.setSize(2.4);
 FontStyle3562.setSpacing(1.2);
-FontStyle3562.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3562.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3561.setFontStyle(&FontStyle3562);
 
 Shape3558.setGeometry(&Text3561);
@@ -21952,12 +21952,12 @@ Appearance3581.addChild(&Material3582);
 Shape3580.addChild(&Appearance3581);
 
 Text& Text3583 =  Text();
-Text3583.setString((std::string[]){"JinUpperLidRaiser"}, 1);
+Text3583.setString(new std::string[]{"JinUpperLidRaiser"}, 1);
 CFontStyle& FontStyle3584 =  CFontStyle();
 FontStyle3584.setContainerField("fontStyle");
 FontStyle3584.setSize(2.4);
 FontStyle3584.setSpacing(1.2);
-FontStyle3584.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3584.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3583.setFontStyle(&FontStyle3584);
 
 Shape3580.setGeometry(&Text3583);
@@ -22091,12 +22091,12 @@ Appearance3603.addChild(&Material3604);
 Shape3602.addChild(&Appearance3603);
 
 Text& Text3605 =  Text();
-Text3605.setString((std::string[]){"JinUpperLipRaiser"}, 1);
+Text3605.setString(new std::string[]{"JinUpperLipRaiser"}, 1);
 CFontStyle& FontStyle3606 =  CFontStyle();
 FontStyle3606.setContainerField("fontStyle");
 FontStyle3606.setSize(2.4);
 FontStyle3606.setSpacing(1.2);
-FontStyle3606.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3606.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3605.setFontStyle(&FontStyle3606);
 
 Shape3602.setGeometry(&Text3605);
@@ -22230,12 +22230,12 @@ Appearance3625.addChild(&Material3626);
 Shape3624.addChild(&Appearance3625);
 
 Text& Text3627 =  Text();
-Text3627.setString((std::string[]){"JinWink"}, 1);
+Text3627.setString(new std::string[]{"JinWink"}, 1);
 CFontStyle& FontStyle3628 =  CFontStyle();
 FontStyle3628.setContainerField("fontStyle");
 FontStyle3628.setSize(2.4);
 FontStyle3628.setSpacing(1.2);
-FontStyle3628.setJustify((std::string[]){"MIDDLE", "MIDDLE"}, 2);
+FontStyle3628.setJustify(new std::string[]{"MIDDLE", "MIDDLE"}, 2);
 Text3627.setFontStyle(&FontStyle3628);
 
 Shape3624.setGeometry(&Text3627);
@@ -22355,4 +22355,4 @@ Scene6.addChild(&Group2983);
 
 X3D0.setScene(&Scene6);
 
-}
+//}
